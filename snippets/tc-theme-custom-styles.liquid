@@ -1,0 +1,502 @@
+<style>
+
+  .product-main-form .product-main-form__add-to-cart {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-wrap: nowrap;
+  }
+
+  .gvlo-trigger {
+    margin-top: 10px !important;
+  }
+
+ {% comment %} fallback cart always on top {% endcomment %}
+ * {
+    scroll-behavior: smooth!important;
+  }
+
+  #shopify-section-mini-cart {
+    position: relative;
+    z-index: 2147483647!important;
+  }
+
+  .fondue-banner-wrapper {
+    padding: 6px 20px;
+  }
+
+  #ps__widget_container {
+    z-index: 999!important;
+  }
+
+  .mini-cart .membership-section {
+    display: none!important;
+  }
+
+  .cart-line-item__price.h5 .badge-top-bubble{
+    top:27px;
+    position:absolute;
+  }
+
+  {% comment %} avoid auto zoom on mobile {% endcomment %}
+  input:not([type='submit']):not([type='button']) {
+    font-size: 16px !important;
+  }
+
+  {% comment %} to move {% endcomment %}
+  .shopify-section.collection-pills-section {
+    min-height: 104px;
+  }
+
+  {% if request.path == '/search' %}
+    .product-filtered-grid__header .product-filtered-grid__actions:first-child {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+  {% endif %}
+
+  {% comment %} Rebuy Quick Add : hide Widget Quick Add {% endcomment %}
+  .rebuy-hover-block > button {
+    display: none;
+  }
+
+  .product-card__badge-inseam {
+    display: block;
+    position: absolute;
+    left: 0.35rem;
+    z-index: 2;
+  }
+
+  .product-card__badge-inseam > span {
+    background: rgba(255,255,255,0.9)!important;
+  }
+
+  .product-card__badge-inseam > span > .side-badge {
+    font-size: 0.58rem!important;;
+  }
+
+  .discount-percentage {
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+  }
+
+  .go3176171171 p {
+    line-height: 1;
+  }
+
+  .cc-window.cc-banner.cc-type-opt-in {
+    display: none !important;
+  }
+
+  div#fides-overlay {
+    z-index: 2147483000!important;
+  }
+
+  @media screen and (max-width: 769px) {
+    .fides-modal-content {
+      min-width: 90vw;
+    }
+  }
+
+  .size-swatch__input-wrapper label.product-option-giftcard-button {
+    width: 4.85rem!important;
+  }
+
+  #fides-banner-button-tertiary,
+  #fides-banner-button-primary,
+  #fides-banner-button-secondary,
+  #fides-modal-header,
+  h1#fides-modal-title,
+  #fides-banner-button-tertiary, #fides-banner-container a, #fides-banner-title {
+    text-transform: uppercase!important;
+  }
+
+  #fides-banner-title {
+    letter-spacing: 0.03em!important;
+  }
+
+  #fides-button-group {
+    align-items: baseline;
+  }
+
+  #fides-banner-button-primary {
+    border-radius: 5px!important;
+    font-weight: 300;
+    font-family: 'Mono';
+    padding: 10px 25px;
+  }
+
+  #fides-banner-button-secondary {
+    border-radius: 5px!important;
+  }
+
+  div#fides-banner {
+    align-items: center;
+    background: var(--fides-overlay-background-color);
+    box-sizing: border-box;
+    color: var(--fides-overlay-body-font-color);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: var(--fides-overlay-font-size-body-small);
+    justify-content: space-between;
+    overflow-y: hidden;
+    padding: 12px!important;
+    position: relative;
+  }
+
+  div#fides-banner-description,
+  div#fides-modal .fides-modal-description,
+  .fides-flex-center{
+    font-family: var(--font-modernist);
+  }
+
+    div#fides-banner-description {
+      margin: 8px 0 8px 0!important;
+    }
+
+    button.fides-banner-button {
+      margin: 0!important;
+    }
+
+  @media screen and (max-width: 769px) {
+    div#fides-banner-inner div#fides-button-group {
+        padding-top: 8px!important;
+        display: grid!important;
+        gap: 0!important;
+        grid-template-columns: auto auto!important;
+        grid-template-rows: auto auto!important;
+    }
+    #fides-banner-button-primary {
+      font-size: 0.75rem;
+      padding: 6px 8px!important;
+    }
+
+    .fides-banner-button-group {
+      display: flex;
+      min-width: 45vw;
+      gap: 8px!important;
+    }
+
+    #fides-button-group > div:first-child {
+      display: flex;
+      min-width: 45vw;
+    }
+    div.fides-modal-content {
+      max-height: 385px !important;
+      height: 100%!important;
+      max-width: 95vw!important;
+    }
+    #fides-privacy-policy-link {
+      width: 45vw!important;
+      position: absolute!important;
+      bottom: 0!important;
+    }
+    .fides-button-group > div:last-child {
+      min-width: 45vw;
+      justify-content: end;
+      display: flex;
+    }
+
+    #fides-banner-button-secondary {
+      padding: 5px 8px!important;
+      font-weight: 400;
+    }
+  }
+
+  /* Endrock AB testing base config */
+  .crew-necks-ab-test {
+    display: none !important;
+  }
+
+  .crew-necks-ab-test[ab-test-variant='A'] .nav-link,
+  .crew-necks-ab-test[ab-test-variant='B'] .nav-link,
+  .crew-necks-ab-test[ab-test-variant='D'] .nav-link {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .crew-necks-ab-test[ab-test-variant='C'] .nav-link {
+    display: flex;
+    justify-content: start;
+  }
+
+  .crew-necks-ab-test[ab-test-variant='A'] .most-popular,
+  .crew-necks-ab-test[ab-test-variant='B'] .most-popular,
+  .crew-necks-ab-test[ab-test-variant='C'] .most-popular,
+  .crew-necks-ab-test[ab-test-variant='D'] .most-popular {
+    background: #971b1b;
+    color: white;
+    font-size: 11px;
+    font-weight: 500;
+    height: 20px;
+    width: 101px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto 10px auto 0;
+  }
+
+  .crew-necks-ab-test[ab-test-variant='A'] .most-popular .no-icon,
+  .crew-necks-ab-test[ab-test-variant='B'] .most-popular .no-icon {
+    display: none;
+  }
+
+  .crew-necks-ab-test[ab-test-variant='B'] .most-popular {
+    background: transparent;
+    color: #971b1b;
+  }
+
+  .crew-necks-ab-test[ab-test-variant='C'] .most-popular {
+    margin: auto 0 auto 10px;
+  }
+
+  .crew-necks-ab-test[ab-test-variant='C'] .most-popular .with-icon,
+  .crew-necks-ab-test[ab-test-variant='D'] .most-popular .with-icon {
+    display: none;
+  }
+
+  @media screen and (min-width: 1230px) {
+    .crew-necks-ab-test .most-popular {
+      display: none !important;
+    }
+
+    .crew-necks-ab-test[ab-test-variant='A'] .nav-link,
+    .crew-necks-ab-test[ab-test-variant='B'] .nav-link,
+    .crew-necks-ab-test[ab-test-variant='D'] .nav-link {
+      display: inline-block;
+    }
+
+    .crew-necks-ab-test[ab-test-variant='C'] .nav-link {
+      display: inline-block;
+    }
+  }
+
+  {% comment %} color swatches, hardcoded for other lang {% endcomment %}
+  :root {
+    --swatch-black: #171719;
+    --swatch-black-wash: #171719;
+    --swatch-heather-black: #2E2C2D;
+    --swatch-medium-gray: #96999D;
+    --swatch-mirror: #73767A;
+    --swatch-gradient: #3E3947;
+    --swatch-bluestone: #698590;
+    --swatch-stone-blue: #597580;
+    --swatch-burgundy: #69252F;
+    --swatch-carbon: #171719;
+    --swatch-charcoal: #36454F;
+    --swatch-heather-gray: #999999;
+    --swatch-cardinal-red: #641224;
+    --swatch-cobalt: #0F3A66;
+    --swatch-coffee: #432F29;
+    --swatch-cranberry: #de5553;
+    --swatch-dark-purple: #423843;
+    --swatch-dusty-pink: #EDCEC4;
+    --swatch-electric-blue: #0168c5;
+    --swatch-emerald: #03615B;
+    --swatch-flint: #B6A4AA;
+    --swatch-khaki: #9e8f7f;
+    --swatch-forest-green: #264742;
+    --swatch-indigo: #182131;
+    --swatch-indigo-wash: #182131;
+    --swatch-kelly-green: #028a65;
+    --swatch-light-blue: #BFDDE5;
+    --swatch-light-gray: #d7d5d1;
+    --swatch-military-green: #767159;
+    --swatch-hunter-green: #36473A;
+    --swatch-heather-hunter-green: #818682;
+    --swatch-light-khaki: #D1C9B9;
+    --swatch-rust: #A74A39;
+    --swatch-heather-light-khaki: #D6D1C5;
+    --swatch-navy: #182131;
+    --swatch-off-white: #ECEBE0;
+    --swatch-orange: #ef6e1f;
+    --swatch-pale-blue: #D8E6ED;
+    --swatch-periwinkle-blue: #4f9eda;
+    --swatch-purple: #443844;
+    --swatch-raspberry: #d6254a;
+    --swatch-red-rock: #794A3C;
+    --swatch-red: #D81D30;
+    --swatch-sage: #BDD0CA;
+    --swatch-sand: #c3c0b9;
+    --swatch-sandstone: #DED1C8;
+    --swatch-slate: #96999C;
+    --swatch-slate-green: #a0a69b;
+    --swatch-stone: #DBDACF;
+    --swatch-tan-499: #765B3D;
+    --swatch-tan: #765B3D;
+    --swatch-teal: #035E7F;
+    --swatch-true-red: #e73035;
+    --swatch-turquoise: #26c3e1;
+    --swatch-white: #ffffff;
+    --swatch-yellow: #fede69;
+    --swatch-heather-gray: #a5a5aa;
+    --swatch-charcoal-heather: #373b3e;
+    --swatch-crimson: #952833;
+    --swatch-heather-crimson: #A77576;
+    --swatch-heather-charcoal-gray: #373b3e;
+    --swatch-gray-wash: #373b3e;
+    --swatch-charcoal-heather-gray: #373b3e;
+    --swatch-gray: #373b3e;
+    --swatch-iron-gray: #c4c4c4;
+    --swatch-heather-light-gray: #e9e9e9;
+    --swatch-light-heather-gray: #e9e9e9;
+    --swatch-heather-dusty-pink: #f1d9d1;
+    --swatch-heather-sage: #c9d3cb;
+    --swatch-heather-pale-blue: #c6d6e3;
+    --swatch-heather-indigo: #96a9c7;
+    --swatch-dark-heather-indigo: #96a9c7;
+    --swatch-heather-burgundy: #84414a;
+    --swatch-dark-heather-burgundy: #84414a;
+    --swatch-heather-emerald: #2f5151;
+    --swatch-heather-military-green: #605d4c;
+    --swatch-dark-heather-military-green: #605d4c;
+    --swatch-heather-navy: #2e3748;
+    --swatch-dark-heather-navy: #2e3748;
+    --swatch-pacific-blue: #698590;
+    --swatch-military-beige: #958A7A;
+    --swatch-oxford-blue: #93B4D7;
+    --swatch-oliva-camo: #544F3D;
+    --swatch-glacier-gray: #B5CBDB;
+    --swatch-lilac-grey: #9896A4;
+    --swatch-heather-purple: #67505C;
+    --swatch-mellow-yellow: #F6E199;
+    --swatch-military-beige: #958A7A;
+    --swatch-military-camo: #767159;
+    --swatch-camo: #767159;
+    --swatch-gun-metal: #4f4f51;
+    --swatch-gunmetal: #4f4f51;
+    --swatch-mineral-mauve: #d4aeb5;
+    --swatch-light-blue: #BFDDE5;
+    --swatch-baby-blue: #BFDDE5;
+    --swatch-heather-pale-blue: #E9EDF6;
+    --swatch-lilac-gray: #C8C9D8;
+    --swatch-ivory: #FBFAF3;
+    --swatch-medium-indigo-wash: #586C84;
+    --swatch-blue-quartz: #D2E2EA;
+    --swatch-green-lapis: #DBE8DD;
+    --swatch-pink-opal: #F0DED6;
+    --swatch-mahogany: #4B242D;
+    --swatch-heather-dark-oak: #453430;
+    --swatch-dark-olive: #3D4434;
+    --swatch-banker-blue: #8B95AC;
+    --swatch-stone: #383B3E;
+    --swatch-light-gray: #D2D2D2;
+    --swatch-ecru: #ECE6DF;
+    --swatch-dark-oak: #372724;
+    --swatch-suede-brown: #63392E;
+    --swatch-army-green: #60563f;
+    --swatch-evergreen: #14443c;
+    --swatch-oatmeal: #d9dad2;
+    --swatch-heather-oatmeal:#d7d0c0;
+    --swatch-evergreen-heather: #173D3B;
+    --swatch-ever-green-heather: #204f49;
+    --swatch-ever-green-heather: #204f49;
+    --swatch-dark-chocolate: #56342b;
+    --swatch-rustic-apple: #844c4f;
+    --swatch-burnt-orange-heather: #d36a54;
+    --swatch-gingersnap-heather: #a06047;
+    --swatch-golden-mane: #a07251;
+    --swatch-light-camel-cream-heather: #d2c1b1;
+    --swatch-olive-green-heather: #8b8f7e;
+    --swatch-racing-green-heather: #464d46;
+    --swatch-moss-green: #344f4a;
+    --swatch-blue-lake-heather: #577484;
+    --swatch-sky-blue-heather: #87a3ba;
+    --swatch-deep-sea-blue:#2e4864;
+    --swatch-deep-sea-blue-heather:#26344C;
+    --swatch-medium-gray-wash: #a7acb4;
+    --swatch-medium-indigo: #537093;
+    --swatch-ever-green-heather: #7a8768;
+    --swatch-heather-crimson: #ba777a;
+    --swatch-heather-graphite:#6c6c6b;
+    --swatch-heather-sapphire:#67828a;
+    --swatch-heather-slate-green:#c6d2ca;
+    --swatch-heather-mist:#c3d1c7;
+    --swatch-steel:#9f9fa1;
+    --swatch-heather-voyager:#75a1af;
+    --swatch-heather-mauve:#bb8ca2;
+    --swatch-heather-cayenne:#bf5143;
+    --swatch-heather-seafarer:#2a4748;
+    --swatch-sapphire:#446673;
+    --swatch-heather-dark-orchid:#8a819a;
+    --swatch-heather-garnet:#b45457;
+    --swatch-dark-heather-tempest:#59646d;
+    --swatch-heather-cocoa:#5f5555;
+    --swatch-dark-heather-cocoa:#463f3e;
+    --swatch-heather-centurion:#2d5563;
+    --swatch-dark-heather-cadet:#3e4559;
+    --swatch-heather-forest:#3f4e4b;
+    --swatch-dark-heather-forest:#293836;
+    --swatch-dark-heather-centurion:#293836;
+    --swatch-light-indigo-wash:#99a7b7;
+    --swatch-meadow:#85958f;
+    --swatch-centurion:#1d4858;
+    --swatch-slate-green:#8c9b93;
+    --swatch-rosewood:#b55a66;
+    --swatch-black-wash:#858585;
+    --swatch-harbor:#3d7d91;
+    --swatch-moss:#566a64;
+    --swatch-peac:#f48080;
+    --swatch-orchid:#c0b5cb;
+    --swatch-heather-cadet:#40475a;
+    --swatch-fiery:#df4a52;
+    --swatch-heather-camel:#c1a89b;
+    --swatch-garnet:#b45457;
+    --swatch-pack-trio: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(115,115,115,1) 35%, rgba(255,255,255,1) 100%);
+    --swatch-pack-trio-bcb: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(79,79,79,1) 50%, rgba(10,27,57,1) 100%);
+    --fides-overlay-primary-color: #53433A;
+    --fides-overlay-primary-button-background-hover-color: #53433A;
+    --fides-overlay-font-family: 'Staff X Condensed';
+  }
+
+  {% if settings.enable_global_sale == true %}
+
+    {% unless localization.country.iso_code == 'US' %}
+      @media (max-width: 768px) {
+        .product-main-form__headings>*:last-child {
+          display: block;
+          text-align: left;
+        }
+      }
+    {% endunless %}
+
+    .badge-top-bubble {
+      background-color: var(--brand-red) !important;
+      color: var(--brand-white) !important;
+    }
+
+    .product-card__badge-bttom-custom:not(.potw) > .badge-top-bubble {
+      background-color: var(--brand-red) !important;
+      color: var(--brand-white) !important;
+    }
+
+  {% endif %}
+
+  .cart-line-item__price {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 0.2rem;
+  }
+
+  .cart-line-item__price {
+    display: flex;
+    {% if localization.country.iso_code == 'US' or localization.country.iso_code == 'CA' or localization.country.iso_code == 'GB' or localization.country.iso_code == 'FR' %}
+      flex-wrap: nowrap;
+    {% else %}
+      flex-wrap: wrap;
+    {% endif %}
+    column-gap: 0.2rem;
+  }
+
+  .mini-cart .cart-line-item__price > .price {
+    white-space: nowrap;
+  }
+
+  .cart-line-item .price.price--discount {
+    display: initial!important;
+    flex-wrap: nowrap;
+  }
+</style>

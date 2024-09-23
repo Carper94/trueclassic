@@ -1,0 +1,955 @@
+{
+  "sections": {
+    "6ac5e31d-76ed-42ec-b8eb-0e769e7c6263": {
+      "type": "liquid",
+      "settings": {
+        "liquid": "<div oke-quiz oke-channel-quiz-id=\"bddc647a-39fc-449a-925c-f4944050abe0\" oke-subscriber-id=\"c8ad5655-9ee6-4249-b97a-33abc22d4199\"><\/div>"
+      }
+    },
+    "7858f7c6-f741-4e27-bb19-96bc8032ec18": {
+      "type": "image-banner",
+      "blocks": {
+        "b56071ad-3303-4484-ab69-2db5c559bf24": {
+          "type": "heading",
+          "settings": {
+            "heading": "BACK TO BASICS",
+            "heading_level": "h2",
+            "heading_font": "staff-x-condensed",
+            "heading_color": "var(--brand-white)",
+            "heading_color_inverse": true,
+            "heading_size": 4,
+            "heading_size_mobile": 2,
+            "heading_letter_spacing": 2,
+            "heading_weight": "500",
+            "heading_margin_bottom": "1",
+            "underline": true,
+            "line_break_dot": false
+          }
+        },
+        "661b4513-b8a5-4e3f-8e92-e0d7e3e7b961": {
+          "type": "text",
+          "settings": {
+            "text": "<p>A 24\/7 t-shirt you can rely on.<\/p>",
+            "paragraph_font": "modernist",
+            "paragraph_color": "var(--brand-white)",
+            "paragraph_color_inverse": true,
+            "paragraph_size": 1,
+            "paragraph_size_mobile": 1,
+            "paragraph_weight": "400",
+            "paragraph_margin_bottom": "2"
+          }
+        },
+        "ca78e0ef-96ed-4a25-b4f8-6354c15709cb": {
+          "type": "button",
+          "settings": {
+            "button_color": "var(--brand-black)",
+            "button_bg_color": "var(--brand-white)",
+            "button_font": "roboto-mono",
+            "button_size": 0.8,
+            "button_color_inverse": true,
+            "button_label": "SHOP CREWS",
+            "button_link": "shopify:\/\/collections\/crew-neck-tees-1",
+            "button_style_secondary": false,
+            "button_width": 0,
+            "button_weight": "400",
+            "button_margin_bottom": "2",
+            "button_padding_vertical": 0.2,
+            "button_padding_horizontal": 0.2,
+            "button_letter_spacing": 0
+          }
+        }
+      },
+      "block_order": [
+        "b56071ad-3303-4484-ab69-2db5c559bf24",
+        "661b4513-b8a5-4e3f-8e92-e0d7e3e7b961",
+        "ca78e0ef-96ed-4a25-b4f8-6354c15709cb"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "hidden": false,
+        "section_bg_color": "#ffffff",
+        "full_width": true,
+        "breakpoint": 768,
+        "section_max_width": 4000,
+        "section_height": "adapt",
+        "media_position": "unset",
+        "media_size": "full",
+        "banner_link": "shopify:\/\/collections\/crew-neck-tees-1",
+        "banner_link_title": "Crews",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "inner_padding_top": 0,
+        "inner_padding_bottom": 0,
+        "aspect_ratio": 50,
+        "section_image": "shopify:\/\/shop_images\/Image_2_4536512a-305e-4300-9ef3-cdbd69cea0c8.png",
+        "section_image_mobile": "shopify:\/\/shop_images\/image_36.png",
+        "media_margin_left": 0,
+        "media_margin_right": 0,
+        "media_margin_top": 0,
+        "media_margin_bottom": 0,
+        "enable_lazyload": false,
+        "content_width": 40,
+        "content_fit": false,
+        "text_position": "center",
+        "text_position_mobile": "center",
+        "content_padding_dt": "0",
+        "content_padding_mb": "0",
+        "enable_absolute": true,
+        "enable_distance_top": true,
+        "content_top": 40,
+        "content_top_mobile": 72,
+        "enable_distance_bottom": false,
+        "content_bottom": 50,
+        "enable_distance_left": true,
+        "content_left": 10,
+        "enable_distance_right": false,
+        "content_right": 50,
+        "mobile_positioning": "overlay",
+        "reverse_mobile": true,
+        "mobile_overlay": false,
+        "mobile_overlay_color": "#000000",
+        "mobile_overlay_opacity": 0.5
+      }
+    },
+    "5a10a75a-2d13-4a74-b077-0163893a2daa": {
+      "type": "styleguide",
+      "blocks": {
+        "c1617222-8600-40c7-a781-6d0019c76d34": {
+          "type": "heading",
+          "settings": {
+            "title": "Demo Title h0",
+            "heading_level": "h1",
+            "heading_size": "h0",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-chocolate",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "c990d525-9d42-4aa9-93b4-22909f0d430e": {
+          "type": "heading",
+          "settings": {
+            "title": "Demo Title h1",
+            "heading_level": "h1",
+            "heading_size": "h1",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-chocolate",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "a8e747c1-0621-4bf7-a024-dce51187f80d": {
+          "type": "heading",
+          "settings": {
+            "title": "Demo Title h2",
+            "heading_level": "h2",
+            "heading_size": "h2",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-chocolate",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "c822c474-62ba-48a6-96b3-64fe886298d9": {
+          "type": "heading",
+          "settings": {
+            "title": "Demo Title h3",
+            "heading_level": "h3",
+            "heading_size": "h3",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-chocolate",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "f503ff7e-fc14-44b5-b145-1dbf2cc28941": {
+          "type": "heading",
+          "settings": {
+            "title": "Demo Title h4",
+            "heading_level": "h4",
+            "heading_size": "h4",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-chocolate",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "e1343e8f-c44e-4511-bb08-8ac25bb64e7d": {
+          "type": "heading",
+          "settings": {
+            "title": "Demo Title h5",
+            "heading_level": "h5",
+            "heading_size": "h5",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-chocolate",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "8bf084b1-0cb3-4340-8e2c-faaed0579c17": {
+          "type": "heading",
+          "settings": {
+            "title": "Demo Title h6",
+            "heading_level": "h6",
+            "heading_size": "h6",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-chocolate",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        }
+      },
+      "block_order": [
+        "c1617222-8600-40c7-a781-6d0019c76d34",
+        "c990d525-9d42-4aa9-93b4-22909f0d430e",
+        "a8e747c1-0621-4bf7-a024-dce51187f80d",
+        "c822c474-62ba-48a6-96b3-64fe886298d9",
+        "f503ff7e-fc14-44b5-b145-1dbf2cc28941",
+        "e1343e8f-c44e-4511-bb08-8ac25bb64e7d",
+        "8bf084b1-0cb3-4340-8e2c-faaed0579c17"
+      ],
+      "custom_css": [
+        "div {display: block;}"
+      ],
+      "settings": {
+        "title": "Style Guide | Staff X Condensed",
+        "padding_top": 0,
+        "padding_bottom": 100
+      }
+    },
+    "394c49d0-8f1a-4895-a16d-e5fedfdd4137": {
+      "type": "styleguide",
+      "blocks": {
+        "1200920c-049c-408d-8de2-ffcdcd1bd950": {
+          "type": "heading",
+          "settings": {
+            "title": "Demo Title h0",
+            "heading_level": "h1",
+            "heading_size": "h0",
+            "heading_font": "modernist-type",
+            "heading_color": "color-chocolate",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "a16bf0d1-18c2-41d2-b470-77250db354a8": {
+          "type": "heading",
+          "settings": {
+            "title": "Demo Title h0",
+            "heading_level": "h1",
+            "heading_size": "h1",
+            "heading_font": "modernist-type",
+            "heading_color": "color-chocolate",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "2c54d885-bd71-4d69-b3cf-db3b9237ce53": {
+          "type": "heading",
+          "settings": {
+            "title": "Demo Title h2",
+            "heading_level": "h2",
+            "heading_size": "h2",
+            "heading_font": "modernist-type",
+            "heading_color": "color-chocolate",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "6574c9df-7225-49a1-bdf3-8c996a74d2f5": {
+          "type": "heading",
+          "settings": {
+            "title": "Demo Title h3",
+            "heading_level": "h3",
+            "heading_size": "h3",
+            "heading_font": "modernist-type",
+            "heading_color": "color-chocolate",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "75398b7e-4dae-4225-a04b-0f5c4989f749": {
+          "type": "heading",
+          "settings": {
+            "title": "Demo Title h4",
+            "heading_level": "h4",
+            "heading_size": "h4",
+            "heading_font": "modernist-type",
+            "heading_color": "color-chocolate",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "248119bd-708a-42d5-b78a-239de0c23e84": {
+          "type": "heading",
+          "settings": {
+            "title": "Demo Title h5",
+            "heading_level": "h5",
+            "heading_size": "h5",
+            "heading_font": "modernist-type",
+            "heading_color": "color-chocolate",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "ae04b3ae-5671-4849-9cca-29de8c9f5850": {
+          "type": "heading",
+          "settings": {
+            "title": "Demo Title h6",
+            "heading_level": "h6",
+            "heading_size": "h6",
+            "heading_font": "modernist-type",
+            "heading_color": "color-chocolate",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        }
+      },
+      "block_order": [
+        "1200920c-049c-408d-8de2-ffcdcd1bd950",
+        "a16bf0d1-18c2-41d2-b470-77250db354a8",
+        "2c54d885-bd71-4d69-b3cf-db3b9237ce53",
+        "6574c9df-7225-49a1-bdf3-8c996a74d2f5",
+        "75398b7e-4dae-4225-a04b-0f5c4989f749",
+        "248119bd-708a-42d5-b78a-239de0c23e84",
+        "ae04b3ae-5671-4849-9cca-29de8c9f5850"
+      ],
+      "custom_css": [
+        "div {display: block;}"
+      ],
+      "settings": {
+        "title": "Style Guide | Modernist",
+        "padding_top": 0,
+        "padding_bottom": 100
+      }
+    },
+    "0659ab1a-3f01-4d38-9336-487ca1f7082d": {
+      "type": "styleguide",
+      "blocks": {
+        "c656e696-f885-4f13-b230-d89127292c29": {
+          "type": "heading",
+          "settings": {
+            "title": "Demo Title h0",
+            "heading_level": "h1",
+            "heading_size": "h0",
+            "heading_font": "modernist-mono-type",
+            "heading_color": "color-chocolate",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "9a7817b1-f3a6-49bf-bfd6-8b1272afb40f": {
+          "type": "heading",
+          "settings": {
+            "title": "Demo Title h1",
+            "heading_level": "h1",
+            "heading_size": "h1",
+            "heading_font": "modernist-mono-type",
+            "heading_color": "color-chocolate",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "cc610f81-b36c-4179-8712-b55106881dee": {
+          "type": "heading",
+          "settings": {
+            "title": "Demo Title h2",
+            "heading_level": "h2",
+            "heading_size": "h2",
+            "heading_font": "modernist-mono-type",
+            "heading_color": "color-chocolate",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "729c8bca-23be-42f8-968c-0b65932fefe7": {
+          "type": "heading",
+          "settings": {
+            "title": "Demo Title h3",
+            "heading_level": "h3",
+            "heading_size": "h3",
+            "heading_font": "modernist-mono-type",
+            "heading_color": "color-chocolate",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "875373d1-4fd2-4e6d-9881-6c6a57d7bb7b": {
+          "type": "heading",
+          "settings": {
+            "title": "Demo Title h4",
+            "heading_level": "h4",
+            "heading_size": "h4",
+            "heading_font": "modernist-mono-type",
+            "heading_color": "color-chocolate",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "0d470482-40d5-4461-ab7b-6bf382cf76da": {
+          "type": "heading",
+          "settings": {
+            "title": "Demo Title h5",
+            "heading_level": "h5",
+            "heading_size": "h5",
+            "heading_font": "modernist-mono-type",
+            "heading_color": "color-chocolate",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "109d4b8c-8a1d-43da-aabd-a1b002ee09cb": {
+          "type": "heading",
+          "settings": {
+            "title": "Demo Title h6",
+            "heading_level": "h6",
+            "heading_size": "h6",
+            "heading_font": "modernist-mono-type",
+            "heading_color": "color-chocolate",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        }
+      },
+      "block_order": [
+        "c656e696-f885-4f13-b230-d89127292c29",
+        "9a7817b1-f3a6-49bf-bfd6-8b1272afb40f",
+        "cc610f81-b36c-4179-8712-b55106881dee",
+        "729c8bca-23be-42f8-968c-0b65932fefe7",
+        "875373d1-4fd2-4e6d-9881-6c6a57d7bb7b",
+        "0d470482-40d5-4461-ab7b-6bf382cf76da",
+        "109d4b8c-8a1d-43da-aabd-a1b002ee09cb"
+      ],
+      "custom_css": [
+        "div {display: block;}"
+      ],
+      "settings": {
+        "title": "Style Guide | Modernist Mono",
+        "padding_top": 0,
+        "padding_bottom": 100
+      }
+    },
+    "30a443d7-1ceb-4336-8be2-f77ae4c54780": {
+      "type": "styleguide",
+      "blocks": {
+        "923b2671-7241-46db-abf4-ef9568e52a45": {
+          "type": "text",
+          "settings": {
+            "paragraph": "<p>XX LARGE - Lorem ipsum dolor sit amet consectetur adipiscing elit.<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "xxl",
+            "paragraph_color": "color-chocolate",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-m"
+          }
+        },
+        "4062aaba-93ab-4ea3-a6ce-b858407fc583": {
+          "type": "text",
+          "settings": {
+            "paragraph": "<p>X LARGE - Lorem ipsum dolor sit amet consectetur adipiscing elit.<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "xl",
+            "paragraph_color": "color-chocolate",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-m"
+          }
+        },
+        "a945aaf4-02c9-4b03-a10f-db92291ded92": {
+          "type": "text",
+          "settings": {
+            "paragraph": "<p>LARGE - Lorem ipsum dolor sit amet consectetur adipiscing elit.<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "l",
+            "paragraph_color": "color-chocolate",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-m"
+          }
+        },
+        "b6989bdd-d8ca-4f5a-9e01-10d7fe5b033b": {
+          "type": "text",
+          "settings": {
+            "paragraph": "<p>BASE - Lorem ipsum dolor sit amet consectetur adipiscing elit.<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "m",
+            "paragraph_color": "color-chocolate",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-m"
+          }
+        },
+        "5f47ad25-df09-4b1f-8aa2-00122e0daaa0": {
+          "type": "text",
+          "settings": {
+            "paragraph": "<p>SMALL -  Lorem ipsum dolor sit amet consectetur adipiscing elit.<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "s",
+            "paragraph_color": "color-chocolate",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-m"
+          }
+        },
+        "2e6b0740-45e4-4e1f-a197-3daad366cd54": {
+          "type": "text",
+          "settings": {
+            "paragraph": "<p>X SMALL - Lorem ipsum dolor sit amet consectetur adipiscing elit.<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "xs",
+            "paragraph_color": "color-chocolate",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-m"
+          }
+        },
+        "9499c91e-d3d8-482f-bf11-6480b7212439": {
+          "type": "text",
+          "settings": {
+            "paragraph": "<p>XX SMALL - Lorem ipsum dolor sit amet consectetur adipiscing elit.<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "xxs",
+            "paragraph_color": "color-chocolate",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-m"
+          }
+        }
+      },
+      "block_order": [
+        "923b2671-7241-46db-abf4-ef9568e52a45",
+        "4062aaba-93ab-4ea3-a6ce-b858407fc583",
+        "a945aaf4-02c9-4b03-a10f-db92291ded92",
+        "b6989bdd-d8ca-4f5a-9e01-10d7fe5b033b",
+        "5f47ad25-df09-4b1f-8aa2-00122e0daaa0",
+        "2e6b0740-45e4-4e1f-a197-3daad366cd54",
+        "9499c91e-d3d8-482f-bf11-6480b7212439"
+      ],
+      "settings": {
+        "title": "Style Guide | Modernist | Text",
+        "padding_top": 0,
+        "padding_bottom": 100
+      }
+    },
+    "20611da7-bc54-47e4-806a-468d36179949": {
+      "type": "styleguide",
+      "blocks": {
+        "59fe95fc-055a-460c-84c7-30f843f4da46": {
+          "type": "heading",
+          "settings": {
+            "title": "Links",
+            "heading_level": "h2",
+            "heading_size": "h4",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-chocolate",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "ce19c9ef-debf-4d29-82b6-7b9b999b81c0": {
+          "type": "heading",
+          "settings": {
+            "title": "PRIMARY",
+            "heading_level": "h3",
+            "heading_size": "h6",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-chocolate",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "ab21ff9a-1391-4d88-a282-54ffdad7f28d": {
+          "type": "link",
+          "settings": {
+            "link_text": "Shop Now",
+            "link_url": "",
+            "new_tab": false,
+            "link_style": "primary",
+            "link_color_inverse": false,
+            "link_icon": "arrow-right",
+            "link_margin_top": "mg-t-none",
+            "link_margin_bottom": "mg-b-m",
+            "full_width": false,
+            "disabled": false
+          }
+        },
+        "576713bd-b002-466a-995c-bab58d85410a": {
+          "type": "link",
+          "settings": {
+            "link_text": "Shop Now",
+            "link_url": "",
+            "new_tab": false,
+            "link_style": "primary",
+            "link_color_inverse": false,
+            "link_icon": "arrow-right",
+            "link_margin_top": "mg-t-none",
+            "link_margin_bottom": "mg-b-m",
+            "full_width": false,
+            "disabled": true
+          }
+        },
+        "a409fbfb-d9b2-4870-8852-5fe93dde2fde": {
+          "type": "heading",
+          "settings": {
+            "title": "PRIMARY RED",
+            "heading_level": "h3",
+            "heading_size": "h6",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-chocolate",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "2b5398eb-9bcb-4640-8595-bfaf24e8ccbb": {
+          "type": "link",
+          "settings": {
+            "link_text": "Shop Now",
+            "link_url": "",
+            "new_tab": false,
+            "link_style": "primary red",
+            "link_color_inverse": false,
+            "link_icon": "arrow-right",
+            "link_margin_top": "mg-t-none",
+            "link_margin_bottom": "mg-b-m",
+            "full_width": false,
+            "disabled": false
+          }
+        },
+        "ed2264c0-3a2b-4b7f-a232-fa18f7b1b7bb": {
+          "type": "link",
+          "settings": {
+            "link_text": "Shop Now",
+            "link_url": "",
+            "new_tab": false,
+            "link_style": "primary red",
+            "link_color_inverse": false,
+            "link_icon": "arrow-right",
+            "link_margin_top": "mg-t-none",
+            "link_margin_bottom": "mg-b-m",
+            "full_width": false,
+            "disabled": true
+          }
+        },
+        "9d29807d-6fdb-42f7-87be-db9b51caccf8": {
+          "type": "heading",
+          "settings": {
+            "title": "SECONDARY",
+            "heading_level": "h3",
+            "heading_size": "h6",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-chocolate",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "91f74507-bb8d-4808-8ebe-7099c24540e0": {
+          "type": "link",
+          "settings": {
+            "link_text": "Shop Now",
+            "link_url": "",
+            "new_tab": false,
+            "link_style": "secondary",
+            "link_color_inverse": false,
+            "link_icon": "arrow-right",
+            "link_margin_top": "mg-t-none",
+            "link_margin_bottom": "mg-b-m",
+            "full_width": false,
+            "disabled": false
+          }
+        },
+        "29673411-8b20-4207-836e-479dfbb7734c": {
+          "type": "link",
+          "settings": {
+            "link_text": "Shop Now",
+            "link_url": "",
+            "new_tab": false,
+            "link_style": "secondary",
+            "link_color_inverse": false,
+            "link_icon": "arrow-right",
+            "link_margin_top": "mg-t-none",
+            "link_margin_bottom": "mg-b-m",
+            "full_width": false,
+            "disabled": true
+          }
+        },
+        "ba033cfe-af16-4442-9170-3456853160f0": {
+          "type": "heading",
+          "settings": {
+            "title": "TERTIARY",
+            "heading_level": "h3",
+            "heading_size": "h6",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-chocolate",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "9a0f45dc-219a-42e6-b294-a6b346b598a7": {
+          "type": "link",
+          "settings": {
+            "link_text": "Shop Now",
+            "link_url": "",
+            "new_tab": false,
+            "link_style": "tertiary",
+            "link_color_inverse": false,
+            "link_icon": "arrow-right",
+            "link_margin_top": "mg-t-none",
+            "link_margin_bottom": "mg-b-m",
+            "full_width": false,
+            "disabled": false
+          }
+        },
+        "962432ed-9842-43a2-8c09-e97dcc4ceebc": {
+          "type": "link",
+          "settings": {
+            "link_text": "    ",
+            "link_url": "",
+            "new_tab": false,
+            "link_style": "tertiary",
+            "link_color_inverse": false,
+            "link_icon": "none",
+            "link_margin_top": "mg-t-none",
+            "link_margin_bottom": "mg-b-m",
+            "full_width": false,
+            "disabled": false
+          }
+        },
+        "2d044a5a-6dc5-4fa1-986e-9fe52f91c51e": {
+          "type": "link",
+          "settings": {
+            "link_text": "Shop Now",
+            "link_url": "",
+            "new_tab": false,
+            "link_style": "tertiary",
+            "link_color_inverse": false,
+            "link_icon": "arrow-right",
+            "link_margin_top": "mg-t-none",
+            "link_margin_bottom": "mg-b-m",
+            "full_width": false,
+            "disabled": true
+          }
+        },
+        "2cf90940-a511-4127-93d9-b04118cb101b": {
+          "type": "heading",
+          "settings": {
+            "title": "BUTTONS",
+            "heading_level": "h2",
+            "heading_size": "h4",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-chocolate",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "63b46b06-52ef-484a-93be-0fa52ca403aa": {
+          "type": "button",
+          "settings": {
+            "button_text": "Play",
+            "button_type": "back",
+            "button_attributes": "data-attribute=\"value\"",
+            "button_style": "primary red",
+            "button_color_inverse": false,
+            "button_icon": "play",
+            "button_margin_top": "mg-t-none",
+            "button_margin_bottom": "mg-b-m",
+            "full_width": false,
+            "disabled": false
+          }
+        },
+        "56103941-ce38-4158-b08d-5c428540bf6a": {
+          "type": "button",
+          "settings": {
+            "button_text": "FIND MY FIT",
+            "button_type": "custom",
+            "button_attributes": "data-attribute=\"value\"",
+            "button_style": "primary",
+            "button_color_inverse": false,
+            "button_icon": "fit",
+            "button_margin_top": "mg-t-none",
+            "button_margin_bottom": "mg-b-m",
+            "full_width": false,
+            "disabled": false
+          }
+        },
+        "04c0aa5a-33e4-45ea-84b1-46f7c39d65e0": {
+          "type": "button",
+          "settings": {
+            "button_text": "Size Chart",
+            "button_type": "back",
+            "button_attributes": "data-attribute=\"value\"",
+            "button_style": "secondary",
+            "button_color_inverse": false,
+            "button_icon": "chart",
+            "button_margin_top": "mg-t-none",
+            "button_margin_bottom": "mg-b-m",
+            "full_width": false,
+            "disabled": false
+          }
+        },
+        "88361e2f-9400-4052-9028-35c0178b30aa": {
+          "type": "button",
+          "settings": {
+            "button_text": "Checkout",
+            "button_type": "custom",
+            "button_attributes": "data-attribute=\"value\"",
+            "button_style": "primary red",
+            "button_color_inverse": false,
+            "button_icon": "arrow-right",
+            "button_margin_top": "mg-t-none",
+            "button_margin_bottom": "mg-b-m",
+            "full_width": false,
+            "disabled": false
+          }
+        }
+      },
+      "block_order": [
+        "59fe95fc-055a-460c-84c7-30f843f4da46",
+        "ce19c9ef-debf-4d29-82b6-7b9b999b81c0",
+        "ab21ff9a-1391-4d88-a282-54ffdad7f28d",
+        "576713bd-b002-466a-995c-bab58d85410a",
+        "a409fbfb-d9b2-4870-8852-5fe93dde2fde",
+        "2b5398eb-9bcb-4640-8595-bfaf24e8ccbb",
+        "ed2264c0-3a2b-4b7f-a232-fa18f7b1b7bb",
+        "9d29807d-6fdb-42f7-87be-db9b51caccf8",
+        "91f74507-bb8d-4808-8ebe-7099c24540e0",
+        "29673411-8b20-4207-836e-479dfbb7734c",
+        "ba033cfe-af16-4442-9170-3456853160f0",
+        "9a0f45dc-219a-42e6-b294-a6b346b598a7",
+        "962432ed-9842-43a2-8c09-e97dcc4ceebc",
+        "2d044a5a-6dc5-4fa1-986e-9fe52f91c51e",
+        "2cf90940-a511-4127-93d9-b04118cb101b",
+        "63b46b06-52ef-484a-93be-0fa52ca403aa",
+        "56103941-ce38-4158-b08d-5c428540bf6a",
+        "04c0aa5a-33e4-45ea-84b1-46f7c39d65e0",
+        "88361e2f-9400-4052-9028-35c0178b30aa"
+      ],
+      "settings": {
+        "title": "Style Guide | Buttons",
+        "padding_top": 0,
+        "padding_bottom": 100
+      }
+    },
+    "517f3691-a791-4508-8c1d-534e59981ae8": {
+      "type": "styleguide",
+      "blocks": {
+        "58ac9f92-93c4-45a9-8569-b1142d339e52": {
+          "type": "form",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "58ac9f92-93c4-45a9-8569-b1142d339e52"
+      ],
+      "settings": {
+        "title": "Style Guide | Form Elements",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "main": {
+      "type": "page",
+      "disabled": true,
+      "settings": {
+        "full_width": false,
+        "hide_title": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "6ac5e31d-76ed-42ec-b8eb-0e769e7c6263",
+    "7858f7c6-f741-4e27-bb19-96bc8032ec18",
+    "5a10a75a-2d13-4a74-b077-0163893a2daa",
+    "394c49d0-8f1a-4895-a16d-e5fedfdd4137",
+    "0659ab1a-3f01-4d38-9336-487ca1f7082d",
+    "30a443d7-1ceb-4336-8be2-f77ae4c54780",
+    "20611da7-bc54-47e4-806a-468d36179949",
+    "517f3691-a791-4508-8c1d-534e59981ae8",
+    "main"
+  ]
+}

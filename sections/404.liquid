@@ -1,0 +1,76 @@
+<style>
+  #page-not-found h2 {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media screen and (max-width: 767px) {
+    #page-not-found h2 {
+      margin-left: unset;
+      margin-right: auto;
+      font-size: 1.6rem;
+    }
+  }
+
+  .template-404 .collections-rebuy {
+    min-height: 505px;
+  }
+
+  .template-404 .swiper-horizontal > .swiper-scrollbar,
+  .template-404 .swiper-scrollbar.swiper-scrollbar-horizontal {
+    bottom: 0rem !important;
+    left: 0rem;
+
+    position: relative;
+    width: calc(100vw - 2rem);
+  }
+
+  .template-404 .swiper-scrollbar-drag {
+    bottom: 0rem !important;
+    position: relative;
+  }
+
+  .template-404 .rebuy-swiper {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .template-404 h3.item-title,
+  .template-404 h3.item-title a {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0 !important;
+    margin-top: 0.15rem !important;
+    line-height: 1!important1;
+  }
+
+  @media screen and (max-width: 767) {
+    .template-404 h3.item-title,
+    .template-404 h3.item-title a {
+      font-size: 1.5rem !important;
+      font-weight: 600;
+      margin-bottom: 0 !important;
+      margin-top: 0.15rem !important;
+    }
+
+    .template-404 .featured-list-wrapper .item-info .title-wrapper .item-title > a {
+      font-size: 15px;
+    }
+  }
+</style>
+
+<section id='page-not-found' style='min-height: 500px;'>
+  <div
+    id='collections-rebuy'
+    class='carousel-collection collection-hidden template-product'
+  >
+    <div
+      class='d-block'
+      data-rebuy-id='94758'
+    >
+      {% render 'product-card-rebuy' %}
+    </div>
+  </div>
+</section>
+
+{% render 'rebuy-extensions' %}

@@ -1,0 +1,493 @@
+<div>
+  <style>
+    {% for block in section.blocks %}
+      {% if forloop.length < 1 or forloop.last %}
+        {{ block.settings.main_tab | downcase | handle | prepend: '#' }}:checked ~ .doc-menu-item ~ {{ block.settings.main_tab | downcase | handle | prepend: '#' | append: '-menu' }}
+      {% else %}
+        {{ block.settings.main_tab | downcase | handle | prepend: '#' }}:checked ~ .doc-menu-item ~ {{ block.settings.main_tab | downcase | handle | prepend: '#' | append: '-menu ,' }}
+      {% endif %}
+    {% endfor %}
+    {
+      display: flex;
+    }
+  </style>
+</div>
+<div class='section-help-center container'>
+  <div class='content-wrapper'>
+    <div id='app'>
+      <input type='checkbox' id='drawer-button' hidden>
+      <label for='drawer-button' class='drawer-button drawer-button-all-articles'>
+        {% render 'icon-articles' %}
+        <span class='all-articles-title'>ALL ARTICLES</span>
+      </label>
+      <div class='doc-drawer'>
+        <label for='drawer-button' class='drawer-button small-down-only'>
+          {% render 'icon-help-center-drawer' %}
+        </label>
+        {% for block in section.blocks %}
+          <input
+            type='radio'
+            name='help-center'
+            hidden
+            id='{{ block.settings.main_tab | downcase | handle }}'
+          >
+          <label
+            for='{{ block.settings.main_tab | downcase | handle }}'
+            class='doc-menu-item router-button'
+            data-router='#{{ block.settings.main_tab | downcase | handle }}'
+            title='{{ block.settings.main_tab }}'
+            tabindex='1'
+          >
+            {{ block.settings.main_tab }}
+          </label>
+          <div id='{{ block.settings.main_tab | downcase | handle }}-menu' class='submenu'>
+            {% for i in (1..20) %}
+              {% assign tab = 'tab' | append: i %}
+              {% assign open = 'open' | append: i %}
+              {% if block.settings[tab] != blank %}
+                {% assign mainHandler = block.settings.main_tab | downcase | handle %}
+                {% assign subHandler = block.settings[tab] | downcase | handle %}
+                <label
+                  id='tabbutton{{ block.settings[open] }}'
+                  for='drawer-button'
+                  class='tab-button drawer-button router-button'
+                  data-router='
+                    {%- if mainHandler == subHandler -%}
+                      #{{- block.settings.main_tab | downcase | handle -}}
+                    {%- else -%}
+                      #{{- block.settings.main_tab | downcase | handle -}}#{{- block.settings[tab] | downcase | handle -}}
+                    {%- endif -%}
+                  '
+                  data-tab='tab{{ block.settings[open] }}'
+                  title='{{ block.settings[tab] }}'
+                  tabindex='1'
+                >
+                  {{ block.settings[tab] | upcase }}
+                </label>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endfor %}
+      </div>
+      <div class='tabs-content'>
+        <div class='searbar-help-center'>
+          <input type='text' id='search' onkeyup='searchTabs()' placeholder='Search...'>
+          {% comment %} {% render 'icon-loading', class: 'loading-icon' %} {% endcomment %}
+          {% for block in section.blocks %}
+            {% for i in (1..200) %}
+              {% assign tab = 'tab' | append: i %}
+              {% assign open = 'open' | append: i %}
+              {% assign content = 'content' | append: i %}
+              {% if block.settings[content] != blank %}
+                <div id='tab{{ block.settings[open] }}' class='tabcontent'>
+                  <h2 class='headline modernist-type h2' id='{{ block.settings.main_tab }}'>
+                    {{ block.settings.main_tab | upcase }}
+                  </h2>
+                  {% unless block.settings.main_tab == block.settings[tab] %}
+                    <h3 class='headline modernist-type h3'>{{ block.settings[tab] | upcase }}</h3>
+                  {% endunless %}
+
+                  {{ block.settings[content] }}
+                </div>
+              {% endif %}
+            {% endfor %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <script>
+    
+    
+    
+    {%- for block in section.blocks -%}
+    const TAB{{ forloop.index }} = document.querySelector('{{ block.settings.main_tab | downcase | handle | prepend: '#' }}');        
+    {%- endfor -%}
+
+    const arrayOfHashes = [
+    {%- for block in section.blocks %}
+      { topic: '{{- block.settings.main_tab | downcase | handle -}}' },
+    {% endfor -%}
+    ];    
+
+    const arrayOfSubHashes = [   
+      {%- for i in (1..20) -%}
+        {%- for block in section.blocks -%}
+          {%- assign tab = 'tab' | append: i -%}
+          {%- if block.settings[tab] != blank -%}
+           { topic: '{{- block.settings[tab] | downcase | handle -}}' }, 
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endfor -%}
+    ]; 
+    const tabRouters = document.querySelectorAll('[data-router]');
+    const tabsContent = document.querySelector('.tabs-content');
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabContent = document.querySelectorAll('.tabcontent');
+    const dataTab = document.querySelector('[data-tab]');
+    const tabcontent = document.querySelector('.tabcontent');
+    const loading = document.querySelector('.loading-icon');
+    const menuItems = document.querySelectorAll('.doc-menu-item');
+    const tabButtonArray = Array.from(tabButtons);
+    function openTabContent(tab, content) {
+      document.querySelector(tab).classList.add('active');
+      setTimeout(() => {
+        loading.style.display = 'none';
+        document.querySelector(content).classList.add('active');
+      }, 1600);
+    }
+
+    const hash = decodeURIComponent(new URLSearchParams(window.location.hash));
+    const hasHashUrl = arrayOfHashes.some(({ topic }) => hash.includes(topic));
+    switch (true) {
+      case hash.includes(arrayOfHashes[0].topic):
+          TAB1.checked = true;
+          break;
+      case hash.includes(arrayOfHashes[1].topic):
+          TAB2.checked = true;
+          break;
+      case hash.includes(arrayOfHashes[2].topic):
+          TAB3.checked = true;
+          break;
+      case hash.includes(arrayOfHashes[3].topic):
+          TAB4.checked = true;
+          break;
+      case hash.includes(arrayOfHashes[4].topic):
+          TAB5.checked = true;
+          break;
+      case hash.includes(arrayOfHashes[5].topic):
+          TAB6.checked = true;
+          break;
+      case hash.includes(arrayOfHashes[6].topic):
+          TAB7.checked = true;
+          break;
+      case hash.includes(arrayOfHashes[7].topic):
+          TAB8.checked = true;
+          break;
+      case hash.includes(arrayOfHashes[8].topic):
+          TAB9.checked = true;
+          break;
+      {% comment %} default:
+          TAB1.checked = true;
+          break; {% endcomment %}
+    }
+    tabButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const tabId = button.getAttribute('data-tab');
+        tabContent.forEach((tab) => tab.classList.remove('active'));
+        tabButtons.forEach((button) => button.classList.remove('active'));
+        document.getElementById(tabId).classList.add('active');
+        button.classList.add('active');
+      });
+    });
+
+    function addRouterDataToUrl(event) {
+      const routerData = event.target.dataset.router;
+      if (routerData) {
+        window.location.hash = routerData;
+      }
+    }
+
+    // ROUTERS
+    const routers = document.querySelectorAll('.router-button');
+    routers.forEach((item) => item.addEventListener('click', addRouterDataToUrl));
+
+    switch (true) {
+
+      // #products-and-inventory
+      case hash.includes('#manufacturing'):
+          openTabContent('#tabbutton1', '#tab1');
+          break;
+      case hash.includes('#care-instructions'):
+          openTabContent('#tabbutton2', '#tab2');
+          break;
+      case hash.includes('#sizing'):
+          openTabContent('#tabbutton3', '#tab3');
+          break;
+      case hash.includes('#product-availability'):
+          openTabContent('#tabbutton4', '#tab4');
+          break;
+      case hash.includes('#products-and-inventory'):
+          openTabContent('#tabbutton1', '#tab1');
+          break;
+
+      // #delivery-and-shipping
+      case hash.includes('#shipping'):
+        openTabContent('#tabbutton11', '#tab11');
+        break;
+      case hash.includes('#international-customs-duties-taxes'):
+        openTabContent('#tabbutton12', '#tab12');
+        break;
+      case hash.includes('#delivery-and-shipping'):
+          openTabContent('#tabbutton11', '#tab11');
+          break;
+
+      // #changes-and-cancellations             
+      case hash.includes('#changes-and-cancellations'):
+        openTabContent('#tabbutton21', '#tab21');
+        break;
+
+      // #discounts            
+      case hash.includes('#discounts'):
+        openTabContent('#tabbutton41', '#tab41');
+        break;
+
+      // #gifting            
+      case hash.includes('#gift-cards'):
+        openTabContent('#tabbutton51', '#tab51');
+        break;
+      case hash.includes('#send-a-gift'):
+        openTabContent('#tabbutton52', '#tab52');
+        break;
+      case hash.includes('#gift-return'):
+        openTabContent('#tabbutton53', '#tab53');
+        break;
+      case hash.includes('#gifting'):
+        openTabContent('#tabbutton51', '#tab51');
+        break;
+
+      // #rewards      
+      case hash.includes('#loyalty-program'):
+        openTabContent('#tabbutton101', '#tab101');
+        break;
+      case hash.includes('#refer-a-friend'):
+        openTabContent('#tabbutton102', '#tab102');
+        break;
+      case hash.includes('#cashback'):
+        openTabContent('#tabbutton103', '#tab103');
+        break;
+      case hash.includes('#rewards'):
+        openTabContent('#tabbutton101', '#tab101');
+        break;
+
+      // #issues-with-product     
+      case hash.includes('#issues-with-product'):
+        openTabContent('#tabbutton61', '#tab61');
+        break;
+      
+      // #payments   
+      case hash.includes('#payments'):
+        openTabContent('#tabbutton71', '#tab71');
+        break;
+      
+      // #frequently-asked-questions   
+      case hash.includes('#frequently-asked-questions'):
+        openTabContent('#tabbutton81', '#tab81');
+        break;
+
+      // #risk-free-returns-exchanges
+      case hash.includes('#risk-free-returns-exchanges'):
+        openTabContent('#tabbutton91', '#tab91');
+        break;
+
+      {% comment %} default:
+        if (!hasHashUrl) {
+          TAB1.checked = true;
+          openTabContent('#tabbutton1', '#tab1');
+        } 
+        break; {% endcomment %}
+    }
+
+  let debounceTimer;
+    const searchTabs = () => {
+      const { value: filter } = document.getElementById("search");
+      clearTimeout(debounceTimer);
+
+      if (filter === '') {
+        tabContent.forEach((tab) => tab.classList.remove("active"));
+        tabButtons.forEach((button) => button.classList.remove("active"));
+        openTabContent("#tabbutton1", "#tab1");
+        return;
+      }
+
+      debounceTimer = setTimeout(() => {
+        tabContent.forEach((tab) => tab.classList.remove("active"));
+        tabButtons.forEach((button) => button.classList.remove("active"));
+
+        const tabs = document.querySelectorAll(".tabcontent");
+
+        let firstMatch = false;
+
+        for (const tab of tabs) {
+          const tabContent = [...tab.querySelectorAll(".tabcontent > *")];
+          const isActive = tabContent.some((element) => {
+            const text = element.textContent || element.innerText;
+            return text.toUpperCase().includes(filter.toUpperCase());
+          });
+
+          if (isActive && !firstMatch) {
+            tab.classList.add("active");
+            const activeTabButton = document.querySelector(
+              `[data-tab='${tab.id}']`
+            );
+            activeTabButton.classList.add("active");
+
+            firstMatch = true;
+          }
+        }
+      }, 1000);
+    };
+
+    document.getElementById("search").addEventListener("keyup", searchTabs); 
+
+
+
+  </script>
+</div>
+
+{% schema %}
+{
+  "name": "Help Center",
+  "tag": "section",
+  "class": "section-help-center",
+  "blocks": [
+    {
+      "name": "Tab",
+      "type": "tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "main_tab",
+          "label": "Main Tab"
+        },
+        {
+          "type": "text",
+          "id": "open1",
+          "label": "Open",
+          "default": "1"
+        },
+        {
+          "type": "text",
+          "id": "tab1",
+          "label": "Tab 1"
+        },
+        {
+          "type": "liquid",
+          "id": "content1",
+          "label": "Content 1"
+        },
+        {
+          "type": "text",
+          "id": "open2",
+          "label": "Open",
+          "default": "2"
+        },
+        {
+          "type": "text",
+          "id": "tab2",
+          "label": "Tab 2"
+        },
+        {
+          "type": "liquid",
+          "id": "content2",
+          "label": "Content 2"
+        },
+        {
+          "type": "text",
+          "id": "open3",
+          "label": "Open",
+          "default": "3"
+        },
+        {
+          "type": "text",
+          "id": "tab3",
+          "label": "Tab 3"
+        },
+        {
+          "type": "liquid",
+          "id": "content3",
+          "label": "Content 3"
+        },
+        {
+          "type": "text",
+          "id": "open4",
+          "label": "Open",
+          "default": "4"
+        },
+        {
+          "type": "text",
+          "id": "tab4",
+          "label": "Tab 4"
+        },
+        {
+          "type": "liquid",
+          "id": "content4",
+          "label": "Content 4"
+        },
+        {
+          "type": "text",
+          "id": "open5",
+          "label": "Open",
+          "default": "5"
+        },
+        {
+          "type": "text",
+          "id": "tab5",
+          "label": "Tab 5"
+        },
+        {
+          "type": "liquid",
+          "id": "content5",
+          "label": "Content 5"
+        },
+        {
+          "type": "text",
+          "id": "open6",
+          "label": "Open",
+          "default": "6"
+        },
+        {
+          "type": "text",
+          "id": "tab6",
+          "label": "Tab 6"
+        },
+        {
+          "type": "liquid",
+          "id": "content6",
+          "label": "Content 6"
+        },
+        {
+          "type": "text",
+          "id": "open7",
+          "label": "Open",
+          "default": "7"
+        },
+        {
+          "type": "text",
+          "id": "tab7",
+          "label": "Tab 7"
+        },
+        {
+          "type": "liquid",
+          "id": "content7",
+          "label": "Content 7"
+        },
+        {
+          "type": "text",
+          "id": "open8",
+          "label": "Open",
+          "default": "8"
+        },
+        {
+          "type": "text",
+          "id": "tab8",
+          "label": "Tab 8"
+        },
+        {
+          "type": "liquid",
+          "id": "content8",
+          "label": "Content 8"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Help Center"
+    }
+  ]
+}
+{% endschema %}

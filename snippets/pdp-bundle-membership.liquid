@@ -1,0 +1,179 @@
+{% unless customer and customer.tags contains 'inveterate-subscriber' %}
+  <style>
+    .featured-product-pdp {
+      max-width: -webkit-fill-available;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .membership-section {
+      margin: 0rem;
+    }
+
+    hr.slim {
+      display: block;
+      max-width: 60%;
+      margin: 1rem auto 0.25rem;
+      opacity: 0.5;
+    }
+
+    .mbm-info {
+      padding: 0 1rem;
+      max-width: 350px;
+      margin: 1rem auto;
+    }
+
+    @media screen and (max-width: 768px) {
+      .mbm-info {
+        max-width: fit-content;
+      }
+
+      .pricing + p.text.xl {
+        font-size: 20px;
+      }
+
+      .pricing + p.text.xl + p.text.xs {
+        font-size: 12px;
+      }
+
+      .mbm-info p.text.s {
+        font-size: 14px;
+      }
+
+      .info-membership.mg-b-m.text.s {
+        font-size: 12px;
+      }
+      hr.slim {
+        max-width: 142px;
+        margin: 1.25rem auto 0.25rem;
+      }
+    }
+  </style>
+  <script>
+    function updateDOMForMemberPromo() {
+      if (window.location.href.indexOf('?memberpromo=true') !== -1) {
+        const memberOnlyPromo = document.getElementById('member-only-promo');
+        if (memberOnlyPromo) {
+          memberOnlyPromo.style.display = 'block';
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', updateDOMForMemberPromo);
+  </script>
+  <div id='member-only-promo' style='display: none;'>
+    {%- liquid
+      assign full_price = product.price | plus: 9900
+    -%}
+
+    {% unless mb_product == empty %}
+      {% if localization.country.iso_code == 'US' %}
+        <div class='membership-section text-center'>
+          {% for media in product.media limit: 1 %}
+            {% if media.media_type == 'image' %}
+              <div class='flex'>
+                {{ media | image_url: width: 120 | image_tag: class: 'mx-auto block' }}
+              </div>
+            {% endif %}
+          {% endfor %}
+          <div class='pricing'>
+            <s>{{ product.price | money }}</s>
+            <span class='color-red'>FREE</span>
+          </div>
+          <p class='text xl'>{{ heading }}</p>
+          <p class='text xs'>{{ text }}</p>
+          <hr class='slim'>
+          <div class='membership-bonus-pdp text-center color-black'>
+            <div class='mbm-info'>
+              <div class='flex' style='column-gap: 1rem; align-items: center;'>
+                <div class='width: 20%'>{% render 'icon-moneybag' %}</div>
+                <p class='text s'>$50 store credit signup bonus</p>
+              </div>
+              <div class='flex' style='column-gap: 1rem; align-items: center;'>
+                <div class='width: 20%'>{% render 'icon-moneycredit' %}</div>
+                <p class='text s'>20% store credit on all orders</p>
+              </div>
+            </div>
+          </div>
+          <p class='info-membership mg-b-m text s'>
+            Just $99/yr <a href='/pages/true-classic-membership'><u>Learn more</u></a>
+          </p>
+          <div class='membership-buttons-pdp text-center color-black'>
+            <button data-delegate='addmembershipgift' class='button primary red mx-auto'>
+              <span class='btn-text'>
+                {{- button_label }} : <s>{{ full_price | money }}</s> $99</span
+              >
+              {%- render 'button-loader' -%}
+            </button>
+          </div>
+        </div>
+
+        <script>
+          
+          
+        
+        function addMembershipandGift() {
+            function getVariantId() {
+              const url = new URL(window.location.href);
+              const params = new URLSearchParams(url.search);
+              const variantId = params.get('variant');
+              return variantId || {{ product.variants[0].id }};
+            }
+            let currentVariant = getVariantId();
+            const membershipButton = document.querySelector('.membership-buttons-pdp .button');
+            membershipButton.classList.add('loading');
+            fetch('/cart/add.js', {
+              body: JSON.stringify({
+                items: [
+                  {
+                    id: {{ product_form_id }},
+                    quantity: 1,
+                    selling_plan: {{ selling_plan_id }},
+                    properties: {
+                      _inveterate_subscription: true,
+                    },
+                  },
+                  {
+                    id: currentVariant,
+                    quantity: 1,
+                    properties: {
+                      _free_w_purchase_membership: true,
+                    },
+                  },
+                ],
+              }),
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              method: 'POST',
+            })
+            .then(response => {
+              if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+              }
+              return response.json();
+            })
+            .then(items => {
+              document.dispatchEvent(new Event('cartaddsuccess'));
+              membershipButton.classList.remove('loading');
+              const memberOnlyPromo = document.getElementById('member-only-promo');
+              memberOnlyPromo.style.display = 'none';
+            })
+            .catch(error => {
+              console.log('Failed to add membership and product to cart');
+              membershipButton.classList.remove('loading');
+            });
+          }
+
+          document.addEventListener('click', (e) => {
+            if (e.target.dataset.delegate === 'addmembershipgift') {
+              addMembershipandGift();
+            }
+          });
+
+
+
+        </script>
+      {% endif %}
+    {% endunless %}
+  </div>
+{% endunless %}

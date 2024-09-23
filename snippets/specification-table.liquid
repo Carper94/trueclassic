@@ -1,0 +1,64 @@
+{% liquid
+  if template contains 'product'
+    capture sku
+      assign current_variant = product.selected_or_first_available_variant
+      echo current_variant.sku | truncate: 7, ''
+    endcapture
+
+    case sku
+      when 'TCT4703'
+        render 'specification', inseam: '33'
+
+      when 'TCT4000'
+        render 'specification', SB: '28', MB: '29', LB: '30', XLB: '31', XL2B: '32', XL3B: '33', XL4B: '34', SS: '7.5', MS: '8', LS: '8.5', XLS: '9', XL2S: '9.5', XL3S: '10', XL4S: '10.5'
+
+      when 'TCT4001'
+        render 'specification', SB: '28', MB: '29', LB: '30', XLB: '31', XL2B: '32', XL3B: '33', SS: '7.5', MS: '8', LS: '8.5', XLS: '9', XL2S: '9.5', XL3S: '10'
+
+      when 'TCT4002'
+        render 'specification', SB: '28', MB: '29', LB: '30', XLB: '31', XL2B: '32', XL3B: '33', SS: '7.5', MS: '8', LS: '8.5', XLS: '9', XL2S: '9.5', XL3S: '10'
+
+      when 'TCT4203'
+        render 'specification', SB: '28', MB: '29', LB: '30', XLB: '31', XL2B: '32', XL3B: '33', SS: '7.5', MS: '8', LS: '8.5', XLS: '9', XL2S: '9.5', XL3S: '10'
+
+      when 'TCT4604'
+        render 'specification', SB: '26.5', MB: '27.5', LB: '28.5', XLB: '29.5', XL2B: '30.5', SS: '26', MS: '26.5', LS: '27', XLS: '27.5', XL2S: '28'
+
+      when 'TCT4605'
+        render 'specification', SB: '26.5', MB: '27.5', LB: '28.5', XLB: '29.5', XL2B: '30.5', SS: '26', MS: '26.5', LS: '27', XLS: '27.5', XL2S: '28'
+
+      when 'TCT4004'
+        render 'specification', SB: '27', MB: '28', LB: '29', XLB: '30', XL2B: '31', XL3B: '32', SS: '8', MS: '8.5', LS: '9', XLS: '9.5', XL2S: '10', XL3S: '10.5'
+
+      when 'TCT4003'
+        render 'specification', SB: '27.5', MB: '28.5', LB: '29.5', XLB: '30.5', XL2B: '31.5', XL3B: '32.5', SS: '8', MS: '8.5', LS: '9', XLS: '9.5', XL2S: '10', XL3S: '10.5'
+
+      when 'TCT4209'
+        render 'specification', SB: '27.5', MB: '28.5', LB: '29.5', XLB: '30.5', XL2B: '31.5', XL3B: '32.5', SS: '8', MS: '8.5', LS: '9', XLS: '9.5', XL2S: '10', XL3S: '10.5'
+
+      when 'TCT4210'
+        render 'specification', SB: '27.5', MB: '28.5', LB: '29.5', XLB: '30.5', XL2B: '31.5', XL3B: '32.5', SS: '8', MS: '8.5', LS: '9', XLS: '9.5', XL2S: '10', XL3S: '10.5'
+
+      when 'TCT4200'
+        render 'specification', SB: '28', MB: '29', LB: '30', XLB: '31', XL2B: '32', XL3: '33', SS: '25 3/8', MS: '26', LS: '26 5/8', XLS: '27 1/4', XL2S: '27 1/4', XL3S: '28 1/2'
+
+      when 'TCT4100'
+        render 'specification', SB: '28', MB: '29', LB: '30', XLB: '31', XL2B: '32', XL3: '33', SS: '25 3/8', MS: '26', LS: '26 5/8', XLS: '27 1/4', XL2S: '27 1/4', XL3S: '28 1/2'
+
+      when 'TCT4204'
+        render 'specification', SB: '28', MB: '29', LB: '30', XLB: '31', XL2B: '32', XL3: '33', SS: '25 3/8', MS: '26', LS: '26 5/8', XLS: '27 1/4', XL2S: '27 1/4', XL3S: '28 1/2'
+
+      when 'TCT4300'
+        render 'specification', SB: '28', MB: '29', LB: '30', XLB: '31', XL2B: '32', XL3: '33', SS: '25 3/8', MS: '26', LS: '26 5/8', XLS: '27 1/4', XL2S: '27 1/4', XL3S: '28 1/2'
+
+      when 'TCT4400'
+        render 'specification', SB: '28', MB: '29', LB: '30', XLB: '31', XL2B: '32', XL3: '33', SS: '25 3/8', MS: '26', LS: '26 5/8', XLS: '27 1/4', XL2S: '27 1/4', XL3S: '28 1/2'
+
+      when 'TCT4500'
+        render 'specification', SB: '31', MB: '32', LB: '33', XLB: '34', XL2B: '35', XL3: '36', SS: '7 1/2', MS: '8', LS: '8 1/2', XLS: '9', XL2S: '9 1/2', XL3S: '10'
+
+      when 'TCT4501'
+        render 'specification', SB: '31', MB: '32', LB: '33', XLB: '34', XL2B: '35', XL3: '36', SS: '7 1/2', MS: '8', LS: '8 1/2', XLS: '9', XL2S: '9 1/2', XL3S: '10'
+    endcase
+  endif
+%}

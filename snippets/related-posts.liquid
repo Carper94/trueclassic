@@ -1,0 +1,40 @@
+<div class="related-posts-slider">
+  <h2 class="related headline">Related</h2>
+  <!-- Slider main container -->
+  <div class="swiper">
+    <!-- Additional required wrapper -->
+    <ul class="swiper-wrapper article-grid">
+      {% assign currentHandle = article.handle %}
+      {% assign articlesFound = 0 %}
+      {% for article in blog.articles %}
+        {% unless article.handle == currentHandle %}
+        <div class="swiper-slide">
+          <a href="{{ article.url }}">
+            <div class="article-image-wrapper">
+              <img
+                srcset="{%- if article.image.width >= 375 -%}{{ article.image | image_url: width: 375 }} 375w,{%- endif -%}
+                {%- if article.image.width >= 750 -%}{{ article.image | image_url: width: 750 }} 750w,{%- endif -%}
+                {%- if article.image.width >= 1100 -%}{{ article.image | image_url: width: 1100 }} 1100w,{%- endif -%}
+                {%- if article.image.width >= 1500 -%}{{ article.image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                {%- if article.image.width >= 2000 -%}{{ article.image | image_url: width: 2000 }} 2000w,{%- endif -%}
+                {%- if article.image.width >= 2500 -%}{{ article.image | image_url: width: 2500 }} 2500w,{%- endif -%}
+                {{ article.image | image_url }} {{ article.image.width }}w"
+                src="{{ article.image | image_url: width: 1500 }}"
+                loading="lazy"
+                alt="{{ article.image.alt | escape }}"
+                width="{{ article.image.width }}"
+                height="{{ article.image.height }}"
+              >
+            </div>
+            <div class="article-card-title">
+              {{ article.title }}
+            </div>
+          </a>
+        </div>
+        {% assign articlesFound = articlesFound | plus: 1 %}
+        {% if articlesFound == 6 %}{% break %}{% endif %}
+        {% endunless %}
+      {% endfor %}
+    </ul>
+  </div>
+</div>

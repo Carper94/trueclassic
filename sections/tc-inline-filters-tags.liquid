@@ -1,0 +1,682 @@
+{%- liquid
+  assign country_codes = section.settings.country_code | split: ','
+  assign exclude_country_codes = section.settings.exclude_country_code | split: ','
+  assign should_show_banner = false
+
+  if section.settings.country_code == '' and section.settings.exclude_country_code == ''
+    assign should_show_banner = true
+  else
+    assign is_excluded = false
+    for exclude_code in exclude_country_codes
+      if localization.country.iso_code == exclude_code
+        assign is_excluded = true
+        break
+      endif
+    endfor
+
+    unless is_excluded
+      if section.settings.country_code == ''
+        assign should_show_banner = true
+      else
+        for code in country_codes
+          if localization.country.iso_code == code
+            assign should_show_banner = true
+            break
+          endif
+        endfor
+      endif
+    endunless
+  endif
+-%}
+{%- if should_show_banner -%}
+  <style type='text/css'>
+    .inline-filters {
+      justify-content: center;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+      align-items: center;
+    }
+
+    .inline-filters .filter-list {
+      min-width: 600px;
+      width: 100%;
+      justify-content: space-between;
+      border-top: 0.125rem solid var(--brand-gray-light);
+      border-bottom: 0.125rem solid var(--brand-gray-light);
+      padding-right: 1rem;
+      padding-left: 1rem;
+    }
+
+    #filter-form-inline label,
+    #clearAllInline {
+      font-size: 15px;
+      padding: 1rem 0.75rem;
+    }
+
+    @media screen and (max-width: 767px) {
+      .inline-filters .filter-list {
+        min-width: 90vw;
+        flex-wrap: nowrap;
+        overflow: hidden;
+        padding-right: 0;
+        padding-left: 0;
+      }
+
+      #descriptionInlineFilters {
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .inline-filters .filter-list::-webkit-scrollbar {
+        display: none;
+      }
+      .inline-filters.tags .filter-list-item label,
+      #clearAllInline {
+        white-space: nowrap;
+      }
+
+      #filter-form-inline label,
+      #clearAllInline {
+        font-size: 12px;
+        padding: 0.5rem 0.75rem;
+      }
+
+      .filter-drawer__form-new {
+        padding: 1rem 1rem 0;
+      }
+    }
+
+    .inline-filters.tags .filter-list-item label {
+      min-width: 3.125rem;
+      text-align: center;
+      padding: 1rem 0.75rem;
+      color: #0c0a09;
+      color: var(--btn-tertiary-color);
+      background-color: var(--btn-tertiary-background-color);
+      border-radius: 0;
+      text-transform: capitalize;
+      border: 0 !important;
+    }
+
+    .inline-filters.tags .filter-list-item {
+      border-radius: 0;
+      text-transform: capitalize;
+      border: 0 !important;
+    }
+
+    .inline-filters.tags .filter-list-item > input[type='checkbox']:checked ~ label,
+    .filter-list-item.circle > input[type='checkbox']:checked ~ label,
+    #clearAllInline.active {
+      background-color: transparent;
+      color: var(--btn-tertiary-color);
+      border-bottom: 0.1875rem solid var(--brand-brown) !important;
+    }
+
+    .inline-filters.tags .filter-list-item label {
+      min-width: 3.125rem;
+      text-align: center;
+      padding: 1rem 0.75rem;
+      color: #0c0a09;
+      color: var(--btn-tertiary-color);
+      background-color: transparent;
+      background-color: var(--btn-tertiary-background-color);
+      border-radius: 0;
+      text-transform: capitalize;
+      border: 0 !important;
+    }
+
+    #clearAllInline {
+      display: block;
+      min-width: 3.125rem;
+      text-align: center;
+      color: #0c0a09;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .filter-list-item label {
+      border: 1px solid #ccc;
+      cursor: pointer;
+    }
+
+    .filter-list-item label + .tooltip {
+      visibility: hidden;
+      width: 120px;
+      background-color: #555;
+      color: #fff;
+      text-align: center;
+      padding: 5px;
+      border-radius: 6px;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%;
+      left: 50%;
+      margin-left: -60px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .filter-list-item input:hover + label + .tooltip {
+      visibility: visible;
+      opacity: 1;
+    }
+    .d-none {
+      display: none;
+    }
+    .m-0 > * {
+      margin: 0;
+    }
+  </style>
+
+  <div class='inline-filters tags flex'>
+    <form
+      id='filter-form-inline'
+      class='filter-drawer__form filter-drawer__form-new'
+      data-delegate='filterform'
+    >
+      {% for filter in collection.filters %}
+        {% unless filter.label != 'Tag Based' %}
+          {% liquid
+            assign label = filter.label
+            assign type = 'square'
+          %}
+          {% unless filter.label == 'Availability' %}
+            <div class='filter-list-wrapper {% if section.settings.disable_filters %} m-0 {% endif %}'>
+              {% render 'tc-heading',
+                title: section.settings.title,
+                heading_level: section.settings.heading_level,
+                heading_font: section.settings.heading_font,
+                heading_size: section.settings.heading_size,
+                heading_color: section.settings.heading_color,
+                heading_color_inverse: section.settings.heading_color_inverse,
+                heading_margin_top: section.settings.heading_margin_top,
+                heading_margin_bottom: section.settings.heading_margin_bottom,
+                heading_underline: section.settings.heading_underline
+              %}
+              {% render 'pwd-iconography-test' %}
+              <div class='filter-list tops'>
+                {% if section.settings.clear_all == true %}
+                  <div>
+                    <span
+                      id='clearAllInline'
+                      class='active'
+                      >Shop All</span
+                    >
+                  </div>
+                {% endif %}
+                {% for filter_value in filter.values %}
+                  {% assign id = filter_value.param_name %}
+                  {% assign value = filter_value.value | strip %}
+                  {% if value contains 'PackSavings' %}
+                    <div
+                      class='filter-list-item filter-list-item-new {{ type }}'
+                    >
+                      <input
+                        type='checkbox'
+                        id='{{ id }}'
+                        value='{{ value }}'
+                        name='{{ filter_value.param_name | strip }}'
+                        title='{{ value }}'
+                        {% if filter_value.active %}
+                          checked
+                        {% endif %}
+                      >
+                      <label
+                        for='{{ id }}'
+                        aria-label='{{ label }} {{ value }}'
+                      >
+                        Pack Savings
+                      </label>
+                      <div class='tooltip'>{{ section.settings.pack_text }}</div>
+                    </div>
+                  {% endif %}
+                {% endfor %}
+                <div
+                  class='filter-list-item filter-list-item-new {{ type }}'
+                >
+                  <input
+                    type='checkbox'
+                    id='filter.p.tag'
+                    value='Sale'
+                    name='filter.p.tag'
+                    title='Sale'
+                    {% if filter_value.active %}
+                      checked
+                    {% endif %}
+                  >
+                  <label
+                    for='{{ id }}'
+                    aria-label='{{ label }} {{ value }}'
+                  >
+                    Sale
+                  </label>
+                  <div class='tooltip'>{{ section.settings.sale_text }}</div>
+                </div>
+                {% for filter_value in filter.values %}
+                  {% assign id = filter_value.param_name %}
+                  {% assign value = filter_value.value | strip %}
+                  {% if value contains 'Clearance' %}
+                    <div
+                      class='filter-list-item filter-list-item-new {{ type }}'
+                    >
+                      <input
+                        type='checkbox'
+                        id='{{ id }}'
+                        value='{{ value }}'
+                        name='{{ filter_value.param_name | strip }}'
+                        title='{{ value }}'
+                        {% if filter_value.active %}
+                          checked
+                        {% endif %}
+                      >
+                      <label
+                        for='{{ id }}'
+                        aria-label='{{ label }} {{ value }}'
+                      >
+                        Clearance
+                      </label>
+                      <div class='tooltip'>{{ section.settings.clearance_text }}</div>
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              </div>
+              <br>
+              <p
+                id='descriptionInlineFilters'
+                class='text m'
+              >
+                Shop discounted items as packs, clearance or sale.
+              </p>
+            </div>
+          {% endunless %}
+        {% endunless %}
+      {% endfor %}
+
+      {% if section.settings.enable_apply %}
+        <button class='button primary mg-t-m'>APPLY</button>
+      {% else %}
+        <button></button>
+      {% endif %}
+    </form>
+  </div>
+
+  {% unless section.settings.enable_apply %}
+    <script>
+      const inlineFormFilter = document.getElementById('filter-form-inline');
+      const inlineFormFilterInput = inlineFormFilter.querySelectorAll('input[type="checkbox"]');
+      const inlineFormFilterButton = inlineFormFilter.querySelector('button');
+      const inlineFormFilterClearButton = document.getElementById('clearAllInline');
+      const descriptionInlineFilters = document.getElementById('descriptionInlineFilters');
+
+      for (let i = 0; i < inlineFormFilterInput.length; i++) {
+        inlineFormFilterInput[i].addEventListener('click', function (e) {
+          let descriptionText = '';
+
+          if (e.target.value.includes('PackSavings')) {
+            descriptionText = '{{ section.settings.pack_text }}';
+          } else if (e.target.value.includes('Clearance')) {
+            descriptionText = '{{ section.settings.clearance_text }}';
+          } else if (e.target.value.includes('Sale')) {
+            descriptionText = '{{ section.settings.sale_text }}';
+          }
+
+          descriptionInlineFilters.innerHTML = descriptionText;
+
+          for (let j = 0; j < inlineFormFilterInput.length; j++) {
+            if (i !== j) {
+              inlineFormFilterInput[j].checked = false;
+            }
+          }
+          inlineFormFilterClearButton.classList.remove('active');
+          descriptionInlineFilters.classList.remove('active');
+          inlineFormFilterButton.click();
+        });
+      }
+
+      inlineFormFilterClearButton.addEventListener('click', function () {
+        for (let i = 0; i < inlineFormFilterInput.length; i++) {
+          inlineFormFilterInput[i].checked = false;
+        }
+        descriptionInlineFilters.innerHTML = '{{ section.settings.shop_all_text }}';
+        inlineFormFilterClearButton.classList.add('active');
+        inlineFormFilterButton.click();
+      });
+    </script>
+  {% endunless %}
+{%- endif -%}
+{% schema %}
+{
+  "name": "TC Inline Filters Tags",
+  "tag": "section",
+  "class": "section-inline-filters",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "disable_filters",
+      "label": "Disable Filters",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Geolocation"
+    },
+    {
+      "type": "text",
+      "id": "country_code",
+      "label": "Country code",
+      "info": "Enter the country code for the country you want to show the banner to. You can have multiple country codes, just separate them with a comma. Example: US,CA,GB. Leave empty to show to all countries."
+    },
+    {
+      "type": "text",
+      "id": "exclude_country_code",
+      "label": "Exclude country code",
+      "info": "Enter the country code for the countries you DON'T want to show the banner to. You can have multiple country codes, just separate them with a comma. Example: US,CA,GB"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_apply",
+      "label": "Enable Apply Button",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "clear_all",
+      "label": "Enable Shop All",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Header"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Label",
+      "default": "SAVE UP TO 70% OFF"
+    },
+    {
+      "type": "select",
+      "id": "heading_level",
+      "options": [
+        {
+          "value": "h1",
+          "label": "Level 1"
+        },
+        {
+          "value": "h2",
+          "label": "Level 2"
+        },
+        {
+          "value": "h3",
+          "label": "Level 3"
+        },
+        {
+          "value": "h4",
+          "label": "Level 4"
+        },
+        {
+          "value": "h5",
+          "label": "Level 5"
+        },
+        {
+          "value": "h6",
+          "label": "Level 6"
+        },
+        {
+          "value": "span",
+          "label": "Span"
+        }
+      ],
+      "default": "h2",
+      "label": "Heading level"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h0",
+          "label": "XX Large"
+        },
+        {
+          "value": "h1",
+          "label": "X Large"
+        },
+        {
+          "value": "h2",
+          "label": "Large"
+        },
+        {
+          "value": "h3",
+          "label": "Base"
+        },
+        {
+          "value": "h4",
+          "label": "Small"
+        },
+        {
+          "value": "h5",
+          "label": "X Small"
+        },
+        {
+          "value": "h6",
+          "label": "XX Small"
+        }
+      ],
+      "default": "h2",
+      "label": "Heading size"
+    },
+    {
+      "type": "select",
+      "id": "heading_font",
+      "options": [
+        {
+          "value": "staff-x-condensed-type",
+          "label": "Staff X Condensed"
+        },
+        {
+          "value": "modernist-type",
+          "label": "Modernist"
+        },
+        {
+          "value": "modernist-mono-type",
+          "label": "Modernist Mono"
+        },
+        {
+          "value": "roboto-mono-type",
+          "label": "Roboto Mono"
+        },
+        {
+          "value": "montserrat-type",
+          "label": "Montserrat"
+        }
+      ],
+      "default": "staff-x-condensed-type",
+      "label": "Heading font family"
+    },
+    {
+      "type": "select",
+      "id": "heading_color",
+      "options": [
+        {
+          "value": "color-white",
+          "label": "White"
+        },
+        {
+          "value": "color-black",
+          "label": "Black"
+        },
+        {
+          "value": "color-chocolate",
+          "label": "Chocolate"
+        },
+        {
+          "value": "color-chocolate-light",
+          "label": "Chocolate Light"
+        },
+        {
+          "value": "color-chocolate-mid",
+          "label": "Chocolate Medium"
+        },
+        {
+          "value": "color-chocolate-dark",
+          "label": "Chocolate Dark"
+        },
+        {
+          "value": "color-milk-chocolate",
+          "label": "Milk Chocolate"
+        },
+        {
+          "value": "color-shitake",
+          "label": "Shitake"
+        },
+        {
+          "value": "color-sage",
+          "label": "Sage"
+        },
+        {
+          "value": "color-sage-light",
+          "label": "Sage light"
+        },
+        {
+          "value": "color-cream",
+          "label": "Cream"
+        },
+        {
+          "value": "color-cream-light",
+          "label": "Cream Light"
+        },
+        {
+          "value": "color-yellow",
+          "label": "Yellow"
+        },
+        {
+          "value": "color-red",
+          "label": "Red"
+        }
+      ],
+      "default": "color-chocolate",
+      "label": "Heading color"
+    },
+    {
+      "type": "checkbox",
+      "id": "heading_color_inverse",
+      "label": "Light colors on mobile",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "heading_margin_top",
+      "options": [
+        {
+          "value": "mg-t-xxl",
+          "label": "XX Large"
+        },
+        {
+          "value": "mg-t-xl",
+          "label": "X Large"
+        },
+        {
+          "value": "mg-t-l",
+          "label": "Large"
+        },
+        {
+          "value": "mg-t-m",
+          "label": "Medium"
+        },
+        {
+          "value": "mg-t-s",
+          "label": "Small"
+        },
+        {
+          "value": "mg-t-xs",
+          "label": "X Small"
+        },
+        {
+          "value": "mg-t-none",
+          "label": "No margin"
+        }
+      ],
+      "default": "mg-t-none",
+      "label": "Heading margin top"
+    },
+    {
+      "type": "select",
+      "id": "heading_margin_bottom",
+      "options": [
+        {
+          "value": "mg-b-xxl",
+          "label": "XX Large"
+        },
+        {
+          "value": "mg-b-xl",
+          "label": "X Large"
+        },
+        {
+          "value": "mg-b-l",
+          "label": "Large"
+        },
+        {
+          "value": "mg-b-m",
+          "label": "Medium"
+        },
+        {
+          "value": "mg-b-s",
+          "label": "Small"
+        },
+        {
+          "value": "mg-b-xs",
+          "label": "X Small"
+        },
+        {
+          "value": "mg-b-none",
+          "label": "No margin"
+        }
+      ],
+      "default": "mg-b-m",
+      "label": "Heading margin bottom"
+    },
+    {
+      "type": "checkbox",
+      "id": "heading_underline",
+      "label": "Underline",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Messaging"
+    },
+    {
+      "type": "text",
+      "id": "shop_all_text",
+      "label": "Sub Text",
+      "default": "Shop discounted items as packs, clearance, or sale."
+    },
+    {
+      "type": "text",
+      "id": "clearance_text",
+      "label": "Clearance Text",
+      "default": "Explore clearance items on sale."
+    },
+    {
+      "type": "text",
+      "id": "pack_text",
+      "label": "Pack Savings Text",
+      "default": "Shop discounted items in packs."
+    },
+    {
+      "type": "text",
+      "id": "sale_text",
+      "label": "Sale Text",
+      "default": "Find exclusive items on sale."
+    }
+  ],
+  "presets": [
+    {
+      "name": "TC Inline Filters Tags"
+    }
+  ]
+}
+{% endschema %}

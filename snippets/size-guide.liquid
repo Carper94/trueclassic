@@ -1,0 +1,282 @@
+{% if product.type contains 'socks' %}
+<style>
+
+</style>
+{% endif %}
+
+<table id='size-chart-{{ ME }}' class='size-guide-chart modal-size-guide'>
+  <tr class='tr-head'>
+    <td width='10' class='size-head'>SIZE</td>
+    {% if MHEIGHT_S != blank or MHEIGHT_36 != blank %}
+    {% unless product.type contains 'Socks' %}
+      <td class='size-head'>MAX. HEIGHT</td>
+      {% endunless %}
+    {% endif %}
+    {% if CHEST_S != blank or CHEST_36 != blank -%}
+    {% unless product.type contains 'Socks' %}
+      <td class='size-head'>CHEST</td>
+      {% endunless %}
+    {% endif %}
+    {% if WAIST_S != blank or WAIST_M != blank or WAIST_36 != blank -%}
+      <td class='size-head'>
+        {% if product.type contains 'Socks' %}
+          SHOE SIZE EUR
+        {% else %}
+          WAIST
+        {% endif %}
+      </td>
+    {% endif %}
+    {% if HIPS_S != blank or HIPS_M != blank or HIPS_36 != blank -%}
+      <td class='size-head'>
+        {% if product.type contains 'Socks' %}
+          SHOE SIZE US
+        {% else %}
+          HIP
+        {% endif %}
+      </td>
+    {% endif %}
+  </tr>
+{% if product.type contains 'Socks' %}
+  {% if MHEIGHT_S != blank or CHEST_S != blank or WAIST_S != blank or HIPS_S != blank %}
+    <tr>
+      {% render 'size-dimention', LETTER: 'M', NUMBER: '28' %}
+      {% render 'size-length',
+        WAIST: WAIST_S,
+        HIPS: HIPS_S,
+        ME: ME
+      %}
+    </tr>
+  {% endif %}
+
+  {% if MHEIGHT_M != blank or CHEST_M != blank or WAIST_M != blank or HIPS_M != blank %}
+    <tr>
+      {% render 'size-dimention', LETTER: 'L', NUMBER: '29' %}
+      {% render 'size-length',
+        WAIST: WAIST_M,
+        HIPS: HIPS_M,
+        ME: ME
+      %}
+    </tr>
+  {% endif %}
+
+  {% if MHEIGHT_L != blank or CHEST_L != blank or WAIST_L != blank or HIPS_L != blank %}
+    <tr>
+      {% render 'size-dimention', LETTER: 'XL', NUMBER: '30' %}
+      {% render 'size-length',
+        WAIST: WAIST_L,
+        HIPS: HIPS_L,
+        ME: ME
+      %}
+    </tr>
+  {% endif %}
+{% endif %}
+{% unless product.type contains 'Socks' %}
+  {% if MHEIGHT_S != blank or CHEST_S != blank or WAIST_S != blank or HIPS_S != blank %}
+    <tr>
+      {% render 'size-dimention', LETTER: 'S', NUMBER: '28' %}
+      {% render 'size-length',
+        MHEIGHT: MHEIGHT_S,
+        CHEST: CHEST_S,
+        WAIST: WAIST_S,
+        HIPS: HIPS_S,
+        ME: ME
+      %}
+    </tr>
+  {% endif %}
+
+  {% if MHEIGHT_M != blank or CHEST_M != blank or WAIST_M != blank or HIPS_M != blank %}
+    <tr>
+      {% render 'size-dimention', LETTER: 'M', NUMBER: '29' %}
+      {% render 'size-length',
+        MHEIGHT: MHEIGHT_M,
+        CHEST: CHEST_M,
+        WAIST: WAIST_M,
+        HIPS: HIPS_M,
+        ME: ME
+      %}
+    </tr>
+  {% endif %}
+
+  {% if MHEIGHT_L != blank or CHEST_L != blank or WAIST_L != blank or HIPS_L != blank %}
+    <tr>
+      {% render 'size-dimention', LETTER: 'L', NUMBER: '30' %}
+      {% render 'size-length',
+        MHEIGHT: MHEIGHT_L,
+        CHEST: CHEST_L,
+        WAIST: WAIST_L,
+        HIPS: HIPS_L,
+        ME: ME
+      %}
+    </tr>
+  {% endif %}
+
+  {% if MHEIGHT_XL != blank or CHEST_XL != blank or WAIST_XL != blank or HIPS_XL != blank %}
+    <tr>
+      {% render 'size-dimention', LETTER: 'XL', NUMBER: '31' %}
+      {% render 'size-length',
+        MHEIGHT: MHEIGHT_XL,
+        CHEST: CHEST_XL,
+        WAIST: WAIST_XL,
+        HIPS: HIPS_XL,
+        ME: ME
+      %}
+    </tr>
+  {% endif %}
+
+  {% if MHEIGHT_2XL != blank or CHEST_2XL != blank or WAIST_2XL != blank or HIPS_2XL != blank %}
+    <tr>
+      {% render 'size-dimention', LETTER: '2XL', NUMBER: '32' %}
+      {% render 'size-length',
+        MHEIGHT: MHEIGHT_2XL,
+        CHEST: CHEST_2XL,
+        WAIST: WAIST_2XL,
+        HIPS: HIPS_2XL,
+        ME: ME
+      %}
+    </tr>
+  {% endif %}
+
+  {% if MHEIGHT_3XL != blank or CHEST_3XL != blank or WAIST_3XL != blank or HIPS_3XL != blank %}
+    <tr>
+      {% render 'size-dimention', LETTER: '3XL', NUMBER: '33' %}
+      {% render 'size-length',
+        MHEIGHT: MHEIGHT_3XL,
+        CHEST: CHEST_3XL,
+        WAIST: WAIST_3XL,
+        HIPS: HIPS_3XL,
+        ME: ME
+      %}
+    </tr>
+  {% endif %}
+
+  {% if MHEIGHT_4XL != blank or CHEST_4XL != blank or WAIST_4XL != blank or HIPS_4XL != blank %}
+    <tr>
+      {% render 'size-dimention', LETTER: '4XL', NUMBER: '34' %}
+      {% render 'size-length',
+        MHEIGHT: MHEIGHT_4XL,
+        CHEST: CHEST_4XL,
+        WAIST: WAIST_4XL,
+        HIPS: HIPS_4XL,
+        ME: ME
+      %}
+    </tr>
+  {% endif %}
+
+  {% if MHEIGHT_34 != blank or CHEST_34 != blank or WAIST_34 != blank or HIPS_34 != blank %}
+    <tr>
+      {% render 'size-dimention', NUMBER: '34' %}
+      {% render 'size-length',
+        MHEIGHT: MHEIGHT_34,
+        CHEST: CHEST_34,
+        WAIST: WAIST_34,
+        HIPS: HIPS_34,
+        ME: ME
+      %}
+    </tr>
+  {% endif %}
+
+  {% if MHEIGHT_36 != blank or CHEST_36 != blank or WAIST_36 != blank or HIPS_36 != blank %}
+    <tr>
+      {% render 'size-dimention', NUMBER: '36' %}
+      {% render 'size-length',
+        MHEIGHT: MHEIGHT_36,
+        CHEST: CHEST_36,
+        WAIST: WAIST_36,
+        HIPS: HIPS_36,
+        ME: ME
+      %}
+    </tr>
+  {% endif %}
+
+  {% if MHEIGHT_38 != blank or CHEST_38 != blank or WAIST_38 != blank or HIPS_38 != blank %}
+    <tr>
+      {% render 'size-dimention', NUMBER: '38' %}
+      {% render 'size-length',
+        MHEIGHT: MHEIGHT_38,
+        CHEST: CHEST_38,
+        WAIST: WAIST_38,
+        HIPS: HIPS_38,
+        ME: ME
+      %}
+    </tr>
+  {% endif %}
+
+  {% if MHEIGHT_40 != blank or CHEST_40 != blank or WAIST_40 != blank or HIPS_40 != blank %}
+    <tr>
+      {% render 'size-dimention', NUMBER: '40' %}
+      {% render 'size-length',
+        MHEIGHT: MHEIGHT_40,
+        CHEST: CHEST_40,
+        WAIST: WAIST_40,
+        HIPS: HIPS_40,
+        ME: ME
+      %}
+    </tr>
+  {% endif %}
+
+  {% if MHEIGHT_42 != blank or CHEST_42 != blank or WAIST_42 != blank or HIPS_42 != blank %}
+    <tr>
+      {% render 'size-dimention', NUMBER: '42' %}
+      {% render 'size-length',
+        MHEIGHT: MHEIGHT_42,
+        CHEST: CHEST_42,
+        WAIST: WAIST_42,
+        HIPS: HIPS_42,
+        ME: ME
+      %}
+    </tr>
+  {% endif %}
+
+  {% if MHEIGHT_44 != blank or CHEST_44 != blank or WAIST_44 != blank or HIPS_44 != blank %}
+    <tr>
+      {% render 'size-dimention', NUMBER: '44' %}
+      {% render 'size-length',
+        MHEIGHT: MHEIGHT_44,
+        CHEST: CHEST_44,
+        WAIST: WAIST_44,
+        HIPS: HIPS_44,
+        ME: ME
+      %}
+    </tr>
+  {% endif %}
+
+  {% if MHEIGHT_46 != blank or CHEST_46 != blank or WAIST_46 != blank or HIPS_46 != blank %}
+    <tr>
+      {% render 'size-dimention', NUMBER: '46' %}
+      {% render 'size-length',
+        MHEIGHT: MHEIGHT_46,
+        CHEST: CHEST_46,
+        WAIST: WAIST_46,
+        HIPS: HIPS_46,
+        ME: ME
+      %}
+    </tr>
+  {% endif %}
+
+  {% if MHEIGHT_48 != blank or CHEST_48 != blank or WAIST_48 != blank or HIPS_48 != blank %}
+    <tr>
+      {% render 'size-dimention', NUMBER: '48' %}
+      {% render 'size-length',
+        MHEIGHT: MHEIGHT_48,
+        CHEST: CHEST_48,
+        WAIST: WAIST_48,
+        HIPS: HIPS_48,
+        ME: ME
+      %}
+    </tr>
+  {% endif %}
+
+  {% if MHEIGHT_50 != blank or CHEST_50 != blank or WAIST_50 != blank or HIPS_50 != blank %}
+    <tr>
+      {% render 'size-dimention', NUMBER: '50' %}
+      {% render 'size-length',
+        MHEIGHT: MHEIGHT_50,
+        CHEST: CHEST_50,
+        WAIST: WAIST_50,
+        HIPS: HIPS_50,
+        ME: ME
+      %}
+    </tr>
+  {% endif %}
+  {% endunless %}
+</table>

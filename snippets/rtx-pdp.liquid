@@ -1,0 +1,1002 @@
+{%- comment -%}
+  RTX PDP Snippet
+    v1.0.2-221208
+{%- endcomment -%}
+{%- liquid
+  assign retextionAppId = '5859381'
+  assign modalContent = pages['retextion-popup'].content
+
+  assign currentVariant = variant | default: product.selected_or_first_available_variant
+  assign requiresPlan = product.requires_selling_plan
+  assign selectedAllocation = null
+  assign selectedOrFirstAllocation = null
+  assign sellingPlanGroups = product.selling_plan_groups | where: 'app_id', retextionAppId
+
+  for allocation in currentVariant.selling_plan_allocations
+    assign group = sellingPlanGroups | where: 'id', allocation.selling_plan_group_id | first
+    if group == blank
+      continue
+    endif
+
+    if allocation.selling_plan.selected
+      assign selectedAllocation = allocation
+      assign selectedOrFirstAllocation = allocation
+      break
+    endif
+  endfor
+-%}
+
+{%- if sellingPlanGroups.size > 0 -%}
+  {%- comment -%} Shorthand Variables {%- endcomment -%}
+  {%- liquid
+    render 'rtx-api'
+
+    assign allocationCount = 0
+    capture sellingPlanOptions
+      for allocation in currentVariant.selling_plan_allocations
+        assign plan = allocation.selling_plan
+        assign group = sellingPlanGroups | where: 'id', allocation.selling_plan_group_id | first
+        if group == blank
+          continue
+        endif
+
+        if selectedOrFirstAllocation == blank
+          assign selectedOrFirstAllocation = allocation
+        endif
+
+        echo '<option data-type-subscription'
+        if allocation == selectedAllocation
+          echo ' selected'
+        endif
+        echo ' value="' | append: plan.id | append: '">'
+        echo plan.name | escape
+        echo '</option>'
+
+        assign allocationCount = allocationCount | plus: 1
+      endfor
+    endcapture
+  -%}
+
+  {%- comment -%} Buy Box Styles {%- endcomment -%}
+  <style type='text/css'>
+    .rtx-subscription,
+    .rtx-subcription * {
+      box-sizing: border-box;
+    }
+
+    .rtx-subscription {
+      margin-bottom: 1.5rem;
+    }
+    .rtx-subscription-label__inner input[type='radio'],
+    .rtx-subscription input[type='radio']:checked {
+      box-shadow: none;
+      height: fit-content;
+    }
+
+    .rtx-subscription-box {
+      display: flex;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      flex-direction: column-reverse;
+      gap: 0.5em;
+    }
+
+    .rtx-container .rtx-subscription-label .dropdown {
+      border: 1px solid  #BCBCBC;
+      border-radius: 5px;
+      height: 32px;
+      justify-content: space-between !important;
+      padding: 0 1em;
+      margin-bottom: 1em;
+    }
+
+    .rtx-subscription-label {
+      padding: 1rem;
+      border-radius: 0.25rem;
+      display: block;
+    }
+    .rtx-subscription-label__inner {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      cursor: pointer;
+    }
+
+    .rtx-subscription-label:has([type=radio].styled:checked+label) {
+      border: 1.5px solid #FFDE6A;
+    }
+
+    .rtx-subscription-label:has([type=radio].styled:checked+label) .subscribe-save-modal--open {
+      color: black;
+    }
+
+    .rtx-subscription-label {
+      border: 1.5px solid lightgray;
+    }
+    
+    .rtx-subscription-label .select-bubble {
+      opacity: .50;
+    }
+
+    .rtx-subscription-label [type=radio].styled:checked+label .select-bubble {
+      opacity: 1;
+    } 
+
+    .rtx-container .rtx-subscription-label.is-selected .dropdown{
+      border: 1px solid black;
+    }
+
+    .rtx-subscription-label__inner > span {
+      display: block;
+      margin-left: 0.5rem;
+    }
+    .rtx-subscription-dropdown {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      height: 100%;
+      width: 100%;
+    }
+    .rtx-subscription-dropdown.is-hidden {
+      display: none;
+    }
+    .rtx-subscription-single-label {
+      display: none;
+      padding: 1rem 0 0 1.8rem;
+    }
+    .rtx-subscription-single-label.is-visible {
+      display: block;
+    }
+
+    .rtx-modal-button {
+      padding: 0;
+      font-size: 0.875rem;
+      background: none;
+      border: none;
+      margin-bottom: 2rem;
+      text-transform: initial;
+      height: auto;
+      min-height: 0;
+    }
+
+    .rtx-modal-is-visible {
+      overflow: hidden;
+      height: 100%;
+    }
+    .rtx-modal {
+      display: none;
+    }
+    .rtx-modal__backdrop {
+      /*appearance: none;
+      -webkit-appearance: none;*/
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 0;
+      transition: all 0.2s ease-out;
+      cursor: pointer;
+      opacity: 0;
+    }
+    .rtx-modal__frame {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+      z-index: 99999999999;
+    }
+    .rtx-modal__frame-inner {
+      padding: 0.5rem;
+      width: 100%;
+      min-height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .rtx-modal__content {
+      position: relative;
+      background: white;
+      width: 100%;
+      max-width: 40rem;
+      overflow-x: hidden;
+      padding: 1rem 2rem;
+      transform: translateY(-1rem);
+      opacity: 0;
+      transition: all 0.2s ease-out;
+    }
+    .rtx-modal__dismiss {
+      margin: 0;
+      border: none;
+      border-radius: 0;
+      line-height: 0;
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      font-size: 1.5rem;
+      top: 0rem;
+      right: 0rem;
+      cursor: pointer;
+    }
+
+    .rtx-modal.is-visible,
+    .rtx-modal.is-fading-out {
+      display: block;
+    }
+    .rtx-modal.is-fading-in,
+    .rtx-modal.has-faded-in {
+      opacity: 1;
+    }
+    .rtx-modal.is-fading-in .rtx-modal__backdrop,
+    .rtx-modal.has-faded-in .rtx-modal__backdrop {
+      opacity: 1;
+    }
+    .rtx-modal.is-fading-in .rtx-modal__content,
+    .rtx-modal.has-faded-in .rtx-modal__content {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .rtx-subscription select {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background-color: transparent;
+      border: none;
+      padding: 0 1em 0 0;
+      line-height: inherit;
+      z-index: 1;
+      outline: none;
+      text-transform: lowercase;
+    }
+    .rtx-subscription select::-ms-expand {
+      display: none;
+    }
+
+    .rtx-subscription .select select,
+    .rtx-subscription .select::after {
+      grid-area: select;
+    }
+    .rtx-subscription .select:not(.select--multiple)::after {
+      content: '';
+      justify-self: end;
+      width: 0.8em;
+      height: 0.5em;
+      background-color: var(--select-arrow);
+      -webkit-clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+      clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+    }
+
+    .rtx-subscription select:focus + .focus {
+      position: absolute;
+      top: -1px;
+      left: -1px;
+      right: -1px;
+      bottom: -1px;
+      border: 2px solid var(--select-focus);
+      border-radius: inherit;
+    }
+
+    .rtx-subscription select[multiple] {
+      padding-right: 0;
+      height: 6rem;
+    }
+
+    .rtx-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .rtx-subscription select[multiple] option {
+      white-space: normal;
+      outline-color: var(--select-focus);
+    }
+
+    .rtx-subscription .select--disabled {
+      cursor: not-allowed;
+      background-color: rgb(255, 251, 236);
+    }
+
+    .rtx-subscription [type='radio'].styled:checked + label:before,
+    .rtx-subscription [type='radio'].styled:not(:checked) + label:before {
+      width: 1.625rem;
+      height: 1.625rem;
+      border-radius: 100%;
+      background: #fff;
+    }
+
+    .rtx-subscription-label__inner label {
+      display: flex !important;
+      width: 100%;
+      justify-content: space-between;
+    }
+
+
+    .rtx-subscription .strike {
+      text-decoration: line-through;
+      color: #666;
+      margin-left: auto;
+      margin-right: 10px;
+    }
+
+    .rtx-subscription-label [type=radio].styled:checked+label, 
+    .rtx-subscription-label [type=radio].styled:not(:checked)+label {
+      padding-left: 2.5rem;
+    }
+
+    .rtx-subscription-label  [type=radio].styled:checked+label {
+      color: black;
+    }
+
+    .rtx-subscription-label  [type=radio].styled:checked+label:before {
+      border: .825rem solid black;
+    }
+
+    .rtx-subscription-label:has([type=radio].styled:checked+label) .value-prop {
+      color: black;
+    }
+
+    .rtx-subscription-label:has([type=radio].styled:checked+label) .value-prop path {
+      stroke: lightgray !important;
+    }
+
+    .rtx-subscription-label:has([type=radio].styled:checked+label) .value-prop path {
+      stroke: black !important;
+    }
+
+    .rtx-subscription-label .value-prop {
+      font-size: 14px;
+      display: flex;
+      color: lightgray;
+      gap: 8px;
+    }
+
+    .rtx-subscription [type=radio].styled:checked+label:after {
+      /* border: .2rem solid white !important; */
+      background: #FFDE6A !important;
+      border: 1px solid black;
+      /* outline: 1px solid black; */
+    }
+
+    .flex-col {
+      flex-direction: column;
+    }
+
+    .rtx-top {
+      display: flex;
+      padding-left: 2.5rem;
+    }
+
+    .bubble-container {
+      display: flex;
+      gap: .75rem;
+      flex-wrap: wrap;
+    }
+
+    .bubble-container .select-bubble {
+      width: 100px;
+      height: 32px;
+      border-radius: 35px;
+      background-color: white;
+      color: black;
+      font-size: 13px;
+      border: 1px solid #666;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .bubble-container .select-bubble.active {
+      background-color: #FFDE6A;
+      border: none;
+    }
+
+    .value-prop-container {
+      margin-top: 1rem;
+      flex-direction: column;
+    }
+
+    .sub-only-label {
+      padding-left: 0 !important;
+    }
+
+    .subscribe-save-modal--open {
+      color: lightgray;
+      font-family: modernist;
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 15px;
+      letter-spacing: 0.05em;
+      text-align: center;
+      text-decoration: underline;
+      cursor: pointer;
+      text-transform: uppercase;
+      margin-top: .5rem;
+    }
+
+    .sub-save-modal {
+      display: none;
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100000;
+      background-color: rgba(0,0,0,.5);
+      backdrop-filter: blur(2px);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .sub-save-modal.open {
+      display: flex;
+    }
+
+    .sub-save-modal--inner {
+      height: max-content;
+      width: 90%;
+      max-width: 400px;
+      background-color: white;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 5px;
+      flex-direction: column;
+      padding: 1.5rem;
+      position: relative;
+    }
+
+    .sub-save-modal h3 {
+      font-size: 20px;
+    }
+
+    .sub-save-modal--inner .value-props-container {
+      margin: 1rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .sub-save-modal--inner .value-prop-container {
+      display: flex;
+      flex-direction: row;
+      gap: 15px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .sub-save-modal--inner .value-prop-container h4 {
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .sub-save-modal--inner .value-prop-container {
+      margin-top: auto;
+    }
+
+    .sub-save-modal--inner .close-modal-btn {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: .75rem;
+      cursor: pointer;
+    }
+
+    .sub-save-modal--inner .full-details {
+      font-weight: 400;
+      font-family: modernist;
+      font-size: 15px;
+      margin-top: 1rem;
+      color: black !important;
+      text-decoration: underline !important;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .sub-save-modal--inner .value-prop-text {
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    @media screen and (max-width: 560px) {
+      .rtx-subscription-box {
+        margin-top: 1rem;
+      }
+      .rtx-subscription-label .value-prop {
+        font-size: 12px;
+      }
+      .rtx-subscription [type='radio'].styled:checked + label:before,
+      .rtx-subscription [type='radio'].styled:not(:checked) + label:before {
+        width: 1.225rem;
+        height: 1.225rem;
+        border-radius: 100%;
+        background: #fff;
+      }
+
+      .rtx-subscription-label [type=radio].styled:checked+label:before {
+        border: none;
+      }
+      .rtx-subscription [type='radio'].styled:checked + label:after,
+      .rtx-subscription [type='radio'].styled:not(:checked) + label:after {
+        width: 1.225rem;
+        height: 1.225rem;
+        border: 0.55rem solid var(--brand-chocolate)
+        border-radius: 100%;
+        background: #fff;
+      }
+      .rtx-subscription label {
+        font-size: 0.75rem !important;
+      }
+    }
+  </style>
+
+  <div class="sub-save-modal">
+    <div class="sub-save-modal--inner">
+      <h3>Subscribe and save 10%</h3>
+      <div class="value-props-container">
+        <div class="value-prop-container">
+          <div class="svg">{% render 'icon-green-check' %}</div>
+          <div class="value-prop-text"><b>Exclusive Discounts:</b> Save 10% today & on repeat deliveries</div>
+        </div>
+        <div class="value-prop-container">
+          <div class="svg">{% render 'icon-green-check' %}</div>
+          <div class="value-prop-text"><b>Flexible Delivery Options:</b> Pause, skip, cancel, or gift your subscription at any time.</div>
+        </div>
+        <div class="value-prop-container">
+          <div class="svg">{% render 'icon-green-check' %}</div>
+          <div class="value-prop-text"><b>Customizable Subscription Options:</b> Update color and size or add new products to your subscription at any time.</div>
+        </div>
+      </div>
+      <a href="/pages/true-classic-subscription" class="full-details">click here for full details</a>
+      <div class="close-modal-btn">
+        {% render 'icon-close' %}
+      </div>
+    </div>
+  </div>
+
+  <div
+    data-rtx-subscription-{{ product.id }}-{{ section.id }}-{{ block.id }}
+    class='rtx-subscription'
+  >
+    {%- comment -%} Subscription type toggle {%- endcomment -%}
+    {%- unless requiresPlan -%}
+      <div class="rtx-container">
+        <label
+          for='purchaseTypeOneTime'
+          class='rtx-subscription-label {% if selectedAllocation == blank %}is-selected{% endif %}'
+        >
+          <div class='rtx-subscription-label__inner'>
+            <input
+              class='styled'
+              type='radio'
+              id='purchaseTypeOneTime'
+              name='purchaseType'
+              value='purchaseTypeOneTime'
+              {% if selectedAllocation == blank %}
+                checked
+              {% endif %}
+            >
+            <label class='styled' for='purchaseTypeOneTime'>
+              {{- settings['buybox--onetime'] | default: 'One time purchase ' | escape -}}
+              <span data-rtx-onetime-price>{{ currentVariant.price | money }}</span></label
+            >
+          </div>
+        </label>
+
+        <label
+          class='rtx-subscription-label {% if selectedAllocation != blank %}is-selected{% endif %}'
+          for='purchaseTypeSubscription'
+        >
+          <div class='rtx-subscription-label__inner mg-b-xs'>
+            <input
+              class='styled'
+              type='radio'
+              id='purchaseTypeSubscription'
+              name='purchaseType'
+              value='purchaseTypeSubscription'
+              {% if selectedAllocation != blank %}
+                checked
+              {% endif %}
+            >
+            <label
+              class='styled text modernist-type s color-chocolate flex-col sub-only-label'
+              for='purchaseTypeSubscription'
+            > 
+              <div class="rtx-top">
+                <span>Subscribe & save 10%</span>
+                <span class="strike">{{ currentVariant.price | money }}</span>
+                <span class="full">{{ selectedOrFirstAllocation.price | money }}</span>
+              </div>
+
+              
+              {% comment %} {{- product.selling_plan_groups.first.name | escape }}
+              <span data-rtx-subscription-price>
+                {%- liquid
+                  assign strSavePercentage = ''
+                  assign opt = selectedOrFirstAllocation.selling_plan.price_adjustments.first
+                  if opt.value_type == 'percentage'
+                    assign strSavePercentage = opt.value
+                  endif
+
+                  if strSavePercentage != blank
+                    echo '(' | append: strSavePercentage | append: '%): '
+                    echo selectedOrFirstAllocation.price | money
+                  elsif selectedOrFirstAllocation.price != currentVariant.price
+                    echo ': '
+                    echo selectedOrFirstAllocation.price | money
+                  endif
+                -%} 
+              </span></label
+            >
+          </div> {% endcomment %}
+
+          {%- comment -%} Subscription Box {%- endcomment -%}
+          <div class="rtx-bottom">
+            <div data-retextion-subscription-box class='
+              text modernist-type s color-chocolate
+              rtx-subscription-box
+              {% if requiresPlan or selectedAllocation != blank %}
+                is-visible
+              {% endif %}
+            '
+          >
+          <div class="value-prop-container">
+            <div class="value-prop">
+              <div class="check">
+                {% render 'tc-icons', icon: 'checkmark' %}
+              </div>
+              <div class="value-prop">Save 10% today & on repeat deliveries</div>
+            </div>
+            <div class="value-prop">
+              <div class="check">
+                {% render 'tc-icons', icon: 'checkmark' %}              
+              </div>
+              <div class="value-prop">No commitment, cancel or modify anytime</div>
+            </div>
+            <button class="subscribe-save-modal--open">
+              learn more
+            </button>
+          </div>
+
+          <span class='rtx-subscription-single-label {% if allocationCount == 1 %}is-visible{% endif %}'>
+            {{- selectedOrFirstAllocation.selling_plan.name | escape -}}
+          </span>
+
+            {% comment %} <div class='flex dropdown' style='align-items: center; justify-content: left; column-gap: 0.5rem;' >
+              <select
+                class='text modernist-type s color-chocolate rtx-subscription-dropdown {% if allocationCount == 1 %}is-hidden{% endif %}'
+                name='selling_plan'
+              >
+                <option
+                  {% if selectedAllocation == blank %}
+                    selected
+                  {% endif %}
+                  value=''
+                >
+                  One Time
+                </option>
+                {{ sellingPlanOptions }}
+              </select>
+              {% render 'tc-icons', icon: 'caret-up' %}
+            </div> {% endcomment %}
+
+            <div class="bubble-container">
+
+      
+              {% assign allocationCount = 0 %}
+              {% assign starting_id = nil %}
+
+              {% for allocation in currentVariant.selling_plan_allocations %}
+
+                {% assign plan = allocation.selling_plan %}
+                {% assign group = sellingPlanGroups | where: 'id', allocation.selling_plan_group_id | first  %}
+
+                {% if group == blank %}
+                  {% continue %}
+                {% endif %}
+
+                {% if selectedOrFirstAllocation == blank %}
+                  {% assign selectedOrFirstAllocation = allocation %}
+                {% endif %}
+
+                <button class="select-bubble {% if forloop.first %} active {% endif %}" data-plan-id="{{ plan.id }}">
+                  {{ plan.name | remove: 'every' | remove: 'Delivered' | escape}}
+                </button>
+              
+                {% assign allocationCount = allocationCount | plus: 1 %}
+
+                {% if starting_id == nil %}
+                  {% assign starting_id = plan.id %}
+                {% endif %}
+              {% endfor %}
+
+               <input type="hidden" name="selling_plan" value="{{ starting_id }}" />
+            </div>
+
+          </div>          
+          </div>
+
+        </label>
+
+        {%- comment -%} Subscription Information Modal {%- endcomment -%}
+        {% comment %} {%- if modalContent != blank -%}
+          <button type='button' class='rtx-modal-button' data-rtx-modal-open>
+            Subscription details
+          </button>
+
+          <div class='rtx-modal' data-rtx-modal>
+            <div class='rtx-modal__frame'>
+              <div class='rtx-modal__frame-inner'>
+                <div class='rtx-modal__backdrop' data-rtx-modal-dismiss></div>
+                <div class='rtx-modal__content'>
+                  <button type='button' class='rtx-modal__dismiss' data-rtx-modal-dismiss>
+                    &times;
+                  </button>
+                  {{- modalContent -}}
+                </div>
+              </div>
+            </div>
+          </div>
+        {%- endif -%} {% endcomment %}
+      </div>
+    {%- endunless -%}
+  </div>
+
+  <script type='text/javascript'>
+    
+
+    const rtxInit = (buyBoxes) => {
+      const buyBox = {
+        boxId: "{{ product.id }}-{{ section.id }}-{{ block.id }}"
+      };
+
+      buyBox.product = {{ product | json }};
+      buyBox.variantId = {{ currentVariant.id | json }};
+      buyBox.root = document.querySelector('.rtx-subscription');
+      buyBox.form = document.querySelector('form[action="/cart/add"]');
+      buyBox.subscriptionBox = buyBox.root.querySelector('[data-retextion-subscription-box]');
+      buyBox.sellingPlanSelector = buyBox.root.querySelector('[name="selling_plan"]');
+      buyBox.quantitySelector = buyBox.root.querySelector('[name="quantity"]');
+      buyBox.purchaseType = buyBox.root.querySelectorAll('[name="purchaseType"]');
+      buyBox.variantSelectors = buyBox.root.querySelectorAll('[name="id"]');
+      buyBox.labelOneTime = buyBox.root.querySelector('[for="purchaseTypeOneTime"]');
+      buyBox.labelSubscription = buyBox.root.querySelector('[for="purchaseTypeSubscription"]');
+
+      buyBox.cachedSellingPlanId = buyBox.sellingPlanSelector.value;
+
+      buyBox.removeEmptyOption = () => {
+        const optEmpty = buyBox.sellingPlanSelector.querySelectorAll('[value=""]');
+        optEmpty.forEach(e => e.remove());
+      }
+
+      buyBox.addEmptyOption = () => {
+        let optEmpty = buyBox.sellingPlanSelector.querySelector('[value=""]');
+        if(optEmpty) return;
+        optEmpty = document.createElement('option');
+        optEmpty.value = '';
+        optEmpty.textContent = 'One Time';
+        buyBox.sellingPlanSelector.appendChild(optEmpty);
+      }
+
+      buyBox.hideSubscriptionBox = () => {
+        buyBox.cachedSellingPlanId = buyBox.sellingPlanSelector.value;
+        buyBox.subscriptionBox.classList.remove('is-visible');
+        buyBox.addEmptyOption();
+        buyBox.sellingPlanSelector.value = '';
+        buyBox.updateSellingPlan();
+        if(buyBox.labelOneTime) buyBox.labelOneTime.classList.add('is-selected');
+        if(buyBox.labelSubscription) buyBox.labelSubscription.classList.remove('is-selected');
+      }
+
+      buyBox.showSubscriptionBox = () => {
+        buyBox.subscriptionBox.classList.add('is-visible');
+        buyBox.sellingPlanSelector.value = buyBox.cachedSellingPlanId;
+        buyBox.removeEmptyOption();
+        buyBox.updateSellingPlan();
+        
+        if(buyBox.labelOneTime) buyBox.labelOneTime.classList.remove('is-selected');
+        if(buyBox.labelSubscription) buyBox.labelSubscription.classList.add('is-selected');
+      }
+
+      buyBox.isSubscriptionBoxVisible = () => {
+        return buyBox.subscriptionBox.classList.contains('is-visible');
+      } 
+
+      buyBox.getSellingPlanId = () => {
+        return parseInt(buyBox.sellingPlanSelector.value);
+      }
+      
+      buyBox.setSellingPlan = (sellingPlan) => {
+        sellingPlan = sellingPlan && sellingPlan.id ? sellingPlan.id : sellingPlan;
+        buyBox.sellingPlanSelector.value = sellingPlan.toString();
+      }
+
+      buyBox.getFormData = () => {
+        const formData = new FormData(buyBox.root);
+        return Array.from(formData.entries());
+      }
+
+      buyBox.updateSellingPlan = () => {
+        const discountLabels = buyBox.root.querySelectorAll('[data-rtx-subscription-price]');
+        const fullPriceLabels = buyBox.root.querySelectorAll('[data-rtx-onetime-price]');
+
+        const variant = buyBox.product.variants.find(v => v.id == buyBox.variantId);
+        const sellingPlanId = buyBox.isSubscriptionBoxVisible() ? buyBox.getSellingPlanId() : undefined;
+        const sellingPlanAllocation = sellingPlanId ? variant.selling_plan_allocations.find(spa => spa.selling_plan_id == sellingPlanId) : undefined;
+        const firstSellingPlanAllocation = variant.selling_plan_allocations.find(spa => spa.selling_plan_id == buyBox.getSellingPlanId()) || variant.selling_plan_allocations.find(spa => spa);
+
+        let strDiscount;
+        if(firstSellingPlanAllocation && firstSellingPlanAllocation.price != variant.price) {
+          let percentage = Math.round((1.0 - (firstSellingPlanAllocation.price / variant.price)) * 100);
+          if(percentage != 0) {
+            strDiscount = `(${percentage.toFixed(0)}%): ${window.retextionApi.formatMoney(firstSellingPlanAllocation.price)}`;
+          } else {
+            strDiscount = `: ${window.retextionApi.formatMoney(firstSellingPlanAllocation.price)}`;
+          }
+        } else {
+          strDiscount = '';
+        }
+        let strFullPrice = ` ${window.retextionApi.formatMoney(variant.price)}`;
+        // discountLabels.forEach(dl => dl.textContent = strDiscount);
+        // fullPriceLabels.forEach(fp => fp.textContent = strFullPrice);
+
+        window.retextionApi.sellingPlanPushHistory({
+          sellingPlan: sellingPlanId
+        });
+      }
+
+      // Event Listeners
+      buyBox.purchaseType.forEach(el => {
+        el.addEventListener('change', e => {
+          if(el.value === 'purchaseTypeSubscription') {
+            buyBox.showSubscriptionBox();
+          } else {
+            buyBox.hideSubscriptionBox();
+          }
+        });
+      });
+
+      buyBox.sellingPlanSelector.addEventListener('change', e => {
+        buyBox.updateSellingPlan();
+      });
+
+      buyBox.variantSelectors.forEach(vs => {
+        vs.addEventListener('change', e => {
+          let newOptions = '';
+          buyBox.variantId = e.target.value;
+          const variant = buyBox.product.variants.find(v => v.id == buyBox.variantId);
+
+          // Determine the selected option
+          let selectedPlanId = buyBox.getSellingPlanId();
+          if(!variant.selling_plan_allocations.some(spa => {
+            return spa.selling_plan_id == selectedPlanId;
+          })) {
+            if(variant.selling_plan_allocations.length) {
+              selectedPlanId = variant.selling_plan_allocations[0].selling_plan_id;
+            } else {
+              selectedPlanId = '';
+            }
+          }
+
+          // Generate new options
+          variant.selling_plan_allocations.forEach((spa,i) => {
+            const sellingGroup = boxProduct.selling_plan_groups.find(spg => spg.id === spa.selling_plan_group_id);
+            const sellingPlan = sellingGroup.selling_plans.find(sp => sp.id === spa.selling_plan_id);
+
+            if(sellingGroup.app_id != {{ retextionAppId | json }}) return;
+
+            const opt = document.createElement('option');
+            if(sellingPlan.id == selectedPlanId) {
+              opt.setAttribute('selected', 'selected');
+            }
+            opt.value = sellingPlan.id;
+            opt.textContent = sellingPlan.name;
+            newOptions += opt.outerHTML;
+          });
+          
+          // Update select
+          elementSellingPlan.innerHTML = newOptions;
+          buyBox.updateSellingPlan();
+        });
+      });
+
+      document.body.addEventListener('click', e => {
+        const dismiss = e.target.closest('[data-rtx-modal-dismiss]');
+        if(!dismiss) return;
+        const modal = dismiss.closest('[data-rtx-modal]');
+        const isFadingOut = modal.classList.contains('is-fading-out');
+        const isFadingIn = modal.classList.contains('is-fading-in');
+        if(isFadingIn || isFadingOut) return;
+
+        document.body.classList.remove('rtx-modal-is-visible');
+        document.documentElement.classList.remove('rtx-modal-is-visible');
+        modal.classList.add('is-fading-out');
+        modal.classList.remove('is-visible');
+        modal.classList.remove('has-faded-in');
+        setTimeout(() => {
+          modal.classList.remove('is-fading-out');
+        }, 200);
+      });
+
+      document.body.addEventListener('click', e => {
+        if(!e.target.matches('[data-rtx-modal-open]')) return;
+        const modal = e.target.closest('[data-rtx-modal]') || buyBox.root.querySelector('[data-rtx-modal]');
+        if(!modal) return;
+        const isFadingOut = modal.classList.contains('is-fading-out');
+        const isFadingIn = modal.classList.contains('is-fading-in');
+        if(isFadingIn || isFadingOut) return;
+
+        document.body.classList.add('rtx-modal-is-visible');
+        document.documentElement.classList.add('rtx-modal-is-visible');
+        modal.classList.add('is-visible');
+        requestAnimationFrame(() => {
+          modal.classList.add('is-fading-in');
+        });
+        setTimeout(() => {
+          modal.classList.add('has-faded-in');
+          modal.classList.remove('is-fading-in');
+        }, 200);
+      });
+
+      // Init
+      if(buyBox.isSubscriptionBoxVisible()) buyBox.removeEmptyOption();
+      window.retextionApi.productAdd({ product: buyBox.product });
+
+    }
+
+    rtxInit({});
+
+
+    const observer = new MutationObserver(function (e) {
+      rtxInit({});
+      this.disconnect();
+    });
+    
+    function initObserver(){
+      observer.observe(document.querySelector('#MainContent'), { childList: true, subtree: true });
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+
+      const frequencyButtons = document.querySelectorAll('.select-bubble')
+      const modalOpenBtn = document.querySelector('.subscribe-save-modal--open')
+      const modalCloseBtn = document.querySelector('.close-modal-btn')
+      const modalBackground = document.querySelector('.sub-save-modal')
+
+      frequencyButtons.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault()
+          frequencyButtons.forEach((btn) => { btn.classList.remove('active')})
+          e.target.classList.add('active')
+          document.querySelector('[name="selling_plan"]').value = e.target.dataset.planId
+        })
+      })
+
+      modalOpenBtn.addEventListener('click', (e) => {
+        e.preventDefault()
+        document.querySelector('.sub-save-modal').classList.add('open')
+        
+      })
+
+      modalCloseBtn.addEventListener('click', (e) => {
+        e.preventDefault()
+        document.querySelector('.sub-save-modal').classList.remove('open')
+      })
+
+      modalBackground.addEventListener('click', (e) => {
+        if(e.target.classList.contains('sub-save-modal')) {
+          document.querySelector('.sub-save-modal').classList.remove('open')
+        }
+      })
+    })
+
+  </script>
+{%- endif -%}

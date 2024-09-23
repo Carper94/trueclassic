@@ -1,0 +1,315 @@
+{% assign shipping = shipping | times: 100 %}
+{% assign gwp_1 = gwp_1 | times: 100 %}
+{% assign gwp_2 = gwp_2 | times: 100 %}
+{% assign gwp_3 = gwp_3 | times: 100 %}
+{%- if gwp_1_image -%}
+  {% assign gwp_item_1 = gwp_1_image %}
+{%- else-%}
+  {% assign gwp_item_1 = section.settings.gwp_1 %}
+{%- endif -%}
+{% assign gwp_item_2 = section.settings.gwp_2 %}
+{%- if gwp_3_image -%}
+  {% assign gwp_item_3 = gwp_3_image %}
+{%- else-%}
+  {% assign gwp_item_3 = section.settings.gwp_3 %}
+{%- endif -%}
+
+{% if value < 1 %}
+  {% assign percentage = 0 %}
+{% elsif value >= 1 and value < shipping %}
+  {% assign percentage = 10 %}
+{% elsif value == shipping %}
+  {% assign percentage = 46 %}
+{% elsif value > shipping and value < gwp_1 %}
+  {% assign percentage = 48 %}
+{% elsif value == gwp_1 %}
+  {% assign percentage = 48 %}
+{% elsif value > gwp_1 and value < gwp_2 %}
+  {% assign percentage = 89 %}
+{% elsif value == gwp_2 %}
+  {% assign percentage = 99 %}
+{% elsif value > gwp_2 and value < gwp_3 %}
+  {% assign percentage = 99 %}
+{% else %}
+  {% assign percentage = 100 %}
+{% endif %}
+
+{% if value < 1 %}
+  {% assign percentage2 = 0 %}
+{% elsif value >= 1 and value < shipping %}
+  {% assign percentage2 = 4 %}
+{% elsif value == shipping %}
+  {% assign percentage2 = 4 %}
+{% elsif value > shipping and value < gwp_1 %}
+  {% assign percentage2 = 50 %}
+{% elsif value == gwp_1 %}
+  {% assign percentage2 = 51 %}
+{% elsif value > gwp_1 and value < gwp_2 %}
+  {% assign percentage2 = 100 %}
+{% elsif value >= gwp_2 %}
+  {% assign percentage2 = 100 %}
+{% endif %}
+
+<div class='mini-cart__progress-bar-wrapper' style='margin-bottom: 20px;'>
+  {% if value > gwp_2 %}
+    <h2 class='headline text-center progress-bar-headline__old'>
+      You've Unlocked All Gifts!
+    </h2>
+  {% elsif value >= gwp_1 %}
+    <h2 class='headline text-center progress-bar-headline__old'>
+      You've Unlocked {% if gwp_text_1 != '' %}{{ gwp_text_1 | capitalize }}{% else %}{{ section.settings.gwp_text_1 | capitalize }}{% endif %}!
+    </h2>
+  {% elsif value >= shipping %}
+    <h2 class='headline text-center progress-bar-headline__old'>You've Unlocked Free Shipping!</h2>
+  {% else %}
+    <h2 class='headline text-center progress-bar-headline__old'>Unlock Free Gifts!</h2>
+  {% endif %}
+
+  {% if value >= shipping %}
+    <h2 class='headline text-center progress-bar-headline__new' style='display: none;'>
+      You've Unlocked All Gifts! {{ value }} {{ shipping }}
+    </h2>
+  {% elsif value >= gwp_2 %}
+    <h2 class='headline text-center progress-bar-headline__new' style='display: none;'>
+      You've Unlocked {%- if gwp_text_1 != '' %}{{ gwp_text_1 | capitalize }}{% else %}{{ section.settings.gwp_text_1 | capitalize }}{% endif %}!
+    </h2>
+  {% elsif value >= gwp_1 %}
+    <h2 class='headline text-center progress-bar-headline__new' style='display: none;'>
+      You've Unlocked Free Shipping!
+    </h2>
+  {% else %}
+    <h2 class='headline text-center progress-bar-headline__new' style='display: none;'>
+      Unlock Free Gifts!
+    </h2>
+  {% endif %}
+
+  <div
+    class='progress-bar tiered-progress-bar'
+    style='--percentage: {{ percentage }}%;'
+  >
+    <div class='progress-bar__heading progress-bar__heading-old'>
+      {% if value >= gwp_2 %}
+        <p style='text-align: center; font-size: 15px;'></p>
+      {% elsif value >= gwp_1 %}
+        {% assign distance = gwp_2 | minus: value %}
+        <p style='text-align: center; font-size: 15px;'>
+          You are {{ distance | money }} from a {% if gwp_text_2 != '' %}
+            {{ gwp_text_2 | capitalize }}
+          {% else %}
+            {{ section.settings.gwp_text_2 | capitalize }}
+          {% endif %}!
+        </p>
+      {% elsif value >= shipping %}
+        {% assign distance = gwp_1 | minus: value %}
+        <p style='text-align: center; font-size: 15px;'>
+          You are {{ distance | money }} from a {% if gwp_text_1 != '' %}
+            {{ gwp_text_1 | capitalize }}
+          {% else %}
+            {{ section.settings.gwp_text_1 | capitalize }}
+          {% endif %}!
+        </p>
+      {% else %}
+        {% assign distance = shipping | minus: value %}
+        <p style='text-align: center; font-size: 15px;'>
+          You are {{ distance | money }} from {{ section.settings.shipping_text }}!
+        </p>
+      {% endif %}
+    </div>
+    <div class='progress-bar__heading progress-bar__heading-new' style='display: none;'>
+      {% if value >= gwp_2 %}
+        <p style='text-align: center; font-size: 15px;'></p>
+      {% elsif value >= gwp_1 %}
+        {% assign distance = gwp_2 | minus: value %}
+        <p style='text-align: center; font-size: 15px;'>
+          You are {{ distance | money }} from a {% if gwp_text_2 != '' %}
+            {{ gwp_text_2 | capitalize }}
+          {% else %}
+            {{ section.settings.gwp_text_2 | capitalize }}
+          {% endif %}!
+        </p>
+      {% elsif value >= shipping %}
+        {% assign distance = gwp_1 | minus: value %}
+        <p style='text-align: center; font-size: 15px;'>
+          You are {{ distance | money }} from a {% if gwp_text_1 != '' %}
+            {{ gwp_text_1 | capitalize }}
+          {% else %}
+            {{ section.settings.gwp_text_1 | capitalize }}
+          {% endif %}!
+        </p>
+      {% else %}
+        {% assign distance = shipping | minus: value %}
+        <p style='text-align: center; font-size: 15px;'>
+          You are {{ distance | money }} from {{ section.settings.shipping_text }}!
+        </p>
+      {% endif %}
+    </div>
+    <div
+      class='progress-bar__outer progress-bar__outer-old'
+      style='background: linear-gradient(to right, #7FB27F {{ percentage }}%, #ededed {{ percentage }}%);'
+    >
+      <div class='tiered-bubble_container'>
+        <div class='tier-wrapper'>
+          <div
+            class='tiered-bubble__outer{% if value >= shipping %} tiered-bubble_filled{% elsif value > 0 %} tiered-bubble_half-filled{% endif %}'
+          >
+            <div class='tiered-bubble'>
+              <img
+                class='discount-pack-list-item__image'
+                src='{{ section.settings.shipping_image | image_url: width: 120 }}'
+                alt='{{ section.settings.shipping_image.alt }}'
+                width='44'
+                height='44'
+                loading='lazy'
+              >
+            </div>
+          </div>
+          <p class='tier-bubble__price'>
+            {{ localization.country.currency.symbol -}}
+            {{- shipping | divided_by: 100 }}
+          </p>
+          <p class='tier-bubble__title'>
+            {{ section.settings.shipping_text | capitalize }}
+          </p>
+        </div>
+        <div class='tier-wrapper'>
+          <div
+            class='tiered-bubble__outer{% if value >= gwp_1 %} tiered-bubble_filled{% elsif value >= shipping %} tiered-bubble_half-filled{% endif %}'
+          >
+            <div class='tiered-bubble'>
+              <img
+                class='discount-pack-list-item__image'
+                src='{%- if gwp_image_1 -%}{{- gwp_image_1 | image_url: width: 120 -}}{%- else -%} {{- section.settings.gwp_image_1 | image_url: width: 120 -}}{%- endif -%}'
+                alt='{{ section.settings.gwp_image_1.alt }}'
+                width='44'
+                height='44'
+                loading='lazy'
+              >
+            </div>
+          </div>
+          <p class='tier-bubble__price'>
+            {{ localization.country.currency.symbol -}}
+            {{- gwp_1 | divided_by: 100 }}
+          </p>
+          <p class='tier-bubble__title'>
+          {%- if gwp_text_1 != '' -%}
+            {{ gwp_text_1 | capitalize }}
+          {%- else -%}
+            {{ section.settings.gwp_text_1 | capitalize }}
+          {%- endif -%}
+          </p>
+        </div>
+        <div class='tier-wrapper'>
+          <div
+            class='tiered-bubble__outer{% if value >= gwp_2 %} tiered-bubble_filled{% elsif value >= gwp_1 %} tiered-bubble_half-filled{% endif %}'
+          >
+            <div class='tiered-bubble'>
+              <img
+                class='discount-pack-list-item__image'
+                src='{%- if gwp_image_2 -%}{{- gwp_image_2 | image_url: width: 120 -}}{%- else -%} {{- section.settings.gwp_image_2 | image_url: width: 120 -}}{%- endif -%}'
+                alt='{{ section.settings.gwp_image_2.alt }}'
+                width='44'
+                height='44'
+                loading='lazy'
+              >
+            </div>
+          </div>
+          <p class='tier-bubble__price'>
+            {{ localization.country.currency.symbol -}}
+            {{- gwp_2 | divided_by: 100 }}
+          </p>
+          <p class='tier-bubble__title'>
+            {%- if gwp_text_2 != '' -%}
+              {{- gwp_text_2 | capitalize -}}
+            {%- else -%}
+              {{- section.settings.gwp_text_2 | capitalize -}}
+            {%- endif -%}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class='progress-bar__outer progress-bar__outer-new'
+      style='display: none; background: linear-gradient(to right, #7FB27F {{ percentage2 }}%, #ededed {{ percentage2 }}%);'
+    >
+      <div class='tiered-bubble_container'>
+        <div class='tier-wrapper'>
+          <div
+            class='tiered-bubble__outer{% if value >= shipping %} tiered-bubble_filled{% elsif value > 0 %} tiered-bubble_half-filled{% endif %}'
+          >
+            <div class='tiered-bubble'>
+              <img
+                class='discount-pack-list-item__image'
+                src='{{ section.settings.shipping_image | image_url: width: 120 }}'
+                alt='{{ section.settings.shipping_image.alt }}'
+                width='44'
+                height='44'
+                loading='lazy'
+              >
+            </div>
+          </div>
+          <p class='tier-bubble__price'>
+            {{ localization.country.currency.symbol -}}
+            {{- shipping | divided_by: 100 }}
+          </p>
+          <p class='tier-bubble__title'>
+            {{ section.settings.shipping_text | capitalize }}
+          </p>
+        </div>
+        <div class='tier-wrapper'>
+          <div
+            class='tiered-bubble__outer{% if value > gwp_1 %} tiered-bubble_filled{% elsif value >= shipping %} tiered-bubble_half-filled{% endif %}'
+          >
+            <div class='tiered-bubble'>
+              <img
+                class='discount-pack-list-item__image'
+                src='{%- if gwp_image_1 -%}{{- gwp_image_1 | image_url: width: 120 -}}{%- else -%} {{- section.settings.gwp_image_1 | image_url: width: 120 -}}{%- endif -%}'
+                alt='{{ section.settings.gwp_image_1.alt }}'
+                width='44'
+                height='44'
+                loading='lazy'
+              >
+            </div>
+          </div>
+          <p class='tier-bubble__price'>
+            {{ localization.country.currency.symbol -}}
+            {{- gwp_1 | divided_by: 100 }}
+          </p>
+          <p class='tier-bubble__title'>
+            {%- if gwp_text_1 != '' -%}
+            {{ gwp_text_1 | capitalize }}
+          {%- else -%}
+            {{ section.settings.gwp_text_1 | capitalize }}
+          {%- endif -%}
+          </p>
+        </div>
+        <div class='tier-wrapper'>
+          <div
+            class='tiered-bubble__outer{% if value >= gwp_2 %} tiered-bubble_filled{% elsif value >= gwp_1 %} tiered-bubble_half-filled{% endif %}'
+          >
+            <div class='tiered-bubble'>
+              <img
+                class='discount-pack-list-item__image'
+                src='{%- if gwp_image_2 -%}{{- gwp_image_2 | image_url: width: 120 -}}{%- else -%} {{- section.settings.gwp_image_2 | image_url: width: 120 -}}{%- endif -%}'
+                alt='{{ section.settings.gwp_image_2.alt }}'
+                width='44'
+                height='44'
+                loading='lazy'
+              >
+            </div>
+          </div>
+          <p class='tier-bubble__price'>
+            {{ localization.country.currency.symbol -}}
+            {{- gwp_2 | divided_by: 100 }}
+          </p>
+          <p class='tier-bubble__title'>
+            {%- if gwp_text_2 != '' -%}
+            {{ gwp_text_2 | capitalize }}
+          {%- else -%}
+            {{ section.settings.gwp_text_2 | capitalize }}
+          {%- endif -%}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

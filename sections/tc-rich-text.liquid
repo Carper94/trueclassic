@@ -1,0 +1,1145 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .rich-text__blocks {
+    text-align: {{ section.settings.content_alignment }};
+  }
+
+  {% if section.settings.content_alignment == 'center' %}
+    .tc-rich-text__blocks .button {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @media screen and (max-width: 580px) {
+      .tc-rich-text__blocks .button {
+        max-width: 90vw;
+      }
+    }
+    .tc-rich-text__blocks .button {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  {% elsif section.settings.content_alignment == 'right' %}
+    .tc-rich-text__blocks .button {
+      margin-left: auto;
+    }
+  {% endif %}
+{%- endstyle -%}
+{%- liquid
+  assign country_codes = section.settings.country_code | split: ','
+  assign exclude_country_codes = section.settings.exclude_country_code | split: ','
+  assign should_show_banner = false
+
+  if section.settings.country_code == '' and section.settings.exclude_country_code == ''
+    assign should_show_banner = true
+  else
+    assign is_excluded = false
+    for exclude_code in exclude_country_codes
+      if localization.country.iso_code == exclude_code
+        assign is_excluded = true
+        break
+      endif
+    endfor
+
+    unless is_excluded
+      if section.settings.country_code == ''
+        assign should_show_banner = true
+      else
+        for code in country_codes
+          if localization.country.iso_code == code
+            assign should_show_banner = true
+            break
+          endif
+        endfor
+      endif
+    endunless
+  endif
+-%}
+{% if should_show_banner %}
+  <div
+    class='tc-rich-text {% if section.settings.full_width == false %} container {% endif %}'
+    style='background-color: {{ section.settings.section_bg_color }};'
+  >
+    <div
+      class='rich-text section-{{ section.id }}-padding  {% if section.settings.full_width == false %} content-wrapper {% endif %}'
+      {% if section.settings.full_width == false %}
+        style='max-width: var(--container-width); margin-left: auto; margin-right: auto;'
+      {% endif %}
+    >
+      <div
+        class='rich-text__wrapper  rich-text__wrapper--{{ section.settings.desktop_content_position }}'
+      >
+        <div
+          class='tc-rich-text__blocks rich-text__blocks {{ section.settings.content_alignment }}'
+          {% if section.settings.full_width == false %}
+            style='max-width: unset;'
+          {% endif %}
+        >
+          {%- liquid
+            for block in section.blocks
+              case block.type
+                when 'heading'
+                  assign unique_id = block.id | remove: '-' | remove: '_'
+                  render 'tc-heading', title: block.settings.title, heading_level: block.settings.heading_level, heading_font: block.settings.heading_font, heading_size: block.settings.heading_size, heading_color: block.settings.heading_color, heading_color_inverse: block.settings.heading_color_inverse, heading_margin_top: block.settings.heading_margin_top, heading_margin_bottom: block.settings.heading_margin_bottom, heading_underline: block.settings.heading_underline, line_break_dot: block.settings.line_break_dot, link: section.settings.banner_link, block_id: unique_id
+
+                when 'text'
+                  assign unique_id = block.id | remove: '-' | remove: '_'
+                  render 'tc-paragraph', text: block.settings.paragraph, text_font: block.settings.paragraph_font, text_style: block.settings.paragraph_style, text_color: block.settings.paragraph_color, text_color_inverse: block.settings.paragraph_color_inverse, text_margin_top: block.settings.paragraph_margin_top, text_margin_bottom: block.settings.paragraph_margin_bottom, block_id: unique_id
+
+                when 'button'
+                  assign unique_id = block.id | remove: '-' | remove: '_'
+                  render 'tc-button', button_text: block.settings.button_text, button_type: block.settings.button_type, button_attributes: block.settings.button_attributes, button_classes: block.settings.button_style, button_color_inverse: block.settings.button_color_inverse, icon: block.settings.button_icon, button_margin_top: block.settings.button_margin_top, button_margin_bottom: block.settings.button_margin_bottom, full_width: block.settings.full_width, disabled: block.settings.disabled, block_id: unique_id
+
+                when 'link'
+                  assign unique_id = block.id | remove: '-' | remove: '_'
+                  render 'tc-link', link_text: block.settings.link_text, link_url: block.settings.link_url, new_tab: block.settings.new_tab, link_classes: block.settings.link_style, link_color_inverse: block.settings.link_color_inverse, icon: block.settings.link_icon, link_margin_top: block.settings.link_margin_top, link_margin_bottom: block.settings.link_margin_bottom, full_width: block.settings.full_width, disabled: block.settings.disabled, block_id: unique_id
+              endcase
+            endfor
+          -%}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+{% schema %}
+{
+  "name": "TC Rich Text",
+  "tag": "section",
+  "class": "section section--rich-text",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Geolocation"
+    },
+    {
+      "type": "text",
+      "id": "country_code",
+      "label": "Country code",
+      "info": "Enter the country code for the country you want to show the section to. You can have multiple country codes, just separate them with a comma. Example: US,CA,GB. Leave empty to show to all countries."
+    },
+    {
+      "type": "text",
+      "id": "exclude_country_code",
+      "label": "Exclude country code",
+      "info": "Enter the country code for the countries you DON'T want to show the section to. You can have multiple country codes, just separate them with a comma. Example: US,CA,GB"
+    },
+    {
+      "type": "header",
+      "content": "Section specific"
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Section background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "select",
+      "id": "desktop_content_position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center",
+      "label": "Desktop content position",
+      "info": "Choose the position of the content on desktop"
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center",
+      "label": "Content alignment"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "default": true,
+      "label": "Full width section"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 52
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "Header",
+      "settings": [
+        {
+          "id": "title",
+          "type": "text",
+          "label": "Heading text",
+          "default": "True Classic®"
+        },
+        {
+          "type": "select",
+          "id": "heading_level",
+          "options": [
+            {
+              "value": "h1",
+              "label": "Level 1"
+            },
+            {
+              "value": "h2",
+              "label": "Level 2"
+            },
+            {
+              "value": "h3",
+              "label": "Level 3"
+            },
+            {
+              "value": "h4",
+              "label": "Level 4"
+            },
+            {
+              "value": "h5",
+              "label": "Level 5"
+            },
+            {
+              "value": "h6",
+              "label": "Level 6"
+            },
+            {
+              "value": "span",
+              "label": "Span"
+            }
+          ],
+          "default": "h2",
+          "label": "Heading level"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h0",
+              "label": "XX Large"
+            },
+            {
+              "value": "h1",
+              "label": "X Large"
+            },
+            {
+              "value": "h2",
+              "label": "Large"
+            },
+            {
+              "value": "h3",
+              "label": "Base"
+            },
+            {
+              "value": "h4",
+              "label": "Small"
+            },
+            {
+              "value": "h5",
+              "label": "X Small"
+            },
+            {
+              "value": "h6",
+              "label": "XX Small"
+            }
+          ],
+          "default": "h2",
+          "label": "Heading size"
+        },
+        {
+          "type": "select",
+          "id": "heading_font",
+          "options": [
+            {
+              "value": "staff-x-condensed-type",
+              "label": "Staff X Condensed"
+            },
+            {
+              "value": "modernist-type",
+              "label": "Modernist"
+            },
+            {
+              "value": "modernist-mono-type",
+              "label": "Modernist Mono"
+            },
+            {
+              "value": "roboto-mono-type",
+              "label": "Roboto Mono"
+            },
+            {
+              "value": "montserrat-type",
+              "label": "Montserrat"
+            }
+          ],
+          "default": "staff-x-condensed-type",
+          "label": "Heading font family"
+        },
+        {
+          "type": "select",
+          "id": "heading_color",
+          "options": [
+            {
+              "value": "color-white",
+              "label": "White"
+            },
+            {
+              "value": "color-black",
+              "label": "Black"
+            },
+            {
+              "value": "color-chocolate",
+              "label": "Chocolate"
+            },
+            {
+              "value": "color-chocolate-light",
+              "label": "Chocolate Light"
+            },
+            {
+              "value": "color-chocolate-mid",
+              "label": "Chocolate Medium"
+            },
+            {
+              "value": "color-chocolate-dark",
+              "label": "Chocolate Dark"
+            },
+            {
+              "value": "color-milk-chocolate",
+              "label": "Milk Chocolate"
+            },
+            {
+              "value": "color-shitake",
+              "label": "Shitake"
+            },
+            {
+              "value": "color-sage",
+              "label": "Sage"
+            },
+            {
+              "value": "color-sage-light",
+              "label": "Sage light"
+            },
+            {
+              "value": "color-cream",
+              "label": "Cream"
+            },
+            {
+              "value": "color-cream-light",
+              "label": "Cream Light"
+            },
+            {
+              "value": "color-yellow",
+              "label": "Yellow"
+            },
+            {
+              "value": "color-red",
+              "label": "Red"
+            }
+          ],
+          "default": "color-chocolate",
+          "label": "Heading color"
+        },
+        {
+          "type": "checkbox",
+          "id": "heading_color_inverse",
+          "label": "Light colors on mobile",
+          "default": false
+        },
+        {
+          "type": "select",
+          "id": "heading_margin_top",
+          "options": [
+            {
+              "value": "mg-t-xxl",
+              "label": "XX Large"
+            },
+            {
+              "value": "mg-t-xl",
+              "label": "X Large"
+            },
+            {
+              "value": "mg-t-l",
+              "label": "Large"
+            },
+            {
+              "value": "mg-t-m",
+              "label": "Medium"
+            },
+            {
+              "value": "mg-t-s",
+              "label": "Small"
+            },
+            {
+              "value": "mg-t-xs",
+              "label": "X Small"
+            },
+            {
+              "value": "mg-t-none",
+              "label": "No margin"
+            }
+          ],
+          "default": "mg-t-none",
+          "label": "Heading margin top"
+        },
+        {
+          "type": "select",
+          "id": "heading_margin_bottom",
+          "options": [
+            {
+              "value": "mg-b-xxl",
+              "label": "XX Large"
+            },
+            {
+              "value": "mg-b-xl",
+              "label": "X Large"
+            },
+            {
+              "value": "mg-b-l",
+              "label": "Large"
+            },
+            {
+              "value": "mg-b-m",
+              "label": "Medium"
+            },
+            {
+              "value": "mg-b-s",
+              "label": "Small"
+            },
+            {
+              "value": "mg-b-xs",
+              "label": "X Small"
+            },
+            {
+              "value": "mg-b-none",
+              "label": "No margin"
+            }
+          ],
+          "default": "mg-b-m",
+          "label": "Heading margin bottom"
+        },
+        {
+          "type": "checkbox",
+          "id": "heading_underline",
+          "label": "Underline",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "line_break_dot",
+          "label": "Break line only at dots",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Rich Text",
+      "settings": [
+        {
+          "id": "paragraph",
+          "type": "richtext",
+          "label": "Paragraph text",
+          "default": "<p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>"
+        },
+        {
+          "type": "select",
+          "id": "paragraph_font",
+          "options": [
+            {
+              "value": "staff-x-condensed-type",
+              "label": "Staff X Condensed"
+            },
+            {
+              "value": "modernist-type",
+              "label": "Modernist"
+            },
+            {
+              "value": "modernist-mono-type",
+              "label": "Modernist Mono"
+            },
+            {
+              "value": "roboto-mono-type",
+              "label": "Roboto Mono"
+            },
+            {
+              "value": "montserrat-type",
+              "label": "Montserrat"
+            }
+          ],
+          "default": "modernist-type",
+          "label": "Paragraph font family"
+        },
+        {
+          "type": "select",
+          "id": "paragraph_style",
+          "options": [
+            {
+              "value": "xxl",
+              "label": "XX Large"
+            },
+            {
+              "value": "xl",
+              "label": "X Large"
+            },
+            {
+              "value": "l",
+              "label": "Large"
+            },
+            {
+              "value": "m",
+              "label": "Base"
+            },
+            {
+              "value": "s",
+              "label": "Small"
+            },
+            {
+              "value": "xs",
+              "label": "X Small"
+            },
+            {
+              "value": "xxs",
+              "label": "XX Small"
+            }
+          ],
+          "default": "m",
+          "label": "Paragraph size"
+        },
+        {
+          "type": "select",
+          "id": "paragraph_color",
+          "options": [
+            {
+              "value": "color-white",
+              "label": "White"
+            },
+            {
+              "value": "color-black",
+              "label": "Black"
+            },
+            {
+              "value": "color-chocolate",
+              "label": "Chocolate"
+            },
+            {
+              "value": "color-chocolate-light",
+              "label": "Chocolate Light"
+            },
+            {
+              "value": "color-chocolate-mid",
+              "label": "Chocolate Medium"
+            },
+            {
+              "value": "color-chocolate-dark",
+              "label": "Chocolate Dark"
+            },
+            {
+              "value": "color-milk-chocolate",
+              "label": "Milk Chocolate"
+            },
+            {
+              "value": "color-shitake",
+              "label": "Shitake"
+            },
+            {
+              "value": "color-sage",
+              "label": "Sage"
+            },
+            {
+              "value": "color-sage-light",
+              "label": "Sage light"
+            },
+            {
+              "value": "color-cream",
+              "label": "Cream"
+            },
+            {
+              "value": "color-cream-light",
+              "label": "Cream Light"
+            },
+            {
+              "value": "color-yellow",
+              "label": "Yellow"
+            },
+            {
+              "value": "color-red",
+              "label": "Red"
+            }
+          ],
+          "default": "color-chocolate",
+          "label": "Paragraph color"
+        },
+        {
+          "type": "checkbox",
+          "id": "paragraph_color_inverse",
+          "label": "Light colors on mobile",
+          "default": false
+        },
+        {
+          "type": "select",
+          "id": "paragraph_margin_top",
+          "options": [
+            {
+              "value": "mg-t-xxl",
+              "label": "XX Large"
+            },
+            {
+              "value": "mg-t-xl",
+              "label": "X Large"
+            },
+            {
+              "value": "mg-t-l",
+              "label": "Large"
+            },
+            {
+              "value": "mg-t-m",
+              "label": "Medium"
+            },
+            {
+              "value": "mg-t-s",
+              "label": "Small"
+            },
+            {
+              "value": "mg-t-xs",
+              "label": "X Small"
+            },
+            {
+              "value": "mg-t-none",
+              "label": "No margin"
+            }
+          ],
+          "default": "mg-t-none",
+          "label": "Paragraph margin top"
+        },
+        {
+          "type": "select",
+          "id": "paragraph_margin_bottom",
+          "options": [
+            {
+              "value": "mg-b-xxl",
+              "label": "XX Large"
+            },
+            {
+              "value": "mg-b-xl",
+              "label": "X Large"
+            },
+            {
+              "value": "mg-b-l",
+              "label": "Large"
+            },
+            {
+              "value": "mg-b-m",
+              "label": "Medium"
+            },
+            {
+              "value": "mg-b-s",
+              "label": "Small"
+            },
+            {
+              "value": "mg-b-xs",
+              "label": "X Small"
+            },
+            {
+              "value": "mg-b-none",
+              "label": "No margin"
+            }
+          ],
+          "default": "mg-b-m",
+          "label": "Paragraph margin bottom"
+        }
+      ]
+    },
+    {
+      "type": "link",
+      "name": "Button (link)",
+      "settings": [
+        {
+          "id": "link_text",
+          "type": "text",
+          "label": "Link Label",
+          "default": "Shop Now"
+        },
+        {
+          "id": "link_url",
+          "type": "url",
+          "label": "Link URL"
+        },
+        {
+          "type": "checkbox",
+          "id": "new_tab",
+          "label": "Open link in new tab",
+          "default": false
+        },
+        {
+          "type": "select",
+          "id": "link_style",
+          "options": [
+            {
+              "value": "primary",
+              "label": "Primary (Brown)"
+            },
+            {
+              "value": "primary inverse",
+              "label": "Primary Inverse"
+            },
+
+            {
+              "value": "primary black",
+              "label": "Primary Black"
+            },
+            {
+              "value": "primary wood",
+              "label": "Primary wood"
+            },
+            {
+              "value": "primary red",
+              "label": "Primary (Red)"
+            },
+            {
+              "value": "secondary",
+              "label": "Secondary (outlined)"
+            },
+            {
+              "value": "tertiary",
+              "label": "Tertiary (inline)"
+            }
+          ],
+          "default": "primary",
+          "label": "Link style"
+        },
+        {
+          "type": "checkbox",
+          "id": "link_color_inverse",
+          "label": "Light colors on mobile",
+          "default": false
+        },
+        {
+          "type": "select",
+          "id": "link_icon",
+          "options": [
+            {
+              "value": "lock",
+              "label": "Lock"
+            },
+            {
+              "value": "arrow-right",
+              "label": "Right arrow"
+            },
+            {
+              "value": "arrow-left",
+              "label": "Left arrow"
+            },
+            {
+              "value": "plus",
+              "label": "Plus sign"
+            },
+            {
+              "value": "down",
+              "label": "Down caret"
+            },
+            {
+              "value": "up",
+              "label": "Up caret"
+            },
+            {
+              "value": "left",
+              "label": "Left caret"
+            },
+            {
+              "value": "right",
+              "label": "Right caret"
+            },
+            {
+              "value": "fit",
+              "label": "Fit"
+            },
+            {
+              "value": "chart",
+              "label": "Chart"
+            },
+            {
+              "value": "play",
+              "label": "Play"
+            },
+            {
+              "value": "none",
+              "label": "None"
+            }
+          ],
+          "default": "arrow-right",
+          "label": "Link icon"
+        },
+        {
+          "type": "select",
+          "id": "link_margin_top",
+          "options": [
+            {
+              "value": "mg-t-xxl",
+              "label": "XX Large"
+            },
+            {
+              "value": "mg-t-xl",
+              "label": "X Large"
+            },
+            {
+              "value": "mg-t-l",
+              "label": "Large"
+            },
+            {
+              "value": "mg-t-m",
+              "label": "Medium"
+            },
+            {
+              "value": "mg-t-s",
+              "label": "Small"
+            },
+            {
+              "value": "mg-t-xs",
+              "label": "X Small"
+            },
+            {
+              "value": "mg-t-none",
+              "label": "No margin"
+            }
+          ],
+          "default": "mg-t-none",
+          "label": "Link margin top"
+        },
+        {
+          "type": "select",
+          "id": "link_margin_bottom",
+          "options": [
+            {
+              "value": "mg-b-xxl",
+              "label": "XX Large"
+            },
+            {
+              "value": "mg-b-xl",
+              "label": "X Large"
+            },
+            {
+              "value": "mg-b-l",
+              "label": "Large"
+            },
+            {
+              "value": "mg-b-m",
+              "label": "Medium"
+            },
+            {
+              "value": "mg-b-s",
+              "label": "Small"
+            },
+            {
+              "value": "mg-b-xs",
+              "label": "X Small"
+            },
+            {
+              "value": "mg-b-none",
+              "label": "No margin"
+            }
+          ],
+          "default": "mg-b-m",
+          "label": "Link margin bottom"
+        },
+        {
+          "type": "checkbox",
+          "id": "full_width",
+          "label": "Link full width",
+          "default": false
+        },
+        {
+          "id": "disabled",
+          "type": "checkbox",
+          "label": "Disabled",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Button (button)",
+      "settings": [
+        {
+          "id": "button_text",
+          "type": "text",
+          "label": "Button label",
+          "default": "Checkout"
+        },
+        {
+          "type": "select",
+          "id": "button_type",
+          "options": [
+            {
+              "value": "checkout",
+              "label": "Checkout button"
+            },
+            {
+              "value": "custom",
+              "label": "Custom"
+            }
+          ],
+          "default": "custom",
+          "label": "Button type"
+        },
+        {
+          "type": "text",
+          "id": "button_attributes",
+          "label": "Button attributes",
+          "default": "data-attribute=\"value\"",
+          "info": "(when button type  is 'custom') Add attributes to the button element. For example: data-foo=\"bar\""
+        },
+        {
+          "type": "select",
+          "id": "button_style",
+          "options": [
+            {
+              "value": "primary",
+              "label": "Primary (Brown)"
+            },
+            {
+              "value": "primary inverse",
+              "label": "Primary Inverse"
+            },
+
+            {
+              "value": "primary black",
+              "label": "Primary Black"
+            },
+            {
+              "value": "primary wood",
+              "label": "Primary wood"
+            },
+            {
+              "value": "primary red",
+              "label": "Primary (Red)"
+            },
+            {
+              "value": "secondary",
+              "label": "Secondary (outlined)"
+            },
+            {
+              "value": "tertiary",
+              "label": "Tertiary (inline)"
+            }
+          ],
+          "default": "primary red",
+          "label": "Button style"
+        },
+        {
+          "type": "checkbox",
+          "id": "button_color_inverse",
+          "label": "Light colors on mobile",
+          "default": false
+        },
+        {
+          "type": "select",
+          "id": "button_icon",
+          "options": [
+            {
+              "value": "lock",
+              "label": "Lock"
+            },
+            {
+              "value": "arrow-right",
+              "label": "Right arrow"
+            },
+            {
+              "value": "arrow-left",
+              "label": "Left arrow"
+            },
+            {
+              "value": "plus",
+              "label": "Plus sign"
+            },
+            {
+              "value": "down",
+              "label": "Down caret"
+            },
+            {
+              "value": "up",
+              "label": "Up caret"
+            },
+            {
+              "value": "left",
+              "label": "Left caret"
+            },
+            {
+              "value": "right",
+              "label": "Right caret"
+            },
+            {
+              "value": "fit",
+              "label": "Fit"
+            },
+            {
+              "value": "chart",
+              "label": "Chart"
+            },
+            {
+              "value": "play",
+              "label": "Play"
+            },
+            {
+              "value": "none",
+              "label": "None"
+            }
+          ],
+          "default": "arrow-right",
+          "label": "Button icon"
+        },
+        {
+          "type": "select",
+          "id": "button_margin_top",
+          "options": [
+            {
+              "value": "mg-t-xxl",
+              "label": "XX Large"
+            },
+            {
+              "value": "mg-t-xl",
+              "label": "X Large"
+            },
+            {
+              "value": "mg-t-l",
+              "label": "Large"
+            },
+            {
+              "value": "mg-t-m",
+              "label": "Medium"
+            },
+            {
+              "value": "mg-t-s",
+              "label": "Small"
+            },
+            {
+              "value": "mg-t-xs",
+              "label": "X Small"
+            },
+            {
+              "value": "mg-t-none",
+              "label": "No margin"
+            }
+          ],
+          "default": "mg-t-none",
+          "label": "Button margin top"
+        },
+        {
+          "type": "select",
+          "id": "button_margin_bottom",
+          "options": [
+            {
+              "value": "mg-b-xxl",
+              "label": "XX Large"
+            },
+            {
+              "value": "mg-b-xl",
+              "label": "X Large"
+            },
+            {
+              "value": "mg-b-l",
+              "label": "Large"
+            },
+            {
+              "value": "mg-b-m",
+              "label": "Medium"
+            },
+            {
+              "value": "mg-b-s",
+              "label": "Small"
+            },
+            {
+              "value": "mg-b-xs",
+              "label": "X Small"
+            },
+            {
+              "value": "mg-b-none",
+              "label": "No margin"
+            }
+          ],
+          "default": "mg-b-m",
+          "label": "Button margin bottom"
+        },
+        {
+          "type": "checkbox",
+          "id": "full_width",
+          "label": "Button full width",
+          "default": false
+        },
+        {
+          "id": "disabled",
+          "type": "checkbox",
+          "label": "Disabled",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "TC Rich Text",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "link"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,45 @@
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "disabled": true,
+      "settings": {
+        "full_width": false,
+        "hide_title": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "1701107724aaf8b537": {
+      "type": "apps",
+      "blocks": {
+        "4236fbcf-cfea-4ed8-a0d6-46d8772b888a": {
+          "type": "shopify:\/\/apps\/okendo-product-reviews-ugc\/blocks\/quizzes-widget\/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+          "settings": {
+            "channel_quiz_id": "bddc647a-39fc-449a-925c-f4944050abe0"
+          }
+        }
+      },
+      "block_order": [
+        "4236fbcf-cfea-4ed8-a0d6-46d8772b888a"
+      ],
+      "custom_css": [
+        ".c-button {padding: 15px 40px; border-radius: 5px; font-family: \"Sk-Modernist\"; font-style: normal; font-weight: 400; font-size: 16px; line-height: 19px; text-align: right; letter-spacing: 0.05em; text-transform: uppercase;}",
+        ".okeConnect .c-tagInput-container--circles .c-tagInput-input:checked + .c-tagInput-label .c-tagInput-label-image {border-color: #971b1b;}"
+      ],
+      "settings": {
+      }
+    },
+    "cd51c1e1-7591-4f7f-bef9-a307ae885bd4": {
+      "type": "liquid",
+      "settings": {
+        "liquid": "<style>\n.okeConnect.okeQuizzes .c-tagInput-label .c-tagInput-label-text:before {\n  font-weight: 700;\n  white-space: nowrap;\nmargin-bottom: .5rem;\n}\n.okeConnect.okeQuizzes\n  #singleTag-acb24b7f-6ea8-4ccf-a13a-70ccbdd2610e-0\n  + .c-tagInput-label\n  .c-tagInput-label-text:before {\n  content: \"The T-Shirt Fanatic\";\n}\n.okeConnect.okeQuizzes\n  #singleTag-acb24b7f-6ea8-4ccf-a13a-70ccbdd2610e-1\n  + .c-tagInput-label\n  .c-tagInput-label-text:before {\n  content: \"The Cozy Connoisseur\";\n}\n.okeConnect.okeQuizzes\n  #singleTag-acb24b7f-6ea8-4ccf-a13a-70ccbdd2610e-2\n  + .c-tagInput-label\n  .c-tagInput-label-text:before {\n  content: \"The Gym Guru\";\n}\n\n.okeConnect.okeQuizzes #singleTag-acb24b7f-6ea8-4ccf-a13a-70ccbdd2610e-3+.c-tagInput-label .c-tagInput-label-text:before {\n    content: 'The Professional One';\n}\n<\/style>"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "1701107724aaf8b537",
+    "cd51c1e1-7591-4f7f-bef9-a307ae885bd4"
+  ]
+}

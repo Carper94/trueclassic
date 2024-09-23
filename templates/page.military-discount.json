@@ -1,0 +1,261 @@
+{
+  "sections": {
+    "main": {
+      "type": "page-blank",
+      "settings": {
+      }
+    },
+    "65bb093b-acfd-4147-b280-edce725bcbf1": {
+      "type": "image-banner",
+      "blocks": {
+        "template--14552666636360__65bb093b-acfd-4147-b280-edce725bcbf1-168141471257c0fb1d-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "HEROES GET 20% OFF",
+            "heading_level": "h1",
+            "heading_font": "staff-x",
+            "heading_color": "var(--brand-white)",
+            "heading_color_inverse": false,
+            "heading_size": 2.6,
+            "heading_letter_spacing": 0,
+            "heading_weight": "400",
+            "heading_margin_bottom": "1",
+            "underline": false,
+            "line_break_dot": false
+          }
+        },
+        "template--14552666636360__65bb093b-acfd-4147-b280-edce725bcbf1-168141471257c0fb1d-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>As a special thank you for your service, we offer an instant discount and freeshipping to Active Duty Service Members, Veterans, Surviving Spouses, andFirst Responders sitewide.<\/p>",
+            "paragraph_font": "modernist",
+            "paragraph_color": "var(--brand-white)",
+            "paragraph_color_inverse": false,
+            "paragraph_size": 1.2,
+            "paragraph_size_mobile": 1,
+            "paragraph_weight": "400",
+            "paragraph_margin_bottom": "1"
+          }
+        },
+        "template--14552666636360__65bb093b-acfd-4147-b280-edce725bcbf1-168141471257c0fb1d-2": {
+          "type": "button",
+          "settings": {
+            "button_color": "var(--brand-white)",
+            "button_bg_color": "var(--brand-red)",
+            "button_font": "staff-x",
+            "button_color_inverse": true,
+            "button_label": "Verify with ID.me",
+            "button_link": "",
+            "button_style_secondary": true
+          }
+        }
+      },
+      "block_order": [
+        "template--14552666636360__65bb093b-acfd-4147-b280-edce725bcbf1-168141471257c0fb1d-0",
+        "template--14552666636360__65bb093b-acfd-4147-b280-edce725bcbf1-168141471257c0fb1d-1",
+        "template--14552666636360__65bb093b-acfd-4147-b280-edce725bcbf1-168141471257c0fb1d-2"
+      ],
+      "settings": {
+        "hidden": false,
+        "section_bg_color": "#ffffff",
+        "full_width": false,
+        "breakpoint": 768,
+        "section_max_width": 4000,
+        "section_height": "adapt",
+        "media_position": "unset",
+        "media_size": "full",
+        "banner_link": "",
+        "banner_link_title": "True Classic Sale",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "inner_padding_top": 0,
+        "inner_padding_bottom": 0,
+        "section_image": "shopify:\/\/shop_images\/military-discount-banner.png",
+        "section_image_mobile": "shopify:\/\/shop_images\/military-discount-banner_7879ee3a-ca5d-4906-9041-1daa28a78ac9.png",
+        "media_margin_left": 0,
+        "media_margin_right": 0,
+        "media_margin_top": 0,
+        "media_margin_bottom": 0,
+        "enable_lazyload": false,
+        "content_width": 35,
+        "content_fit": false,
+        "text_position": "left",
+        "text_position_mobile": "center",
+        "enable_absolute": true,
+        "enable_distance_top": true,
+        "content_top": 32,
+        "content_top_mobile": 50,
+        "enable_distance_bottom": false,
+        "content_bottom": 50,
+        "enable_distance_left": true,
+        "content_left": 10,
+        "enable_distance_right": false,
+        "content_right": 50,
+        "mobile_positioning": "overlay",
+        "reverse_mobile": true,
+        "mobile_overlay": true,
+        "mobile_overlay_color": "#000000",
+        "mobile_overlay_opacity": 0.5
+      }
+    },
+    "17275306-1e2f-430b-bf07-136ce744a446": {
+      "type": "columns",
+      "blocks": {
+        "template--14545193926728__17275306-1e2f-430b-bf07-136ce744a446-16801352681db25ccc-0": {
+          "type": "column",
+          "settings": {
+            "title": "VERIFY",
+            "text": "<p>Lorem ipsum dolor sit amet, adipiscing elit. In suscipit a sem nec tincidunt. Nullam felis odio, interdum in posuere in, cursus a turpis.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "template--14545193926728__17275306-1e2f-430b-bf07-136ce744a446-16801352681db25ccc-1": {
+          "type": "column",
+          "settings": {
+            "title": "SHOP",
+            "text": "<p>Lorem ipsum dolor sit amet, adipiscing elit. In suscipit a sem nec tincidunt. Nullam felis odio, interdum in posuere in, cursus a turpis.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "template--14545193926728__17275306-1e2f-430b-bf07-136ce744a446-16801352681db25ccc-2": {
+          "type": "column",
+          "settings": {
+            "title": "SAVE",
+            "text": "<p>Lorem ipsum dolor sit amet, adipiscing elit. In suscipit a sem nec tincidunt. Nullam felis odio, interdum in posuere in, cursus a turpis.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--14545193926728__17275306-1e2f-430b-bf07-136ce744a446-16801352681db25ccc-0",
+        "template--14545193926728__17275306-1e2f-430b-bf07-136ce744a446-16801352681db25ccc-1",
+        "template--14545193926728__17275306-1e2f-430b-bf07-136ce744a446-16801352681db25ccc-2"
+      ],
+      "settings": {
+        "bg_color": "#ffffff",
+        "title": "3 EASY STEPS",
+        "sub_title": "",
+        "heading_size": "h2",
+        "heading_alignment": "center",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "content_alignment": "left",
+        "button_label": "",
+        "button_link": "",
+        "columns_mobile": "1",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "special": false,
+        "special_alt": false
+      }
+    },
+    "ab13347a-0d67-4d48-a2d2-7b78342743a7": {
+      "type": "image-with-text",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/placeholder_4a65b2c0-a74c-4d87-9254-bdaeaeb9c53a.png",
+        "heading": "FOR YOUR SERVICE",
+        "description": "Lorem ipsum dolor sit amet, adipiscing elit. In suscipit a sem nec tincidunt. Nullam felis odio, interdum in posuere in, cursus a turpis.",
+        "img_order": true
+      }
+    },
+    "3517002e-c57b-4e23-9d05-05d842ff298e": {
+      "type": "image-with-text",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/placeholder_4a65b2c0-a74c-4d87-9254-bdaeaeb9c53a.png",
+        "heading": "FOR YOUR SACRIFICE",
+        "description": "Lorem ipsum dolor sit amet, adipiscing elit. In suscipit a sem nec tincidunt. Nullam felis odio, interdum in posuere in, cursus a turpis.",
+        "img_order": false
+      }
+    },
+    "8120bab8-5761-4309-ba8a-36d567a1ceae": {
+      "type": "image-with-text",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/placeholder_4a65b2c0-a74c-4d87-9254-bdaeaeb9c53a.png",
+        "heading": "FOR YOUR COMMITMENT",
+        "description": "Lorem ipsum dolor sit amet, adipiscing elit. In suscipit a sem nec tincidunt. Nullam felis odio, interdum in posuere in, cursus a turpis.",
+        "img_order": true
+      }
+    },
+    "2b3dab48-27ff-47f7-ab6f-731ea723fe9a": {
+      "type": "contact-faq",
+      "blocks": {
+        "4017dc2b-4d1d-481a-b4d9-eef28803f49e": {
+          "type": "block",
+          "settings": {
+            "topic": "How does it work",
+            "paragraph": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<\/p>"
+          }
+        },
+        "e8fe2e63-4c1d-41c7-b8c5-fa1513a0d5fc": {
+          "type": "block",
+          "settings": {
+            "topic": "How does it work",
+            "paragraph": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<\/p>"
+          }
+        },
+        "42476b1a-c0c5-433a-84bc-29bd5eac14e9": {
+          "type": "block",
+          "settings": {
+            "topic": "How does it work",
+            "paragraph": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<\/p>"
+          }
+        },
+        "9349f496-173c-44de-802f-278ea7981999": {
+          "type": "block",
+          "settings": {
+            "topic": "How does it work",
+            "paragraph": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<\/p>"
+          }
+        },
+        "22101f6c-886a-486e-84d2-73edf59d1b9b": {
+          "type": "block",
+          "settings": {
+            "topic": "How does it work",
+            "paragraph": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<\/p>"
+          }
+        },
+        "393f557d-4bd5-40d0-9791-c4ba53b5a357": {
+          "type": "block",
+          "settings": {
+            "topic": "How does it work",
+            "paragraph": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "4017dc2b-4d1d-481a-b4d9-eef28803f49e",
+        "e8fe2e63-4c1d-41c7-b8c5-fa1513a0d5fc",
+        "42476b1a-c0c5-433a-84bc-29bd5eac14e9",
+        "9349f496-173c-44de-802f-278ea7981999",
+        "22101f6c-886a-486e-84d2-73edf59d1b9b",
+        "393f557d-4bd5-40d0-9791-c4ba53b5a357"
+      ],
+      "settings": {
+        "title": "FAQ",
+        "subtitle": "",
+        "faqlink": "",
+        "enable_faq_link": false,
+        "background_color": "#f5f5f5",
+        "columns_desktop": 2,
+        "columns_mobile": "1",
+        "column_alignment": "left",
+        "padding_top": 96,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "main",
+    "65bb093b-acfd-4147-b280-edce725bcbf1",
+    "17275306-1e2f-430b-bf07-136ce744a446",
+    "ab13347a-0d67-4d48-a2d2-7b78342743a7",
+    "3517002e-c57b-4e23-9d05-05d842ff298e",
+    "8120bab8-5761-4309-ba8a-36d567a1ceae",
+    "2b3dab48-27ff-47f7-ab6f-731ea723fe9a"
+  ]
+}

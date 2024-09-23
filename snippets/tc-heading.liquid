@@ -1,0 +1,62 @@
+{% comment %}
+  .
+  Variables available:
+
+    title: {string} Text
+    heading_level: {string} h1, h2, h3, h4, h5, h6, span
+    heading_font: {string} staff-x-condensed-type, staff-x-condensed-type-italic, staff-x-condensed-type-bold, staff-x-condensed-type-bold-italic, staff-x-condensed-type-black, staff-x-condensed-type-black-italic, staff-x-condensed-type-light, staff-x-condensed-type-light-italic, staff-x-condensed-type-medium, staff-x-condensed-type-medium-italic, staff-x-condensed-type-thin, staff-x-condensed-type-thin-italic, staff-x-condensed-type-ultra, staff-x-condensed-type-ultra-italic, staff-x-condensed-type-ultra-light, staff-x-condensed-type-ultra-light-italic, staff-x-condensed-type-x-bold, staff-x-condensed-type-x-bold-italic
+    heading_size: {string} h1, h2, h3, h4, h5, h6, span
+    heading_color: {string} color-chocolate, color-chocolate-inverse, color-chocolate-light, color-chocolate-light-inverse, color-chocolate-dark, color-chocolate-dark-inverse, color-chocolate-darker, color-chocolate-darker-inverse, color-chocolate-darkest, color-chocolate-darkest-inverse, color-chocolate-lighter, color-chocolate-lighter-inverse, color-chocolate-lightest, color-chocolate-lightest-inverse, color-chocolate-pale, color-chocolate-pale-inverse, color-chocolate-palest, color-chocolate-palest-inverse, color-chocolate-muted, color-chocolate-muted-inverse, color-chocolate-muted-light, color-chocolate-muted-light-inverse, color-chocolate-muted-dark, color-chocolate-muted-dark-inverse, color-chocolate-muted-darker, color-chocolate-muted-darker-inverse, color-chocolate-muted-darkest, color-chocolate-muted-darkest-inverse, color-chocolate-muted-lighter, color-chocolate-muted-lighter-inverse, color-chocolate-muted-pale, color-chocolate-muted-pale-inverse, color-chocolate-muted-palest, color-chocolate-muted-palest-inverse
+    heading_color_inverse: {boolean} true, false
+    heading_margin_top: {string} mg-t-none, mg-t-sm, mg-t-md, mg-t-lg, mg-t-xl, mg-t-xxl
+    heading_margin_bottom: {string} mg-b-none, mg-b-sm, mg-b-md, mg-b-lg, mg-b-xl, mg-b-xxl
+    heading_underline: {boolean} true, false
+    line_break_dot: {boolean} true, false
+    banner_link: {string} url
+    block_id: {string} unique id for the block
+
+  # Usage:
+
+  ## using settings as parameters:
+
+    {%- assign unique_id = block.id | remove: '-' | remove: '_' -%}
+    {% render 'tc-heading',
+      title: block.settings.title,
+      heading_level: block.settings.heading_level,
+      heading_font: block.settings.heading_font,
+      heading_size: block.settings.heading_size,
+      heading_color: block.settings.heading_color,
+      heading_color_inverse: block.settings.heading_color_inverse,
+      heading_margin_top: block.settings.heading_margin_top,
+      heading_margin_bottom: block.settings.heading_margin_bottom,
+      heading_underline: block.settings.heading_underline,
+      line_break_dot: block.settings.line_break_dot,
+      banner_link: section.settings.banner_link,
+      block_id: unique_id
+    %}
+
+  ## parameters can also be hardcoded if needed:
+
+    {% render 'tc-heading',
+      title: 'Title',
+      heading_level: 'h1',
+      heading_font: 'staff-x-condensed-type',
+      heading_size: 'h1',
+      heading_color: 'color-chocolate',
+      heading_color_inverse: false,
+      heading_margin_top: 'mg-t-none,
+      heading_margin_bottom: 'mg-b-none',
+      heading_underline: false,
+      line_break_dot: false,
+      banner_link: 'https://www.google.com',
+      block_id: 'unique_id'
+    %}
+  .
+{% endcomment %}
+
+<{{ heading_level }}
+  class='headline {{ heading_font }} {{ heading_size }} {{ heading_color }} {% if heading_color_inverse %} inverse-down{% endif %} {{ heading_margin_top }} {{ heading_margin_bottom }} {% if heading_underline %} underlined-styled{% endif %} {% if line_break_dot %} responsive-heading{% endif %}'
+  id='{{ block_id }}'
+>
+  {{ title }}
+</{{ heading_level }}>

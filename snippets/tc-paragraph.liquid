@@ -1,0 +1,55 @@
+{% comment %}
+  .
+  # Variables available:
+
+    text: {string} Text
+    text_font: {string} Font family (modernist-type, modernist-type-italic, modernist-type-bold, modernist-type-bold-italic)
+    text_style: {string} Text style (m, s, l, xl, xxl)
+    text_color: {string} Text color (color-chocolate, color-black, color-white)
+    text_color_inverse: {boolean} Inverse text color (true, false)
+    text_margin_top: {string} Margin top (mg-t-none, mg-t-xs, mg-t-s, mg-t-m, mg-t-l, mg-t-xl, mg-t-xxl)
+    text_margin_bottom: {string} Margin bottom (mg-b-none, mg-b-xs, mg-b-s, mg-b-m, mg-b-l, mg-b-xl, mg-b-xxl)
+    text_align: {string} Text alignement (text-left, text-center, text-right)
+    block_id: {string} Block id (unique_id)
+
+  # Usage:
+
+  ## using settings as parameters:
+
+    {%- assign unique_id = block.id | remove: '-' | remove: '_' -%}
+    {% render 'tc-paragraph',
+      text: block.settings.paragraph,
+      text_font: block.settings.paragraph_font,
+      text_style: block.settings.paragraph_style,
+      text_color: block.settings.paragraph_color,
+      text_color_inverse: block.settings.text_color_inverse,
+      text_margin_top: block.settings.text_margin_top,
+      text_margin_bottom: block.settings.text_margin_bottom,
+      text_align: block.settings.text_align,
+      block_id: unique_id
+    %}
+
+  parameters can also be hardcoded if needed:
+
+    {% render 'tc-paragraph',
+      text: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec elit eget augue tincidunt facilisis.</p>',
+      text_font: 'modernist-type',
+      text_style: 'm',
+      text_color: 'color-chocolate',
+      text_color_inverse: false,
+      text_margin_top: 'mg-t-none',
+      text_margin_bottom: 'mg-b-m',
+      text_align: 'text-center',
+      block_id: 'unique_id'
+    %}
+  .
+{% endcomment %}
+
+<div
+  class='text {{ text_font }} {{ text_style }} {{ text_color }} {% if text_color_inverse %} inverse-down{% endif %} {{ text_margin_top }} {{ text_margin_bottom }} {% if text_align %}{{ text_align }}{% endif %}'
+  {% if block_id != null %}
+    id='{{ block_id }}'
+  {% endif %}
+>
+  {{ text }}
+</div>

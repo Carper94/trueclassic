@@ -1,0 +1,23 @@
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "settings": {
+        "full_width": false,
+        "hide_title": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "59c74e63-c098-4d5e-8c7e-c3b70cad6284": {
+      "type": "subscription-data",
+      "settings": {
+        "membership_product": "inveterate-subscription"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "59c74e63-c098-4d5e-8c7e-c3b70cad6284"
+  ]
+}

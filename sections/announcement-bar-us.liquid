@@ -1,0 +1,296 @@
+{%- comment -%}
+  This is a required section for the Shopify Theme Store.
+  It is available in the "Header" section in the theme editor.
+
+  Theme Store required settings
+  - Show announcement
+  - Text: message to announce
+  - Link: link of the announcement bar
+
+  Theme Store optional settings
+  - Home page only: only shows on the home page
+{%- endcomment -%}
+{% assign us_countries = 'US' | split: ',' %}
+{%- liquid
+  assign sc_id = '#shopify-section-' | append: section.id
+-%}
+{% unless us_countries contains localization.country.iso_code %}
+  <style>
+    {{ sc_id }} {
+      display: none;
+    }
+  </style>
+{% endunless %}
+{% if us_countries contains localization.country.iso_code %}
+  <div
+    class='annoucement-section'
+    data-section-id='{{ section.id }}'
+    data-section-type='annoucement-bar'
+  >
+    <header class='a-header a-header-element'>
+      <div class='a-header-wrapper'>
+        {% if section.settings.announcement_bar_enabled %}
+          {% for block in section.blocks %}
+            {% if block.type == 'sale' %}
+              {% render 'dynamic-annoucement',
+                number: forloop.index,
+                class: block.settings.announcement_bar_class,
+                text_color: block.settings.announcement_bar_text_color,
+                background_color: block.settings.announcement_bar_background_color,
+                hidden: block.settings.hidden,
+                heading: block.settings.announcement_bar_heading,
+                notice: block.settings.announcement_bar_notice,
+                message: block.settings.announcement_bar_message,
+                url: block.settings.announcement_bar_link,
+                country: block.settings.country_code
+              %}
+            {% endif %}
+            {% if block.type == 'members' %}
+              {% render 'dynamic-annoucement',
+                number: forloop.index,
+                class: block.settings.announcement_bar_class,
+                text_color: block.settings.announcement_bar_text_color,
+                background_color: block.settings.announcement_bar_background_color,
+                hidden: block.settings.hidden,
+                heading: block.settings.announcement_bar_heading,
+                notice: block.settings.announcement_bar_notice,
+                message: block.settings.announcement_bar_message,
+                url: block.settings.announcement_bar_link,
+                country: block.settings.country_code,
+                members_only: block.settings.members_only
+              %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+
+        {% liquid
+          if section.settings.announcement_bar_enabled
+            render 'announcement-bar'
+          endif
+        %}
+      </div>
+    </header>
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "United States",
+  "class": "section-annoucement-bar",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Announcement bar",
+      "info": "Country codes available: US"
+    },
+    {
+      "type": "checkbox",
+      "id": "announcement_bar_enabled",
+      "label": "Show announcement",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "announcement_bar_home_page_only",
+      "label": "Show on home page only",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "announcement_bar_duration",
+      "label": "Slide Duration in seconds",
+      "min": 1,
+      "max": 10,
+      "default": 5
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "name": "Announcement",
+      "settings": [
+        {
+          "type": "liquid",
+          "id": "announcement_bar_text",
+          "default": "Announcement Message Here",
+          "label": "Announcement message"
+        },
+        {
+          "type": "url",
+          "id": "announcement_bar_link",
+          "label": "Announcement link"
+        },
+        {
+          "type": "text",
+          "id": "announcement_bar_class",
+          "label": "Additional class"
+        }
+      ]
+    },
+    {
+      "type": "sale",
+      "name": "Annoucement Sale",
+      "settings": [
+        {
+          "type": "text",
+          "id": "country_code",
+          "label": "Country Code to Show",
+          "info": "Leave blank to show to continent"
+        },
+        {
+          "type": "color",
+          "id": "announcement_bar_background_color",
+          "label": "Background color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "announcement_bar_text_color",
+          "label": "Text color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "richtext",
+          "id": "announcement_bar_notice",
+          "default": "<p>SALE PROMO</p>",
+          "label": "Sale  message"
+        },
+        {
+          "type": "checkbox",
+          "id": "hidden",
+          "label": "Hidden",
+          "info": "Hide the sale banner on the site (activate via URL param to show)"
+        },
+        {
+          "type": "text",
+          "id": "announcement_bar_class",
+          "label": "Additional class"
+        },
+        {
+          "type": "url",
+          "id": "announcement_bar_link",
+          "label": "Announcement link"
+        },
+        {
+          "type": "richtext",
+          "id": "announcement_bar_heading",
+          "label": "Tooltip heading"
+        },
+        {
+          "type": "richtext",
+          "id": "announcement_bar_message",
+          "label": "Tooltip message"
+        },
+        {
+          "type": "color",
+          "id": "notice_background",
+          "label": "Background color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "notice_color",
+          "label": "Text color",
+          "default": "#ffffff"
+        }
+      ]
+    },
+    {
+      "type": "members",
+      "name": "Annoucement Members",
+      "settings": [
+        {
+          "type": "text",
+          "id": "country_code",
+          "label": "Country Code to Show",
+          "info": "Leave blank to show to continent"
+        },
+        {
+          "type": "color",
+          "id": "announcement_bar_background_color",
+          "label": "Background color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "announcement_bar_text_color",
+          "label": "Text color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "richtext",
+          "id": "announcement_bar_notice",
+          "default": "<p>SALE PROMO</p>",
+          "label": "Sale  message"
+        },
+        {
+          "type": "checkbox",
+          "id": "hidden",
+          "label": "Hidden",
+          "info": "Hide the sale banner on the site (activate via URL param to show)"
+        },
+        {
+          "type": "checkbox",
+          "id": "members_only",
+          "label": "Members Only?",
+          "info": "Hide the sale banner on the site for non members"
+        },
+        {
+          "type": "text",
+          "id": "announcement_bar_class",
+          "label": "Additional class"
+        },
+        {
+          "type": "url",
+          "id": "announcement_bar_link",
+          "label": "Announcement link"
+        },
+        {
+          "type": "richtext",
+          "id": "announcement_bar_heading",
+          "label": "Tooltip heading"
+        },
+        {
+          "type": "richtext",
+          "id": "announcement_bar_message",
+          "label": "Tooltip message"
+        },
+        {
+          "type": "color",
+          "id": "notice_background",
+          "label": "Background color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "notice_color",
+          "label": "Text color",
+          "default": "#ffffff"
+        }
+      ]
+    },
+    {
+      "name": "Country",
+      "type": "text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "US",
+          "default": "US"
+        },
+        {
+          "type": "text",
+          "id": "country_announcement",
+          "label": "Country Announcement"
+        },
+        {
+          "type": "url",
+          "id": "announcement_bar_link",
+          "label": "Announcement link"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

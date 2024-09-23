@@ -1,0 +1,125 @@
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "custom_css": [
+
+      ],
+      "settings": {
+        "full_width": false,
+        "hide_title": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "fb3369e4-ac43-4148-97e8-56d90030f763": {
+      "type": "page-store",
+      "blocks": {
+        "38499fac-4f6e-415d-9d26-a85e6b341d68": {
+          "type": "image_picker",
+          "settings": {
+            "retail_image": "shopify:\/\/shop_images\/TC_2023_Images_03.jpg"
+          }
+        },
+        "a70c76ec-2974-4ca0-9195-1e5c39a41ab1": {
+          "type": "image_picker",
+          "settings": {
+            "retail_image": "shopify:\/\/shop_images\/TC_2023_Images_05.jpg"
+          }
+        },
+        "9fad9293-135f-4ed9-b639-473d7e7cb728": {
+          "type": "image_picker",
+          "settings": {
+            "retail_image": "shopify:\/\/shop_images\/TC_2023_Images_04.jpg"
+          }
+        },
+        "ef7089db-785b-4a00-ba6f-8f77944ae5cb": {
+          "type": "text",
+          "settings": {
+            "day": "Monday - Thursday ",
+            "hours": "10 am - 8 pm"
+          }
+        },
+        "573fa416-4d71-4c76-a804-40d5d0ed6598": {
+          "type": "text",
+          "settings": {
+            "day": "Friday - Saturday",
+            "hours": "10 am - 9 pm"
+          }
+        },
+        "3f7fbffa-7838-4c5d-87aa-6cd188b91116": {
+          "type": "text",
+          "settings": {
+            "day": "Sunday",
+            "hours": "12 pm - 7 pm"
+          }
+        }
+      },
+      "block_order": [
+        "38499fac-4f6e-415d-9d26-a85e6b341d68",
+        "a70c76ec-2974-4ca0-9195-1e5c39a41ab1",
+        "9fad9293-135f-4ed9-b639-473d7e7cb728",
+        "ef7089db-785b-4a00-ba6f-8f77944ae5cb",
+        "573fa416-4d71-4c76-a804-40d5d0ed6598",
+        "3f7fbffa-7838-4c5d-87aa-6cd188b91116"
+      ],
+      "settings": {
+        "section_class": "",
+        "image_url": "shopify:\/\/shop_images\/Houston.jpg",
+        "streetAddress": "5135 W. Alabama St.",
+        "addressLocality": "Houston",
+        "addressRegion": "TX, Texas",
+        "postalCode": "77056",
+        "address_map": "https:\/\/maps.app.goo.gl\/xGWcbzNaDhM4umJ5A",
+        "latitude": "29.739199825045272",
+        "longitude": "-95.4644655217261",
+        "phone": "(346) 319-3976",
+        "email": "houston@trueclassic.com",
+        "description": "<p>Visit us in our newest store opening November 1st at The Galleria in Houston. Experience the best of what True Classic has to offer in-store and and get to know our signature Perfect Fit and Feel. We are located on the Lower Level of the Nordstrom wing and look forward to seeing you in person.<\/p>"
+      }
+    },
+    "d46a5437-b7bf-40cd-9530-3097bb62aa63": {
+      "type": "section-map",
+      "settings": {
+        "html": "<iframe src=\"https:\/\/www.google.com\/maps\/embed?pb=!1m14!1m8!1m3!1d3464.32866720718!2d-95.4670404!3d29.7391998!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640c16eeef3bdd1%3A0x7e03fa20d63c5caf!2sThe%20Galleria!5e0!3m2!1sen!2slk!4v1698690107843!5m2!1sen!2slk\" width=\"100%\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"><\/iframe>",
+        "padding_top": 32,
+        "padding_bottom": 32
+      }
+    },
+    "0dcd54cb-93d1-4c16-ba64-eadb9ca50b39": {
+      "type": "image-card-list",
+      "blocks": {
+        "template--14472751611976__0dcd54cb-93d1-4c16-ba64-eadb9ca50b39-166871787309bd0808-0": {
+          "type": "card",
+          "settings": {
+            "store_image": "shopify:\/\/shop_images\/TC_Amazon_Webpages_01_1.png",
+            "store_name": "Michigan Avenue",
+            "us_location": "520 North Michigan Avenue Space 129 Chicago, Illinois 60611",
+            "page_url": "shopify:\/\/pages\/northbridge"
+          }
+        },
+        "2d411002-ae79-4af0-a026-e796ca78c2b1": {
+          "type": "card",
+          "settings": {
+            "store_image": "shopify:\/\/shop_images\/DC_location.jpg",
+            "store_name": "Tysons Corner",
+            "us_location": "1961 Chain Bridge RoadSpace E1BUTysons Corner, Virginia 22102",
+            "page_url": "shopify:\/\/pages\/tysons-corner"
+          }
+        }
+      },
+      "block_order": [
+        "template--14472751611976__0dcd54cb-93d1-4c16-ba64-eadb9ca50b39-166871787309bd0808-0",
+        "2d411002-ae79-4af0-a026-e796ca78c2b1"
+      ],
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main",
+    "fb3369e4-ac43-4148-97e8-56d90030f763",
+    "d46a5437-b7bf-40cd-9530-3097bb62aa63",
+    "0dcd54cb-93d1-4c16-ba64-eadb9ca50b39"
+  ]
+}

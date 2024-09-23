@@ -1,0 +1,58 @@
+<section class='featured-product container'>
+  {%- liquid
+    assign mb = section.settings.membership_product
+    assign mb_id = mb.id
+    assign mb_handle = mb.handle
+    assign mb_title = mb.title
+    assign mb_requires_selling_plan = mb.requires_selling_plan
+    assign mb_has_only_default_variant = mb.has_only_default_variant
+    assign mb_variants = mb.variants
+    assign mb_first_available_variant = mb.first_available_variant
+    assign mb_first_available_variant_id = mb_first_available_variant.id
+    assign mb_first_available_variant_title = mb_first_available_variant.title
+    assign mb_first_available_variant_requires_selling_plan = mb_first_available_variant.requires_selling_plan
+    assign mb_first_available_variant_selling_plan_allocations = mb_first_available_variant.selling_plan_allocations
+    assign mb_selected_or_first_available_selling_plan_allocation = mb.selected_or_first_available_selling_plan_allocation
+    assign mb_selected_or_first_available_selling_plan_allocation_selling_plan_group_id = mb_selected_or_first_available_selling_plan_allocation.selling_plan_group_id
+    assign mb_selected_or_first_available_selling_plan_allocation_selling_plan_id = mb_selected_or_first_available_selling_plan_allocation.selling_plan.id
+    assign mb_selected_or_first_available_selling_plan_allocation_checkout_charge_amount = mb_selected_or_first_available_selling_plan_allocation.checkout_charge_amount
+  -%}
+
+  <div class='content-wrapper section-spacer'>
+    mb: {{ mb }} <br>
+    mb_id: {{ mb_id }} <br>
+    mb_handle: {{ mb_handle }} <br>
+    mb_title: {{ mb_title }} <br>
+    mb_requires_selling_plan: {{ mb_requires_selling_plan }} <br>
+    mb_has_only_default_variant: {{ mb_has_only_default_variant }} <br>
+    mb_variants: {{ mb_variants }} <br>
+    mb_first_available_variant: {{ mb_first_available_variant }} <br>
+    mb_first_available_variant_id: {{ mb_first_available_variant_id }} <br>
+    mb_first_available_variant_title: {{ mb_first_available_variant_title }} <br>
+    mb_first_available_variant_requires_selling_plan: {{ mb_first_available_variant_requires_selling_plan }} <br>
+    mb_first_available_variant_selling_plan_allocations: {{ mb_first_available_variant_selling_plan_allocations }} <br>
+    mb_selected_or_first_available_selling_plan_allocation: {{ mb_selected_or_first_available_selling_plan_allocation }} <br>
+    mb_selected_or_first_available_selling_plan_allocation_selling_plan_group_id: {{ mb_selected_or_first_available_selling_plan_allocation_selling_plan_group_id }} <br>
+    mb_selected_or_first_available_selling_plan_allocation_selling_plan_id: {{ mb_selected_or_first_available_selling_plan_allocation_selling_plan_id }} <br>
+    mb_selected_or_first_available_selling_plan_allocation_checkout_charge_amount: {{ mb_selected_or_first_available_selling_plan_allocation_checkout_charge_amount }}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Subscription Data",
+  "settings": [
+    {
+      "id": "membership_product",
+      "type": "product",
+      "label": "Product"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Subscription Data",
+      "category": "Product"
+    }
+  ]
+}
+{% endschema %}

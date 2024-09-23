@@ -1,0 +1,120 @@
+.oke-w-header-content {
+  display: flex;
+  flex-direction: column !important;
+  justify-content: center !important;
+  margin: auto;
+  align-items: center !important;
+  width: 100%;
+  margin-right: -0;
+}
+
+.oke-w-mediaCarouselModule {
+  display: none !important;
+}
+
+#filter-toggle {
+  display: none !important;
+}
+
+.okeReviews[data-oke-container] .oke-w-reviews-writeReview,
+div.okeReviews .oke-w-reviews-writeReview {
+  margin-left: 0;
+  flex-shrink: 0;
+  margin: auto !important;
+}
+
+.oke-w-breakdownModule.oke-w-breakdownModule--contain {
+  display: none !important;
+}
+
+.oke-w-reviews-count {
+  display: none !important;
+}
+
+.oke-w-header-content-block--left .oke-w-header-content-module {
+  justify-content: center !important;
+}
+
+.oke-w-header-content-block {
+  margin-bottom: 0 !important;
+}
+
+.featured-collections .swiper-horizontal > .swiper-scrollbar,
+.featured-collections .swiper-scrollbar.swiper-scrollbar-horizontal {
+  bottom: -1rem !important;
+}
+
+.oke-w-ratingAverageModule.oke-w-ratingAverageModule--oneLine.oke-w-ratingAverageModule--left {
+  flex-direction: column !important;
+  text-align: center !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+div.okeReviews[data-oke-container] .oke-w-reviews-controls {
+  padding: 1rem 0 !important;
+  border-top: var(--oke-border-width) solid var(--oke-border-color) !important;
+
+  font-family: var(--font-modernist);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 46px;
+  /* or 354% */
+  text-align: right;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  /* TC Gray */
+  color: var(--brand-gray-dark);
+}
+
+.okeReviews[data-oke-container] .oke-select,
+div.okeReviews .oke-select {
+  border: var(--divider) !important;
+  padding: 1rem !important;
+  background: #ffff !important;
+  width: 200px;
+  text-transform: uppercase !important;
+  background-image: url("https://cdn.shopify.com/s/files/1/0220/4008/4552/files/arrow.svg?v=1686000861") !important;
+  background-size: 10px !important;
+  background-position: 94% 50% !important;
+  background-repeat: no-repeat !important;
+}
+
+.okeReviews[data-oke-container].oke-w .oke-w-controls-nav,
+div.okeReviews.oke-w .oke-w-controls-nav {
+  display: none !important;
+}
+
+div.okeReviews[data-oke-container] .oke-reviewContent-title {
+  font-family: var(--modernist);
+
+  font-style: normal;
+  font-weight: 400 !important;
+  font-size: 22px !important;
+  line-height: 30px !important;
+  letter-spacing: 0.03em !important;
+
+  color: #323232;
+}
+
+.okeReviews[data-oke-container] .oke-button,
+div.okeReviews .oke-button {
+  background: var(--brand-brown) !important;
+  font-family: var(--font-modernist-mono) !important;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 0 !important;
+  outline: 0 !important;
+  /* TC White */
+  color: #ffffff;
+}
+
+.section-product-okendo *:not(h2) {
+  font-family: var(--modernist) !important;
+}

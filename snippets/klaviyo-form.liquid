@@ -1,0 +1,69 @@
+
+{% unless country != empty %}
+  {% if form == true %}
+    {% for item in unique_id %}
+      <klaviyo-form id='{{ unique_id }}'>
+        <form target='_blank' class='klaviyo-form'>
+          {%- if title != empty -%}
+            <h2 class='headline h1 footer__form-title color-white mg-b-s'>
+              {{ title }}
+            </h2>
+          {%- endif -%}
+
+          <p class='color-brand-chocolate-light mg-t-s mg-b-m '>{{ text }}</p>
+
+          <div class=''>
+            <input type='hidden' name='g' value='{{ klaviyo_list_id }}'>
+            <input
+              type='hidden'
+              name='$source'
+              value='footer {{ template | handleize }}-{{ template.name | handleize }}'
+            >
+
+            <div class='email-input field'>
+              <input
+                type='email'
+                class='field__input'
+                name='email'
+                id='footerEmail-{{ unique_id }}'
+                required
+                placeholder='{{ placeholder }}'
+              >
+              <button
+                type='submit'
+                name='add'
+                class='klaviyo-form__submit'
+              >
+                <span> → </span>
+                <div class='loading-spinner hidden'>
+                  <svg
+                    aria-hidden='true'
+                    focusable='false'
+                    role='presentation'
+                    class='spinner'
+                    viewBox='0 0 66 66'
+                    xmlns='http://www.w3.org/2000/svg'
+                  >
+                    <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                  </svg>
+                </div>
+              </button>
+              <label class='hidden' for='footerEmail-{{ unique_id }}''>Email address</label>
+            </div>
+          </div>
+          <div class='response'></div>
+        </form>
+      </klaviyo-form>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          document.getElementById('{{ item }}').setResponseMessages({
+            alreadySubscribedMessage: '{{ already_subscribed_message | escape }}',
+            successMessage: '{{ success_message | escape }}',
+            errorMessage: '{{ error_message | escape }}',
+          });
+        });
+      </script>
+    {% endfor %}
+  {% endif %}
+{% endunless %}

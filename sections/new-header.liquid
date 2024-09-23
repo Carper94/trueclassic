@@ -1,0 +1,360 @@
+{%- comment -%}
+  This is a required section for the Shopify Theme Store.
+  It is available in the "Header" section in the theme editor.
+
+  Theme Store required settings
+  - Show announcement
+  - Text: message to announce
+  - Link: link of the announcement bar
+
+  Theme Store optional settings
+  - Home page only: only shows on the home page
+{%- endcomment -%}
+{% liquid
+  assign nav_menu = section.settings.header_link_list.links
+
+  capture sub_nav
+    for item in nav_menu
+      for sub_item in item.links
+        render 'nav-panel', tab: sub_item, class: 'content-wrapper desktop-only--header', list_item_class: 'nav-item--sub'
+      endfor
+      if forloop.first == true
+        capture left_nav
+          render 'nav-list', links: item.links, class: 'desktop-only--header', list_item_class: 'nav-item--main'
+        endcapture
+      else
+        capture right_nav
+          render 'nav-list', links: item.links, class: 'desktop-only--header', list_item_class: 'nav-item--main'
+        endcapture
+      endif
+    endfor
+    render 'nav-panel', is_search: true, class: 'content-wrapper desktop-only--header'
+  endcapture
+%}
+
+<div class='header-section' data-section-id='{{ section.id }}' data-section-type='header'>
+  <header class='header header-element container'>
+    <div class='header-wrapper'>
+      {% comment %} SALE ANNOUCEMENT BAR {% endcomment %}
+      {% if section.settings.announcement_bar_enabled %}
+        {% capture sale_banner %}
+          {% for block in section.blocks %}
+            {% if block.type == 'sale' %}
+              <style type='text/css'>
+                #announcement-bar-{{ forloop.index }}[class*="announcement-bar__"] {
+                  background-color: {{ block.settings.announcement_bar_notice_background }}!important;
+                }
+                #announcement-bar-{{ forloop.index }}[class*="announcement-bar__"] .announcement__tooltip {
+                  display: none;
+                  width: 320px;
+                  position: absolute;
+                  border-top: none;
+                  border-right: none;
+                  border-left: none;
+                  border-image: initial;
+                  padding: 10px;
+                  background-color: white;
+                  border-radius: 5px;
+                  box-shadow: black 0px 0px 5px;
+                  left: 10px;
+                  top: 50px;
+                  z-index: 1;
+                }
+                #announcement-bar-{{ forloop.index }} .announcement__tooltip-notice,
+                #announcement-bar-{{ forloop.index }} .announcement__tooltip-notice > *,
+                #announcement-bar-{{ forloop.index }} .announcement__tooltip-notice > * > * {
+                  color: {{ block.settings.announcement_bar_notice_color }}!important;
+                }
+                #announcement-bar-{{ forloop.index }} .announcement__tooltip .announcement__tooltip-heading p,
+                #announcement-bar-{{ forloop.index }} .announcement__tooltip .announcement__tooltip-message p {
+                  margin-bottom: 1rem;
+                  color: #282828;
+                  color: var(--brand-black);
+                }
+              </style>
+              <section id='announcement-bar-{{ forloop.index }}' class='announcement-bar announcement-bar__{{ block.settings.announcement_bar_class }} {% if block.settings.hidden == true %} hide{% endif %}'>
+                <div class='flex'>
+                  <div class='announcement__tooltip-notice'>{{ block.settings.announcement_bar_notice }}</div>
+                  <div id='announcement-sale_{{ block.settings.announcement_bar_class }}' style='display: none;'>{{ block.settings.announcement_bar_notice }}</div>
+                  {% unless block.settings.announcement_bar_message == blank %}
+                  <button
+                    class='anouncement__button-info icon-button'
+                    style='color: {{ block.settings.announcement_bar_notice_color }}!important;'
+                    data-delegate='anouncementcartinfo'
+                    data-noclick
+                  >
+                    <span class='visually-hidden'>Announcement Info</span>
+                      {% render 'icon-info' %}
+                  </button>
+                {% endunless %}
+                  <button
+                    class='anouncement__button-close icon-button'
+                    style='color: {{ block.settings.announcement_bar_notice_color }}!important;'
+                    data-delegate='anouncementcartclose'
+                    data-noclick
+                  >
+                    <span class='visually-hidden'>Close Announcement</span>
+                    {% render 'icon-close' %}
+                  </button>
+                  {% unless block.settings.announcement_bar_message == blank %}
+                  <div class='announcement__tooltip'>
+                    <div class='announcement__tooltip-heading'>{{ block.settings.announcement_bar_heading }}</div>
+                    <div class='announcement__tooltip-message'>{{ block.settings.announcement_bar_message }}</div>
+                  </div>
+                  {% endunless %}
+                </div>
+              </section>
+            {% endif %}
+          {% endfor %}
+        {% endcapture %}
+
+        {%- liquid
+          echo sale_banner
+        -%}
+      {% endif %}
+
+      {% comment %} END SALE ANNOUCEMENT BAR {% endcomment %}
+
+      {% liquid
+        if section.settings.announcement_bar_enabled
+          render 'announcement-bar'
+        endif
+      %}
+
+      <div class='header-nav-wrapper header-element'>
+        <nav class='header-left' aria-label='navigation'>
+          {% render 'nav-control', control: 'primary-toggle' %}
+          {% comment %}
+            {% render 'back-arrow' %}
+          {% endcomment %}
+          {{ left_nav }}
+        </nav>
+
+        <div class='header-middle'>
+          {% render 'nav-header-logo' %}
+        </div>
+
+        <div class='header-right'>
+          {{ right_nav }}
+          <div class='header-utilities'>
+            {% render 'nav-utilities' %}
+          </div>
+        </div>
+        {% if section.settings.enable_mega_menu %}
+          {% render 'mega-menu' %}
+        {% endif %}
+      </div>
+
+      <div id='header-subnavs' class='header-subnav-wrapper desktop-only--header'>
+        <!-- NOTE: mobile header may also has a search icon & dropdown searchbar sub_nav -->
+        {{ sub_nav }}
+      </div>
+    </div>
+  </header>
+</div>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_mega_menu",
+      "label": "Enable Mega Menu",
+      "default": true
+    },
+    {
+      "type": "link_list",
+      "id": "header_link_list",
+      "label": "Header Menu"
+    },
+    {
+      "type": "header",
+      "content": "Announcement bar"
+    },
+    {
+      "type": "checkbox",
+      "id": "announcement_bar_enabled",
+      "label": "Show announcement",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "announcement_bar_home_page_only",
+      "label": "Show on home page only",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "announcement_bar_duration",
+      "label": "Slide Duration in seconds",
+      "min": 1,
+      "max": 10,
+      "default": 5
+    },
+    {
+      "type": "header",
+      "content": "Header"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "name": "Announcement",
+      "settings": [
+        {
+          "type": "liquid",
+          "id": "announcement_bar_text",
+          "default": "Announcement Message Here",
+          "label": "Announcement message"
+        },
+        {
+          "type": "url",
+          "id": "announcement_bar_link",
+          "label": "Announcement link"
+        },
+        {
+          "type": "text",
+          "id": "announcement_bar_class",
+          "label": "Additional class"
+        }
+      ]
+    },
+    {
+      "type": "sale",
+      "name": "Annoucement Sale",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "announcement_bar_notice",
+          "default": "<p>SALE PROMO</p>",
+          "label": "Sale  message"
+        },
+        {
+          "type": "checkbox",
+          "id": "hidden",
+          "label": "Hidden",
+          "info": "Hide the sale banner on the site (activate via URL param to show)"
+        },
+        {
+          "type": "text",
+          "id": "announcement_bar_class",
+          "label": "Additional class"
+        },
+        {
+          "type": "url",
+          "id": "announcement_bar_link",
+          "label": "Announcement link"
+        },
+        {
+          "type": "richtext",
+          "id": "announcement_bar_heading",
+          "label": "Tooltip heading"
+        },
+        {
+          "type": "richtext",
+          "id": "announcement_bar_message",
+          "label": "Tooltip message"
+        },
+        {
+          "type": "color",
+          "id": "announcement_bar_notice_background",
+          "label": "Background color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "announcement_bar_notice_color",
+          "label": "Text color",
+          "default": "#ffffff"
+        }
+      ]
+    },
+    {
+      "type": "mm_img",
+      "name": "MegaMenuImage",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "mm_img_image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "mm_img_alt",
+          "label": "Alt text"
+        },
+        {
+          "type": "text",
+          "id": "mm_img_overlay_text",
+          "label": "Overlay text"
+        },
+        {
+          "type": "url",
+          "id": "mm_img_link",
+          "label": "Link to collection/pdp"
+        }
+      ]
+    },
+    {
+      "name": "Country",
+      "type": "text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "US, CA, AU, GB etc."
+        },
+        {
+          "type": "text",
+          "id": "country_announcement",
+          "label": "Country Announcement"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<script type='application/ld+json'>
+  {
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": "{{ shop.name }}",
+    {% if section.settings.logo %}
+      {% assign image_size = section.settings.logo.width | append: 'x' %}
+      "logo": "https:{{ section.settings.logo | image_url: image_size }}",
+    {% endif %}
+    "sameAs": [
+      "{{ settings.social_twitter_link }}",
+      "{{ settings.social_facebook_link }}",
+      "{{ settings.social_pinterest_link }}",
+      "{{ settings.social_instagram_link }}",
+      "{{ settings.social_tumblr_link }}",
+      "{{ settings.social_snapchat_link }}",
+      "{{ settings.social_youtube_link }}",
+      "{{ settings.social_vimeo_link }}"
+    ],
+    "url": "{{ shop.url }}{{ page.url }}"
+  }
+</script>
+
+{% if template.name == 'index' %}
+  <script type='application/ld+json'>
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "name": "{{ shop.name }}",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "{{ shop.url }}/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      },
+      "url": "{{ shop.url }}{{ page.url }}"
+    }
+  </script>
+{% endif %}
+
+<script id='header-section-settings' type='application/json'>
+  {{ section.settings | json }}
+</script>

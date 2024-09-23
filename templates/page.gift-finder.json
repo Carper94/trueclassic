@@ -1,0 +1,223 @@
+{
+  "sections": {
+    "main": {
+      "type": "page-gift",
+      "settings": {
+      }
+    },
+    "affeb001-792c-4869-9e48-3596d10b303f": {
+      "type": "quiz-options",
+      "blocks": {
+        "c34c3d25-fff6-4ad0-bb6b-61fcaadea590": {
+          "type": "text",
+          "settings": {
+            "choice": "Dad",
+            "tag": "",
+            "analytics": "document.cookie = 'recipient=Dad; path=\/';",
+            "html": "",
+            "collection_url": ""
+          }
+        },
+        "99208ee1-cc2d-4ee4-b6c1-57537b57508d": {
+          "type": "text",
+          "settings": {
+            "choice": "Brother",
+            "tag": "",
+            "analytics": "document.cookie = 'recipient=Brother; path=\/';",
+            "html": "",
+            "collection_url": ""
+          }
+        },
+        "dce36ddf-2bda-4327-afd6-352276b05c43": {
+          "type": "text",
+          "settings": {
+            "choice": "Partner",
+            "tag": "",
+            "analytics": "document.cookie = 'recipient=Partner; path=\/';",
+            "html": "",
+            "collection_url": ""
+          }
+        },
+        "1982057a-87f0-448d-b3a3-ed1edf00e947": {
+          "type": "text",
+          "settings": {
+            "choice": "Son",
+            "tag": "",
+            "analytics": "document.cookie = 'recipient=Son; path=\/';",
+            "html": "",
+            "collection_url": ""
+          }
+        },
+        "93a5f4f5-66af-4710-a73b-c87a1c8e65ac": {
+          "type": "text",
+          "settings": {
+            "choice": "Friend",
+            "tag": "",
+            "analytics": "document.cookie = 'recipient=Friend; path=\/';",
+            "html": "",
+            "collection_url": ""
+          }
+        },
+        "d2d01342-7c97-4ab2-b13b-fedff23e29d3": {
+          "type": "text",
+          "settings": {
+            "choice": "Other",
+            "tag": "",
+            "analytics": "document.cookie = 'recipient=Someone Special; path=\/';",
+            "html": "",
+            "collection_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "c34c3d25-fff6-4ad0-bb6b-61fcaadea590",
+        "99208ee1-cc2d-4ee4-b6c1-57537b57508d",
+        "dce36ddf-2bda-4327-afd6-352276b05c43",
+        "1982057a-87f0-448d-b3a3-ed1edf00e947",
+        "93a5f4f5-66af-4710-a73b-c87a1c8e65ac",
+        "d2d01342-7c97-4ab2-b13b-fedff23e29d3"
+      ],
+      "settings": {
+        "heading": "Who are you shopping for",
+        "first": true,
+        "final": false
+      }
+    },
+    "ed71147d-549f-4a27-8691-9ed822261497": {
+      "type": "quiz-options",
+      "blocks": {
+        "78de0ecf-503c-47b9-9a08-311ecbe9ae80": {
+          "type": "textarea",
+          "settings": {
+            "name": "Shirt",
+            "options": "S,M,L,XL,2XL,3XL",
+            "analytics": ""
+          }
+        },
+        "16332255-1ded-4dcd-a145-114fae6c52fd": {
+          "type": "textarea",
+          "settings": {
+            "name": "Bottoms",
+            "options": "S,M,L,XL,2XL",
+            "analytics": ""
+          }
+        },
+        "dba93f02-b066-4fbc-b26a-0db3bb2ea668": {
+          "type": "textarea",
+          "settings": {
+            "name": "Socks",
+            "options": "M,L,XL",
+            "analytics": ""
+          }
+        }
+      },
+      "block_order": [
+        "78de0ecf-503c-47b9-9a08-311ecbe9ae80",
+        "16332255-1ded-4dcd-a145-114fae6c52fd",
+        "dba93f02-b066-4fbc-b26a-0db3bb2ea668"
+      ],
+      "settings": {
+        "heading": "Let's start with their size",
+        "first": false,
+        "final": false
+      }
+    },
+    "a1f363f8-bf62-4dff-aae6-8696a3ef711f": {
+      "type": "quiz-options",
+      "blocks": {
+        "e3a70392-bdb0-46a5-92c6-25ba3bd9ce33": {
+          "type": "text",
+          "settings": {
+            "choice": "Always Active",
+            "tag": "",
+            "analytics": "document.cookie = 'style=Active; path=\/';",
+            "html": "",
+            "collection_url": "gifts-for-the-guy-on-the-go"
+          }
+        },
+        "99fb99e1-b926-4d43-aab4-4ae15c0d732a": {
+          "type": "text",
+          "settings": {
+            "choice": "Creature of Comfort",
+            "tag": "",
+            "analytics": "document.cookie = 'style=Comfy; path=\/';",
+            "html": "",
+            "collection_url": "gifts-for-the-creature-of-comfort"
+          }
+        },
+        "94ca467e-cd60-44ce-b658-ae5c526931b5": {
+          "type": "text",
+          "settings": {
+            "choice": "Classic Man",
+            "tag": "",
+            "analytics": "document.cookie = 'style=Classic; path=\/';",
+            "html": "",
+            "collection_url": "gifts-for-the-classic-man"
+          }
+        }
+      },
+      "block_order": [
+        "e3a70392-bdb0-46a5-92c6-25ba3bd9ce33",
+        "99fb99e1-b926-4d43-aab4-4ae15c0d732a",
+        "94ca467e-cd60-44ce-b658-ae5c526931b5"
+      ],
+      "settings": {
+        "heading": "Pick a Persona",
+        "first": false,
+        "final": false
+      }
+    },
+    "ef65c301-ef92-4b85-a03e-1573692d9581": {
+      "type": "quiz-options",
+      "blocks": {
+        "3daad42f-d7c2-4906-9db3-b3f0faad4a32": {
+          "type": "text",
+          "settings": {
+            "choice": "$100-$150",
+            "tag": "100-150",
+            "analytics": "",
+            "html": "<div style=\"border: 1px solid #be483a;\ncolor: #be483a;\nbackground-color: #fff;\nborder-radius: 50%;\nfont-family: 'Alkaline';\nposition: absolute;\ntop: -20px;\nleft: -20px;\nz-index: 2;\npadding: 3px 6px;\ntransform:rotate(-13deg);\">\n<span>Best Value<\/span>\n<\/div>",
+            "collection_url": ""
+          }
+        },
+        "f0f6f514-9f4b-4e10-b792-b08945a86d5a": {
+          "type": "text",
+          "settings": {
+            "choice": "$50-$100",
+            "tag": "50-100",
+            "analytics": "",
+            "html": "",
+            "collection_url": ""
+          }
+        },
+        "77487d10-9fc2-4262-b9bb-e13bce2f17fe": {
+          "type": "text",
+          "settings": {
+            "choice": "Under $50",
+            "tag": "20-50",
+            "analytics": "",
+            "html": "",
+            "collection_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "3daad42f-d7c2-4906-9db3-b3f0faad4a32",
+        "f0f6f514-9f4b-4e10-b792-b08945a86d5a",
+        "77487d10-9fc2-4262-b9bb-e13bce2f17fe"
+      ],
+      "settings": {
+        "heading": "How much do you want to spend?",
+        "first": false,
+        "final": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "affeb001-792c-4869-9e48-3596d10b303f",
+    "ed71147d-549f-4a27-8691-9ed822261497",
+    "a1f363f8-bf62-4dff-aae6-8696a3ef711f",
+    "ef65c301-ef92-4b85-a03e-1573692d9581"
+  ]
+}

@@ -1,0 +1,34 @@
+{%- liquid
+  assign shop_url = shop.url
+  assign original_path = canonical_url | remove: 'https://www.trueclassictees.com'
+  assign hreflang_array = settings.included_hreflang |  split: ','
+  assign noindex_hreflang_array = settings.excluded_hreflang |  split: ','
+  assign current_iso = localization.country.iso_code | downcase
+  assign current_hreflang = localization.language.iso_code
+  assign current_hreflang = localization.language.iso_code | append: '-'
+  assign current_hreflang = current_hreflang | append: current_iso
+
+  assign page_url = original_path | split: '/'
+  assign _locale = ''
+
+  for subs in page_url
+    if forloop.index == 2
+      assign _locale = subs | prepend: '/'
+    endif
+  endfor
+
+  unless localization.country.iso_code == 'US'
+    assign original_path = original_path | remove: _locale
+  endunless
+-%}
+
+<link rel='alternate' hreflang='x-default' href='{{ shop_url }}{{ original_path }}'>
+{%- for lang in hreflang_array %}
+<link rel='alternate' hreflang='{{ lang }}' href='{{ shop_url }}/{{ lang }}{{ original_path }}'>
+{%- endfor %}
+
+{%- for lang in noindex_hreflang_array -%}
+{%- if lang contains current_hreflang -%}
+<meta name="robots" content="noindex,nofollow">
+{%- endif -%}
+{%- endfor %}

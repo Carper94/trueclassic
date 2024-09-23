@@ -1,0 +1,208 @@
+{% liquid
+  assign id = 'membership-gift-' | append: free_gift.id
+  assign line_item_products = cart.items | map: 'product'
+  assign line_item_products_ids = line_item_products | map: 'id'
+  assign in_cart = false
+%}
+
+<style>
+  .membership-gift {
+    margin-bottom: 20px;
+  }
+
+  .membership-gift .membership-gift-item {
+    {% comment %} background-color: #ffde6a; {% endcomment %}
+    background-color: var(--brand-white);
+    grid-template-columns: 20% 80%;
+    grid-gap: 0.3125rem;
+    padding: 0.425rem 0.625rem;
+    margin-right: 0.25rem;
+    height: auto;
+    min-height: inherit;
+  }
+
+  .mb-list-item__actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    column-gap: 1rem;
+  }
+  .mb-list-item__actions > * {
+    width: 100%;
+    max-height: 34px;
+  }
+  .button.dark.small.no-padding {
+    padding: 0;
+    border-radius: 0.625rem;
+  }
+
+  .mb-wrap .discount-pack-list-item__options {
+    margin-bottom: 0;
+  }
+
+  .disclaimer-end {display: block;}
+  .disclaimer-end span {display: block; background-color: #fdde6c; border-radius: 1rem; border: 2px solid black; padding: 0.75rem; margin: 0 0 0.65rem 0; font-size: 0.95rem;}
+</style>
+
+{% for item in cart.items %}
+  {% if item.product.id == free_gift.id %}
+    {% assign in_cart = true %}
+  {% endif %}
+{% endfor %}
+
+{% if in_cart == false %}
+  {% if localization.country.iso_code == 'US' %}
+    <div
+      class='disclaimer-end container content-wrapper'
+      style='padding-left: 0!important;padding-right: 0!important;'
+    >
+      <span>
+        One or more items in your cart is a subscription. By continuing with your payment, you agree
+        that any subscription will automatically renew at the price and frequency listed on this
+        page until it ends or you cancel. All cancellations are subject to the [link to]
+        cancellation policy.
+      </span>
+    </div>
+    <div class='free-item membership-gift'>
+      <h2 class='headline h4' style='font-size: 0.85rem; text-align: center;'>
+        TRUE CREW Membership Gift
+      </h2>
+
+      {% comment %} // FREE GIFT BOX {% endcomment %}
+      <div class='discount-pack-list-item membership-gift-item'>
+        {% comment %} // IMAGE {% endcomment %}
+        <div class='discount-pack-list-item__image-container'>
+          <div class='discount-pack-list-item__image-wrapper' style='border-radius: .625rem;'>
+            {%- liquid
+              assign image_height = free_gift.featured_media.width | divided_by: free_gift.featured_media.aspect_ratio
+              assign image_class = 'discount-pack-list-item__image'
+              assign sizes = '100vw'
+              assign loading = 'lazy'
+            -%}
+            {{
+              free_gift.featured_media
+              | image_url: width: 1500
+              | image_tag:
+                width: free_gift.featured_media.width,
+                height: image_height,
+                class: image_class,
+                sizes: sizes,
+                loading: loading,
+                widths: '165, 265, 360, 535',
+                alt: free_gift.featured_media.alt
+              | escape
+            }}
+          </div>
+        </div>
+
+        {% comment %} // INFO AND FORM {% endcomment %}
+        <div class='mb-wrap'>
+          {% comment %} // TITLE {% endcomment %}
+          <div class='discount-pack-list-item__title-wrapper'>
+            <div class='h3'>
+              <a href='{{ free_gift.url }}'>{{ free_gift.title }}</a>
+            </div>
+          </div>
+          {% comment %} // PRICE {% endcomment %}
+          <div class='discount-pack-list-item__price'>
+            {% render 'product-price',
+              price: 0,
+              compare_at_price: free_gift.price,
+              product_id: free_gift.id
+            %}
+          </div>
+
+          {% comment %} // FORM {% endcomment %}
+          <div class='discount-pack-list-item__actions mb-list-item__actions'>
+            {% assign selected = '' %}
+            {% for item in cart.items %}
+              {% for option in item.options_with_values %}
+                {% assign selected = option.value %}
+                {% if selected == 'Small' %}
+                  {% assign selected = 'S' %}
+                {% elsif selected == 'Medium' %}
+                  {% assign selected = 'M' %}
+                {% elsif selected == 'Large' %}
+                  {% assign selected = 'L' %}
+                {% endif %}
+              {% endfor %}
+            {% endfor %}
+
+            <form
+              id='{{ id }}'
+              class='discount-pack-list-item__form'
+              data-delegate='discountfreeform'
+              data-product-id='{{ free_gift.id }}'
+              data-product-handle='{{ free_gift.handle }}'
+            >
+              {% unless free_gift.has_only_default_variant %}
+                <div
+                  {% if free == blank %}
+                    class='discount-pack-list-item__options'
+                  {% endif %}
+                >
+                  {% for product_option in free_gift.options_with_values %}
+                    <select
+                      id='discount-pack-option-{{ free_gift.id }}'
+                      name='Option-{{ product_option.name }}'
+                      style='width: 100%; display: block;'
+                    >
+                      {% for value in product_option.values %}
+                        {%- if free_gift.variants[forloop.index0].available -%}
+                          {%- assign opt_sold = false -%}
+                        {%- else -%}
+                          {%- assign opt_sold = true -%}
+                        {%- endif -%}
+                        <option
+                          value='{{ value }}'
+                          {% if opt_sold %}
+                            disabled
+                          {% endif -%}
+                          {% if value == selected %}
+                            selected
+                          {% endif %}
+                        >
+                          {{ value }}
+                        </option>
+                      {% endfor %}
+                    </select>
+                    {% if free == blank %}
+                      {% render 'icon-chevron-down' %}
+                    {% endif %}
+                    <label
+                      class='visually-hidden'
+                      for='discount-pack-option-{{ free_gift.id }}'
+                    >
+                      {{ product_option.name }}
+                    </label>
+                  {% endfor %}
+                </div>
+              {% endunless %}
+              <input
+                id='discount-pack-quantity-{{ free_gift.id }}'
+                class='visually-hidden'
+                name='quantity'
+                value='1'
+              >
+              <label
+                for='discount-pack-quantity-{{ free_gift.id }}'
+                class='visually-hidden'
+              >
+                Quantity
+              </label>
+            </form>
+
+            <button
+              type='submit'
+              class='button dark small no-padding'
+              form='{{ id }}'
+              aria-label='Add'
+            >
+              Add
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{% endif %}

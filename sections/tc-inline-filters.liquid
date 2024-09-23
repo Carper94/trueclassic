@@ -1,0 +1,163 @@
+<style>
+  .inline-filters {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .inline-filters .filter-list {
+    justify-content: center;
+  }
+</style>
+
+<div class='inline-filters container flex'>
+  <form
+    id='filter-form-inline'
+    class='filter-drawer__form filter-drawer__form-new'
+    data-delegate='filterform'
+  >
+    {% for filter in collection.filters %}
+      {% unless filter.label != 'size' and filter.label != 'Size' %}
+        {% liquid
+          assign label = filter.label
+          assign type = 'square'
+        %}
+        {% unless filter.label == 'Availability' %}
+          <div class='filter-list-wrapper'>
+            {% if section.settings.enable_top_sizes %}
+              <h5 class='headline h6 mg-b-xs mg-t-none'>{{ section.settings.top_size_label }}</h5>
+              <div class='filter-list tops'>
+                {% for filter_value in filter.values %}
+                  {% assign id = filter_value.param_name %}
+                  {% assign value = filter_value.value | strip %}
+                  {% if value contains 'S' or value contains 'M' or value contains 'L' %}
+                    <div
+                      class='filter-list-item filter-list-item-new {{ type }}'
+                    >
+                      <input
+                        type='checkbox'
+                        id='{{ id }}'
+                        value='{{ value }}'
+                        name='{{ filter_value.param_name | strip }}'
+                        title='{{ value }}'
+                        {% if filter_value.active %}
+                          checked
+                        {% endif %}
+                      >
+                      <label
+                        for='{{ id }}'
+                        aria-label='{{ label }} {{ value }}'
+                      >
+                        {{ value }}
+                      </label>
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            {% endif %}
+            {% if section.settings.enable_bottom_sizes %}
+              <h5 class='headline h6 mg-b-xs mg-t-m'>{{ section.settings.bottom_size_label }}</h5>
+              <div class='filter-list bottoms'>
+                <br>
+                {% for filter_value in filter.values %}
+                  {% assign id = filter_value.param_name %}
+                  {% assign value = filter_value.value | strip %}
+                  {% unless value contains 'S'
+                    or value contains 'M'
+                    or value contains 'L'
+                    or value contains 'One'
+                  %}
+                    <div
+                      class='filter-list-item filter-list-item-new {{ type }}'
+                    >
+                      <input
+                        type='checkbox'
+                        id='{{ id }}'
+                        value='{{ value }}'
+                        name='{{ filter_value.param_name | strip }}'
+                        title='{{ value }}'
+                        {% if filter_value.active %}
+                          checked
+                        {% endif %}
+                      >
+                      <label
+                        for='{{ id }}'
+                        aria-label='{{ label }} {{ value }}'
+                      >
+                        {{ value }}
+                      </label>
+                    </div>
+                  {% endunless %}
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+        {% endunless %}
+      {% endunless %}
+    {% endfor %}
+
+    {% if section.settings.enable_apply %}
+      <button class='button primary mg-t-m'>APPLY</button>
+    {% else %}
+      <button></button>
+    {% endif %}
+  </form>
+</div>
+
+{% unless section.settings.enable_apply %}
+  <script>
+    const inlineFormFilter = document.getElementById('filter-form-inline');
+    const inlineFormFilterInput = inlineFormFilter.querySelectorAll('input');
+    const inlineFormFilterButton = inlineFormFilter.querySelector('button');
+
+    for (let i = 0; i < inlineFormFilterInput.length; i++) {
+      inlineFormFilterInput[i].addEventListener('click', function (e) {
+        inlineFormFilterButton.click();
+      });
+    }
+  </script>
+{% endunless %}
+
+{% schema %}
+{
+  "name": "TC Inline Filters",
+  "tag": "section",
+  "class": "section-inline-filters",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_apply",
+      "label": "Enable Apply Button",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_top_sizes",
+      "label": "Enable Top Sizes",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_bottom_sizes",
+      "label": "Enable Bottom Sizes",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "top_size_label",
+      "label": "Top Size Label",
+      "default": "TOP SIZE"
+    },
+    {
+      "type": "text",
+      "id": "bottom_size_label",
+      "label": "Bottom Size Label",
+      "default": "BOTTOM SIZE"
+    }
+  ],
+  "presets": [
+    {
+      "name": "TC Inline Filters"
+    }
+  ]
+}
+{% endschema %}

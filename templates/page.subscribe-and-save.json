@@ -1,0 +1,122 @@
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "settings": {
+        "full_width": false,
+        "hide_title": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "replo_replo_subscribe_and_save_Rtib6H": {
+      "type": "replo-replo-subscribe-and-save",
+      "settings": {
+      }
+    },
+    "featured_collection_ynQGdF": {
+      "type": "featured-collection",
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "title": "Items available for subscription",
+        "collection": "subscribe-save"
+      }
+    },
+    "replo_replo_sub_save_reviews_JMRdnY": {
+      "type": "replo-replo-sub-save-reviews",
+      "settings": {
+      }
+    },
+    "contact_faq_gmWFxq": {
+      "type": "contact-faq",
+      "blocks": {
+        "block_ingNJ3": {
+          "type": "block",
+          "settings": {
+            "topic": "How do I manage my subscription?",
+            "paragraph": "<p>You can manage your subscription through the customer portal. This includes canceling your subscription, skipping a month, adjusting the next delivery date, gifting an upcoming order, and more.<\/p>"
+          }
+        },
+        "block_ptd7Lh": {
+          "type": "block",
+          "settings": {
+            "topic": "How do I access my customer portal?",
+            "paragraph": "<p>From the account page, click on “Manage Subscription.” Enter your email address, and you will receive a code sent to your email to log into your portal.<\/p>"
+          }
+        },
+        "block_mcxR79": {
+          "type": "block",
+          "settings": {
+            "topic": "Can I skip a month or cancel my subscription?",
+            "paragraph": "<p>Yes, you can cancel your subscription, skip, or pause from the customer portal.<\/p>"
+          }
+        },
+        "block_rYe8Wn": {
+          "type": "block",
+          "settings": {
+            "topic": "What if I want my products sooner?",
+            "paragraph": "<p>You can “Get It Now,” so your order processes immediately, or you can adjust your next order date.<\/p>"
+          }
+        },
+        "block_3miyBq": {
+          "type": "block",
+          "settings": {
+            "topic": "Can I change my subscription preferences?",
+            "paragraph": "<p>You can easily modify your subscription preferences, such as changing the size, style, adding new items, swapping your products, or adjusting the frequency in your customer portal within the “Subscriptions” tab.<\/p>"
+          }
+        },
+        "block_T3tLnj": {
+          "type": "block",
+          "settings": {
+            "topic": "When will I be billed for my next subscription order?",
+            "paragraph": "<p>You will be billed on the next shipment date you see within your customer portal. You will receive an email five days before your order is billed.<\/p>"
+          }
+        },
+        "block_9JagDD": {
+          "type": "block",
+          "settings": {
+            "topic": "Where do I update my billing information?",
+            "paragraph": "<p>Under “Profile” &gt; “Your Payment,” click “Update Payment.” This will generate a link to your email to change your payment method.<\/p>"
+          }
+        },
+        "block_nDcycW": {
+          "type": "block",
+          "settings": {
+            "topic": "Where do I update my delivery address?",
+            "paragraph": "<p>Under the “Subscriptions” section, scroll down to “Delivery Address” to change your address.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_ingNJ3",
+        "block_ptd7Lh",
+        "block_mcxR79",
+        "block_rYe8Wn",
+        "block_3miyBq",
+        "block_T3tLnj",
+        "block_9JagDD",
+        "block_nDcycW"
+      ],
+      "settings": {
+        "title": "Frequently Asked Questions",
+        "subtitle": "",
+        "faqlink": "",
+        "enable_faq_link": false,
+        "background_color": "#ffffff",
+        "columns_desktop": 1,
+        "columns_mobile": "1",
+        "column_alignment": "left",
+        "padding_top": 84,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "main",
+    "replo_replo_subscribe_and_save_Rtib6H",
+    "featured_collection_ynQGdF",
+    "replo_replo_sub_save_reviews_JMRdnY",
+    "contact_faq_gmWFxq"
+  ]
+}

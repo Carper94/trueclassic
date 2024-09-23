@@ -1,0 +1,15 @@
+{% liquid
+    capture chevron_left
+      echo '<span class="visually-hidden">Go to the previous page</span>'
+      echo '<span aria-hidden="true" class="chevron-left"><</span>'
+    endcapture
+    capture chevron_right
+      echo '<span class="visually-hidden">Go to the next page</span>'
+      echo '<span aria-hidden="true" class="chevron-right">></span>'
+    endcapture
+%}
+
+<div class="pagination">
+  {{ paginate | default_pagination: next: chevron_right, previous: chevron_left, total: '' }}
+</div>
+

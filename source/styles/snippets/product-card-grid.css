@@ -1,0 +1,20 @@
+#filtered-collection {
+  @media (--medium-down) {
+    padding: 0;
+  }
+}
+.product-card-grid-wrapper,
+.product-card-grid-wrapper-noscript {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: var(--spacer-m);
+
+  @media (--medium) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+noscript .product-filtered-grid__header {
+  display: none;
+}

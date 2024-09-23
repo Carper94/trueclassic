@@ -1,0 +1,154 @@
+{%- liquid
+  assign function_id = function_id | remove: '-'
+  assign item_one_in_cart = false
+  assign item_two_in_cart = false
+  for item in cart.items
+    if item.product.id == 6774562947144
+      assign item_one_in_cart = true
+    elsif item.product.id == 6750654627912
+      assign item_two_in_cart = true
+    endif
+  endfor
+  if item_one_in_cart == true or item_two_in_cart == true
+    assign not_in_cart = false
+  else
+    assign not_in_cart = true
+  endif
+-%}
+
+<style>
+  #checkoutMembership{{ function_id }},
+  #addToCartButton{{ function_id }} {
+
+    margin: 1rem auto 0;
+  }
+</style>
+
+{% unless product == empty %}
+  {% if localization.country.iso_code == 'US' %}
+    {% if not_in_cart == true %}
+      <button
+        id='addToCartButton{{ function_id }}'
+        class='button {{ button_styles }} membership-button add'
+        type='button'
+        role='button'
+        aria-label='Add membership to cart'
+        data-delegated-click='add-subscription-button'
+        style='margin-top: 1.5rem;'
+        onclick="
+          dataLayer.push({ 'ecommerce': null });dataLayer.push({
+            'event': 'add_membership_to_cart',
+            'ecommerce': {
+              'value': {{ product.price | money_without_currency | remove: ',' | divided_by: 1 }},
+              'currency': 'USD',
+                'items': [{
+                'item_id': '{{ product.id }}',
+                'item_name': '{{ product.title | remove: "'" | remove: '"' }}',
+                'selling_plan': '{{ selling_plan_id | remove: "'" | remove: '"' }}',
+                'source': 'Membership LP',
+                'item_brand': '{{ product.vendor | remove: "'" | remove: '"' }}',
+                'item_category': '{{ product.type | remove: "'" | remove: '"' }}',
+                'currency': 'USD',
+                'price': {{ product.price | money_without_currency | remove: ',' | divided_by: 1 }},
+                }]
+              }
+          });
+        "
+      >
+        <span class='btn-text'>
+          {% render 'tc-icons', icon: 'none' %}
+          <span id='buttontext{{ function_id }}'>{{ button_label }}</span>
+        </span>
+
+        {% render 'button-loader' %}
+      </button>
+    {% elsif not_in_cart == false %}
+      <a
+        id='checkoutMembership{{ function_id }}'
+        href='/checkout'
+        class='checkoutMembership button primary membership-button membership-in-cart membership-button add'
+        style=''
+      >
+        {% render 'tc-icons', icon: 'arrow-right' %} &nbsp;Complete Sign-up
+      </a>
+    {% endif %}
+  {% endif %}
+
+  <a
+    id='checkoutMembership{{ function_id }}'
+    href='/checkout'
+    class='checkoutMembership button primary membership-button membership-in-cart membership-button add'
+    style='display: none;'
+  >
+    {% render 'tc-icons', icon: 'arrow-right' %} &nbsp;Complete Sign-up
+  </a>
+
+  <script>
+    
+    
+    
+    
+    document.addEventListener('DOMContentLoaded', function () {
+      function addMembershipToCart{{ function_id }}() {
+        const becomeMemberButton{{ function_id }} = document.getElementById('addToCartButton{{ function_id }}');
+        becomeMemberButton{{ function_id }}.classList.add('loading');
+        fetch('/cart/add.js', {
+          body: JSON.stringify({
+            items: [
+              {
+                id: {{ product_form_id }},
+                quantity: 1,
+                selling_plan: {{ selling_plan_id }},
+                properties: {
+                  _inveterate_subscription: true,
+                },
+              },
+            ],
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          method: 'POST',
+        })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then(items => {
+          document.dispatchEvent(new Event('cartaddsuccess'));
+          localStorage.setItem('membership', 1);
+          document.getElementById('buttontext{{ function_id }}').removeAttribute("disabled");
+        })
+        .catch(error => {
+          console.log('Failed to add membership to cart');
+        })
+        .finally(() => {
+          hideAddMembership{{ function_id }}();
+        });
+      }
+      const addToCartButton{{ function_id }} = document.getElementById('addToCartButton{{ function_id }}');
+      if(addToCartButton{{ function_id }}){
+        addToCartButton{{ function_id }}.addEventListener('click', addMembershipToCart{{ function_id }});
+      }
+    });
+
+
+    function hideAddMembership{{ function_id }}() {
+      let addToCartButtons = document.querySelectorAll('[id^="addToCartButton"]');
+      let completeSignup = document.querySelectorAll('[id^="checkoutMembership"]');
+
+      addToCartButtons.forEach(function (button) {
+        button.remove();
+      });
+      completeSignup.forEach(function (button) {
+        button.style.display = 'block';
+      });
+    }
+
+
+
+
+  </script>
+{% endunless %}

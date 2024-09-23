@@ -1,0 +1,692 @@
+{%- liquid
+  assign country_codes = section.settings.country_code | split: ','
+  assign exclude_country_codes = section.settings.exclude_country_code | split: ','
+  assign should_show_banner = false
+
+  if section.settings.country_code == '' and section.settings.exclude_country_code == ''
+    assign should_show_banner = true
+  else
+    assign is_excluded = false
+    for exclude_code in exclude_country_codes
+      if localization.country.iso_code == exclude_code
+        assign is_excluded = true
+        break
+      endif
+    endfor
+
+    unless is_excluded
+      if section.settings.country_code == ''
+        assign should_show_banner = true
+      else
+        for code in country_codes
+          if localization.country.iso_code == code
+            assign should_show_banner = true
+            break
+          endif
+        endfor
+      endif
+    endunless
+  endif
+-%}
+{% if should_show_banner %}
+  {% assign sc_id = '#shopify-section-' | append: section.id %}
+  {%- style -%}
+    {{ sc_id }} {
+      background-color: {{ section.settings.bg_color }};
+    }
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+
+    @media screen and (min-width: 769px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+
+    @media screen and (min-width: 990px) {
+      {{ sc_id }} .multicolumn-list__item.grid__item.text-center  {
+        {% if section.settings.enable_borders == true %}
+          border-right: 1px solid #212121;
+        {% endif %}
+        {% if section.settings.enable_borders_around == true %}
+          border: 2px solid #212121;
+          padding: 1rem;
+          padding-bottom: 0;
+          border-radius: 1.2rem;
+        {% endif %}
+      }
+
+      {{ sc_id }} .multicolumn-list__item.grid__item.text-center:last-child  {
+        {% unless section.settings.enable_borders_around == true %}
+          border-right: 0;
+        {% endunless %}
+      }
+    }
+
+    @media screen and (max-width: 989px) {
+      {{ sc_id }} .multicolumn-list__item.grid__item.text-center  {
+        {% if section.settings.enable_borders == true %}
+        border-bottom: 1px solid #212121;
+        {% endif %}
+        {% if section.settings.enable_borders_around == true %}
+          border: 2px solid #212121;
+          padding: 1rem;
+          padding-bottom: 0;
+          border-radius: 1.2rem;
+        {% endif %}
+        padding-bottom: 0;
+      }
+
+      {{ sc_id }} .multicolumn-list__item.grid__item.text-center:last-child  {
+        {% unless section.settings.enable_borders_around == true %}
+          border-bottom: 0;
+        {% endunless %}
+      }
+    }
+
+    {% if section.settings.special == true %}
+
+      @media screen and (max-width: 989px) {
+        {{ sc_id }} .multicolumn-list__item.grid__item:nth-child(1)  {
+          display: none;
+        }
+      }
+
+      {{ sc_id }} .multicolumn-card-spacing {
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      @media screen and (max-width: 768px) {
+
+        {{ sc_id }} .multicolumn-card.content-container {
+          overflow: hidden;
+        }
+
+        {{ sc_id }} .multicolumn-card-spacing {
+          overflow: hidden;
+          position: relative;
+        }
+
+        {{ sc_id }} .multicolumn-card-spacing > .media.media--adapt {
+          padding-bottom: 0;
+        }
+
+        {{ sc_id }} .multicolumn-card-spacing > .media.media--adapt > img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          aspect-ratio: 3/5;
+        }
+        {{ sc_id }} .multicolumn-list {
+          margin: 0;
+          width: 100%;
+          padding-left: 0.5rem;
+          padding-right: 0.5rem;
+          column-gap: 10px;
+        }
+        {{ sc_id }} .multicolumn-card__info {
+          padding-top: 0;
+          padding-bottom: 0;
+          padding-left: 2rem;
+          padding-right: 2rem;
+        }
+      }
+
+    {% endif %}
+
+    {% if section.settings.special_icons == true %}
+      .multicolumn-list__item.center .media--adapt, .multicolumn-list__item .media--adapt .multicolumn-card__image {
+        width: auto!important;
+      }
+      .multicolumn-list__item.center .media--adapt, .multicolumn-list__item .media--adapt {
+        text-align: center;
+      }
+      .multicolumn-card-spacing {
+          padding-top: 0;
+          padding-left: 2.5rem;
+          padding-right: 2.5rem;
+          margin-left: auto;
+          margin-right: auto;
+      }
+    {% endif %}
+
+    {% if section.settings.special_alt == true %}
+
+      {{ sc_id }} .multicolumn-list {
+        row-gap: 0;
+        column-gap: 0;
+      }
+
+
+      .multicolumn-card__info {
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+      @media screen and (max-width: 768px) {
+        {{ sc_id }} .multicolumn-list {
+          row-gap: 0;
+          column-gap: 0;
+        }
+        {{ sc_id }} .multicolumn-card__info {
+          padding-top: 2rem;
+          padding-bottom: 2rem;
+          padding-left: 2rem;
+          padding-right: 2rem;
+        }
+      }
+
+    {% endif %}
+
+    {% if section.settings.swipe_mobile == true %}
+
+      @media screen and (max-width: 768px) {
+        {{ sc_id }} .multicolumn-list  {
+          display: flex;
+          justify-content: flex-start;
+          flex-direction: row;
+          overflow-x: scroll;
+          overflow-y: hidden;
+          -webkit-overflow-scrolling: touch;
+          scroll-snap-type: x mandatory;
+          scroll-behavior: smooth;
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+          flex-wrap: nowrap;
+          padding-bottom: 2rem;
+        }
+
+        {{ sc_id }} .content-wrapper {
+          padding-left: 0!important;
+          padding-right: 0!important;
+        }
+        {{ sc_id }} .multicolumn-card.content-container {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+      }
+
+    {% endif %}
+  {%- endstyle -%}
+
+  <div class='multicolumn container'>
+    <div
+      class='content-wrapper section-{{ section.id }}-padding'
+      style=''
+    >
+      {%- unless section.settings.title == blank -%}
+        <div class='title-wrapper color-chocolate'>
+          <h2 class='{% if section.settings.special_alt == true %}headline{% endif %}  columns-title headline title text-{{ section.settings.heading_alignment }} {{ section.settings.heading_size }}'>
+            {{ section.settings.title | escape }}
+          </h2>
+          {%- unless section.settings.sub_title == blank -%}
+            <p class='{% if section.settings.special_alt == true %}text xl{% endif %} columns-subtitle text-{{ section.settings.heading_alignment }}'>
+              {{ section.settings.sub_title }}
+            </p>
+          {%- endunless -%}
+        </div>
+      {%- endunless -%}
+      <div>
+        <ul
+          class='multicolumn-list grid grid--{{ section.settings.columns_mobile }}-col-tablet-down grid--{{ section.settings.columns_desktop }}-col-desktop flex-{{ section.settings.column_alignment }}'
+          role='list'
+        >
+          {%- liquid
+            assign highest_ratio = 0
+            for block in section.blocks
+              if block.settings.image.aspect_ratio > highest_ratio
+                assign highest_ratio = block.settings.image.aspect_ratio
+              endif
+            endfor
+          -%}
+          {%- for block in section.blocks -%}
+            {%- assign empty_column = '' -%}
+            {%- if block.settings.image == blank
+              and block.settings.title == blank
+              and block.settings.text == blank
+              and block.settings.link_label == blank
+            -%}
+              {%- assign empty_column = ' multicolumn-list__item--empty' -%}
+            {%- endif -%}
+
+            <li
+              class='multicolumn-list__item grid__item text-{{ section.settings.content_alignment }} {{ empty_column }}'
+              {{ block.shopify_attributes }}
+            >
+              <div class='multicolumn-card content-container'>
+                {%- if block.settings.image != blank -%}
+                  {% if section.settings.image_ratio == 'adapt'
+                    or section.settings.image_ratio == 'circle'
+                  %}
+                    {% assign spaced_image = true %}
+                  {% endif %}
+                  <div class='multicolumn-card__image-wrapper multicolumn-card__image-wrapper--{{ section.settings.image_width }}-width{% if section.settings.image_width != 'full' or spaced_image %} multicolumn-card-spacing{% endif %}'>
+                    <div
+                      class='media media--transparent media--{{ section.settings.image_ratio }} {% if section.settings.icons_fit %} icons-fit{% endif %}'
+                      {% comment %} style='padding-bottom: {{ 1 | divided_by: highest_ratio | times: 100 }}%;' {% endcomment %}
+                    >
+                      {%- capture sizes -%}(min-width: 990px) {% if section.blocks.size <= 2 %}710px{% else %}550px{% endif %}, (min-width: 769px) {% if section.blocks.size == 1 %}710px{% else %}550px{% endif %}, calc(100vw - 30px){%- endcapture -%}
+                      {{
+                        block.settings.image
+                        | image_url: width: block.settings.max_width
+                        | image_tag:
+                          loading: 'lazy',
+                          sizes: sizes,
+                          widths: '275, 550, 710, 1420',
+                          class: 'multicolumn-card__image'
+                      }}
+                    </div>
+                  </div>
+                {%- endif -%}
+                {%- if block.settings.title != blank and block.settings.text != blank -%}
+                  <div class='multicolumn-card__info'>
+                    {%- if block.settings.title != blank -%}
+                      <h3
+                        class='headline h6 {% if section.settings.special_alt == true %}modernist-type text xxl{% endif %}'
+                        {% comment %}
+                          {% if section.settings.special_alt == true %}
+                            style='font-weight: bold;'
+                          {% endif %}
+                        {% endcomment %}
+                      >
+                        {{ block.settings.title }}
+                      </h3>
+                    {%- endif -%}
+                    {%- if block.settings.text != blank -%}
+                      <div class='rte text l modernist-type'>
+                        {{ block.settings.text }}
+                      </div>
+                    {%- endif -%}
+                    {%- if block.settings.link_label != blank -%}
+                      <a
+                        class='link animate-arrow'
+                        {% if block.settings.link == blank %}
+                          role='link' aria-disabled='true'
+                        {% else %}
+                          href='{{ block.settings.link }}'
+                        {% endif %}
+                      >
+                        {{- block.settings.link_label | escape -}}
+                        <span class='icon-wrap'>&nbsp;{% render 'tc-icons', icon: 'arrow-right' %}</span></a
+                      >
+                    {%- endif -%}
+                  </div>
+                {%- endif -%}
+              </div>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    </div>
+  </div>
+{% endif %}
+{% schema %}
+{
+  "name": "Columns",
+  "class": "section section-columns",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Geolocation"
+    },
+    {
+      "type": "text",
+      "id": "country_code",
+      "label": "Country code",
+      "info": "Enter the country code for the country you want to show the section to. You can have multiple country codes, just separate them with a comma. Example: US,CA,GB. Leave empty to show to all countries."
+    },
+    {
+      "type": "text",
+      "id": "exclude_country_code",
+      "label": "Exclude country code",
+      "info": "Enter the country code for the countries you DON'T want to show the section to. You can have multiple country codes, just separate them with a comma. Example: US,CA,GB"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "default": "#ffffff",
+      "label": "Background color"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "default": "True Classic®",
+      "label": "Section title"
+    },
+    {
+      "type": "text",
+      "id": "sub_title",
+      "default": "Paraphrase of the original text",
+      "label": "Section sub title"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h5",
+          "label": "Smaller"
+        },
+        {
+          "value": "h4",
+          "label": "Small"
+        },
+        {
+          "value": "h3",
+          "label": "Medium"
+        },
+        {
+          "value": "h2",
+          "label": "Large"
+        },
+        {
+          "value": "h1",
+          "label": "Larger"
+        },
+        {
+          "value": "h0",
+          "label": "Largest"
+        }
+      ],
+      "default": "h1",
+      "label": "Heading style"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center",
+      "label": "Heading alignment"
+    },
+    {
+      "type": "select",
+      "id": "image_width",
+      "options": [
+        {
+          "value": "third",
+          "label": "Third"
+        },
+        {
+          "value": "half",
+          "label": "Half"
+        },
+        {
+          "value": "full",
+          "label": "Full"
+        }
+      ],
+      "default": "full",
+      "label": "Image width"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "Adapt"
+        },
+        {
+          "value": "portrait",
+          "label": "Portrait"
+        },
+        {
+          "value": "square",
+          "label": "Square"
+        },
+        {
+          "value": "circle",
+          "label": "Circle"
+        }
+      ],
+      "default": "adapt",
+      "label": "Image ratio"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 3,
+      "label": "Number of columns on desktop"
+    },
+    {
+      "type": "select",
+      "id": "column_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left",
+      "label": "Column alignment"
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left",
+      "label": "Content alignment"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "default": "Button label",
+      "label": "Button label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Mobile settings"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        }
+      ],
+      "default": "1",
+      "label": "Columns on mobile"
+    },
+    {
+      "type": "checkbox",
+      "id": "swipe_mobile",
+      "default": false,
+      "label": "Enable swipe on mobile"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_borders_around",
+      "default": false,
+      "label": "Add border around each column"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_borders",
+      "default": false,
+      "label": "Add borders between columns"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 36
+    },
+    {
+      "type": "select",
+      "id": "content_style",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        }
+      ],
+      "default": "1",
+      "label": "Style"
+    },
+    {
+      "type": "checkbox",
+      "id": "icons_fit",
+      "default": false,
+      "label": "Icons fit"
+    },
+    {
+      "type": "checkbox",
+      "id": "special",
+      "default": false,
+      "label": "Specific styles"
+    },
+    {
+      "type": "checkbox",
+      "id": "special_alt",
+      "default": false,
+      "label": "Specific styles 2"
+    },
+    {
+      "type": "checkbox",
+      "id": "special_icons",
+      "default": false,
+      "label": "Styling for icons"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Column",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Column",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+          "label": "Text"
+        },
+        {
+          "type": "text",
+          "id": "link_label",
+          "label": "Link label"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "range",
+          "id": "max_width",
+          "min": 20,
+          "max": 1000,
+          "step": 10,
+          "unit": "px",
+          "label": "Icon width",
+          "default": 50
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Columns",
+      "blocks": [
+        {
+          "type": "column"
+        },
+        {
+          "type": "column"
+        },
+        {
+          "type": "column"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

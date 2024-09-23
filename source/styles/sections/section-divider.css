@@ -1,0 +1,9 @@
+.divider {
+  border-top: var(--divider);
+  width: 100%;
+}
+
+.divider-bold {
+  border-top: var(--divider-bold);
+  width: 100%;
+}

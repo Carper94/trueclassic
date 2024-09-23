@@ -1,0 +1,797 @@
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "disabled": true,
+      "settings": {
+        "full_width": false,
+        "hide_title": true,
+        "padding_top": 100,
+        "padding_bottom": 0
+      }
+    },
+    "07e07364-8483-438c-8640-2439b413041e": {
+      "type": "membership-banner",
+      "blocks": {
+        "template--14563988734024__07e07364-8483-438c-8640-2439b413041e-16865400901023f1a4-0": {
+          "type": "heading",
+          "settings": {
+            "title": "TRUE CLASSIC MEMBERSHIP",
+            "heading_level": "h1",
+            "heading_size": "h2",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-chocolate",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-xs",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "template--14563988734024__07e07364-8483-438c-8640-2439b413041e-16865400901023f1a4-1": {
+          "type": "text",
+          "settings": {
+            "paragraph": "<p>Starting at $29 per year<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "xl",
+            "paragraph_color": "color-chocolate",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-m"
+          }
+        },
+        "a27481cb-0ae3-4879-a431-8c2f639a889e": {
+          "type": "text",
+          "settings": {
+            "paragraph": "<p>Why shop any other way? With exclusive perks that add up to serious savings, it pays to be part of our crew.<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "xl",
+            "paragraph_color": "color-chocolate",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-m"
+          }
+        }
+      },
+      "block_order": [
+        "template--14563988734024__07e07364-8483-438c-8640-2439b413041e-16865400901023f1a4-0",
+        "template--14563988734024__07e07364-8483-438c-8640-2439b413041e-16865400901023f1a4-1",
+        "a27481cb-0ae3-4879-a431-8c2f639a889e"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "hidden": false,
+        "section_bg_color": "#ffffff",
+        "content_style": "style-1",
+        "full_width": true,
+        "breakpoint": 768,
+        "section_max_width": 4000,
+        "section_height": "adapt",
+        "media_position": "unset",
+        "media_size": "full",
+        "banner_link": "",
+        "banner_link_title": "True Classic Sale",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "inner_padding_top": 0,
+        "inner_padding_bottom": 0,
+        "aspect_ratio": 50,
+        "section_image": "shopify:\/\/shop_images\/Frame_2552.png",
+        "section_image_mobile": "shopify:\/\/shop_images\/Frame_2552_ca154800-0cb8-4736-907f-85441027ff92.png",
+        "media_margin_left": 0,
+        "media_margin_right": 0,
+        "media_margin_top": 0,
+        "media_margin_bottom": 0,
+        "enable_lazyload": false,
+        "content_width": 55,
+        "content_fit": false,
+        "text_position": "center",
+        "text_position_mobile": "center",
+        "content_padding_dt": "1",
+        "content_padding_mb": "0",
+        "enable_absolute": false,
+        "enable_distance_top": true,
+        "content_top": 50,
+        "content_top_mobile": 50,
+        "enable_distance_bottom": false,
+        "content_bottom": 50,
+        "enable_distance_left": true,
+        "content_left": 50,
+        "enable_distance_right": false,
+        "content_right": 50,
+        "mobile_positioning": "unset",
+        "reverse_mobile": true,
+        "mobile_overlay": false,
+        "mobile_overlay_color": "#000000",
+        "mobile_overlay_opacity": 0.5
+      }
+    },
+    "e171e72f-b974-403f-b9e0-7f468ee0eee7": {
+      "type": "tc-rich-text",
+      "blocks": {
+        "71dffbb7-169f-4ec8-9066-350ed088578a": {
+          "type": "heading",
+          "settings": {
+            "title": "MEMBERS-ONLY PERKS (US ONLY)",
+            "heading_level": "h2",
+            "heading_size": "h4",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-black",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        }
+      },
+      "block_order": [
+        "71dffbb7-169f-4ec8-9066-350ed088578a"
+      ],
+      "disabled": true,
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "section_bg_color": "#ffffff",
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "full_width": true,
+        "padding_top": 64,
+        "padding_bottom": 0
+      }
+    },
+    "703b8336-b2de-4a05-a369-877960c2dddb": {
+      "type": "split-featured-two-list",
+      "blocks": {
+        "template--14618544930888__703b8336-b2de-4a05-a369-877960c2dddb-column-2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/store_credit_cash_back_25x25_fda1770a-0066-4ad6-873e-610cb0874c6b.svg",
+            "title": "10% Back in Store Credit",
+            "text": "<p>Save on every order with 10% back in True Classic Store Credit.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "template--14618544930888__703b8336-b2de-4a05-a369-877960c2dddb-column-3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/free_shipping_25x25_549b3d00-8113-4c8a-938b-8250c628eba1.svg",
+            "title": "Free Shipping on All Orders",
+            "text": "<p>Hit that order button to your heart’s content with free shipping. US only.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "e98a78bf-66d7-46b7-9818-3fcefda77d8b": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/exclusive_sales_25x25_10ab8f5a-8d0b-47b1-a277-5db3fd9cd8b4.svg",
+            "title": "Exclusive Sales & Extra Discounts",
+            "text": "<p>Get members-only sales, rewards, and store credits that add up to serious savings.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "6add79e1-d22d-48b9-9b18-1fc8b5805640": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/white_glove_service_25x25_50201c99-26be-4cb8-a0ca-c1d5d103cccf.svg",
+            "title": "Priority Customer Service",
+            "text": "<p>Skip the line and get direct access to our team for questions or styling help.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "8821d545-f7f1-4737-84d7-1aac19af2f87": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/referral_bonus_25x25_80aabbff-5ff6-467b-884d-927d02528df1.svg",
+            "title": "$25 for New Referrals",
+            "text": "<p>Spread the word and get $25 in store credit for every referral that joins the crew too!<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "30381080-50f3-4d0a-b55d-bee55e2e2bd1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/BTS_access_25x25_e1dd5eea-e3c4-4f66-87f8-5862dcf8c015.svg",
+            "title": "Behind-the-Scenes Access",
+            "text": "<p>You’ll have the chance to test future products and experience them before anyone else. Plus, you'll be a part of an exclusive VIP Facebook group with direct access to our leadership team.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "9e049dcd-82c7-4694-8ffd-ce812e6c1639": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/store_credit_cash_back_25x25_fda1770a-0066-4ad6-873e-610cb0874c6b.svg",
+            "title": "20% Back in Store Credit",
+            "text": "<p>Save on every order with 20% back in True Classic Store Credit.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "f6d00703-b6d5-4239-b387-a2bf5e0ad89c": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/free_shipping_25x25_549b3d00-8113-4c8a-938b-8250c628eba1.svg",
+            "title": "Free Shipping on All Orders",
+            "text": "<p>Hit that order button to your heart’s content with free shipping. US only.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "37b94664-09be-42e0-a344-1adb7dcf8761": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/exclusive_sales_25x25_10ab8f5a-8d0b-47b1-a277-5db3fd9cd8b4.svg",
+            "title": "Exclusive Sales & Extra Discounts",
+            "text": "<p>Get members-only sales, rewards, and store credits that add up to serious savings.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "636db47f-3fae-43ac-9bc3-05c993784a06": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/white_glove_service_25x25_50201c99-26be-4cb8-a0ca-c1d5d103cccf.svg",
+            "title": "Priority Customer Service",
+            "text": "<p>Skip the line and get direct access to our team for questions or styling help.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "9e18b54a-3f36-4f8f-8b53-e25cf6881f84": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/referral_bonus_25x25_80aabbff-5ff6-467b-884d-927d02528df1.svg",
+            "title": "$25 for New Referrals",
+            "text": "<p>Spread the word and get $25 in store credit for every referral that joins the crew too!<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "b3f8efe4-73f6-424b-b9f0-fe5a544cc7b4": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/BTS_access_25x25_e1dd5eea-e3c4-4f66-87f8-5862dcf8c015.svg",
+            "title": "Behind-the-Scenes Access",
+            "text": "<p>You’ll have the chance to test future products and experience them before anyone else. Plus, you'll be a part of an exclusive VIP Facebook group with direct access to our leadership team.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "template--14618544930888__703b8336-b2de-4a05-a369-877960c2dddb-column-1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/50_store_credit_150x150_786e9b91-85e6-4010-9ff3-c0322d957280.svg",
+            "title": "$50 Store Credit at Signup",
+            "text": "<p>For a limited time, get $50 store credit toward future True Classic orders when you become a member!<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "0f3da929-c547-426b-8ba5-0b265d8f896c": {
+          "type": "membership_1",
+          "settings": {
+            "membership_product": "inveterate-subscription-1",
+            "button_label": "JOIN THE CREW ($29\/yr)"
+          }
+        },
+        "2459ad8a-5764-4b8b-9bbb-81e2984388ef": {
+          "type": "membership_2",
+          "settings": {
+            "membership_product": "inveterate-subscription",
+            "button_label": "JOIN THE CREW ($99\/yr)"
+          }
+        }
+      },
+      "block_order": [
+        "template--14618544930888__703b8336-b2de-4a05-a369-877960c2dddb-column-2",
+        "template--14618544930888__703b8336-b2de-4a05-a369-877960c2dddb-column-3",
+        "e98a78bf-66d7-46b7-9818-3fcefda77d8b",
+        "6add79e1-d22d-48b9-9b18-1fc8b5805640",
+        "8821d545-f7f1-4737-84d7-1aac19af2f87",
+        "30381080-50f3-4d0a-b55d-bee55e2e2bd1",
+        "9e049dcd-82c7-4694-8ffd-ce812e6c1639",
+        "f6d00703-b6d5-4239-b387-a2bf5e0ad89c",
+        "37b94664-09be-42e0-a344-1adb7dcf8761",
+        "636db47f-3fae-43ac-9bc3-05c993784a06",
+        "9e18b54a-3f36-4f8f-8b53-e25cf6881f84",
+        "b3f8efe4-73f6-424b-b9f0-fe5a544cc7b4",
+        "template--14618544930888__703b8336-b2de-4a05-a369-877960c2dddb-column-1",
+        "0f3da929-c547-426b-8ba5-0b265d8f896c",
+        "2459ad8a-5764-4b8b-9bbb-81e2984388ef"
+      ],
+      "custom_css": [
+
+      ],
+      "settings": {
+        "bg_color": "#ffffff",
+        "bg_color_1": "#fcfbf7",
+        "bg_color_2": "#fcfbf7",
+        "button_1_border_color": "#53433a",
+        "button_1_background_color": "#ffffff",
+        "button_1_text": "JOIN THE CREW ($29\/yr)",
+        "button_1_url": "",
+        "button_2_border_color": "#53433a",
+        "button_2_background_color": "#53433a",
+        "button_2_text": "JOIN THE CREW ($99\/yr)",
+        "button_2_url": "",
+        "list_title_1": "<h1>Classic Membership<\/h1>",
+        "list_title_2": "<h1>All Access Membership<\/h1>",
+        "list_sub_1": "<p>$29 per year, US only<\/p>",
+        "list_sub_2": "<p>$99 per year, US only<\/p>",
+        "title": "True Classic",
+        "sub_title": "Paraphrase of the original text",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "content_alignment": "left",
+        "button_label": "Button label",
+        "button_link": "",
+        "columns_mobile": "1",
+        "swipe_mobile": false,
+        "enable_borders_around": false,
+        "enable_borders": false,
+        "padding_top": 32,
+        "padding_bottom": 36,
+        "content_style": "1",
+        "special": false,
+        "special_alt": false,
+        "special_icons": false,
+        "first_column_items": 6
+      }
+    },
+    "7d240dad-dd2a-4cde-b4a6-b94930e099fe": {
+      "type": "tc-rich-text",
+      "blocks": {
+        "09b8f136-4645-4842-8025-993ee2899eed": {
+          "type": "text",
+          "settings": {
+            "paragraph": "<p><strong>BUT IT DOESN'T STOP THERE...<\/strong><\/p>",
+            "paragraph_font": "modernist-mono-type",
+            "paragraph_style": "xxl",
+            "paragraph_color": "color-black",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-s"
+          }
+        },
+        "template--14580968226888__7d240dad-dd2a-4cde-b4a6-b94930e099fe-1686589364c8d47dd1-1": {
+          "type": "text",
+          "settings": {
+            "paragraph": "<p>Every quarter, our Look Good, Feel Good Giveaway gives one lucky member the chance to win the ultimate True Classic experience and awesome prizes.<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "xl",
+            "paragraph_color": "color-black",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-m"
+          }
+        }
+      },
+      "block_order": [
+        "09b8f136-4645-4842-8025-993ee2899eed",
+        "template--14580968226888__7d240dad-dd2a-4cde-b4a6-b94930e099fe-1686589364c8d47dd1-1"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "section_bg_color": "#ffffff",
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "full_width": true,
+        "padding_top": 4,
+        "padding_bottom": 24
+      }
+    },
+    "515aa0d8-8b51-483f-9021-cb2877156b6e": {
+      "type": "tc-image-banner",
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "class_test": "section-class",
+        "hidden": false,
+        "section_bg_color": "#ffffff",
+        "full_width": false,
+        "breakpoint": 768,
+        "section_max_width": 2200,
+        "section_height": "adapt",
+        "media_position": "unset",
+        "media_size": "full",
+        "banner_link": "",
+        "banner_link_title": "True Classic Sale",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "inner_padding_top": 0,
+        "inner_padding_bottom": 52,
+        "aspect_ratio": 50,
+        "section_image": "shopify:\/\/shop_images\/True_Classic_09192023_6302_1.png",
+        "media_margin_left": 0,
+        "media_margin_right": 0,
+        "media_margin_top": 0,
+        "media_margin_bottom": 0,
+        "enable_lazyload": false,
+        "content_width": 40,
+        "content_fit": false,
+        "text_position": "left",
+        "text_position_mobile": "center",
+        "content_padding_dt": "0",
+        "content_padding_mb": "0",
+        "enable_absolute": false,
+        "enable_distance_top": true,
+        "content_top": 50,
+        "content_top_mobile": 50,
+        "enable_distance_bottom": false,
+        "content_bottom": 50,
+        "enable_distance_left": true,
+        "content_left": 50,
+        "enable_distance_right": false,
+        "content_right": 50,
+        "mobile_positioning": "unset",
+        "reverse_mobile": true,
+        "mobile_overlay": false,
+        "mobile_overlay_color": "#000000",
+        "mobile_overlay_opacity": 0.5,
+        "enable_prime_style": false
+      }
+    },
+    "46b224b5-2b84-4be4-999e-ac242ca09f30": {
+      "type": "tc-rich-text",
+      "blocks": {
+        "943577f2-44c7-4406-8ccb-0e32cdfb499d": {
+          "type": "heading",
+          "settings": {
+            "title": "how it works",
+            "heading_level": "h2",
+            "heading_size": "h2",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-chocolate",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "26a9edad-fa7d-485e-8a7e-2b233f603f59": {
+          "type": "text",
+          "settings": {
+            "paragraph": "<p>A membership that practically pays for itself from day one.<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "xl",
+            "paragraph_color": "color-black",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-none"
+          }
+        }
+      },
+      "block_order": [
+        "943577f2-44c7-4406-8ccb-0e32cdfb499d",
+        "26a9edad-fa7d-485e-8a7e-2b233f603f59"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "section_bg_color": "#fffae9",
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "full_width": true,
+        "padding_top": 48,
+        "padding_bottom": 0
+      }
+    },
+    "e222915e-a40a-439d-9f08-c8d233707f2d": {
+      "type": "columns",
+      "blocks": {
+        "template--14560654655560__e222915e-a40a-439d-9f08-c8d233707f2d-16831580478d543a54-0": {
+          "type": "column",
+          "settings": {
+            "title": "01",
+            "text": "<p><strong>JOIN THE CREW<\/strong><\/p><p>Add a membership to your cart & complete a few simple steps.<\/p>",
+            "link_label": "",
+            "link": "",
+            "max_width": 50
+          }
+        },
+        "template--14560654655560__e222915e-a40a-439d-9f08-c8d233707f2d-16831580478d543a54-1": {
+          "type": "column",
+          "settings": {
+            "title": "02",
+            "text": "<p><strong>ACCESS PERKS INSTANTLY<\/strong><\/p><p>Create an account and log in to use your perks any time.<\/p>",
+            "link_label": "",
+            "link": "",
+            "max_width": 50
+          }
+        },
+        "template--14560654655560__e222915e-a40a-439d-9f08-c8d233707f2d-16831580478d543a54-2": {
+          "type": "column",
+          "settings": {
+            "title": "03",
+            "text": "<p><strong>START SAVING<\/strong><\/p><p>Enjoy exclusive perks on every order – you’re covered for a year!<\/p>",
+            "link_label": "",
+            "link": "",
+            "max_width": 50
+          }
+        }
+      },
+      "block_order": [
+        "template--14560654655560__e222915e-a40a-439d-9f08-c8d233707f2d-16831580478d543a54-0",
+        "template--14560654655560__e222915e-a40a-439d-9f08-c8d233707f2d-16831580478d543a54-1",
+        "template--14560654655560__e222915e-a40a-439d-9f08-c8d233707f2d-16831580478d543a54-2"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "bg_color": "#fffae9",
+        "title": "",
+        "sub_title": "",
+        "heading_size": "h2",
+        "heading_alignment": "center",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "content_alignment": "center",
+        "button_label": "Button label",
+        "button_link": "",
+        "columns_mobile": "1",
+        "swipe_mobile": false,
+        "enable_borders_around": false,
+        "enable_borders": true,
+        "padding_top": 16,
+        "padding_bottom": 36,
+        "content_style": "1",
+        "icons_fit": false,
+        "special": false,
+        "special_alt": true,
+        "special_icons": false
+      }
+    },
+    "fdac4aaf-2624-4908-9651-54e3f633c49d": {
+      "type": "subscription-product",
+      "blocks": {
+        "206f2e43-8d41-460d-88e2-2afb2e0aac98": {
+          "type": "text",
+          "settings": {
+            "paragraph": "<p>Already have a membership? <a href=\"https:\/\/trueclassictees-com.myshopify.com\/account\" title=\"\/account\">Login<\/a><\/p>",
+            "paragraph_font": "modernist",
+            "paragraph_style": "l",
+            "paragraph_color": "var(--brand-black)",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "0"
+          }
+        }
+      },
+      "block_order": [
+        "206f2e43-8d41-460d-88e2-2afb2e0aac98"
+      ],
+      "custom_css": [
+        ".blockb05978e7-87cd-48aa-8c6d-4b697c773641.img-banner__paragraph > p,.blockb05978e7-87cd-48aa-8c6d-4b697c773641.img-banner__paragraph > p > a,.blockb05978e7-87cd-48aa-8c6d-4b697c773641.img-banner__paragraph > p > a:hover {margin-left: auto; margin-right: auto; margin-bottom: 1rem; margin-top: 1rem;}"
+      ],
+      "settings": {
+        "section_bg_color": "#fffae9",
+        "membership_product": "inveterate-subscription-1",
+        "button_label": "JOIN THE CREW",
+        "padding_top": 0,
+        "padding_bottom": 44,
+        "text_position": "center"
+      }
+    },
+    "ccfd4cae-2c12-4ee2-9b47-32d7fabb110f": {
+      "type": "contact-faq",
+      "blocks": {
+        "d7521faf-ea48-41ad-986f-9495bcd0fc5b": {
+          "type": "block",
+          "settings": {
+            "topic": "How do I join?",
+            "paragraph": "<p>Add the membership to your cart and go through the checkout process like any other purchase. After checkout, you’ll receive an onboarding email that explains how to access member benefits.<\/p>"
+          }
+        },
+        "c0d1e8ad-e452-4906-ac41-8e1f6759e7f8": {
+          "type": "block",
+          "settings": {
+            "topic": "Is the membership fee a recurring charge?",
+            "paragraph": "<p>Yes. Members pay $99 USD every year for access to the membership program. The membership will auto-renew until you decide to cancel. You can cancel your membership’s auto-renewal at any time through your <a href=\"\/account\/\" title=\"\/account\/\"><span style=\"text-decoration:underline\">account portal<\/span><\/a> or by contacting our customer support team <a href=\"mailto:support@trueclassic.com\" title=\"Email Support\">support@trueclassic.com<\/a>. There are no termination fees or hidden costs associated with cancellation, though all purchases of the membership are final. If canceled, your membership will still remain active through the current billing period.<\/p>"
+          }
+        },
+        "16e3dabc-56c8-42cb-88cc-1e6e779d7cdc": {
+          "type": "block",
+          "settings": {
+            "topic": "Do I need to have an account?",
+            "paragraph": "<p>Yes. Once you sign up, you’ll be prompted to create an account (if you don’t already have one). This is how you will access your store credit, referral links, and management of your membership.<\/p>"
+          }
+        },
+        "75827d2d-7cd8-4d62-bfb5-bb6b81377449": {
+          "type": "block",
+          "settings": {
+            "topic": "Is there anywhere my membership benefits are not valid?",
+            "paragraph": "<p>The member discounts and free shipping benefits can only be accessed on our website or in retail stores. <\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "d7521faf-ea48-41ad-986f-9495bcd0fc5b",
+        "c0d1e8ad-e452-4906-ac41-8e1f6759e7f8",
+        "16e3dabc-56c8-42cb-88cc-1e6e779d7cdc",
+        "75827d2d-7cd8-4d62-bfb5-bb6b81377449"
+      ],
+      "custom_css": [
+        ".headline.h3 {font-family: var(--font-family-primary) !important;}",
+        ".contact-faq-wrapper {max-width: 790px; margin-left: auto; margin-right: auto;}"
+      ],
+      "settings": {
+        "title": "SIGNING UP",
+        "subtitle": "",
+        "faqlink": "\/pages\/terms-conditions#membership-terms",
+        "enable_faq_link": false,
+        "background_color": "#ffffff",
+        "columns_desktop": 1,
+        "columns_mobile": "1",
+        "column_alignment": "left",
+        "padding_top": 76,
+        "padding_bottom": 0
+      }
+    },
+    "d1689daf-90cf-4aa3-87f4-751ebd64fca6": {
+      "type": "contact-faq",
+      "blocks": {
+        "38bc1b15-078f-459c-9c8d-2c75241b832d": {
+          "type": "block",
+          "settings": {
+            "topic": "My benefits aren’t working - why?",
+            "paragraph": "<p>You must use the same email you used when purchasing your membership in order to access your benefits. You have to sign in to your account to access your membership benefits.<\/p>"
+          }
+        },
+        "0f410533-cdae-438b-ac41-1df51dc2e111": {
+          "type": "block",
+          "settings": {
+            "topic": "How do I access my member exclusive discounts ?",
+            "paragraph": "<p>Member exclusive discounts are auto-applied and will be visible in checkout. No code is needed. However, the discounts will only apply if you are logged into your True Classic account. Please confirm you are logged in with the same email address you purchased your membership with.<\/p>"
+          }
+        },
+        "1c6a5627-0561-486d-9303-654e1cf8078d": {
+          "type": "block",
+          "settings": {
+            "topic": "How do I access my free shipping benefit?",
+            "paragraph": "<p>Free shipping is automatically applied at checkout, no code needed.<\/p>"
+          }
+        },
+        "e89c70aa-2df9-43ed-9166-c51aa2ea255a": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "topic": "How do I get my free seasonal gift?",
+            "paragraph": "<p>Each season we will offer a free gift with purchase for members. During checkout, you will be prompted to select your free gift. Limit one per member per season.<\/p>"
+          }
+        },
+        "8ffeb6be-62a0-41af-8aaf-2e3d42fc1e65": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "topic": "How do I take advantage of my early access to sales and launches?",
+            "paragraph": "<p>You’ll be emailed separately from the rest of our customers to ensure you’re the first to know about any major sales and new product drops. There’s nothing you need to do to access this benefit other than opening any emails from us.<\/p>"
+          }
+        },
+        "9711a73c-4921-4a2c-ad3c-95772f1c0cf1": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "topic": "How do I apply member only discounts to my order?",
+            "paragraph": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "38bc1b15-078f-459c-9c8d-2c75241b832d",
+        "0f410533-cdae-438b-ac41-1df51dc2e111",
+        "1c6a5627-0561-486d-9303-654e1cf8078d",
+        "e89c70aa-2df9-43ed-9166-c51aa2ea255a",
+        "8ffeb6be-62a0-41af-8aaf-2e3d42fc1e65",
+        "9711a73c-4921-4a2c-ad3c-95772f1c0cf1"
+      ],
+      "custom_css": [
+        ".headline.h3 {font-family: var(--font-family-primary) !important;}",
+        ".contact-faq-wrapper {max-width: 790px; margin-left: auto; margin-right: auto;}"
+      ],
+      "settings": {
+        "title": "ACCESSING YOUR BENEFITS",
+        "subtitle": "",
+        "faqlink": "",
+        "enable_faq_link": false,
+        "background_color": "#ffffff",
+        "columns_desktop": 1,
+        "columns_mobile": "1",
+        "column_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "e5870a9f-d83c-4f89-a3e1-d66267dd5c02": {
+      "type": "contact-faq",
+      "blocks": {
+        "bf7c03bd-8284-445f-b13f-69d96f81bce6": {
+          "type": "block",
+          "settings": {
+            "topic": "How can I cancel my membership?",
+            "paragraph": "<p>You can cancel your membership from your <a href=\"\/account\" title=\"Customer Portal\"><span style=\"text-decoration:underline\">account portal<\/span><\/a> at any time or by contacting our customer support team support@trueclassic.com. There are no termination fees or hidden costs to cancel, but we do not provide refunds or credits for the cost of the membership. If canceled, your membership will still remain active through the current billing period. Any unused credits will expire after 12 months and refunds for partial credits will not be issued.<\/p>"
+          }
+        },
+        "cc337442-c0ed-4207-97cb-a020ed686347": {
+          "type": "block",
+          "settings": {
+            "topic": "Can I pause my membership?",
+            "paragraph": "<p>No, we do not support pausing or skipping your membership at this time. However, you can cancel and rejoin the membership at any time.<\/p>"
+          }
+        },
+        "00cbde67-e787-4204-944e-fc37f5d27c13": {
+          "type": "block",
+          "settings": {
+            "topic": "How do I update my payment method for the recurring membership charge?",
+            "paragraph": "<p>You can update your payment method at any time from your account portal at any time.<\/p>"
+          }
+        },
+        "ef9a942b-9d49-4410-ba62-994550e38e07": {
+          "type": "block",
+          "settings": {
+            "topic": "Can I return my membership or request a refund?",
+            "paragraph": "<p>All purchases of the membership are final and cannot be returned or refunded. You can cancel your membership auto-renewal from your <a href=\"\/account\" title=\"\/account\"><span style=\"text-decoration:underline\">account portal<\/span><\/a> at any time or by contacting our customer support team <a href=\"mailto:support@trueclassic.com\" title=\"mailto:support@trueclassic.com\">support@trueclassic.com<\/a>. If canceled, your membership will remain active until the end of the billing period.<\/p>"
+          }
+        },
+        "397bbaf8-122f-4037-a271-de50d194cd1a": {
+          "type": "block",
+          "settings": {
+            "topic": "Why aren't my benefits working?",
+            "paragraph": "<p>Your benefits are linked to the email address you used to purchase membership, so you need to use that same email to access your benefits.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "bf7c03bd-8284-445f-b13f-69d96f81bce6",
+        "cc337442-c0ed-4207-97cb-a020ed686347",
+        "00cbde67-e787-4204-944e-fc37f5d27c13",
+        "ef9a942b-9d49-4410-ba62-994550e38e07",
+        "397bbaf8-122f-4037-a271-de50d194cd1a"
+      ],
+      "custom_css": [
+        ".headline.h3 {font-family: var(--font-family-primary) !important;}",
+        ".contact-faq-wrapper {max-width: 790px; margin-left: auto; margin-right: auto;}"
+      ],
+      "settings": {
+        "title": "MANAGING YOUR MEMBERSHIP",
+        "subtitle": "",
+        "faqlink": "",
+        "enable_faq_link": false,
+        "background_color": "#ffffff",
+        "columns_desktop": 1,
+        "columns_mobile": "1",
+        "column_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "main",
+    "07e07364-8483-438c-8640-2439b413041e",
+    "e171e72f-b974-403f-b9e0-7f468ee0eee7",
+    "703b8336-b2de-4a05-a369-877960c2dddb",
+    "7d240dad-dd2a-4cde-b4a6-b94930e099fe",
+    "515aa0d8-8b51-483f-9021-cb2877156b6e",
+    "46b224b5-2b84-4be4-999e-ac242ca09f30",
+    "e222915e-a40a-439d-9f08-c8d233707f2d",
+    "fdac4aaf-2624-4908-9651-54e3f633c49d",
+    "ccfd4cae-2c12-4ee2-9b47-32d7fabb110f",
+    "d1689daf-90cf-4aa3-87f4-751ebd64fca6",
+    "e5870a9f-d83c-4f89-a3e1-d66267dd5c02"
+  ]
+}

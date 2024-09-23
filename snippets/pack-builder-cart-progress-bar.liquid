@@ -1,0 +1,17 @@
+
+{% capture under_max_message %}
+<span class="font-small">You’ve saved 15$! Add more and save up to $40!</span>
+{% endcapture %}
+
+{% capture over_max_message %}
+<span class="font-small">You are $20 away from $40 off and FREE SHIPPING!</span>
+{% endcapture %}
+
+
+{%
+  render 'progress-bar'
+    under_max_message: under_max_message,
+    over_max_message: over_max_message,
+    value: 80,
+    max: 100
+%}

@@ -1,0 +1,19 @@
+{% assign id = 'discount-pack-' | append: product.id %}
+
+<div class='discount-pack-list-item'>
+  <div class='discount-pack-list-item__image-container'>
+    <div class='discount-pack-list-item__image-wrapper'>
+    <a href='{{ product.url }}'>
+      <img
+        class='discount-pack-list-item__image'
+        loading='lazy'
+        src='{{ product.featured_media | image_url: width: 200 }}'
+        alt='{{ product.featured_media.alt }}'
+        width='200'
+        height='200'
+      >
+      </a>
+    </div>
+  </div>
+  {% render 'discount-pack-list-item-form', product: product, number: number %}
+</div>

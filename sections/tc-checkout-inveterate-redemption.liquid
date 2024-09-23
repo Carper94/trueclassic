@@ -1,0 +1,169 @@
+{%- liquid
+  if customer.tags contains 'inveterate-subscriber' or customer.tags contains 'inveterate-cancellation-pending'
+    assign is_subscriber = true
+    assign show_credits = true
+    if customer.tags contains 'inveterate-subscriber'
+      assign inveterate_processing = false
+    endif
+    assign code = customer.metafields.inveterate.credits_code
+    assign balance = customer.metafields.inveterate.balance
+    assign referrals = null
+  endif
+
+  assign ref_url = shop.permanent_domain | remove: '.myshopify.com'
+  assign customerID = customer.id
+  assign customerEmail = customer.email
+-%}
+
+<style>
+  .inveterate_customer--redemption {
+    display: none;
+  }
+  .order-summary__section--discount + .inveterate_customer--redemption {
+    display: block;
+  }
+
+  #inveterate-redemption-form {
+    padding: 1.5rem 0;
+    border-top: 1px solid #d9d9d9;
+    border-bottom: 1px solid #d9d9d9;
+  }
+</style>
+
+{% if is_subscriber %}
+  <div class='inveterate_customer--redemption' id='credit-redemption'>
+    <h2 class='section__title layout-flex__item layout-flex__item--stretch'>
+      Redeem store credit:
+    </h2>
+
+    <form id='inveterate-redemption-form' class='inveterate__redemption__form'>
+      <div class='inveterate__redemption__form__container'>
+        <div class='inveterate__redemption__form__top'>
+          <p>
+            How much of your
+            <b data-inveterate-balance>{{ balance | times: 100 | money_without_trailing_zeros }}</b>
+            in credits would you like to redeem?
+          </p>
+        </div>
+
+        <div class='field__input-btn-wrapper'>
+          <div class='inveterate__redemption__input-wrapper field__input-wrapper'>
+            <input
+              id='inveterateRedemptionAmount'
+              name='inveterateRedemptionAmount'
+              class='field__input inveterate__redemption__input inveterate__redemption__money'
+              type='number'
+              placeholder='{{ balance | times: 100 | money_without_currency | split: '.' | first }}'
+              min='0'
+              max='{{ balance | times: 100 | money_without_currency | split: '.' | first }}'
+              value='{{ balance | times: 100 | money_without_currency | split: '.' | first }}'
+              step='any'
+              required
+              role='redemption-amount-input'
+              data-inveterate-balance-placeholder
+            >
+          </div>
+
+          <button
+            type='submit'
+            class='inveterate__redemption__submit field__input-btn btn'
+            id='inveterate-redemption-submit'
+            inveterate-loader='redemption'
+          >
+            APPLY
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <script type='text/javascript'>
+    window.addEventListener('DOMContentLoaded', function () {
+      const creditRedemption = document.getElementById('credit-redemption');
+      let targetElement;
+      let className;
+
+      targetElement = document.querySelector('.order-summary__section--discount');
+
+      if (targetElement) {
+        targetElement.insertAdjacentElement('afterend', creditRedemption);
+        creditRedemption.classList.remove('hidden');
+      }
+    });
+  </script>
+
+  <script>
+    window.onload = function () {
+      document
+        .getElementById('inveterate-redemption-form')
+        .addEventListener('submit', function (event) {
+          event.preventDefault();
+
+          async function getDiscountCode() {
+            let amountInput = document.getElementById('inveterateRedemptionAmount').value;
+
+            const bodyData = {
+              merchantId: '{{ ref_url }}',
+              customerId: '{{ customerID }}',
+              email: '{{ customerEmail }}',
+              amount: parseFloat(amountInput),
+            };
+
+            const response = await fetch(
+              'https://public.inveterateapi.com/redemption-discount-code',
+              {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(bodyData),
+              }
+            );
+
+            if (response.ok) {
+              const data = await response.json();
+              return data;
+            } else {
+              throw new Error(`Error: ${response.status}`);
+            }
+          }
+
+          getDiscountCode()
+            .then((data) => {
+              console.log(data);
+              if (data.success) {
+                const discountCode = encodeURIComponent(data.data.discountCode);
+
+                let currentSearch = window.location.search;
+
+                if (currentSearch.includes('discount=')) {
+                  currentSearch = currentSearch.replace(/(discount=)[^\&]+/, `$1${discountCode}`);
+                } else {
+                  if (currentSearch != '') {
+                    currentSearch += `&discount=${discountCode}`;
+                  } else {
+                    currentSearch = `?discount=${discountCode}`;
+                  }
+                }
+                window.location.href = window.location.pathname + currentSearch;
+              }
+            })
+            .catch((err) => console.error(err));
+        });
+    };
+  </script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Inveterate Remdeption",
+  "tag": "section",
+  "class": "inveterate-redemption",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Inveterate Remdeption"
+    }
+  ]
+}
+{% endschema %}

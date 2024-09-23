@@ -1,0 +1,263 @@
+<div>
+  {% liquid
+    assign name = page.title
+    assign image_url = section.settings.image_url
+    assign url = page.url
+    assign telephone = section.settings.phone
+
+    assign streetAddress = section.settings.streetAddress
+    assign addressLocality = section.settings.addressLocality
+    assign addressRegion = section.settings.addressRegion
+    assign state = addressRegion | split: ', '
+
+    assign postalCode = section.settings.postalCode
+
+    assign latitude = section.settings.latitude
+    assign longitude = section.settings.longitude
+
+    for block in section.blocks
+      unless forloop.last
+        assign weekdays = block.settings.hours | split: '-'
+      endunless
+      unless forloop.first
+        assign sundays = block.settings.hours | split: '-'
+      endunless
+    endfor
+  %}
+
+  <script type='application/ld+json'>
+    {
+      "@context": "https://schema.org",
+      "@type": "MensClothingStore",
+      "name": "{{ name }}",
+      "image": "{{ image_url | image_url }}",
+      "url": "{{ shop.url }}{{ url }}",
+      "telephone": "{{ telephone }}",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "{{ streetAddress }}",
+        "addressLocality": "{{ addressLocality }}",
+        "addressRegion": "{{ state.first }}",
+        "postalCode": "{{ postalCode }}",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "{{ latitude }}",
+        "longitude": "{{ longitude }}"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "opens": "{{ weekdays.first }}",
+          "closes": "{{ weekdays.last }}"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Sunday",
+          "opens": "{{ sundays.first }}",
+          "closes": "{{ sundays.last }}"
+        }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/trueclassictees/",
+        "https://twitter.com/trueclassictees",
+        "https://www.instagram.com/trueclassic/",
+        "https://www.youtube.com/@TrueClassic",
+        "https://www.linkedin.com/company/true-classic/",
+        "https://www.pinterest.com/trueclassictees/",
+        "https://www.trueclassictees.com/"
+      ]
+    }
+  </script>
+</div>
+
+<div class='section-store container {{ section.settings.section_class }}'>
+  <div class='content-wrapper'>
+    <div class='store-info'>
+      <ul>
+        {% if section.settings.streetAddress != blank %}
+          <li>
+            <a
+              href='{{ section.settings.address_map | escape }}'
+              title='Open Goolge Map'
+              target='_blank'
+            >
+              {{ section.settings.streetAddress }}
+              {{ section.settings.addressLocality }},
+              {{ state.last }}
+              {{ section.settings.postalCode }}
+            </a>
+          </li>
+        {%- endif -%}
+        {% if section.settings.phone != blank %}
+          <li>
+            {% render 'icon-phone' %}
+            <a href='tel:{{ section.settings.phone | remove: '(' | remove: ')' | remove: '-' | remove: ' ' }}'>
+              {{- section.settings.phone | escape -}}
+            </a>
+          </li>
+        {%- endif -%}
+        {% if section.settings.email != blank %}
+          <li>
+            {% render 'icon-email' %}
+            {{ section.settings.email | escape }}
+          </li>
+        {%- endif -%}
+      </ul>
+    </div>
+
+    <div class='store-images'>
+      <ul>
+        {%- for block in section.blocks -%}
+          {% if block.settings.retail_image != blank %}
+            <li>
+              <img
+                src='{{ block.settings.retail_image | image_url }}'
+                loading='lazy'
+                height='300'
+                width='300'
+              >
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    </div>
+
+    <div class='store-description'>
+      <div>
+        {% if section.settings.description != blank %}
+          <h3 class='headline staff-x-condensed-type h3 color-black'>Store Description</h3>
+          <p class='text'>{{ section.settings.description | strip_html }}</p>
+        {%- endif -%}
+      </div>
+      <div>
+        <table style='width: 100%;'>
+          {% if section.settings.description != blank %}
+            <tr>
+              <th colspan='1' class='headline staff-x-condensed-type h3 color-black text-left'>
+                Hours
+              </th>
+            </tr>
+          {%- endif -%}
+          {%- for block in section.blocks -%}
+            <tr>
+              <td colspan='1'>
+                {{ block.settings.day }}
+              </td>
+              <td colspan='3'>
+                {{ block.settings.hours }}
+              </td>
+            </tr>
+          {%- endfor -%}
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "TCT Location Store",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_class",
+      "label": "Section CSS Class"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_url",
+      "label": "Choose Image URL"
+    },
+    {
+      "type": "text",
+      "id": "streetAddress",
+      "label": "Street Address"
+    },
+    {
+      "type": "text",
+      "id": "addressLocality",
+      "label": "City"
+    },
+    {
+      "type": "text",
+      "id": "addressRegion",
+      "label": "State (Abbreviations), (full name)"
+    },
+    {
+      "type": "text",
+      "id": "postalCode",
+      "label": "Zip Code"
+    },
+    {
+      "type": "text",
+      "id": "address_map",
+      "label": "Google Map URL"
+    },
+    {
+      "type": "text",
+      "id": "latitude",
+      "label": "Latitude"
+    },
+    {
+      "type": "text",
+      "id": "longitude",
+      "label": "Longitude"
+    },
+    {
+      "type": "text",
+      "id": "phone",
+      "label": "Phone Number"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "E-mail"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Store Description"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image_picker",
+      "name": "Retail Image",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "retail_image",
+          "label": "Images"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Days/Open Hour",
+      "limit": 7,
+      "settings": [
+        {
+          "type": "text",
+          "id": "day",
+          "label": "Days"
+        },
+        {
+          "type": "text",
+          "id": "hours",
+          "label": "Hours"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "TCT Location Store"
+    }
+  ]
+}
+{% endschema %}

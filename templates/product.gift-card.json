@@ -1,0 +1,275 @@
+{
+  "sections": {
+    "f2e24ac2-45a4-4816-84ef-7f6982fdc541": {
+      "type": "html",
+      "settings": {
+        "html": "<style>\n#true-classic-gift-card .product-option-giftcard-button {\n  font-size: 16px !important;\n  line-height: 24px !important;\n  font-family: var(--font-family-primary) !important;\n  width: 100% !important;\n  max-width: 100% !important;\n  overflow: hidden;\n  height: 0;\n  padding-top: 56.25% !important;\n  position: relative;\n  display: inline-flex;\n  border: 0.0625rem solid var(--brand-gray-medium);\n  border-radius: calc(var(--btn-border-radius) + 6px) !important;\n  background-color: var(--brand-brown);\n  color: var(--brand-white) !important;\n}\n\n#true-classic-gift-card .product-option-giftcard-button * {\n  font-size: inherit;\n  font-family: var(--font-staff-x-condensed);\n  white-space: nowrap;\n}\n\n#true-classic-gift-card .size-swatch__input-wrapper {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  justify-content: center;\n  align-items: center;\n  gap: 8px;\n}\n\n@media (min-width: 1444px) {\n  #true-classic-gift-card .size-swatch__input-wrapper {\n    grid-template-columns: 1fr 1fr 1fr;\n  }\n}\n\n#true-classic-gift-card .product-option-giftcard-button:hover {\n  background-color: var(--brand-cream) !important;\n  color: var(--brand-black) !important;\n}\n\n#true-classic-gift-card .size-swatch input:checked+label {\n  color: var(--brand-black) !important;\n  background-color: var(--brand-cream);\n}\n\ndiv[data-custom-giftcard-amount] {\n  margin-top: 0rem;\n  margin-bottom: 0.75rem;\n}\n\n#true-classic-gift-card .product-main-form__add-to-cart button {\n  max-width: 100%;\n}\n\n@media screen and (min-width: 1000px) {\n  #true-classic-gift-card .product-main-form__add-to-cart button {\n    width: 100%;\n    max-width: 170px;\n  }\n\n  #true-classic-gift-card .product-main-form__add-to-cart {\n    flex-wrap: wrap;\n    row-gap: 0.5rem;\n  }\n}\n\n<\/style>"
+      }
+    },
+    "main": {
+      "type": "product-main",
+      "blocks": {
+        "95e1be07-938a-4918-80e6-9a650b58e3dd": {
+          "type": "description_accordion",
+          "settings": {
+            "title": "Perfect Fit, Made to Last Guarantee",
+            "content_html": "<p class=\"guarantee-us\">We give a fit about comfort and quality, and want you to look good and feel good for years to come. That’s why every product comes with a <a href=\"https:\/\/www.trueclassictees.com\/pages\/fit-guarantee\">Perfect Fit, Made to Last Guarantee<\/a> – if it doesn’t fit right or wears a little too soon, let us know within 30 days and we’ll replace it for free, no questions asked.<\/p>"
+          }
+        },
+        "c913fead-294f-44f9-8aa6-a1db375beb97": {
+          "type": "description_accordion",
+          "settings": {
+            "title": "Care Guide",
+            "content_html": "<p>We recommend washing on cold and laying flat to dry, or use a low temp dryer setting. Drying may result in about 5% shrinkage.<\/p>"
+          }
+        },
+        "79764c86-3aa9-4833-8da8-38b9862593a6": {
+          "type": "bundle_callout",
+          "settings": {
+            "text": "",
+            "packbuilder_url": "shopify:\/\/collections\/bundle-builder"
+          }
+        }
+      },
+      "block_order": [
+        "95e1be07-938a-4918-80e6-9a650b58e3dd",
+        "c913fead-294f-44f9-8aa6-a1db375beb97",
+        "79764c86-3aa9-4833-8da8-38b9862593a6"
+      ],
+      "custom_css": [
+        ".product-option__input-wrapper > * {min-width: 32%;}",
+        ".product-main-form__prices,.product-option legend,.product-size-guide-wrapper,.product-description.product-main-accordion > * {display: none;}",
+        ".product-description.product-main-accordion > *:first-child {display: block;}",
+        "#Value-5-label{display: none;}"
+      ],
+      "settings": {
+        "show_icons": false,
+        "icon_image_1": "",
+        "icon_text_1": "",
+        "icon_image_2": "",
+        "icon_text_2": "",
+        "icon_image_3": "",
+        "icon_text_3": "",
+        "icon_image_4": "",
+        "icon_text_4": "",
+        "icon_image_5": "",
+        "icon_text_5": "",
+        "icon_image_6": "",
+        "icon_text_6": "",
+        "show_discount_pack_slider": true,
+        "discount_pack_slider_title": "",
+        "discount_pack_slider_collection": ""
+      }
+    },
+    "25122b41-431c-468b-b0c2-b6ce00d1c6ad": {
+      "type": "section-rich-text",
+      "blocks": {
+        "54fac62c-4f18-4480-afc2-a51a6072f9db": {
+          "type": "heading",
+          "settings": {
+            "heading": "THE GIFT THAT KEEPS ON GIVING"
+          }
+        },
+        "3dfe1c26-2945-4f57-adba-49e0e5adde78": {
+          "type": "card",
+          "settings": {
+            "title": "EASY TO USE",
+            "text": "No fuss. No extra fees. Send your gift card straight to email so he can start shopping for goodies right away."
+          }
+        },
+        "be0eaf5d-a508-4c56-8e8c-e4018c60c4e4": {
+          "type": "card",
+          "settings": {
+            "title": "SAVES TIME",
+            "text": "No need to wrack your brain for the perfect size, color, or style. Let him pick his favorites from the brand guys trust most."
+          }
+        },
+        "a86c2a71-a547-4a4f-8381-a8323a41e54d": {
+          "type": "card",
+          "settings": {
+            "title": "NEVER EXPIRES",
+            "text": "Look good without pressure. There’s no time limit or expiration date with our gift cards. He can shop around on his clock."
+          }
+        }
+      },
+      "block_order": [
+        "54fac62c-4f18-4480-afc2-a51a6072f9db",
+        "3dfe1c26-2945-4f57-adba-49e0e5adde78",
+        "be0eaf5d-a508-4c56-8e8c-e4018c60c4e4",
+        "a86c2a71-a547-4a4f-8381-a8323a41e54d"
+      ],
+      "settings": {
+        "css_class": "",
+        "padding_top": 32,
+        "padding_bottom": 48,
+        "mobile_layout": 1,
+        "desktop_layout": 3
+      }
+    },
+    "product-video-with-text": {
+      "type": "product-video-with-text",
+      "blocks": {
+        "template--14565189419080__product-video-with-text-16837423236acf3040-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "THE TRUE CLASSIC DIFFERENCE"
+          }
+        },
+        "template--14565189419080__product-video-with-text-16837423236acf3040-1": {
+          "type": "text",
+          "settings": {
+            "text": "It's NOT just a t-shirt. Our premium tees are designed for guys’ bodies. They accentuate the arms & shoulders to make you stand out and feel great. They're also super soft, wash well and reasonably priced."
+          }
+        },
+        "template--14565189419080__product-video-with-text-16837423236acf3040-2": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label_1": "Button Text",
+            "button_link_1": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--14565189419080__product-video-with-text-16837423236acf3040-0",
+        "template--14565189419080__product-video-with-text-16837423236acf3040-1",
+        "template--14565189419080__product-video-with-text-16837423236acf3040-2"
+      ],
+      "disabled": true,
+      "settings": {
+        "image": "shopify:\/\/shop_images\/mr_difference.png",
+        "self_hosted_video_url": "",
+        "video_url": "https:\/\/vimeo.com\/731212722",
+        "videowise": "",
+        "video_bg_color": "brown-bg",
+        "text_color": "dark-text",
+        "button_color": "light",
+        "heading_level": "h2"
+      }
+    },
+    "product-recommendation": {
+      "type": "product-recommendation",
+      "blocks": {
+        "42cf6e8a-c4ee-4230-8ea5-1e97d8d2c082": {
+          "type": "collection",
+          "settings": {
+            "title": "Pairs well with",
+            "collection": "add-ons"
+          }
+        }
+      },
+      "block_order": [
+        "42cf6e8a-c4ee-4230-8ea5-1e97d8d2c082"
+      ],
+      "settings": {
+        "title": "",
+        "css_class": "",
+        "show_recently_viewed": true
+      }
+    },
+    "product-ugc": {
+      "type": "product-ugc",
+      "blocks": {
+        "4ee284ed-a0f8-4d49-be02-c8b21972d139": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/baddadbeerreview_2021_instagram_influencers_re-min_50ef2d91-9097-4d8a-b4e9-a2f69a803bef.jpg"
+          }
+        },
+        "96300091-570e-4b48-b594-48110808e423": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/FE8EC1BD-4F44-411A-B802-08B99D749488-min_e58765ff-0cf2-45c9-aed2-c84ade3c8d53.jpg"
+          }
+        },
+        "1cd7df74-e09e-4123-bedd-61ecc5bbfb6e": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/iamkingcole_2022_brand_ambassadors_2021_10_03_11_08_19-min_8855518d-5d6b-4039-a7ca-387c1745efd7.jpg"
+          }
+        },
+        "c0b2ee6a-3095-42a6-b19e-5e77d8e115f2": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/image_6483441-1-min_3ee76beb-55c8-48fc-b9c8-72b6f652315e.jpg"
+          }
+        },
+        "5d6b51fd-6d3b-49c5-87c9-aac27ebfcc54": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/mr_mackenzie_2021_instagram_influencers_2021_11_17_02_02_45-min_0fa46a67-5d99-4d76-a223-6c14e64d004e.jpg"
+          }
+        },
+        "b0c56ae4-bd13-482c-967b-d7753518d1a8": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/nate_thomassss_2022_brand_ambassadors_2021_10_24_06_12_40-min_1158ff54-36ee-47f6-9787-c2b910e7ed8b.jpg"
+          }
+        },
+        "bb399c32-af3b-4b9c-9797-4ee4d5a735d5": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/nateholley18_2021_instagram_influencers_2021_10_02_10_30_41-min_c88fd8d0-51f2-4145-9ee5-a556e722ab39.jpg"
+          }
+        },
+        "034e130a-b5ea-4dd5-9091-9434df41ff96": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/Spence_Spends-min_d77aea9a-5fd4-4ece-9753-7017c45e231a.jpg"
+          }
+        },
+        "44406ca3-e072-45e3-ad31-69ba9474c6a4": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/tecumseh_x_2021_instagram_influencers_2021_08_15_07_02_02-min_1f86c878-d41f-4cf7-b22e-eae6b1ff6e84.jpg"
+          }
+        },
+        "601526ce-365a-4346-ae93-913a23c18348": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/therealfrankpascale_2021_instagram_influencers_2021_07_31_03_31_25-min_6c767a60-9ee8-45d5-af1e-cee104c80855.jpg"
+          }
+        },
+        "8603a590-3024-49ba-945d-d16c80b1d665": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/TrueClassic-3_copy-min.jpg"
+          }
+        },
+        "b6b64311-ffcb-4643-8d06-c23e4d908478": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/zenmotorcyclemaintenance_2022_brand_ambassadors_2022_01_25_01_48_06-min.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "4ee284ed-a0f8-4d49-be02-c8b21972d139",
+        "96300091-570e-4b48-b594-48110808e423",
+        "1cd7df74-e09e-4123-bedd-61ecc5bbfb6e",
+        "c0b2ee6a-3095-42a6-b19e-5e77d8e115f2",
+        "5d6b51fd-6d3b-49c5-87c9-aac27ebfcc54",
+        "b0c56ae4-bd13-482c-967b-d7753518d1a8",
+        "bb399c32-af3b-4b9c-9797-4ee4d5a735d5",
+        "034e130a-b5ea-4dd5-9091-9434df41ff96",
+        "44406ca3-e072-45e3-ad31-69ba9474c6a4",
+        "601526ce-365a-4346-ae93-913a23c18348",
+        "8603a590-3024-49ba-945d-d16c80b1d665",
+        "b6b64311-ffcb-4643-8d06-c23e4d908478"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "Trusted by 2.5+ Million Men Worldwide",
+        "sub_heading": ""
+      }
+    }
+  },
+  "order": [
+    "f2e24ac2-45a4-4816-84ef-7f6982fdc541",
+    "main",
+    "25122b41-431c-468b-b0c2-b6ce00d1c6ad",
+    "product-video-with-text",
+    "product-recommendation",
+    "product-ugc"
+  ]
+}

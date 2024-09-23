@@ -1,0 +1,29 @@
+<section class="container content-wrapper section-spacer">
+
+  <h1 class="search__title headline h3">
+    {% if search.performed %}
+      showing results for "{{ search.terms }}"
+    {% else %}
+      {{ 'general.search.no_results_html' | t: terms: search.terms }}
+    {% endif %}
+  </h1>
+
+  {% liquid
+      if search.performed
+        paginate search.results by 99
+        assign search_results = search.results | where: "object_type", "product"
+        render 'product-filtered-grid', product_array: search_results, search: search, page_count: paginate.pages
+        endpaginate
+      endif
+  %}
+
+</section>
+
+{% schema %}
+  {
+    "name": "Search",
+    "class": "search-section",
+    "settings": [
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,63 @@
+{% paginate blog.articles by 5 %}
+  {%- assign blog_page_title = blog.title -%}
+<div class="container blog-page">
+  <div class="content-wrapper section-spacer">
+    <div class="blog-container">
+      <h1 class="blog-page-title h2 headline">{{ blog_page_title }}</h1>
+      {% for article in blog.articles %}
+        {%- liquid
+          capture excerpt
+            render 'article-excerpt', article: article
+          endcapture
+          assign url = article.url
+          assign image = article.image
+          assign title = article.title
+          assign author = article.author
+          assign created = article.created_at | date: "%B %d, %Y"
+        -%}
+          <div class="blog-card">
+              <a href="{{ url }}">
+                <div class="blog-card-image-container">
+                  <img
+                    srcset="{%- if image.width >= 375 -%}{{ image | image_url: width: 375 }} 375w,{%- endif -%}
+                    {%- if image.width >= 750 -%}{{ image | image_url: width: 750 }} 750w,{%- endif -%}
+                    {%- if image.width >= 1100 -%}{{ image | image_url: width: 1100 }} 1100w,{%- endif -%}
+                    {%- if image.width >= 1500 -%}{{ image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                    {%- if image.width >= 2000 -%}{{ image | image_url: width: 2000 }} 2000w,{%- endif -%}
+                    {%- if image.width >= 2500 -%}{{ image | image_url: width: 2500 }} 2500w,{%- endif -%}
+                    {{ image | image_url }} {{ image.width }}w"
+                    src="{{ image | image_url: width: 1500 }}"
+                    alt="{{ image.alt | escape }}"
+                    width="{{ image.width }}"
+                    height="{{ image.height }}"
+                    loading="lazy"
+                  >
+                </div>
+                </a>
+
+                <div class="blog-card-content-container">
+                {% if title != blank %}
+             
+                <h2 class="blog-title bold">
+                  <a href="{{ url }}" class="underline" title="{{ title }}">
+                  {{ title }}
+                  </a>
+                </h2>
+         
+                {% endif %}
+                {% if excerpt != blank %}
+                  <p class="blog-excerpt">{{ excerpt }}</p>
+                {% endif %}
+                {% if author != blank %}
+                  <p class="blog-author">by <span>{{ author }}</span> on <span>{{ created }}</span></p>
+                {% endif %}
+              </div>
+          </div>
+      {% endfor %}
+    </div>
+    {% if paginate.pages > 1 %}
+      {% render 'pagination' paginate: paginate %}
+    {% endif %}
+  </div>
+</div>
+{% endpaginate %}

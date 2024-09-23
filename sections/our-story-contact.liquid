@@ -1,0 +1,50 @@
+{% liquid
+  assign heading = section.settings.heading
+  assign subheading = section.settings.subheading
+%}
+
+<div class="container section-spacer">
+  <div class="content-wrapper">
+    <div class="our-story-contact-wrapper">
+      <div class="our-story-contact-content__container">
+        <div class="contact-info__title headline">
+          <h2 class="headline h3">{{ heading }}</h2>
+        </div>
+        <div class="contact-info__subtitle">
+          {{ subheading }}
+        </div>
+      </div>
+      <div class="our-story-contact-info__container">
+        {% render 'contact-info' %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Our Story Contact",
+  "tag": "section",
+  "class": "our-story-contact-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Looking to partner?"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Our Story Contact",
+      "category": "text"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,101 @@
+{% comment %}
+  
+  variables available:
+
+  icons_color: {string} 
+  icons_label_font: {string} 
+  icon_shirt: {boolean} 
+  icon_shirt_label: {string} 
+  icon_soft: {boolean} 
+  icon_soft_label: {boolean} 
+  icon_washing: {boolean} 
+  icon_washing_label: {string} 
+  icon_price: {boolean} 
+  icon_price_label: {string} 
+  icons_margin_bottom: {string} 
+  max_breakpoint: {number}
+
+  Example:
+
+  {% render 'icons',
+    icons_color: block.settings.icons_color
+    icons_label_font: block.settings.icons_label_font
+    icon_shirt: block.settings.icon_shirt
+    icon_shirt_label: block.settings.icon_shirt_label
+    icon_soft: block.settings.icon_soft
+    icon_soft_label: block.settings.icon_soft_label
+    icon_washing: block.settings.icon_washing
+    icon_washing_label: block.settings.icon_washing_label
+    icon_price: block.settings.icon_price
+    icon_price_label: block.settings.icon_price_label
+    icons_margin_bottom: block.settings.icons_margin_bottom
+    max_breakpoint: max_breakpoint
+  %}
+
+{% endcomment %}
+
+<style type='text/css'>
+  .block{{ block_id }}.image-banner-splitted-icons {
+    margin-bottom: {{ icons_margin_bottom | times: 0.40 }}rem;
+  }
+
+  @media screen and (min-width: 480px) {
+    .block{{ block_id }}.image-banner-splitted-icons {
+      margin-bottom: {{ icons_margin_bottom | times: 0.50 }}vw;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .block{{ block_id }}.image-banner-splitted-icons {
+      margin-bottom: {{ icons_margin_bottom | times: 0.50 }}rem;
+    }
+  }
+
+  @media screen and (min-width: {{ max_breakpoint }}px) {
+    .block{{ block_id }}.image-banner-splitted-icons {
+      margin-bottom: {{ icons_margin_bottom }}vw;
+    }
+  }
+</style>
+<div
+class='block{{ block_id }} image-banner-splitted-icons icons-{{ content_alignment }}'
+>
+<ul class='widget-icons-list color-{{ icons_color }}'>
+  {% if icon_shirt == true %}
+  <li>
+    <span>
+      {% render 'icon-shirt' %}
+    </span>
+    <span>
+      {{- icon_shirt_label | default: 'Perfectly Fitted' -}}
+    </span>
+  </li>
+  {% endif %}
+  {% if icon_soft == true %}
+  <li>
+    <span>
+      {% render 'icon-soft' %}
+    </span>
+    <span>{{ icon_soft_label | default: 'Butter Soft' }}</span>
+  </li>
+  {% endif %}
+  {% if icon_washing == true %}
+  <li>
+    <span>
+      {% render 'icon-washing' %}
+    </span>
+    <span>
+      {{- icon_washing_label | default: 'Washes Well' -}}
+    </span>
+  </li>
+  {% endif %}
+  {% if icon_price == true %}
+  <li>
+    <span>
+      {% render 'icon-price' %}
+    </span>
+    <span>{{ icon_price_label | default: 'Low Price' }}</span>
+  </li>
+  {% endif %}
+</ul>
+</div>

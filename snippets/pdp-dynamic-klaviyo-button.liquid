@@ -1,0 +1,19 @@
+<div class="klaviyo-form-container">
+  <div class="{{ form_class }}"></div>
+</div>
+
+<button class="klaviyo-dynamic-get-on-list button">
+  Get on the list
+</button>
+
+<script>
+  window.addEventListener('DOMContentLoaded', ()=> {
+    const getOnList = document.querySelector('.klaviyo-dynamic-get-on-list')
+    const form      = document.querySelector('.klaviyo-form-container')
+    getOnList.addEventListener('click', (e) => {
+      e.preventDefault()
+      form.classList.add('active')
+      getOnList.style.display= "none"
+    })
+  })
+</script>

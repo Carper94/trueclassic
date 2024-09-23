@@ -1,0 +1,47 @@
+{% liquid
+  assign label = filter.label
+  assign type = 'square'
+  if filter.label == 'Size'
+    assign type = 'circle'
+  endif
+  if filter.label == 'Colorways' or filter.label == 'ColorwaysV2'
+    assign type = 'color'
+    assign label = 'Color'
+  endif
+  if filter.label == 'Product type'
+    assign label = 'Style'
+  endif
+  if filter.label == 'Product Type V2'
+    assign label = 'Product Type 2'
+  endif
+%}
+{% unless filter.label == 'Availability' %}
+  {% case filter.type %}
+    {% when 'list' %}
+      {% assign active_values_size = filter.values | where: 'active' | size %}
+      <div class='filter-list-wrapper xx-{{ label }}'>
+        <div class='filter-list-head' data-active-count='{{ active_values_size }}'>
+          <span class='label'>{{ label }}</span> (<span class='active-count'>
+            {{- active_values_size -}}</span
+          >)
+        </div>
+        <div
+          {% unless filter.label == 'Color'
+            or filter.label == 'color'
+            or filter.label == 'ColorwaysV2'
+          %}
+            class='filter-list'
+          {% endunless %}
+          {% if filter.label == 'ColorwaysV2' %}
+            class='filter-list color-swatch-grid'
+          {% endif %}
+        >
+          {% for filter_value in filter.values %}
+            {% render 'filter-list-item', filter_value: filter_value, label: label, type: type %}
+          {% endfor %}
+        </div>
+      </div>
+    {% else %}
+
+  {% endcase %}
+{% endunless %}

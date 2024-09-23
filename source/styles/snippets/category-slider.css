@@ -1,0 +1,29 @@
+.category-slider-section {
+  overflow-x: hidden;
+}
+
+.category-slider {
+  & .category-slider__heading {
+    font-weight: var(--font-weight-bold);
+  }
+
+  & .swiper {
+    padding-bottom: 16px;
+  }
+
+  & ul,
+  & li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  & > * + * {
+    margin-top: var(--spacer-s);
+  }
+
+  & .swiper-slide {
+    flex-shrink: 1;
+    width: auto;
+  }
+}

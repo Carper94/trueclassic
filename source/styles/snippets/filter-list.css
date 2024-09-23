@@ -1,0 +1,102 @@
+.filter-list-head {
+  margin: 12px 0;
+  font-size: 14px;
+}
+
+.filter-list-head>span {
+  font-weight: var(--font-weight-bold);
+}
+
+.filter-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 4px;
+}
+
+.filter-list-item {
+  display: flex;
+  position: relative;
+  font-weight: var(--font-weight-bold);
+  font-size: 12px;
+  color: var(--brand-black);
+}
+
+.filter-list-item.checked {
+  background-color: #282828;
+  background-color: var(--brand-black);
+  color: rgba(255, 255, 255, 1);
+  color: var(--brand-white);
+}
+
+.filter-list-item.color.checked {
+  outline: 0.0625rem solid #282828;
+  outline: 0.0625rem solid var(--brand-black);
+  outline-offset: 0.125rem;
+}
+
+.filter-list-item.square {
+  margin-right: 5px;
+  border: 0.5px solid var(--btn-tertiary-color);
+  border-radius: 5px;
+}
+
+.filter-list-item.square label {
+  min-width: 50px;
+  text-align: center;
+  padding: 16px 12px;
+  color: var(--btn-tertiary-color);
+  background-color: var(--btn-tertiary-background-color);
+  border-radius: 0;
+  text-transform: capitalize;
+}
+
+.filter-list-item.square>input[type="checkbox"]:checked~label,
+.filter-list-item.circle>input[type="checkbox"]:checked~label {
+  background: var(--brand-gray-dark);
+  color: var(--brand-white);
+  border-radius: 0.3125rem;
+}
+
+.filter-list-item.circle label {
+  width: 54px;
+  height: 50px;
+  font-size: 14px;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: solid 0.5px var(--brand-black);
+  border-radius: 5px;
+}
+
+.filter-list-item:hover label {
+  background-color: var(--brand-gray-dark);
+  color: var(--brand-white);
+  transition: all 0.1s ease-in-out;
+  border-radius: 0.3125rem;
+}
+
+.filter-list-item.color>input[type="checkbox"]:checked~label {
+  outline: 1px solid var(--brand-black);
+  outline-offset: 2px;
+}
+
+.filter-list-item.color label {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 1px var(--brand-black);
+  border-radius: 50%;
+}
+
+.filter-list-item>input[type="checkbox"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}

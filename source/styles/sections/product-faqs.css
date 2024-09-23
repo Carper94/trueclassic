@@ -1,0 +1,72 @@
+/*
+product-faqs.css
+***************************************/
+.faq-wrapper.product-faq-wrapper {
+  padding: 0;
+  color: var(--brand-black);
+  border: none;
+  border-radius: 0;
+
+  @media (--large) {
+    padding: 2rem 0;
+  }
+
+  & .faq__title {
+    text-align: left;
+    padding-bottom: 1rem;
+    border-bottom: var(--divider);
+  }
+
+  & .accordion-array__item {
+    border-bottom: var(--divider);
+
+    &:first-child {
+      border-top: var(--divider);
+    }
+
+    & .accordion__tab {
+      padding: 2rem 0px;
+    }
+  }
+}
+
+.template-product {
+  & .swiper-controls:not(.swiper-controls-ugc) {
+    margin-bottom: 1rem;
+  }
+
+  & .swiper-controls {
+    display: flex !important;
+    justify-content: space-between !important;
+    position: relative !important;
+    width: 100%;
+
+    & .swiper-controls-buttons {
+      display: flex !important;
+      gap: 0.5rem !important;
+
+      & button {
+        margin-bottom: 16px !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .template-product {
+    & h2.h2.headline {
+      font-size: 16px;
+      line-height: 1.3;
+    }
+  }
+}
+
+.mg-button-wrapper {
+  width: auto !important;
+  position: relative !important;
+}
+
+.mg-button {
+  max-width: 100% !important;
+  width: 100% !important;
+}

@@ -1,0 +1,13 @@
+@import "../settings/breakpoints";
+@import "../sections/pack-builder.css";
+@import "../snippets/pack-builder-size-controls.css";
+@import "../snippets/pack-builder-product-grid.css";
+@import "../snippets/pack-builder-cart.css";
+@import "../react/components/PackBuilderLineItem.css";
+@import "../react/components/PackBuilderLineItemList.css";
+
+footer {
+  @media (--large-down) {
+    padding-bottom: 180px;
+  }
+}

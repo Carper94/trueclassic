@@ -1,0 +1,960 @@
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "disabled": true,
+      "settings": {
+        "full_width": false,
+        "hide_title": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "b9342182-21f9-45c8-8edf-318c0ce78ca7": {
+      "type": "replo-replo-crews-video-hero",
+      "custom_css": [
+        "@media (max-width: 750px) {deferred-media.video-section__media.deferred-media.no-js-hidden.gradient.global-media-settings.global-media-settings--full-width.media-fit-cover {padding-bottom: 100% !important; }}"
+      ],
+      "settings": {
+      }
+    },
+    "d7dd5295-c473-4429-8370-419ebdc6d1e9": {
+      "type": "tc-rich-text",
+      "blocks": {
+        "template--14640765861960__d7dd5295-c473-4429-8370-419ebdc6d1e9-heading-1": {
+          "type": "heading",
+          "settings": {
+            "title": "BEST SELLING",
+            "heading_level": "h2",
+            "heading_size": "h5",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-milk-chocolate",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-none",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "5d0d05ef-8e83-4ff6-b300-ea5865e5f66f": {
+          "type": "heading",
+          "settings": {
+            "title": "Short Sleeve T-SHIRTS",
+            "heading_level": "h2",
+            "heading_size": "h2",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-chocolate-dark",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-none",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "template--14640765861960__d7dd5295-c473-4429-8370-419ebdc6d1e9-text-1": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "paragraph": "<p>Lorem ipsum dolor sit amet consectetur adipiscing elit.<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "m",
+            "paragraph_color": "color-chocolate",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-m"
+          }
+        },
+        "template--14640765861960__d7dd5295-c473-4429-8370-419ebdc6d1e9-link-1": {
+          "type": "link",
+          "disabled": true,
+          "settings": {
+            "link_text": "Shop Now",
+            "link_url": "",
+            "new_tab": false,
+            "link_style": "primary",
+            "link_color_inverse": false,
+            "link_icon": "arrow-right",
+            "link_margin_top": "mg-t-none",
+            "link_margin_bottom": "mg-b-m",
+            "full_width": false,
+            "disabled": false
+          }
+        }
+      },
+      "block_order": [
+        "template--14640765861960__d7dd5295-c473-4429-8370-419ebdc6d1e9-heading-1",
+        "5d0d05ef-8e83-4ff6-b300-ea5865e5f66f",
+        "template--14640765861960__d7dd5295-c473-4429-8370-419ebdc6d1e9-text-1",
+        "template--14640765861960__d7dd5295-c473-4429-8370-419ebdc6d1e9-link-1"
+      ],
+      "custom_css": [
+        ".rich-text:not(.rich-text--full-width) .rich-text__wrapper {box-sizing: border-box; justify-content: center; width: 100%; margin-left: auto; margin-right: auto;}"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "section_bg_color": "#ffffff",
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "full_width": false,
+        "padding_top": 40,
+        "padding_bottom": 0
+      }
+    },
+    "c5b7b9c1-d5f8-4d70-a794-f355b275dc51": {
+      "type": "tc-collection-inline",
+      "settings": {
+        "title": "",
+        "heading_level": "h2",
+        "heading_size": "h2",
+        "heading_font": "staff-x-condensed-type",
+        "heading_color": "color-chocolate",
+        "heading_color_inverse": false,
+        "heading_margin_top": "mg-t-none",
+        "heading_margin_bottom": "mg-b-m",
+        "heading_underline": false,
+        "line_break_dot": false,
+        "collection": "mens-short-sleeve-crews",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "full_width": false,
+        "enable_section_width": false,
+        "max_section_width_desktop": 700,
+        "enable_desktop_slider": true,
+        "enable_card_width": false,
+        "max_card_width_desktop": 400,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 24
+      }
+    },
+    "fe5cd9dc-9b28-4ec4-8d77-02165995cb88": {
+      "type": "tc-rich-text",
+      "blocks": {
+        "0adba0bd-ac1e-4941-85cc-a8bfe372aa4d": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "paragraph": "<p>Lorem ipsum dolor sit amet consectetur adipiscing elit.<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "m",
+            "paragraph_color": "color-chocolate",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-m"
+          }
+        },
+        "ac507947-2740-4cff-a62d-c967950bdce4": {
+          "type": "link",
+          "settings": {
+            "link_text": "Shop More",
+            "link_url": "shopify:\/\/collections\/mens-short-sleeve-crews",
+            "new_tab": false,
+            "link_style": "secondary",
+            "link_color_inverse": false,
+            "link_icon": "arrow-right",
+            "link_margin_top": "mg-t-none",
+            "link_margin_bottom": "mg-b-m",
+            "full_width": true,
+            "disabled": false
+          }
+        }
+      },
+      "block_order": [
+        "0adba0bd-ac1e-4941-85cc-a8bfe372aa4d",
+        "ac507947-2740-4cff-a62d-c967950bdce4"
+      ],
+      "custom_css": [
+        ".rich-text:not(.rich-text--full-width) .rich-text__wrapper {box-sizing: border-box; justify-content: center; width: 100%; margin-left: auto; margin-right: auto;}"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "section_bg_color": "#ffffff",
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "full_width": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "3b8b1ced-4f24-441a-b7d9-f7ce5f896481": {
+      "type": "tc-rich-text",
+      "blocks": {
+        "e0ac265c-c343-4f6c-9fb8-ad36aaeb631e": {
+          "type": "heading",
+          "settings": {
+            "title": "BEST SELLING",
+            "heading_level": "h2",
+            "heading_size": "h5",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-milk-chocolate",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-none",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "127d77c3-6ecf-4bc0-a7c6-c72166931f85": {
+          "type": "heading",
+          "settings": {
+            "title": "Henley T-SHIRTS",
+            "heading_level": "h2",
+            "heading_size": "h2",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-chocolate-dark",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-none",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "d7deaabf-5255-4aea-a1e6-b0a2b15e4fc0": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "paragraph": "<p>Lorem ipsum dolor sit amet consectetur adipiscing elit.<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "m",
+            "paragraph_color": "color-chocolate",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-m"
+          }
+        },
+        "fff59ccc-aa54-4281-a845-6ea8a7bb864d": {
+          "type": "link",
+          "disabled": true,
+          "settings": {
+            "link_text": "Shop Now",
+            "link_url": "",
+            "new_tab": false,
+            "link_style": "primary",
+            "link_color_inverse": false,
+            "link_icon": "arrow-right",
+            "link_margin_top": "mg-t-none",
+            "link_margin_bottom": "mg-b-m",
+            "full_width": false,
+            "disabled": false
+          }
+        }
+      },
+      "block_order": [
+        "e0ac265c-c343-4f6c-9fb8-ad36aaeb631e",
+        "127d77c3-6ecf-4bc0-a7c6-c72166931f85",
+        "d7deaabf-5255-4aea-a1e6-b0a2b15e4fc0",
+        "fff59ccc-aa54-4281-a845-6ea8a7bb864d"
+      ],
+      "custom_css": [
+        ".rich-text:not(.rich-text--full-width) .rich-text__wrapper {box-sizing: border-box; justify-content: center; width: 100%; margin-left: auto; margin-right: auto;}"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "section_bg_color": "#ffffff",
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "full_width": false,
+        "padding_top": 40,
+        "padding_bottom": 0
+      }
+    },
+    "e6b12bf8-fe56-44b2-9320-5ceaa819ae79": {
+      "type": "tc-collection-inline",
+      "settings": {
+        "title": "",
+        "heading_level": "h2",
+        "heading_size": "h2",
+        "heading_font": "staff-x-condensed-type",
+        "heading_color": "color-chocolate",
+        "heading_color_inverse": false,
+        "heading_margin_top": "mg-t-none",
+        "heading_margin_bottom": "mg-b-m",
+        "heading_underline": false,
+        "line_break_dot": false,
+        "collection": "henleys",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "full_width": false,
+        "enable_section_width": false,
+        "max_section_width_desktop": 700,
+        "enable_desktop_slider": true,
+        "enable_card_width": false,
+        "max_card_width_desktop": 400,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 24
+      }
+    },
+    "6b1c11bd-e460-4965-afe5-da659d2ecadd": {
+      "type": "tc-rich-text",
+      "blocks": {
+        "26aab4fa-83c6-4ec5-b665-7d1ee711a82a": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "paragraph": "<p>Lorem ipsum dolor sit amet consectetur adipiscing elit.<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "m",
+            "paragraph_color": "color-chocolate",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-m"
+          }
+        },
+        "c4412728-38e4-4c6a-8645-fe19c5786b09": {
+          "type": "link",
+          "settings": {
+            "link_text": "Shop More",
+            "link_url": "shopify:\/\/collections\/henleys",
+            "new_tab": false,
+            "link_style": "secondary",
+            "link_color_inverse": false,
+            "link_icon": "arrow-right",
+            "link_margin_top": "mg-t-none",
+            "link_margin_bottom": "mg-b-m",
+            "full_width": true,
+            "disabled": false
+          }
+        }
+      },
+      "block_order": [
+        "26aab4fa-83c6-4ec5-b665-7d1ee711a82a",
+        "c4412728-38e4-4c6a-8645-fe19c5786b09"
+      ],
+      "custom_css": [
+        ".rich-text:not(.rich-text--full-width) .rich-text__wrapper {box-sizing: border-box; justify-content: center; width: 100%; margin-left: auto; margin-right: auto;}"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "section_bg_color": "#ffffff",
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "full_width": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "cfb74dc9-8f1a-4765-b102-0c45a3a84e45": {
+      "type": "tc-rich-text",
+      "blocks": {
+        "b961b037-ce0f-4e47-a4eb-37028b9ff1d0": {
+          "type": "heading",
+          "settings": {
+            "title": "BEST SELLING",
+            "heading_level": "h2",
+            "heading_size": "h5",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-milk-chocolate",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-none",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "76e7e88d-f6ea-48ec-b791-94c38c585013": {
+          "type": "heading",
+          "settings": {
+            "title": "Active T-SHIRTS",
+            "heading_level": "h2",
+            "heading_size": "h2",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-chocolate-dark",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-none",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "9f028115-2e44-4f5e-bb44-e4a4862dc16b": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "paragraph": "<p>Lorem ipsum dolor sit amet consectetur adipiscing elit.<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "m",
+            "paragraph_color": "color-chocolate",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-m"
+          }
+        },
+        "708743e3-77b6-4020-b796-5f694ebdbb5d": {
+          "type": "link",
+          "disabled": true,
+          "settings": {
+            "link_text": "Shop Now",
+            "link_url": "",
+            "new_tab": false,
+            "link_style": "primary",
+            "link_color_inverse": false,
+            "link_icon": "arrow-right",
+            "link_margin_top": "mg-t-none",
+            "link_margin_bottom": "mg-b-m",
+            "full_width": false,
+            "disabled": false
+          }
+        }
+      },
+      "block_order": [
+        "b961b037-ce0f-4e47-a4eb-37028b9ff1d0",
+        "76e7e88d-f6ea-48ec-b791-94c38c585013",
+        "9f028115-2e44-4f5e-bb44-e4a4862dc16b",
+        "708743e3-77b6-4020-b796-5f694ebdbb5d"
+      ],
+      "custom_css": [
+        ".rich-text:not(.rich-text--full-width) .rich-text__wrapper {box-sizing: border-box; justify-content: center; width: 100%; margin-left: auto; margin-right: auto;}"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "section_bg_color": "#ffffff",
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "full_width": false,
+        "padding_top": 40,
+        "padding_bottom": 0
+      }
+    },
+    "20333f27-6e12-4eaf-88d8-d3ef891066df": {
+      "type": "tc-collection-inline",
+      "settings": {
+        "title": "",
+        "heading_level": "h2",
+        "heading_size": "h2",
+        "heading_font": "staff-x-condensed-type",
+        "heading_color": "color-chocolate",
+        "heading_color_inverse": false,
+        "heading_margin_top": "mg-t-none",
+        "heading_margin_bottom": "mg-b-m",
+        "heading_underline": false,
+        "line_break_dot": false,
+        "collection": "active-t-shirts",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "full_width": false,
+        "enable_section_width": false,
+        "max_section_width_desktop": 700,
+        "enable_desktop_slider": true,
+        "enable_card_width": false,
+        "max_card_width_desktop": 400,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 24
+      }
+    },
+    "94add915-c0ba-45f2-9b1a-dcd2edebdf76": {
+      "type": "tc-rich-text",
+      "blocks": {
+        "22542ec0-9770-4011-8f8e-daeba4672616": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "paragraph": "<p>Lorem ipsum dolor sit amet consectetur adipiscing elit.<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "m",
+            "paragraph_color": "color-chocolate",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-m"
+          }
+        },
+        "be1fa4ce-58bc-4cbe-9b86-6d585a5c8471": {
+          "type": "link",
+          "settings": {
+            "link_text": "Shop More",
+            "link_url": "shopify:\/\/collections\/active-t-shirts",
+            "new_tab": false,
+            "link_style": "secondary",
+            "link_color_inverse": false,
+            "link_icon": "arrow-right",
+            "link_margin_top": "mg-t-none",
+            "link_margin_bottom": "mg-b-m",
+            "full_width": true,
+            "disabled": false
+          }
+        }
+      },
+      "block_order": [
+        "22542ec0-9770-4011-8f8e-daeba4672616",
+        "be1fa4ce-58bc-4cbe-9b86-6d585a5c8471"
+      ],
+      "custom_css": [
+        ".rich-text:not(.rich-text--full-width) .rich-text__wrapper {box-sizing: border-box; justify-content: center; width: 100%; margin-left: auto; margin-right: auto;}"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "section_bg_color": "#ffffff",
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "full_width": false,
+        "padding_top": 0,
+        "padding_bottom": 40
+      }
+    },
+    "fda89e2d-6738-409c-bc4f-d9ad98e1cc5b": {
+      "type": "replo-replo-crews-value-props",
+      "settings": {
+      }
+    },
+    "dd95fecb-bd55-4e2c-908b-948ba1b33389": {
+      "type": "tc-rich-text",
+      "blocks": {
+        "7b4bf2a0-b289-4874-9605-d4475ba2fffa": {
+          "type": "heading",
+          "settings": {
+            "title": "BEST SELLING",
+            "heading_level": "h2",
+            "heading_size": "h5",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-milk-chocolate",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-none",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "aee97a23-8e2a-4c73-8b5b-907d3dc0e04b": {
+          "type": "heading",
+          "settings": {
+            "title": "Tall T-SHIRTS",
+            "heading_level": "h2",
+            "heading_size": "h2",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-chocolate-dark",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-none",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "f4a8773b-a339-4e09-bcd8-8f7684c3b476": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "paragraph": "<p>Lorem ipsum dolor sit amet consectetur adipiscing elit.<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "m",
+            "paragraph_color": "color-chocolate",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-m"
+          }
+        },
+        "559aafce-ed51-45f8-bbee-f0f462dd1f3d": {
+          "type": "link",
+          "disabled": true,
+          "settings": {
+            "link_text": "Shop Now",
+            "link_url": "",
+            "new_tab": false,
+            "link_style": "primary",
+            "link_color_inverse": false,
+            "link_icon": "arrow-right",
+            "link_margin_top": "mg-t-none",
+            "link_margin_bottom": "mg-b-m",
+            "full_width": false,
+            "disabled": false
+          }
+        }
+      },
+      "block_order": [
+        "7b4bf2a0-b289-4874-9605-d4475ba2fffa",
+        "aee97a23-8e2a-4c73-8b5b-907d3dc0e04b",
+        "f4a8773b-a339-4e09-bcd8-8f7684c3b476",
+        "559aafce-ed51-45f8-bbee-f0f462dd1f3d"
+      ],
+      "custom_css": [
+        ".rich-text:not(.rich-text--full-width) .rich-text__wrapper {box-sizing: border-box; justify-content: center; width: 100%; margin-left: auto; margin-right: auto;}"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "section_bg_color": "#ffffff",
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "full_width": false,
+        "padding_top": 40,
+        "padding_bottom": 0
+      }
+    },
+    "7406dbe7-cab9-4dfb-978c-47085347c60d": {
+      "type": "tc-collection-inline",
+      "settings": {
+        "title": "",
+        "heading_level": "h2",
+        "heading_size": "h2",
+        "heading_font": "staff-x-condensed-type",
+        "heading_color": "color-chocolate",
+        "heading_color_inverse": false,
+        "heading_margin_top": "mg-t-none",
+        "heading_margin_bottom": "mg-b-m",
+        "heading_underline": false,
+        "line_break_dot": false,
+        "collection": "tall-crew-neck",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "full_width": false,
+        "enable_section_width": false,
+        "max_section_width_desktop": 700,
+        "enable_desktop_slider": true,
+        "enable_card_width": false,
+        "max_card_width_desktop": 400,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 24
+      }
+    },
+    "7325dcc0-e33e-4f92-8bdb-a307eed8c604": {
+      "type": "tc-rich-text",
+      "blocks": {
+        "4b03801f-4d56-41c5-9d47-6f005cdebea3": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "paragraph": "<p>Lorem ipsum dolor sit amet consectetur adipiscing elit.<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "m",
+            "paragraph_color": "color-chocolate",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-m"
+          }
+        },
+        "150cd098-d293-40e7-a2dd-4c6fe50c0933": {
+          "type": "link",
+          "settings": {
+            "link_text": "Shop More",
+            "link_url": "shopify:\/\/collections\/tall-crew-neck",
+            "new_tab": false,
+            "link_style": "secondary",
+            "link_color_inverse": false,
+            "link_icon": "arrow-right",
+            "link_margin_top": "mg-t-none",
+            "link_margin_bottom": "mg-b-m",
+            "full_width": true,
+            "disabled": false
+          }
+        }
+      },
+      "block_order": [
+        "4b03801f-4d56-41c5-9d47-6f005cdebea3",
+        "150cd098-d293-40e7-a2dd-4c6fe50c0933"
+      ],
+      "custom_css": [
+        ".rich-text:not(.rich-text--full-width) .rich-text__wrapper {box-sizing: border-box; justify-content: center; width: 100%; margin-left: auto; margin-right: auto;}"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "section_bg_color": "#ffffff",
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "full_width": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "a2e35cf7-2aa9-4d4e-822a-8ad3fe1a3140": {
+      "type": "tc-rich-text",
+      "blocks": {
+        "a53a213b-0063-4d72-aa98-65ea83715ea1": {
+          "type": "heading",
+          "settings": {
+            "title": "BEST SELLING",
+            "heading_level": "h2",
+            "heading_size": "h5",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-milk-chocolate",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-none",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "fa384c2b-88a8-42bd-8993-fcd835b9222b": {
+          "type": "heading",
+          "settings": {
+            "title": "Long Sleeve T-SHIRTS",
+            "heading_level": "h2",
+            "heading_size": "h2",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-chocolate-dark",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-none",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "dde1dd13-0276-418a-b0db-8a4ae8ec5682": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "paragraph": "<p>Lorem ipsum dolor sit amet consectetur adipiscing elit.<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "m",
+            "paragraph_color": "color-chocolate",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-m"
+          }
+        },
+        "053e1524-b17f-4bc0-9f75-59042a2ed9e5": {
+          "type": "link",
+          "disabled": true,
+          "settings": {
+            "link_text": "Shop Now",
+            "link_url": "",
+            "new_tab": false,
+            "link_style": "primary",
+            "link_color_inverse": false,
+            "link_icon": "arrow-right",
+            "link_margin_top": "mg-t-none",
+            "link_margin_bottom": "mg-b-m",
+            "full_width": false,
+            "disabled": false
+          }
+        }
+      },
+      "block_order": [
+        "a53a213b-0063-4d72-aa98-65ea83715ea1",
+        "fa384c2b-88a8-42bd-8993-fcd835b9222b",
+        "dde1dd13-0276-418a-b0db-8a4ae8ec5682",
+        "053e1524-b17f-4bc0-9f75-59042a2ed9e5"
+      ],
+      "custom_css": [
+        ".rich-text:not(.rich-text--full-width) .rich-text__wrapper {box-sizing: border-box; justify-content: center; width: 100%; margin-left: auto; margin-right: auto;}"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "section_bg_color": "#ffffff",
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "full_width": false,
+        "padding_top": 40,
+        "padding_bottom": 0
+      }
+    },
+    "0d35ea3a-be80-415d-95c7-9e12af11aacd": {
+      "type": "tc-collection-inline",
+      "settings": {
+        "title": "",
+        "heading_level": "h2",
+        "heading_size": "h2",
+        "heading_font": "staff-x-condensed-type",
+        "heading_color": "color-chocolate",
+        "heading_color_inverse": false,
+        "heading_margin_top": "mg-t-none",
+        "heading_margin_bottom": "mg-b-m",
+        "heading_underline": false,
+        "line_break_dot": false,
+        "collection": "long-sleeve-tees",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "full_width": false,
+        "enable_section_width": false,
+        "max_section_width_desktop": 700,
+        "enable_desktop_slider": true,
+        "enable_card_width": false,
+        "max_card_width_desktop": 400,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 24
+      }
+    },
+    "4d7b03d8-e9da-40ab-8fa2-1ee12cc25808": {
+      "type": "tc-rich-text",
+      "blocks": {
+        "e387e313-be5d-44f6-93f3-e6305cdec1ec": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "paragraph": "<p>Lorem ipsum dolor sit amet consectetur adipiscing elit.<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "m",
+            "paragraph_color": "color-chocolate",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-m"
+          }
+        },
+        "e5035c4f-7286-44e6-8fb9-957605263f70": {
+          "type": "link",
+          "settings": {
+            "link_text": "Shop More",
+            "link_url": "shopify:\/\/collections\/long-sleeve-tees",
+            "new_tab": false,
+            "link_style": "secondary",
+            "link_color_inverse": false,
+            "link_icon": "arrow-right",
+            "link_margin_top": "mg-t-none",
+            "link_margin_bottom": "mg-b-m",
+            "full_width": true,
+            "disabled": false
+          }
+        }
+      },
+      "block_order": [
+        "e387e313-be5d-44f6-93f3-e6305cdec1ec",
+        "e5035c4f-7286-44e6-8fb9-957605263f70"
+      ],
+      "custom_css": [
+        ".rich-text:not(.rich-text--full-width) .rich-text__wrapper {box-sizing: border-box; justify-content: center; width: 100%; margin-left: auto; margin-right: auto;}"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "section_bg_color": "#ffffff",
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "full_width": false,
+        "padding_top": 0,
+        "padding_bottom": 32
+      }
+    },
+    "e2d5b34d-6c59-478e-b46e-003fb8abd1e4": {
+      "type": "product-ugc",
+      "blocks": {
+        "4ee284ed-a0f8-4d49-be02-c8b21972d139": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/baddadbeerreview_2021_instagram_influencers_re-min_50ef2d91-9097-4d8a-b4e9-a2f69a803bef.jpg"
+          }
+        },
+        "96300091-570e-4b48-b594-48110808e423": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/FE8EC1BD-4F44-411A-B802-08B99D749488-min_e58765ff-0cf2-45c9-aed2-c84ade3c8d53.jpg"
+          }
+        },
+        "1cd7df74-e09e-4123-bedd-61ecc5bbfb6e": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/iamkingcole_2022_brand_ambassadors_2021_10_03_11_08_19-min_8855518d-5d6b-4039-a7ca-387c1745efd7.jpg"
+          }
+        },
+        "c0b2ee6a-3095-42a6-b19e-5e77d8e115f2": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/image_6483441-1-min_3ee76beb-55c8-48fc-b9c8-72b6f652315e.jpg"
+          }
+        },
+        "5d6b51fd-6d3b-49c5-87c9-aac27ebfcc54": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/mr_mackenzie_2021_instagram_influencers_2021_11_17_02_02_45-min_0fa46a67-5d99-4d76-a223-6c14e64d004e.jpg"
+          }
+        },
+        "b0c56ae4-bd13-482c-967b-d7753518d1a8": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/nate_thomassss_2022_brand_ambassadors_2021_10_24_06_12_40-min_1158ff54-36ee-47f6-9787-c2b910e7ed8b.jpg"
+          }
+        },
+        "bb399c32-af3b-4b9c-9797-4ee4d5a735d5": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/nateholley18_2021_instagram_influencers_2021_10_02_10_30_41-min_c88fd8d0-51f2-4145-9ee5-a556e722ab39.jpg"
+          }
+        },
+        "034e130a-b5ea-4dd5-9091-9434df41ff96": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/Spence_Spends-min_d77aea9a-5fd4-4ece-9753-7017c45e231a.jpg"
+          }
+        },
+        "44406ca3-e072-45e3-ad31-69ba9474c6a4": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/tecumseh_x_2021_instagram_influencers_2021_08_15_07_02_02-min_1f86c878-d41f-4cf7-b22e-eae6b1ff6e84.jpg"
+          }
+        },
+        "601526ce-365a-4346-ae93-913a23c18348": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/therealfrankpascale_2021_instagram_influencers_2021_07_31_03_31_25-min_6c767a60-9ee8-45d5-af1e-cee104c80855.jpg"
+          }
+        },
+        "8603a590-3024-49ba-945d-d16c80b1d665": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/TrueClassic-3_copy-min.jpg"
+          }
+        },
+        "b6b64311-ffcb-4643-8d06-c23e4d908478": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/zenmotorcyclemaintenance_2022_brand_ambassadors_2022_01_25_01_48_06-min.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "4ee284ed-a0f8-4d49-be02-c8b21972d139",
+        "96300091-570e-4b48-b594-48110808e423",
+        "1cd7df74-e09e-4123-bedd-61ecc5bbfb6e",
+        "c0b2ee6a-3095-42a6-b19e-5e77d8e115f2",
+        "5d6b51fd-6d3b-49c5-87c9-aac27ebfcc54",
+        "b0c56ae4-bd13-482c-967b-d7753518d1a8",
+        "bb399c32-af3b-4b9c-9797-4ee4d5a735d5",
+        "034e130a-b5ea-4dd5-9091-9434df41ff96",
+        "44406ca3-e072-45e3-ad31-69ba9474c6a4",
+        "601526ce-365a-4346-ae93-913a23c18348",
+        "8603a590-3024-49ba-945d-d16c80b1d665",
+        "b6b64311-ffcb-4643-8d06-c23e4d908478"
+      ],
+      "custom_css": [
+        ".swiper-controls .swiper-controls-buttons {display: flex !important; gap: 0.5rem !important;}",
+        ".swiper-controls {width: 100%; display: flex !important; justify-content: space-between !important; position: relative !important;}"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "heading": "Trusted by 3+ Million Men Worldwide",
+        "sub_heading": ""
+      }
+    },
+    "e2e1f403-b87c-4c11-a9ea-12086f32e851": {
+      "type": "product-okendo-shirts",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main",
+    "b9342182-21f9-45c8-8edf-318c0ce78ca7",
+    "d7dd5295-c473-4429-8370-419ebdc6d1e9",
+    "c5b7b9c1-d5f8-4d70-a794-f355b275dc51",
+    "fe5cd9dc-9b28-4ec4-8d77-02165995cb88",
+    "3b8b1ced-4f24-441a-b7d9-f7ce5f896481",
+    "e6b12bf8-fe56-44b2-9320-5ceaa819ae79",
+    "6b1c11bd-e460-4965-afe5-da659d2ecadd",
+    "cfb74dc9-8f1a-4765-b102-0c45a3a84e45",
+    "20333f27-6e12-4eaf-88d8-d3ef891066df",
+    "94add915-c0ba-45f2-9b1a-dcd2edebdf76",
+    "fda89e2d-6738-409c-bc4f-d9ad98e1cc5b",
+    "dd95fecb-bd55-4e2c-908b-948ba1b33389",
+    "7406dbe7-cab9-4dfb-978c-47085347c60d",
+    "7325dcc0-e33e-4f92-8bdb-a307eed8c604",
+    "a2e35cf7-2aa9-4d4e-822a-8ad3fe1a3140",
+    "0d35ea3a-be80-415d-95c7-9e12af11aacd",
+    "4d7b03d8-e9da-40ab-8fa2-1ee12cc25808",
+    "e2d5b34d-6c59-478e-b46e-003fb8abd1e4",
+    "e2e1f403-b87c-4c11-a9ea-12086f32e851"
+  ]
+}

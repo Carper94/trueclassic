@@ -1,0 +1,104 @@
+#top-of-site-pixel-anchor {
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  top: var(--header-sticky-switch-at);
+  left: 0;
+}
+
+body {
+  & .header-wrapper,
+  & .header-subnav-wrapper {
+    left: 0;
+    right: 0;
+    transition: top var(--global-transition);
+    background-color: transparent;
+  }
+
+  &.header-at-top .header-wrapper.sitebanner,
+  &.header-at-top .header-wrapper.sitebanner .header-subnav-wrapper {
+    top: 84px;
+  }
+
+  & .header-nav-wrapper {
+    transition: background-color var(--global-transition);
+    background-color: #ffffff;
+  }
+
+  & .header-subnav-wrapper {
+    top: calc(-1 * var(--subnav-height));
+
+    &.active {
+      top: calc(var(--header-height) - 0px);
+    }
+  }
+}
+
+body.sticky-header-active:not(.header-at-top) {
+  &.scroll--up {
+    & .header-wrapper {
+      top: calc(var(--announcement-height) * -1) !important;
+    }
+
+    & .header-subnav-wrapper.active {
+      transition-property: none;
+    }
+  }
+
+  &.scroll--down {
+    & .header-wrapper {
+      top: calc(var(--header-height) * -1) !important;
+    }
+
+    & .header-subnav-wrapper {
+      top: calc(-1 * var(--subnav-height));
+    }
+  }
+}
+
+.header-nav-wrapper button,
+.header-nav-wrapper a,
+.header-subnav-wrapper button,
+.header-subnav-wrapper a {
+  font-family: var(--font-staff-x-condensed);
+  font-size: .9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+.nav-item--sub a {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Alternate style for mobile product page */
+.template-product {
+  @media (--medium-down) {
+    /*
+    & #MainContent {
+      margin-top: calc(var(--header-height) * -1);
+      top: -106px;
+    }
+*/
+    &.sticky-header-active.header-at-top {
+      /* Hide some stuff */
+      & .header,
+      & .header-nav-wrapper {
+        background-color: #ffffff;
+        border-bottom: 0px;
+      }
+
+      /* Unhide some stuff */
+      & .header-left .back-arrow {
+        display: inline-block;
+        margin-left: var(--spacer-s);
+      }
+
+      & .header-right a[href*="/account"],
+      & .header-middle a {
+        display: none;
+      }
+    }
+  }
+}

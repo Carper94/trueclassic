@@ -1,0 +1,140 @@
+{% capture promo_section_1 %}
+  {%- liquid
+    assign promo_image_height = section.settings.promo_image_1.width | divided_by: section.settings.promo_image_2.aspect_ratio
+    assign promo_image_class = 'product-card__image collection-promo__image'
+    assign sizes = '100vw'
+    assign loading = 'lazy'
+  -%}
+
+  <style>
+    .collection-promo {
+      min-height: 390px;
+      position: relative;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    @media screen and (max-width: 768px) {
+      .collection-promo {
+        max-height: 120vw;
+        width: 100%;
+      }
+    }
+
+    .collection-promo__image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 99%;
+      min-height: 20vw;
+      width: 100% !important;
+      -o-object-fit: cover;
+      object-fit: cover;
+      object-fit: cover;
+    }
+    .collection-promo__content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      color: white;
+      text-align: center;
+      background-color: rgba(0, 0, 0, {{ section.settings.overlay_opacity }});
+      border-radius: 10px;
+    }
+    .promo-1 .collection-promo__content {
+      {% if section.settings.promo_alignment_1 == 'left' %}
+        align-items: flex-start;
+        padding: 1rem 1rem 1rem 2rem;
+        text-align: left;
+      {% elsif section.settings.promo_alignment_1 == 'right' %}
+        align-items: flex-end;
+        padding: 1rem 2rem 1rem 1rem;
+        text-align: right;
+      {% elsif section.settings.promo_alignment_1 == 'center' %}
+        align-items: center;
+        padding: 1rem;
+        text-align: center;
+      {% endif %}
+    }
+    {% if section.settings.enable_wide_promo_1 %}
+      .collection-promo.promo-1 {
+        grid-column: span 2;
+      }
+      {% elsif section.settings.enable_wider_promo_1 %}
+      .collection-promo.promo-1 {
+        grid-column: span 3;
+      }
+    {% endif %}
+    @media screen and (max-width: 768px) {
+      .collection-promo.promo-1 {
+        grid-column: span 2;
+        min-height: auto;
+        aspect-ratio: {{ section.settings.promo_image_1.aspect_ratio }};
+      }
+    }
+
+    .collection-promo__content h2 {
+      font-size: 40px;
+      line-height: 34px;
+      margin-bottom: 16px;
+      max-width: 215px;
+      font-family: var(--font-staff-x-condensed);
+      text-transform: uppercase;
+    }
+
+    .collection-promo__content p {
+      font-size: 15px;
+      line-height: 24px;
+      margin-bottom: 16px;
+      max-width: 90%;
+    }
+  </style>
+  <div class='collection-promo promo-1'>
+  {% if section.settings.promo_video_1 != null %}
+    {% assign video_id = section.settings.promo_video_1.id %}
+    <deferred-media
+      class='video-section__media deferred-media no-js-hidden gradient global-media-settings media-fit-cover'
+      style='--ratio-percent: {{ section.settings.aspect_ratio_1 }}%;'
+      data-media-id='{{ video_id }}'
+    >
+      {{
+        section.settings.promo_video_1
+        | video_tag: autoplay: true, loop: true, controls: false, muted: true
+      }}
+    </deferred-media>
+  {% else %}
+    {{
+      section.settings.promo_image_1
+      | image_url: width: 1500
+      | image_tag:
+        width: section.settings.promo_image_1.width,
+        height: promo_image_height,
+        class: promo_image_class,
+        sizes: sizes,
+        loading: loading,
+        widths: '165, 265, 360, 535, 750, 1070, 1500, 1780, 2000, 3000',
+        alt: section.settings.promo_image_1.alt
+      | escape
+    }}
+  {% endif %}
+    <div class='collection-promo__content' {% if section.settings.hide_promo_1 %} style='display: none;' {% endif %}>
+      <p {% if section.settings.circle_preheading_1 %} class='comment-title'{% endif %}><a href='{{ section.settings.promo_link_1 }}'>{{ section.settings.promo_preheading_1 }}</a></p>
+      <h2 {% if section.settings.underline_heading_1 %} class='underlined-styled'{% else %}class='heading h2 color-white'{% endif %}><a href='{{ section.settings.promo_link_1 }}' style='color:white;'>{{ section.settings.promo_heading_1 }}</a></h2>
+      <p>{{ section.settings.promo_paragraph_1 }}</p>
+      <div class='content__buttons'>
+        {%- if section.settings.promo_link_1 != blank -%}
+          <a href='{{ section.settings.promo_link_1 }}' class='button primary modernist-type'>
+            {{ section.settings.promo_button_text_1 }} 
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+  {% endcapture %}

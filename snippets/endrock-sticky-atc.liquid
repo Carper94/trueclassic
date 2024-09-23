@@ -1,0 +1,101 @@
+<style>
+  /* Css Config for AB testing */
+  .endrock-sticky-atc-v1__wrapper {
+    display: none;
+  }
+  .endrock-sticky-atc-v2__wrapper {
+    display: none;
+  }
+</style>
+<script>
+  window.erTestSizeSelected = false;
+  window.mainAtcButton = document.querySelector('#add-to-cart');
+  function goToATCSection() {
+    const productForm = document.getElementById('product-form');
+    if (!productForm) return;
+    productForm.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+      inline: 'nearest',
+    });
+    const alert = document.querySelector('.endrock-sticky-atc-v1__color-alert');
+    if (!alert) return;
+    alert.style.display = 'flex';
+  }
+  function addHideAlertToAtc() {
+    if (!mainAtcButton) return;
+    mainAtcButton.addEventListener('click', () => {
+      const alert = document.querySelector('.endrock-sticky-atc-v1__color-alert');
+      if (!alert) return;
+      alert.style.display = 'none';
+    });
+  }
+  function isElementOutOfViewport(el) {
+    const rect = el.getBoundingClientRect();
+    // Check if the top of the element is above or at the top of the viewport
+    return rect.top <= 0;
+  }
+  function deactivateATCButton() {
+    mainAtcButton.classList.add('disabled');
+    mainAtcButton.querySelector('.atc-text').textContent = 'Select a Size';
+  }
+  function activateATCButton() {
+    mainAtcButton.classList.remove('disabled');
+    mainAtcButton.querySelector('.atc-text').textContent = mainAtcButton.getAttribute('data-enabled-text');
+  }
+  function addAtcEventListeners() {
+    deactivateATCButton();
+    const sizeButtonsWrapper = document.querySelector('.size-swatch__input-wrapper');
+    if (!sizeButtonsWrapper) return;
+    const sizeButtons = sizeButtonsWrapper.querySelectorAll('input');
+    sizeButtonsWrapper.querySelector('input[checked]').removeAttribute('checked');
+    if (!sizeButtons) return;
+    sizeButtons.forEach((btn) => {
+      btn.addEventListener('change', () => {
+        const alert = document.querySelector('.endrock-sticky-atc-v1__color-alert');
+        if (!alert) return;
+        alert.style.display = 'none';
+        window.erTestSizeSelected = true;
+        activateATCButton();
+      });
+    });
+    const stickyAtcButtons = document.querySelectorAll('.endrock-sticky-atc');
+    if (!stickyAtcButtons) return;
+    addHideAlertToAtc();
+    stickyAtcButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        if (!window.erTestSizeSelected) {
+          goToATCSection();
+        }
+        if (!mainAtcButton) return;
+        const hasLeftViewport = isElementOutOfViewport(mainAtcButton);
+        if (!hasLeftViewport || window.erTestSizeSelected) {
+          mainAtcButton.click();
+        }
+      });
+    });
+    window.addEventListener('scroll', () => {
+      const hasLeftViewport = isElementOutOfViewport(mainAtcButton);
+      if (hasLeftViewport) {
+        document.querySelector('.endrock-sticky-atc__wrapper')?.classList.add('not-show');
+      } else {
+        document.querySelector('.endrock-sticky-atc__wrapper')?.classList.remove('not-show');
+      }
+    });
+    
+    if (sizeButtonsWrapper.querySelector('.size-swatch input:checked+label:not(.does-not-exist)')) {
+      activateATCButton();
+    }
+  }
+  document.addEventListener('DOMContentLoaded', () => {
+    if (window.innerWidth <= 768 && document.body.getAttribute('sticky-ab-test') === 'true') {
+      addAtcEventListeners();
+    } 
+  });
+</script>
+<div class='endrock-sticky-atc-v1__wrapper'>
+  {% render 'endrock-sticky-atc-v1' %}
+</div>
+<div class='endrock-sticky-atc-v2__wrapper'>
+  {% render 'endrock-sticky-atc-v2' %}
+</div>

@@ -1,0 +1,76 @@
+{% assign percentage = 0 %}
+{% assign money_difference = max | minus: value | money %}
+{% assign message = under_max_message | replace: '[DIFFERENCE]', money_difference %}
+
+{% if value != blank and max != blank %}
+  {% assign percentage = 100 | times: value | divided_by: max %}
+{% endif %}
+
+{% assign class = 'red' %}
+
+{% if percentage >= 100 %}
+  {% assign percentage = 100 %}
+  {% assign message = over_max_message %}
+  {% assign class = 'green' %}
+{% endif %}
+
+<div class='progress-bar-old {{ class }}' style='--percentage: {{ percentage }}%'>
+  <div class='progress-bar__heading'>
+    {{ message }}
+  </div>
+  <div class='progress-bar__outer'>
+    <div class='progress-bar__inner'>
+      <span class='visually-hidden'>{{ percentage }}%</span>
+    </div>
+  </div>
+  <div class='progress-bar__subheading'></div>
+</div>
+
+<style>
+  .progress-bar-old {
+    padding: 0.625rem;
+    padding: var(--spacer-s);
+    display: block !important;
+    --progress-bar-color: var(--brand-gray-dark);
+  }
+
+  .progress-bar-old > * + * {
+    margin-top: 0.625rem;
+    margin-top: var(--spacer-s);
+  }
+
+  .progress-bar-old .progress-bar__heading {
+    text-align: center;
+    font-size: 0.75rem;
+    font-size: var(--font-size-small);
+    line-height: 1.125rem;
+    line-height: var(--line-height-small);
+  }
+
+  .progress-bar-old .progress-bar__outer {
+    background-color: #dddddd;
+    background-color: var(--brand-gray-light);
+    width: 100%;
+    height: 0.625rem;
+    border-radius: 6.25rem;
+    overflow: hidden;
+  }
+
+  .progress-bar-old .progress-bar__inner {
+    background-color: var(--progress-bar-color);
+    width: var(--percentage);
+    height: 100%;
+  }
+
+  .progress-bar-old.red .progress-bar__inner {
+    --progress-bar-color: var(--brand-red);
+  }
+
+  .progress-bar-old.yellow .progress-bar__inner {
+    --progress-bar-color: var(--brand-yellow);
+  }
+
+  .progress-bar-old.green .progress-bar__inner {
+    --progress-bar-color: var(--brand-green);
+  }
+</style>

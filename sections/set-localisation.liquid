@@ -1,0 +1,55 @@
+{%- if section.settings.enable_localisation_redirect -%}
+  {%- assign language_list = section.settings.localisation_list | split: ',' -%}
+  <script>
+    const YOUR_DOMAIN = window.location.origin
+    const YOUR_DOMAIN_LENGTH = YOUR_DOMAIN.length
+    const SUPPORTED_LANGUAGES = [{%- for lang in language_list -%}"{{- lang -}}"{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}]
+    const LANGUAGE_COOKIE_NAME = "language"
+    const BROWSER_LANGUAGE = (navigator.language).toLowerCase()
+
+    function getCookie(name) {
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) return parts.pop().split(';').shift();
+    }
+
+    function setDefaultLanguage(){
+      let selectedLanguage = getCookie(LANGUAGE_COOKIE_NAME)
+      if (!selectedLanguage) {
+        for (const lang of SUPPORTED_LANGUAGES){
+          if(BROWSER_LANGUAGE.includes(lang)){
+            document.cookie = `${LANGUAGE_COOKIE_NAME}=${lang};`;
+            if (!window.location.href.includes(`${YOUR_DOMAIN}/${lang}`)){
+              var url = window.location.href;
+              var redirect_url = url.slice(0, YOUR_DOMAIN_LENGTH) + `/en-${lang}` + url.slice(YOUR_DOMAIN_LENGTH);
+              window.location.href= redirect_url;
+            }
+            break;
+          }
+        }
+      }
+    }
+    setDefaultLanguage()
+  </script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Localisation",
+  "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_localisation_redirect",
+        "default": false,
+        "label": "Enable localisation redirect"
+      },
+      {
+        "type": "textarea",
+        "id": "localisation_list",
+        "label": "Localisations list",
+        "default": "mx,de,ar",
+        "info": "Add language and country iso values in lowercase. Example: mx,de,ar"
+      }
+    ]
+}
+{% endschema %}

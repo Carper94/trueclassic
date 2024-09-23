@@ -1,0 +1,488 @@
+{% liquid
+  assign current_variant = product.selected_or_first_available_variant
+
+  unless product.type == 'Gift Cards'
+    assign is_color_swatch_product = true
+    assign is_material_swatch_product = true
+    assign is_bundle_product = true
+  endunless
+
+  assign collection_handle = product.metafields.colorways.collection_handle | handleize
+  assign colorways_collection = collections[collection_handle]
+  assign related = product.metafields.related_products
+  assign three_pack = related.three_pack.value
+  assign six_pack = related.six_pack.value
+  assign is_discounted = false
+  if product.compare_at_price > product.price
+    assign is_discounted = true
+    capture discount_percent
+      render 'discount-percentage', product: product
+    endcapture
+  endif
+
+  assign hasSellingPlan = false
+  if product.selling_plan_groups.size > 0
+    assign hasSellingPlan = true
+  endif
+
+  assign size_desc = 'products.pdp.size_description' | t
+  assign shipping_desc = 'products.pdp.shipping_description' | t
+
+  assign current_variant = product.selected_or_first_available_variant
+  assign discount_percent_value = product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round
+  assign rounded_discount_percent_value = discount_percent_value | divided_by: 5 | floor | times: 5
+%}
+
+<form
+  method='post'
+  action='/cart/add'
+  id='product-form'
+  accept-charset='UTF-8'
+  class='shopify-product-form product-main-form sr-enabled'
+  data-product-form=''
+  data-product-handle='{{ product.handle }}'
+  data-enable-history-state='true'
+  data-threepack-handle='{{ three_pack.handle }}'
+  data-enable-history-state='true'
+  data-sixpack-handle='{{ six_pack.handle }}'
+  data-enable-history-state='true'
+  style='position: relative;'
+  onsubmit='return false'
+>
+  <div class='product-main-form__heading-upperside'>
+    {% comment %} ** PDP TITLE + PRICE ** {% endcomment %}
+    <div class='product-main-form__headings'>
+      {% render 'next-product-scaffolding', product: product %}
+      <h1 class='product-main-title'>
+        {% if product.metafields.custom.alternate_product_name -%}
+          <span class='naming-convention-test-a'>{{- product.title -}}</span>
+          <span class='naming-convention-test-b' style='display:none;'>
+            {{- product.metafields.custom.alternate_product_name -}}
+          </span>
+        {% else %}
+          <span>{{ product.title }}</span>
+        {% endif %}
+        {% if settings.free_shipping_badge_pdp == true %}
+          <div class='free-shipping-badge'>
+            {% if discounted_price != null
+              and price > discounted_price
+              and compare_at_price > price
+            %}
+              {% render 'free-shipping-badge', product_price: discounted_price %}
+            {% else %}
+              {% render 'free-shipping-badge', product_price: product.price %}
+            {% endif %}
+          </div>
+        {% endif %}
+      </h1>
+
+      {% unless product.vendor == 'Fondue' %}
+        <div class='product-card__rating-stars mobile-stars'>
+          {% render 'okendo-reviews-product-rating-summary', product: product %}
+        </div>
+      {% endunless %}
+      <hr class='mobile-form-divider'>
+
+      {% unless product.type == 'Gift Cards' %}
+        <div class='product-main-form__prices'>
+          <div class='price-container'>
+            <div data-main-product-price>
+              {% render 'product-price',
+                price: product.price,
+                compare_at_price: product.compare_at_price,
+                product_id: product.id,
+                variant_id: current_variant.id,
+                percentage_off: rounded_discount_percent_value
+              %}
+              {% comment %} GLOBAL SALE {% endcomment %}
+              {% if settings.enable_global_sale == true %}
+                {%- if discount_percent -%}
+                  <div
+                    class='mg-x-xs badge-top-bubble'
+                    style='background-color: #971b1b; color: #ffffff;'
+                  >
+                    {{ discount_percent }}
+                  </div>
+                {%- endif -%}
+              {% endif %}
+              {% comment %} END - GLOBAL SALE {% endcomment %}
+              {% if product.metafields.custom.number_of_items != blank %}
+                <div class="price-per-item">
+                  {% if product.compare_at_price == nil %}
+                    {% assign price_per_item = product.price | divided_by: product.metafields.custom.number_of_items %}
+                  {% else %}
+                    {% assign price_per_item = product.compare_at_price | divided_by: product.metafields.custom.number_of_items %}
+                  {% endif %}
+                  {{ price_per_item | money }} per {{ product.metafields.custom.item_type }}
+                </div>
+              {% endif %}
+            </div>
+            <div>
+              {% if is_discounted %}
+                {% if product.title contains 'Pack'
+                  or product.title contains 'Set'
+                  or product.title contains 'Combo'
+                %}
+                  {% render 'price-per' %}
+                {% endif %}
+              {% endif %}
+            </div>
+
+            {% comment %} CASHBACK SETTINGS {% endcomment %}
+            {% if product.tags contains '(almost)everything2023'
+              and localization.country.iso_code == 'US'
+              and settings.hide_cashback == false
+            %}
+              <br>
+              <span class='price-per' style='color: #be483a'>
+                PLUS, GET {{ product.price | times: 4 | divided_by: 10 | money }} CASHBACK
+              </span>
+            {% endif %}
+            {% comment %} CASHBACK SETTINGS {% endcomment %}
+
+            {% comment %} SITEWIDE SALE SETTINGS {% endcomment %}
+            {% if product.tags contains 'Sale_Eligible' and settings.hide_sitewide_sale == false %}
+              <br>
+              <span class='price-per' style='color: #be483a; font-weight: bold; font-size: 16px;'
+                >25% OFF IN CART</span
+              >
+            {% endif %}
+          </div>
+          {% if localization.country.iso_code == 'AU'
+            or localization.country.iso_code == 'DE'
+            or localization.country.iso_code == 'GB'
+            or localization.country.iso_code == 'MX'
+          %}
+            <span class='price__taxes_text mobile--only'>(includes duties & taxes)</span>
+          {% elsif localization.country.iso_code == 'CA' %}
+            <span class='price__taxes_text mobile--only'>(includes duties)</span>
+          {% endif %}
+          {% comment %} SITEWIDE SALE SETTINGS {% endcomment %}
+        </div>
+      {% endunless %}
+      {% if product.metafields.custom.extra_product_description != blank %}
+        <p style="margin: 1 0 !important;">{{ product.metafields.custom.extra_product_description }}</p>
+      {% endif %}
+    </div>
+    {% if localization.country.iso_code == 'AU'
+      or localization.country.iso_code == 'DE'
+      or localization.country.iso_code == 'GB'
+      or localization.country.iso_code == 'MX'
+    %}
+      <span class='price__taxes_text desktop-only'>(includes duties & taxes)</span>
+    {% elsif localization.country.iso_code == 'CA' %}
+      <span class='price__taxes_text desktop-only'>(includes duties)</span>
+    {% endif %}
+  </div>
+
+  {% comment %} ** PDP RATING ** {% endcomment %}
+  {% unless product.vendor == 'Fondue' %}
+    <div class='product-card__rating-stars desktop-stars' style='margin-top: 10px;'>
+      {% render 'okendo-reviews-product-rating-summary', product: product %}
+    </div>
+  {% endunless %}
+
+  {% comment %} ** PDP COLORS ** {% endcomment %}
+  {% if is_color_swatch_product and colorways_collection != blank %}
+    <div class='input-group'>
+      {% render 'color-swatch', product: product, collection: colorways_collection, hasSellingPlan: hasSellingPlan %}
+    </div>
+  {% endif %}
+
+  {% if is_material_swatch_product %}
+    {% if related.classic.value and related.active.value %}
+      <div class='input-group'>
+        {% render 'material-swatch', product: product %}
+      </div>
+    {% endif %}
+  {% endif %}
+
+  {% comment %} ** PDP SIZE ** {% endcomment %}
+  {% comment %} TODO: size chart & find your fit icon & link {% endcomment %}
+  {% unless product.has_only_default_variant %}
+    {% for product_option in product.options_with_values %}
+      <div class='input-group'>
+        {% liquid
+          if product.type != 'Gift Cards'
+            if product_option.values[0] contains 'One size'
+              render 'product-option', product_option: product_option
+            else
+              render 'product-form-size-swatch', product: product, product_option: product_option, size_index: forloop.index, length: forloop.length
+            endif
+          elsif product.type == 'Gift Cards'
+            render 'product-option-giftcard', product_option: product_option
+          else
+            render 'product-option', product_option: product_option
+          endif
+        %}
+      </div>
+    {% endfor %}
+  {% else %}
+    {% assign option = product.options_with_values[0] %}
+    {% assign value = option.values[0] %}
+    <div class='input-group visually-hidden'>
+      <input
+        type='hidden'
+        id='Option{{ option.position }}-{{ value }}'
+        name='options[{{ option.name }}]'
+        value='{{ value }}'
+        {% if option.selected_value == value %}
+          checked
+        {% endif %}
+      >
+    </div>
+  {% endunless %}
+
+  {% if product.template_suffix == 'mens-sweater' %}
+    <p class="text s font-modernist">Runs large. Please size down.</p>
+  {% endif %}
+
+  {% comment %} ** PDP FIT FINDER ** {% endcomment %}
+  {% unless product.handle contains 'sunglasses' %}
+    {% unless product.type == 'Gift Cards' %}
+      {% assign bottoms = false %}
+      {% for tag in product.tags %}
+        {% if tag == 'Comfort Chino Pants' or tag == 'Comfort Chino Short' or tag == 'Jeans' %}
+          {% assign bottoms = true %}
+        {% endif %}
+      {% endfor %}
+
+      <script>
+        document.querySelector('.product-size-guide-wrapper ').onclick = function () {
+          dataLayer.push({ event: 'size_guide_click' });
+        };
+      </script>
+    {% endunless %}
+  {% endunless %}
+
+  {% comment %} ** STAY.AI ** {% endcomment %}
+  {% if localization.country.iso_code == 'US' %}
+    {% render 'rtx-pdp', product: product %}
+  {% endif %}
+  {% comment %} ** PDP OPTIONS ** {% endcomment %}
+  <div>
+    <noscript>
+      <div class='input-group'>
+        <span class='select-wrapper'>
+          <select name='id'>
+            {% for variant in product.variants %}
+              <option
+                {% if variant == current_variant %}
+                  selected='selected'
+                {% endif %}
+                value='{{ variant.id }}'
+              >
+                {{ variant.title }}
+              </option>
+            {% endfor %}
+          </select>
+        </span>
+      </div>
+    </noscript>
+  </div>
+
+  <div class='product-main-form__error' aria-live='assertive'>
+    <span class='error-target'> </span>
+  </div>
+
+  {% comment %} ** PDP ADD TO CART ** {% endcomment %}
+  <div class='product-main-form__actions mg-t-s'>
+    <div class='product-main-form__add-to-cart'>
+      {% unless product.vendor == 'Fondue' %}
+        <div class='product-main-form__quantity-wrapper' style="display:none;">
+          <select
+            id='quantity'
+            name='quantity'
+            {% unless current_variant.available %}
+              disabled='disabled'
+            {% endunless %}
+          >
+            {% for number in (1..5) %}
+              <option value='{{ number }}'>{{ number }}</option>
+            {% endfor %}
+          </select>
+          <label for='quantity' class='visually-hidden'>Quantity</label>
+          <span class='quantity-chevron {% unless current_variant.available %}disabled{% endunless %}'>
+            {% render 'icon-chevron-down' %}
+          </span>
+        </div>
+      {% endunless %}
+      {% comment %} <!-- Standard ATC --> {% endcomment %}
+      {% if product.handle == "365-pack" %}
+        {% render 'pdp-dynamic-klaviyo-button', form_class:'klaviyo-form-UZJStM' %}
+      {% else %}
+        {% render 'pdp-atc-button', variant: current_variant, id: 'add-to-cart' %}
+      {% endif %}
+    </div>
+
+    {% if localization.country.iso_code == 'GB' or localization.country.iso_code == 'CA' %}
+      {% render 'tc-payment-icons' %}
+    {% endif %}
+
+    {% if product.type == 'Long Sleeve Button Down' %}
+      <div class='product-main-form__desc product-main-form__desc--shipping'>
+        <span>This is a classic more relaxed fit. Size down for a slimmer fit</span>
+      </div>
+    {% elsif product.type == 'crew neck tee'
+      or product.type == 'V-neck tee'
+      or product.title contains 'Polo'
+      or product.title contains 'Long'
+      or product.title contains 'Henley'
+      or product.type == 'V-neck tee'
+      or product.type == 'Baseball Raglan'
+      or product.type == 'Shirts & Tops'
+      or product.type == 'Tank'
+    %}
+      {% unless localization.country.currency.symbol == '€'
+        or localization.country.iso_code == 'GB'
+      %}
+        <div hidden class='product-main-form__desc product-main-form__desc--shipping'>
+          <span>{{ size_desc }}</span>
+        </div>
+      {% endunless %}
+    {% endif %}
+    {% if is_bundle_product %}
+      {% for block in section.blocks %}
+        {% if block.type == 'bundle_callout' %}
+          <div class='product-main-form__pack-callout ge-remove'>
+            <a
+              class='underline'
+              href='{{ block.settings.packbuilder_url }}'
+              title='{{ block.settings.text | default: shop.name }}'
+            >
+              {{- block.settings.text -}}
+            </a>
+          </div>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+    <div class='sticky-button-wrapper content-wrapper hide'>
+      {% render 'pdp-atc-button',
+        current_variant: current_variant,
+        class: 'sticky-add-to-cart',
+        id: 'sticky-add-to-cart',
+        variant: current_variant
+      %}
+    </div>
+  </div>
+  {{ number }}
+  <script id='data-product-available' type='application/json'>
+    {% render 'json-product-available' %}
+  </script>
+
+  <script>
+     if (item == null) {
+      var _learnq = _learnq || [];
+
+      var item = {
+        Title: {{ product.title | json }},
+        ProductID: {{ product.id | json }},
+        Categories: {{ product.collections | map: 'title' | json }},
+        ImageUrl: "https:{{ product.featured_image.src | image_url: width: 600, height: 600 }}",
+        Url: "{{ shop.secure_url }}{{ product.url | remove_first: '/en-us' | remove_first: '/en-al' | remove_first: '/en-es' | remove_first: '/en-it' | remove_first: '/en-at' | remove_first: '/en-be' | remove_first: '/en-bg' | remove_first: '/en-cy' | remove_first: '/en-cz' | remove_first: '/en-dk' | remove_first: '/en-ee' | remove_first: '/en-de' | remove_first: '/en-fr' | remove_first: '/en-gr' | remove_first: '/en-hr' | remove_first: '/en-hu' | remove_first: '/en-ie' | remove_first: '/en-lt' | remove_first: '/en-lu' | remove_first: '/en-lv' | remove_first: '/en-mc' | remove_first: '/en-mt' | remove_first: '/en-ro' | remove_first: '/en-nl' | remove_first: '/en-pl' | remove_first: '/en-pt' | remove_first: '/en-se' | remove_first: '/en-si' | remove_first: '/en-sk' | remove_first: '/en-fi' | remove_first: '/en-ad' | remove_first: '/en-ae' | remove_first: '/en-ag' | remove_first: '/en-ai' | remove_first: '/en-am' | remove_first: '/en-ao' | remove_first: '/en-ar' | remove_first: '/en-au' | remove_first: '/en-aw' | remove_first: '/en-az' | remove_first: '/en-ba' | remove_first: '/en-bb' | remove_first: '/en-bd' | remove_first: '/en-bf' | remove_first: '/en-bj' | remove_first: '/en-bn' | remove_first: '/en-bo' | remove_first: '/en-br' | remove_first: '/en-bs' | remove_first: '/en-bw' | remove_first: '/en-bz' | remove_first: '/en-ci' | remove_first: '/en-ck' | remove_first: '/en-cl' | remove_first: '/en-cm' | remove_first: '/en-cn' | remove_first: '/en-co' | remove_first: '/en-cr' | remove_first: '/en-cv' | remove_first: '/en-dj' | remove_first: '/en-dm' | remove_first: '/en-do' | remove_first: '/en-dz' | remove_first: '/en-ec' | remove_first: '/en-eg' | remove_first: '/en-et' | remove_first: '/en-fj' | remove_first: '/en-fk' | remove_first: '/en-fo' | remove_first: '/en-ga' | remove_first: '/en-gd' | remove_first: '/en-ge' | remove_first: '/en-gf' | remove_first: '/en-gg' | remove_first: '/en-gi' | remove_first: '/en-gl' | remove_first: '/en-gm' | remove_first: '/en-gn' | remove_first: '/en-gp' | remove_first: '/en-gq' | remove_first: '/en-il' | remove_first: '/en-gw' | remove_first: '/en-gy' | remove_first: '/en-hk' | remove_first: '/en-hn' | remove_first: '/en-ht' | remove_first: '/en-id' | remove_first: '/en-im' | remove_first: '/en-in' | remove_first: '/en-is' | remove_first: '/en-jm' | remove_first: '/en-jp' | remove_first: '/en-ke' | remove_first: '/en-kg' | remove_first: '/en-kh' | remove_first: '/en-km' | remove_first: '/en-kn' | remove_first: '/en-kr' | remove_first: '/en-ky' | remove_first: '/en-la' | remove_first: '/en-lb' | remove_first: '/en-lc' | remove_first: '/en-li' | remove_first: '/en-ls' | remove_first: '/en-ma' | remove_first: '/en-md' | remove_first: '/en-me' | remove_first: '/en-mk' | remove_first: '/en-mn' | remove_first: '/en-mo' | remove_first: '/en-mq' | remove_first: '/en-ms' | remove_first: '/en-mu' | remove_first: '/en-mv' | remove_first: '/en-mw' | remove_first: '/en-my' | remove_first: '/en-na' | remove_first: '/en-ng' | remove_first: '/en-ni' | remove_first: '/en-no' | remove_first: '/en-np' | remove_first: '/en-nr' | remove_first: '/en-nu' | remove_first: '/en-nz' | remove_first: '/en-pa' | remove_first: '/en-pe' | remove_first: '/en-pf' | remove_first: '/en-pg' | remove_first: '/en-lk' | remove_first: '/en-pk' | remove_first: '/en-py' | remove_first: '/en-qa' | remove_first: '/en-re' | remove_first: '/en-rs' | remove_first: '/en-ch' | remove_first: '/en-sa' | remove_first: '/en-sb' | remove_first: '/en-sc' | remove_first: '/en-sg' | remove_first: '/en-sl' | remove_first: '/en-sm' | remove_first: '/en-sn' | remove_first: '/en-sr' | remove_first: '/en-st' | remove_first: '/en-sv' | remove_first: '/en-sz' | remove_first: '/en-tc' | remove_first: '/en-gb' | remove_first: '/en-tg' | remove_first: '/en-th' | remove_first: '/en-to' | remove_first: '/en-tl' | remove_first: '/en-tr' | remove_first: '/en-tt' | remove_first: '/en-tv' | remove_first: '/en-tw' | remove_first: '/en-tz' | remove_first: '/en-ug' | remove_first: '/en-uy' | remove_first: '/en-uz' | remove_first: '/en-va' | remove_first: '/en-vc' | remove_first: '/en-ve' | remove_first: '/en-vg' | remove_first: '/en-vn' | remove_first: '/en-vu' | remove_first: '/en-wf' | remove_first: '/en-ws' | remove_first: '/en-za' | remove_first: '/en-zm' | remove_first: '/en-gt' | remove_first: '/en-mz' | remove_first: '/en-nc' | remove_first: '/en-ph' | remove_first: '/en-rw' | remove_first: '/en-td' | remove_first: '/en-mf' | remove_first: '/en-bl' | remove_first: '/en-cw' | remove_first: '/en-gh' | remove_first: '/en-kz' | remove_first: '/en-mx' | remove_first: '/en-sd' | remove_first: '/en-tm' | remove_first: '/en-ca' }}",
+        Brand: {{ product.vendor | json }},
+        Price: {{ product.price | money | json }},
+        CompareAtPrice: {{ product.compare_at_price_max | money | json }}
+      };
+
+      _learnq.push(['trackViewedItem', {
+        Title: item.Name,
+        ItemId: item.ProductID,
+        Categories: item.Categories,
+        ImageUrl: item.ImageURL,
+        Url: item.URL,
+        Metadata: {
+          Brand: item.Brand,
+          Price: item.Price,
+          CompareAtPrice: item.CompareAtPrice
+        }
+      }]);
+
+      _learnq.push(['track', 'Viewed Product', item]);
+    }
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ ecommerce: null });
+    window.dataLayer.push({
+      'event': 'view_pdp',
+      'ecommerce': {
+        'value': {{ product.price | money_without_currency }},
+        'currency': '{{ localization.country.currency.iso_code }}',
+        'items': [{
+          'item_id': '{{ product.id }}',
+          'item_name': '{{ product.title }}',
+          'item_brand': '{{ product.vendor }}',
+          'item_category': '{{ product.type }}',
+          'item_variant_title': '{{ product.selected_or_first_available_variant.title }}',
+          'item_variant': '{{ product.selected_or_first_available_variant.sku }}',
+          'currency': '{{ localization.country.currency.iso_code }}',
+          'price': {{ product.price | money_without_currency }}
+        }]
+      }
+    });
+
+    document.querySelector('.button.primary.atc-button').onclick = function() {
+      _learnq.push(['track', 'Added to Cart', item]);
+      window.dataLayer.push({ 'ecommerce': null });
+      window.dataLayer.push({
+        'event': 'add_to_cart',
+        'ecommerce': {
+          'value': {{ product.price | money_without_currency }},
+          'currency': '{{ localization.country.currency.iso_code }}',
+          'items': [{
+            'item_id': '{{ product.id }}',
+            'item_name': '{{ product.title }}',
+            'item_brand': '{{ product.vendor }}',
+            'item_category': '{{ product.type }}',
+            'item_variant_title' : '{{ product.selected_or_first_available_variant.title }}',
+            'item_variant': '{{ product.selected_or_first_available_variant.sku }}',
+            'currency': '{{ localization.country.currency.iso_code }}',
+            'price': {{ product.price | money_without_currency }},
+            'quantity': 1
+          }]
+        }
+      });
+    };
+  </script>
+
+  {% render 'product-json' %}
+</form>
+
+{% for block in section.blocks %}
+  {% if block.type == 'bundle_callout' %}
+    <div class='product-main-form__pack-callout ge-remove'>
+      <a
+        class='underline'
+        href='{{ block.settings.packbuilder_url }}'
+        title='{{ block.settings.text | default: shop.name }}'
+      >
+        {{- block.settings.text -}}
+      </a>
+    </div>
+  {% endif %}
+  {% if block.type == 'true_crew_membership' %}
+    {% assign not_in_cart = true %}
+    {% for item in cart.items %}
+      {% if item.product.id == block.settings.membership_product.id %}
+        {% assign not_in_cart = false %}
+        {% break %}
+      {% endif %}
+    {% endfor %}
+    {% assign unique_id_ = block.id | remove: '-' %}
+    {% assign unique_id = unique_id_ | remove: '_' %}
+    {% if not_in_cart %}
+      <div class='featured-product featured-product-pdp'>
+        {% render 'pdp-bundle-membership',
+          mb_product: block.settings.membership_product,
+          product_form_id: block.settings.membership_product.first_available_variant.id,
+          selling_plan_id: block.settings.membership_product.selected_or_first_available_selling_plan_allocation.selling_plan.id,
+          heading: block.settings.heading,
+          text: block.settings.text,
+          button_label: block.settings.button_label,
+          function_id: unique_id,
+          is_product_page: true
+        %}
+      </div>
+    {% endif %}
+  {% endif %}
+{% endfor %}

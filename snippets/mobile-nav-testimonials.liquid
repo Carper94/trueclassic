@@ -1,0 +1,252 @@
+<div class='testimonial-slider-navigation'>
+  <div class='swiper swiper-initialized swiper-horizontal swiper-pointer-events swiper-backface-hidden'>
+    <ul class='swiper-wrapper' style='transform: translate3d(0px, 0px, 0px);'>
+      <li class='swiper-slide swiper-slide-active' style='margin-right: 30px!important;'>
+        <div class='slide-wrapper'>
+          {%
+            render 'mobile-nav-testimonial-item',
+            stars: '5.0',
+            headline: 'Best t-shirts. Best customer service',
+            review: "These are the best t-shirts I’ve ever worn. I wear them daily—not as an undershirt but as a
+            shirt. Fit is great, color is great, and they really are flattering. I’m 63 and have worn many
+            shirts. Lol. I’ve just ordered a golf/polo shirt to try but I’m sure I’ll love it too. Customer
+            service A+",
+            name: 'John M.',
+            height: '6`0"',
+            weight: '185lbs',
+            product: 'All Black 3-Pack',
+          %}
+        </div>
+      </li>
+      <li class='swiper-slide swiper-slide-next' style='margin-right: 30px!important;'>
+        <div class='slide-wrapper'>
+          {%
+            render 'mobile-nav-testimonial-item',
+            stars: '5.0',
+            headline: 'Great Quality + Impressive Fit',
+            review: "Great quality and impressive fit for my middle aged slightly athletic/dad bod frame.
+            I’m 6’4” and the slenderizing fitment and length were perfect. I also like that the
+            sleeves don’t have unnecessarily added material and are perfectly shaped to hug your
+            shoulders and biceps.",
+            name: 'Mark S.',
+            height: '6`4"',
+            weight: '240lbs',
+            product: ' Military Green Crew Neck T-Shirt',
+          %}
+        </div>
+      </li>
+      <li class='swiper-slide' style='margin-right: 30px!important;'>
+        <div class='slide-wrapper'>
+          {%
+            render 'mobile-nav-testimonial-item',
+            stars: '5.0',
+            headline: 'Quality Material',
+            review: "The shirts are great material and they fit like a glove on the body. I have been
+            rocking True Classic® Tees for a year now and have yet to find a company that does it
+            better and comfier.",
+            name: 'Frank Pascale',
+            height: '5’10”',
+            weight: '175lbs',
+            product: 'Charcoal Heather Gray Active Crew Neck T-Shirt',
+          %}
+        </div>
+      </li>
+      <li class='swiper-slide' style='margin-right: 30px!important;'>
+        <div class='slide-wrapper'>
+          {%
+            render 'mobile-nav-testimonial-item',
+            stars: '5.0',
+            headline: 'Great fit, Great Price',
+            review: "  True Classic® Tees provide awesome shirts. They are soft, the material they use is
+            amazing. I like the way it fits me and the fact that is is affordable.",
+            name: 'Michael Jones',
+            height: '6`3"',
+            weight: '205lbs',
+            product: 'Bluestone V-Neck T-Shirt',
+          %}
+        </div>
+      </li>
+      <li class='swiper-slide' style='margin-right: 30px!important;'>
+        <div class='slide-wrapper'>
+          {%
+            render 'mobile-nav-testimonial-item',
+            stars: '5.0',
+            headline: 'Best shirt ever!',
+            review: "They fit amazing! Honestly best shirts i’ve ever worn",
+            name: 'Nick Van Der Vegt',
+            height: '5`11”',
+            weight: '200lbs',
+            product: 'Bluestone V-Neck T-Shirt',
+          %}
+        </div>
+      </li>
+      <li class='swiper-slide' style='margin-right: 30px!important;'>
+        <div class='slide-wrapper'>
+          {%
+            render 'mobile-nav-testimonial-item',
+            stars: '5.0',
+            headline: 'Great Polos.',
+            review: "The fit, amazing. The feel, amazing. The price, amazing. Polos are usually either
+            super boxy and completely unflattering, or I feel like I’m a sausage getting stuffed
+            into a casing. BUT NOT WITH THESE BRO. It’s the perfect in between. Stop thinking
+            about it and go check it out",
+            avatar: '//cdn.shopify.com/s/files/1/0220/4008/4552/files/sahand-testimonial.jpg',
+            name: 'Sahand Fotovat',
+            height: '6`0”',
+            weight: '240lbs',
+            product: ' Carbon Polo',
+          %}
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+{% comment %}
+  <style>
+    .mobile-nav ul > * + * {
+      margin: 0 !important;
+    }
+    .mobile-nav__utilities ul {
+      display: flex;
+      row-gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+      padding-bottom: 2rem;
+    }
+    .mobile-nav__utilities ul li {
+      width: 49%;
+    }
+
+    .mobile-nav__utilities ul li > * {
+      margin: 0 !important;
+    }
+
+    .mobile-nav__utilities ul li {
+      font-size: 12px !important;
+    }
+
+    @media (min-width: 499px) {
+      .mobile-nav__utilities ul li {
+        font-size: 13px !important;
+      }
+    }
+    @media (min-width: 500px) {
+      .mobile-nav__utilities ul li {
+        font-size: 15px !important;
+      }
+    }
+
+    .mobile-nav__swiper .testimonial-slider {
+      overflow: hidden !important;
+    }
+
+    .mobile-nav__swiper .testimonial--wrapper {
+      border: 0.125rem solid var(--brand-black) !important;
+      border-radius: 1rem;
+      height: auto;
+      padding: 16px 8px 8px 8px !important ;
+      margin-right: 8px;
+      width: 100%;
+      max-width: 96% !important;
+    }
+
+    @media (min-width: 1444px) {
+      .mobile-nav__swiper .testimonial--wrapper {
+        display: none;
+      }
+    }
+    .mobile-nav__swiper .testimonial__rating {
+      font-size: 16px;
+      padding: 0 !important;
+      margin-left: 4px;
+      font-weight: 600 !important;
+    }
+
+    .mobile-nav__swiper .testimonial-image--container {
+      display: block;
+    }
+
+    .mobile-nav__swiper .testimonial-image {
+      width: 50px important;
+      min-width: 50px;
+    }
+    .mobile-nav__swiper .testimonial-image img {
+      display: block;
+      border-radius: 100px;
+      width: 50px;
+      height: 50px;
+    }
+
+    .mobile-nav__swiper .testimonial__headline {
+      display: block;
+      padding-top: 1rem !important;
+      font-size: 16px !important;
+      line-height: 1.3 !important;
+      font-weight: 600 !important;
+    }
+    .mobile-nav__swiper .testimonial__text {
+      padding: 0 !important;
+      line-height: 1.4;
+      font-size: 13px !important;
+
+      font-weight: 400;
+    }
+
+    .mobile-nav__swiper .testimonial-slide-controls {
+      margin: 0 !important;
+    }
+    .mobile-nav__swiper .testimonial-author--wrapper {
+      text-align: left !important;
+      padding: 1rem 0 !important;
+    }
+    .mobile-nav__swiper .testimonial-author--content {
+    }
+
+    .mobile-nav__swiper .testimonial-rating--wrapper {
+      flex-direction: column;
+    }
+
+    .mobile-nav__swiper .testimonial--wrapper {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .mobile-nav__swiper .testimonial-rating--inner {
+      justify-content: center;
+      display: flex !important;
+      align-items: center;
+      padding-top: 1rem;
+    }
+    .testimonial-content--wrapper {
+      margin: 12px 0 !important;
+    }
+    .mobile-nav__swiper .testimonial--content--wrapper {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .mobile-nav__swiper ul > * + * {
+      padding: 0 !important;
+      margin: 0 auto;
+    }
+
+    .mobile-nav__swiper .slide-wrapper {
+      padding: 0 !important;
+    }
+
+    @media (min-width: 1444px) {
+      .mobile-nav__swiper .slide-wrapper {
+        display: none;
+      }
+    }
+
+    .mobile-nav__swiper .testimonial-rating-starts {
+      .margin: 4px 0 !important;
+    }
+
+    .testimonial-rating-starts .svg-icon.svg-icon--star {
+      fill: gold !important;
+      stroke: #000;
+    }
+  </style>
+{% endcomment %}

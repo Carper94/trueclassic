@@ -1,0 +1,74 @@
+.contact-info__title,
+.contact-faq__title {
+  margin-bottom: var(--spacer-xs);
+}
+
+.contact-info__subtitle,
+.contact-faq__subtitle {
+  margin-bottom: var(--spacer-l);
+}
+
+.contact-faq__faq {
+  margin-bottom: var(--spacer-m);
+}
+
+.contact-info-details-wrapper {
+  & > * > * {
+    margin-bottom: var(--spacer-m);
+  }
+
+  & .contact-info__list {
+    & li {
+      display: flex;
+      align-items: center;
+      gap: var(--spacer-s);
+    }
+
+    & svg {
+      width: 22px;
+    }
+
+    & a,
+    & button {
+      color: var(--brand-black);
+      padding: 0;
+      text-decoration: underline;
+    }
+  }
+}
+
+.contact-faq-wrapper {
+  padding-bottom: var(--spacer-xl);
+
+  & .accordion__tab:first-child {
+    padding-top: 0px;
+  }
+
+  & .button {
+    margin-bottom: var(--spacer-m);
+  }
+}
+
+.contact-form-wrapper {
+  & .contact-form form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    --form-spacer: var(--spacer-s);
+  }
+
+  & input,
+  & textarea {
+    width: 100%;
+    min-height: 48px;
+  }
+
+  & input.button {
+    @media (--medium) {
+      max-width: 350px;
+      margin-right: auto;
+    }
+  }
+}

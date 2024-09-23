@@ -1,0 +1,15 @@
+{% assign id = "sort_by-" | append: sort_option.value %}
+
+<li class='sort-list-item' aria-labelledby='{{ sort_option.value }}'>
+  <span id='{{ sort_option.value }}' class='visually-hidden'>{{ sort_option.name }}</span>
+  <input
+    id='{{ id }}'
+    class='visually-hidden'
+    type='radio'
+    name='sort_by'
+    title='{{ sort_option.name }}'
+    value='{{ sort_option.value }}'
+    aria-labelledby='{{ sort_option.value }}'
+  >
+  <label for='{{ id }}' aria-labelledby='{{ sort_option.value }}'>{{ sort_option.name }}</label>
+</li>

@@ -1,0 +1,74 @@
+<div
+  id='modal-size-chart'
+  class='modal-popup'
+  role='dialog'
+  aria-modal='true'
+  aria-label='Modal Size Chart'
+  data-state='close'
+  tabindex='-1'
+>
+  <div class='modal-dialog'>
+    <button class='modal-close' title='Close Modal' data-close>×</button>
+    <a href='#' class='size-guide-brand'
+      ><img
+        src='https://cdn.shopify.com/s/files/1/0220/4008/4552/files/icon-logo.svg?v=1686111745'
+        width='100'
+        height='50'
+        loading='lazy'
+    ></a>
+
+    <div class='size-guide-figure'>
+      <img
+        id='size-guide-image'
+        title='image'
+        alt='image'
+        loading='lazy'
+        height='200'
+        width='100'
+        class='size-guide-image'
+      >
+    </div>
+    <div class='size-guide-table'>
+      <h2 class='headline staff-x-condensed-type h5 color-chocolate text-center'>
+        Compare your measurements<br>
+        with this chart.
+      </h2>
+
+      <div class='size-guide-body'>
+        <div class='tabpanel-wrapper'>
+          <div role='tabpanel' id='in' class='active'>
+            <div>{% render 'size-guide-table', ME: 'in' %}</div>
+          </div>
+          <div role='tabpanel' id='cm'>
+            {% unless product.type == 'Socks' %}
+              <div>{% render 'size-guide-table', ME: 'cm' %}</div>
+            {% endunless %}
+          </div>
+        </div>
+      </div>
+
+      <div class='size-guide-footer'>
+        {% unless product.type == 'Socks' %}
+          <div class='size-tab-measurements'>
+            <span> Measurements: </span>
+            <div class='size-tab-wrapper'>
+              <button role='tab' data-href='#in' class='tabutton active'>in</button>
+              <button role='tab' data-href='#cm' class='tabutton'>cm</button>
+            </div>
+          </div>
+          <div class='size-guide-fitting'>
+            <button
+              id='button-virtual-fitting-room'
+              class='size-guide-button'
+              data-close
+              title='FIT FINDER'
+              data-delegate='combo'
+            >
+              FIT FINDER
+            </button>
+          </div>
+        {% endunless %}
+      </div>
+    </div>
+  </div>
+</div>

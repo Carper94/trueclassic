@@ -1,0 +1,227 @@
+{% unless collection.template_suffix == 'bundle' or collection.template_suffix == 'packbuilder' %}
+<style>
+#app-banner {
+  visibility: hidden;
+  opacity: 0;
+  transition: all 400ms linear;
+}
+
+#app-banner.visible {
+  visibility: visible;
+  opacity: 1;
+  transition: all 400ms linear;
+}
+</style>
+  <app-banner id="app-banner"></app-banner>
+
+  <script>
+    class AppBanner extends HTMLElement {
+      constructor() {
+        super();
+
+        this.userAgent = navigator.userAgent;
+
+        this.attachShadow({ mode: 'open' });
+
+        this.shadowRoot.innerHTML = `
+                <style>
+                  :host {
+                    position: fixed;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    overflow-x: hidden;
+                    width: 100%;
+                    max-width: 100%;
+                    padding: 8px;
+                    background: #fafafa;
+                    font-family: Helvetica,  sans-serif;
+                    z-index: 100000;
+                    border-top: 4px solid #000;
+                  }
+    
+                  @media(min-width: 499px) {
+                    :host {
+                      padding: 1rem;
+                    }
+                  }
+    
+                  @media(min-width: 768px) {
+                    :host {
+                      display: none;
+                    }
+                  }
+    
+                  .trueclassic-banner-content {
+                    display: flex;
+                    flex-direction: column;
+                  }
+    
+                  .trueclassic-banner-content h3 ,
+                  .trueclassic-banner-content p {
+                    margin: 0;
+                    font-size: 13px;
+                  }
+    
+                  .downlaod-app-content {
+                    display: flex;
+                    align-items: center;
+                    gap: 4px;
+                    width: 100%;
+                  }
+    
+                  .trueclassic-banner-img {
+                    border-radius: 16px;
+                    width: 50px;
+                    height: 50px;
+                  }
+    
+                  .trueclassic-banner__component {
+                    display: flex;
+                    align-items: center;
+                    width: 100%;
+                    gap: 6px;
+                    max-height: 100px;
+                  }
+    
+                  .trueclassic-banner__close {
+                    flex: 1;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: 0 0;
+                    color: gray;
+                    height: 40px;
+                    width: 40px;
+                    font-size: 3rem;
+                    border-radius: 50%;
+                    border: none;
+                    outline: none;
+                    cursor: pointer;
+                  }
+    
+                  .downlaod-app-content {
+                    flex: auto;
+                    width: 100%;
+                  }
+    
+                  .trueclassic-banner_button {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: #000;
+                    color: #fff;
+                    margin-left: auto;
+                    margint: 1rem;
+                    text-decoration: none;
+                    padding: 8px 12px;
+                    font-weight: 600;
+                  }
+    
+                  @media(min-width: 399px) {
+    
+                    .downlaod-app-content {
+                      gap: 1rem;
+                    }
+    
+                    .trueclassic-banner__component {
+                      align-items: center;
+                      flex-direction: row;
+                    }
+    
+                    .trueclassic-banner-img {
+                      width: 75px;
+                      height: 75px;
+                    }
+                  }
+    
+    
+                  @media(min-width: 768px) {
+    
+                    .trueclassic-banner-content h3 ,
+                    .trueclassic-banner-content p {
+                      font-size: 16px;
+                    }
+    
+                  }
+                  
+                </style>
+    
+                <div class="trueclassic-banner__component">
+                  <span class="close trueclassic-banner__close AppPassed">&times;</span>
+                  <div class="downlaod-app-content">
+                    <img class='trueclassic-banner-img' src="https://cdn.shopify.com/s/files/1/0220/4008/4552/files/mobile-logo.png" alt="logo" title="logo" width="50" height="50">
+                    <div class='trueclassic-banner-content'>
+                      <h3>True Classic®</h3>
+                      <p>Exclusive access to sales & products.</p>
+                      <p>Download now to save.</p>
+                    </div>
+                    <a id="download-app" class='trueclassic-banner_button AppPassed' title="Downlaod App" href="https://apps.apple.com/us/app/true-classic/id1590039576" target="_blank">VIEW</a>
+                  </div>
+                </div>
+              `;
+      }
+
+      connectedCallback() {
+        console.log('Download our app for the best experience!');
+
+        const link = document.querySelector('#download-app');
+        const AppPassed = this.shadowRoot.querySelectorAll('.AppPassed');
+
+        AppPassed.forEach((Button) => {
+          Button.addEventListener('click', () => {
+            this.hide();
+            console.log('Download our app cookie saved');
+            localStorage.setItem('download_app_store', Date.now());
+          });
+        });
+        const closedTimestamp = Number(localStorage.getItem('download_app_store'));
+        if (!closedTimestamp || Date.now() - closedTimestamp > 1 * 60 * 60 * 1000) {
+          if (this.userAgent.mobile) {
+            if (this.userAgent.platform === 'iOS') {
+              console.log('Download on iPhone!');
+              if (link) link.href = 'https://apps.apple.com/us/app/true-classic/id1590039576';
+            } else if (this.userAgent.platform === 'Android') {
+              console.log('Download on Android!');
+              if (link)
+                link.href =
+                  'https://play.google.com/store/apps/details?id=co.tapcart.app.id_uAGoYMR3CG';
+            }
+          } else {
+            console.log('Not Available on this device, use an iPhone or Android device');
+          }
+        } else {
+          this.hide();
+        }
+      }
+
+      show() {
+        this.style.display = 'block';
+        console.log('Download our app showing');
+      }
+
+      hide() {
+        this.style.display = 'none';
+        console.log('Download our app hidding');
+      }
+    }
+
+    customElements.define('app-banner', AppBanner);
+  </script>
+
+
+<script> 
+document.addEventListener("DOMContentLoaded", function() {
+  var isMobileApp = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  if (isMobileApp) {
+    const appBanner = document.getElementById("app-banner");
+
+    window.addEventListener("scroll", function() {
+      if (window.scrollY > 100) {
+        appBanner.classList.add('visible');
+      } 
+    });
+  }
+});
+</script>
+{% endunless %}

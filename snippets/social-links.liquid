@@ -1,0 +1,51 @@
+{%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, Snapchat, Tumblr, YouTube, Vimeo, Tiktok'
+  | split: ', '
+-%}
+<ul class='list-unstyled list-inline mx-auto--mb x-fit'>
+  {% for social in social_accounts %}
+    {%- assign social_handle = social | handleize -%}
+    {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
+
+    {% if settings[social_link] != blank %}
+      <li class='pg-x-s'>
+        <a
+          class='alt'
+          target='_blank'
+          href='{{ settings[social_link] }}'
+          title='
+            {{
+              'layout.footer.social_platform' | t:
+              name: shop.name,
+              platform: social
+            }}
+          '
+        >
+          <span class='icon-button alt'>
+            {% case social_handle %}
+              {% when 'facebook' %}
+                {% render 'icon-facebook' %}
+              {% when 'instagram' %}
+                {% render 'icon-instagram' %}
+              {% when 'twitter' %}
+                {% render 'icon-twitter' %}
+              {% when 'youtube' %}
+                {% render 'icon-youtube' %}
+              {% when 'pinterest' %}
+                {% render 'icon-pinterest' %}
+              {% when 'tiktok' %}
+                {% render 'icon-tiktok' %}
+              {% when 'snapchat' %}
+                {% render 'icon-snapchat' %}
+              {% when 'tumblr' %}
+                {% render 'icon-tumblr' %}
+              {% when 'vimeo' %}
+                {% render 'icon-vimeo' %}
+              {% else %}
+                <span class='icon-fallback-text'>{{ social }}</span>
+            {% endcase %}
+          </span>
+        </a>
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>

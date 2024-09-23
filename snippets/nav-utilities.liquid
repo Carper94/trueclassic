@@ -1,0 +1,68 @@
+{% comment %} ACCOUNT - MOBILE {% endcomment %}
+{% if localization.country.iso_code == 'US' %}
+  <span class="icon-button mobile-only--header mobile-only--account" style='padding-right: 0.45rem; {% if settings.icon_account_mobile == false %} display: none;{% endif %}'>
+    <a href='{{ settings.icon_account_mobile_url }}'>
+      {% render 'tc-icons', icon: 'account' %}
+    </a>
+  </span>
+{% endif %}
+
+{% unless page.url contains '/pages/track-my-order' %}
+  {% if section.settings.enable_mobile_account_icon %}
+      <span class="icon-button mobile-only--header" style='padding-top: 0;'>
+
+      {{ 'status-app-checker.js' | asset_url | script_tag }}
+
+      <span class="icon-button mobile-only--header header-account-icon-mobile" style='padding-right: 0.45rem;padding-top: 0.75rem;'>
+        <a href='#status'>
+          <svg width="15" height="18" viewBox="0 0 15 18" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg-icon svg-icon--user"><path d="M7.3 8.14a4.08 4.08 0 0 1-4.07-4.07C3.23 1.83 5.05 0 7.3 0s4.07 1.83 4.07 4.07A4.08 4.08 0 0 1 7.3 8.14Zm0-6.64a2.57 2.57 0 1 0 0 5.14 2.57 2.57 0 1 0 0-5.14ZM12.88 17.69H1.72c-.95 0-1.72-.77-1.72-1.72 0-3.54 2.88-6.42 6.42-6.42h1.76c3.54 0 6.42 2.88 6.42 6.42 0 .95-.77 1.72-1.72 1.72Zm-6.46-6.64a4.93 4.93 0 0 0-4.92 4.92c0 .12.1.22.22.22h11.16c.12 0 .22-.1.22-.22a4.93 4.93 0 0 0-4.92-4.92H6.42Z" fill="currentColor"></path></svg>
+        </a>
+      </span>
+    </span>
+  {% endif %}
+  {% comment %} COUNTRY SELECTOR {% endcomment %}
+  <div class='country-selector country-selector___header'>
+    {% render 'country-selector', unique_id: 'Header' %}
+  </div>
+
+  {% comment %} LANGUAGE SELECTOR {% endcomment %}
+  <div class='language-selector-header'>
+    {% render 'language-selector-header' %}
+  </div>
+{% endunless %}
+
+{% comment %} SEARCH - DESKTOP {% endcomment %}
+<button
+  id='nav__tab--search'
+  class='nav__tab desktop-only--header icon-button'
+  type='button'
+>
+  <span class='visually-hidden'>Open Searchbar</span>
+  {% render 'icon-search' id="searchbar--desktop" %}
+</button>
+
+{% comment %} ACCOUNT - DESKTOP {% endcomment %}
+{% if shop.customer_accounts_enabled %}
+  <a href='{{ routes.account_url }}' class='nav-icon-user'>
+    <span class='visually-hidden'>{{ 'layout.customer.account' | t }}</span>
+    <span class='icon-button'>
+      {% render 'icon-user' %}
+    </span>
+  </a>
+{% endif %}
+
+{% comment %} CART {% endcomment %}
+<span class='visually-hidden'>
+  {{ 'layout.cart.title' | t }}
+</span>
+<button id='mini-cart-open' class='icon-button' data-delegate='minicartopen' data-noclick>
+  <span class='visually-hidden'>Open cart</span>
+  {% render 'icon-cart' %}
+  {% comment %} TO DO : Fix delayed cart count, cannot remove dynamic tag or count issues. {% endcomment %}
+  {% comment %} Edgemesh Server: Dynamic Data {% endcomment %}
+  <dynamic>
+    <span class='cart-count{% if cart.item_count < 1 %} hide{% endif %}'>
+      {{- cart.item_count -}}
+    </span>
+  </dynamic>
+</button>

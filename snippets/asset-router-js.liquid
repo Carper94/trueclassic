@@ -1,0 +1,96 @@
+{%- comment -%}
+  *** TODO make sure to set the following variables to true if you need any of the conditionally added files below
+{%- endcomment -%}
+
+{% assign use_gift_card_layout = false %}
+{% assign use_password_layout = false %}
+{% assign use_checkout_layout = false %}
+
+{% assign include_index_scripts = true %}
+{% assign include_product_scripts = true %}
+{% assign include_collection_scripts = true %}
+{% assign include_cart_scripts = true %}
+
+{% comment %} layout coupled scripts {% endcomment %}
+{%- case layout -%}
+  {% when 'theme' %}
+    <script type='text/javascript' src='{{ 'layout.theme.js' | asset_url }}' defer='defer'></script>
+  {% when 'gift_card' %}
+    {% if use_gift_card_layout %}
+      <script
+        type='text/javascript'
+        src='{{ 'layout.gift-card.js' | asset_url }}'
+        defer='defer'
+      ></script>
+    {% endif %}
+  {% when 'password' %}
+    {% if use_password_layout %}
+      <script
+        type='text/javascript'
+        src='{{ 'layout.password.js' | asset_url }}'
+        defer='defer'
+      ></script>
+    {% endif %}
+  {% when 'checkout' %}
+    {% if use_checkout_layout %}
+      <script
+        type='text/javascript'
+        src='{{ 'layout.checkout.js' | asset_url }}'
+        defer='defer'
+      ></script>
+    {% endif %}
+{%- endcase -%}
+
+{% comment %} template coupled scripts {% endcomment %}
+{%- case template.name -%}
+  {% when 'index' %}
+    {% if include_index_scripts %}
+      <script
+        type='text/javascript'
+        src='{{ 'template.index.js' | asset_url }}'
+        defer='defer'
+      ></script>
+    {% endif %}
+  {% when 'product', 'product.gift-card' %}
+    {% if include_product_scripts %}
+      <script
+        type='text/javascript'
+        src='{{ 'template.product.js' | asset_url }}'
+        defer='defer'
+      ></script>
+    {% endif %}
+  {% when 'collection' %}
+    {% if include_collection_scripts %}
+      <script
+        type='text/javascript'
+        src='{{ 'template.collection.js' | asset_url }}'
+        defer='defer'
+      ></script>
+    {% endif %}
+  {% when 'cart' %}
+    {% if include_cart_scripts %}
+      <script
+        type='text/javascript'
+        src='{{ 'template.cart.js' | asset_url }}'
+        defer='defer'
+      ></script>
+    {% endif %}
+{%- endcase -%}
+
+{% case template %}
+  {% when 'collection.packbuilder' %}
+    <script
+      type='text/javascript'
+      src='{{ 'template.collection.packbuilder.js' | asset_url }}'
+      defer='defer'
+    ></script>
+{% endcase %}
+
+{% comment %} customer coupled scripts (login, register, account, etc) {% endcomment %}
+{%- if template.directory == 'customers' -%}
+  <script
+    type='text/javascript'
+    src='{{ 'template.customers.js' | asset_url }}'
+    defer='defer'
+  ></script>
+{%- endif -%}

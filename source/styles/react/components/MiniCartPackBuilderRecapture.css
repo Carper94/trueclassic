@@ -1,0 +1,33 @@
+.mini-cart__packbuilder-item {
+  display: grid;
+  grid-template-columns: 45px 1fr auto;
+  grid-gap: var(--spacer-s);
+}
+
+.mini-cart__packbuilder-item__image-wrapper {
+  position: relative;
+  width: 45px;
+  padding-bottom: 140%;
+
+  & img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    border-radius: 0.5rem;
+  }
+}
+
+.mini-cart__packbuilder-item__actions {
+  display: flex;
+  flex-direction: column;
+
+  & > * + * {
+    margin-top: var(--spacer-s);
+  }
+}

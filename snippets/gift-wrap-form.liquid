@@ -1,0 +1,259 @@
+{% comment %}
+inherited from mini-cart.liquid
+gift_wrap_myself_image: section.settings.gift_wrap_myself_image,
+gift_wrap_me_image: section.settings.gift_wrap_me_image,
+gift_section_header: section.settings.gift_section_header,
+gift_section_text: section.settings.gift_section_text
+{% endcomment %}
+<style>
+  .mini-cart__gift-wrap{
+    padding: 16px 0;
+    border-top: 1px solid var(--brand-gray-light);
+    border-bottom: 1px solid var(--brand-gray-light);
+    margin: 0 0 1.25rem;
+  }
+  @media screen and (max-width: 580px) {
+    .mini-cart__gift-wrap{
+      padding: 6px 0;
+    }
+  }
+  .mini-cart__gift-wrap .h5 + p {
+    font-size: 14px;
+  }
+  .mini-cart__gift-wrap form{
+    padding-top: 5px;
+    width: calc(50% - 5px);
+  }
+  .mini-cart__gift-wrap button{
+    height: 2rem;
+    width: 4.5rem;
+    border-radius: 0.3125rem;
+    padding: 0;
+    background-color: #53433a;
+    background-color: var(--brand-brown);
+    color: #fff;
+    color: var(--brand-white);
+    font-size: 12px;
+  }
+  .mini-cart__gift-wrap select{
+    border: 0.0625rem solid #0c0a09;
+    border: 0.0625rem solid var(--brand-black);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 2.095rem;
+    width: 4.375rem;
+    width: 3.125rem;
+    height: 2rem;
+  }
+  .mini-cart__gift-wrap .gift-wrap-item{
+    display:flex;
+  }
+  .mini-cart__gift-wrap .gift-wrap-item__content{
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 90px);
+    flex-wrap: wrap;
+    margin-left: 10px;
+  }
+  .mini-cart__gift-wrap .gift-wrap-item__content .h5 {
+    font-size: 14px;
+  }
+  .mini-cart__gift-wrap .gift-wrap-item__content .modernist-type {
+    font-family: var(--font-modernist);
+    color: #777777;
+    font-size: 12px;
+  }
+  .mini-cart__gift-wrap .gift-wrap-bottom{
+    display: flex;
+    width: 100%;
+    align-items: end;
+    gap: 0.25rem;
+  }
+  .mini-cart__gift-wrap .gift-wrap-item__image{
+    border:1px solid #808080;
+    padding:10px 5px;
+    height: fit-content;
+  }
+  .mini-cart__gift-wrap .relative svg{
+    position: absolute;
+    top: 0.5rem;
+    right: 0.3125rem;
+    pointer-events: none;
+    height: 1.125rem;
+    width: 1.125rem;
+  }
+
+  .mini-cart__gift-wrap input {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+  }
+  .mini-cart__gift-wrap .accordion {
+    margin: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5);
+  }
+  .mini-cart__gift-wrap .accordion-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .mini-cart__gift-wrap .accordion-content-inner {
+    max-height: 0;
+    transition: all 0.35s;
+    overflow: hidden;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .mini-cart__gift-wrap input:checked ~ .accordion-content-inner {
+    max-height: 100vh;
+  }
+
+  .mini-cart__gift-wrap input ~ .accordion-label .svg-icon--chevron {
+    /* transform: rotate(-180deg); */
+  }
+  .mini-cart__gift-wrap input:checked ~ .accordion-label .svg-icon--chevron {
+    transform: rotate(0);
+    transform: rotate(-180deg);
+  }
+  @media(max-width:425px){
+    .mini-cart__gift-wrap .accordion-content-inner {
+      gap: 15px;
+    }
+    .mini-cart__gift-wrap .font-small{
+      font-size: 14px;
+    }
+
+    .mini-cart__gift-wrap .gift-wrap-item__content {
+      width: calc(100% - 68px);
+      margin-left: 8px;
+    }
+
+    .gift-wrap-item__image img {
+      width: 50px;
+      height: fit-content;
+    }
+
+    .mini-cart__gift-wrap .gift-wrap-bottom {
+      flex-wrap: wrap;
+    }
+
+    .mini-cart__gift-wrap .gift-wrap-bottom > div,
+    .mini-cart__gift-wrap select,
+    .mini-cart__gift-wrap button {
+      width: 100%;
+    }
+    .mini-cart__gift-wrap .gift-wrap-item__content .modernist-type {
+      letter-spacing: 0;
+    }
+  }
+  @media screen and (max-width: 580px) {
+    .accordion-content-inner {
+      flex-wrap: wrap;
+    }
+    .accordion-content-inner > form {
+      width: 50%;
+      max-width: 45%;
+    }
+    .accordion-content-inner > p {
+      width: 100%;
+      display: block;
+    }
+  }
+  .mini-cart__gift-wrap .font-small {
+    line-height: 1.2;
+    text-align: left !important;
+    margin: 10px 0 0;
+    display: block;
+    width: 100%;
+  }
+</style>
+{% assign options_array = '1,2,3,4,5' | split: ',' %}
+
+<div class='mini-cart__gift-wrap'>
+  <div class="accordion-content">
+  <input type="checkbox" id="giftProduct" />
+  <label class="accordion-label" for="giftProduct">
+    <h2 class='headline modernist-type h5 color-chocolate mg-t-none mg-b-none' style='font-size: 1rem;'>{% render 'tc-icons', icon: 'gift-icon' %}&nbsp;&nbsp;{{ gift_section_header }} </h2>
+    {% render 'icon-chevron' %}
+  </label>
+    <div class="accordion-content-inner">
+    {%- if gift_section_text != '' %}<p class='font-small mg-b-none'>{{ gift_section_text }}</p>{% endif -%}
+    <form data-delegate='giftwrapform' data-variant-id='39955623706696'>
+      <div class='gift-wrap-item'>
+
+        <div class='gift-wrap-item__image'>
+        {% if gift_wrap_me_image %}
+            <img alt="gift box image" width="68" height="68" loading="lazy" src="{{ gift_wrap_me_image | image_url: width: 120 }}">
+        {% else %}
+          {% render 'icon-gift-wrap-me' %}
+        {% endif %}
+
+        </div>
+        <div class='gift-wrap-item__content'>
+          <div class="wrap-style">
+              <p class='h5'>{{ gift_wrap_title }}</p>
+              <p class="modernist-type desktop--only">{{ gift_wrap_modernist }}</p>
+          </div>
+          <div class="wrap-price">
+              <p class='h5'>{{ 599 | money }}</p>
+          </div>
+          <div class="gift-wrap-bottom">
+            <div class="relative desktop--only">
+              <select id='quantity' name='quantity'>
+                  {% for option in options_array %}
+                    <option value='{{ option }}'>{{ option }}</option>
+                  {% endfor %}
+              </select>
+              {% render 'icon-chevron-down' %}
+            </div>
+            <button type='submit' class='button dark small' aria-label='Add'>
+              <span class='btn-text'>{% render 'tc-icons', icon: 'arrow-right' %} Add</span>
+              {%- render 'button-loader' -%}
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </form>
+    <form data-delegate='giftwrapform' data-variant-id='39955623575624'>
+      <div class='gift-wrap-item'>
+        <div class='gift-wrap-item__image'>
+          {% if gift_wrap_myself_image %}
+          <img alt="gift box image" width="68" height="68" loading="lazy" src="{{ gift_wrap_myself_image | image_url: width: 120 }}">
+          {% else %}
+          {% render 'icon-gift-wrap-myself' %}
+          {% endif %}
+        </div>
+        <div class='gift-wrap-item__content'>
+          <div class="wrap-style">
+            <p class='h5'>{{ gift_wrap_title_myself }}</p>
+            <p class="modernist-type desktop--only">{{ gift_wrap_modernist_myself }}</p>
+          </div>
+          <div class="wrap-price">
+            <p class='h5'>{{ 899 | money }}</p>
+          </div>
+          <div class="gift-wrap-bottom">
+            <div class="relative desktop--only">
+              <select id='quantity' name='quantity'>
+                {% for option in options_array %}
+                  <option value='{{ option }}'>{{ option }}</option>
+                {% endfor %}
+              </select>
+              {% render 'icon-chevron-down' %}
+            </div>
+            <button type='submit' class='button dark small' aria-label='Add'>
+              <span class='btn-text'>{% render 'tc-icons', icon: 'arrow-right' %} Add</span>
+              {%- render 'button-loader' -%}
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <p class="modernist-type mobile--only">Each <span style='text-transform: lowercase;'>{{ gift_wrap_modernist }}</span></p>
+  </div>
+  </div>
+</div>

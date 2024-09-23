@@ -1,0 +1,130 @@
+{{ 'how-to-started.css' | asset_url | stylesheet_tag }}
+{%- style -%}
+  .affiliate-started{
+     padding-top: {{ section.settings.padding_top }}px;
+     padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+
+  @media (max-width:767px){
+    .affiliate-started{
+     padding-top: {{ section.settings.padding_top | times: 0.5 }}px;
+     padding-bottom: {{ section.settings.padding_bottom | times: 0.5 }}px;
+  }
+  }
+{%- endstyle -%}
+<div class='affiliate-started'>
+  <h2 class='heading hide--mobile'>{{ section.settings.heading }}</h2>
+  <h2 class='mobile_heading hide--desktop'>{{ section.settings.mobile_heading }}</h2>
+  <h2 class='subheading hide--mobile'>{{ section.settings.subheading }}</h2>
+  <h2 class='mobile_subheading hide--desktop'>{{ section.settings.mobile_subheading }}</h2>
+  <div class='content-wrapper'>
+    {%- for block in section.blocks -%}
+      <div class='wrapper-item'>
+        <h2 class='wrapper-item_number hide--mobile'>{{ block.settings.number }}</h2>
+        <h2 class='wrapper-item_mobile-number hide--desktop'>{{ block.settings.mobile_number }}</h2>
+        <h2 class='wrapper-item_title hide--mobile'>{{ block.settings.title }}</h2>
+        <h2 class='wrapper-item_mobile-title hide--desktop'>{{ block.settings.mobile_title }}</h2>
+        <div class='wrapper-item_description hide--mobile'>{{ block.settings.description }}</div>
+        <div class='wrapper-item_mobile-description hide--desktop'>
+          {{ block.settings.mobile_description }}
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "How To Started",
+  "class": "how-to-started",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 0
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "mobile_heading",
+      "label": "Mobile Heading"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading"
+    },
+    {
+      "type": "text",
+      "id": "mobile_subheading",
+      "label": "Mobile Subheading"
+    }
+  ],
+
+  "blocks": [
+    {
+      "type": "title",
+      "name": "block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Number"
+        },
+        {
+          "type": "text",
+          "id": "mobile_number",
+          "label": "Mobile Number"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "mobile_title",
+          "label": "Mobile Title"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "richtext",
+          "id": "mobile_description",
+          "label": "Mobile Description"
+        }
+      ]
+    }
+  ],
+
+  "presets":[
+    {
+      "name": "How To Started"
+    }
+  ]
+
+}
+{% endschema %}

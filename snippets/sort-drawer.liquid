@@ -1,0 +1,36 @@
+{% if collection %}
+  {% assign sort_options = collection.sort_options %}
+{% endif %}
+
+{% if search %}
+  {% assign sort_options = search.sort_options %}
+{% endif %}
+
+<aside class='sort-drawer-wrapper'>
+  <div class='sort-drawer' aria-hidden='true'>
+    <div class='sort-drawer__content'>
+      <div class='sort-drawer__header'>
+        <div class='sort-drawer__header-inner'>
+          <h2 class='headline h4'>Sort</h2>
+          <button
+            id='sort-drawer-close'
+            class='sort-drawer__button-close icon-button'
+            data-delegate='sortdrawerclose'
+            data-noclick
+            aria-label='Close Button'
+          >
+            <span class='visually-hidden'>Close Sort</span>
+            {% render 'icon-close' %}
+          </button>
+        </div>
+      </div>
+      <form
+        id='sortform'
+        class='sort-drawer__form'
+        data-delegate='sortform'
+      >
+        {% render 'sort-list', sort_options: sort_options %}
+      </form>
+    </div>
+  </div>
+</aside>

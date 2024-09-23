@@ -1,0 +1,115 @@
+.dropdown_headline {
+border-radius: 10px;
+background-color: #fff;
+}
+
+.dropdown_headline.h3 {
+text-transform: capitalize;
+}
+
+.membership-section {
+  background: var(--brand-cream);
+  padding: 25px 0;
+
+  & .headline {
+    margin-bottom: 16px;
+  }
+
+  & .membership-title {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+
+  & .membership-types {
+    border: 1px solid var(--brand-gray-light);
+    border-radius: 4px;
+    padding: 10px 24px;
+    background-color: var(--brand-white);
+    margin: 16px 22px;
+  }
+
+  & .member-title {
+    & h3 {
+      font-family: var(--font-family-headline);
+      text-transform: uppercase;
+    }
+
+    & p {
+      font-family: var(--font-family-headline);
+      text-transform: uppercase;
+      font-weight: 300;
+      font-size: 14px;
+      color: var(--fides-overlay-primary-color);
+    }
+  }
+
+  & .membership-content {
+    max-height: 0;
+		overflow: hidden;
+		will-change: max-height;
+		transition: all 0.25s ease-out;
+		opacity: 0;
+  }
+
+  & .active {
+    & .membership-content {
+      opacity: 1;
+    }
+
+    & .membership-title svg {
+      transform: rotate(-180deg);
+    }
+  }
+
+  & .membership-inner {
+    padding: 15px;
+    margin-top: 10px;
+  }
+
+  & .membership-inner .tertiary {
+    text-decoration: underline;
+    margin-top: 20px;
+  }
+
+  & .membership-buttons .primary.button {
+    margin-top: 15px;
+    background-color: var(--brand-chocolate-dark);
+  }
+
+  & .membership-bonus {
+    display: flex;
+    margin: 0 auto 10px;
+    align-items: center;
+
+    & svg {
+      width: 50px;
+      min-width: 50px;
+      height: 50px;
+    }
+
+    & div {
+      padding-left: 16px;
+    }
+
+    & p {
+      font-size: 14px;
+      line-height: 18px;
+
+      @media (--small-down) {
+        font-size: 11px;
+      }
+    }
+
+    & strong {
+      font-size: 15px;
+      line-height: 20px;
+      padding-bottom: 4px;
+      display: block;
+
+      @media (--small-down) {
+        font-size: 13px;
+      }
+    }
+  }
+}

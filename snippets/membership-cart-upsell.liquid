@@ -1,0 +1,132 @@
+{% for line_item in cart.items %}
+  {% if line_item.product.handle == 'inveterate-subscription' %}
+    {% assign membership_key = line_item.key %}
+  {% endif %}
+{% endfor %}
+
+<membership-options class='membership-section'>
+  <h2 class='headline h2'>Become A True Classic® Member</h2>
+  <div class="membership-types classic-member active">
+    <div class="membership-title">
+      <div class="member-title">
+        <h3>Classic Membership</h3>
+        <p>$29 per year, US only</p>
+      </div>
+      {% render 'icon-caret-down' %}
+    </div>
+    <div class="membership-content" style='height: 260px;max-height: 260px;'>
+      <div class="membership-inner">
+        <div class='membership-bonus'>
+          {% render 'icon-moneycredit' %}
+          <div>
+            <p><strong>10% Store Credit on All Orders</strong></p>
+            <p>
+              <span class='membership-discount-amount' style='color: #24b500;font-weight: 700;'>
+                {{- cart.items_subtotal_price | divided_by: 10 | money -}}
+              </span>
+              store credit on this order.
+            </p>
+          </div>
+        </div>
+        <div class='membership-bonus'>
+          {% render 'icon-freeshipping' %}
+          <div>
+            <p><strong>Free Shipping on All Orders</strong></p>
+            <p>Hit that order button to your heart’s content with free shipping. US only.</p>
+          </div>
+        </div>
+        <a class='button tertiary mx-auto' href='/pages/true-classic-membership'>Learn more</a>
+      </div>
+      <div class='membership-buttons text-center'>
+        <button
+          data-delegate='addClassicmembership'
+          class='button primary mx-auto'
+          onclick="
+            dataLayer.push({ 'ecommerce': null });dataLayer.push({
+              'event': 'add_membership_to_cart',
+              'ecommerce': {
+                'value': '{{ classic_product.price | money_without_currency | remove: ',' | remove: '$' | remove: "'" | remove: '"' }}',
+                'currency': 'USD',
+                  'items': [{
+                  'item_id': '{{ classic_product.id }}',
+                  'item_name': '{{ classic_product.title | remove: "'" | remove: '"' }}',
+                  'selling_plan': '{{ classic_selling_plan_id | remove: "'" | remove: '"' }}',
+                  'source': 'Cart Upsell',
+                  'item_brand': '{{ classic_product.vendor | remove: "'" | remove: '"' }}',
+                  'item_category': '{{ classic_product.type | remove: "'" | remove: '"' }}',
+                  'currency': 'USD',
+                  'price': '{{ classic_product.price | money_without_currency | remove: ',' | remove: '$' | remove: "'" | remove: '"' }}',
+                  }]
+                }
+            });
+          "
+        >
+          <span class='btn-text'>ADD MEMBERSHIP ($29/yr)</span>
+          {%- render 'button-loader' -%}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="membership-types all-access">
+    <div class="membership-title">
+      <div class="member-title">
+        <h3>All Access Membership</h3>
+        <p>$99 per year, US only</p>
+      </div>
+      {% render 'icon-caret-down' %}
+    </div>
+    <div class="membership-content">
+      <div class="membership-inner">
+        <div class='membership-bonus'>
+          {% render 'tc-icons': icon: '50-store-credit' %}
+          <div>
+            <p><strong>$50 Store Credit at Signup</strong></p>
+            <p>For a limited time, get $50 store credit toward future True Classic® orders when you become a member!</p>
+          </div>
+        </div>
+        <div class='membership-bonus'>
+          {% render 'icon-moneycredit' %}
+          <div>
+            <p><strong>20% Back in Store Credit</strong></p>
+            <p>
+              <span class='membership-discount-amount' style='color: #24b500;font-weight: 700;'>
+                {{- cart.items_subtotal_price | divided_by: 5 | money -}}
+              </span>
+              store credit on this order.
+            </p>
+          </div>
+        </div>
+        <a class='button tertiary mx-auto' href='/pages/true-classic-membership'>Learn more</a>
+      </div>
+      <div class='membership-buttons text-center'>
+        <button
+          data-delegate='addmembership'
+          class='button primary mx-auto'
+          onclick="
+            dataLayer.push({ 'ecommerce': null });dataLayer.push({
+              'event': 'add_membership_to_cart',
+              'ecommerce': {
+                'value': '{{ product.price | money_without_currency | remove: ',' | remove: '$' | remove: "'" | remove: '"' }}',
+                'currency': 'USD',
+                  'items': [{
+                  'item_id': '{{ product.id }}',
+                  'item_name': '{{ product.title | remove: "'" | remove: '"' }}',
+                  'selling_plan': '{{ selling_plan_id | remove: "'" | remove: '"' }}',
+                  'source': 'Cart Upsell',
+                  'item_brand': '{{ product.vendor | remove: "'" | remove: '"' }}',
+                  'item_category': '{{ product.type | remove: "'" | remove: '"' }}',
+                  'currency': 'USD',
+                  'price': '{{ product.price | money_without_currency | remove: ',' | remove: '$' | remove: "'" | remove: '"' }}',
+                  }]
+                }
+            });
+          "
+        >
+          <span class='btn-text'>ADD MEMBERSHIP ($99/yr)</span>
+          {%- render 'button-loader' -%}
+        </button>
+      </div>
+    </div>
+  </div>
+</membership-options>

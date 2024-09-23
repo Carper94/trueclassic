@@ -1,0 +1,117 @@
+{%- liquid
+  assign country_codes = section.settings.country_code | split: ','
+  assign exclude_country_codes = section.settings.exclude_country_code | split: ','
+  assign should_show_banner = false
+
+  if section.settings.country_code == '' and section.settings.exclude_country_code == ''
+    assign should_show_banner = true
+  else
+    assign is_excluded = false
+    for exclude_code in exclude_country_codes
+      if localization.country.iso_code == exclude_code
+        assign is_excluded = true
+        break
+      endif
+    endfor
+
+    unless is_excluded
+      if section.settings.country_code == ''
+        assign should_show_banner = true
+      else
+        for code in country_codes
+          if localization.country.iso_code == code
+            assign should_show_banner = true
+            break
+          endif
+        endfor
+      endif
+    endunless
+  endif
+-%}
+{%- if should_show_banner -%}
+  {%- liquid
+    assign block_settings = section.blocks | map: 'settings'
+    assign collection_array = block_settings | map: 'collection'
+    assign title_array = block_settings | map: 'title'
+    assign card_limit = 4
+  -%}
+
+  <div class='container'>
+    <div
+      data-show-recently-viewed='{{ section.settings.show_recently_viewed }}'
+      class='featured-collections {{ section.settings.css_class }} content-wrapper'
+    >
+      {% render 'product-featured-collections',
+        collection_array: collection_array,
+        title_array: title_array,
+        card_limit: card_limit,
+        show_recently_viewed: section.settings.show_recently_viewed
+      %}
+    </div>
+  </div>
+{%- endif -%}
+{% schema %}
+{
+  "name": "Product Recommendation",
+  "tag": "section",
+  "class": "product-recommendation",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Geolocation"
+    },
+    {
+      "type": "text",
+      "id": "country_code",
+      "label": "Country code",
+      "info": "Enter the country code for the country you want to show the banner to. You can have multiple country codes, just separate them with a comma. Example: US,CA,GB. Leave empty to show to all countries."
+    },
+    {
+      "type": "text",
+      "id": "exclude_country_code",
+      "label": "Exclude country code",
+      "info": "Enter the country code for the countries you DON'T want to show the banner to. You can have multiple country codes, just separate them with a comma. Example: US,CA,GB"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "css_class",
+      "label": "CSS Class"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_recently_viewed",
+      "label": "Show recently viewed products",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Collection",
+      "type": "collection",
+      "settings": [
+        {
+          "id": "title",
+          "type": "text",
+          "label": "Title",
+          "default": "Featured"
+        },
+        {
+          "id": "collection",
+          "type": "collection",
+          "label": "Collection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Recommendation"
+    }
+  ]
+}
+{% endschema %}

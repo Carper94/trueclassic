@@ -1,0 +1,118 @@
+{% if use_input %}
+  {% assign active = false %}
+  <fieldset class='color-swatch'>
+    <legend
+      {% if hide_legend %}
+        class='visually-hidden'
+      {% endif %}
+    >
+      Color: <span class='light-font'>Select Color</span>
+    </legend>
+
+    <div class='color-swatch__input-wrapper'>
+      {% for value in values %}
+        {% assign color_handle = value | handleize %}
+        <input
+          class='visually-hidden'
+          id='{{ name }}-{{ value }}-{{ product.id }}-{{ forloop.index0 }}'
+          type='radio'
+          name='Option-{{ name | escape }}'
+          aria-label='{{ value }}'
+          value='{{ value }}'
+          {% if value == selected_value %}
+            checked='true'
+          {% endif %}
+        >
+        <label
+          {% if hasSellingPlan %}
+            onclick='initObserver()'
+          {% endif %}
+          for='{{ name }}-{{ value }}-{{ product.id }}-{{ forloop.index0 }}'
+          class='color-swatch__button'
+          style='background: var(--swatch-{{ color_handle }});'
+        >
+          <span
+            class='swatch__button-border'
+          ></span>
+          <span
+            class='swatch__button-border swatch__button-border-outer'
+          ></span>
+          <span class='visually-hidden'>Color {{ value }}</span>
+        </label>
+      {% endfor %}
+    </div>
+  </fieldset>
+{% else %}
+  <!-- This is PDP color swatches -->
+  {% liquid
+    assign products = collection.products
+    assign current_color = product.metafields.colorways.color
+
+    assign current_length = current_color | size
+  %}
+
+  <div class='color-swatch'>
+    <div id='current-color-label' class='h4 bold' style='display: none;'>
+      Color: {{ current_color }}
+    </div>
+    <div class='h4 bold'>
+      Available in
+      {% assign filtered_word_count = 0 %}
+      {% for colorway_product in products %}
+        {% if colorway_product.url != blank
+          and colorway_product.metafields.colorways.color != blank
+          and colorway_product.available
+        %}
+          {% assign filtered_word_count = filtered_word_count | plus: 1 %}
+        {% endif %}
+      {% endfor %}
+      {{ filtered_word_count }} colors
+    </div>
+    <div class='color-swatch__input-wrapper'>
+      {% for colorway_product in products %}
+        {% liquid
+          assign color = colorway_product.metafields.colorways.color
+          assign color_name = color | replace: '-', '' | capitalize
+          assign color_handle = color | handleize
+          assign active = false
+          if color == current_color
+            assign active = true
+            assign colorway_url = '#'
+          else
+            assign colorway_url = colorway_product.url
+          endif
+
+          assign activeBorder = color | downcase | handleize
+        %}
+        {% if colorway_product.url != blank and color != blank and colorway_product.available %}
+          <input
+            id='colorway-{{ color_name }}'
+            type='radio'
+            value='{{ color_name }}'
+            name='colorway'
+            style='background: var(--swatch-{{ color_handle }}); display: none!important;'
+            class=' button-{{ color | downcase | handleize }} {% if active == true %} active {% endif %}'
+            title='{{ color_name }}'
+            data-url='{{ colorway_url }}'
+            {% if active == true %}
+              data-swatch-is-active
+            {% endif %}
+          >
+          <label
+            {% if hasSellingPlan and localization.country.iso_code == 'US' %}
+              onclick='initObserver()'
+            {% endif %}
+            for='colorway-{{ color_name }}'
+            class='color-swatch__button'
+            style='background: var(--swatch-{{ color_handle }});'
+          >
+            <span
+              class='swatch__button-border'
+            ></span>
+            <span class='visually-hidden'>Color {{ color_name }}</span>
+          </label>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}

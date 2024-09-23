@@ -1,0 +1,212 @@
+{%- liquid
+  if product.image != blank
+    assign img = product.image
+  elsif use_variant_image
+    assign img = product.variants[0].featured_image
+  else
+    assign img = product.featured_image
+  endif
+
+  if card_heading_level == blank
+    assign card_heading_level = 'h2'
+  endif
+
+  capture price
+    render 'product-price', price: product.price, compare_at_price: product.compare_at_price, product_id: product.id, variant_id: product.first_available_variant.id
+  endcapture
+
+  assign hasSellingPlan = false
+  if product.selling_plan_groups.size > 0
+    assign hasSellingPlan = true
+  endif
+
+  assign title = product.title
+
+  assign unit_title = 'tee'
+  if product.tags contains 'Variety Reviews'
+    assign unit_title = 'item'
+  elsif title contains 'Polo' or title contains 'polo'
+    assign unit_title = 'polo'
+  elsif title contains 'Long Sleeve' or title contains 'long sleeve'
+    assign unit_title = 'shirt'
+  elsif title contains 'Henley' or title contains 'henley'
+    assign unit_title = 'henley'
+  elsif title contains 'Sock' or title contains 'sock' or title contains 'Brief' or title contains 'brief'
+    assign unit_title = 'pair'
+  elsif title contains 'Jogger' or title contains 'jogger'
+    assign unit_title = 'jogger'
+  elsif title contains 'Hoodie'
+    assign unit_title = 'hoodie'
+  elsif title contains 'Cap'
+    assign unit_title = 'cap'
+  elsif title contains 'Jacket'
+    assign unit_title = 'jacket'
+  elsif title contains 'Short' or title contains 'short'
+    unless title contains 'Short Sleeve'
+      assign unit_title = 'short'
+    endunless
+  endif
+
+  assign pdp_link = product.url | within: collection
+
+  for product_option in product.options_with_values
+    if product_option.name == 'Color'
+      assign pdp_color = product_option.values[0]
+    endif
+  endfor
+
+  assign custom_sale_badge_tags = settings.custom_sale_badge_tag | split: ', '
+
+  assign is_discounted = false
+  if product.compare_at_price > product.price
+    assign is_discounted = true
+    # CASHBACK SETTINGS
+    if settings.hide_cashback == false
+      unless product.tags contains '(almost)everything2023'
+        capture discount_percent
+          render 'discount-percentage', product: product
+        endcapture
+      endunless
+    else
+      capture discount_percent
+        render 'discount-percentage', product: product
+      endcapture
+    endif
+    # END CASHBACK SETTINGS
+  endif
+
+  assign pack_size = product.metafields.custom.pack_size
+  assign pack_quantity = pack_size | split: '-' | first
+
+  if localization.country.currency.iso_code == 'USD'
+    assign price_per_unit = product.price | divided_by: pack_quantity | money
+  else
+    assign price_per_unit = product.price | divided_by: pack_quantity | money_with_currency
+  endif
+
+  if product.available != true
+    assign soldout_class = 'soldout'
+  endif
+
+  assign product_not_found = false
+  if request.path contains '/products/'
+    if product.available != true
+      assign product_not_found = true
+    endif
+  endif
+
+  assign sizeValues = 'S,M,L,XL,2XL,3XL,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42' | split: ','
+-%}
+
+<div
+  class='product-card'
+  data-id='{{ product.id }}'
+>
+  <div class='product-card__image-wrapper {% if template.name == 'index' %}lazy-image-placeholder{% endif %} '>
+    <img
+      class='product-card__image er-product-card__original-image {% if template.name == 'index' %}lazy-image{% endif %}'
+      loading='lazy'
+        src='{{ img | image_url: height: 300 }}'
+        srcset='
+          {{ img | image_url: width: 150 }} 150w,
+          {{ img | image_url: width: 200 }} 200w,
+          {{ img | image_url: width: 300 }} 300w,
+          {{ img | image_url: width: 360 }} 360w,
+          {{ img | image_url: width: 480 }} 480w
+        '
+        sizes='
+          (min-width: 480px) 480px,
+          (min-width: 360px) 360px,
+          (min-width: 300px) 300px,
+          300px
+        '
+      alt='{{ img.alt | escape | prepend: shop.name }}'
+      height='{{ img.heigh | default: 300 }}'
+      width='{{ img.width | default: 200 }}'
+    >
+    </div>
+    <div class='product-card__rating'>
+      <div class='product-card__rating-stars'>
+        {% render 'okendo-reviews-product-rating-summary', product: product %}
+      </div>
+    </div>
+
+    <div class='product-card__title-container'>
+      <div class='product-card__title text s{% if use_link == false %} product-card__title-bundle{% endif %}'>
+          {{ title }}
+          <span class='product-card__color'>{{ pdp_color }}</span>
+      </div>
+      <div class='product-card__title-swatches'>
+        {% for color in product.metafields.colorwaysV2.color.value %}
+          <span style='background-color: var(--swatch-{{ color | handleize }});'></span>
+        {% endfor %}
+      </div>
+    </div>
+    <div
+      class='product-card__price'
+      data-product-id='{{ product.id }}'
+      data-variant-id='{{ product.first_available_variant.id }}'
+    >
+        {{ price }}
+    </div>
+    <form
+      class='product-card__form'
+      data-delegate='productcardform'
+      name='product-card'
+    >
+      {% for product_option in product.options_with_values %}
+        {% if product_option.name == 'Color' %}
+          {% render 'color-swatch',
+            name: 'Color',
+            values: product_option.values,
+            product: product,
+            use_input: true,
+            hide_legend: hide_legend,
+            selected_value: product_option.values[0],
+            hasSellingPlan: hasSellingPlan
+          %}
+        {% endif %}
+      {% endfor %}
+      <input class='hide' name='quantity' type='number' value='1'>
+      <div class='product-card__actions'>
+        {% liquid
+          if product.title contains 'Sock' or product.title contains 'Brief' or product.title contains 'Chino' or product.title contains 'Jean' or product.title contains 'Jogger' or product.title contains 'Dry Short' or product.title contains 'Comfort Short' or product.title contains 'Terry Short'
+            for product_option in product.options_with_values
+              if product_option.name == 'Size'
+                if sizeValues contains product_option.values[0]
+                  render 'size-select', product: product, name: product_option.name, values: product_option.values
+                endif
+              endif
+            endfor
+          endif
+        %}
+
+        <button
+          type='submit'
+          id='klaviyo-data-handle-{{ product.handle }}'
+          data-klaviyo-handle='{{ product.handle }}'
+          class='button small'
+        >
+          {%- render 'icon-cta-arrow' -%}
+          Add
+        </button>
+
+        <div
+          class='klaviyo-product-container'
+          id='klaviyo-data-handle-{{ product.handle }}'
+          data-klaviyo-handle='{{ product.handle }}'
+        >
+          <div class='klaviyo-button-container'>
+            <a
+              disabled
+              class='button primary red klaviyo-bis-trigger'
+              href='#'
+              style='padding: inherit; text-align: center; cursor: not-allowed;'
+              >SOLD OUT</a
+            >
+          </div>
+        </div>
+      </div>
+    </form>
+  {% render 'product-json', product: product %}
+</div>

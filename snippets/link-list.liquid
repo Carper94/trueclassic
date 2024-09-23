@@ -1,0 +1,29 @@
+{% if link_list.links.size > 0 %}
+  <ul class='list-unstyled'>
+    {% for link in link_list.links %}
+      <li
+        {% if link.title contains 'Pack Builder' %}
+          {% unless localization.country.iso_code == 'US'
+            or localization.country.iso_code == 'CA'
+            or localization.country.iso_code == 'GB'
+            or localization.country.iso_code == 'AU'
+            or localization.country.iso_code == 'DE'
+          %}
+            class='ge-remove'
+          {% endunless %}
+        {% elsif link.title contains 'Get 15' %}
+          {% unless localization.country.iso_code == 'US' %}
+            class='ge-remove'
+          {% endunless %}
+        {% endif %}
+      >
+        <a
+          class='{{ link_class }}'
+          href='{{ link.url }}'
+        >
+          {{ link.title }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}

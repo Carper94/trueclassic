@@ -1,0 +1,42 @@
+<div class='pack-builder-cart'>
+  <div class='pack-builder-cart__header flex'>
+    <h2 class='h5 headline'>Your bundle</h2>
+    <span class='pack-builder-cart__total'>0.00</span>
+    <span id='pack-builder-cart-currency'>{{ shop.currency }}</span>
+    <button
+      class='pack-builder-cart__toggle text-button'
+      type='button'
+      aria-expanded='false'
+      data-delegate='packbuildercarttoggle'
+    >
+      <span class='open color-black'>
+        {% render 'tc-icons', icon: 'caret-down' %}
+        <span class='visually-hidden'> Open </span>
+      </span>
+      <span class='close'>
+        {% render 'tc-icons', icon: 'caret-up' %}
+        <span class='visually-hidden'> Close </span>
+      </span>
+    </button>
+  </div>
+  <form
+    id='pack-builder-cart-form'
+    class='pack-builder-cart__form'
+    data-delegate='packbuildercartform'
+  >
+    <h2 class='headline h6 mg-b-s'><strong>Select a size to get started</strong></h2>
+  </form>
+  <div class='pack-builder-cart__footer'>
+    {% render 'pack-builder-cart-progress-bar' %}
+    <div class='pack-builder-cart__actions'>
+      <button
+        class='button'
+        type='submit'
+        form='pack-builder-cart-form'
+      >
+        {%- render 'icon-cta-arrow' -%}
+        Add To Cart
+      </button>
+    </div>
+  </div>
+</div>

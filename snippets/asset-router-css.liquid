@@ -1,0 +1,65 @@
+{%- comment -%}
+ *** TODO make sure to set the following variables to true if you need any of the conditionally added files below
+{%- endcomment -%}
+
+{% assign use_gift_card_layout = false %}
+{% assign use_password_layout = false %}
+{% assign use_checkout_layout = false %}
+
+{% assign include_index_css = true %}
+{% assign include_article_css = true %}
+{% assign include_product_css = true %}
+{% assign include_collection_css = true %}
+{% assign include_cart_css = true %}
+
+{% comment %} layout coupled styles {% endcomment %}
+{%- case layout -%}
+  {% when 'theme' %}
+    {{ 'layout.theme.css' | asset_url | stylesheet_tag }}
+  {% when 'gift_card' %}
+    {% if use_gift_card_layout %}
+      {{ 'layout.gift-card.css' | asset_url | stylesheet_tag }}
+    {% endif %}
+  {% when 'password' %}
+    {% if use_password_layout %}
+      {{ 'layout.password.css' | asset_url | stylesheet_tag }}
+    {% endif %}
+  {% when 'checkout' %}
+    {% if use_checkout_layout %}
+      {{ 'layout.checkout.css' | asset_url | stylesheet_tag }}
+    {% endif %}
+{%- endcase -%}
+
+{% comment %} template coupled styles {% endcomment %}
+{%- case template.name -%}
+  {% when 'index' %}
+    {% if include_index_css %}
+      {{ 'template.index.css' | asset_url | stylesheet_tag }}
+    {% endif %}
+  {% when 'article' %}
+    {% if include_article_css %}
+      {{ 'template.article.css' | asset_url | stylesheet_tag }}
+    {% endif %}
+  {% when 'product', 'product.gift-card' %}
+    {% if include_product_css %}
+      {{ 'template.product.css' | asset_url | stylesheet_tag }}
+    {% endif %}
+  {% when 'collection' %}
+    {% if include_collection_css %}
+      {{ 'template.collection.css' | asset_url | stylesheet_tag }}
+    {% endif %}
+  {% when 'cart' %}
+    {% if include_cart_css %}
+      {{ 'template.cart.css' | asset_url | stylesheet_tag }}
+    {% endif %}
+{%- endcase -%}
+
+{% case template %}
+  {% when 'collection.packbuilder' %}
+    {{ 'template.collection.packbuilder.css' | asset_url | stylesheet_tag }}
+{% endcase %}
+
+{% comment %} customer coupled styles (login, register, account, etc) {% endcomment %}
+{%- if template.directory == 'customers' -%}
+  {{ 'template.customers.css' | asset_url | stylesheet_tag }}
+{%- endif -%}

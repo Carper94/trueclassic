@@ -1,0 +1,291 @@
+{
+  "sections": {
+    "main": {
+      "type": "product-main",
+      "blocks": {
+        "95e1be07-938a-4918-80e6-9a650b58e3dd": {
+          "type": "description_accordion",
+          "settings": {
+            "title": "Perfect Fit, Made to Last Guarantee",
+            "content_html": "<p class=\"guarantee-us\">We give a fit about comfort and quality, and want you to look good and feel good for years to come. That’s why every product comes with a <a href=\"https:\/\/www.trueclassictees.com\/pages\/fit-guarantee\">Perfect Fit, Made to Last Guarantee<\/a> – if it doesn’t fit right or wears a little too soon, let us know within 30 days and we’ll replace it for free, no questions asked.<\/p>"
+          }
+        },
+        "c913fead-294f-44f9-8aa6-a1db375beb97": {
+          "type": "description_accordion",
+          "settings": {
+            "title": "Care Guide",
+            "content_html": "We recommend washing on cold and laying flat to dry, or use a low temp dryer setting. Drying may result in about 5% shrinkage."
+          }
+        },
+        "79764c86-3aa9-4833-8da8-38b9862593a6": {
+          "type": "bundle_callout",
+          "settings": {
+            "text": "",
+            "packbuilder_url": "shopify:\/\/collections\/bundle-builder"
+          }
+        },
+        "d7ddefea-8485-4607-93b4-4669f778a83a": {
+          "type": "description_accordion",
+          "settings": {
+            "title": "Free Returns & Exchanges",
+            "content_html": "<a href='https:\/\/trueclassictees-com.myshopify.com\/pages\/returns-exchanges'>Start a return<\/a> or get in touch with our team by contacting us at <a href='mailto:support@trueclassic.com'>support@trueclassic.com<\/a> or by calling our phone number at <a href='tel:+13234191092'>(323) 419-1092<\/a>."
+          }
+        }
+      },
+      "block_order": [
+        "95e1be07-938a-4918-80e6-9a650b58e3dd",
+        "c913fead-294f-44f9-8aa6-a1db375beb97",
+        "79764c86-3aa9-4833-8da8-38b9862593a6",
+        "d7ddefea-8485-4607-93b4-4669f778a83a"
+      ],
+      "settings": {
+        "enable_desktop_gallery": false,
+        "disable_mobile_autoheight": true,
+        "show_icons": true,
+        "icon_image_1": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"50\" height=\"50\" viewbox=\"0 0 180 180\" fill=\"none\">\n<path d=\"M137.315 67.1492C133.859 67.1492 130.596 67.935 127.73 69.3113C124.933 65.9205 120.604 63.7373 115.736 63.7373C113.979 63.7373 112.29 64.0221 110.716 64.5494C110.104 64.7551 109.477 64.3648 109.377 63.7215C108.164 55.959 100.985 50 92.3052 50C83.6254 50 76.1221 56.2332 75.16 64.2488C72.0959 59.9879 66.9926 57.309 61.2932 57.6939C54.0879 58.1738 48.0381 63.674 46.8093 70.8512C46.6001 72.0588 46.5376 73.2453 46.5951 74.4002C46.6474 75.4127 45.6851 76.1879 44.7178 75.9084C43.0864 75.4391 41.3557 75.1859 39.5727 75.1859C29.3138 75.1859 21 83.4758 21 93.7063C21 103.937 29.3138 112.227 39.5727 112.227C41.4969 112.227 43.3584 111.931 45.1048 111.388C46.3702 110.993 47.7035 111.546 48.4512 112.648C50.5637 115.76 54.9872 117.906 60.1062 117.906C62.1036 117.906 63.9913 117.579 65.6802 116.999C66.841 116.598 68.0489 117.431 68.0437 118.671V118.713C68.0437 125.5 75.6358 131 85.0059 131C94.3759 131 101.968 125.5 101.968 118.713V118.692C101.968 118.054 102.695 117.69 103.192 118.08C106.344 120.58 110.575 122.109 115.223 122.109C124.98 122.109 132.886 115.391 132.886 107.095V107.069C132.886 105.893 133.848 104.939 135.009 105.06C135.767 105.139 136.536 105.181 137.315 105.181C148.74 105.181 158 96.6699 158 86.1705C158 75.6711 148.74 67.1598 137.315 67.1598V67.1492Z\" stroke=\"black\" stroke-width=\"5\" stroke-miterlimit=\"10\" stroke-linecap=\"round\"><\/path>\n<path d=\"M96 81C96 76.8612 89.0607 70 80.5 70C71.9393 70 65 76.8612 65 81\" stroke=\"black\" stroke-width=\"5\" stroke-miterlimit=\"10\" stroke-linecap=\"round\"><\/path>\n<path d=\"M114 93C114 86.9235 108.227 82 101.113 82C97.5534 82 94.3304 83.2295 92 85.224\" stroke=\"black\" stroke-width=\"5\" stroke-miterlimit=\"10\" stroke-linecap=\"round\"><\/path>\n<\/svg>",
+        "icon_text_1": "Extra Cozy",
+        "icon_image_2": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"50\" height=\"50\" viewbox=\"0 0 180 180\" fill=\"none\">\n<path d=\"M119.883 68.3225C119.883 68.3225 128.011 96.2562 130.759 100.043C133.502 103.829 134.191 104.435 134.191 104.435L136.271 110.507C136.645 111.598 137.747 112.268 138.886 112.101C142.289 111.607 144.203 110.669 145.27 109.863C146.104 109.232 146.512 108.183 146.342 107.147L145.517 102.111C145.517 102.111 145.517 96.9512 144.832 93.8555C144.148 90.7598 134.267 57.3724 134.267 57.3724L126.91 37.8389C126.846 37.7152 126.795 37.5873 126.752 37.4551C126.561 36.8027 125.408 34.0737 119.254 32.3126C112.223 30.3 104.942 26.0189 103.938 24.761C102.935 23.5032 92.6418 23 92.6418 23H89.5839C89.5839 23 79.2912 23.5032 78.2875 24.761C77.2837 26.0189 70.0023 30.3 62.9718 32.3126C56.8218 34.0737 55.6692 36.7984 55.4736 37.4551C55.4353 37.5873 55.38 37.7152 55.3162 37.8389L48.1284 57.3724C48.1284 57.3724 38.2483 90.7598 37.5635 93.8555C36.8787 96.9512 36.8787 102.111 36.8787 102.111L36.0537 107.147C35.8835 108.183 36.2918 109.227 37.1255 109.863C38.1887 110.673 40.1069 111.607 43.5094 112.101C44.6493 112.268 45.7508 111.602 46.1251 110.507L48.2049 104.435C48.2049 104.435 48.8897 103.829 51.6372 100.043C54.3805 96.2562 62.5125 68.3225 62.5125 68.3225L64.2265 61.7558C65.9959 72.8551 63.4737 116.498 62.8528 124.241C62.7762 125.222 63.3504 126.13 64.2691 126.48C76.4714 131.132 105.759 131.132 117.961 126.48C118.88 126.13 119.454 125.222 119.377 124.241C118.756 116.498 116.234 72.8551 118.003 61.7558L119.892 68.3225H119.883Z\" fill=\"#F5F5F5\" stroke=\"black\" stroke-width=\"5\" stroke-miterlimit=\"10\"><\/path>\n<path d=\"M90.8773 24.698C83.768 24.698 79.3125 25.9848 79.3125 25.9848C79.3125 25.9848 83.3992 29.7917 90.2965 29.7917H91.2504C98.1477 29.7917 102.234 25.9848 102.234 25.9848C102.234 25.9848 97.7789 24.698 90.6696 24.698H90.8815H90.8773Z\" fill=\"#F5F5F5\" stroke=\"black\" stroke-width=\"5\" stroke-miterlimit=\"10\"><\/path>\n<path d=\"M56 120.458C42.0339 122.283 33 125.187 33 128.459C33 133.981 58.7436 138.458 90.5 138.458C122.256 138.458 148 133.981 148 128.459C148 125.221 139.15 122.342 125.426 120.514\" stroke=\"black\" stroke-width=\"5\" stroke-linecap=\"round\"><\/path>\n<path d=\"M40.6 45.4583C20.8045 47.2826 8 50.1872 8 53.4587C8 58.9813 44.4888 63.4583 89.5 63.4583C134.511 63.4583 171 58.9813 171 53.4587C171 50.2205 158.455 47.3419 139.004 45.5144\" stroke=\"black\" stroke-width=\"5\" stroke-linecap=\"round\"><\/path>\n<\/svg>",
+        "icon_text_2": "Tailored Fit",
+        "icon_image_3": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"50\" height=\"50\" viewbox=\"0 0 180 180\" fill=\"none\">\n<path d=\"M73.9181 46.5594C76.8935 44.2362 78.9933 41.6271 80.8519 38.8929C82.2458 36.8467 83.9167 35.846 86.3024 35.7209C90.6092 35.4886 94.925 34.8988 99.2139 35.015C103.369 35.1312 107.515 35.9443 111.652 36.4714C112.233 36.5429 112.805 36.7395 113.341 36.9629C114.744 37.5437 115.253 38.3925 114.895 39.9115C114.583 41.2429 114.038 42.5117 113.609 43.8163C113.51 44.1022 113.439 44.3971 113.251 45.0136C115.146 44.0307 116.754 43.2087 118.353 42.3598C122.464 40.1707 126.663 38.2228 131.238 37.1773C137.278 35.8013 143.086 36.4893 148.644 39.1163C150.815 40.1439 152.96 41.368 154.836 42.8513C158.133 45.4604 159.929 48.9273 159.626 53.2788C159.42 56.2453 157.964 58.6042 155.998 60.704C150.949 66.1099 144.784 69.8895 138.109 72.8918C130.729 76.2157 122.964 78.2529 115.012 79.6826C113.332 79.9864 111.938 79.4056 110.571 78.5478C108.65 77.3415 106.693 76.1889 104.754 75.0094C104.656 75.1077 104.557 75.2149 104.459 75.3132C104.673 75.7421 104.897 76.171 105.102 76.6088C105.469 77.3773 105.862 78.1278 106.201 78.9142C107.542 82.0236 107.131 84.5345 102.77 85.1153C95.1662 86.116 87.5891 86.7504 79.9047 86.1875C74.4006 85.7854 68.9858 85.0795 63.6514 83.7213C58.6745 82.4525 53.9387 80.6119 49.6855 77.6543C47.0854 75.8493 45.1553 73.5351 44.0027 70.5775C43.4308 69.1211 43.4129 69.1568 41.8582 69.541C36.9617 70.7473 32.8693 73.3743 29.1969 76.7339C28.1336 77.7079 27.1686 78.7801 26.0963 79.7451C24.9079 80.7995 23.5766 80.8084 22.5669 79.8524C21.4232 78.7712 21.3695 77.5381 22.5847 76.2246C27.8208 70.506 33.9326 66.1635 41.6348 64.43C42.716 64.1888 43.1359 63.7688 43.3057 62.6787C44.7622 53.2609 50.4808 46.9615 58.3617 42.2526C62.2664 39.9205 66.4839 38.33 70.8533 37.1416C71.2286 37.0433 71.6038 36.9093 71.997 36.8557C74.1772 36.5787 75.3835 37.8117 75.035 39.992C74.7848 41.5378 74.4631 43.0746 74.1861 44.6204C74.0968 45.1208 74.0432 45.6391 73.927 46.5505H73.9181V46.5594ZM69.3521 42.9674C68.8875 43.0568 68.6463 43.0836 68.4139 43.1551C63.7586 44.683 59.5144 46.9972 55.8241 50.205C52.4108 53.1715 49.7838 56.7278 48.7026 61.2312C48.5418 61.8835 48.5329 62.5715 48.4346 63.3667C49.1494 63.322 49.6051 63.2595 50.0519 63.2684C51.9462 63.2952 53.8405 63.2774 55.7347 63.3935C57.7899 63.5186 58.4779 65.9758 57.2359 67.4055C56.7623 67.9505 55.7794 68.2633 55.011 68.3079C52.9469 68.433 50.8739 68.3526 48.5686 68.3526C49.1852 70.2022 50.0787 71.4085 51.285 72.4718C54.9752 75.7153 59.4071 77.4845 64.0267 78.7623C74.1683 81.559 84.5154 82.0683 94.9429 81.1301C96.989 80.9514 99.0174 80.5761 101.305 80.2545C100.876 79.4413 100.626 78.8516 100.277 78.3244C99.4552 77.0645 98.5795 75.8404 97.7396 74.5984C96.5065 72.7577 96.998 70.9796 99.0442 70.1397C100.518 69.5321 102.037 69.3176 103.655 69.6482C106.737 70.2737 109.436 71.7302 111.956 73.5083C113.367 74.5001 114.744 74.7146 116.379 74.384C121.972 73.267 127.458 71.8106 132.766 69.7197C140.272 66.7711 147.188 62.911 152.701 56.8618C155.497 53.7881 155.229 50.4284 152.611 47.7478C148.867 43.9146 144.114 41.9935 138.753 41.6361C133.856 41.3144 129.263 42.5028 124.921 44.6562C121.579 46.3092 118.318 48.1231 115.003 49.8297C113.207 50.7501 111.384 51.6436 109.534 52.4567C108.507 52.9124 107.443 52.7605 106.603 51.9653C105.781 51.179 105.924 50.1603 106.255 49.2132C106.988 47.1134 107.774 45.0315 108.516 42.9406C108.721 42.3598 108.882 41.7611 109.15 40.9123C106.496 40.6264 104.102 40.1707 101.707 40.1439C97.5966 40.1081 93.4775 40.4387 89.3672 40.4387C86.8385 40.4387 84.9264 41.2518 83.7022 43.5035C83.6129 43.6733 83.4878 43.8341 83.3627 43.9771C81.0931 46.6845 78.9129 49.4902 75.8302 51.3577C74.901 51.9206 73.8555 52.4746 72.8012 52.6354C69.4594 53.1447 67.8957 51.4113 68.5033 48.0963C68.8071 46.4432 69.0573 44.7813 69.3521 42.9585V42.9674Z\" fill=\"black\"><\/path>\n<path d=\"M157.615 117.256C156.588 113.655 152.924 112.6 150.342 113.574C149.421 113.923 148.501 114.262 147.634 114.718C142.371 117.47 136.608 118.801 131.024 120.615C126.297 122.152 121.481 123.43 116.808 125.128C113.332 126.396 109.963 126.28 106.434 125.628C96.9176 123.868 87.3836 122.25 77.8586 120.571C77.4118 120.49 76.9561 120.401 76.5183 120.258C75.2226 119.82 74.5436 118.775 74.7401 117.577C74.9635 116.21 75.9017 115.308 77.3403 115.451C79.2882 115.647 81.2182 116.04 83.1393 116.389C89.126 117.461 95.1037 118.56 101.081 119.641C102.341 119.865 103.512 119.704 104.691 119.132C113.51 114.825 122.347 110.563 131.184 106.292C133.007 105.407 134.848 104.55 136.68 103.683C138.797 102.682 141.022 102.262 143.354 102.45C146.133 102.673 148.439 103.772 149.824 106.265C150.646 107.74 151.682 108.311 153.398 108.401C156.391 108.562 158.946 109.875 160.698 112.422C161.439 113.494 162.101 114.638 162.681 115.799C163.825 118.096 163.101 120.267 160.751 121.348C155.989 123.528 151.208 125.646 146.401 127.728C136.144 132.187 125.877 136.645 115.574 140.997C113.93 141.694 112.036 142.14 110.258 142.123C104.379 142.078 98.4991 141.774 92.6197 141.551C89.68 141.435 86.7403 141.247 83.8005 141.113C76.8131 140.809 69.8168 140.496 62.8294 140.237C57.8613 140.059 52.8933 140.023 47.9253 139.826C44.5924 139.692 41.4472 140.523 38.293 141.399C35.2014 142.257 32.1277 143.132 29.0271 143.954C27.4902 144.365 26.5342 143.91 25.9534 142.623C25.2475 141.077 25.7568 139.63 27.4188 139.201C33.4322 137.664 39.4278 135.984 45.5217 134.876C48.6848 134.295 52.0445 134.787 55.3148 134.822C56.3602 134.822 57.3967 134.974 58.4421 135.019C66.341 135.403 74.2487 135.779 82.1475 136.163C85.0247 136.306 87.8929 136.493 90.7701 136.583C97.1767 136.77 103.583 136.904 109.999 137.074C111.598 137.119 113.055 136.752 114.538 136.1C125.26 131.391 136.018 126.772 146.759 122.099C150.351 120.535 153.925 118.909 157.615 117.265V117.256ZM111.697 120.973C111.75 121.089 111.795 121.205 111.848 121.321C112.769 121.035 113.698 120.758 114.618 120.472C123.286 117.774 131.962 115.111 140.593 112.332C142.47 111.725 144.203 110.697 146.008 109.857C144.927 107.811 143.694 107.051 141.773 107.355C140.629 107.534 139.485 107.909 138.431 108.392C132.444 111.153 126.476 113.967 120.507 116.773C117.558 118.158 114.627 119.57 111.688 120.973H111.697Z\" fill=\"black\"><\/path>\n<path d=\"M107.39 102.664C107.309 98.8935 105.156 96.5971 101.573 96.6329C98.9637 96.6597 96.3546 96.9456 93.7544 97.1868C89.0098 97.6336 84.2651 98.1697 79.5205 98.6076C75.8749 98.9471 72.2293 99.3849 68.5837 99.4653C64.4824 99.5547 60.3543 99.4475 56.2619 99.1615C51.3117 98.822 46.4331 98.7684 41.8582 101.011C38.4449 102.682 35.0584 104.407 32.762 107.632C32.3957 108.142 31.8417 108.57 31.2877 108.892C27.4902 111.081 23.6659 113.217 19.8594 115.397C18.823 115.987 17.8669 115.951 16.9376 115.245C16.1513 114.655 15.7045 113.306 16.2228 112.404C16.6159 111.716 17.3129 111.108 18.0098 110.697C21.2265 108.812 24.4969 107.025 27.7225 105.148C28.4373 104.728 29.1254 104.174 29.6704 103.558C34.3793 98.2055 40.3928 95.3998 47.3087 94.1667C51.2492 93.4698 55.1271 94.3544 59.0408 94.3454C63.285 94.3454 67.5293 94.4794 71.7646 94.2561C76.3306 94.0148 80.8697 93.443 85.4267 92.9962C90.1088 92.5405 94.7999 92.1384 99.4641 91.5576C104.334 90.95 109.105 93.1213 111.277 97.1958C112.447 99.4028 112.76 101.833 112.376 104.255C112.072 106.203 110.615 107.257 108.721 107.614C106.282 108.07 103.825 108.445 101.376 108.865C92.8698 110.322 84.3813 111.939 76.1072 114.405C72.9352 115.352 69.9061 116.8 66.8145 118.024C66.5732 118.122 66.3588 118.274 66.1086 118.372C64.7951 118.891 63.5352 118.48 62.8919 117.336C62.2217 116.139 62.3915 114.789 63.6603 114.092C65.7691 112.931 67.9493 111.832 70.2188 111.037C77.1348 108.597 84.2919 107.007 91.4849 105.613C96.1044 104.719 100.751 103.978 105.379 103.156C106.076 103.031 106.755 102.825 107.408 102.664H107.39V102.664Z\" fill=\"black\"><\/path>\n<path d=\"M92.2177 66.7353C90.1357 66.7532 89.0277 66.0741 88.7776 64.707C88.4648 62.9914 89.4566 61.8566 91.4671 61.6154C94.7106 61.2312 97.9541 60.8738 101.198 60.4627C108.48 59.5424 115.619 57.9609 122.58 55.6109C124.045 55.1105 125.064 55.3517 125.743 56.3346C126.413 57.3086 126.386 58.3808 125.716 59.2743C125.314 59.8015 124.626 60.2483 123.974 60.4359C119.774 61.669 115.61 63.1165 111.321 63.9296C105.165 65.1091 98.9281 65.8061 92.718 66.6996C92.5215 66.7264 92.3249 66.7264 92.2177 66.7264V66.7353Z\" fill=\"black\"><\/path>\n<path d=\"M73.9091 62.7413C76.8578 62.7413 79.7975 62.6966 82.7462 62.7592C84.7387 62.8038 85.802 64.6088 84.9532 66.3243C84.5243 67.1821 83.8184 67.5753 82.907 67.6021C76.697 67.7361 70.4869 67.8791 64.268 67.9506C62.6417 67.9684 61.7571 67.066 61.6588 65.6185C61.5516 64.0727 62.1771 63.2953 63.9105 62.9825C64.7415 62.8306 65.5993 62.8128 66.4482 62.8038C68.9322 62.786 71.4251 62.8038 73.9091 62.8038V62.7502V62.7413Z\" fill=\"black\"><\/path>\n<\/svg>",
+        "icon_text_3": "Soft Against Skin",
+        "icon_image_4": "",
+        "icon_text_4": "",
+        "icon_image_5": "",
+        "icon_text_5": "",
+        "icon_image_6": "",
+        "icon_text_6": "",
+        "show_discount_pack_slider": true,
+        "discount_pack_slider_title": "",
+        "discount_pack_slider_collection": ""
+      }
+    },
+    "product-video-with-text": {
+      "type": "product-video-with-text",
+      "blocks": {
+        "template--14565189419080__product-video-with-text-16837423236acf3040-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "THE TRUE CLASSIC DIFFERENCE"
+          }
+        },
+        "template--14565189419080__product-video-with-text-16837423236acf3040-1": {
+          "type": "text",
+          "settings": {
+            "text": "It's NOT just a t-shirt. Our premium tees are designed for guys’ bodies. They accentuate the arms & shoulders to make you stand out and feel great. They're also super soft, wash well and reasonably priced."
+          }
+        },
+        "template--14565189419080__product-video-with-text-16837423236acf3040-2": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label_1": "Button Text",
+            "button_link_1": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--14565189419080__product-video-with-text-16837423236acf3040-0",
+        "template--14565189419080__product-video-with-text-16837423236acf3040-1",
+        "template--14565189419080__product-video-with-text-16837423236acf3040-2"
+      ],
+      "disabled": true,
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "image": "shopify:\/\/shop_images\/fathers-day--mobile.jpg",
+        "self_hosted_video_url": "",
+        "video_url": "",
+        "videowise": "<div class=\"videowise-background videowise-background-component_659c62a0edd9c30029376313\" data-widget-id=\"659c62a0edd9c30029376313\">\n<video width=\"100%\" height=\"auto\" playsinline=\"true\" muted=\" true\" autoplay=\"true\" preload=\"metadata\" loop>\n  <source src=\"https:\/\/cdn2.videowise.com\/converted\/videos\/1704355124827_9f07a715-f187-4ee7-a356-bc61ff181571_h264c.mp4\" type=\"video\/mp4\" media=\"(min-width: 768px)\"> \n    \n<\/video>\n<\/div>\n<script src=\"https:\/\/assets.videowise.com\/videowise-bg.js.gz\">\n<\/script>",
+        "video_bg_color": "brown-bg",
+        "text_color": "dark-text",
+        "button_color": "light",
+        "heading_level": "h2"
+      }
+    },
+    "product-recommendation": {
+      "type": "product-recommendation",
+      "blocks": {
+        "42cf6e8a-c4ee-4230-8ea5-1e97d8d2c082": {
+          "type": "collection",
+          "settings": {
+            "title": "Pairs well with",
+            "collection": "add-ons"
+          }
+        }
+      },
+      "block_order": [
+        "42cf6e8a-c4ee-4230-8ea5-1e97d8d2c082"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "title": "",
+        "css_class": "",
+        "show_recently_viewed": true
+      }
+    },
+    "product-ugc": {
+      "type": "product-ugc",
+      "blocks": {
+        "4ee284ed-a0f8-4d49-be02-c8b21972d139": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/baddadbeerreview_2021_instagram_influencers_re-min_50ef2d91-9097-4d8a-b4e9-a2f69a803bef.jpg"
+          }
+        },
+        "96300091-570e-4b48-b594-48110808e423": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/FE8EC1BD-4F44-411A-B802-08B99D749488-min_e58765ff-0cf2-45c9-aed2-c84ade3c8d53.jpg"
+          }
+        },
+        "1cd7df74-e09e-4123-bedd-61ecc5bbfb6e": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/iamkingcole_2022_brand_ambassadors_2021_10_03_11_08_19-min_8855518d-5d6b-4039-a7ca-387c1745efd7.jpg"
+          }
+        },
+        "c0b2ee6a-3095-42a6-b19e-5e77d8e115f2": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/image_6483441-1-min_3ee76beb-55c8-48fc-b9c8-72b6f652315e.jpg"
+          }
+        },
+        "5d6b51fd-6d3b-49c5-87c9-aac27ebfcc54": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/mr_mackenzie_2021_instagram_influencers_2021_11_17_02_02_45-min_0fa46a67-5d99-4d76-a223-6c14e64d004e.jpg"
+          }
+        },
+        "b0c56ae4-bd13-482c-967b-d7753518d1a8": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/nate_thomassss_2022_brand_ambassadors_2021_10_24_06_12_40-min_1158ff54-36ee-47f6-9787-c2b910e7ed8b.jpg"
+          }
+        },
+        "bb399c32-af3b-4b9c-9797-4ee4d5a735d5": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/nateholley18_2021_instagram_influencers_2021_10_02_10_30_41-min_c88fd8d0-51f2-4145-9ee5-a556e722ab39.jpg"
+          }
+        },
+        "034e130a-b5ea-4dd5-9091-9434df41ff96": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/Spence_Spends-min_d77aea9a-5fd4-4ece-9753-7017c45e231a.jpg"
+          }
+        },
+        "44406ca3-e072-45e3-ad31-69ba9474c6a4": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/tecumseh_x_2021_instagram_influencers_2021_08_15_07_02_02-min_1f86c878-d41f-4cf7-b22e-eae6b1ff6e84.jpg"
+          }
+        },
+        "601526ce-365a-4346-ae93-913a23c18348": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/therealfrankpascale_2021_instagram_influencers_2021_07_31_03_31_25-min_6c767a60-9ee8-45d5-af1e-cee104c80855.jpg"
+          }
+        },
+        "8603a590-3024-49ba-945d-d16c80b1d665": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/TrueClassic-3_copy-min.jpg"
+          }
+        },
+        "b6b64311-ffcb-4643-8d06-c23e4d908478": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/zenmotorcyclemaintenance_2022_brand_ambassadors_2022_01_25_01_48_06-min.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "4ee284ed-a0f8-4d49-be02-c8b21972d139",
+        "96300091-570e-4b48-b594-48110808e423",
+        "1cd7df74-e09e-4123-bedd-61ecc5bbfb6e",
+        "c0b2ee6a-3095-42a6-b19e-5e77d8e115f2",
+        "5d6b51fd-6d3b-49c5-87c9-aac27ebfcc54",
+        "b0c56ae4-bd13-482c-967b-d7753518d1a8",
+        "bb399c32-af3b-4b9c-9797-4ee4d5a735d5",
+        "034e130a-b5ea-4dd5-9091-9434df41ff96",
+        "44406ca3-e072-45e3-ad31-69ba9474c6a4",
+        "601526ce-365a-4346-ae93-913a23c18348",
+        "8603a590-3024-49ba-945d-d16c80b1d665",
+        "b6b64311-ffcb-4643-8d06-c23e4d908478"
+      ],
+      "disabled": true,
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "heading": "Trusted by 2.5+ Million Men Worldwide",
+        "sub_heading": ""
+      }
+    },
+    "product-okendo": {
+      "type": "product-okendo",
+      "settings": {
+      }
+    },
+    "product-faqs": {
+      "type": "product-faqs",
+      "blocks": {
+        "eb864e7b-21d0-41d0-b466-72df0716784e": {
+          "type": "block",
+          "settings": {
+            "question": "What are the features of a True Classic crew neck t-shirt?",
+            "paragraph": "<p>Answer Every guy looks great in classic crew necks. They flatter the arms, chest, and back. And if you pick the right shirt, it’ll last you a lifetime. Try our <a href=\"https:\/\/www.trueclassictees.com\/collections\/pocket-tees\">crews with pockets <\/a>or without them. Also available in <a href=\"https:\/\/www.trueclassictees.com\/collections\/long-sleeve-tees\">long sleeve crews<\/a>.<\/p><p>All of our classic, slim fit crew neck tees are fitted and sized to flatter your body — no matter what shape or size. That’s because we know the difference between an ok shirt and a great shirt — it’s all in how a shirt sits on your arms and shoulders. Plus, we put a lot of work into making sure our shirts won’t shrink and your back won’t itch (our shirts are tagless). Our cotton crew neck t shirt are perfectly balanced with polyester for a slim fitted crew.<\/p>"
+          }
+        },
+        "22718428-f85b-4231-809c-25ea29ce086d": {
+          "type": "block",
+          "settings": {
+            "question": "Which crew necks are most popular?",
+            "paragraph": "<p>Keep it simple with the essential <a href=\"https:\/\/www.trueclassictees.com\/products\/white-crew-neck-tee\">white crew<\/a> or <a href=\"https:\/\/www.trueclassictees.com\/products\/black-crew-neck-tee\">black crew neck shirt<\/a>. You can purchase <a href=\"https:\/\/www.trueclassictees.com\/products\/the-classic-pack\">crew 3 packs of the basics<\/a> or our staple<a href=\"https:\/\/www.trueclassictees.com\/products\/staple-pack\"> 6 pack of crews<\/a>, so your wardrobe has a foundation to build on.<\/p>"
+          }
+        },
+        "06939478-7ce2-4b6f-a88c-38bfe0be5971": {
+          "type": "block",
+          "settings": {
+            "question": "How should a crew neck fit your body?",
+            "paragraph": "<p>A crew neck should accentuate your upper body, primarily your arms and shoulders. It should fit snugly around your neck, but you shouldn’t feel constrained or choked. Use our <a href=\"https:\/\/www.trueclassictees.com\/pages\/calculator\">Find My Fit calculator<\/a> to find the best crew neck size.<\/p>"
+          }
+        },
+        "22fa6d2b-a195-49a4-b58d-996f222ceae9": {
+          "type": "block",
+          "settings": {
+            "question": "What should men avoid when buying a men's crew neck t-shirt?",
+            "paragraph": "<p>One of our biggest pet peeves is gathering around the crew neck collar. When you sport a crew neck, it should lay flat along your chest. But if it gathers and doesn’t sit right around your collarbone … run for the hills.<\/p>"
+          }
+        },
+        "0b34b159-5b77-4233-8659-391a4995e07d": {
+          "type": "block",
+          "settings": {
+            "question": "How do you style a men's crew neck t-shirt?",
+            "paragraph": "<p>In warmer months, style your crew neck with slim-fit jeans for a night out on the town. And as it cools off, reach for your favorite <a href=\"https:\/\/www.trueclassictees.com\/collections\/bottoms-1\" title=\"https:\/\/www.trueclassictees.com\/collections\/bottoms-1\">fleece joggers<\/a> and layer your crew neck under a quality hoodie.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "eb864e7b-21d0-41d0-b466-72df0716784e",
+        "22718428-f85b-4231-809c-25ea29ce086d",
+        "06939478-7ce2-4b6f-a88c-38bfe0be5971",
+        "22fa6d2b-a195-49a4-b58d-996f222ceae9",
+        "0b34b159-5b77-4233-8659-391a4995e07d"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "faq_title": "FAQ"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product-video-with-text",
+    "product-recommendation",
+    "product-ugc",
+    "product-okendo",
+    "product-faqs"
+  ]
+}

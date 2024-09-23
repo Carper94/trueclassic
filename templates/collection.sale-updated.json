@@ -1,0 +1,493 @@
+{
+  "sections": {
+    "pwd_scrollable_nav_whffp3": {
+      "type": "pwd-scrollable-nav",
+      "blocks": {
+        "menu_item_xnGgNq": {
+          "type": "menu_item",
+          "settings": {
+            "country_code": "US",
+            "exclude_country_code": "",
+            "text": "Crew Necks",
+            "url": "shopify:\/\/collections\/crew-neck-tees",
+            "image": "shopify:\/\/shop_images\/mobile_scroll_nav_crew_necks.png",
+            "link_text_color": "#2e2520"
+          }
+        },
+        "menu_item_JY8VzN": {
+          "type": "menu_item",
+          "settings": {
+            "country_code": "US",
+            "exclude_country_code": "",
+            "text": "V Necks",
+            "url": "shopify:\/\/collections\/v-neck-tees",
+            "image": "shopify:\/\/shop_images\/mobile_scroll_nav_v_necks.png",
+            "link_text_color": "#2e2520"
+          }
+        },
+        "menu_item_E4WMAz": {
+          "type": "menu_item",
+          "settings": {
+            "country_code": "US",
+            "exclude_country_code": "",
+            "text": "Polos",
+            "url": "shopify:\/\/collections\/polos",
+            "image": "shopify:\/\/shop_images\/mobile_scroll_nav_polos.png",
+            "link_text_color": "#2e2520"
+          }
+        },
+        "menu_item_t3FLeD": {
+          "type": "menu_item",
+          "settings": {
+            "country_code": "US",
+            "exclude_country_code": "",
+            "text": "Long Sleeve",
+            "url": "shopify:\/\/collections\/long-sleeve-tees",
+            "image": "shopify:\/\/shop_images\/mobile_scroll_nav_longs_sleeve.png",
+            "link_text_color": "#2e2520"
+          }
+        },
+        "menu_item_7kz7aW": {
+          "type": "menu_item",
+          "settings": {
+            "country_code": "US",
+            "exclude_country_code": "",
+            "text": "Bottoms",
+            "url": "shopify:\/\/collections\/mens-bottoms",
+            "image": "shopify:\/\/shop_images\/mobile_scroll_nav_bottoms.png",
+            "link_text_color": "#2e2520"
+          }
+        },
+        "menu_item_EY7KWr": {
+          "type": "menu_item",
+          "settings": {
+            "country_code": "US",
+            "exclude_country_code": "",
+            "text": "Outwear",
+            "url": "shopify:\/\/collections\/outer-layers",
+            "image": "shopify:\/\/shop_images\/mobile_scroll_nav_outwear.png",
+            "link_text_color": "#2e2520"
+          }
+        },
+        "menu_item_qgpfTK": {
+          "type": "menu_item",
+          "settings": {
+            "country_code": "US",
+            "exclude_country_code": "",
+            "text": "Activewear",
+            "url": "shopify:\/\/collections\/activewear",
+            "image": "shopify:\/\/shop_images\/mobile_scroll_nav_active_wear.png",
+            "link_text_color": "#2e2520"
+          }
+        },
+        "menu_item_ApwLrG": {
+          "type": "menu_item",
+          "settings": {
+            "country_code": "US",
+            "exclude_country_code": "",
+            "text": "Underwear",
+            "url": "shopify:\/\/collections\/mens-boxer-briefs",
+            "image": "shopify:\/\/shop_images\/mobile_scroll_nav_underwear.png",
+            "link_text_color": "#2e2520"
+          }
+        },
+        "menu_item_bdUiPy": {
+          "type": "menu_item",
+          "settings": {
+            "country_code": "US",
+            "exclude_country_code": "",
+            "text": "Caps",
+            "url": "shopify:\/\/collections\/exchange-cap",
+            "image": "shopify:\/\/shop_images\/mobile_scroll_nav_caps.png",
+            "link_text_color": "#2e2520"
+          }
+        },
+        "menu_item_pMaxim": {
+          "type": "menu_item",
+          "settings": {
+            "country_code": "US",
+            "exclude_country_code": "",
+            "text": "Packs",
+            "url": "shopify:\/\/collections\/exclusive-gifts",
+            "image": "shopify:\/\/shop_images\/mobile_scroll_nav_packs.png",
+            "link_text_color": "#2e2520"
+          }
+        },
+        "menu_item_wqnV3H": {
+          "type": "menu_item",
+          "settings": {
+            "country_code": "US",
+            "exclude_country_code": "",
+            "text": "Button Ups",
+            "url": "shopify:\/\/collections\/button-up-shirt",
+            "image": "shopify:\/\/shop_images\/mobile_scroll_nav_button_ups.png",
+            "link_text_color": "#2e2520"
+          }
+        },
+        "menu_item_6JGnqy": {
+          "type": "menu_item",
+          "settings": {
+            "country_code": "US",
+            "exclude_country_code": "",
+            "text": "Active Tops",
+            "url": "shopify:\/\/collections\/mens-activewear-tops",
+            "image": "shopify:\/\/shop_images\/mobile_scroll_nav_active_tops.png",
+            "link_text_color": "#2e2520"
+          }
+        },
+        "menu_item_MyxfKT": {
+          "type": "menu_item",
+          "settings": {
+            "country_code": "US",
+            "exclude_country_code": "",
+            "text": "Henleys",
+            "url": "shopify:\/\/collections\/henleys",
+            "image": "shopify:\/\/shop_images\/mobile_scroll_nav_henleys.png",
+            "link_text_color": "#2e2520"
+          }
+        },
+        "menu_item_NaGhAk": {
+          "type": "menu_item",
+          "settings": {
+            "country_code": "US",
+            "exclude_country_code": "",
+            "text": "Sweatshirts",
+            "url": "shopify:\/\/collections\/mens-sweaters",
+            "image": "shopify:\/\/shop_images\/mobile_scroll_nav_sweatshirts.png",
+            "link_text_color": "#2e2520"
+          }
+        },
+        "menu_item_btmJYP": {
+          "type": "menu_item",
+          "settings": {
+            "country_code": "US",
+            "exclude_country_code": "",
+            "text": "Talls",
+            "url": "shopify:\/\/collections\/tall-crew-neck",
+            "image": "shopify:\/\/shop_images\/mobile_scroll_nav_talls.png",
+            "link_text_color": "#2e2520"
+          }
+        },
+        "menu_item_Xj8fB9": {
+          "type": "menu_item",
+          "settings": {
+            "country_code": "US",
+            "exclude_country_code": "",
+            "text": "Socks",
+            "url": "shopify:\/\/collections\/mens-socks",
+            "image": "shopify:\/\/shop_images\/mobile_scroll_nav_socks.png",
+            "link_text_color": "#2e2520"
+          }
+        }
+      },
+      "block_order": [
+        "menu_item_xnGgNq",
+        "menu_item_JY8VzN",
+        "menu_item_E4WMAz",
+        "menu_item_t3FLeD",
+        "menu_item_7kz7aW",
+        "menu_item_EY7KWr",
+        "menu_item_qgpfTK",
+        "menu_item_ApwLrG",
+        "menu_item_bdUiPy",
+        "menu_item_pMaxim",
+        "menu_item_wqnV3H",
+        "menu_item_6JGnqy",
+        "menu_item_MyxfKT",
+        "menu_item_NaGhAk",
+        "menu_item_btmJYP",
+        "menu_item_Xj8fB9"
+      ],
+      "disabled": true,
+      "settings": {
+        "show_only_home": true
+      }
+    },
+    "491402ad-79dc-43a3-a28a-9511e9cae9b3": {
+      "type": "tc-image-banner",
+      "blocks": {
+        "heading_KkkP9a": {
+          "type": "heading",
+          "settings": {
+            "title": "GET UP TO 60% OFF",
+            "heading_level": "h2",
+            "heading_size": "h0",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-red",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-none",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "64d15222-d88b-49d0-85db-876a879e3560": {
+          "type": "heading",
+          "settings": {
+            "title": "Valentine’s Day Sale",
+            "heading_level": "h2",
+            "heading_size": "h4",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-red",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-none",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_KkkP9a",
+        "64d15222-d88b-49d0-85db-876a879e3560"
+      ],
+      "custom_css": [
+        "@media screen and (max-width: 768.9px) {p {max-width: 300px; margin-left: auto; margin-right: auto; }}",
+        "@media screen and (max-width: 340px) {h1 {font-size: 1.5rem; } p {font-size: 0.7rem; max-width: 240px; }}",
+        "h2.h4 {font-weight: 300; margin-top: -10px;}"
+      ],
+      "settings": {
+        "ab_class": "",
+        "country_code": "",
+        "exclude_country_code": "",
+        "class_test": "section-class",
+        "hidden": false,
+        "section_bg_color": "#fffae9",
+        "full_width": true,
+        "breakpoint": 768,
+        "section_max_width": 4000,
+        "section_height": "adapt",
+        "media_position": "unset",
+        "media_size": "full",
+        "banner_link": "",
+        "banner_link_title": "True Classic Sale",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "inner_padding_top": 0,
+        "inner_padding_bottom": 0,
+        "aspect_ratio": 50,
+        "section_image": "shopify:\/\/shop_images\/V2_Desktop_Sale_Banner.png",
+        "section_image_mobile": "shopify:\/\/shop_images\/V2_-_Mobile_Sale_Banner.png",
+        "media_margin_left": 0,
+        "media_margin_right": 0,
+        "media_margin_top": 0,
+        "media_margin_bottom": 0,
+        "enable_lazyload": false,
+        "content_width": 100,
+        "content_fit": false,
+        "text_position": "center",
+        "text_position_mobile": "center",
+        "content_padding_dt": "0",
+        "content_padding_mb": "0",
+        "enable_absolute": false,
+        "enable_distance_top": true,
+        "content_top": 50,
+        "content_top_mobile": 48,
+        "enable_distance_bottom": false,
+        "content_bottom": 50,
+        "enable_distance_left": true,
+        "content_left": 50,
+        "enable_distance_right": false,
+        "content_right": 50,
+        "mobile_positioning": "unset",
+        "reverse_mobile": true,
+        "mobile_overlay": false,
+        "mobile_overlay_color": "#000000",
+        "mobile_overlay_opacity": 0.4,
+        "enable_prime_style": false,
+        "enable_custom_styles": false,
+        "custom_styles": "",
+        "custom_styles_mobile": ""
+      }
+    },
+    "tc_collection_inline_DNPgWV": {
+      "type": "tc-collection-inline",
+      "settings": {
+        "ab_class": "",
+        "bg_color": "#fcfcfc",
+        "country_code": "",
+        "exclude_country_code": "",
+        "title": "TOP DEALS",
+        "subheader": "60% OFF & UP",
+        "heading_level": "h2",
+        "heading_size": "h4",
+        "heading_font": "staff-x-condensed-type",
+        "heading_color": "color-red",
+        "heading_color_inverse": false,
+        "heading_margin_top": "mg-t-none",
+        "heading_margin_bottom": "mg-b-none",
+        "heading_underline": false,
+        "line_break_dot": false,
+        "use_mobile_quick_add_only": false,
+        "change_discount_placement": false,
+        "collection": "top-deals",
+        "products_to_show": 10,
+        "columns_desktop": 5,
+        "full_width": true,
+        "enable_section_width": false,
+        "max_section_width_desktop": 1200,
+        "enable_desktop_slider": true,
+        "enable_card_width": true,
+        "max_card_width_desktop": 690,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 24,
+        "padding_bottom": 28
+      }
+    },
+    "tc_collection_inline_kM7NbV": {
+      "type": "tc-collection-inline",
+      "settings": {
+        "ab_class": "",
+        "bg_color": "#fcfcfc",
+        "country_code": "",
+        "exclude_country_code": "",
+        "title": "BEST SELLERS",
+        "subheader": "60% OFF & UP",
+        "heading_level": "h2",
+        "heading_size": "h4",
+        "heading_font": "staff-x-condensed-type",
+        "heading_color": "color-red",
+        "heading_color_inverse": false,
+        "heading_margin_top": "mg-t-none",
+        "heading_margin_bottom": "mg-b-none",
+        "heading_underline": false,
+        "line_break_dot": false,
+        "use_mobile_quick_add_only": false,
+        "change_discount_placement": false,
+        "collection": "sale",
+        "products_to_show": 25,
+        "columns_desktop": 5,
+        "full_width": true,
+        "enable_section_width": false,
+        "max_section_width_desktop": 1200,
+        "enable_desktop_slider": false,
+        "enable_card_width": true,
+        "max_card_width_desktop": 690,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 0,
+        "padding_bottom": 28
+      }
+    },
+    "main": {
+      "type": "collection",
+      "disabled": true,
+      "custom_css": [
+        ".headline {text-align: center; margin: 20px auto; color: #971b1b;}"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "heading": "SHOP ENTIRE SALE",
+        "clearance_text": "",
+        "clearance_link": "",
+        "enable_featured_promo_1": false,
+        "enable_wide_promo_1": false,
+        "enable_wider_promo_1": false,
+        "promo_button_text_1": "Take the Quiz",
+        "hide_promo_1": false,
+        "promo_image_1": "shopify:\/\/shop_images\/tc_pickle_ball-203_1.png",
+        "aspect_ratio_1": 160,
+        "promo_position_1": 8,
+        "promo_preheading_1": "",
+        "circle_preheading_1": false,
+        "promo_heading_1": "",
+        "underline_heading_1": false,
+        "promo_paragraph_1": "",
+        "promo_link_1": "",
+        "overlay_opacity_1": 0,
+        "promo_alignment_1": "left",
+        "enable_featured_promo_2": false,
+        "enable_wide_promo_2": false,
+        "enable_wider_promo_2": false,
+        "hide_promo_2": false,
+        "aspect_ratio_2": 54,
+        "promo_position_2": 8,
+        "promo_preheading_2": "",
+        "circle_preheading_2": false,
+        "promo_heading_2": "",
+        "underline_heading_2": false,
+        "promo_paragraph_2": "",
+        "promo_link_2": "",
+        "overlay_opacity_2": 0,
+        "promo_alignment_2": "left",
+        "promo_style_2": "style-1",
+        "enable_featured_image": false,
+        "section_image": "shopify:\/\/shop_images\/tc_pickle_ball-203_1.png",
+        "section_image_mobile": "shopify:\/\/shop_images\/tc_pickle_ball-203_1_1.png",
+        "image_position": 8,
+        "enable_featured_image_2": false,
+        "image_position_2": 12
+      }
+    },
+    "16542857304cb55b12": {
+      "type": "faq",
+      "blocks": {
+        "06939478-7ce2-4b6f-a88c-38bfe0be5971": {
+          "type": "block",
+          "settings": {
+            "question": "{{ collection.title }}",
+            "paragraph": "<p>Every guy looks great in classic crew necks. They flatter the arms, chest, and back. And if you pick the right shirt, it’ll last you a lifetime. Try our <a href=\"https:\/\/trueclassictees.com\/collections\/pocket-tees\">crews with pockets <\/a>or without them. Also available in <a href=\"https:\/\/trueclassictees.com\/collections\/long-sleeve-tees\">long sleeve crews<\/a>.<\/p>"
+          }
+        },
+        "22fa6d2b-a195-49a4-b58d-996f222ceae9": {
+          "type": "block",
+          "settings": {
+            "question": "TRUE CLASSIC’S CREW NECK T-SHIRT FEATURES",
+            "paragraph": "<p>All of our classic, slim fit crew neck tees are fitted and sized to flatter your body — no matter what shape or size. That’s because we know the difference between an ok shirt and a great shirt — it’s all in how a shirt sits on your arms and shoulders. Plus, we put a lot of work into making sure our shirts won’t shrink and your back won’t itch (our shirts are tagless). Our cotton crew neck t shirt are perfectly balanced with polyester for a slim fitted crew.<\/p>"
+          }
+        },
+        "0b34b159-5b77-4233-8659-391a4995e07d": {
+          "type": "block",
+          "settings": {
+            "question": "OUR MOST POPULAR CREWS",
+            "paragraph": "<p>Keep it simple with the essential <a href=\"https:\/\/trueclassictees.com\/products\/white-crew-neck-tee\">white crew <\/a>or <a href=\"https:\/\/trueclassictees.com\/products\/black-crew-neck-tee\">black crew neck shirt<\/a>. You can purchase <a href=\"https:\/\/trueclassictees.com\/products\/the-classic-pack\">crew 3 packs of the basics <\/a>or our staple <a href=\"https:\/\/trueclassictees.com\/products\/staple-pack\">6 pack of crews<\/a>, so your wardrobe has a foundation to build on.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "06939478-7ce2-4b6f-a88c-38bfe0be5971",
+        "22fa6d2b-a195-49a4-b58d-996f222ceae9",
+        "0b34b159-5b77-4233-8659-391a4995e07d"
+      ],
+      "custom_css": [
+        ".accordion__tab {text-transform: uppercase;}"
+      ],
+      "settings": {
+        "faq_title": "FAQ",
+        "background_color": "#ffffff",
+        "columns_desktop": 3,
+        "columns_mobile": "1",
+        "column_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "427b0d34-86d7-4271-91db-d454a2203682": {
+      "type": "collection-faq",
+      "disabled": true,
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "background_color": "#ffffff",
+        "columns_desktop": 3,
+        "columns_mobile": "1",
+        "column_alignment": "left",
+        "collection_list_title": "",
+        "collection_list_title_links": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "pwd_scrollable_nav_whffp3",
+    "491402ad-79dc-43a3-a28a-9511e9cae9b3",
+    "tc_collection_inline_DNPgWV",
+    "tc_collection_inline_kM7NbV",
+    "main",
+    "16542857304cb55b12",
+    "427b0d34-86d7-4271-91db-d454a2203682"
+  ]
+}

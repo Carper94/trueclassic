@@ -1,0 +1,484 @@
+{% style %}
+  .cart-line-item.endrock-pack-builder-item .cart-line-item__image-wrapper {
+    height: fit-content;
+    padding-bottom: 0;
+  }
+  .cart-line-item.endrock-pack-builder-item .cart-line-item__image-wrapper svg {
+    width: 100%;
+    height: auto;
+  }
+  .cart-line-item.endrock-pack-builder-item summary {
+    cursor: pointer;
+  }
+  .cart-line-item.endrock-pack-builder-item .cart-line-item__price {
+    flex-wrap: nowrap;
+  }
+{% endstyle %}
+
+{% comment %} PACK BUILDER {% endcomment %}
+{% assign packBuilderItemsPrice = 0 %}
+{% assign packBuilderItemsFinalPrice = 0 %}
+{% assign packBuilderItemsSize = 0 %}
+{% assign packBuilderItemsId = '' | split: ',' %}
+{% assign packBuilderItemsName = '' | split: ',' %}
+{% assign packBuilderItemsOption = '' | split: ',' %}
+
+<ul class='cart-line-item-list'>
+  {% for line_item in cart.items %}
+    {% assign index = forloop.index0 %}
+    {% assign next_index = index | plus: 1 %}
+    {% assign next_line_item = cart.items[next_index] %}
+    {% assign is_last_pack_builder_item = true %}
+    {% assign discounted = false %}
+    {% if line_item.product.tags contains 'Standard_Price' %}
+      {% assign discounted = true %}
+    {% endif %}
+    {% if next_line_item.properties._key == line_item.properties._key %}
+      {% assign is_last_pack_builder_item = false %}
+    {% endif %}
+    {% assign is_pack_builder_item = line_item.properties._bundle %}
+    {% assign is_free_item = line_item.properties._free %}
+    {% assign is_free_item_w_purchase = line_item.properties._free_w_purchase %}
+    {% assign free_tier = line_item.properties._tier %}
+
+    {% assign selected = '' %}
+
+    {% unless line_item.properties._bundle != blank %}
+      <li
+        class='cart-line-item'
+        data-line-item-key='{{ line_item.key }}'
+        {% unless is_free_item_w_purchase %}
+          data-line-item-price='{{ line_item.final_line_price }}'
+        {% else %}
+          data-line-item-price='0'
+        {% endunless %}
+        data-discounted='{{ discounted }}'
+      >
+        <div class='cart-line-item__image-container'>
+          <div class='cart-line-item__image-wrapper'>
+            <img
+              class='cart-line-item__image'
+              loading='lazy'
+              src='{{ line_item.image | image_url: width: 100 }}'
+              alt='{{ line_item.image.alt }}'
+              height='100'
+              width='100'
+            >
+          </div>
+        </div>
+        <div class='cart-line-item__details'>
+          <div class='cart-line-item__title'>
+            <div class='h5'>
+              {% liquid
+                assign p_handle = line_item.product.handle
+                assign p_metafields = all_products[p_handle].metafields
+                assign alt_name = p_metafields.custom.alternate_product_name
+              %}
+              {% if is_pack_builder_item or is_free_item or is_free_item_w_purchase %}
+                {%- if alt_name -%}
+                  <span class='naming-convention-test-a'>{{ line_item.product.title }}</span>
+                  <span class='naming-convention-test-b' style='display:none;'>
+                    {{- alt_name -}}
+                  </span>
+                {%- else -%}
+                  {{ line_item.product.title }}
+                {%- endif -%}
+              {% else %}
+                {% unless line_item.product.tags contains 'Gift Wrap' %}
+                  <a href='{{ line_item.url }}'>
+                {% endunless %}
+                  {%- if alt_name -%}
+                    <span class='naming-convention-test-a'>{{ line_item.product.title }}</span>
+                    <span class='naming-convention-test-b' style='display:none;'>
+                      {{- alt_name -}}
+                    </span>
+                  {%- else -%}
+                    {{ line_item.product.title }}
+                  {%- endif -%}
+                {% unless line_item.product.tags contains 'Gift Wrap' %}
+                  </a>
+                {% endunless %}
+              {% endif %}
+            </div>
+          </div>
+
+          <div class='cart-line-item__options h5 light-font'>
+            {% unless line_item.product.has_only_default_variant %}
+              {% unless line_item.selling_plan_allocation.selling_plan.name %}
+                <p>{{ selected }}</p>
+                <ul>
+                  {% if is_free_item %}
+                    {% for option in line_item.options_with_values %}
+                      {% if option.value == selected %}
+                        <li selected>{{ option.value }}</li>
+                      {% else %}
+                        <li>{{ option.value }}</li>
+                      {% endif %}
+                    {% endfor %}
+                  {% elsif line_item.product.type == 'Gift Cards' or line_item.product.type == 'Gift Card'  %}
+                    <li>{{ line_item.final_line_price | money }}</li>
+                  {% else %}
+                    {% for option in line_item.options_with_values %}
+                      {% if option.name == 'Size' %}
+                        <li>{% render 'size-text', size: option.value %}</li>
+                        {% assign selected = option.value %}
+                      {% else %}
+                        <li>{{ option.value }}</li>
+                      {% endif %}
+                    {% endfor %}
+                  {% endif %}
+                </ul>
+              {% endunless %}
+              <ul>
+                {% if line_item.selling_plan_allocation.selling_plan.name %}
+                  {%- liquid
+                    assign selling_plan_name = line_item.selling_plan_allocation.selling_plan.name
+                  -%}
+                  {% for option in line_item.options_with_values %}
+                    {% if option.name == 'Size' %}
+                      <li>{% render 'size-text', size: option.value %}</li>
+                      {% assign selected = option.value %}
+                    {% endif %}
+                  {% endfor %}
+                  <li>
+                    <span class='cart-line-item__selling-plan'>
+                      {{ selling_plan_name }}
+                    </span>
+                  </li>
+                {% endif %}
+              </ul>
+            {% endunless %}
+          </div>
+
+          <div class='cart-line-item__actions'>
+            <div
+              class='cart-line-item__quantity-wrapper'
+              {% if is_pack_builder_item
+                or is_free_item
+                or line_item.product.handle contains 'inveterate-subscription'
+                or line_item.properties._free_w_purchase
+              %}
+                style='cursor: not-allowed; opacity: 0; position: absolute; height: 0; width: 0; overflow: hidden;'
+              {% endif %}
+            >
+              <select
+                data-line-item-quantity-input='true'
+                data-line-item-id='{{ line_item.product.id }}'
+                data-line-item-key='{{ line_item.key }}'
+                id='quantity-{{ line_item.key }}'
+
+                {% if is_pack_builder_item
+                  or is_free_item
+                  or line_item.product.handle contains 'inveterate-subscription'
+                  or line_item.properties._free_w_purchase
+                %}
+                  disabled='true'
+                {% endif %}
+              >
+                {% assign upper_quantity_limit = line_item.quantity | plus: 9 %}
+                {% assign range = (1..upper_quantity_limit) %}
+                {% for number in range %}
+                  {% assign is_selected = false %}
+                  {% if line_item.quantity == number %}
+                    {% assign is_selected = true %}
+                  {% endif %}
+                  <option
+                    value='{{ number }}'
+                    {% if is_selected %}
+                      selected
+                    {% endif %}
+                  >
+                    {{ number }}
+                  </option>
+                {% endfor %}
+              </select>
+              {% render 'icon-chevron-down' %}
+              <label
+                class='visually-hidden'
+                for='quantity-{{ line_item.key }}'
+                >Quantity</label
+              >
+            </div>
+          <div class='cart-line-item__remove-wrapper'>
+            {% if is_pack_builder_item %}
+              {% if is_last_pack_builder_item %}
+                <button
+                  class='text-button light-font h5'
+                  type='button'
+                  data-delegate='packremove'
+                  data-line-item-id='{{ line_item.product.id }}'
+                  data-line-item-key='{{ line_item.key }}'
+                  data-pack-key='{{ line_item.properties['_key'] }}'
+                  onclick="dataLayer.push({
+                    'event': 'remove_from_cart',
+                    'items': [{
+                        'item_id': '{{ line_item.product_id }}',
+                        'item_name': '{{ line_item.product.title | remove: "'" | remove: '"' }}',
+                        'item_brand': '{{ line_item.vendor | remove: "'" | remove: '"' }}',
+                        'item_category': '{{ product.type | remove: "'" | remove: '"' }}',
+                        'item_variant_title': '{{ product.selected_or_first_available_variant.title }}',
+                        'item_variant': '{{ product.selected_or_first_available_variant.sku }}',
+                        'currency': '{{ localization.country.currency.iso_code | json }}',
+                        'price': {{ product.price | money_without_currency }},
+                        'quanity': {{ line_item.quantity }}
+                      }]
+                    });
+                  "
+                >
+                  <span class='visually-hidden'>Remove Pack</span>
+                </button>
+              {% endif %}
+            {% elsif is_free_item %}
+              <button
+                class='free-line-item text-button light-font h5'
+                type='button'
+                data-delegate='lineitemremove'
+                data-tier='{{ free_tier }}'
+                data-final-price='{{ line_item.final_price }}'
+                data-line-item-id='{{ line_item.product.id }}'
+                data-line-item-key='{{ line_item.key }}'
+                onclick="dataLayer.push({
+                  'event': 'remove_from_cart',
+                  'items': [{
+                        'item_id': '{{ line_item.product_id }}',
+                        'item_name': '{{ line_item.product.title | remove: "'" | remove: '"' }}',
+                        'item_brand': '{{ line_item.vendor | remove: "'" | remove: '"' }}',
+                        'item_category': '{{ product.type | remove: "'" | remove: '"' }}',
+                        'item_variant_title': '{{ product.selected_or_first_available_variant.title }}',
+                        'item_variant': '{{ product.selected_or_first_available_variant.sku }}',
+                        'currency': '{{ localization.country.currency.iso_code | json }}',
+                        'price': {{ product.price | money_without_currency }},
+                        'quanity': {{ line_item.quantity }}
+                    }]
+                  });
+                "
+              >
+                <span class='visually-hidden'>Remove</span>
+              </button>
+            {% else %}
+              <button
+                class='text-button light-font h5'
+                type='button'
+                data-delegate='lineitemremove'
+                data-line-item-id='{{ line_item.product.id }}'
+                data-line-item-key='{{ line_item.key }}'
+                onclick="dataLayer.push({
+                  'event': 'remove_from_cart',
+                  'items': [{
+                        'item_id': '{{ line_item.product_id }}',
+                        'item_name': '{{ line_item.product.title | remove: "'" | remove: '"' }}',
+                        'item_brand': '{{ line_item.vendor | remove: "'" | remove: '"' }}',
+                        'item_category': '{{ product.type | remove: "'" | remove: '"' }}',
+                        'item_variant_title': '{{ product.selected_or_first_available_variant.title }}',
+                        'item_variant': '{{ product.selected_or_first_available_variant.sku }}',
+                        'currency': '{{ localization.country.currency.iso_code | json }}',
+                        'price': {{ product.price | money_without_currency}},
+                        'quanity': {{line_item.quantity}}
+                    }]
+                  });
+                "
+              >
+                  <span class='visually-hidden'>Remove</span>
+                </button>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        <div class='cart-line-item__price h5' style='text-align: right;'>
+          {% assign compare_at_price = line_item.product.compare_at_price
+            | times: line_item.quantity
+          %}
+          {% if is_free_item or is_free_item_w_purchase %}
+            {% render 'product-price',
+              price: 0,
+              original_price: line_item.original_line_price,
+              compare_at_price: compare_at_price,
+              discounted_price: 0,
+              product_id: line_item.product.id,
+              variant_id: line_item.product.first_available_variant.id
+            %}
+          {% else %}
+            {% render 'product-price',
+              price: line_item.original_line_price,
+              compare_at_price: compare_at_price,
+              discounted_price: line_item.final_line_price,
+              product_id: line_item.product.id,
+              variant_id: line_item.product.first_available_variant.id
+            %}
+          {% endif %}
+
+          {% comment %} SITEWIDE SALE SETTINGS {% endcomment %}
+          {%- if line_item.product.tags contains 'Sale_Eligible'
+            and settings.hide_sitewide_sale == false
+          -%}
+            <br>
+            <span style='color: #be483a; font-weight: 400;'>EXTRA 25% OFF</span>
+          {%- endif -%}
+          {% comment %} END SITEWIDE SALE SETTINGS {% endcomment %}
+          {%- if settings.hide_bestsellers == false -%}
+            <div class='product-card__label' style='color: #282828;'>BEST SELLER</div>
+          {%- endif -%}
+          {% comment %} GLOBAL SALE {% endcomment %}
+          {% if settings.enable_global_sale == true %}
+            <style>
+              .cart-line-item__price > *:first-child {
+                display: flex;
+                align-items: center;
+                column-gap: 0.5rem;
+              }
+              .cart-line-item__price.h5 .badge-top-bubble {
+                width: fit-content;
+                padding: 0.25rem;
+                font-size: 0.75rem;
+                line-height: 1;
+              }
+            {% if line_item.title contains 'Membership' %}
+
+              [data-line-item-key^="40039101497416"] .cart-line-item__options ul > li:first-child {
+                display: none;
+              }
+              [data-line-item-key^="40039101497416"] .cart-line-item__options ul > li:before {
+                display: none;
+              }
+              {% endif %}
+            </style>
+            {% assign discount_percent = compare_at_price
+              | minus: line_item.original_line_price
+              | times: 100.0
+              | divided_by: compare_at_price
+              | round
+            %}
+            {% unless line_item.id == 39993616400456 or line_item.title contains 'Membership' %}
+              {% unless line_item.title contains 'Gift' or discount_percent == 0 %}
+                {% unless line_item.final_line_price == 0 %}
+                  <div
+                    class='badge-top-bubble'
+                    style='background-color: {{ settings.sale_badge_bg_color }}; color: {{ settings.sale_badge_color }}; margin-left: auto;'
+                  >
+                    {{ discount_percent }}% OFF
+                  </div>
+                {% endunless %}
+              {% endunless %}
+            {% endunless %}
+          {% endif %}
+        </div>
+      </li>
+    {% endunless %}
+
+    {% comment %} PACK BUILDER {% endcomment %}
+    {% if line_item.properties._bundle != blank %}
+      {% assign mult = line_item.product.compare_at_price | times: line_item.quantity  %}
+      {% assign packBuilderItemsPrice = packBuilderItemsPrice | plus: mult %}
+      {% if line_item.product.compare_at_price != line_item.final_line_price %}
+        {% assign packBuilderItemsFinalPrice = packBuilderItemsFinalPrice | plus: line_item.final_line_price %}
+      {% endif %}
+      {% assign packBuilderItemsSize = packBuilderItemsSize | plus: line_item.quantity %}
+      {% capture packBuilderItemsName %}{{ packBuilderItemsName }} {{ line_item.quantity }} {{ line_item.product.title }}, {% endcapture %}
+      {% if line_item.options_with_values[0].name == 'Size' %}
+        {% capture packBuilderItemsOption %}{{ packBuilderItemsOption }}{{ line_item.options_with_values[0].value }}, {% endcapture %}
+      {% endif %}
+      {% capture packBuilderItemsId %}{{ packBuilderItemsId }}{{ line_item.id }},{% endcapture %}
+    {% endif %}
+  {% endfor %}
+  {% assign packBuilderItemsName = packBuilderItemsName | split: ', ' %}
+  {% assign packBuilderItemsOption = packBuilderItemsOption | split: ', ' %}
+  {% if packBuilderItemsPrice > 0 %}
+    <li
+      class='cart-line-item endrock-pack-builder-item'>
+      <div class='cart-line-item__image-container'>
+        <div class='cart-line-item__image-wrapper'>
+          {% render 'icon-pack-builder' %}
+        </div>
+      </div>
+      <div class='cart-line-item__details'>
+        <div class='cart-line-item__title'>
+          <div class='h5'>
+            Crew Neck {{ packBuilderItemsSize }}-Pack
+
+          </div>
+        </div>
+
+        <div class='cart-line-item__options h5 light-font'>
+          <details>
+            <summary>See colors</summary>
+            {% for name in packBuilderItemsName %}
+              <div>{{ name | replace: 'Crew Neck T-Shirt', '' }} ({{ packBuilderItemsOption[forloop.index0] }})</div>
+            {% endfor %}
+          </details>
+        </div>
+            <div
+              class='cart-line-item__quantity-wrapper' style="opacity: 0; position: absolute; height: 0; width: 0; overflow: hidden; visibility: hidden;"
+              {% if is_pack_builder_item
+                or is_free_item
+                or line_item.product.handle contains 'inveterate-subscription'
+                or line_item.properties._free_w_purchase
+              %}
+                style='cursor: not-allowed; opacity: 0; position: absolute; height: 0; width: 0; overflow: hidden;'
+              {% endif %}
+            >
+              <select
+                data-line-item-quantity-input='true'
+                data-line-item-id='{{ line_item.product.id }}'
+                data-line-item-key='{{ line_item.key }}'
+                id='quantity-{{ line_item.key }}'
+
+                {% if is_pack_builder_item
+                  or is_free_item
+                  or line_item.product.handle contains 'inveterate-subscription'
+                  or line_item.properties._free_w_purchase
+                %}
+                  disabled='true'
+                {% endif %}
+              >
+                {% assign upper_quantity_limit = line_item.quantity | plus: 9 %}
+                {% assign range = (1..upper_quantity_limit) %}
+                {% for number in range %}
+                  {% assign is_selected = false %}
+                  {% if line_item.quantity == number %}
+                    {% assign is_selected = true %}
+                  {% endif %}
+                  <option
+                    value='{{ number }}'
+                    {% if is_selected %}
+                      selected
+                    {% endif %}
+                  >
+                    {{ number }}
+                  </option>
+                {% endfor %}
+              </select>
+              {% render 'icon-chevron-down' %}
+              <label
+                class='visually-hidden'
+                for='quantity-{{ line_item.key }}'
+                >Quantity</label
+              >
+            </div>
+        <div class='cart-line-item__actions'>
+          <endrock-pack-builder-remove class='cart-line-item__remove-wrapper'>
+            <button
+              class='text-button light-font h5'
+              type='button'
+              data-ids='{{ packBuilderItemsId }}'
+            >
+              <span class='visually-hidden'>Remove</span>
+            </button>
+          </endrock-pack-builder-remove>
+        </div>
+      </div>
+      <div class='cart-line-item__price h5' style='text-align: right;'>
+        {% if packBuilderItemsFinalPrice != 0 %}
+          <s>
+            <span class='money igComparePrice'
+
+            >{{ packBuilderItemsPrice | money }}</span>
+          </s>
+          <span class='price price--discount igPrice'
+          >{{ packBuilderItemsFinalPrice | money }}</span>
+        {% else %}
+          <span class='price'>{{ packBuilderItemsPrice | money }}</span>
+        {% endif %}
+      </div>
+    </li>
+  {% endif %}
+</ul>

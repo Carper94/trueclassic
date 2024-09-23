@@ -1,0 +1,15 @@
+<div class="size-select">
+  <select id="Option--{{ name }}-{{ value }}-{{ product.id }}" name="Option-{{ name }}">
+    {% for value in values %}
+      <option value="{{ value }}">{{ value }}</option>
+    {% endfor %}
+  </select>
+  <label for="Option--{{ name }}-{{ value }}-{{ product.id }}" class="visually-hidden">
+    {% if product_option.name %}
+      {{ product_option.name }}
+    {% else %}
+      {{ product.id }}
+    {% endif %}
+  </label>
+  {% render 'icon-chevron-down' %}
+</div>

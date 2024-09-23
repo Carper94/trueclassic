@@ -1,0 +1,199 @@
+{% assign videowise_background_id = section.settings.videowise_background_id %}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+    .section-{{ section.id }}-padding .global-media-settings--full-width {
+      padding-bottom: 100% !important;
+    }
+  }
+
+  .videowise-background-w-cover {
+    position: relative
+  }
+
+  .videowise-custom-cover {
+    background: #fafafa;
+    height: 100%;
+    aspect-ratio: 16 / 9;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('https://covers.videowise.com/{% if videowise_background_id != blank %}{{ videowise_background_id }}{% endif %}_DESKTOP.webp?time=1687277557581')
+  }
+
+
+  .videowise-background-component_{% if videowise_background_id != blank %}{{ videowise_background_id }}{% endif %} {
+    width: 100%;
+    background-size: cover;
+  }
+
+  .videowise-cover-component_{% if videowise_background_id != blank %}{{ videowise_background_id }}{% endif %} .vw-root__container .vw--background-widget.vw--background-widget-cover video {
+    object-fit: cover;
+  }
+
+  @media (min-width: 500px) {
+
+    .videowise-background-component_{% if videowise_background_id != blank %}{{ videowise_background_id }}{% endif %} {
+      background-size: cover;
+    }
+
+  }
+{%- endstyle -%}
+
+<div style='background-color: {{ section.settings.bg_color }}' style='position: relative;'>
+  <div class='container video-section section-{{ section.id }}-padding' style='position: relative;'>
+    <div class='videowise-background-w-cover'>
+      <div class='videowise-custom-cover'>
+        <div
+          class='videowise-background videowise-background-component_{% if videowise_background_id != blank %}{{ videowise_background_id }}{% endif %}'
+          id='reeview-app-widget_{% if videowise_background_id != blank %}{{ videowise_background_id }}{% endif %}'
+        >
+          &nbsp;
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Videowise Background",
+  "tag": "section",
+  "class": "section-videowise-background",
+  "settings": [
+    {
+      "type": "text",
+      "id": "videowise_background_id",
+      "label": "Videowise Background ID",
+      "default": "6454008bb3464e002920a115"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Video",
+      "label": "Text"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h3",
+          "label": "H3"
+        },
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "h1",
+          "label": "H1"
+        }
+      ],
+      "default": "h2",
+      "label": "Heading type"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_video_looping",
+      "label": "Enable video looping",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Video settings"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Video"
+    },
+    {
+      "type": "video",
+      "id": "video_mobile",
+      "label": "Video Mobile"
+    },
+    {
+      "type": "header",
+      "content": "Content settings"
+    },
+    {
+      "type": "paragraph",
+      "content": "Paragraph content"
+    },
+    {
+      "type": "video_url",
+      "id": "video_url",
+      "accept": ["youtube", "vimeo"],
+      "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+      "label": "Video URL",
+      "info": "Use vimeo or youtube link"
+    },
+    {
+      "type": "image_picker",
+      "id": "cover_image",
+      "label": "Cover image"
+    },
+    {
+      "type": "text",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Section options"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full width",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Videowise Background"
+    }
+  ]
+}
+{% endschema %}

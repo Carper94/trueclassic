@@ -1,0 +1,587 @@
+<style>
+  @media screen and (min-width: 769px) {
+    .product-card__badge-limited-prime {
+      background-color: {{ settings.sale_badge_bg_color }} !important;
+    }
+  }
+  @media screen and (max-width: 768.9px) {
+    .product-card__badge-limited-prime {
+      background-color: {{ settings.sale_badge_color }} !important;
+    }
+    .sale--only .badge-top-bubble {
+      display: none;
+    }
+  }
+</style>
+
+{%- liquid
+  if product.image != blank
+    assign img = product.image
+  elsif use_variant_image
+    assign img = product.variants[0].featured_image
+  else
+    assign img = product.featured_image
+  endif
+
+  if card_heading_level == blank
+    assign card_heading_level = 'h2'
+  endif
+
+  assign is_discounted = false
+  if product.compare_at_price > product.price
+    assign is_discounted = true
+    capture discount_percent
+      render 'discount-percentage', product: product
+    endcapture
+  endif
+
+  capture price
+    render 'product-price', price: product.price, compare_at_price: product.compare_at_price, product_id: product.id, variant_id: product.first_available_variant.id, is_discounted: is_discounted
+  endcapture
+
+  assign hasSellingPlan = false
+  if product.selling_plan_groups.size > 0
+    assign hasSellingPlan = true
+  endif
+
+  assign title = product.title
+
+  assign unit_title = 'tee'
+  if product.tags contains 'Variety Reviews'
+    assign unit_title = 'item'
+  elsif title contains 'Polo' or title contains 'polo'
+    assign unit_title = 'polo'
+  elsif title contains 'Long Sleeve' or title contains 'long sleeve'
+    assign unit_title = 'shirt'
+  elsif title contains 'Henley' or title contains 'henley'
+    assign unit_title = 'henley'
+  elsif title contains 'Sock' or title contains 'sock' or title contains 'Brief' or title contains 'brief'
+    assign unit_title = 'pair'
+  elsif title contains 'Jogger' or title contains 'jogger'
+    assign unit_title = 'jogger'
+  elsif title contains 'Hoodie'
+    assign unit_title = 'hoodie'
+  elsif title contains 'Cap'
+    assign unit_title = 'cap'
+  elsif title contains 'Jacket'
+    assign unit_title = 'jacket'
+  elsif title contains 'Short' or title contains 'short'
+    unless title contains 'Short Sleeve'
+      assign unit_title = 'short'
+    endunless
+  endif
+
+  assign pdp_link = product.url | within: collection
+
+  for product_option in product.options_with_values
+    if product_option.name == 'Color'
+      assign pdp_color = product_option.values[0]
+    endif
+  endfor
+
+  assign custom_sale_badge_tags = settings.custom_sale_badge_tag | split: ', '
+
+  assign pack_size = product.metafields.custom.pack_size
+  assign pack_quantity = pack_size | split: '-' | first
+
+  if localization.country.currency.iso_code == 'USD'
+    assign price_per_unit = product.price | divided_by: pack_quantity | money
+  else
+    assign price_per_unit = product.price | divided_by: pack_quantity | money_with_currency
+  endif
+
+  if product.available != true
+    assign soldout_class = 'soldout'
+  endif
+
+  assign product_not_found = false
+  if request.path contains '/products/'
+    if product.available != true
+      assign product_not_found = true
+    endif
+  endif
+
+  assign sizeValues = 'S,M,L,XL,2XL,3XL,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42' | split: ','
+-%}
+
+{%- liquid 
+
+  assign has_selling_plan     = false
+  assign allowed_on_page      = false
+  assign num_plans            = product.selling_plan_groups | size 
+  assign full_url             = request.host | append: request.path
+  assign allowed_pages        = product.metafields.custom.allowed_subscribe_quick_add_pages | split: ','
+
+  for string in allowed_pages
+    if full_url contains string
+      assign allowed_on_page = true
+    endif
+  endfor
+
+  if num_plans > 0
+    if product.metafields.custom.use_selling_plan_quick_add == true and allowed_on_page == true
+      assign has_selling_plan = true
+    endif
+  endif
+
+-%}
+
+<div
+  class='{% if noscript %}product-card-no-script{% else %}product-card{% endif %} {% if product_not_found %} recently_not_found {% endif %}'
+  data-id='{{ product.id }}'
+  {%- for tag in product.tags -%}
+    {%- if tag == 'Best Seller' -%}
+      data-best-seller='true'
+    {%- endif -%}
+  {%- endfor -%}
+>
+  <div class='product-card__image-wrapper {% if template.name == 'index' %}lazy-image-placeholder{% endif %}'>
+    {% if product.available %}
+      {% unless product.template_suffix == 'hidden' %}
+        <a href='{{ pdp_link }}'>
+      {% endunless %}
+    {% endif %}
+    <img
+      class='product-card__image er-product-card__original-image {% if template.name == 'index' %}lazy-image{% endif %}'
+      loading='lazy'
+      {% if template.name == 'index' %}
+        data-src='{{ img | image_url: height: 300 }}'
+        data-srcset='
+          {{ img | image_url: width: 150 }} 150w,
+          {{ img | image_url: width: 200 }} 200w,
+          {{ img | image_url: width: 300 }} 300w,
+          {{ img | image_url: width: 360 }} 360w,
+          {{ img | image_url: width: 480 }} 480w
+        '
+        data-sizes='
+          (min-width: 480px) 480px,
+          (min-width: 360px) 360px,
+          (min-width: 300px) 300px,
+          300px
+        '
+      {% else %}
+        src='{{ img | image_url: height: 300 }}'
+        srcset='
+          {{ img | image_url: width: 150 }} 150w,
+          {{ img | image_url: width: 200 }} 200w,
+          {{ img | image_url: width: 300 }} 300w,
+          {{ img | image_url: width: 360 }} 360w,
+          {{ img | image_url: width: 480 }} 480w
+        '
+        sizes='
+          (min-width: 480px) 480px,
+          (min-width: 360px) 360px,
+          (min-width: 300px) 300px,
+          300px
+        '
+      {% endif %}
+      alt='{{ img.alt | escape | prepend: shop.name }}'
+      height='{{ img.heigh | default: 300 }}'
+      width='{{ img.width | default: 200 }}'
+    >
+    {% unless product.template_suffix == 'hidden' %} </a> {% endunless %}
+    {% if product.tags contains 'New Set' %}
+      <div class='product-card__badge-set'>New Set</div>
+    {% elsif product.tags contains 'New Arrival' %}
+      <div class='product-card__badge-top new-arrival-badge'>
+        <div style='' class='badge-top-bubble'>
+          <span class='discount-percentage'>NEW ARRIVAL</span>
+        </div>
+      </div>
+    {% endif %}
+    {% if product.tags contains 'POTW' %}
+      <div
+        class='product-card__badge-limited'
+        style='background-color: #666666; display: flex; justify-content: space-between'
+      >
+        PACK OF THE WEEK
+        <span class='desktop--only'>
+          {% if product.tags contains 'Countdown' %}
+            <trueclassic-countdown></trueclassic-countdown>
+          {% endif %}
+        </span>
+
+        <span class='mobile--only'>
+          {% if discount_percent != blank and soldout_class == blank %}
+            {{ discount_percent }}
+          {% endif %}
+        </span>
+      </div>
+    {% else %}
+      {% for tag in custom_sale_badge_tags %}
+        {% unless settings.sale_badge_text == empty %}
+          {% if settings.enable_custom_sale_badge and product.tags contains tag %}
+            <div
+              class='product-card__badge-limited product-card__badge-limited-prime'
+              style='color: #fff;'
+            >
+              {{ settings.sale_badge_text }}
+              <span class='mobile--only'>
+                {% if discount_percent != blank and soldout_class == blank %}
+                  {{ discount_percent }} 
+                {% elsif soldout_class != blank %}
+                  <div class='soldout-text'>Sold Out</div>
+                {% endif %}
+              </span>
+            </div>
+            {% break %}
+          {% endif %}
+        {% endunless %}
+      {% endfor %}
+    {% endif %}
+
+    {% comment %} RIBBONS {% endcomment %}
+
+    {% if settings.ribbons_fest == true %}
+
+      {%- liquid
+        assign ribbons_tag_1 = settings.ribbons_tag_1 
+        assign ribbons_text_1 = settings.ribbons_text_1 
+        assign ribbons_tag_2 = settings.ribbons_tag_2 
+        assign ribbons_text_2 = settings.ribbons_text_2 
+        assign ribbons_tag_3 = settings.ribbons_tag_3 
+        assign ribbons_text_3 = settings.ribbons_text_3 
+        assign ribbons_tag_4 = settings.ribbons_tag_4 
+        assign ribbons_text_4 = settings.ribbons_text_4 
+      -%}
+      
+      {% if product.tags contains ribbons_tag_1 %}
+      <div class="product-card__badge-top rotated-badge most-gifted">
+        <div style="background-color:#755E52 !important; color:#fff;" class="badge-top-bubble">
+          <span class="side-badge discount-percentage">{{ ribbons_text_1 }}</span>
+        </div>
+      </div>
+      {% endif %}
+
+      {% if product.tags contains ribbons_tag_2 %}
+      <div class="product-card__badge-top rotated-badge most-gifted">
+        <div style="background-color:#755E52 !important; color:#fff;" class="badge-top-bubble">
+          <span class="side-badge discount-percentage">{{ ribbons_text_2 }}</span>
+        </div>
+      </div>
+      {% endif %}
+
+      {% if product.tags contains ribbons_tag_3 %}
+      <div class="product-card__badge-top rotated-badge most-gifted">
+        <div style="background-color:#755E52 !important; color:#fff;" class="badge-top-bubble">
+          <span class="side-badge discount-percentage">{{ ribbons_text_3 }}</span>
+        </div>
+      </div>
+      {% endif %}
+
+      {% if product.tags contains ribbons_tag_4 %}
+      <div class="product-card__badge-top rotated-badge most-gifted">
+        <div style="background-color:#755E52 !important; color:#fff;" class="badge-top-bubble">
+          <span class="side-badge discount-percentage">{{ ribbons_text_4 }}</span>
+        </div>
+      </div>
+      {% endif %}
+
+
+
+    {% endif %}
+
+    {% comment %} END - RIBBONS {% endcomment %}
+
+    {% if discount_percent != blank and soldout_class == blank and settings.sale_badge == empty %}
+      {% for tag in custom_sale_badge_tags %}
+        {% unless product.tags contains tag and product.tags contains 'POTW' %}
+          <div
+            class='product-card__badge-top not-sale not-potw'
+          >
+            {% if discount_percent != blank and soldout_class == blank %}
+              {{ discount_percent }}
+
+            {% elsif soldout_class != blank %}
+              <div class='soldout-text'>Sold Out</div>
+            {% endif %}
+          </div>
+          {% break %}
+        {% endunless %}
+      {% endfor %}
+    {% endif %}
+
+    {% comment %} TARGETED SALE ITEMS FROM SETTINGS  {% endcomment %}
+
+    {% if discount_percent != blank or soldout_class != blank %}
+      {% unless product.tags contains 'POTW' %}
+        <div
+          class='
+            product-card__badge-top {% unless settings.sale_badge_text == empty %}special-sale{% endunless %} {{ soldout_class }}
+            {% for tag in custom_sale_badge_tags %}
+              {% unless settings.sale_badge_text == empty %}
+              {% if settings.enable_custom_sale_badge and product.tags contains tag %}
+                sale--only
+                {% break %}
+              {% endif %}
+              {% endunless %}
+            {% endfor %}
+          '
+        >
+          <div
+            class='badge-top-bubble'
+            {% for tag in custom_sale_badge_tags %}
+              {% if settings.enable_custom_sale_badge and product.tags contains tag %}
+                style='background-color: {{ settings.sale_badge_bg_color }}; color: white;'
+                {% break %}
+              {% endif %}
+            {% endfor %}
+            {% if product.tags contains 'Sale' %}
+              style='background-color: rgb(151, 27, 27); color: white;'
+            {% endif %}
+          >
+            {% if discount_percent != blank and soldout_class == blank %}
+              {{ discount_percent }}
+            {% elsif soldout_class != blank %}
+              <div class='soldout-text'>Sold Out</div>
+            {% endif %}
+          </div>
+        </div>
+      {% endunless %}
+
+      {% comment %} PACK OF THE WEEK {% endcomment %}
+      {% if product.tags contains 'POTW' %}
+        <div class='product-card__badge-top {{ soldout_class }} potw'>
+          <div
+            class='badge-top-bubble desktop--only'
+            {% for tag in custom_sale_badge_tags %}
+              {% if settings.enable_custom_sale_badge and product.tags contains tag %}
+                style='background-color: {{ settings.sale_badge_bg_color }}; color: white;'
+                {% break %}
+              {% endif %}
+            {% endfor %}
+          >
+            {% if discount_percent != blank and soldout_class == blank %}
+              {% if discount_percent != blank and soldout_class == blank %}
+                {{ discount_percent }}
+              {% endif %}
+            {% elsif soldout_class != blank %}
+              <div class='soldout-text'>Sold Out</div>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+    {% endif %}
+
+    {% if product.tags contains 'POTW' %}
+      <div class='product-card__badge-bottom-custom {{ soldout_class }} potw'>
+        <div
+          class='badge-bottom-bubble'
+
+          style='background-color: transparent; color: #474747; text-transform: uppercase; font-size: 14px; font-weight: 300;'
+        >
+          <span class='mobile--only'>
+            <trueclassic-countdown></trueclassic-countdown>
+          </span>
+        </div>
+      </div>
+    {% endif %}
+    {% if pack_size != blank %}
+      <div class='product-card__badge-bottom'>
+        {{ pack_size }}
+      </div>
+    {% endif %}
+    {% unless use_ajax %}
+      {% unless product.id == 6750654627912 %}
+        {% if product.available %}
+          <div class='product-card__quick-atc-wrap'>
+            <button
+              class='button primary product-card__quick-atc'
+              data-quick-atc
+              data-varaint-id='{{ product.selected_or_first_available_variant.id }}'
+              onclick="
+                dataLayer.push({ 'ecommerce': null });
+                dataLayer.push({
+                  'event': 'quick_add_to_cart_open',
+                  'ecommerce': {
+                    'value': {{ product.price | money_without_currency }},
+                    'currency': '{{ localization.country.currency.iso_code }}',
+                      'items': [{
+                        'item_id': '{{ product.id }}',
+                        'item_name': '{{ product.title }}',
+                        'item_brand': '{{ product.vendor }}',
+                        'item_category': '{{ product.type }}',
+                        'currency': '{{ localization.country.currency.iso_code }}',
+                        'price': {{ product.price | money_without_currency }}
+                      }]
+                    }
+                });
+              "
+            >
+              {% render 'tc-icons', icon: 'plus' %}
+                {% if has_selling_plan %}
+                  &nbsp;Subscribe
+                {% else %}
+                  &nbsp;Quick Add
+                {% endif %}
+            </button>
+            <div class='product-card__size-selector'>
+              <form
+                class='product-size__form'
+                data-delegate='productsizeform'
+                name='product-size'
+                action="/cart/add" 
+                method="post"
+                data-handle="{{ product.handle }}"
+              >
+                {% render 'product-card-size-swatch', product: product, has_selling_plan: has_selling_plan %}
+              </form>
+            </div>
+          </div>
+        {% endif %}
+      {% endunless %}
+    {% endunless %}
+  </div>
+
+  <div class='product-card__details-wrapper'>
+    {% unless product.id == 6750654627912 %}
+        {% unless use_ajax %}
+          {% if product.available %}
+            <div class='product-card__quick-atc-wrap'>
+              <button
+                class='button primary product-card__quick-atc'
+                data-quick-atc
+                data-varaint-id='{{ product.selected_or_first_available_variant.id }}'
+                onclick="
+                  dataLayer.push({ 'ecommerce': null });
+                  dataLayer.push({
+                    'event': 'quick_add_to_cart_open',
+                    'ecommerce': {
+                      'value': {{ product.price | money_without_currency }},
+                      'currency': '{{ localization.country.currency.iso_code }}',
+                        'items': [{
+                          'item_id': '{{ product.id }}',
+                          'item_name': '{{ product.title }}',
+                          'item_brand': '{{ product.vendor }}',
+                          'item_category': '{{ product.type }}',
+                          'currency': '{{ localization.country.currency.iso_code }}',
+                          'price': {{ product.price | money_without_currency }}
+                        }]
+                      }
+                  });
+                "
+              >
+                {% render 'tc-icons', icon: 'plus' %}
+                {% if has_selling_plan %}
+                  &nbsp;Subscribe
+                {% else %}
+                  &nbsp;Quick Add
+                {% endif %}
+              </button>
+            </div>
+        {% endif %}
+      {% endunless %}
+    {% endunless %}
+
+
+    <div class='product-card__rating'>
+      <div class='product-card__rating-stars'>
+        {% render 'okendo-reviews-product-rating-summary', product: product %}
+      </div>
+    </div>
+
+    <div class='product-card__title-container'>
+      <h4 class='product-card__title text s{% if use_link == false %} product-card__title-bundle{% endif %}'>
+        <a href='{{ pdp_link }}' title='{{ product.title }}' class='color-gray-dark'>
+          {{- title -}}
+        </a>
+      </h4>
+      <div class='product-card__title-swatches'>
+        {% for color in product.metafields.colorwaysV2.color.value %}
+          <span style='background-color: var(--swatch-{{ color | handleize }});'></span>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% if section.settings.change_discount_placement %}
+      <div class="replaced-discount-container">
+        {{ discount_percent }}
+      </div>
+    {% endif %}
+
+    <div
+      class='product-card__price'
+      data-product-id='{{ product.id }}'
+      data-variant-id='{{ product.first_available_variant.id }}'
+    >
+      {% if product.type == 'Gift Cards' %}
+        $50 - $250
+      {% else %}
+        {{ price }}
+        {% if settings.enable_compliance %}
+          {% unless request.page_type == 'product' %}
+            {% if product.tags contains 'PackSavings' or product.tags contains 'PACK' or product.tags contains 'Pack' or product.tags contains 'pack' %}
+              {% unless product.tags contains 'POTW' %}
+                {% unless settings.enable_global_sale == true or use_ajax %}
+                  {% for tag in custom_sale_badge_tags %}
+                    {% unless settings.enable_global_sale == true or use_ajax %}
+                      {% unless settings.sale_badge_text == empty %}
+                        {% unless settings.enable_custom_sale_badge and product.tags contains tag %}
+                        {% unless product.tags contains 'Sale' %}
+                          <block-tooltip style='position: relative' class='color-black'>
+                            <span class='tooltip__label price'>
+                              {% render 'tc-icons', icon: 'info' %}
+                            </span>
+                            <div class='tooltip__content text s'>
+                              <div class='tooltip__content--inner light-font '>
+                                <div
+                                  class='tooltip__close-button'
+                                  aria-label='Close tooltip'
+                                  title='Close tooltip'
+                                >
+                                  {% render 'tc-icons', icon: 'close-small' %}
+                                </div>
+                                {{ settings.pack_bubble_notice }}
+                              </div>
+                            </div>
+                          </block-tooltip>
+                        {% endunless %}
+                        {% endunless %}
+                      {% endunless %}
+                    {% endunless %}
+                  {% endfor %}
+                {% endunless %}
+              {% endunless %}
+            {% endif %}
+          {% endunless %}
+        {% endif %}
+        {% unless settings.enable_global_sale == true or use_ajax %}
+          {% for tag in custom_sale_badge_tags %}
+            {% unless settings.enable_global_sale == true or use_ajax %}
+              {% unless settings.sale_badge_text == empty %}
+                  {% if product.tags contains 'Sale' %}
+                    {% comment %} <br><div class='pd-cards color-red bold-font'>Sale&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>   {% endcomment %}
+                  {% endif %}
+                  {% if product.tags contains 'PackSavings' or product.tags contains 'PACK' or product.tags contains 'Pack' or product.tags contains 'pack' %}
+                    {% unless product.tags contains 'Sale' %}
+                      {% comment %} <div class='pd-cards color-black bold-font'>Pack Savings</div> {% endcomment %}
+                    {% endunless %}
+                  {% elsif product.tags contains 'Clearance' %}
+                    {% comment %} <div class='pd-cards color-red bold-font'>Clearance</div> {% endcomment %}
+                  {% endif %}
+              {% endunless %}
+            {% endunless %}
+          {% endfor %}
+        {% endunless %}
+      {% endif %}
+    </div>
+
+    {% render 'insider-credit', product: product %}
+
+    {% if is_discounted and price_per_unit != blank and price_per_unit != 0 %}
+      {% if product.title contains 'Pack'
+        or product.title contains 'Bundle'
+        or product.title contains 'Set'
+        or product.title contains 'Essentials'
+        or product.title contains 'Mix'
+        or product.title contains 'PackSavings'
+      %}
+        {% render 'price-per', product: product %}
+      {% endif %}
+    {% endif %}
+    {% if settings.hide_bestsellers == false %}
+      <div class='product-card__label' style='color: #282828;'>BEST SELLER</div>
+    {% endif %}
+  </div>
+  {% render 'product-json', product: product %}
+</div>

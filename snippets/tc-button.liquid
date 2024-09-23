@@ -1,0 +1,84 @@
+{% comment %}
+  .
+  # Variables available:
+
+    button_text: {string} Button label
+    button_type: {string} Button type (checkout, custom)
+    button_attributes: {string} Button attributes for custom button
+    button_classes: {string} Button classes (primary, secondary, tertiary, etc.)`
+    button_color_inverse: {boolean} Button color inverse
+    icon: {string} changes the icon in front of the button label (arrow-left, arrow-right, lock, etc.)
+    button_margin_top: {string} Button margin top (mg-t-none, mg-t-xs, mg-t-s, mg-t-m, mg-t-l, mg-t-xl)
+    button_margin_bottom: {string} Button margin bottom (mg-b-none, mg-b-xs, mg-b-s, mg-b-m, mg-b-l, mg-b-xl)
+    full_width: {boolean} option to make button full width
+    disabled: {boolean} option to disable button
+    block_id: {string} unique id
+
+  # Examples:
+
+  ## using settings as parameters:
+
+    {%- assign unique_id = block.id | remove: '-' | remove: '_' -%}
+    {% render 'tc-button',
+      button_text: block.settings.button_text,
+      button_type: block.settings.button_type,
+      button_attributes: block.settings.button_attributes,
+      button_classes: block.settings.button_style,
+      button_color_inverse: block.settings.button_color_inverse,
+      icon: block.settings.button_icon,
+      button_margin_top: block.settings.button_margin_top,
+      button_margin_bottom: block.settings.button_margin_bottom,
+      full_width: block.settings.full_width,
+      disabled: block.settings.disabled,
+      block_id: unique_id
+    %}
+
+  ## parameters can also be hardcoded if needed:
+
+    {% render 'tc-button',
+      button_text: 'Open modal',
+      button_type: 'custom',
+      button_attributes: 'data-foo="bar"',
+      button_classes: 'primary red',
+      button_color_inverse: true,
+      icon: 'arrow-left',
+      button_margin_top: 'mg-t-none',
+      button_margin_bottom: 'mg-b-m',
+      full_width: false,
+      disabled: false,
+      block_id: 'wefjwoiehfoiwhe'
+    %}
+  .
+{% endcomment %}
+
+<button
+  class='button {{ button_classes }} {{ button_margin_top }} {{ button_margin_bottom }} {% if button_color_inverse %} inverse-down{% endif %}'
+  style='{% if full_width %} width: 100%;{% endif %}'
+  {% comment %} CHECKOUT BUTTON  {% endcomment %}
+  {% if button_type == 'checkout' %}
+    type='submit'
+    name='add'
+    data-submit-button-text
+    data-enabled-text='{{ 'products.product.add_to_cart' | t }}'
+    data-disabled-text='{{ 'products.product.sold_out' | t }}'
+    {% unless variant.available %}
+      disabled='disabled'
+    {% endunless %}
+  {% else %}
+    type='button'
+  {% endif %}
+  {% if button_attributes %}
+    {{ button_attributes }}
+  {% endif %}
+  {% if disabled %}
+    disabled
+  {% endif %}
+  {% if block_id %}
+    id='{{ block_id }}'
+  {% endif %}
+>
+  {% if icon %}
+    {% render 'tc-icons', icon: icon %}
+  {% endif %}
+  <span class='btn-text'>{{ button_text }}</span>
+</button>

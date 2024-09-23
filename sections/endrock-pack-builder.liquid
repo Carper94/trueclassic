@@ -1,0 +1,446 @@
+{{ 'endrock-pack-builder.css' | asset_url | stylesheet_tag }}
+<script type='text/javascript' src={{ 'endrock-pack-builder.js' | asset_url }} defer='defer'></script>
+
+{% comment %} Creation of all necessary objects {% endcomment %}
+<script>
+  window.erPackBuilderProducts = [];
+  window.erPackBuilderColors = [
+    {
+      tColor: 'Black',
+      color: '#000000'
+    },
+    {
+      tColor: 'Navy',
+      color: '#182131'
+    },
+    {
+      tColor: 'White',
+      color: '#FFFFFF'
+    },
+    {
+      tColor: 'Military Green',
+      color: '#605D4C'
+    },
+    {
+      tColor: 'Heather Gray',
+      color: '#bdc1c2'
+    },
+    {
+      tColor: 'Carbon',
+      color: '#383B3E'
+    },
+    {
+      tColor: 'Charcoal Heather Gray',
+      color: '#4c4d51'
+    },
+    {
+      tColor: 'Heather Pale Blue',
+      color: '#959ea7'
+    },
+    {
+      tColor: 'Indigo',
+      color: '#93B4D7'
+    },
+    {
+      tColor: 'Heather Navy',
+      color: '#2f3646'
+    },
+    {
+      tColor: 'Heather Indigo',
+      color: '#5784a4'
+    },
+    {
+      tColor: 'Tan 499',
+      color: '#95734d'
+    },
+    {
+      tColor: 'Heather Military Green',
+      color: '#827a6a'
+    },
+    {
+      tColor: 'Light Heather Gray',
+      color: '#bbbcc0'
+    },
+    {
+      tColor: 'Mahogany',
+      color: '#4c242c'
+    },
+    {
+      tColor: 'Heather Dark Oak',
+      color: '#4c3e3e'
+    },
+    {
+      tColor: 'Dark Olive',
+      color: '#3D4434'
+    },
+    {
+      tColor: 'Heather Crimson',
+      color: '#A77576'
+    },
+    {
+      tColor: 'Crimson',
+      color: '#952833'
+    },
+    {
+      tColor: 'Deep Sea Blue',
+      color: '#2e4864'
+    },
+    {
+      tColor: 'Ever Green Heather',
+      color: '#173D3B'
+    }
+  ];
+</script>
+
+{% assign DEFAULT_PACK = section.settings.selected_pack_size | plus: 0 %}
+{% assign products = collections['single-ss-crews-full-price'].products %}
+{% assign colorsArray = '' | split: ',' %}
+{% assign producstIdsArray = '' | split: ',' %}
+{% assign producstImagesArray = '' | split: ',' %}
+{% assign firstProductVariantsNames = '' | split: ',' %}
+{% assign firstProductVariantsIds = '' | split: ',' %}
+
+{% for product in products %}
+  {% assign product_json = product | json %}
+  <script>
+    window.erPackBuilderProducts.push({{ product_json }});
+    window.erPackBuilderProducts[{{ forloop.index0 }}].color = `{{ product.metafields.colorways.color }}`;
+  </script>
+  {% if product.metafields.colorways.color %}
+    {% assign color = product.metafields.colorways.color %}
+    {% capture colorsArray %}{{ colorsArray }}{{ color }}, {% endcapture %}
+    {% capture producstIdsArray %}{{ producstIdsArray }}{{ product.id }}, {% endcapture %}
+    {% capture producstImagesArray %}{{ producstImagesArray }}{{ product.media[1] | image_url: width: '72' }}, {% endcapture %}
+  {% endif %}
+{% endfor %}
+
+{% for variant in products[0].variants %}
+  {% if variant.available %}
+    {% capture firstProductVariantsNames %}{{ firstProductVariantsNames }}{{ variant.title }}, {% endcapture %}
+    {% capture firstProductVariantsIds %}{{ firstProductVariantsIds }}{{ variant.id }}, {% endcapture %}
+  {% endif %}
+{% endfor %}
+
+{% assign colorsArray = colorsArray | split: ', ' %}
+{% assign producstIdsArray = producstIdsArray | split: ', ' %}
+{% assign producstImagesArray = producstImagesArray | split: ', ' %}
+{% assign firstProductVariantsNames = firstProductVariantsNames | split: ', ' %}
+{% assign firstProductVariantsIds = firstProductVariantsIds | split: ', ' %}
+
+{% assign threePackPrice = 7497 %}
+{% assign threePackNewPrice = 4998 %}
+
+{% assign sixPackPrice = 14994 %}
+{% assign sixPackNewPrice = 7998 %}
+
+{% assign ninePackPrice = 22491 %}
+{% assign ninePackNewPrice = 9999 %}
+
+{% assign twelvePackPrice = 29988 %}
+{% assign twelvePackNewPrice = 11988 %}
+
+{% comment %} END of Creation of all necessary objects {% endcomment %}
+
+<endrock-pack-builder class='endrock-pack-builder'>
+
+  <div class='endrock-pack-builder__header'>
+    <button
+      id='endrock-pack-builder__button-close'
+      class='endrock-pack-builder__button-close icon-button'
+      data-delegate='endrockpackbuilderclose'
+      data-noclick
+      type='button'
+    >
+      <span class='visually-hidden'>Close cart</span>
+      {% render 'icon-close' %}
+    </button>
+  </div>
+
+    <div class='endrock-pack-builder__content'>
+      <div class='title'>The Custom Pack</div>
+
+      <div class='pack-size-info'>Pack size: <span class='js-current-pack-size'>{{ DEFAULT_PACK }}-Pack</span></div>
+
+      <div class='size-selector__wrapper scroll-gradient'>
+        <div class='size-selector'>
+          <div class='size-selector__inner'>
+            <input
+              class='visually-hidden'
+              type='radio'
+              name='er_pack_builder_size'
+              id='3-pack'
+              data-count='3'
+              data-product-id='3975161217096' data-variant-id='29631218024520'
+              data-old-price='{{ threePackPrice | money }}'
+              data-new-price='{{ threePackNewPrice | money }}'
+              data
+              data-price-per-item='{{ threePackNewPrice | divided_by: 3 | money }}'
+              {% if DEFAULT_PACK == 3 %}checked{% endif %}
+            >
+            <label class='size-selector__item' for='3-pack'>
+              <div class='pack-size'>3-pack</div>
+              <div class='price-per-item igInstallmentPrice'  data-payment-count='3' data-product-id='3975161217096' data-variant-id='29631218024520'>{{ threePackNewPrice | divided_by: 3 | money }}/item</div>
+              {% if DEFAULT_PACK == 3 %}<div class='badge'>Popular</div>{% endif %}
+            </label>
+            <input
+              class='visually-hidden'
+              type='radio'
+              name='er_pack_builder_size'
+              id='6-pack'
+              data-count='6'
+              data-product-id='6659232268360' data-variant-id='39614586585160'
+              data-old-price='{{ sixPackPrice | money }}'
+              data-new-price='{{ sixPackNewPrice | money }}'
+              data-price-per-item='{{ sixPackNewPrice | divided_by: 6 | money }}'
+              {% if DEFAULT_PACK == 6 %}checked{% endif %}
+            >
+            <label class='size-selector__item' for='6-pack'>
+              <div class='pack-size'>6-pack</div>
+              <div class='price-per-item igInstallmentPrice' data-payment-count='6' data-product-id='6659232268360' data-variant-id='39614586585160'>{{ sixPackNewPrice | divided_by: 6 | money }}/item</div>
+              {% if DEFAULT_PACK == 6 %}<div class='badge'>Popular</div>{% endif %}
+            </label>
+            <input
+              class='visually-hidden'
+              type='radio'
+              name='er_pack_builder_size'
+              id='9-pack'
+              data-product-id='6799312977992' data-variant-id='40057986744392'
+              data-count='9'
+              data-old-price='{{ ninePackPrice | money }}'
+              data-new-price='{{ ninePackNewPrice | money }}'
+              data-price-per-item='{{ ninePackNewPrice | divided_by: 9 | money }}'
+              {% if DEFAULT_PACK == 9 %}checked{% endif %}
+            >
+            <label class='size-selector__item' for='9-pack'>
+              <div class='pack-size'>9-pack</div>
+              <div class='price-per-item igInstallmentPrice'  data-payment-count='9' data-product-id='6799312977992' data-variant-id='40057986744392'>{{ ninePackNewPrice | divided_by: 9 | money }}/item</div>
+              {% if DEFAULT_PACK == 9 %}<div class='badge'>Popular</div>{% endif %}
+            </label>
+            <input
+              class='visually-hidden'
+              type='radio'
+              name='er_pack_builder_size'
+              id='12-pack'
+              data-count='12'
+              data-product-id='4172661588040' data-variant-id='30321287692360'
+              data-old-price='{{ twelvePackPrice | money }}'
+              data-new-price='{{ twelvePackNewPrice | money }}'
+              data-price-per-item='{{ twelvePackNewPrice | divided_by: 12 | money }}'
+              {% if DEFAULT_PACK == 12 %}checked{% endif %}
+            >
+            <label class='size-selector__item' for='12-pack'>
+              <div class='pack-size'>12-pack</div>
+              <div class='price-per-item igInstallmentPrice' data-payment-count='12' data-product-id='4172661588040' data-variant-id='30321287692360'>{{ twelvePackNewPrice | divided_by: 12 | money }}/item</div>
+              {% if DEFAULT_PACK == 12 %}<div class='badge'>Popular</div>{% endif %}
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class='size-toggle'>
+        <div class='size-toggle-title'>Choose Your Shirt Sizes:</div>
+        <div class='size-toggle-container'>
+          <select class='js-er-global-variant-select'>
+            {% for name in firstProductVariantsNames %}
+              <option value='{{ name }}'
+                {% if forloop.index0 == 2 %} {% comment %} Set default size to L {% endcomment %}
+                  selected
+                {% endif %}
+              >
+                {{ name }}
+              </option>
+            {% endfor %}
+          </select>
+          <div class='size-toggle-switch-wrapper'>
+            <div class='size-toggle-switch-title'>Pick Individual Item Sizes</div>
+            <label class='switch'>
+              <input type='checkbox' name='js-size-toggle'>
+              <span class='slider'></span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class='color-selector-header'>
+        <div>Choose Your Colors:</div>
+        <div class='size-title hidden'>Size:</div>
+      </div>
+
+      <div class='color-selector__wrapper'>
+        {% for i in (0..11) %}
+          <div class='color-selector js-er-pack-builder-color {% if forloop.index0 < DEFAULT_PACK %}active{% endif %}'>
+            <div class='color-selector__color-box'></div>
+            <select class='visually-hidden' name='color_{{ i }}' data-index='{{ forloop.index0 }}'>
+              {% for color in colorsArray %}
+                <option value='{{ producstIdsArray[forloop.index0] }}'>{{ color }}</option>
+              {% endfor %}
+            </select>
+            <div
+              class='custom-select js-pack-builder-custom-select'
+              data-index='{{ i }}'
+            >
+            {{ colorsArray[0] }}
+            </div>
+            <select class='js-er-variant-select hidden' name='size_{{ i }}'>
+              {% for name in firstProductVariantsNames %}
+                <option value='{{ name }}'
+                  data-variant-id='{{ firstProductVariantsIds[forloop.index0] }}'
+                  {% if forloop.index0 == 2 %} {% comment %} Set default size to L {% endcomment %}
+                    selected
+                  {% endif %}
+                >
+                  {{ name }}
+                </option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class='custom-select-items__wrapper scroll-gradient'>
+            <div class='custom-select-items' data-index='{{ i }}' open='false'>
+              <div class='custom-select-items__inner'>
+                {% for color in colorsArray %}
+                  <div class='custom-select-color
+                    {% if forloop.index0 == 0 %}active{% endif %}'
+                    value='{{ producstIdsArray[forloop.index0] }}'
+                    {% if forloop.index0 == 0 %}active{% endif %}
+                  >
+                    <div class='image'>
+                      <img
+                        src='{{ producstImagesArray[forloop.index0] }}'
+                        loading='lazy'
+                        width='72'
+                        height='72'
+                        alt='{{ color }}'
+                      />
+                    </div>
+                    <div class='color'>{{ color }}</div>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      {% if DEFAULT_PACK != 12 %}
+        <div class='pack-upgrade'>
+          <div>
+            <p class='js-pack-upgrade-button'>
+              Upgrade to a <span class='js-pack-upgrade'>{{ DEFAULT_PACK | plus: 3 }}</span>-pack & Save
+            </p>
+            <span class='js-info-button'>{% render 'icon-info' %}</span>
+          </div>
+          <div class='pack-upgrade__info-box js-info-button-close'>
+            {{ section.settings.info_message }}
+            <div class='pack-upgrade__info-box--close'>x</div>
+          </div>
+        </div>
+      {% endif %}
+
+      <div class='whats-inside-title'>Custom <span class='js-size'>{{ DEFAULT_PACK }}</span>-Pack includes:</div>
+
+      <div class='pack-content-images'>
+        {% for i in (1..12) %}
+          <div class='image {% if forloop.index0 < DEFAULT_PACK %}active{% endif %}'>
+            <div class='count-badge'>{{ firstProductVariantsNames[2] }}</div> {% comment %} Set default size to L {% endcomment %}
+            <img
+              src='{{ products[0].media[0] | image_url: width: '100' }}'
+              loading='lazy'
+              width='93'
+              height='116'
+              alt='{{ products[0].title }}'
+            />
+          </div>
+        {% endfor %}
+      </div>
+
+    </div>
+    <div class='endrock-pack-builder__footer'>
+      <div class='subtotal js-pack-builder-subtotal'>
+        <div>
+          <div>Subtotal</div>
+          {% case DEFAULT_PACK %}
+            {% when 3 %}
+              <div class='subtotal-price-per-item igInstallmentPrice' data-payment-count='3' data-product-id='3975161217096' data-variant-id='29631218024520'>{{ threePackNewPrice | divided_by: 3 | money }}/item</div>
+            {% when 6 %}
+              <div class='subtotal-price-per-item igInstallmentPrice' data-payment-count='6' data-product-id='6659232268360' data-variant-id='39614586585160'>{{ sixPackNewPrice | divided_by: 6 | money }}/item</div>
+            {% when 9 %}
+              <div class='subtotal-price-per-item igInstallmentPrice' data-payment-count='9' data-product-id='6799312977992' data-variant-id='40057986744392'>{{ ninePackNewPrice | divided_by: 9 | money }}/item</div>
+            {% else %}
+              <div class='subtotal-price-per-item igInstallmentPrice' data-payment-count='12' data-product-id='4172661588040' data-variant-id='30321287692360'>{{ twelvePackNewPrice | divided_by: 12 | money }}/item</div>
+          {% endcase %}
+        </div>
+        {% case DEFAULT_PACK %}
+          {% when 3 %}
+            <div><s class='igComparePrice' data-product-id='3975161217096' data-variant-id='29631218024520'>{{ threePackPrice | money }}</s><span class='igPrice' data-product-id='3975161217096' data-variant-id='29631218024520'>{{ threePackNewPrice | money }}</span></div>
+          {% when 6 %}
+            <div><s class='igComparePrice' data-product-id='6659232268360' data-variant-id='39614586585160'>{{ sixPackPrice | money }}</s><span class='igPrice' data-product-id='6659232268360' data-variant-id='39614586585160'>{{ sixPackNewPrice | money }}</span></div>
+          {% when 9 %}
+            <div><s class='igComparePrice' data-product-id='6799312977992' data-variant-id='40057986744392'>{{ ninePackPrice | money }}</s><span class='igPrice' data-product-id='6799312977992' data-variant-id='40057986744392'>{{ ninePackNewPrice | money }}</span></div>
+          {% when 12 %}
+            <div><s class='igComparePrice' data-product-id='4172661588040' data-variant-id='30321287692360'>{{ twelvePackPrice | money }}</s><span class='igPrice' data-product-id='4172661588040' data-variant-id='30321287692360'>{{ twelvePackNewPrice | money }}</span></div>
+        {% endcase %}
+      </div>
+      <div class='er-packbuilder-notice' id='er-packbuilder-notice' style='display: none;'>
+        <span>
+          Some colors are not available in <span class='js-notice-size'></span>
+          <br>
+          <a href="javascript:void(0);" onclick='changeToggle()'>Select individual sizes.</a>
+        </span>
+      </div>
+      <button class='button primary red js-pack-builder-atc' type='button'>
+        <svg
+          width='7'
+          height='9'
+          viewBox='0 0 7 9'
+          fill='none'
+          xmlns='http://www.w3.org/2000/svg'
+          class='tc-plus icon for-button'
+        >
+          <line x1='3.5' y1='1.40784' x2='3.5' y2='7.59205' stroke='currentColor' stroke-linecap='round'/>
+          <line x1='6.5' y1='4.48682' x2='0.5' y2='4.48682' stroke='currentColor' stroke-linecap='round'/>
+        </svg>
+        <span>Add to cart</span>
+      </button>
+    </div>
+
+</endrock-pack-builder>
+
+{% schema %}
+{
+  "name": "Endrock Pack Builder",
+  "class": "section-endrock-pack-builder",
+  "settings": [
+    {
+      "type": "text",
+      "id": "info_message",
+      "label": "Info Message",
+      "info": "Message to show on small info message below the pack upgrade option",
+      "default": "Lorem ipsum dolor sit amet, concectetur adipiscic elit."
+    },
+    {
+      "type": "select",
+      "id": "selected_pack_size",
+      "options": [
+        {
+          "value": "3",
+          "label": "3 pack"
+        },
+        {
+          "value": "6",
+          "label": "6 pack"
+        },
+        {
+          "value": "9",
+          "label": "9 pack"
+        },
+        {
+          "value": "12",
+          "label": "12 pack"
+        }
+      ],
+      "default": "6",
+      "label": "Default selected pack size"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,21 @@
+/*
+product-features.css
+***************************************/
+.section-product-features {
+  padding: 4rem 0;
+
+  & .widget-icons-list {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+    text-align: center;
+
+    @media (--small) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (--medium) {
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+}

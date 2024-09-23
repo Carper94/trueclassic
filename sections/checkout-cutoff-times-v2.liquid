@@ -1,0 +1,450 @@
+{% if section.settings.show_cutoff_times %}
+
+  <style>
+
+    @media screen and (max-width: 749px) {
+      .section.section--shipping-method [data-shipping-methods] .content-box__row .radio__label:after {
+        font-size: 11.5px;
+        line-height: 1;
+      }
+    }
+
+    {% for block in section.blocks %}
+
+      {% assign current_country_code = checkout.shipping_address.country_code %}
+
+      {% case block.type %}
+
+        {% when 'country_us' %}
+
+          {% if current_country_code == 'US' %}
+            .section.section--shipping-method [data-shipping-methods] .content-box__row:nth-child(2) .radio__label:after {
+              content: "{{ block.settings.cutoff_time_standard }}"!important;
+            }
+            {% if block.settings.cutoff_time_expedited != "" %}
+            .section.section--shipping-method [data-shipping-methods] .content-box__row:nth-child(3) .radio__label:after {
+              content: "{{ block.settings.cutoff_time_expedited }}";
+            }
+            {% endif %}
+            {% if block.settings.cutoff_time_priority != "" %}
+            .section.section--shipping-method [data-shipping-methods] .content-box__row:nth-child(4) .radio__label:after {
+              content: "{{ block.settings.cutoff_time_priority }}";
+            }
+            {% endif %}
+          {% endif %}
+
+        {% when 'country_au' %}
+
+          {% if current_country_code == 'AU' %}
+            .section.section--shipping-method [data-shipping-methods] .content-box__row:nth-child(2) .radio__label:after {
+              content: "{{ block.settings.cutoff_time_standard }}"!important;
+            }
+            {% if block.settings.cutoff_time_expedited != "" %}
+            .section.section--shipping-method [data-shipping-methods] .content-box__row:nth-child(3) .radio__label:after {
+              content: "{{ block.settings.cutoff_time_expedited }}";
+            }
+            {% endif %}
+            {% if block.settings.cutoff_time_expedited != "" %}
+            .section.section--shipping-method [data-shipping-methods] .content-box__row:nth-child(4) .radio__label:after {
+              content: "{{ block.settings.cutoff_time_priority }}";
+            }
+            {% endif %}
+          {% endif %}
+
+        {% when 'country_es' %}
+
+          {% if current_country_code == 'ES' %}
+            .section.section--shipping-method [data-shipping-methods] .content-box__row:nth-child(2) .radio__label:after {
+              content: "{{ block.settings.cutoff_time_standard }}"!important;
+            }
+            {% if block.settings.cutoff_time_expedited != "" %}
+            .section.section--shipping-method [data-shipping-methods] .content-box__row:nth-child(3) .radio__label:after {
+              content: "{{ block.settings.cutoff_time_expedited }}";
+            }
+            {% endif %}
+            {% if block.settings.cutoff_time_expedited != "" %}
+            .section.section--shipping-method [data-shipping-methods] .content-box__row:nth-child(4) .radio__label:after {
+              content: "{{ block.settings.cutoff_time_priority }}";
+            }
+            {% endif %}
+          {% endif %}
+
+        {% when 'country_nz' %}
+
+          {% if current_country_code == 'NZ' %}
+            .section.section--shipping-method [data-shipping-methods] .content-box__row:nth-child(2) .radio__label:after {
+              content: "{{ block.settings.cutoff_time_standard }}"!important;
+            }
+            {% if block.settings.cutoff_time_expedited != "" %}
+            .section.section--shipping-method [data-shipping-methods] .content-box__row:nth-child(3) .radio__label:after {
+              content: "{{ block.settings.cutoff_time_expedited }}";
+            }
+            {% endif %}
+            {% if block.settings.cutoff_time_expedited != "" %}
+            .section.section--shipping-method [data-shipping-methods] .content-box__row:nth-child(4) .radio__label:after {
+              content: "{{ block.settings.cutoff_time_priority }}";
+            }
+            {% endif %}
+          {% endif %}
+
+        {% when 'country_ie' %}
+
+          {% if current_country_code == 'IE' %}
+            .section.section--shipping-method [data-shipping-methods] .content-box__row:nth-child(2) .radio__label:after {
+              content: "{{ block.settings.cutoff_time_standard }}"!important;
+            }
+            {% if block.settings.cutoff_time_expedited != "" %}
+            .section.section--shipping-method [data-shipping-methods] .content-box__row:nth-child(3) .radio__label:after {
+              content: "{{ block.settings.cutoff_time_expedited }}";
+            }
+            {% endif %}
+            {% if block.settings.cutoff_time_expedited != "" %}
+            .section.section--shipping-method [data-shipping-methods] .content-box__row:nth-child(4) .radio__label:after {
+              content: "{{ block.settings.cutoff_time_priority }}";
+            }
+            {% endif %}
+          {% endif %}
+
+        {% when 'country_it' %}
+
+          {% if current_country_code == 'IT' %}
+            .section.section--shipping-method [data-shipping-methods] .content-box__row:nth-child(2) .radio__label:after {
+              content: "{{ block.settings.cutoff_time_standard }}"!important;
+            }
+            {% if block.settings.cutoff_time_expedited != "" %}
+            .section.section--shipping-method [data-shipping-methods] .content-box__row:nth-child(3) .radio__label:after {
+              content: "{{ block.settings.cutoff_time_expedited }}";
+            }
+            {% endif %}
+            {% if block.settings.cutoff_time_expedited != "" %}
+            .section.section--shipping-method [data-shipping-methods] .content-box__row:nth-child(4) .radio__label:after {
+              content: "{{ block.settings.cutoff_time_priority }}";
+            }
+            {% endif %}
+          {% endif %}
+
+        {% when 'country_de' %}
+
+          {% if current_country_code == 'DE' %}
+            .section.section--shipping-method [data-shipping-methods] .content-box__row:nth-child(2) .radio__label:after {
+              content: "{{ block.settings.cutoff_time_standard }}"!important;
+            }
+            {% if block.settings.cutoff_time_expedited != "" %}
+            .section.section--shipping-method [data-shipping-methods] .content-box__row:nth-child(3) .radio__label:after {
+              content: "{{ block.settings.cutoff_time_expedited }}";
+            }
+            {% endif %}
+            {% if block.settings.cutoff_time_expedited != "" %}
+            .section.section--shipping-method [data-shipping-methods] .content-box__row:nth-child(4) .radio__label:after {
+              content: "{{ block.settings.cutoff_time_priority }}";
+            }
+            {% endif %}
+          {% endif %}
+
+        {% when 'country_at' %}
+
+          {% if current_country_code == 'AT' %}
+            .section.section--shipping-method [data-shipping-methods] .content-box__row:nth-child(2) .radio__label:after {
+              content: "{{ block.settings.cutoff_time_standard }}"!important;
+            }
+            {% if block.settings.cutoff_time_expedited != "" %}
+            .section.section--shipping-method [data-shipping-methods] .content-box__row:nth-child(3) .radio__label:after {
+              content: "{{ block.settings.cutoff_time_expedited }}";
+            }
+            {% endif %}
+            {% if block.settings.cutoff_time_expedited != "" %}
+            .section.section--shipping-method [data-shipping-methods] .content-box__row:nth-child(4) .radio__label:after {
+              content: "{{ block.settings.cutoff_time_priority }}";
+            }
+            {% endif %}
+          {% endif %}
+
+        {% when 'country_lu' %}
+
+          {% if current_country_code == 'LU' %}
+            .section.section--shipping-method [data-shipping-methods] .content-box__row:nth-child(2) .radio__label:after {
+            content: "{{ block.settings.cutoff_time_standard }}"!important;
+          }
+
+          {% if block.settings.cutoff_time_expedited != "" %}
+          .section.section--shipping-method [data-shipping-methods] .content-box__row:nth-child(3) .radio__label:after {
+            content: "{{ block.settings.cutoff_time_expedited }}";
+          }
+          {% endif %}
+          {% if block.settings.cutoff_time_expedited != "" %}
+          .section.section--shipping-method [data-shipping-methods] .content-box__row:nth-child(4) .radio__label:after {
+            content: "{{ block.settings.cutoff_time_priority }}";
+          }
+          {% endif %}
+
+          {% endif %}
+
+        {% when 'country_fi' %}
+          
+          {% if current_country_code == 'FI' %}
+
+            .section.section--shipping-method [data-shipping-methods] .content-box__row:nth-child(2) .radio__label:after {
+              content: "{{ block.settings.cutoff_time_standard }}"!important;
+            }
+
+            {% if block.settings.cutoff_time_expedited != "" %}
+            .section.section--shipping-method [data-shipping-methods] .content-box__row:nth-child(3) .radio__label:after {
+              content: "{{ block.settings.cutoff_time_expedited }}";
+            }
+            {% endif %}
+            {% if block.settings.cutoff_time_expedited != "" %}
+            .section.section--shipping-method [data-shipping-methods] .content-box__row:nth-child(4) .radio__label:after {
+              content: "{{ block.settings.cutoff_time_priority }}";
+            }
+            {% endif %}
+
+          {% endif %}
+
+      {% endcase %}
+
+    {% endfor %}
+
+  </style>
+
+{% endif %}
+
+
+{% schema %}
+{
+  "name": "Cutoff Time v2",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_cutoff_times",
+      "label": "Show Cutoff times."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "country_us",
+      "name": "US",
+      "settings": [
+        {
+          "type": "text",
+          "id": "cutoff_time_standard",
+          "label": "First Shipping Option",
+          "default": "Order before 12 PM PST on the 10 to get it by the 25rd."
+        },
+        {
+          "type": "text",
+          "id": "cutoff_time_expedited",
+          "label": "Seccond Shipping Option"
+        },
+        {
+          "type": "text",
+          "id": "cutoff_time_priority",
+          "label": "Third Shipping Option"
+        }
+      ]
+    },
+    {
+      "type": "country_au",
+      "name": "AU",
+      "settings": [
+        {
+          "type": "text",
+          "id": "cutoff_time_standard",
+          "label": "First Shipping Option",
+          "default": "Order before 06/12/2023 and we'll do our best to deliver your order in time for Christmas."
+        },
+        {
+          "type": "text",
+          "id": "cutoff_time_expedited",
+          "label": "Seccond Shipping Option"
+        },
+        {
+          "type": "text",
+          "id": "cutoff_time_priority",
+          "label": "Third Shipping Option"
+        }
+      ]
+    },
+    {
+      "type": "country_es",
+      "name": "ES",
+      "settings": [
+        {
+          "type": "text",
+          "id": "cutoff_time_standard",
+          "label": "First Shipping Option",
+          "default": "Order before 06/12/2023 and we'll do our best to deliver your order in time for Christmas."
+        },
+        {
+          "type": "text",
+          "id": "cutoff_time_expedited",
+          "label": "Seccond Shipping Option"
+        },
+        {
+          "type": "text",
+          "id": "cutoff_time_priority",
+          "label": "Third Shipping Option"
+        }
+      ]
+    },
+    {
+      "type": "country_nz",
+      "name": "NZ",
+      "settings": [
+        {
+          "type": "text",
+          "id": "cutoff_time_standard",
+          "label": "First Shipping Option",
+          "default": "Order before 04/12/2023 and we'll do our best to deliver your order in time for Christmas."
+        },
+        {
+          "type": "text",
+          "id": "cutoff_time_expedited",
+          "label": "Seccond Shipping Option"
+        },
+        {
+          "type": "text",
+          "id": "cutoff_time_priority",
+          "label": "Third Shipping Option"
+        }
+      ]
+    },
+    {
+      "type": "country_ie",
+      "name": "IE",
+      "settings": [
+        {
+          "type": "text",
+          "id": "cutoff_time_standard",
+          "label": "First Shipping Option",
+          "default": "Order before 04/12/2023 and we'll do our best to deliver your order in time for Christmas."
+        },
+        {
+          "type": "text",
+          "id": "cutoff_time_expedited",
+          "label": "Seccond Shipping Option"
+        },
+        {
+          "type": "text",
+          "id": "cutoff_time_priority",
+          "label": "Third Shipping Option"
+        }
+      ]
+    },
+    {
+      "type": "country_it",
+      "name": "IT",
+      "settings": [
+        {
+          "type": "text",
+          "id": "cutoff_time_standard",
+          "label": "First Shipping Option",
+          "default": "Order before 05/12/2023 and we'll do our best to deliver your order in time for Christmas."
+        },
+        {
+          "type": "text",
+          "id": "cutoff_time_expedited",
+          "label": "Seccond Shipping Option"
+        },
+        {
+          "type": "text",
+          "id": "cutoff_time_priority",
+          "label": "Third Shipping Option"
+        }
+      ]
+    },
+    {
+      "type": "country_de",
+      "name": "DE",
+      "settings": [
+        {
+          "type": "text",
+          "id": "cutoff_time_standard",
+          "label": "First Shipping Option",
+          "default": "Order before 05/12/2023  and we'll do our best to deliver your order in time for Christmas."
+        },
+        {
+          "type": "text",
+          "id": "cutoff_time_expedited",
+          "label": "Seccond Shipping Option"
+        },
+        {
+          "type": "text",
+          "id": "cutoff_time_priority",
+          "label": "Third Shipping Option"
+        }
+      ]
+    },
+    {
+      "type": "country_at",
+      "name": "AT",
+      "settings": [
+        {
+          "type": "text",
+          "id": "cutoff_time_standard",
+          "label": "First Shipping Option",
+          "default": "Order before 06/12/2023 and we'll do our best to deliver your order in time for Christmas."
+        },
+        {
+          "type": "text",
+          "id": "cutoff_time_expedited",
+          "label": "Seccond Shipping Option"
+        },
+        {
+          "type": "text",
+          "id": "cutoff_time_priority",
+          "label": "Third Shipping Option"
+        }
+      ]
+    },
+    {
+      "type": "country_lu",
+      "name": "LU",
+      "settings": [
+        {
+          "type": "text",
+          "id": "cutoff_time_standard",
+          "label": "First Shipping Option",
+          "default": "Order before 06/12/2023 and we'll do our best to deliver your order in time for Christmas."
+        },
+        {
+          "type": "text",
+          "id": "cutoff_time_expedited",
+          "label": "Seccond Shipping Option"
+        },
+        {
+          "type": "text",
+          "id": "cutoff_time_priority",
+          "label": "Third Shipping Option"
+        }
+      ]
+    },
+    {
+      "type": "country_fi",
+      "name": "FI",
+      "settings": [
+        {
+          "type": "text",
+          "id": "cutoff_time_standard",
+          "label": "First Shipping Option",
+          "default": "Order before 04/12/2023 and we'll do our best to deliver your order in time for Christmas."
+        },
+        {
+          "type": "text",
+          "id": "cutoff_time_expedited",
+          "label": "Seccond Shipping Option"
+        },
+        {
+          "type": "text",
+          "id": "cutoff_time_priority",
+          "label": "Third Shipping Option"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Cutoff Time v2"
+    }
+  ]
+}
+{% endschema %}

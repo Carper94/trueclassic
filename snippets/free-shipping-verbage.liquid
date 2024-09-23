@@ -1,0 +1,55 @@
+{% assign country_show_verbage = localization.country.iso_code %}
+{% case country_show_verbage %}
+  {% when 'DK' %}
+    Free shipping in Denmark over 1.000,00 DKK
+  {% when 'AD' %}
+    Free shipping in UAE over AED800
+
+  {% when 'NL' %}
+    Free shipping in the Netherlands over €120
+
+  {% when 'ES' %}
+    Free shipping in Spain over €175
+
+  {% when 'IE' %}
+    Free shipping in Ireland over €175
+
+  {% when 'IT' %}
+    Free shipping in Italy over €175
+
+  {% when 'LU' %}
+    Free shipping in Luxembourg over €175
+
+  {% when 'FR' %}
+    Free shipping in France over €175
+
+  {% when 'AU' %}
+    Free shipping in Austria over €175
+
+  {% when 'CH' %}
+    Free shipping in Switzerland over CHF 120
+
+  {% when 'SW' %}
+    Free shipping in Sweden over SEK1600
+
+  {% when 'IL	' %}
+    Free shipping in Israel over 400 NIS
+
+  {% when 'NO' %}
+    Free shipping in Norway over 1.750,00 NOK
+
+  {% when 'NZ' %}
+    Free shipping in New Zealand over NZD $200
+
+  {% when 'CL' %}
+    Free shipping in Chile over $100.000 CLP
+
+  {% when 'ZA' %}
+    Free shipping in South Africa over 3,000 ZAR
+
+  {% when 'SA' %}
+    Free shipping in Saudi Arabia over 800 SAR
+
+  {% when 'SG' %}
+    Free shipping in Singapore over SGD $200
+{% endcase %}

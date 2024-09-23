@@ -1,0 +1,153 @@
+{
+  "name": "Footer Group",
+  "type": "footer",
+  "sections": {
+    "footer-usa": {
+      "type": "footer-usa",
+      "blocks": {
+        "48f62adb-e85c-48c3-83e7-95c2034e764b": {
+          "type": "klaviyo_form",
+          "settings": {
+            "country_code": "",
+            "text": "GET 20% CASHBACK",
+            "placeholder": "Enter Email Address",
+            "paragraph": "Exclusive deals, early access, and first look at new products, right to your inbox.",
+            "already_subscribed_message": "You're already subscribed",
+            "success_message": "Thanks for subscribing",
+            "error_message": "Something went wrong",
+            "klaviyo_list_id": "LUzTHf"
+          }
+        }
+      },
+      "block_order": [
+        "48f62adb-e85c-48c3-83e7-95c2034e764b"
+      ],
+      "settings": {
+        "footer_link_list": "footer-menu-2-0",
+        "enable_policies": true,
+        "footer_policies": "policies-menu",
+        "android_app_link": "https:\/\/play.google.com\/store\/apps\/details?id=co.tapcart.app.id_uAGoYMR3CG&hl",
+        "ios_app_link": "https:\/\/apps.apple.com\/us\/app\/true-classic\/id1590039576"
+      }
+    },
+    "footer-south-america": {
+      "type": "footer-south-america",
+      "blocks": {
+        "48f62adb-e85c-48c3-83e7-95c2034e764b": {
+          "type": "klaviyo_form",
+          "settings": {
+            "country_code": "",
+            "text": "GET 20% OFF",
+            "placeholder": "Enter Email Address",
+            "paragraph": "Exclusive deals, early access, and first look at new products, right to your inbox.",
+            "already_subscribed_message": "You're already subscribed",
+            "success_message": "Thanks for subscribing",
+            "error_message": "Something went wrong",
+            "klaviyo_list_id": "LUzTHf"
+          }
+        }
+      },
+      "block_order": [
+        "48f62adb-e85c-48c3-83e7-95c2034e764b"
+      ],
+      "settings": {
+        "footer_link_list": "footer-menu-2-0",
+        "enable_policies": true,
+        "footer_policies": "policies-menu",
+        "android_app_link": "https:\/\/play.google.com\/store\/apps\/details?id=co.tapcart.app.id_uAGoYMR3CG&hl",
+        "ios_app_link": "https:\/\/apps.apple.com\/us\/app\/true-classic\/id1590039576"
+      }
+    },
+    "footer-north-america": {
+      "type": "footer-north-america",
+      "blocks": {
+        "48f62adb-e85c-48c3-83e7-95c2034e764b": {
+          "type": "klaviyo_form",
+          "settings": {
+            "country_code": "",
+            "text": "GET 20% OFF",
+            "placeholder": "Enter Email Address",
+            "paragraph": "Exclusive deals, early access, and first look at new products, right to your inbox.",
+            "already_subscribed_message": "You're already subscribed",
+            "success_message": "Thanks for subscribing",
+            "error_message": "Something went wrong",
+            "klaviyo_list_id": "LUzTHf"
+          }
+        }
+      },
+      "block_order": [
+        "48f62adb-e85c-48c3-83e7-95c2034e764b"
+      ],
+      "settings": {
+        "footer_link_list": "footer-menu-2-0",
+        "enable_policies": true,
+        "footer_policies": "policies-menu",
+        "android_app_link": "https:\/\/play.google.com\/store\/apps\/details?id=co.tapcart.app.id_uAGoYMR3CG&hl",
+        "ios_app_link": "https:\/\/apps.apple.com\/us\/app\/true-classic\/id1590039576"
+      }
+    },
+    "footer-europe": {
+      "type": "footer-europe",
+      "blocks": {
+        "48f62adb-e85c-48c3-83e7-95c2034e764b": {
+          "type": "klaviyo_form",
+          "settings": {
+            "country_code": "",
+            "text": "GET 20% OFF",
+            "placeholder": "Enter Email Address",
+            "paragraph": "Exclusive deals, early access, and first look at new products, right to your inbox.",
+            "already_subscribed_message": "You're already subscribed",
+            "success_message": "Thanks for subscribing",
+            "error_message": "Something went wrong",
+            "klaviyo_list_id": "LUzTHf"
+          }
+        }
+      },
+      "block_order": [
+        "48f62adb-e85c-48c3-83e7-95c2034e764b"
+      ],
+      "settings": {
+        "footer_link_list": "footer-menu-2-0",
+        "enable_policies": true,
+        "footer_policies": "policies-menu",
+        "android_app_link": "https:\/\/play.google.com\/store\/apps\/details?id=co.tapcart.app.id_uAGoYMR3CG&hl",
+        "ios_app_link": "https:\/\/apps.apple.com\/us\/app\/true-classic\/id1590039576"
+      }
+    },
+    "footer-rest-of-the-world": {
+      "type": "footer-rest-of-the-world",
+      "blocks": {
+        "48f62adb-e85c-48c3-83e7-95c2034e764b": {
+          "type": "klaviyo_form",
+          "settings": {
+            "country_code": "",
+            "text": "GET 20% OFF",
+            "placeholder": "Enter Email Address",
+            "paragraph": "Exclusive deals, early access, and first look at new products, right to your inbox.",
+            "already_subscribed_message": "You're already subscribed",
+            "success_message": "Thanks for subscribing",
+            "error_message": "Something went wrong",
+            "klaviyo_list_id": "LUzTHf"
+          }
+        }
+      },
+      "block_order": [
+        "48f62adb-e85c-48c3-83e7-95c2034e764b"
+      ],
+      "settings": {
+        "footer_link_list": "footer-menu-2-0",
+        "enable_policies": true,
+        "footer_policies": "policies-menu",
+        "android_app_link": "https:\/\/play.google.com\/store\/apps\/details?id=co.tapcart.app.id_uAGoYMR3CG&hl",
+        "ios_app_link": "https:\/\/apps.apple.com\/us\/app\/true-classic\/id1590039576"
+      }
+    }
+  },
+  "order": [
+    "footer-usa",
+    "footer-south-america",
+    "footer-north-america",
+    "footer-europe",
+    "footer-rest-of-the-world"
+  ]
+}

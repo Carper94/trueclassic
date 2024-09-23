@@ -1,0 +1,126 @@
+.section-with-comment {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .section-with-comment {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
+.section-with-comment-container {
+  text-align: center;
+}
+
+.section-comment-wrapper {
+  max-width: 768px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.comment-title {
+  display: inline-block;
+  position: relative;
+  font-family: var(--font-staff-x-condensed);
+  font-size: 22px;
+  letter-spacing: 1.5px;
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.comment-title:after {
+  content: "";
+  display: block;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: auto;
+  top: -10px;
+  bottom: -10px;
+  left: -30px;
+  right: -30px;
+}
+
+.comment-text {
+  position: relative;
+  font-size: 42px;
+  font-family: var(--font-modernist);
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  text-align: center;
+  padding: 0 2rem;
+}
+
+.comment-text:before,
+.comment-text:after {
+  position: absolute;
+  content: " ";
+  display: block;
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 35px;
+  top: 15px;
+  background-size: 40px;
+}
+
+.comment-text:before {
+  left: -10px;
+}
+
+.comment-text:after {
+  right: -10px;
+  transform: rotate(180deg);
+}
+
+.comment-author {
+  font-family: var(--font-staff-x-condensed);
+  font-weight: 300;
+  letter-spacing: 1px;
+  font-size: 18px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 768px) {
+  .comment-title {
+    font-size: 14px;
+  }
+
+  .comment-title:after {
+    top: -5px;
+  }
+
+  .comment-text {
+    font-size: 20px;
+  }
+
+  .comment-text:before,
+  .comment-text:after {
+    width: 24px;
+    height: 21px;
+    background-size: 24px;
+    top: 5px;
+  }
+
+  .comment-text:before {
+    left: 0px;
+  }
+
+  .comment-text:after {
+    right: 0px;
+    transform: rotate(180deg);
+  }
+
+  .comment-author {
+    font-size: 14px;
+  }
+}

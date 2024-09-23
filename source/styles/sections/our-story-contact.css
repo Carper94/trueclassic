@@ -1,0 +1,27 @@
+.our-story-contact-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  @media (--medium) {
+    flex-direction: row;
+    max-width: var(--global-width-medium);
+    margin: 0 auto;
+    gap: 135px;
+  }
+}
+
+.our-story-contact-content__container {
+  width: 100%;
+}
+
+.our-story-contact-info__container {
+  width: 100%;
+
+  @media (--medium) {
+    margin-left: var(--spacer-xl);
+  }
+
+  & .contact-info__list {
+    margin-top: 0;
+  }
+}

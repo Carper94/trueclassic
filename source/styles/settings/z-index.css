@@ -1,0 +1,14 @@
+:root {
+  --subnav-index: 90;
+  --announcement-index: 99;
+  --header-index: 125;
+  --scrim-index: 199;
+  --mini-cart-index: 2147483004;
+  --mobile-nav-index: 2147483003;
+  --mobile-nav-search-index: 2147483004;
+
+  --sticky-cart-button-index: 100;
+  --pack-builder-cart-index: 2147483002;
+  --pack-builder-scrim-index: 120;
+  --gorgias-index: 199;
+}

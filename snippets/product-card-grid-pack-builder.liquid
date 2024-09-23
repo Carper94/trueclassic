@@ -1,0 +1,15 @@
+<div class='product-card-grid-wrapper'>
+  {% for product in product_array %}
+    {% if product.available %}
+      {% render 'product-card-pack-builder',
+        product: product,
+        card_heading_level: card_heading_level,
+        use_link: use_link,
+        use_ajax: use_ajax,
+        hide_legend: hide_legend,
+        use_variant_image: use_variant_image
+        hasSellingPlan: hasSellingPlan
+      %}
+    {% endif %}
+  {% endfor %}
+</div>

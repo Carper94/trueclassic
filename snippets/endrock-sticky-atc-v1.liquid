@@ -1,0 +1,56 @@
+<style>
+  .endrock-sticky-atc-v1__wrapper .endrock-sticky-atc__wrapper {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    border-top: 1px solid #dbdbdb;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    z-index: 10;
+    background: white;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  .endrock-sticky-atc-v1__wrapper .endrock-sticky-atc__wrapper.not-show {
+    opacity: 1;
+  }
+  .endrock-sticky-atc-v1__wrapper .endrock-sticky-atc {
+    width: 90%;
+  }
+  @media screen and (min-width: 768px) {
+    .endrock-sticky-atc-v1__wrapper .endrock-sticky-atc__wrapper {
+      display: none;
+    }
+  }
+  .endrock-sticky-atc-v1__wrapper .endrock-sticky-atc {
+    box-shadow: -4px 4px 8px 0px #0000004d;
+  }
+  .endrock-sticky-atc-v1__color-alert {
+    margin: 0.75rem 0 0 0;
+    background: #EFCCCA;
+    color: #2E2520;
+    width: 100%;
+    font-weight: 400;
+    font-size: 12px;
+    display: none;
+    justify-content: center;
+    padding: 0.5rem 0;
+  }
+  .endrock-sticky-atc-v1__color-alert svg {
+    margin-right: 10px;
+  }
+</style>
+
+<div class='endrock-sticky-atc__wrapper'>
+  <button
+    class='button primary main-product-add-cart atc-button endrock-sticky-atc'
+    type='button'
+  >
+    {% render 'icon-add-to-cart' %}
+    <span>Add to cart</span>
+  </button>
+</div>

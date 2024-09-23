@@ -1,0 +1,71 @@
+{% comment %}
+  .
+  Variables available:
+
+    link_text: {string} Text to display on the link
+    link_url: {string} URL to link to
+    new_tab: {boolean} Whether or not to open the link in a new tab
+    link_classes: {string} Additional classes to add to the link element
+    link_color_inverse: {boolean} Whether or not to use the inverse color scheme
+    icon: {string} Name of the icon to display (arrow-left, arrow-right, lock, etc.)
+    link_margin_top: {string} Margin top class (mg-t-none, mg-t-xs, mg-t-s, mg-t-m, mg-t-l, mg-t-xl)
+    link_margin_bottom: {string} Margin bottom class (mg-b-none, mg-b-xs, mg-b-s, mg-b-m, mg-b-l, mg-b-xl)
+    full_width: {boolean} Whether or not to make the link full width
+    disabled: {boolean} Whether or not to disable the link
+    block_id: {string} Unique ID for the block
+
+  # Usage:
+
+  ## using settings as parameters:
+
+    {%- assign unique_id = block.id | remove: '-' | remove: '_' -%}
+    {% render 'tc-link',
+      link_text: block.settings.link_text,
+      link_url: block.settings.link_url,
+      new_tab: block.settings.new_tab,
+      link_classes: block.settings.link_style,
+      link_color_inverse: block.settings.link_color_inverse,
+      icon: block.settings.link_icon,
+      link_margin_top: block.settings.link_margin_top,
+      link_margin_bottom: block.settings.link_margin_bottom,
+      full_width: block.settings.full_width,
+      disabled: block.settings.disabled,
+      block_id: unique_id
+    %}
+
+  ## parameters can also be hardcoded if needed:
+
+    {% render 'tc-link',
+      link_text: 'Link text',
+      link_url: '/link-url',
+      new_tab: true,
+      link_classes: 'primary',
+      link_color_inverse: false,
+      icon: 'arrow-right',
+      link_margin_top: 'mg-t-none',
+      link_margin_bottom: 'mg-b-none',
+      full_width: false,
+      disabled: false,
+      block_id: 'unique-id'
+    %}
+  .
+{% endcomment %}
+
+<a
+  href='{{ link_url }}'
+  class='button {{ link_classes }} {% if link_color_inverse %} inverse-down{% endif %} {% if disabled %}disabled{% endif %} {{ link_margin_top }} {{ link_margin_bottom }}'
+  style='{% if full_width %} width: -webkit-fill-available;{% endif %}'
+  {%- if new_tab -%}
+    target='_blank'
+  {%- endif -%}
+  {%- if block_id -%}
+    id='{{ block_id }}'
+  {%- endif -%}
+>
+  <span class='btn-text'>
+    {% unless icon == 'none' %}
+      {% render 'tc-icons', icon: icon %}
+    {% endunless %}
+    {{ link_text }}
+  </span>
+</a>

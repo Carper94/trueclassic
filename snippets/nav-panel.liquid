@@ -1,0 +1,29 @@
+{% if tab != blank or is_search == true %}
+  {% liquid
+    if is_mobile == true
+      assign id = tab.title | handleize | prepend: 'mobile-nav__panel--'
+    elsif is_search == true
+      assign id = 'nav__panel--search'
+    else
+      assign id = tab.title | handleize | prepend: 'nav__panel--'
+    endif
+  %}
+
+  <div
+    id='{{ id }}'
+    class='nav__panel {{ class }}'
+    aria-live='polite'
+    aria-hidden='true'
+    tabindex='-1'
+  >
+    {% if is_search == true %}
+      {% render 'nav-search-panel' %}
+    {% else %}
+      {% render 'nav-list',
+        is_accordion: true,
+        links: tab.links,
+        list_item_class: list_item_class
+      %}
+    {% endif %}
+  </div>
+{% endif %}

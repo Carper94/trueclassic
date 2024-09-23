@@ -1,0 +1,33 @@
+<script async src='https://www.googletagmanager.com/gtag/js?id=AW-1028051898'></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+
+  gtag('config', 'AW-1028051898', { allow_enhanced_conversions: true });
+</script>
+{% if first_time_accessed %}
+  <script>
+    gtag('event', 'conversion', {
+      'send_to': 'AW-1028051898/kfczCMz_16cBELqnm-oD',
+      'value': {{ checkout.subtotal_price | divided_by: 100.0 }},
+        'currency': '{{ currency }}',
+        'transaction_id': '{{ order_number }}',
+        });
+  </script>
+{% endif %}
+
+<script>
+  (function (w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+    var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s),
+      dl = l != 'dataLayer' ? '&l=' + l : '';
+    j.async = true;
+    j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+    f.parentNode.insertBefore(j, f);
+  })(window, document, 'script', 'dataLayer', 'GTM-MDZF7VH');
+</script>

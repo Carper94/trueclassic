@@ -1,0 +1,351 @@
+{%- liquid
+  assign country_codes = section.settings.country_code | split: ','
+  assign exclude_country_codes = section.settings.exclude_country_code | split: ','
+  assign should_show_banner = false
+
+  if section.settings.country_code == '' and section.settings.exclude_country_code == ''
+    assign should_show_banner = true
+  else
+    assign is_excluded = false
+    for exclude_code in exclude_country_codes
+      if localization.country.iso_code == exclude_code
+        assign is_excluded = true
+        break
+      endif
+    endfor
+
+    unless is_excluded
+      if section.settings.country_code == ''
+        assign should_show_banner = true
+      else
+        for code in country_codes
+          if localization.country.iso_code == code
+            assign should_show_banner = true
+            break
+          endif
+        endfor
+      endif
+    endunless
+  endif
+-%}
+{%- if should_show_banner -%}
+  <style>
+    #video-iframe {
+      position: relative !important;
+      object-fit: cover;
+      height: 100%;
+      aspect-ratio: 16 / 9;
+      background: transparent !important;
+    }
+    #video-iframe + img {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: auto;
+      z-index: -1;
+    }
+  </style>
+  
+  {% liquid
+    assign video_url_id = section.settings.video_url.id | remove: 'https://vimeo.com/'
+    assign self_hosted_video = section.settings.self_hosted_video_url
+    assign videowise_hosted_video = section.settings.videowise
+  -%}
+  <div class='product-video-text section-fullwidth {% if section.settings.video_bg_color != blank %}{{ section.settings.video_bg_color }}{% endif %}'>
+    <div class='content-wrapper content-nopadd-medium-down content-maxwidth '>
+      <div class='product-video-section-wrapper'>
+        <div class='product-video-text-media'>
+          <div class='product-video-text-media-wrapper'>
+            {% if videowise_hosted_video %}
+              {{ videowise_hosted_video }}
+            {% else %}
+              {% if self_hosted_video != blank %}
+                <video
+                  id='video-iframe'
+                  src='{{ self_hosted_video }}'
+                  frameborder='0'
+                  allow='autoplay; fullscreen; picture-in-picture'
+                  allowfullscreen=''
+                  title='Discover why True Classic® is every guy`s'
+                  data-ready='true'
+                  autoplay
+                  loop
+                  muted
+                  playsinline
+                  preload='auto'
+                  poster='{{ section.settings.image | image_url: width: 500 }}'
+                ></video>
+              {% else %}
+                {% if video_url_id != blank %}
+                  <iframe
+                    id='video-iframe'
+                    src='https://player.vimeo.com/video/{{ video_url_id }}?h=b5ab0400cb&amp;muted=1&amp;autoplay=1&amp;controls=0&amp;loop=1&amp;background=1&amp;app_id=122963'
+                    frameborder='0'
+                    allow='autoplay; fullscreen; picture-in-picture'
+                    allowfullscreen=''
+                    title='Discover why True Classic is every guy`s'
+                    data-ready='true'
+                  ></iframe>
+                {% endif %}
+              {% endif %}
+              <img
+                srcset='
+                  {%- if section.settings.image.width >= 375 -%}{{ section.settings.image | image_url: width: 375 }} 375w,{%- endif -%}
+                  {%- if section.settings.image.width >= 750 -%}{{ section.settings.image | image_url: width: 750 }} 750w,{%- endif -%}
+                  {%- if section.settings.image.width >= 1100 -%}{{ section.settings.image | image_url: width: 1100 }} 1100w,{%- endif -%}
+                  {%- if section.settings.image.width >= 1500 -%}{{ section.settings.image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                  {%- if section.settings.image.width >= 2000 -%}{{ section.settings.image | image_url: width: 2000 }} 2000w,{%- endif -%}
+                  {{ section.settings.image | image_url }} {{ section.settings.image.width }}w
+                '
+                src='{{ section.settings.image | image_url: width: 500 }}'
+                loading='lazy'
+                alt='{{ section.settings.image.alt | escape }}'
+                width='1000'
+                height='562'
+                style='object-fit: cover; width: 100%; aspect-ratio: 16 / 9;'
+              >
+            {% endif %}
+          </div>
+        </div>
+
+        <div class='product-video-text-content'>
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when 'heading' -%}
+                {% if settings.theme_styles != blank %}
+                  <{{ section.settings.heading_level }}
+                    class='product-video-text__heading {% if section.settings.text_color != blank %}{{ section.settings.text_color }}{% endif %} h2 headline'
+                    {{ block.shopify_attributes }}
+                  >
+                    <span>{{ block.settings.heading | escape }}</span>
+                  </{{ section.settings.heading_level }}>
+                {% else %}
+                  <h2 class='section__headline section__headline-video-w-text'>
+                    <span>{{ block.settings.heading | escape }}</span>
+                  </h2>
+                {% endif %}
+
+              {%- when 'text' -%}
+                <div
+                  class='product-video-text__text {% if section.settings.text_color != blank %}{{ section.settings.text_color }}{% endif %}'
+                  {{ block.shopify_attributes }}
+                >
+                  <span>{{ block.settings.text | escape }}</span>
+                </div>
+
+              {%- when 'button' -%}
+                <div class='' {{ block.shopify_attributes }}>
+                  {%- if block.settings.button_label_1 != blank -%}
+                    <a
+                      {% if block.settings.button_link_1 != blank %}
+                        href='{{ block.settings.button_link_1 }}'
+                      {% endif %}
+                      class='button {% if section.settings.button_color != blank %}{{ section.settings.button_color }}{% endif %}'
+                      {% if block.settings.button_link_1 == blank %}
+                        aria-disabled='true'
+                      {% endif %}
+                      aria-label='{{ block.settings.button_link_1 | remove_first: "collections" | remove: '/' | replace: '-', " " }}'
+                    >
+                      <span class='visually-hidden'>
+                        {{-
+                          block.settings.button_link_1
+                          | remove_first: 'collections'
+                          | remove: '/'
+                          | replace: '-', ' '
+                        -}}
+                      </span>
+                      {{ block.settings.button_label_1 | escape }}
+                    </a>
+                  {%- endif -%}
+                </div>
+            {%- endcase -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </div>
+{%- endif -%}
+{% schema %}
+{
+  "name": "Product Video With Text",
+  "tag": "section",
+  "class": "section-video-text",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Geolocation"
+    },
+    {
+      "type": "text",
+      "id": "country_code",
+      "label": "Country code",
+      "info": "Enter the country code for the country you want to show the banner to. You can have multiple country codes, just separate them with a comma. Example: US,CA,GB. Leave empty to show to all countries."
+    },
+    {
+      "type": "text",
+      "id": "exclude_country_code",
+      "label": "Exclude country code",
+      "info": "Enter the country code for the countries you DON'T want to show the banner to. You can have multiple country codes, just separate them with a comma. Example: US,CA,GB"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Video Placeholder Image"
+    },
+    {
+      "type": "text",
+      "id": "self_hosted_video_url",
+      "label": "Self Hosted Video Link",
+      "info": "Please provide a self-hosted video source URL. This will override the Vimeo video link if provided."
+    },
+    {
+      "type": "video_url",
+      "id": "video_url",
+      "accept": ["vimeo"],
+      "label": "Vimeo Video Link"
+    },
+    {
+      "type": "liquid",
+      "id": "videowise",
+      "label": "Videowise Video Widget"
+    },
+    {
+      "type": "select",
+      "id": "video_bg_color",
+      "label": "Background Color",
+      "default": "brown-bg",
+      "options": [
+        { "value": "brown-bg", "label": "Brown" },
+        { "value": "yellow-bg", "label": "Yellow" },
+        { "value": "light-bg", "label": "White" },
+        { "value": "dark-gray-bg", "label": "Dark Gray" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "text_color",
+      "options": [
+        {
+          "value": "light-text",
+          "label": "Light"
+        },
+        {
+          "value": "dark-text",
+          "label": "Dark"
+        },
+        {
+          "value": "red-text",
+          "label": "Red"
+        },
+        {
+          "value": "yellow-text",
+          "label": "Yellow"
+        }
+      ],
+      "default": "dark-text",
+      "label": "Text Color"
+    },
+    {
+      "type": "select",
+      "id": "button_color",
+      "label": "Button Color",
+      "default": "light",
+      "options": [
+        { "value": "light", "label": "Light" },
+        { "value": "red", "label": "Red" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "heading_level",
+      "options": [
+        {
+          "value": "h1",
+          "label": "Level 1"
+        },
+        {
+          "value": "h2",
+          "label": "Level 2"
+        }
+      ],
+      "default": "h1",
+      "label": "Heading Level"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "Heading",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Heading",
+          "label": "Heading"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Subheading",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "default": "Give customers details about the video or content on the template.",
+          "label": "Subheading"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Button",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_label_1",
+          "default": "Button Text",
+          "label": "Button Text"
+        },
+        {
+          "type": "url",
+          "id": "button_link_1",
+          "label": "Link URL"
+        }
+      ]
+    },
+    {
+      "type": "icons",
+      "name": "Icons",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "icons",
+          "default": "Icons",
+          "label": "Icons"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Video With Text",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "button"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

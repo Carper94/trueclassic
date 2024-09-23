@@ -1,0 +1,55 @@
+<style>
+  .insider-credit{
+    display: flex;
+    align-items: center;
+    gap: 6px
+  }
+
+  .insider-credit .credit-icon{
+    line-height:0;
+  }
+
+  .insider-credit .credit-price .text{
+    font-family: 'SkModernist';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.48px;
+    color: #2E2520;
+  }
+
+  .insider-credit .credit-price .money{
+    color: #971B1B;
+    font-family: 'SkModernist';
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.39px;
+  }
+
+  @media(max-width: 767px){
+    .insider-credit .credit-price .text{
+      font-size: 11px;
+      line-height: 18px;
+    }
+
+    .insider-credit .credit-price{
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+  }
+</style>
+
+<div class="insider-credit">
+  <div class="credit-icon">
+    {% render 'icon-credit' %}
+  </div>
+  <div class="credit-price">
+    {%- assign creditPrice = product.compare_at_price | divided_by: 5 -%}
+    <span class="text">Insider Credit:</span>
+    {{ creditPrice | money }}
+  </div>
+</div>

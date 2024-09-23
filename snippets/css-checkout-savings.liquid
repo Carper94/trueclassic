@@ -1,0 +1,61 @@
+<style>
+  .product__price {
+    position: relative;
+    min-width: 85px;
+  }
+
+  .product__price__compare {
+    text-decoration: line-through;
+    position: absolute;
+    top: 15px;
+    display: block;
+    right: 0;
+  }
+
+  .product__price del {
+    position: absolute;
+    bottom: 30px;
+    display: block;
+    right: 0;
+  }
+
+  .product__price .order-summary__emphasis {
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 11px;
+  }
+
+  .product__price.discounted .order-summary__emphasis {
+    bottom: 50px;
+  }
+  .product__image {
+    padding: 0;
+    vertical-align: top;
+  }
+
+  .product__price .order-summary__small-text {
+    font-size: inherit !important;
+    color: inherit !important;
+  }
+
+  [data-order-summary-section="line-items"] td,
+  [data-order-summary-section="line-items"] th {
+    padding-top: 10px !important;
+    padding-bottom: 10px;
+  }
+
+  .total-recap__original-price,
+  .total-line--subtotal {
+    display: none;
+  }
+
+  .product__price .order-summary__emphasis,
+  .total-line--savings .total-line__price .order-summary__emphasis,
+  .total-line--discount--new .total-line__price,
+  .total-line--reduction .total-line__price .order-summary__emphasis {
+    color: #be483a;
+    font-weight: bold;
+  }
+
+</style>

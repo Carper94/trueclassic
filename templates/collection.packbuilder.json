@@ -1,0 +1,141 @@
+{
+  "sections": {
+    "93e5e753-0af6-4c35-aa4d-dcfd743c2490": {
+      "type": "tc-rich-text",
+      "blocks": {
+        "template--14616115740744__93e5e753-0af6-4c35-aa4d-dcfd743c2490-heading-1": {
+          "type": "heading",
+          "settings": {
+            "title": "BUILD YOUR OWN BUNDLE",
+            "heading_level": "h1",
+            "heading_size": "h1",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-chocolate",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-none",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "template--14616115740744__93e5e753-0af6-4c35-aa4d-dcfd743c2490-text-1": {
+          "type": "text",
+          "settings": {
+            "paragraph": "<p>Customize a bundle and save big on best-sellers!<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "xl",
+            "paragraph_color": "color-chocolate",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-m"
+          }
+        }
+      },
+      "block_order": [
+        "template--14616115740744__93e5e753-0af6-4c35-aa4d-dcfd743c2490-heading-1",
+        "template--14616115740744__93e5e753-0af6-4c35-aa4d-dcfd743c2490-text-1"
+      ],
+      "settings": {
+        "country_code": "US",
+        "exclude_country_code": "",
+        "section_bg_color": "#ffffff",
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "main": {
+      "type": "pack-builder",
+      "settings": {
+        "country_code": "US",
+        "exclude_country_code": "",
+        "max": 100
+      }
+    },
+    "122a4b6a-f9fc-41f8-a45a-21bfa02d68fd": {
+      "type": "tc-rich-text",
+      "blocks": {
+        "template--14616115740744__122a4b6a-f9fc-41f8-a45a-21bfa02d68fd-text-1": {
+          "type": "text",
+          "settings": {
+            "paragraph": "<p>SORRY, THE PACK BUILDER IS NOT YET AVAILABLE IN YOUR REGION<\/p>",
+            "paragraph_font": "staff-x-condensed-type",
+            "paragraph_style": "xxl",
+            "paragraph_color": "color-chocolate",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-m"
+          }
+        },
+        "6ba8a3b4-7fc2-4129-ad43-cc8e6ecede8a": {
+          "type": "text",
+          "settings": {
+            "paragraph": "<p>Shop Sale or Best <a href=\"\/collections\/best-sellers\" title=\"Best Sellers\">Sellers<\/a> Instead!<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "m",
+            "paragraph_color": "color-chocolate",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-l"
+          }
+        }
+      },
+      "block_order": [
+        "template--14616115740744__122a4b6a-f9fc-41f8-a45a-21bfa02d68fd-text-1",
+        "6ba8a3b4-7fc2-4129-ad43-cc8e6ecede8a"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "US",
+        "section_bg_color": "#ffffff",
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "48ed51b6-d3b5-4683-b451-619593f69c66": {
+      "type": "tc-collection-inline",
+      "custom_css": [
+        ".collection {padding-left: 2rem; padding-right: 2rem;}",
+        "@media screen and (max-width: 749px) {.collection {padding-left: 1rem; padding-right: 1rem; }}"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "US",
+        "title": "",
+        "heading_level": "h2",
+        "heading_size": "h2",
+        "heading_font": "staff-x-condensed-type",
+        "heading_color": "color-chocolate",
+        "heading_color_inverse": false,
+        "heading_margin_top": "mg-t-none",
+        "heading_margin_bottom": "mg-b-m",
+        "heading_underline": false,
+        "line_break_dot": false,
+        "collection": "best-sellers",
+        "products_to_show": 25,
+        "columns_desktop": 5,
+        "full_width": true,
+        "enable_section_width": false,
+        "max_section_width_desktop": 250,
+        "enable_desktop_slider": true,
+        "enable_card_width": true,
+        "max_card_width_desktop": 570,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 16,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "93e5e753-0af6-4c35-aa4d-dcfd743c2490",
+    "main",
+    "122a4b6a-f9fc-41f8-a45a-21bfa02d68fd",
+    "48ed51b6-d3b5-4683-b451-619593f69c66"
+  ]
+}

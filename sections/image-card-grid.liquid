@@ -1,0 +1,247 @@
+<div
+  class='section-wrapper section-image-card-grid-wrapper {{ section.settings.section_class }}'
+  aria-label='Image Card Grid'
+>
+  <div class='image-card-grid-wrapper'>
+    {% if section.settings.section_title != blank %}
+      <div class='image-card-title'>
+        <h2>{{ section.settings.section_title | default: 'Image Card Grid' }}</h2>
+      </div>
+    {% endif %}
+
+    <div class='image-card-grid swiper'>
+      <div class='swiper-wrapper'>
+        {% for block in section.blocks %}
+          <div class='swiper-slide'>
+            <div class='card'>
+              <a href='{{ block.settings.collection_link }}'>
+                <img
+                  src='{{ block.settings.imageurl | image_url }}'
+                  alt='{{ block.settings.title }}'
+                  loading='lazy'
+                  width='300'
+                  height='300'
+                >
+                <div>
+                  {% if block.settings.title != blank %}
+                    <h3>
+                      {{ block.settings.title }}
+                    </h3>
+                  {% endif %}
+                  {% if block.settings.description != blank %}
+                    <p>
+                      {{ block.settings.description }}
+                    </p>
+                  {% endif %}
+                  {% if block.settings.collection_name != blank %}
+                    <span>{{ block.settings.collection_name }}</span>
+                    {% render 'icon-arrow-right' %}
+                  {% endif %}
+                </div>
+              </a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      <div class='swiper-scrollbar'></div>
+    </div>
+  </div>
+</div>
+
+{% style %}
+  .image-card-grid-wrapper {
+    padding: 1rem 0;
+  }
+
+  .image-card-title {
+    padding: 1rem 0;
+  }
+  .image-card-title h2 {
+    text-align: center;
+    font-size: 4rem;
+  }
+
+  .image-card-grid img {
+    background: #ddd;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .image-card-grid h3 {
+    font-family: var(--font-staff-x-condensed) !important;
+    color: var(--brand-white);
+    letter-spacing: 1.3px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 20px;
+  }
+
+  .image-card-grid .swiper-scrollbar {
+    height: 10px;
+  }
+
+  @media (min-width: 768px) {
+    .image-card-grid .swiper-scrollbar {
+      display: none;
+    }
+  }
+
+  .image-card-grid .swiper-wrapper {
+    margin-bottom: 20px;
+  }
+
+  .image-card-grid .swiper-slide {
+    flex-grow: 1;
+    width: 50%;
+    height: auto;
+  }
+
+  .image-card-grid .swiper-scrollbar {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .image-card-grid p {
+    letter-spacing: 1.1px;
+    font-size: 16px;
+    margin-top: 20px;
+  }
+
+  .image-card-grid a {
+    display: flex;
+    justify-content: space-between;
+    letter-spacing: 1.1px;
+    line-height: 1.2;
+    font-size: 1.3rem;
+    font-weight: 500;
+  }
+
+  .image-card-grid a:hover {
+    text-decoration: none !important;
+  }
+
+  .image-card-grid .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 5px;
+    height: 100%;
+  }
+
+  .image-card-grid .card div {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .image-card-grid .card span {
+    font-size: 12px;
+    line-height: 34px;
+  }
+
+  @media (min-width: 768px) {
+    .image-card-grid h3 {
+      font-size: 22px;
+    }
+    .image-card-grid .card {
+      padding: 0 10px;
+    }
+
+    .image-card-grid .swiper-slide {
+      width: 25%;
+    }
+
+    .image-card-grid p {
+      font-size: 17px;
+      min-height: 100px;
+    }
+
+    .image-card-grid img {
+      height: 300px;
+    }
+
+    .image-card-grid .card span {
+      font-size: 16px;
+      line-height: 34px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .image-card-grid img {
+      height: 350px;
+    }
+    .image-card-grid p {
+      font-size: 17px;
+    }
+    .image-card-grid {
+      padding: 2rem;
+      gap: 1.2rem;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media (min-width: 1750px) {
+    .image-card-grid img {
+      height: 500px;
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Image Card Grid",
+  "class": "section",
+  "blocks": [
+    {
+      "name": "Card",
+      "type": "card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "imageurl",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "text",
+          "id": "collection_name",
+          "label": "Collection Name"
+        },
+        {
+          "type": "url",
+          "id": "collection_link",
+          "label": "Collection Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image Card Grid",
+      "blocks": [
+        {
+          "type": "card"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

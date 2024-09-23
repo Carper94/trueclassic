@@ -1,0 +1,12 @@
+#gorgias-chat-container iframe#chat-button {
+  transition: transform var(--transition-duration);
+  z-index: var(--gorgias-index);
+  bottom: -16px !important;
+  right: 4px !important;
+}
+
+.move-gorgias {
+  @media (--medium-down) {
+    transform: translateY(-70px);
+  }
+}

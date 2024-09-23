@@ -1,0 +1,17 @@
+<td width='10' class='size-dimention'>
+  {% if product.type == 'Boxer'
+    or product.type == 'Underwear'
+    or product.type == 'Pants'
+    or product.type == 'Jeans'
+    or product.type == 'Chinos'
+    or product.type == 'Shorts'
+    or product.type == 'Comfort Chino Short'
+    or product.type == 'Structured Blazer'
+  %}
+    {% assign SIZE = NUMBER %}
+    {{ SIZE }}
+  {% else %}
+    {% assign SIZE = LETTER %}
+    {{ SIZE }}
+  {% endif %}
+</td>

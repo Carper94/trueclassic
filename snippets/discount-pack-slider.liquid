@@ -1,0 +1,45 @@
+{% liquid
+  assign settings = section.settings
+  assign line_item_products = cart.items | map: 'product'
+  assign line_item_products_ids = line_item_products | map: 'id'
+  assign is_shown_discount_slider = false
+  for product in section.settings.discount_pack_slider_collection.products
+    unless line_item_products_ids contains product.id
+      assign is_shown_discount_slider = true
+    endunless
+  endfor
+%}
+
+{% if settings.show_discount_pack_slider %}
+  <div class='discount-pack-slider-wrapper'>
+    {% if is_shown_discount_slider %}
+      <div class='discount-pack-slider__heading'>
+        <h2 class='headline'>{{ settings.discount_pack_slider_title }}</h2>
+      </div>
+      <div class='discount-pack-slider__controls'>
+        <div class='slider-control-prev opacity-transition'>
+          {% render 'icon-chevron' %}
+        </div>
+        <div class='slider-control-next'>
+          {% render 'icon-chevron' %}
+        </div>
+      </div>
+      <!-- Slider main container -->
+      <div class='discount-pack-slider'>
+        <!-- Additional required wrapper -->
+        <ul>
+          <!-- Slides -->
+          {% for product in settings.discount_pack_slider_collection.products %}
+            {% unless line_item_products_ids contains product.id %}
+              {% if product.available %}
+                <li>
+                  {% render 'discount-pack-list-item', product: product, number: forloop.index %}
+                </li>
+              {% endif %}
+            {% endunless %}
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  </div>
+{% endif %}

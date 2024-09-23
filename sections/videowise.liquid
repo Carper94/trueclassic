@@ -1,0 +1,24 @@
+<div class='container {{ section.settings.css_class }}'>
+  <div class='content-wrapper'>
+    {% render 'videowise' %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Videowise",
+  "settings": [
+    {
+      "type": "text",
+      "id": "css_class",
+      "default": "d-none",
+      "label": "Add CSS Class"
+    }
+  ],
+  "presets": [
+    {
+      "name": "videowise"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,10 @@
+<div class="category-card-grid-wrapper">
+  {% if title != blank %}
+    <h3 class="headline h4">{{ title }}</h3>
+  {% endif %}
+  <div class="category-card-grid {{ columns }}">
+    {% for collection in collections %}
+      {% render 'category-card' collection: collection, size: size %}
+    {% endfor %}
+  </div>
+</div>

@@ -1,0 +1,67 @@
+.color-swatch {
+  border: none;
+  margin: 0;
+  padding: 0;
+
+  & .color-swatch__input-wrapper {
+    flex-flow: row wrap;
+    gap: var(--spacer-xs);
+  }
+
+  & label {
+    position: relative;
+    display: inline-flex;
+    margin-right: 2px;
+    height: 26px;
+    width: 26px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 0.5px solid var(--brand-gray-dark);
+
+    &:hover {
+      color: var(--brand-white);
+      background-color: var(--brand-brown);
+
+      & s {
+        text-decoration-color: var(--brand-white);
+      }
+    }
+  }
+
+  & legend {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+
+  & .swatch-text {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    font-size: var(--swatch-font-size);
+  }
+
+  & input:checked+label,
+  input.active+label {
+    background-color: var(--brand-brown);
+    color: var(--brand-white);
+    outline-offset: 1px;
+    outline: black;
+    outline-width: 1px;
+    outline-style: solid;
+
+    & s {
+      text-decoration-color: var(--brand-white);
+    }
+  }
+
+  &>*+* {
+    margin-top: var(--spacer-s);
+  }
+}
+
+/* focus outline for fieldset */
+[data-whatinput="keyboard"] .size-swatch:focus-within {
+  outline: 2px solid var(--outline-color);
+}

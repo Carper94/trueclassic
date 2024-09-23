@@ -1,0 +1,586 @@
+{% comment %}Copyright (c) Blotout, Inc.{% endcomment %}
+{% capture init %}
+<script>
+  !function(u){window.edgetag=window.edgetag||function(){(edgetag.stubs=edgetag.stubs||[]).push(arguments)};const t=document.createElement("script");t.type="text/javascript",t.src=u,t.async=!0;const e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e)}('https://fzgsu.trueclassictees.com/load');
+
+  !function() {
+    const url = new URL(window.location.href);
+    const params = new URLSearchParams(url.search);
+    const userId = params.get('et_u_id') || '';
+
+    edgetag('init', {
+      edgeURL: 'https://fzgsu.trueclassictees.com',
+      disableConsentCheck: !true,
+      userId
+    });
+  }();
+</script>
+{% endcapture %}
+{{ init | strip_newlines  | replace: '  ', '' | replace: '  ', '' }}
+
+
+{% capture code %}
+<script>
+!function() {
+  const sendEvent = ({name, payload = {}, beacon = false}) => {
+    let options = {};
+    if (beacon) {
+      options = { method: 'beacon' };
+    }
+
+    edgetag('tag', name, payload, {}, options);
+  };
+
+  const sendUser = (user) => {
+    if (!user || !Object.keys(user).length) {
+      return;
+    }
+
+    edgetag('data', user);
+  };
+
+  const getUser = (form, selectors) => {
+    const user = {};
+    if (!selectors) {
+      return user;
+    }
+
+    Object.entries(selectors).forEach(([userKey, selector]) => {
+      if (!selector || selector.length === 0) {
+        return;
+      }
+
+      const selectorArray = Array.isArray(selector) ? selector : [selector];
+      for (const selector of selectorArray) {
+        if (!selector) {
+          continue;
+        }
+
+        const inputUserValue = form.querySelector(selector);
+        const userValue = (inputUserValue && inputUserValue.value) || '';
+        if (userValue) {
+          user[userKey] = userValue;
+          break;
+        }
+      }
+    });
+
+    return user;
+  };
+
+  const getLocalCurrency = () => {
+    if (window.Shopify && window.Shopify.currency && window.Shopify.currency.active) {
+      return window.Shopify.currency.active.toUpperCase();
+    }
+
+    return '{{ localization.country.currency.iso_code }}';
+  };
+
+  const newsletterFormSelectors = [
+    '#ContactFooter',
+    '.klaviyo-form',
+    '#wisepops-root',
+    '#contact_form',
+    'form[id*="newsletter" i]',
+    'form[id*="subscribe" i]',
+    'form.ml-block-form',
+    '#email_signup'
+  ];
+
+  newsletterFormSelectors.push('#ContactFooter');
+
+  const newsletterForm = newsletterFormSelectors.join(',');
+  const actions = [
+    {
+      selectors: ['[type="submit"]', 'form[action="/account/login"]'],
+      length: 2,
+      fun: (ele) => {
+        const user = getUser(ele, {
+          email: 'input[type="email"]'
+        });
+
+        sendUser(user);
+      },
+      current: 0
+    },
+    {
+      selectors: ['[type="submit"]', 'form[action="/account"]'],
+      length: 2,
+      fun: (ele) => {
+        let user = getUser(ele, {
+          email: 'input[type="email"]',
+          phone: 'input[type="tel"]',
+          firstName: 'input[name*="first" i]:not([type="hidden" i])',
+          lastName: 'input[name*="last" i]:not([type="hidden" i])'
+        });
+
+        if (!user.firstName && !user.lastName) {
+          user = {
+            ...user,
+            ...getUser(ele, { firstName: 'input[name*="name" i]' })
+          };
+        }
+
+        sendUser(user);
+        edgetag('tag', 'CompleteRegistration');
+      },
+      current: 0
+    },
+    {
+      selectors: ['[type="submit"]', newsletterForm],
+      length: 2,
+      fun: (ele) => {
+        const user = getUser(ele, {
+          email: ['input[type="email"]', 'input[name*="email" i]:not([type="hidden" i]'],
+          phone: ['input[type="tel"]', 'input[name*="phone" i]:not([type="hidden" i]'],
+          firstName: 'input[name*="name" i]:not([type="hidden" i]',
+          dateOfBirth: 'input[name*="birthday" i]:not([type="hidden" i]'
+        });
+        sendUser(user);
+        edgetag('tag', 'Subscribe', {}, {}, { method: 'beacon' });
+      },
+      current: 0
+    },
+    {
+    selectors: ['button', newsletterForm],
+      length: 2,
+      fun: (ele) => {
+        const user = getUser(ele, {
+          email: ['input[type="email"]', 'input[name*="email" i]:not([type="hidden" i]'],
+          phone: ['input[type="tel"]', 'input[name*="phone" i]:not([type="hidden" i]'],
+          firstName: 'input[name*="name" i]:not([type="hidden" i]',
+          dateOfBirth: 'input[name*="birthday" i]:not([type="hidden" i]'
+        });
+        sendUser(user);
+        edgetag('tag', 'Subscribe', {}, {}, { method: 'beacon' });
+      },
+      current: 0
+    },
+    {
+      selectors: ['[type="submit"]', 'form[action^="/contact"]'],
+      length: 2,
+      fun: (ele) => {
+        const user = getUser(ele, {
+          email: ['input[type="email"]', 'input[name*="email" i]:not([type="hidden" i]'],
+          phone: ['input[type="tel"]', 'input[name*="phone" i]:not([type="hidden" i]'],
+          firstName: ['input[name*="first" i]:not([type="hidden" i]', 'input[name*="name" i]:not([type="hidden" i]', 'input[name*="nom" i]:not([type="hidden" i]'],
+          lastName: 'input[id*="last" i]:not([type="hidden" i]'
+        });
+
+        sendUser(user);
+        edgetag('tag', 'Contact');
+      },
+      current: 0
+    }
+  ];
+
+  const resetActions = () => {
+    for (let i = 0; i < actions.length; i++) {
+      actions[i].current = 0;
+    }
+  };
+
+  const checkElement = (element) => {
+    if (!element || element.nodeName === 'BODY') {
+      resetActions();
+      return
+    }
+
+    if (element.nodeName !== 'DIV' && element.nodeName !== 'INPUT' && element.nodeName !== 'A' && element.nodeName !== 'BUTTON' && element.nodeName !== 'FORM') {
+      checkElement(element.parentElement);
+      return
+    }
+
+    for (let i = 0; i < actions.length; ++i) {
+      if (element.matches(actions[i].selectors[actions[i].current])) {
+        ++actions[i].current;
+        if (actions[i].length === actions[i].current) {
+          actions[i].fun(element);
+          resetActions();
+          return
+        }
+      }
+    }
+
+    checkElement(element.parentElement);
+  };
+
+  let cartProcessedItems = [];
+  const sendCartData = (payload, requestType, body) => {
+
+    const isDuplicate = () => {
+      if (!cartProcessedItems || !Array.isArray(cartProcessedItems) || !cartProcessedItems.length) {
+        return false;
+      }
+
+      const currentTimestamp = Date.now();
+      cartProcessedItems = cartProcessedItems.filter(item => (currentTimestamp - item.timestamp) <= 500);
+
+      try {
+        const payloadString = JSON.stringify(payload);
+        return cartProcessedItems.some(item => item.payload === payloadString && item.requestType !== requestType);
+      } catch {
+        return false;
+      }
+    };
+
+    if (!payload || !Array.isArray(payload) || !payload.length) {
+      return;
+    }
+
+    if (!requestType) {
+      console.error("[EdgeTag] Request Type is missing in sendData");
+    }
+
+    if (isDuplicate()) {
+      return;
+    }
+
+    let bodyProductId, bodyQuantity = 1;
+    if (body && body instanceof FormData) {
+      bodyQuantity = parseInt(body.get('quantity') || '1');
+      bodyProductId = body.get('product-id');
+    }
+
+    payload.forEach(item => {
+      if (item.price == null || item.price === "" || !item.id) {
+        return;
+      }
+
+      edgetag('tag', 'AddToCart', {
+        currency: getLocalCurrency(),
+        value: parseFloat(item.price) / 100,
+        contents: [{
+          id: item.product_id?.toString(),
+          variantId: item.variant_id?.toString(),
+          sku: item.sku,
+          quantity: item.product_id == bodyProductId ? bodyQuantity : 1,
+          item_price: parseFloat(item.price) / 100,
+          title: item.title,
+          category: item.product_type,
+          image: item.image,
+          brand: item.vendor,
+          url: window.origin + item.url,
+          type: 'product',
+        }]
+      }, {}, { method: 'beacon' });
+    });
+
+    cartProcessedItems.push({
+      requestType,
+      payload: JSON.stringify(payload),
+      timestamp: Date.now()
+    });
+  };
+
+  const networkListener = function() {
+    const fetch = window.fetch;
+     window.fetch = function() {
+       let body;
+       if (arguments && arguments.length > 1) {
+         body = arguments[1] && arguments[1].body;
+       }
+       return fetch.apply(this, Array.prototype.slice.call(arguments)).then(function(t) {
+         if (!t || !t.ok || !t.url) {
+          return t;
+         }
+
+         try {
+            if (t.url.indexOf("/cart/add") !== -1) {
+              const myResponse = t.clone();
+              Promise.resolve(myResponse.json()).then(e => {
+                if (!e) {
+                  return;
+                }
+
+                const payload = e.items ? e.items : [e];
+                sendCartData(payload, 'fetch', body);
+              });
+              return t;
+            }
+         } catch (e) {
+         }
+         return t;
+       });
+     };
+
+    const originalXHROpen = XMLHttpRequest.prototype.open;
+    const originalXHRSend = XMLHttpRequest.prototype.send;
+
+    XMLHttpRequest.prototype.open = function (method, url) {
+      this._method = method;
+      this._url = url;
+      return originalXHROpen.apply(this, arguments);
+    };
+
+    XMLHttpRequest.prototype.send = function (data) {
+      this._data = data;
+
+      this.addEventListener('load', function() {
+        if (!this._url) {
+          return;
+        }
+
+        if (this._url.indexOf("/cart/add") !== -1) {
+          try {
+            const e = JSON.parse(this.responseText);
+            if (!e) {
+              return;
+            }
+
+            const payload = e.items ? e.items : [e];
+            sendCartData(payload, 'XMLHttpRequest', this._data);
+          } catch (e) {
+
+          }
+          return;
+        }
+      });
+      return originalXHRSend.apply(this, arguments);
+    };
+  };
+
+  networkListener();
+
+  edgetag('tag', 'PageView');
+
+  {% if product %}
+    {% if product.selected_variant %}
+      {% assign current = product.selected_variant %}
+    {% elsif product.variants %}
+      {% assign current = product.variants[0] %}
+    {% else %}
+      {% assign current = product %}
+    {% endif %}
+
+    const current = {{current | json}};
+    edgetag('tag', 'ViewContent', {
+      currency: getLocalCurrency(),
+      value: current.price / 100,
+      contents: [{
+        id: '{{product.id}}',
+        variantId: current.id.toString(),
+        sku: current.sku,
+        quantity: 1,
+        item_price: current.price / 100,
+        title: current.name,
+        category: '{{product.type | escape_once}}',
+        brand: '{{product.vendor | escape_once}}',
+        image: '{{product | image_url | prepend: 'https:' }}',
+        url: '{{current.url | prepend: request.origin }}',
+        type: 'product',
+      }],
+    });
+  {% endif %}
+
+  window.addEventListener('load', () => {
+    document.addEventListener('click', (e) => {
+      checkElement(e.target);
+    });
+  });
+
+  if (
+    window.location.pathname.startsWith('/search') ||
+    window.location.pathname.startsWith('/pages/search-results-page')
+  ) {
+    const searchParams = new URLSearchParams(window.location.search);
+    const search = searchParams.get('q');
+    if (search) {
+      edgetag('tag', 'Search', { search });
+    }
+  }
+
+  window.addEventListener(
+    'message',
+    (event) => {
+      if (event.origin !== 'https://creatives.attn.tv') {
+        return;
+      }
+
+      if (!event.data || !event.data.__attentive) {
+        return;
+      }
+
+      try {
+        const data = event.data.__attentive;
+
+        if (!data.action || !data.action.includes('LEAD')) {
+          return;
+        }
+
+        const user = {};
+        if(data.email) {
+          user.email = data.email;
+        }
+
+        if(data.phone) {
+          user.phone = data.phone.replace(/[^0-9]/g, '');
+        }
+
+        sendUser(user);
+        edgetag('tag', 'Subscribe');
+      } catch (e) {
+        console.log("[Edgetag]", e);
+      }
+    },
+    false
+  );
+
+  window.addEventListener('message', (event) => {
+    if(!event || !event.origin || !event.data || !event.origin.includes('postscript')) {
+      return;
+    }
+
+    if (event.data.hasOwnProperty('CollectedEmailEvent') && event.data.CollectedEmailEvent.email) {
+      sendUser({ email: event.data.CollectedEmailEvent.email });
+      edgetag('tag', 'Subscribe');
+    }
+  });
+
+  window.juapp = window.juapp||function(){(window.juapp.q=window.juapp.q||[]).push(arguments)};
+  juapp("trackFunc", "engagement", function(email, eventname, promotitle, cmid, options, form) {
+    if (!email) {
+      return;
+    }
+
+    const userData = { email };
+    form.forEach((item) => {
+      if (item.name === "phone_number" && item.value) {
+        userData["phone"] = item.value;
+      }
+    });
+
+    edgetag("data", userData);
+    edgetag("tag", "Subscribe");
+  });
+
+  document.addEventListener('click', (e) => {
+    if (
+      !e.target.closest(
+        'form[action*="api.bounceexchange.com"] [type="submit"]'
+      )
+    ) {
+      return;
+    }
+
+    const form = e.target.closest('form[action*="api.bounceexchange.com"]');
+    if (!form) {
+      return;
+    }
+
+    const user = getUser(form, {
+      email: 'input[type="email"]',
+      phone: 'input[type="tel"]',
+    });
+    sendUser(user);
+
+    if (user && Object.keys(user).length > 0) {
+      edgetag('tag', 'Subscribe');
+    }
+  }, { capture: true });
+
+  ;(function(){
+  const processConsent = (consent) => {
+    const basicConsent = { all: false, klaviyo: true, postscript: true, blotoutCloud: true, liveIntent: true };
+    if (!consent) {
+      return basicConsent;
+    }
+
+    const marketing = {
+      facebook: true,
+      tiktok: true,
+      pinterest: true,
+      snapchat: true,
+      twitter: true,
+      googleAdsClicks: true
+    };
+
+    const analytics = {
+      emotive: true,
+      googleAnalytics4: true,
+    };
+
+    let result = basicConsent;
+
+    if (consent.data_sales_and_sharing === true) {
+      return { all: true };
+    }
+
+    if (consent.marketing === true) {
+      result = {
+        ...result,
+        ...marketing
+      };
+    }
+
+    if (consent.analytics === true || 'data_sales_and_sharing' in consent) {
+      result = {
+        ...result,
+        ...analytics
+      };
+    }
+
+    return result;
+  };
+
+  if (!localStorage.getItem('_workerStore') && Fides.consent) {
+    const consent = processConsent(Fides.consent);
+    if (consent) {
+      edgetag('consent', consent);
+    }
+  }
+
+
+  window.addEventListener("FidesUpdated", (event) => {
+    const consent = processConsent(event.detail.consent);
+    if (!consent) {
+      return;
+    }
+
+    if (event.detail.consent?.data_sales_and_sharing === false) {
+      edgetag('tag', 'ConsentChange', consent, { googleAnalytics4: true, blotoutCloud: true });
+    }
+
+    edgetag('consent', consent);
+  });
+})();
+
+if (window.location.pathname === '/pages/true-classic-membership') {
+  edgetag('tag', 'Membership Viewed');
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('[data-button="add-membership"]') && !e.target.closest('[data-button="top-join"]')) {
+      return;
+    }
+
+    const product = window.inveterate?.properties?.product;
+    const variant = product?.variants?.[0];
+    if (!product) {
+      return;
+    }
+
+    const payload = {
+      currency: Shopify?.currency?.active?.toUpperCase(),
+      value: parseFloat(product?.price) / 100,
+      contents: [
+        {
+          id: (product?.id || '').toString(),
+          variantId: (variant?.id || '').toString(),
+          quantity: 1,
+          item_price: parseFloat(product?.price) / 100,
+          title: variant?.name,
+          image: product?.featured_image || '',
+          brand: product?.vendor || '',
+          url: window.location.href,
+          type: 'product',
+        },
+      ],
+    };
+
+    edgetag('tag', 'Membership Added to Cart', payload);
+  }, true);
+}
+}();
+</script>
+{% endcapture %}
+{{ code | strip_newlines  | replace: '  ', '' | replace: '  ', '' }}

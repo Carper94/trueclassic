@@ -1,0 +1,76 @@
+<div class='product-filtered-grid herere'>
+  {% if heading != blank %}
+    <h2 class='headline staff-x-condensed-type h4 color-red  mg-t-none mg-b-none sale-test-deals-header' style='margin-bottom:.4rem;margin-top:.4rem;text-align: left;'>{{ heading }}</h2>
+  {% endif %}
+  <div class='product-filtered-grid__header'>
+    <div class='product-filtered-grid__actions'>
+      <button class='text-button grid-link' data-delegate='filterdraweropen'>
+        Filter {% render 'icon-filter' %}
+      </button>
+    </div>
+    <div class='product-filtered-grid__actions'>
+      <span class='product-filtered-grid__count'>
+        {% if template contains 'collection' %}
+          {% if int_collection_available %}
+            {{ int_collection_product_count }}
+          {% else %}
+            {{ product_count }}
+          {% endif %}
+        {% else -%}
+          {{- product_array | size }}
+        {% endif %}
+        items
+      </span>
+      <button class='text-button grid-link' data-delegate='sortdraweropen'>
+        Sort {% render 'icon-chevron-down' %}
+      </button>
+    </div>
+  </div>
+  {% render 'filter-drawer', search: search %}
+  {% render 'sort-drawer', search: search %}
+
+  <div class='product-filtered-grid__products-wrapper'>
+    {%-
+      render 'product-card-grid',
+      section:section,
+      product_array: product_array,
+      promo_block_1: promo_block_1,
+      promo_block_2: promo_block_2,
+      image_block: image_block,
+      image_block_2: image_block_2,
+      promo_position_1: section.settings.promo_position_1,
+      promo_position_2: section.settings.promo_position_2,
+      image_position: section.settings.image_position,
+      image_position_2: section.settings.image_position_2,
+    -%}
+  </div>
+  <div
+    id='infinite-scroll-trigger'
+    class='active bold h2'
+    data-pages='{{ page_count }}'
+  ></div>
+
+  {%- assign static_clearance_text = settings.collection_more_deals -%}
+  {%- assign static_clearance_link = '/collections/sale' -%}
+  {% if clearance_text != blank or static_clearance_text != blank %}
+    <div class='clearance hide'>
+      <a
+        class='button tertiary'
+        href='
+          {% if clearance_link != blank %}
+            {{ clearance_link }}
+          {% else %}
+            {{ static_clearance_link }}
+          {% endif %}
+        '
+      >
+        {% render 'tc-icons', icon: 'arrow-right' %}
+        {% if clearance_text != blank %}
+          {{ clearance_text }}
+        {% else %}
+          {{ static_clearance_text }}
+        {% endif %}
+      </a>
+    </div>
+  {% endif %}
+</div>

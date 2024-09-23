@@ -1,0 +1,374 @@
+{% comment %} theme-check-disable ParserBlockingJavaScript {% endcomment %}
+{% comment %} theme-check-disable RemoteAsset {% endcomment %}
+<!doctype html>
+<html class='no-js supports-no-cookies' lang='{{ shop.locale }}'>
+  <head>
+    <link rel='preconnect dns-prefetch' href='https://api.config-security.com/' crossorigin />
+    <link rel='preconnect dns-prefetch' href='https://conf.config-security.com/' crossorigin />
+    <link rel='preconnect dns-prefetch' href='https://whale.camera/' crossorigin />
+    <script>
+    /* >> TriplePixel :: start*/
+    window.TriplePixelData={TripleName:"trueclassictees-com.myshopify.com",ver:"2.12",plat:"SHOPIFY",isHeadless:false},function(W,H,A,L,E,_,B,N){function O(U,T,P,H,R){void 0===R&&(R=!1),H=new XMLHttpRequest,P?(H.open("POST",U,!0),H.setRequestHeader("Content-Type","text/plain")):H.open("GET",U,!0),H.send(JSON.stringify(P||{})),H.onreadystatechange=function(){4===H.readyState&&200===H.status?(R=H.responseText,U.includes(".txt")?eval(R):P||(N[B]=R)):(299<H.status||H.status<200)&&T&&!R&&(R=!0,O(U,T-1,P))}}if(N=window,!N[H+"sn"]){N[H+"sn"]=1,L=function(){return Date.now().toString(36)+"_"+Math.random().toString(36)};try{A.setItem(H,1+(0|A.getItem(H)||0)),(E=JSON.parse(A.getItem(H+"U")||"[]")).push({u:location.href,r:document.referrer,t:Date.now(),id:L()}),A.setItem(H+"U",JSON.stringify(E))}catch(e){}var i,m,p;A.getItem('"!nC`')||(_=A,A=N,A[H]||(E=A[H]=function(t,e,a){return void 0===a&&(a=[]),"State"==t?E.s:(W=L(),(E._q=E._q||[]).push([W,t,e].concat(a)),W)},E.s="Installed",E._q=[],E.ch=W,B="configSecurityConfModel",N[B]=1,O("https://conf.config-security.com/model",5),i=L(),m=A[atob("c2NyZWVu")],_.setItem("di_pmt_wt",i),p={id:i,action:"profile",avatar:_.getItem("auth-security_rand_salt_"),time:m[atob("d2lkdGg=")]+":"+m[atob("aGVpZ2h0")],host:A.TriplePixelData.TripleName,plat:A.TriplePixelData.plat,url:window.location.href,ref:document.referrer,ver:A.TriplePixelData.ver},O("https://api.config-security.com/event",5,p),O("https://whale.camera/live/dot.txt",5)))}}("","TriplePixel",localStorage);
+    /* << TriplePixel :: end*/
+    </script>
+    <script
+      id="script_tag_id"
+      data-last-check-status-key="_prevCheckIsOk"
+      data-last-check-timestamp-key="_prevCheckTimestamp"
+      data-refresh-interval-ms="120000"
+      data-script-src="https://d2fj3s7h83rb61.cloudfront.net/mZZl8heCBE/bin"
+      data-app-info="1-1--1.13.0"
+      data-app-platform="1"
+      data-app-type="1"
+      data-app-version="1.13.0"
+    >
+      (function () {
+          var currentScript = document.currentScript;
+          var currentScriptDataset = currentScript.dataset;
+          var lastCheckStatusKey = currentScriptDataset.lastCheckStatusKey;
+          var lastCheckTimestampKey = currentScriptDataset.lastCheckTimestampKey;
+          var refreshIntervalMs = parseInt(currentScriptDataset.refreshIntervalMs, 10);
+          var scriptSrc = currentScriptDataset.scriptSrc;
+
+          if (lastCheckStatusKey && lastCheckTimestampKey && refreshIntervalMs && scriptSrc && !isNaN(refreshIntervalMs)) {
+              if (localStorage.getItem(lastCheckStatusKey) === null) {
+                  localStorage.setItem(lastCheckStatusKey, String(false));
+              }
+
+              if (localStorage.getItem(lastCheckTimestampKey) === null){
+                  localStorage.setItem(lastCheckTimestampKey, String(0));
+              }
+
+              var locationHref = document.location.href;
+              var now = Date.now();
+              var lastCheckStatus = String(localStorage.getItem(lastCheckStatusKey)).toLowerCase() === 'true';
+              var lastCheckTimestamp = parseInt(localStorage.getItem(lastCheckTimestampKey), 10);
+
+              if (!isNaN(lastCheckTimestamp)) {
+                  var needRefreshByInterval = now - lastCheckTimestamp > refreshIntervalMs;
+
+                  if (needRefreshByInterval || lastCheckStatus) {
+                      var LOAD = 'load';
+                      var ERROR = 'error';
+                      var script = document.createElement('script');
+
+                      function scriptEventHandler(evt) {
+                          var target = evt.target;
+                          var evtType = evt.type;
+
+                          var currentCheckStatus = false;
+                          var currentCheckTimestamp = Date.now();
+
+                          if (evtType === LOAD) {
+                              currentCheckStatus = true;
+                          }
+
+                          localStorage.setItem(lastCheckStatusKey, String(currentCheckStatus));
+                          localStorage.setItem(lastCheckTimestampKey, String(currentCheckTimestamp));
+
+                          target.removeEventListener(LOAD, scriptEventHandler);
+                          target.removeEventListener(ERROR, scriptEventHandler);
+                      }
+
+                      if (!locationHref.match(/(\/checkouts\/|\/thank_you)/gi)) {
+                          script.defer = true;
+                      }
+
+                      script.addEventListener(LOAD, scriptEventHandler);
+                      script.addEventListener(ERROR, scriptEventHandler);
+
+                      script.src = scriptSrc;
+
+                      document.head.insertBefore(script, currentScript);
+                  }
+              }
+          } else {
+              console.error('wrapper is not right configured');
+          }
+      })();
+    </script>
+
+    {% comment %} consent management Ethyca {% endcomment %}
+    <script src='https://privacy.trueclassictees.com/fides.js'></script>
+    <script>
+      Fides.gtm();
+    </script>
+
+    {% comment %} {% include 'blotout-theme' %} {% endcomment %}
+    {% render 'replo-head' %}
+    {% render 'tc-localization' %}
+
+    <!-- Edgemesh Client Begin -->
+    <script type='application/javascript'>
+      EDGEMESH = {
+        lite: true,
+      };
+    </script>
+    <script async type='application/javascript' src='https://static.edgeme.sh/client.js'></script>
+    <!-- Edgemesh Client End -->
+
+    {%- liquid
+      render 'head-meta-tags'
+      render 'head-fonts'
+      render 'social-meta-tags'
+    -%}
+
+    {%- capture seo_title -%}
+      {{ page_title }}
+      {%- if current_tags -%}
+        {%- assign meta_tags = current_tags | join: ', ' -%} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}
+      {%- endif -%}
+      {%- if current_page != 1 -%}
+        &ndash; {{ 'general.meta.page' | t: page: current_page }}
+      {%- endif -%}
+      {%- assign escaped_page_title = page_title | escape -%}
+      {%- unless escaped_page_title contains shop.name -%}
+        &ndash; {{ shop.name }}
+      {%- endunless -%}
+    {%- endcapture -%}
+    <title>{{ seo_title | strip }}</title>
+
+    {%- if page_description -%}
+      <meta name='description' content='{{ page_description | escape }}'>
+    {%- endif -%}
+
+    {% if current_tags %}
+      <meta name='robots' content='noindex'>
+    {% endif %}
+
+    {% if request.page_type == 'page' %}
+      {% if page.metafields.custom.search_engine_indexing == false %}
+        <meta name='robots' content='noindex, nofollow'>
+      {% endif %}
+    {% elsif request.page_type == 'product' %}
+      {% if product.metafields.custom.search_engine_indexing == false %}
+        <meta name='robots' content='noindex, nofollow'>
+      {% endif %}
+    {% elsif request.page_type == 'collection' %}
+      {% if collection.metafields.custom.search_engine_indexing == false %}
+        <meta name='robots' content='noindex, nofollow'>
+      {% endif %}
+    {% elsif request.page_type == 'blog' %}
+      {% if blog.metafields.custom.search_engine_indexing == false %}
+        <meta name='robots' content='noindex, nofollow'>
+      {% endif %}
+    {% elsif request.page_type == 'article' %}
+      {% if article.metafields.custom.search_engine_indexing == false %}
+        <meta name='robots' content='noindex, nofollow'>
+      {% endif %}
+    {% endif %}
+
+    {% if request.path contains 'collections/bundle-builder' %}
+      <script type="text/javascript">
+        window.location.href = '/collections/sale';
+      </script>
+    {% endif %}
+
+    {% if request.path contains 'pages/subscribe-save' and localization.country.iso_code != 'US' %}
+      <script type="text/javascript">
+        window.location.href = '/collections/sale';
+      </script>
+    {% endif %}
+
+
+    {% comment %} unindex and redirect inveterate LP for non members {% endcomment %}
+    {% if request.path contains '/community/membership' %}
+      <meta name='robots' content='noindex, nofollow'>
+      {% unless customer or customer.tags contains 'inveterate-subscriber' %}
+        <script>
+          window.location.pathname = '/pages/true-classic-membership';
+        </script>
+      {% endunless %}
+    {% endif %}
+
+    <script>
+      document.documentElement.className = document.documentElement.className.replace('no-js', '');
+
+      window.theme = {
+        strings: {
+          addToCart: {{ 'products.product.add_to_cart' | t | json }},
+          soldOut: {{ 'products.product.sold_out' | t | json }},
+          unavailable: {{ 'products.product.unavailable' | t | json }}
+        },
+        moneyFormat: {{ shop.money_format | json }},
+        moneyCode: {{ localization.country.iso_code | json }},
+        moneySymbolUs: {{ localization.country.currency.symbol | json }},
+        locale: '{{ request.locale.iso_code }}-{{ localization.country.iso_code }}'
+      };
+
+      {% if template.directory == 'customers' %}
+        theme.allCountryOptionTags = {{ all_country_option_tags | json }};
+      {% endif %}
+
+      {%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
+      window.featuredImage = '{{ featured_image | image_url }}';
+    </script>
+
+    {% if request.page_type == 'collection' and collection.handle == 'bundle-builder' or collection.handle == 'packs-zusammenstellen' %}
+      <script>
+        window.isPageBuilderPage = true;
+      </script>
+    {% endif %}
+
+    {%- liquid
+      render 'asset-router-css', layout: 'theme'
+      render 'asset-router-js', layout: 'theme'
+      render 'hreflang', path: request.path
+    -%}
+
+    <style>
+
+    .pri + .pri {
+      display: none!important;
+    }
+
+      body#sale .endrock-pack-builder__card {
+        display: none!important;
+      }
+
+      {% if settings.hide_quick_add == true %}
+        .product-card__quick-atc {
+          display: none !important;
+        }
+      {% endif %}
+
+      .er-goli-style__wrapper {
+        display: none !important
+      }
+
+    </style>
+
+    {{ content_for_header }}
+
+    {%- liquid
+      render 'intelligems'
+      render 'route-redirect'
+      render 'isense-hide-cookie-text'
+    -%}
+
+    <!-- Corso Begin -->
+    <script
+      type='text/javascript'
+      src='https://cdn.corso.com/js/remove-gsp-ajax-cart.min.js'
+      async='async'
+    ></script>
+    <style>
+      li[data-line-item-key^="39962034110536"],
+      li[data-line-item-key^="39962034143304"],
+      li[data-line-item-key^="39962034176072"],
+      li[data-line-item-key^="39962034208840"],
+      li[data-line-item-key^="39962034241608"],
+      li[data-line-item-key^="39962034274376"],
+      li[data-line-item-key^="39962034307144"],
+      li[data-line-item-key^="39962034339912"],
+      li[data-line-item-key^="39962034372680"],
+      li[data-line-item-key^="39962034405448"],
+      li[data-line-item-key^="39962034438216"],
+      li[data-line-item-key^="39962034470984"],
+      li[data-line-item-key^="39962034503752"],
+      li[data-line-item-key^="39962034536520"],
+      li[data-line-item-key^="39962034569288"],
+      li[data-line-item-key^="39962034602056"],
+      li[data-line-item-key^="39962034634824"],
+      li[data-line-item-key^="39962034667592"],
+      li[data-line-item-key^="39962034700360"],
+      li[data-line-item-key^="39962034733128"],
+      li[data-line-item-key^="39962034765896"],
+      li[data-line-item-key^="39962034798664"]{
+        display: none!important;
+      }
+    </style>
+    <!-- Corso End -->
+
+    {% if template.name == "product" and product.handle == "365-pack" %}
+      {{ '365-pack-template-mods.css' | asset_url | stylesheet_tag }}
+    {% endif %}
+
+    {% render 'tc-theme-custom-styles' %}
+
+    {% render 'microsoft-clarity' %}
+
+    {% include "globale-js" %}
+
+    <script id="ModaSDK" defer data-apikey="AIzaSyCfAbq2PsnhrrUFn6aoytqm2oDSE-yyfBc" data-shopUrl="trueclassictees-com.myshopify.com" data-userid="{{customer.id}}" data-name="{{customer.name}}" data-firstname="{{customer.first_name}}" data-lastname="{{customer.last_name}}" data-email="{{customer.email}}" data-phone="{{customer.phone}}" ></script>
+
+    {% include 'store-credit-launcher' %}
+
+</head>
+  <body
+    style='overflow-x: hidden;max-width: 100vw;'
+    id='{{ page_title | handle }}'
+    class='template-{{ template.name | handle }} page-{{ template.name | handleize }}'
+  >
+    <a class='in-page-link visually-hidden skip-link button' href='#MainContent'>
+      {{- 'general.accessibility.skip_to_content' | t -}}
+    </a>
+
+    {%- liquid
+      section 'colorways'
+      sections 'header-group'
+      section 'mobile-nav'
+      section 'mini-cart'
+      section 'set-localisation'
+      section 'endrock-pack-builder'
+    -%}
+
+    <main
+      role='main'
+      id='MainContent'
+    >
+
+      {%- liquid
+        if request.page_type == 'page'
+          if page.metafields.custom.hide_creadcrumbs != true and template.suffix != 'affiliates'
+            section 'breadcrumbs'
+          endif
+        elsif request.page_type == 'product'
+          if product.metafields.custom.hide_breadcrumbs != false
+            section 'breadcrumbs'
+          endif
+        elsif request.page_type == 'collection'
+          if collection.metafields.custom.hide_breadcrumbs != false
+            section 'breadcrumbs'
+          endif
+        elsif request.page_type != 'page' and request.page_type != 'product' and request.page_type != 'collection'
+          section 'breadcrumbs'
+        endif
+      -%}
+
+      {% section 'tc-scrollable-nav' %}
+
+      {{ content_for_layout }}
+
+      {% comment %} FOR TESTS  {% endcomment %}
+      {% if customer and customer.metafields.custom.in_house_qa == true %}
+        {% if customer.tags contains 'qa_on' %}
+
+        {% endif %}
+      {% endif %}
+    </main>
+
+    <dynamic>
+      {% if localization.country.iso_code != 'US' and template.name == 'index' %}
+        {% section 'newsletter' %}
+      {% endif %}
+    </dynamic>
+
+    {% sections 'footer-group' %}
+
+    {% if localization.country.iso_code == 'US' %}
+      {% unless collection.template_suffix == 'gifting' or page.template_suffix == 'gift-finder' %}
+        {% render 'trueclassic-appbanner' %}
+      {% endunless %}
+    {% endif %}
+
+    {%- liquid
+      render 'podsight'
+      render 'zowie-widget'
+      render 'klaviyo-main'
+    -%}
+
+</body>
+</html>
+{% comment %} theme-check-enable RemoteAsset {% endcomment %}
+{% comment %} theme-check-enable ParserBlockingJavaScript {% endcomment %}

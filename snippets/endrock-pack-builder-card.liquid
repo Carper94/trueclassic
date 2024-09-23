@@ -1,0 +1,65 @@
+{% style %}
+  .endrock-pack-builder__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #fffae9;
+    gap: 10px;
+  }
+  .endrock-pack-builder__card svg {
+    max-width: 60%;
+  }
+  .endrock-pack-builder__card h4 {
+    font-family: var(--font-staff-x-condensed);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 25px;
+    color: #483B34;
+    text-transform : uppercase;
+    margin: 0;
+    padding: 0 15px;
+    text-align: center;
+  }
+  .endrock-pack-builder__card p {
+    font-size: 13px;
+    font-weight: 400;
+    color: #483B34;
+    margin: 0;
+    padding: 0 15px;
+  }
+  .endrock-pack-builder__card button {
+    margin-top: 1rem;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .endrock-pack-builder__card--btn-wrapper {
+    padding: 0 15px;
+    width: 100%;
+    display: contents;
+  }
+  @media screen and (max-width: 500px) {
+    .endrock-pack-builder__card--btn-wrapper button {
+      font-size: 11px;
+      width: 100%;
+    }
+  }
+  @media screen and (max-width: 400px) {
+    .endrock-pack-builder__card h4 {
+      font-size: 16px;
+    }
+    .endrock-pack-builder__card button {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+{% endstyle %}
+
+<div class='endrock-pack-builder__card' {% unless localization.country.iso_code == 'US' %} style="display: none !important;" {% endunless %}>
+  {% render 'icon-pack-builder' %}
+  <h4>Mix & Match Crew Tees & Save BIG!</h4>
+  {% comment %} <p>Mix & Match Crew Tees & Save BIG</p> {% endcomment %}
+  <div class='endrock-pack-builder__card--btn-wrapper'>
+    <button class='button primary js-pack-builder-open' type='button' onclick='erPackBuilderOpen()'>Build Your Pack</button>
+  </div>
+</div>

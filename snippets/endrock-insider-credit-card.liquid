@@ -1,0 +1,312 @@
+
+<style>
+  .endrock-membership-banner{
+    background: #1B1B1B;
+  }
+
+.membership-header__heading {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28px;
+  text-transform: uppercase;
+  text-align: center;
+  font-family: "Staff X Condensed";
+  color: #FFDE6A;
+  margin-bottom: 4px;
+}
+
+.membership-header__sub-heading {
+  text-align: center;
+  font-family: 'SKModernist';
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0.54px;
+  color: #ffffff;
+}
+
+.membership_image {
+  width: 100%;
+}
+
+.membership_image img {
+  width: 100%;
+  height: auto;
+}
+
+.membership-footer {
+  text-align: center;
+}
+
+.membership-footer .footer-text {
+  text-align: center;
+  font-family: "Staff X Condensed";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  color: #ffffff;
+}
+
+.membership-footer .footer-price__text {
+  text-align: center;
+  font-family: 'SKModernist';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.48px;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.membership-footer .join_now {
+  font-family: "SkModernist";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #2E2520;
+  background: #FFDE6A;
+  margin-bottom: 4px;
+}
+
+.membership-footer .join_now:hover {
+  background: #ffde6a
+}
+
+.membership-footer .read_more {
+  text-align: center;
+  font-family: "SkModernist";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.42px;
+  text-decoration-line: underline !important;
+  color: #fff !important;
+}
+
+.membership-header {
+  max-width: 350px;
+}
+
+.show-on__mobile{
+  display: none!important;
+}
+  
+.membership-wrapper {
+  flex-direction: column;
+  padding: 32px;
+  width: 100%;
+  margin: 0;
+  gap: 28px;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+
+  .endrock-membership-banner{
+    max-width: 19.0625rem;
+  }
+
+  .endrock-membership-banner .btn-text{
+    font-family: SkModernist;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+  }
+
+@media(max-width: 767px){
+  .show-on__desktop{
+    display: none !important;
+  }
+
+  .show-on__mobile{
+    display: block !important;
+  }
+
+  .endrock-membership-banner{
+    max-width: 158px;
+  }
+
+  .membership-wrapper{
+    padding: 25px 12px;
+    gap: 16px;
+  }
+
+  .membership-header__heading{
+    font-size: 20px;
+    line-height: 19px;
+  }
+
+  .membership-header__sub-heading{
+    padding: 0 20px;
+    letter-spacing: 0.42px;
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  .membership-footer .footer-text{
+    font-size: 16px;
+    line-height: 18px
+  }
+
+  .membership-footer .footer-price__text{
+    font-size: 12px;
+    line-height: 14px;
+  }
+
+  .endrock-membership-banner .button{
+    font-family: 'SkModernist';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    padding: 12px 24px;
+  }
+
+  .membership-footer .read_more{
+    margin-top: 8px;
+    display: block;
+    font-size: 12px;
+    line-height: 14px;
+  }
+
+}
+</style>
+
+{% assign function_id = section.id %}
+
+<div class='endrock-membership-banner'>
+
+    <div class='membership-wrapper'>
+      <div class='membership-header'>
+        <h2 class='membership-header__heading'>{{ section.settings.membership_heading }}</h2>
+        <p class='membership-header__sub-heading'>{{ section.settings.subheading }}</p>
+      </div>
+      {% if section.settings.membership_image != blank %}
+        <div class='membership_image'>
+          <img
+            src='{{ section.settings.membership_image | image_url: width: '360px' }}'
+            alt='{{ section.settings.membership_image.alt | escape }}'
+            width='{{ section.settings.membership_image.width | default: 360 }}'
+            height='{{ section.settings.membership_image.height | default: 360 }}'
+          >
+        </div>
+      {% endif %}
+      <div class='membership-footer'>
+        <p class='footer-text'>{{ section.settings.footer_text }}</p>
+        <p class='footer-price__text'>{{ section.settings.footer_price_text }}</p>
+        {% assign variantId = section.settings.membership_product.first_available_variant.id %}
+        {% assign seelingPlanId = section.settings.membership_product.selected_or_first_available_selling_plan_allocation.selling_plan.id %}
+        <form
+          class='membership-btn'
+          data-delegate='cartmembershipupsell'
+          data-variant-id='{{ variantId }}'
+          data-variant-selling-plan-id='{{ seelingPlanId }}'
+        >
+          <button
+            class='button bg-color-yellow color-brand-black'
+            id='memberShipAddToCartButton'
+          >
+            <span class='btn-text show-on__desktop'>
+              {{ section.settings.btn_label }}
+            </span>
+            <div class='btn-text show-on__mobile'>
+              {% render 'icon-plus' %}
+              <span>quick add</span>
+            </div>
+            {% render 'button-loader' %}
+          </button>
+        </form>
+
+        {%- if section.settings.read_more_link != blank -%}
+          <a href='{{ section.settings.read_more_link }}' class='read_more'>
+            {{- section.settings.read_more_label -}}
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    let becomeMemberButton = document.getElementById('memberShipAddToCartButton');
+    let product_form_id = becomeMemberButton.closest('.membership-btn').dataset.variantId;
+    let selling_plan_id =
+      becomeMemberButton.closest('.membership-btn').dataset.variantSellingPlanId;
+    let flag = true;
+
+    function addMembershipToCart(event) {
+      event.preventDefault();
+      becomeMemberButton.classList.add('loading');
+      fetch('/cart.json')
+        .then((response) => response.json())
+        .then((data) => {
+          data.items.forEach((item) => {
+            if (item.id == product_form_id) {
+              flag = false;
+            }
+          });
+          if (flag == true) {
+            fetch('/cart/add.js', {
+              body: JSON.stringify({
+                items: [
+                  {
+                    id: product_form_id,
+                    quantity: 1,
+                    selling_plan: selling_plan_id,
+                    properties: {
+                      _inveterate_subscription: true,
+                    },
+                  },
+                ],
+              }),
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              method: 'POST',
+            })
+              .then((response) => {
+                if (!response.ok) {
+                  throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+              })
+              .then((items) => {
+                document.dispatchEvent(new Event('cartaddsuccess'));
+                localStorage.setItem('membership', 1);
+                document.getElementById('buttontext').removeAttribute('disabled');
+              })
+              .catch((error) => {
+                console.log('Failed to add membership to cart');
+              })
+              .finally(() => {
+                becomeMemberButton.classList.remove('loading');
+              });
+          } else {
+            document.querySelector('#mini-cart-open').click();
+            becomeMemberButton.classList.remove('loading');
+          }
+        });
+    }
+    let addToCartButton = document.getElementById('memberShipAddToCartButton');
+    if (addToCartButton) {
+      addToCartButton.addEventListener('click', addMembershipToCart);
+    }
+  });
+</script>
+

@@ -1,0 +1,281 @@
+{%- liquid
+  assign sc_id = '#shopify-section-' | append: section.id
+  assign unique_id_ = section.id | remove: '-'
+  assign unique_id = unique_id_ | remove: '_'
+
+  assign country_codes = section.settings.country_code | split: ','
+  assign exclude_country_codes = section.settings.exclude_country_code | split: ','
+  assign should_show_section = false
+
+  if section.settings.country_code == '' and section.settings.exclude_country_code == ''
+    assign should_show_section = true
+  else
+    assign is_excluded = false
+    for exclude_code in exclude_country_codes
+      if localization.country.iso_code == exclude_code
+        assign is_excluded = true
+        break
+      endif
+    endfor
+
+    unless is_excluded
+      if section.settings.country_code == ''
+        assign should_show_section = true
+      else
+        for code in country_codes
+          if localization.country.iso_code == code
+            assign should_show_section = true
+            break
+          endif
+        endfor
+      endif
+    endunless
+  endif
+  assign collection_list_title = section.settings.collection_list_title
+  assign collection_faq = collection.metafields.custom.faq_metaobject.value
+  assign collection_seo_links = collection.metafields.custom.seo_links_multiple.value
+-%}
+
+{%- if should_show_section -%}
+
+<style>
+  .faq-seo-list {
+    width: 50%;
+  }
+  @media screen and (max-width: 750px) {
+    .faq-seo-list {
+      width: 100%;
+    }
+  }
+  
+  .metafield-rich_text_field h2,
+  .metafield-rich_text_field h2 strong {
+    font-size: 1.25rem;
+    margin: 0!important;
+  }
+
+  .metafield-rich_text_field h3,
+  .metafield-rich_text_field h3 strong {
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 0!important;
+  }
+</style>
+
+  <style type='text/css'>
+    {{ sc_id }} {
+      padding-top: {{ section.settings.padding_top | times: 0.50 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.50 }}px;
+      background-color: {{ section.settings.background_color }};
+    }
+
+    .collection-seo-link .h5 {
+      margin-bottom: 1rem;
+    }
+
+    .collection-seo-link nav {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 0.5rem 1rem;
+
+      @media (max-width: 768px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media (min-width: 769px) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media screen and (min-width: 769px) {
+      {{ sc_id }} {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+
+    .collection-faq h3 {
+      font-size: 1.25rem;
+    }
+  </style>
+  {%- unless collection_faq == null or collection_seo_links == null -%}
+    <section class='faq collection-faq'>
+      <div class='container'>
+        <div class='content-wrapper section-spacer container--narrow'>
+          <div class='faq-wrapper'>
+            <div class='faq__title'>
+              <h2 class='headline h4'>{{ collection.title }}</h2>
+            </div>
+            {%- for faq in collection_faq -%}
+              {%- assign answer = faq.answer | metafield_tag -%}
+              {%- render 'faq_item', title: faq.question, content: answer -%}
+            {%- endfor -%}
+            {%- if collection_seo_links != null -%}
+              <div class='accordion-array__item'>
+                <div class='accordion-wrapper'>
+                  <h2 class='accordion-tab-wrapper'>
+                    <button
+                      class='accordion__tab'
+                      type='button'
+                      title='LINKS'
+                      aria-expanded='false'
+                      aria-label='LINKS'
+                    >
+                      <span class='accordion__title text uppercase'>
+                        {% if section.settings.collection_list_title_links == nil or section.settings.collection_list_title_links == '' %}
+                          RELATED COLLECTIONS
+                        {% else %}
+                          {{ section.settings.collection_list_title_links }}
+                        {% endif %}
+                      </span>
+                    </button>
+
+                    <div class='accordion-icon-wrapper'>
+                      <div class='accordion__plus'>
+                        {% render 'icon-chevron' %}
+                      </div>
+                      <div class='accordion__minus hide'>
+                        {% render 'icon-chevron' %}
+                      </div>
+                    </div>
+                  </h2>
+
+                  <div
+                    class='accordion__panel'
+                    aria-live='polite'
+                  >
+                    <ul style='display: flex; flex-wrap: wrap;'>
+                    {% for faq_link in collection_seo_links %}
+                      {%- for link in faq_link.collections_list.value -%}
+                        <li class='faq-seo-list'><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
+                      {%- endfor -%}
+                    {%- endfor -%}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+    </section>
+  {%- endunless -%}
+   
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Collection FAQ & SEO",
+  "tag": "section",
+  "class": "faq-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Geolocation"
+    },
+    {
+      "type": "text",
+      "id": "country_code",
+      "label": "Country code",
+      "info": "Enter the country code for the country you want to show the banner to. You can have multiple country codes, just separate them with a comma. Example: US,CA,GB. Leave empty to show to all countries."
+    },
+    {
+      "type": "text",
+      "id": "exclude_country_code",
+      "label": "Exclude country code",
+      "info": "Enter the country code for the countries you DON'T want to show the banner to. You can have multiple country codes, just separate them with a comma. Example: US,CA,GB"
+    },
+    {
+      "id": "background_color",
+      "type": "color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 3,
+      "label": "Number of columns on desktop"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        }
+      ],
+      "default": "1",
+      "label": "Columns on mobile"
+    },
+    {
+      "type": "select",
+      "id": "column_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left",
+      "label": "Column alignment"
+    },
+    {
+      "type": "text",
+      "id": "collection_list_title",
+      "label": "SEO collection title"
+    },
+    {
+      "type": "text",
+      "id": "collection_list_title_links",
+      "label": "SEO collection title list"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection FAQ",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

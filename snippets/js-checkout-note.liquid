@@ -1,0 +1,127 @@
+<h3 class="cartonoto">{{ cart.note }}</h3>
+
+{% if cart.note == blank %}
+  <script>
+    (function ($) {
+      function initGiftNote() {
+        let giftNoteHtml =
+          '<div class="GiftNote">' +
+          '<div class="GiftNote__Inner">' +
+          '<input type="checkbox" id="GiftNote__Check" class="GiftNote__Check js-GiftNote__Check">' +
+          '<label for="GiftNote__Check">' +
+          '<span class="GiftNote__Title">Add Gift Note (optional)</span>' +
+          '</label>' +
+          '</div>' +
+          '<div class="GiftNote__Input">' +
+          '<div class="GiftNote__InputInner">' +
+          '<div class="GiftNote__Content">' +
+          '<textarea id="theGiftNore" minlength="1" maxlength="300" placeholder="Add gift notes here..."></textarea>' +
+          '<button class="GiftNote__Save js-GiftNote__Save">Save</button>' +
+          '</div>' +
+          '</div>' +
+          '</div>' +
+          '</div>';
+        $(giftNoteHtml).insertAfter('.order-summary__section--total-lines');
+        document.getElementById('theGiftNore').addEventListener('keydown', function (e) {
+          if (e.keyCode === 13) {
+            e.preventDefault();
+            return false;
+          }
+        });
+      }
+
+      if (Shopify.Checkout.step == 'contact_information') {
+        initGiftNote();
+
+        $.ajax({
+          type: 'GET',
+          url: '/cart.js',
+          dataType: 'json',
+          success: function (cart) {
+            if(cart.note != '') {
+              console.log('cart', cart);
+              $('.GiftNote__Input').addClass('GiftNote__Input--Active');
+              $('.GiftNote').css('margin-bottom', '50px');
+              $('.GiftNote__Check').prop("checked", true);
+              $('#theGiftNore').val(cart.note);
+            }
+          },
+        });
+      }
+
+      $(document).on('change', '.js-GiftNote__Check', function () {
+        $('.GiftNote__Input').toggleClass('GiftNote__Input--Active');
+        if (!$('.GiftNote__Input').hasClass('GiftNote__Input--Active')) {
+          $('.GiftNote').css('margin-bottom', '0');
+          $.ajax({
+            url: '/cart/update.js',
+            type: 'POST',
+            data: { note: '' },
+            success: function (result) {
+              $('.GiftNote__Save').text('Save');
+              console.log('2work');
+              window.OrderSummaryUpdater && OrderSummaryUpdater.prototype.refresh();
+            },
+            error: function (jqxhr, status, exception) {
+              console.log(exception);
+              console.log('didnt work2');
+              $('.GiftNote__Save').text('Save');
+            },
+          });
+        } else {
+          $('.GiftNote').css('margin-bottom', '50px');
+        }
+      });
+
+      $(document).on('click', '.js-GiftNote__Save', function () {
+        var data = {};
+        if ($('.GiftNote__Content textarea').val() != undefined) {
+          var note = $('.GiftNote__Content textarea').val();
+          data['note'] = note;
+          console.log(data);
+        }
+        $.ajax({
+          type: 'POST',
+          data: data,
+          url: '/cart/update.js',
+          dataType: 'json',
+          success: function (result) {
+            $('.GiftNote__Save').text('Saved');
+            console.log('work');
+            window.OrderSummaryUpdater && OrderSummaryUpdater.prototype.refresh();
+          },
+          error: function (jqxhr, status, exception) {
+            console.log(exception);
+            console.log('didnt work');
+            $('.GiftNote__Save').text('Saved');
+          },
+        });
+      });
+
+      $(document).on('change', '.GiftNote__Content textarea', function () {
+        if ($('.GiftNote__Save').text().indexOf('Saved')) {
+          $('.GiftNote__Save').text('Save');
+        }
+      });
+    })(Checkout.$);
+  </script>
+{% else %}
+  <script>
+    (function ($) {
+      function initGiftNote() {
+        let giftNoteHtml =
+          '<div class="GiftNote">' +
+          '<div class="GiftNote__Inner">' +
+          '<span class="GiftNote__Title">Gift Note Added</span>' +
+          '</label>' +
+          '</div>' +
+          '</div>';
+        $(giftNoteHtml).insertAfter('.order-summary__section--total-lines');
+      }
+    })(Checkout.$);
+
+    onDomReady(function () {
+      initGiftNote();
+    });
+  </script>
+{% endif %}

@@ -1,0 +1,15 @@
+.featured-collection {
+  & .product-card-grid-wrapper {
+    row-gap: 40px;
+  }
+
+  & .featured-collection--title {
+    font-size: var(--font-size-large);
+    margin-bottom: var(--spacer-s);
+
+    @media (--medium) {
+      font-size: var(--font-size-script-large);
+      margin-bottom: var(--spacer-s);
+    }
+  }
+}

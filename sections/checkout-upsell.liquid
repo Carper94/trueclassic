@@ -1,0 +1,219 @@
+{% layout none %}
+
+{%- liquid
+
+  assign num_blocks       = 0
+  assign is_subscriber    = false
+
+  for block in section.blocks
+    assign num_blocks = num_blocks | plus: 1
+  endfor
+  
+  if customer 
+
+    assign customer_tags = customer.tags
+
+    if customer_tags contains 'inveterate-subscriber'
+      assign is_subscriber = true 
+    endif
+
+  endif
+
+-%}
+
+{% if num_blocks > 0 %}
+  {% comment %} 
+  <div id='ch-wrapper' style='display:none;'>
+    {% for block in section.blocks %}
+
+      {% assign product               = all_products[block.settings.product] %}
+      {% assign alt_title             = block.settings.alt_title %}
+      {% assign custom_property_key   = block.settings.custom_property_key %}
+      {% assign custom_property_val   = block.settings.custom_property_val %}
+      {% assign disallow_dupes        = block.settings.disallow_dupes %}
+      {% assign allow_upsell          = true %}
+
+      {% if is_subscriber == true and product.vendor == "Inveterate" %}
+        {% continue %}
+      {% endif %}  
+
+      {% comment %} Check if item exists in cart already {% endcomment %}
+      {% if disallow_dupes %}
+        {% for item in cart.items %}
+          {% if product.first_available_variant.id == item.variant.id %}
+            {% assign allow_upsell = false %}
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+
+    
+      {% if product.available and allow_upsell == true %}
+
+        <div class='ch-upsell-wrapper'>
+          <div class='ch-upsell'>
+            <div class='ch-upsell__image'>
+              <img
+                src='{{ product.featured_image | image_url: width: 250 }}'
+                alt='{{ product.title }}'
+                width=''
+                height=''
+                loading='lazy'
+              >
+            </div>
+            <div class='ch-upsell_mystery'>
+              <div class='ch-upsell__text'>
+                <div class='ch-upsell__header'>
+                  {% if alt_title != blank %}
+                    {{ alt_title }}
+                  {% else %}
+                    {{ product.title }}
+                  {% endif %}
+                </div>
+                <div class='ch-upsell__price'>
+
+                  {% if product.compare_at_price == nil %}
+                    {% assign compare = 0 %}
+                  {% else  %}
+                    {% assign compare = product.compare_at_price %}
+                  {% endif %}
+
+
+                  <span 
+                    class="visually-hidden ch-upsell__new-data" 
+                    {% if product.requires_selling_plan %} data-plan-id="{{ product.selling_plan_groups[0].selling_plans[0].id }}" {% endif %}
+                    {% if custom_property_key != blank %} data-custom-property-key="{{ custom_property_key }}" {% endif %}
+                    {% if custom_property_val != blank %} data-custom-property-val="{{ custom_property_val }}" {% endif %}
+        
+                  >
+                  </span>
+
+                  <span class='ch-upsell__price__compare' data-price='{{ compare }}' {% if product.compare_at_price == nil %} style="display:none;" {% endif %}>
+                    <span class='money' data-variant-id='{{ product.id }}'>
+                      <s>{{ product.compare_at_price | money }}</s>
+                    </span>
+                  </span>&nbsp;
+                
+                  <span class='ch-upsell__price__new' data-price='{{ product.price }}'
+                    ><span class='money' data-variant-id='{{ product.id }}'>
+                      {{ product.price | money }}
+                    </span></span
+                  >
+                </div>
+                
+                {% if product.vendor == "Inveterate" %}
+                {% assign new_total_show_ = checkout.total_price | divided_by: 5 %}
+                  {% unless customer.tags contains 'inveterate-subscriber' %}
+                      <div class='membership-notice'>
+                        <div class='membership-notice-inner' style='font-size: 14px; font-weight: bold;color: #2C2C2C; background-color: #FFF9E7; padding-top: 8px; padding-bottom: 8px; margin-bottom: 0.75rem; text-align: center; display: flex; align-items: center; column-gap: 0.2rem; justify-content: center;letter-spacing: 0.03em;'>
+                            🔓 Unlock {{ new_total_show_ | money }} store credit.
+                        </div>
+                      </div>
+                  {% endunless %}
+                {% endif %}
+
+
+                <div class='ch-upsell__variants product__description__variant'>
+                  <select
+                    id='ch-upsell__add--{{ forloop.index }}'
+                    {% unless product.variants.size > 1 %}
+                      style='display: none;'
+                    {% endunless %}
+                  >
+                    {% for variant in product.variants %}
+                      {% if variant.available %}
+                        <option
+                          value='{{ variant.id }}'
+                          size='{{ variant.title }}'
+                          {% if prefer_size != '' and variant.option1 == prefer_size %}
+                            selected
+                          {% endif %}
+                        >
+                          {{ variant.title }}
+                        </option>
+                      {% endif %}
+                    {% endfor %}
+                  </select>
+                  <div
+                    class='ch-upsell__add js-ch-upsell__add'
+                    {% unless product.variants.size > 1 %}
+                    style="margin-left: 0 !important;"
+                    {% endunless %}
+                    data-id='{{ product.first_available_variant.id }}'
+                    onclick="
+                      dataLayer.push({ 'ecommerce': null });dataLayer.push({
+                        'event': 'checkout_upsell_add_to_cart',
+                        'ecommerce': {
+                          'value': '{{ product.price | times: 0.01 }}',
+                          'currency': '{{ localization.country.currency.iso_code }}',
+                            'items': [{
+                            'item_id': {{ product.id }},
+                            'item_name': '{{ product.title | remove: "'" | remove: '"' }}',
+                            'item_brand': '{{ product.vendor | remove: "'" | remove: '"' }}',
+                            'item_category': '{{ product.type | remove: "'" | remove: '"' }}',
+                            'item_variant': '{{ product.selected_or_first_available_variant.sku }}',
+                            'currency': '{{ localization.country.currency.iso_code }}',
+                            'quantity': 1,
+                            'price': '{{ product.price | times: 0.01 }}',
+                            'item_variant_title': document.querySelector('#ch-upsell__add--{{ forloop.index }} option:checked').text,
+                            }]
+                          }
+                      });
+                    "
+                  >
+                    <span>Add</span>
+                  </div>
+                  <span style='color: #000; display:none;'>ALL SALES FINAL</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      {% endif %}
+    {% endfor %}
+  </div>
+   {% endcomment %}
+{% endif %}
+
+
+{% schema %}
+{
+  "name": "TC Upsell",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "checkout-upsell",
+      "name": "Checkout Upsell",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Upsell Product"
+        },
+        {
+          "type": "checkbox",
+          "id": "disallow_dupes",
+          "label": "Disallow Multiple",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "custom_property_key",
+          "label": "Custom Property Key"
+        },
+        {
+          "type": "text",
+          "id": "custom_property_val",
+          "label": "Custom Property val"
+        },
+        {
+          "type": "text",
+          "id": "alt_title",
+          "label": "Product Alt Title"
+        }
+      ]
+    }
+  ],
+  "presets": []
+}
+{% endschema %}

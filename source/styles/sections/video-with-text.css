@@ -1,0 +1,159 @@
+.video-text-container .content-wrapper {
+  @media (--medium-down) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.video-section-wrapper {
+  background-color: var(--brand-brown);
+  display: flex;
+  flex-direction: column;
+  border-top: none;
+  border-bottom: none;
+  width: 100%;
+  height: 100%;
+  padding: var(--spacer-m) 0;
+
+  @media (--medium) {
+    gap: var(--spacer-l);
+    flex-direction: row;
+    border: none;
+    border-radius: 12px;
+  }
+
+  & .video-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    & .video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      flex-grow: 0;
+      flex-shrink: 0;
+    }
+
+    & .video-poster,
+    & .player-wrapper {
+      inset: 0;
+      position: absolute;
+      border-radius: 8px;
+      object-fit: cover;
+      overflow: hidden;
+      height: 100%;
+      width: 100%;
+      transition: opacity 0.5s ease;
+
+      & img,
+      & iframe {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    & .video-poster,
+    & .player-wrapper.loaded {
+      opacity: 1;
+    }
+
+    & .player-wrapper,
+    & .video-poster.hidden {
+      opacity: 0;
+    }
+  }
+
+  & .video-text-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 22px 32px 0px;
+    width: 100%;
+    max-width: 500px;
+
+    @media (--medium) {
+      padding: var(--spacer-xl) var(--spacer-m);
+    }
+
+    & .video__heading {
+      @media (--medium) {
+        max-width: 324px;
+        letter-spacing: 2px;
+      }
+    }
+
+    & > * + * {
+      margin-top: var(--spacer-s);
+
+      @media (--medium) {
+        margin-top: var(--spacer-m);
+      }
+    }
+  }
+
+  & .light-text {
+    color: var(--brand-white);
+  }
+
+  & .dark-text {
+    color: var(--brand-white);
+  }
+}
+
+/* COLORS */
+.yellow-bg {
+  background-color: var(--brand-yellow);
+}
+
+.dark-gray-bg {
+  background-color: var(--brand-gray-dark);
+}
+
+.brown-bg {
+  background: var(--brand-brown);
+}
+
+.light-bg {
+  background-color: var(--brand-white);
+}
+
+.dark-gray-text {
+  color: var(--brand-gray-dark);
+}
+
+.yellow-text {
+  color: var(--brand-yellow);
+}
+
+.red-text {
+  color: var(--brand-red);
+}
+
+.light-text {
+  color: var(--brand-white);
+}
+
+.group-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 14px;
+}
+
+.group-icon-wrapper > div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2px;
+}
+
+@media (min-width: 768px) {
+  .group-icon-wrapper > div {
+    gap: 14px;
+    flex-direction: row;
+  }
+}

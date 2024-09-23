@@ -1,0 +1,67 @@
+<section id='announcement-bar-1' class='announcement-bar'>
+  {%- if section.settings.announcement_bar_home_page_only == false or template.name == 'index' -%}
+    <!-- Slider main container -->
+    <div class='swiper'>
+      <!-- Additional required wrapper -->
+      <div class='swiper-wrapper'>
+        <!-- Slides -->
+        {% for block in section.blocks %}
+          {% if block.type == 'richtext' %}
+            <div class='swiper-slide {{ block.settings.announcement_bar_class }}'>
+              <div class='swiper-content--container text-center'>
+                {%- if block.settings.announcement_bar_link != blank -%}
+                  <a
+                    class='announcement-link  text-center'
+                    href='{{ block.settings.announcement_bar_link }}'
+                  >
+                    {{ block.settings.announcement_bar_text | escape }}
+                  </a>
+                {%- else -%}
+                  <p class=' text-center'>{{ block.settings.announcement_bar_text | escape }}</p>
+                {%- endif -%}
+              </div>
+            </div>
+          {% elsif block.type == 'text' %}
+            {% if localization.country.iso_code == block.settings.text %}
+              <div class='swiper-slide'>
+                <div class='swiper-content--container text-center'>
+                  <p class='text-center' style='text-transform: uppercase;'>
+                    {% if block.settings.announcement_bar_link %}
+                      <a href='{{ block.settings.announcement_bar_link }}'>
+                        {{ block.settings.country_announcement | escape }}
+                      </a>
+                    {% else %}
+                      {{ block.settings.country_announcement | escape }}
+                    {% endif %}
+                  </p>
+                </div>
+              </div>
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+      </div>
+      {% if section.blocks.size > 1 %}
+        <button
+          tabindex='-1'
+          class='swiper-button-next swiper-button slider-button slider-button--next'
+          title='Arrow Next'
+        >
+          {% render 'tc-icons', icon: 'caret-right' %}
+        </button>
+        <button
+          tabindex='-1'
+          class='swiper-button-prev swiper-button slider-button slider-button--prev'
+          title='Arrow Preview'
+        >
+          {% render 'tc-icons', icon: 'caret-left' %}
+        </button>
+      {% endif %}
+    </div>
+  {%- endif -%}
+</section>
+<style>
+  .announcement__tooltip {
+    position: absolute;
+    display: none;
+  }
+</style>

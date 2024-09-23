@@ -1,0 +1,21 @@
+.size-guide-chart,
+.size-chart {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.size-chart td {
+  border: 1px solid #000;
+  text-align: center !important;
+  padding: 4px 6px;
+}
+
+.size-chart .size-head {
+  font-weight: 800 !important;
+  font-size: 16px !important;
+}
+
+.size-chart .size-dimention {
+  font-weight: 600 !important;
+  font-size: 14px !important;
+}

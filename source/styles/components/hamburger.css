@@ -1,0 +1,90 @@
+/* Hamburger */
+/* ================================================== */
+.hamburger {
+  --hamburger-layer-height: 2px;
+  --hamburger-layer-width: 22px;
+  --hamburger-layer-spacing: 9px;
+  --hamburger-layer-border-radius: 0;
+  --hamburger-layer-color: var(--brand-gray-dark);
+
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+
+  transition-property: opacity, filter;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+
+  height: var(--hamburger-layer-height);
+  width: var(--hamburger-layer-width);
+  border-radius: var(--hamburger-layer-border-radius);
+  color: inherit;
+  text-transform: none;
+  background-color: var(--hamburger-layer-color);
+  background-clip: content-box;
+  border: 0;
+  margin: 0;
+  overflow: visible;
+  margin: var(--hamburger-layer-spacing) 0;
+  transition: background-color var(--transition-duration) ease;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    display: block;
+    height: var(--hamburger-layer-height);
+    width: 100%;
+    left: 0;
+    background-color: var(--hamburger-layer-color);
+    border-radius: var(--hamburger-layer-border-radius);
+    transition: transform var(--transition-duration) ease;
+    transform-origin: center left;
+  }
+
+  &::before {
+    bottom: var(--hamburger-layer-spacing);
+  }
+
+  &::after {
+    top: var(--hamburger-layer-spacing);
+  }
+}
+
+.hamburger.active,
+.hamburger-wrap.active .hamburger {
+  background-color: transparent;
+
+  &::before {
+    transform: rotate(45deg) scaleX(1.2);
+  }
+
+  &::after {
+    transform: rotate(-45deg) scaleX(1.2);
+  }
+}
+
+.hamburger-wrap {
+  padding: 0 !important;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.header-middle {
+  & h1,
+  & .h1 {
+    display: flex;
+    justify-content: center;
+    padding: 8px 0 !important;
+    line-height: 1 !important;
+
+    & .logo-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}

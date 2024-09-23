@@ -1,0 +1,10 @@
+# Ignore compiled assets
+assets/customers.* linguist-generated=true
+assets/layout.* linguist-generated=true
+assets/template.* linguist-generated=true
+
+# Mark admin snippets as documentation
+admin/** linguist-documentation
+
+# Exclude other documentation
+README.md linguist-documentation

@@ -1,0 +1,90 @@
+<div
+  id='product-gallery'
+  class='
+    product-gallery {% if product.title contains 'The Staple 6-Pack' or product.title contains
+    'Essentials 9-Pack' or product.title contains
+    'The Color 3-Pack' or product.title contains
+    'The Classic 3-Pack' or product.title contains
+    'All Black 6-Pack' or product.title contains
+    'All Black 3-Pack' or product.title contains
+    'Veteran 3-Pack' or product.title contains
+    'Essential 3-Pack' or product.title contains
+    'Standard 3-Pack' or product.title contains
+    'All White 3-Pack' %} carousel-grid{% endif %}
+  '
+>
+  <!-- Slider main container -->
+  <div class='swiper'>
+    <button class='swiper-button-prev text-button'>
+      {% render 'icon-chevron-down' %}
+      <span class='visually-hidden'>Previous</span>
+    </button>
+    <!-- Additional required wrapper -->
+    <ul class='swiper-wrapper'>
+      <!-- Slides -->
+      {% for media in product.media %}
+        <li class='swiper-slide'>
+          {% if media.media_type == 'image' %}
+            <div class='product-gallery__image-wrapper product_image-wrapper '>
+              {{ media | image_url: width: 1000 | image_tag }}
+            </div>
+          {% endif %}
+          {% if media.media_type == 'video' %}
+            <div class='product-gallery__image-wrapper'>
+              {{
+                media
+                | video_tag:
+                  autoplay: true,
+                  loop: true,
+                  data-delegate: 'videoplaypause',
+                  image_size: '400x'
+              }}
+            </div>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+    <!-- If we need pagination -->
+    <div class='swiper-pagination'></div>
+    <button class='swiper-button-next text-button'>
+      {% render 'icon-chevron-down' %}
+      <span class='visually-hidden'>Next</span>
+    </button>
+  </div>
+  <!-- Slider thumbnail container -->
+  <div class='swiper-thumb'>
+    <!-- Additional required wrapper -->
+    <button class='swiper-button-prev text-button'>
+      {% render 'icon-chevron-left-circle' %}
+      <span class='visually-hidden'>Previous</span>
+    </button>
+    <ul class='swiper-wrapper'>
+      <!-- Slides -->
+      {% for media in product.media %}
+        <li class='swiper-slide'>
+          {% if media.media_type == 'image' %}
+            <div class='product-gallery__image-wrapper'>
+              {{ media | image_url: width: 1000 | image_tag }}
+            </div>
+          {% endif %}
+          {% if media.media_type == 'video' %}
+            <div class='product-gallery__image-wrapper'>
+              {{
+                media
+                | video_tag:
+                  autoplay: true,
+                  loop: true,
+                  data-delegate: 'videoplaypause',
+                  image_size: '400x'
+              }}
+            </div>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+    <button class='swiper-button-next text-button'>
+      {% render 'icon-chevron-right-circle' %}
+      <span class='visually-hidden'>Next</span>
+    </button>
+  </div>
+</div>

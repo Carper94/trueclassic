@@ -1,0 +1,428 @@
+<div
+  class='section-wrapper section-image-mini-hero-wrapper {{ section.settings.section_class }}'
+  role='banner'
+  aria-label='Image Mini Hero'
+>
+  <div class='image-mini-hero-wrapper' aria-labelledby='image-mini-hero-title'>
+    <div class='image-mini-hero-media'>
+      <div class='image-overlay'></div>
+      <img
+        class='image-mini-hero-mobile image-mini-hero-img'
+        src='{{ section.settings.mobile_image | image_url }}'
+        srcset='
+          {%- if section.settings.mobile_image.width >= 325 -%}{{ section.settings.mobile_image | image_url: width: 325 }} 325w,{%- endif -%}
+          {%- if section.settings.mobile_image.width >= 480 -%}{{ section.settings.mobile_image | image_url: width: 480 }} 480w,{%- endif -%}
+          {%- if section.settings.mobile_image.width >= 767 -%}{{ section.settings.mobile_image | image_url: width: 767 }} 767w,{%- endif -%}
+          {{ section.settings.mobile_image | image_url }} {{ section.settings.mobile_image.width }}w
+        '
+        width='{{ section.settings.desktop_image.width }}'
+        height='{{ section.settings.desktop_image.height }}'
+        sizes='(max-width: 325px) 325w, (min-width: 480px) 480w, (min-width: 767px) 767w'
+        alt='{{ section.settings.desktop_image.alt }}'
+        loading='lazy'
+      >
+      <img
+        class='image-mini-hero-desktop image-mini-hero-img'
+        src='{{ section.settings.desktop_image | image_url }}'
+        srcset='
+          {%- if section.settings.desktop_image.width >= 768 -%}{{ section.settings.desktop_image | image_url: width: 768 }} 1100w,{%- endif -%}
+          {%- if section.settings.desktop_image.width >= 1024 -%}{{ section.settings.desktop_image | image_url: width: 1024 }} 1024w,{%- endif -%}
+          {%- if section.settings.desktop_image.width >= 1268 -%}{{ section.settings.desktop_image | image_url: width: 1268 }} 1268w,{%- endif -%}
+          {%- if section.settings.desktop_image.width >= 1444 -%}{{ section.settings.desktop_image | image_url: width: 1444 }} 1444w,{%- endif -%}
+          {%- if section.settings.desktop_image.width >= 2000 -%}{{ section.settings.desktop_image | image_url: width: 2000 }} 2000w,{%- endif -%}
+          {{ section.settings.desktop_image | image_url }} {{ section.settings.desktop_image.width }}w
+        '
+        width='{{ section.settings.desktop_image.width }}'
+        height='{{ section.settings.desktop_image.height }}'
+        sizes='(max-width: 768px) 768w,(min-width: 1024px) 1024w'
+        alt='{{ section.settings.desktop_image.alt }}'
+        loading='lazy'
+      >
+    </div>
+
+    <div class='image-mini-hero-title'>
+      <h1 id='image-mini-hero-title'>
+        <span class='visually-hidden'>{{ collection.title }}</span>
+        {% for block in section.blocks %}
+          {% if block.type == 'heading' %}
+            <span>{{ block.settings.heading | default: 'MADE TO MOVE WITH YOU' }}</span>
+          {% endif %}
+        {% endfor %}
+      </h1>
+      {% for block in section.blocks %}
+        {% if block.type == 'text' %}
+          <p>{{ block.settings.text }}</p>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    {% comment %}
+      <div class='image-mini-hero-benefits'>
+        <ul class='image-mini-hero-benefit-wrapper'>
+          <li class='image-mini-hero-benefit'>
+            {% render 'icon-machine-wash' %}
+            <span>MACHINE WASH</span>
+          </li>
+          <li class='image-mini-hero-benefit'>
+            {% render 'icon-dry-low' %}
+            <span>TUMBLE DRY LOW</span>
+          </li>
+          <li class='image-mini-hero-benefit'>
+            {% render 'icon-cool-iron' %}
+            <p>COOL</p>
+            <span>IRON</span>
+          </li>
+        </ul>
+      </div>
+    {% endcomment %}
+  </div>
+</div>
+
+{% style %}
+  .section-image-mini-hero-wrapper {
+    background: #262626;
+  }
+
+  .section-image-mini-hero-wrapper svg > g,
+  .section-image-mini-hero-wrapper svg {
+    fill: white;
+  }
+
+  .icon-machine-wash-svg {
+    fill: transparent !important;
+  }
+  .icon-machine-wash-svg path {
+    stroke: white;
+  }
+
+  .section-image-mini-hero-wrapper svg {
+    width: 35px;
+    height: 35px;
+  }
+  @media (min-width: 500px) {
+    .section-image-mini-hero-wrapper svg {
+      width: 75px;
+      height: 75px;
+    }
+  }
+
+  .image-mini-hero-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 54vh;
+    min-height: 54vh;
+  }
+
+  .image-mini-hero-media {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .image-mini-hero-img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .image-mini-hero-title {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: auto;
+    z-index: 10;
+    color: white;
+    text-align: center;
+  }
+  .image-mini-hero-title h1 {
+    font-size: 2.6rem;
+    font-family: var(--font-modernist-mono);
+    font-weight: 400;
+    line-height: 1;
+  }
+  .image-mini-hero-title p {
+    line-height: 1;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+  }
+
+  .image-mini-hero-benefits {
+    display: grid;
+    place-items: center;
+    z-index: 10;
+    background: #262626;
+    height: 15vh;
+    width: 100%;
+    max-width: 100%;
+  }
+  .image-mini-hero-benefit-wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    max-width: 990px;
+    margin: auto;
+    padding: 0 6px;
+    list-style: none;
+  }
+
+  .image-mini-hero-benefit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    font-size: 14px;
+    max-width: 100px;
+    text-align: center;
+  }
+
+  .image-mini-hero-mobile {
+    display: block;
+  }
+
+  .image-mini-hero-desktop {
+    display: none;
+  }
+
+  .icon-dry-low-path {
+    fill: none !important;
+    stroke: white;
+  }
+  @media (min-width: 768px) {
+    .section-image-mini-hero-wrapper svg {
+      width: 100px;
+      height: 100px;
+    }
+    .image-mini-hero-wrapper {
+      height: 60vh;
+      min-height: 400px;
+    }
+
+    .image-mini-hero-benefit-wrapper {
+      justify-content: space-between;
+    }
+
+    .image-mini-hero-title {
+      line-height: 1.6;
+    }
+    .image-mini-hero-title h1 {
+      font-size: 4rem;
+    }
+    .image-mini-hero-title p {
+      font-size: 1.6rem;
+    }
+
+    .image-mini-hero-benefits {
+      height: 25vh;
+    }
+
+    .image-mini-hero-benefit {
+      color: #fff;
+    }
+
+    .image-mini-hero-mobile {
+      display: none;
+    }
+    .image-mini-hero-desktop {
+      display: block;
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Image Mini Hero",
+  "class": "section-image-mini-hero",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "desktop_image",
+      "label": "Desktop Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile Image"
+    },
+    {
+      "type": "text",
+      "id": "css_class",
+      "label": "CSS Class"
+    },
+    {
+      "type": "text",
+      "id": "hero",
+      "label": "Hero Class"
+    },
+    {
+      "type": "select",
+      "id": "font_type",
+      "options": [
+        {
+          "value": "staff-x",
+          "label": "Staff X"
+        },
+        {
+          "value": "modernist",
+          "label": "Modernist"
+        },
+        {
+          "value": "alkaline",
+          "label": "Alkaline"
+        }
+      ],
+      "default": "staff-x",
+      "label": "Font"
+    },
+    {
+      "type": "select",
+      "id": "text_color",
+      "options": [
+        {
+          "value": "light",
+          "label": "Light"
+        },
+        {
+          "value": "dark",
+          "label": "Dark"
+        },
+        {
+          "value": "yellow",
+          "label": "Yellow"
+        },
+        {
+          "value": "red",
+          "label": "Red"
+        }
+      ],
+      "default": "dark",
+      "label": "Text Color"
+    },
+    {
+      "type": "select",
+      "id": "text_position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        }
+      ],
+      "default": "left",
+      "label": "Text Position"
+    },
+    {
+      "type": "select",
+      "id": "box_position",
+      "options": [
+        {
+          "value": "top",
+          "label": "Top"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        }
+      ],
+      "default": "bottom",
+      "label": "Text Box Position"
+    },
+    {
+      "type": "checkbox",
+      "id": "countdown_timer",
+      "label": "Show Countdown Timer",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "countdown_end",
+      "label": "End Date ex.(Jan 1, 2024 12:00:00)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "Heading",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Heading",
+          "label": "Heading"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Subheading",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "html",
+          "id": "text",
+          "default": "Give customers details about the banner image(s) or content on the template.",
+          "label": "Subheading"
+        },
+        {
+          "type": "checkbox",
+          "id": "font_small",
+          "label": "Small Font",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Button",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_label_1",
+          "default": "Button Text",
+          "label": "Button Text"
+        },
+        {
+          "type": "url",
+          "id": "button_link_1",
+          "label": "Link URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image Mini Hero",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "button"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

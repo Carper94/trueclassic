@@ -1,0 +1,50 @@
+<style>.product-size-guide-wrapper{display:none;}</style>
+{% unless product.type == 'Gift Cards' %}
+  {% assign bottoms = false %}
+  {% for tag in product.tags %}
+    {% if tag == 'Comfort Chino Pants' or tag == 'Comfort Chino Short' or tag == 'Jeans' %}
+      {% assign bottoms = true %}
+    {% endif %}
+  {% endfor %}
+  <div class='product-size-guide-wrapper mg-y-s' aria-label='{{ site.title }} Size Guide'>
+    {% unless product.type == 'Hat' %}
+      {% unless product.type == 'Socks' %}
+        <button
+          type='button'
+          class='button-size-guide'
+          data-open='modal-find-your-fit'
+          data-delegate='combo'
+          aria-haspopup='true'
+          aria-expanded='false'
+          title='Find Your Fit'
+        >
+          {% render 'icon-size-fit' %}
+
+          Find Your Fit
+        </button>
+      {% endunless %}
+      <button
+        type='button'
+        class='button-size-guide'
+        data-open='modal-size-chart'
+        aria-haspopup='true'
+        aria-expanded='false'
+        title='Size Chart'
+      >
+        {% render 'icon-size-guide' %}
+
+        {% unless product.type == 'Socks' %}
+          Size Chart
+        {% else %}
+          Measurements Chart
+        {% endunless %}
+      </button>
+    {% endunless %}
+  </div>
+
+  <script>
+    document.querySelector('.product-size-guide-wrapper ').onclick = function () {
+      dataLayer.push({ event: 'size_guide_click' });
+    };
+  </script>
+{% endunless %}

@@ -1,0 +1,112 @@
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "settings": {
+        "full_width": false,
+        "hide_title": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "4fe2e11a-7507-4426-a52f-3be366ae57b7": {
+      "type": "page-store",
+      "blocks": {
+        "fc799865-b3e2-4b12-85bd-cf90a31687ad": {
+          "type": "image_picker",
+          "settings": {
+            "retail_image": "shopify:\/\/shop_images\/img_6083.jpg"
+          }
+        },
+        "dc1c35bf-e081-43e5-be2f-e964cdd462cc": {
+          "type": "image_picker",
+          "settings": {
+            "retail_image": "shopify:\/\/shop_images\/img_6065.jpg"
+          }
+        },
+        "e86ca568-7f69-4fe8-b263-d80d52089553": {
+          "type": "image_picker",
+          "settings": {
+            "retail_image": "shopify:\/\/shop_images\/img_6069.jpg"
+          }
+        },
+        "0e71ab7b-b5f6-4497-8c88-12113f5d1298": {
+          "type": "text",
+          "settings": {
+            "day": "Monday - Thursday",
+            "hours": "10 am - 8 pm"
+          }
+        },
+        "0aff6ab9-542b-4e61-a137-56fc2b0f28e0": {
+          "type": "text",
+          "settings": {
+            "day": "Friday - Saturday",
+            "hours": "10 am - 9pm"
+          }
+        },
+        "bade714a-45cf-4606-b0a2-f2586f29db4b": {
+          "type": "text",
+          "settings": {
+            "day": "Sunday",
+            "hours": "11 am - 7pm"
+          }
+        }
+      },
+      "block_order": [
+        "fc799865-b3e2-4b12-85bd-cf90a31687ad",
+        "dc1c35bf-e081-43e5-be2f-e964cdd462cc",
+        "e86ca568-7f69-4fe8-b263-d80d52089553",
+        "0e71ab7b-b5f6-4497-8c88-12113f5d1298",
+        "0aff6ab9-542b-4e61-a137-56fc2b0f28e0",
+        "bade714a-45cf-4606-b0a2-f2586f29db4b"
+      ],
+      "settings": {
+        "section_class": "",
+        "image_url": "shopify:\/\/shop_images\/img_6083.jpg",
+        "streetAddress": "2601 Preston Road, Suite #1088",
+        "addressLocality": "Frisco",
+        "addressRegion": "TX",
+        "postalCode": "75034",
+        "address_map": "https:\/\/maps.app.goo.gl\/54EjCJQDU2bUaV7o6",
+        "latitude": "33.099676219783674",
+        "longitude": "-96.81131308465768",
+        "phone": "945-297-0127",
+        "email": "",
+        "description": "<p>Visit us in our newest store opening December 1 at Stonebriar Center.   Experience the best of what True Classic has to offer in-store and and get to know our signature Perfect Fit and Feel. We are located between the Nordstrom & JC Penney anchors and look forward to seeing you in person<\/p>"
+      }
+    },
+    "7c17ca07-b06c-47fa-9c31-0215dc0c9a60": {
+      "type": "section-map",
+      "settings": {
+        "html": "<iframe src=\"https:\/\/www.google.com\/maps\/embed?pb=!1m14!1m8!1m3!1d13369.518678741151!2d-96.811356!3d33.099101!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c3ceeed0b4ded%3A0x314913395ecafa4d!2sStonebriar%20Centre!5e0!3m2!1sen!2slk!4v1701801025043!5m2!1sen!2slk\" width=\"100%\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"><\/iframe>",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "ea6364d0-facb-4349-bae0-335f551b3130": {
+      "type": "image-card-list",
+      "blocks": {
+        "template--14616112463944__ea6364d0-facb-4349-bae0-335f551b3130-card-1": {
+          "type": "card",
+          "settings": {
+            "store_name": "",
+            "us_location": "",
+            "page_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--14616112463944__ea6364d0-facb-4349-bae0-335f551b3130-card-1"
+      ],
+      "disabled": true,
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main",
+    "4fe2e11a-7507-4426-a52f-3be366ae57b7",
+    "7c17ca07-b06c-47fa-9c31-0215dc0c9a60",
+    "ea6364d0-facb-4349-bae0-335f551b3130"
+  ]
+}

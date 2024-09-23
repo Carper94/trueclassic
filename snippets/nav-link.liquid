@@ -1,0 +1,167 @@
+{% liquid
+  assign title = link.title
+  assign url = link.url
+  if testLink == true
+    assign title = 'Crew Necks'
+    assign url = '/collections/crew-neck-tees'
+  endif
+  assign handle = title | handleize
+  assign is_active = link.active
+  if is_active == true
+    assign active_class = 'bold'
+  endif
+%}
+{% if link != blank and url != blank %}
+  <li
+    class='
+      nav-item nav-item--{{ handle }}
+      {% if handle == 'activewear' %}
+        optimize-hide
+      {% elsif handle == 'pack-builder' %}
+        {% unless localization.country.iso_code == 'US' %}
+         ge-remove
+        {% endunless %}
+      {% elsif handle contains 'insiders' %}
+        {% unless localization.country.iso_code == 'US' %}
+         ge-remove
+        {% endunless %}
+      {% elsif handle == 'sunglasses' and handle == 'sweaters' and localization.country.iso_code != 'US' %}
+        ge-remove
+      {% endif %} {{ class }}
+      {% if testLink %}crew-necks-ab-test{% endif %}
+    '
+    {% if testLink %}
+      ab-test-variant='A'
+    {% endif %}
+  >
+      {% if isNavTab == true %}
+        {% if is_accordion == true %}
+          {% capture subnav %}
+          <ul class="list-unstyled">
+            {% for sublink in link.links %}
+              {% unless sublink.title == 'SUNGLASSES' and handle == 'SWEATERS' and localization.country.iso_code != 'US' %}
+                <li
+                  {% if sublink.title contains 'Pack Builder' %}
+                  data-test
+                    {% unless localization.country.iso_code == 'US' %}
+                      class="ge-remove"
+                    {% endunless %}
+                  {% elsif link.title contains 'Get 15' or sublink.url contains 'membership' %}
+                  data-test2
+                    {% unless localization.country.iso_code == 'US' %}
+                      class="ge-remove"
+                    {% endunless %}
+                  {% endif %}>
+                  <a
+                    class="{{ sublink_class }}"
+                    href="{{ sublink.url }}"
+                  >
+                    {{ sublink.title }}
+                  </a>
+                </li>
+              {% endunless %}
+            {% endfor %}
+          </ul>
+        {% endcapture %}
+          {% render 'accordion', title: title, content: subnav %}
+        {% else %}
+          {% comment %} Link for user click, button for accessibility {% endcomment %}
+          {% liquid
+            if is_mobile == true
+              assign tab_id = handle | handleize | prepend: 'mobile-nav__tab--'
+              assign link_id = handle | handleize | prepend: 'mobile-nav__link--'
+            else
+              assign tab_id = handle | prepend: 'nav__tab--'
+              assign link_id = handle | prepend: 'nav__link--'
+            endif
+          %}
+            <div class='nav-tab-wrapper'>
+              <button
+                id='{{ tab_id }}'
+                class='nav__tab text-button link-is-current-page--{{ is_active }} {{ active_class }}'
+                type='button'
+                aria-expanded='false'
+              >
+                {{ title }}
+                {% if is_mobile == true %}
+                  {% render 'icon-chevron' %}
+                {% endif %}
+              </button>
+              <a
+                id='{{ link_id }}'
+                class='nav__link'
+                href='{{ url }}'
+                title='{{ title }}'
+                tabindex='-1'
+              >
+
+              </a>
+            {% if handle == 'gifting' %}
+              {% render 'icon-gift' %}
+            {% endif %}
+          </div>
+        {% endif %}
+      {% else %}
+      {% unless url contains 'membership' %}
+        {% comment %}  Not tab, regular link {% endcomment %}
+        {% if title contains 'SALE' and settings.menu_sale_link != blank %}
+          <a href='{{ settings.menu_sale_link }}'
+            class='nav-link link-is-current-page--{{ is_active }} {{ active_class }} {% if url contains 'collections/sale' %} color-red{% endif %}'
+            title='{{ settings.menu_sale_label }}'>
+            {{ settings.menu_sale_label }}
+          </a>
+        {% else %}
+          {% if url == '/collections/bundle-builder' %}
+            <style>
+              @media screen and (max-width: 1228px) {
+                .pack-build.nav__tab.text-button {
+                  height:37px;
+                }
+              }
+            </style>
+              <button
+                class='pack-build nav__tab text-button link-is-current-page--{{ is_active }} {{ active_class }}'
+                type='button'
+                onclick='erPackBuilderOpen();document.querySelector("#mobile-nav-close").click();'
+              >
+                {{ title }}
+              </button>
+          {% else %}
+          <a
+            href='{{ url }}'
+            class='nav-link link-is-current-page--{{ is_active }} {{ active_class }} {% if url contains 'collections/sale' %} color-red{% endif %}'
+            title='{{ title }}'
+          >
+            {% if localization.country.iso_code == 'AU' or localization.country.iso_code == 'NZ' %}
+              {% if title contains 'FALL MUST HAVES' %}
+                SPRING MUST HAVES
+              {% else %}
+                {{ title }}
+              {% endif %}
+            {% else %}
+              {{ title }}
+              {% if testLink == true %}
+                <div class='most-popular'>
+                  <span class='with-icon'>🔥 Most Popular</span>
+                  <span class='no-icon'>Most Popular</span>
+                </div>
+              {% endif %}
+            {% endif %}
+          </a>
+          {% endif %}
+        {% endif %}
+      {% else %}
+        {% comment %}  Membership link {% endcomment %}
+        {% if localization.country.iso_code == 'US' %}
+        <a
+          href='{{ url }}'
+          class='nav-link link-is-current-page--{{ is_active }} {{ active_class }}'
+          title='{{ title }}'
+        >
+          {{ title }}
+        </a>
+      {% endif %}
+      {% endunless %}
+      {% endif %}
+  </li>
+{% endif %}

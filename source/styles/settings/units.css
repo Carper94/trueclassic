@@ -1,0 +1,57 @@
+:root {
+  --global-width: 1440px;
+  --global-width-medium: 1100px;
+  --global-width-narrow: 960px;
+  --global-full-width-stop: 2575px;
+
+  --content-width-small: 560px;
+  --container-width: var(--global-width);
+  --content-width-narrow: var(--global-width-narrow);
+  --container-width-narrow: var(--global-width-narrow);
+
+  --spacer: 30px;
+  --spacer-xxs: 4px;
+  --spacer-xs: 6px;
+  --spacer-s: 10px;
+  --spacer-m: 20px;
+  --spacer-l: 30px;
+  --spacer-xl: 60px;
+  --spacer-xxl: 80px;
+
+  --section-spacer: 25px;
+
+  --edge-space: 20px;
+
+  @media (--xlarge) {
+    --edge-space: 80px;
+  }
+
+  --grid-gap-pdp: 16px;
+
+  --input-padding-y: var(--spacer-xs);
+  --input-padding-x: var(--spacer-m);
+  --input-padding: var(--input-padding-y) var(--input-padding-x);
+  --input-border-size: 1px;
+  --input-border-radius: 5px;
+  --form-spacer: var(--spacer-m);
+  --form-spacer-half: calc(var(--form-spacer) / 2);
+
+  --btn-border-radius: 5px;
+  --btn-border-width: 1px;
+
+  --btn-padding-large: 17px 40px;
+  --btn-padding-medium: 16.5px 32px;
+  --btn-padding-small: 15px 24px;
+
+  --btn-disabled-opacity: 0.2;
+
+  --transition-duration: 250ms;
+  --transition-timing-function: linear;
+  --global-transition: var(--transition-duration) var(--transition-timing-function);
+
+  --header-icon-width: 120px;
+  --header-sticky-switch-at: 20px;
+
+  --media-image-aspect-ratio: calc(4 / 3);
+  --annoucement-bar-height: 38px;
+}

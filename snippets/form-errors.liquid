@@ -1,0 +1,4 @@
+{%- if errors -%}
+  <p data-error-message>{{ 'form.general.error' | t }}</p>
+  {{ errors | default_errors }}
+{%- endif -%}

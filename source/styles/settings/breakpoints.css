@@ -1,0 +1,61 @@
+/* stylelint-disable no-duplicate-selectors */
+/**
+ * Custom Breakpoints
+ *
+ * Use: @media (--medium) {}
+ *
+ * Tip: You can nest media queries.
+ * https://gist.github.com/JeremyEnglert/a48ef614dc4a193eb0a7c26d3376c13b
+ *
+ */
+
+/* make breakpoints accessible in javascript */
+:root {
+  --media-small: 576px;
+  --media-medium: 768px;
+  --media-large: 992px;
+  --media-xlarge: 1230px;
+  --media-xxlarge: 1440px;
+}
+
+@custom-media --small (min-width: 576px);
+@custom-media --medium (min-width: 768px);
+@custom-media --large (min-width: 992px);
+@custom-media --xlarge (min-width: 1200px);
+@custom-media --xxlarge (min-width: 1440px);
+
+@custom-media --small-only (max-width: 575px);
+@custom-media --small-down (max-width: 575px);
+@custom-media --medium-down (max-width: 767px);
+@custom-media --large-down (max-width: 991px);
+@custom-media --xlarge-down (max-width: 1199px);
+@custom-media --xxlarge-down (max-width: 1440px);
+
+@custom-media --header-breakpoint (min-width: 1230px);
+@custom-media --header-breakpoint-down (max-width: 1229px);
+
+@custom-media --article-breakpoint (--medium);
+
+/* @custom-media --motion (prefers-reduced-motion: no-preference); */
+@custom-media --reduced-motion (prefers-reduced-motion: reduce);
+@custom-media --motion not all and (prefers-reduced-motion: reduce);
+
+:root {
+  --breakpoint: small;
+
+  @media (--medium) {
+    --breakpoint: medium;
+  }
+
+  @media (--large) {
+    --breakpoint: large;
+  }
+
+  @media (--xlarge) {
+    --breakpoint: xlarge;
+  }
+
+  @media (--xxlarge) {
+    --breakpoint: xxlarge;
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "sections": {
+    "fe470b0f-d0e4-48c1-87c2-ee8cc903eb94": {
+      "type": "html",
+      "custom_css": [
+        ".disclaimer-end {display: block;}",
+        ".disclaimer-end span {display: block; background-color: #fdde6c; border-radius: 1rem; border: 2px solid black; padding: 0.75rem; margin: 0 0 0.65rem 0; font-size: 0.95rem;}"
+      ],
+      "settings": {
+        "html": "<div class=\"disclaimer-end container content-wrapper\"><span>\"At True Classic, everything we do is with you in mind. So we’re saying goodbye to our Rewards Program to give you something even better soon. You have 30 days to continue earning Rewards Program points. Starting May 1, 2023 you will have 90 days to redeem your rewards!\"<\/span><\/div>"
+      }
+    },
+    "main": {
+      "type": "page",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "fe470b0f-d0e4-48c1-87c2-ee8cc903eb94",
+    "main"
+  ]
+}

@@ -1,0 +1,44 @@
+<script type='text/javascript'>
+  (function (d, s, id, cb) {
+    var js = d.createElement(s);
+    var n = d.createElement('div');
+    n.id = id;
+    if (js.readyState) {
+      js.onreadystatechange = function () {
+        if (js.readyState === 'loaded' || js.readyState === 'complete') {
+          js.onreadystatechange = null;
+          cb();
+        }
+      };
+    } else {
+      js.onload = function () {
+        cb();
+      };
+    }
+    js.src = 'https://live-chat.chatbotize.com/chatbotize-entrypoint.min.js';
+    document.body.appendChild(js);
+    document.body.appendChild(n);
+  })(document, 'script', 'chatbotize', function () {
+    Zowie.init({
+      instanceId: '2319220120134912b08b0880353b5c5e',
+      startOnOpen: true,
+      headerMode: 'white',
+    });
+  });
+</script>
+
+<script type='text/javascript'>
+  setTimeout(function () {
+    const desktopZowieButton = document.querySelector('#zowieFloatingButton');
+    const mobileZowieButton = document.querySelector('#zowieFloatingButtonMobile');
+    if (desktopZowieButton) {
+      desktopZowieButton.onclick = function () {
+        dataLayer.push({ event: 'zowie_click' });
+      };
+    } else if (mobileZowieButton) {
+      mobileZowieButton.onclick = function () {
+        dataLayer.push({ event: 'zowie_click' });
+      };
+    }
+  }, 5000);
+</script>

@@ -1,0 +1,999 @@
+{
+  "name": "Header Group",
+  "type": "header",
+  "sections": {
+    "announcement-bar-north-america": {
+      "type": "announcement-bar-north-america",
+      "blocks": {
+        "e1ff69c8-f5b3-4084-82a5-86435d66d578": {
+          "type": "text",
+          "settings": {
+            "text": "CA",
+            "country_announcement": "Shipping from $8.99 CAD or FREE over $150",
+            "announcement_bar_link": ""
+          }
+        },
+        "a9c8f361-b244-47fd-92cf-0d70ffa41404": {
+          "type": "text",
+          "settings": {
+            "text": "MX",
+            "country_announcement": "Shipping from $215 MXN or FREE over $2000",
+            "announcement_bar_link": ""
+          }
+        },
+        "05973779-62f9-49fe-963e-a3361b5fa1e1": {
+          "type": "text",
+          "settings": {
+            "text": "GP",
+            "country_announcement": "Free shipping in Guadeloupe over €175",
+            "announcement_bar_link": ""
+          }
+        },
+        "e9722761-2532-44b6-8ad0-07a0bce0a908": {
+          "type": "richtext",
+          "settings": {
+            "announcement_bar_text": "SHOP NEW ARRIVALS",
+            "announcement_bar_link": "shopify:\/\/collections\/new-arrivals",
+            "announcement_bar_class": ""
+          }
+        },
+        "ebc62ffc-0186-4182-a574-0aff977dacd7": {
+          "type": "sale",
+          "settings": {
+            "country_code": "",
+            "exclude_country_code": "",
+            "announcement_bar_background_color": "#000000",
+            "announcement_bar_text_color": "#ffffff",
+            "announcement_bar_notice": "<p>JUST FOR YOU<\/p>",
+            "hidden": true,
+            "announcement_bar_class": "cashback",
+            "announcement_bar_link": "shopify:\/\/collections\/all",
+            "announcement_bar_heading": "",
+            "announcement_bar_message": "",
+            "notice_background": "#000000",
+            "notice_color": "#ffffff"
+          }
+        },
+        "43321427-8a4a-4969-8150-2b6448814dc3": {
+          "type": "sale",
+          "settings": {
+            "country_code": "",
+            "exclude_country_code": "",
+            "announcement_bar_background_color": "#000000",
+            "announcement_bar_text_color": "#ffffff",
+            "announcement_bar_notice": "<p>JUST FOR YOU<\/p>",
+            "hidden": true,
+            "announcement_bar_class": "amount",
+            "announcement_bar_link": "shopify:\/\/collections\/all",
+            "announcement_bar_heading": "",
+            "announcement_bar_message": "",
+            "notice_background": "#000000",
+            "notice_color": "#ffffff"
+          }
+        },
+        "5d603b5d-bbd3-4d31-9436-cf148c675f7f": {
+          "type": "text",
+          "settings": {
+            "text": "CA",
+            "country_announcement": "BUILD A CUSTOM PACK TO SAVE",
+            "announcement_bar_link": "shopify:\/\/collections\/bundle-builder"
+          }
+        },
+        "181d0db4-66f2-49b9-8039-c449002a1d26": {
+          "type": "sale",
+          "disabled": true,
+          "settings": {
+            "country_code": "",
+            "exclude_country_code": "",
+            "announcement_bar_background_color": "#971b1b",
+            "announcement_bar_text_color": "#ffffff",
+            "announcement_bar_notice": "<p><strong>UP TO 60% OFF SITEWIDE<\/strong><\/p>",
+            "hidden": false,
+            "announcement_bar_class": "",
+            "announcement_bar_link": "shopify:\/\/collections\/sale",
+            "announcement_bar_heading": "<p>DISCLAIMER<\/p>",
+            "announcement_bar_message": "<p>Offer is valid starting 9:00 PM PT on 01\/10\/2024 through 9:00 PM PT on 01\/16\/2024 online only at TrueClassic.com. Not valid in stores. Offer valid for up to 60% OFF SITEWIDE, and not combinable with other offers or promotions. Offer applies only to select products marked with badges and excludes gift cards, applicable taxes, and shipping and handling. The discount will be automatically applied on eligible items at checkout. No adjustments on previous purchases.<\/p>",
+            "notice_background": "#000000",
+            "notice_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "e1ff69c8-f5b3-4084-82a5-86435d66d578",
+        "a9c8f361-b244-47fd-92cf-0d70ffa41404",
+        "05973779-62f9-49fe-963e-a3361b5fa1e1",
+        "e9722761-2532-44b6-8ad0-07a0bce0a908",
+        "ebc62ffc-0186-4182-a574-0aff977dacd7",
+        "43321427-8a4a-4969-8150-2b6448814dc3",
+        "5d603b5d-bbd3-4d31-9436-cf148c675f7f",
+        "181d0db4-66f2-49b9-8039-c449002a1d26"
+      ],
+      "settings": {
+        "announcement_bar_enabled": true,
+        "announcement_bar_home_page_only": false,
+        "announcement_bar_duration": 5
+      }
+    },
+    "announcement-bar-us": {
+      "type": "announcement-bar-us",
+      "blocks": {
+        "fd9f82b7-2aab-4928-86a5-71b40545ba1e": {
+          "type": "richtext",
+          "settings": {
+            "announcement_bar_text": "MEMBERS GET 20% BACK & FREE SHIPPING",
+            "announcement_bar_link": "https:\/\/www.trueclassictees.com\/pages\/true-classic-membership",
+            "announcement_bar_class": ""
+          }
+        },
+        "e9722761-2532-44b6-8ad0-07a0bce0a908": {
+          "type": "richtext",
+          "settings": {
+            "announcement_bar_text": "FREE SHIPPING IN THE US OVER $99",
+            "announcement_bar_link": "",
+            "announcement_bar_class": ""
+          }
+        },
+        "fa1dfb52-2cd1-4c77-adf5-856ac3456b9f": {
+          "type": "richtext",
+          "settings": {
+            "announcement_bar_text": "SHOP NEW ARRIVALS",
+            "announcement_bar_link": "shopify:\/\/collections\/new-arrivals",
+            "announcement_bar_class": ""
+          }
+        },
+        "f2fd33cd-9f97-4779-a515-ac10fee43789": {
+          "type": "richtext",
+          "settings": {
+            "announcement_bar_text": "FIND MY FIT",
+            "announcement_bar_link": "shopify:\/\/pages\/calculator",
+            "announcement_bar_class": ""
+          }
+        },
+        "43321427-8a4a-4969-8150-2b6448814dc3": {
+          "type": "sale",
+          "settings": {
+            "country_code": "",
+            "announcement_bar_background_color": "#971b1b",
+            "announcement_bar_text_color": "#ffffff",
+            "announcement_bar_notice": "<p>JUST FOR YOU<\/p>",
+            "hidden": true,
+            "announcement_bar_class": "amount",
+            "announcement_bar_link": "shopify:\/\/collections\/all",
+            "announcement_bar_heading": "",
+            "announcement_bar_message": "",
+            "notice_background": "#000000",
+            "notice_color": "#ffffff"
+          }
+        },
+        "4a12bf03-7798-48ee-b035-a7f0d6b6c81e": {
+          "type": "sale",
+          "settings": {
+            "country_code": "",
+            "announcement_bar_background_color": "#971b1b",
+            "announcement_bar_text_color": "#ffffff",
+            "announcement_bar_notice": "<p>JUST FOR YOU<\/p>",
+            "hidden": true,
+            "announcement_bar_class": "cashback",
+            "announcement_bar_link": "shopify:\/\/collections\/all",
+            "announcement_bar_heading": "",
+            "announcement_bar_message": "",
+            "notice_background": "#000000",
+            "notice_color": "#ffffff"
+          }
+        },
+        "sale_ejQEmU": {
+          "type": "sale",
+          "disabled": true,
+          "settings": {
+            "country_code": "",
+            "announcement_bar_background_color": "#971b1b",
+            "announcement_bar_text_color": "#ffffff",
+            "announcement_bar_notice": "<p>FREE BEANIE WITH PURCHASE OF $100 OR MORE<\/p>",
+            "hidden": true,
+            "announcement_bar_class": "gwp",
+            "announcement_bar_link": "shopify:\/\/collections\/all",
+            "announcement_bar_heading": "",
+            "announcement_bar_message": "",
+            "notice_background": "#000000",
+            "notice_color": "#ffffff"
+          }
+        },
+        "d09092c5-33d3-4fd4-8a8a-16b3086d88b4": {
+          "type": "sale",
+          "disabled": true,
+          "settings": {
+            "country_code": "US",
+            "announcement_bar_background_color": "#53433a",
+            "announcement_bar_text_color": "#ffffff",
+            "announcement_bar_notice": "<p>$25 CREDIT & FREE SHIPPING FOR MEMBERS. JOIN<\/p>",
+            "hidden": false,
+            "announcement_bar_class": "",
+            "announcement_bar_link": "shopify:\/\/pages\/true-classic-membership",
+            "announcement_bar_heading": "<p>DISCLAIMER<\/p>",
+            "announcement_bar_message": "<p>Please note that the $25 bonus signup credit, 20% store credit on all orders, and free shipping are exclusive benefits of our All Access Membership.<\/p>",
+            "notice_background": "#000000",
+            "notice_color": "#ffffff"
+          }
+        },
+        "ebc62ffc-0186-4182-a574-0aff977dacd7": {
+          "type": "sale",
+          "disabled": true,
+          "settings": {
+            "country_code": "",
+            "announcement_bar_background_color": "#971b1b",
+            "announcement_bar_text_color": "#ffffff",
+            "announcement_bar_notice": "<p><strong>UP TO 60% OFF SITEWIDE<\/strong><\/p>",
+            "hidden": false,
+            "announcement_bar_class": "",
+            "announcement_bar_link": "shopify:\/\/collections\/sale",
+            "announcement_bar_heading": "<p><strong>DISCLAIMER<\/strong><\/p>",
+            "announcement_bar_message": "<p>Offer is valid starting 9:00 PM PT on 01\/10\/2024 through 9:00 PM PT on 01\/16\/2024 online only at TrueClassic.com. Not valid in stores. Offer valid for up to 60% OFF SITEWIDE, and not combinable with other offers or promotions. Offer applies only to select products marked with badges and excludes gift cards, applicable taxes, and shipping and handling. The discount will be automatically applied on eligible items at checkout. No adjustments on previous purchases.<\/p>",
+            "notice_background": "#000000",
+            "notice_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "fd9f82b7-2aab-4928-86a5-71b40545ba1e",
+        "e9722761-2532-44b6-8ad0-07a0bce0a908",
+        "fa1dfb52-2cd1-4c77-adf5-856ac3456b9f",
+        "f2fd33cd-9f97-4779-a515-ac10fee43789",
+        "43321427-8a4a-4969-8150-2b6448814dc3",
+        "4a12bf03-7798-48ee-b035-a7f0d6b6c81e",
+        "sale_ejQEmU",
+        "d09092c5-33d3-4fd4-8a8a-16b3086d88b4",
+        "ebc62ffc-0186-4182-a574-0aff977dacd7"
+      ],
+      "custom_css": [
+
+      ],
+      "settings": {
+        "announcement_bar_enabled": true,
+        "announcement_bar_home_page_only": false,
+        "announcement_bar_duration": 5
+      }
+    },
+    "announcement-bar-south-america": {
+      "type": "announcement-bar-south-america",
+      "blocks": {
+        "219979ab-d323-4452-a0f8-08a60561d39a": {
+          "type": "text",
+          "settings": {
+            "text": "CL",
+            "country_announcement": "Free shipping in Chile over $100.000 CLP",
+            "announcement_bar_link": ""
+          }
+        },
+        "446f638e-08ee-4138-9f93-7681f51cb932": {
+          "type": "text",
+          "settings": {
+            "text": "GF",
+            "country_announcement": "Free shipping in French Guiana over €175",
+            "announcement_bar_link": ""
+          }
+        },
+        "e9722761-2532-44b6-8ad0-07a0bce0a908": {
+          "type": "richtext",
+          "settings": {
+            "announcement_bar_text": "SHOP NEW ARRIVALS",
+            "announcement_bar_link": "shopify:\/\/collections\/new-arrivals",
+            "announcement_bar_class": ""
+          }
+        },
+        "e91c2640-844f-48e9-81ac-ed675399fa1b": {
+          "type": "sale",
+          "disabled": true,
+          "settings": {
+            "country_code": "",
+            "exclude_country_code": "",
+            "announcement_bar_background_color": "#000000",
+            "announcement_bar_text_color": "#ffffff",
+            "announcement_bar_notice": "<p><strong>UP TO 60% OFF SITEWIDE<\/strong><\/p>",
+            "hidden": false,
+            "announcement_bar_class": "",
+            "announcement_bar_link": "shopify:\/\/collections\/sale",
+            "announcement_bar_heading": "<p><strong>DISCLAIMER<\/strong><\/p>",
+            "announcement_bar_message": "<p>Offer is valid starting 9:00 PM PT on 01\/10\/2024 through 9:00 PM PT on 01\/16\/2024 online only at TrueClassic.com. Not valid in stores. Offer valid for up to 60% OFF SITEWIDE, and not combinable with other offers or promotions. Offer applies only to select products marked with badges and excludes gift cards, applicable taxes, and shipping and handling. The discount will be automatically applied on eligible items at checkout. No adjustments on previous purchases.<\/p>",
+            "notice_background": "#000000",
+            "notice_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "219979ab-d323-4452-a0f8-08a60561d39a",
+        "446f638e-08ee-4138-9f93-7681f51cb932",
+        "e9722761-2532-44b6-8ad0-07a0bce0a908",
+        "e91c2640-844f-48e9-81ac-ed675399fa1b"
+      ],
+      "settings": {
+        "announcement_bar_enabled": true,
+        "announcement_bar_home_page_only": false,
+        "announcement_bar_duration": 5
+      }
+    },
+    "announcement-bar-europe": {
+      "type": "announcement-bar-europe",
+      "blocks": {
+        "b04d9821-ad75-4267-a112-d8c23f271a46": {
+          "type": "text",
+          "settings": {
+            "text": "GB",
+            "country_announcement": "Delivery from £5.99 or free on orders over £99",
+            "announcement_bar_link": ""
+          }
+        },
+        "fd659fce-fbf9-4d02-9d3b-96a0cdecf3f4": {
+          "type": "text",
+          "settings": {
+            "text": "AT",
+            "country_announcement": "Delivery from €9.99 or free on orders over €175",
+            "announcement_bar_link": ""
+          }
+        },
+        "2d4f4580-9e83-4481-8bbc-fc885433ec7a": {
+          "type": "text",
+          "settings": {
+            "text": "AD",
+            "country_announcement": "Delivery from €9.99 or free on orders over €175",
+            "announcement_bar_link": ""
+          }
+        },
+        "59b9ab79-6e9d-444b-ad07-24195780216f": {
+          "type": "text",
+          "settings": {
+            "text": "BE",
+            "country_announcement": "Delivery from €9.99 or free on orders over €115",
+            "announcement_bar_link": ""
+          }
+        },
+        "2d621c92-3040-4cb3-925f-110fe5e52021": {
+          "type": "text",
+          "settings": {
+            "text": "FI",
+            "country_announcement": "Delivery from €9.99 or free on orders over €115",
+            "announcement_bar_link": ""
+          }
+        },
+        "c396f4b3-d5a9-415b-9c54-ed6bd59f7b2b": {
+          "type": "text",
+          "settings": {
+            "text": "SE",
+            "country_announcement": "Delivery from SEK 195 or free on orders over SEK 1350",
+            "announcement_bar_link": ""
+          }
+        },
+        "166bc615-2205-4b23-8840-8b7b99d7fdf9": {
+          "type": "text",
+          "settings": {
+            "text": "DE",
+            "country_announcement": "Delivery from €5.99 or free on orders over €115",
+            "announcement_bar_link": ""
+          }
+        },
+        "abe0bcb6-6f1f-44b4-9a1b-8c8357fca52c": {
+          "type": "text",
+          "settings": {
+            "text": "DK",
+            "country_announcement": "Delivery from DKK 69.95 or free on orders over DKK 1000",
+            "announcement_bar_link": ""
+          }
+        },
+        "8259abb8-933a-49a0-9b18-bcbe9ef791bd": {
+          "type": "text",
+          "settings": {
+            "text": "NL",
+            "country_announcement": "Delivery from €7.99 or free on orders over €115",
+            "announcement_bar_link": ""
+          }
+        },
+        "93d08f5a-4d68-4a59-8fc1-d6873e16f0c8": {
+          "type": "text",
+          "settings": {
+            "text": "ES",
+            "country_announcement": "Delivery from €9.99 or free on orders over €115",
+            "announcement_bar_link": ""
+          }
+        },
+        "c7c5df78-9a4c-4f12-b77a-fc0b88ac3cba": {
+          "type": "text",
+          "settings": {
+            "text": "IE",
+            "country_announcement": "Delivery from €9.99 or free on orders over €115",
+            "announcement_bar_link": ""
+          }
+        },
+        "bbcb4aa8-a391-4ba3-8ced-bce274940550": {
+          "type": "text",
+          "settings": {
+            "text": "IT",
+            "country_announcement": "Delivery from €9.99 or free on orders over €115",
+            "announcement_bar_link": ""
+          }
+        },
+        "e835a0b1-53c8-49e4-91c8-97843e9b73c1": {
+          "type": "text",
+          "settings": {
+            "text": "LU",
+            "country_announcement": "Delivery from €9.99 or free on orders over €175",
+            "announcement_bar_link": ""
+          }
+        },
+        "fd5e6689-be12-491f-bee0-f830a96bd50f": {
+          "type": "text",
+          "settings": {
+            "text": "FR",
+            "country_announcement": "Delivery from €9.99 or free on orders over €115",
+            "announcement_bar_link": ""
+          }
+        },
+        "800e9846-baa5-49a7-9100-c5c78ed0b59c": {
+          "type": "text",
+          "settings": {
+            "text": "CH",
+            "country_announcement": "Delivery from CHF 9.95 or free on orders over CHF 105",
+            "announcement_bar_link": ""
+          }
+        },
+        "dfae56e6-f65e-4ca7-a675-126dc1ba49ea": {
+          "type": "text",
+          "settings": {
+            "text": "SW",
+            "country_announcement": "Delivery from SEK 195 or free on orders over SEK 2000",
+            "announcement_bar_link": ""
+          }
+        },
+        "395aad1c-fe4b-4ff8-8f22-8212bb0734cb": {
+          "type": "text",
+          "settings": {
+            "text": "NO",
+            "country_announcement": "Delivery from NOK 149 or free on orders over NOK 1400",
+            "announcement_bar_link": ""
+          }
+        },
+        "9df1ca0a-bdf9-47d0-9c99-3a22aa6b8365": {
+          "type": "text",
+          "settings": {
+            "text": "VA",
+            "country_announcement": "Delivery from €9.99 or free on orders over €175",
+            "announcement_bar_link": ""
+          }
+        },
+        "83e0e3de-b33a-41ca-8348-6b0a55aa6c2c": {
+          "type": "text",
+          "settings": {
+            "text": "CZ",
+            "country_announcement": "Delivery from 295 Kč or free on orders over 3000 Kč",
+            "announcement_bar_link": ""
+          }
+        },
+        "8b94eb4b-d86f-4e31-997d-231887dc3d4c": {
+          "type": "text",
+          "settings": {
+            "text": "CY",
+            "country_announcement": "Delivery from €9.99 or free on orders over €175",
+            "announcement_bar_link": ""
+          }
+        },
+        "99a5bb9e-22f1-4f0c-92b2-fa9dcd8149b7": {
+          "type": "text",
+          "settings": {
+            "text": "GR",
+            "country_announcement": "Delivery from €9.99 or free on orders over €175",
+            "announcement_bar_link": ""
+          }
+        },
+        "c23c43d0-c317-4091-a42f-52a52a463d2a": {
+          "type": "text",
+          "settings": {
+            "text": "LV",
+            "country_announcement": "Delivery from €9.99 or free on orders over €175",
+            "announcement_bar_link": ""
+          }
+        },
+        "7c746be0-93d1-4380-9be1-d9607f2d4fdf": {
+          "type": "text",
+          "settings": {
+            "text": "LT",
+            "country_announcement": "Delivery from €9.99 or free on orders over €175",
+            "announcement_bar_link": ""
+          }
+        },
+        "65c04969-0141-4d7c-a810-f81c89d70acd": {
+          "type": "text",
+          "settings": {
+            "text": "MT",
+            "country_announcement": "Delivery from €9.99 or free on orders over €175",
+            "announcement_bar_link": ""
+          }
+        },
+        "c9f9449b-de1c-49c6-b35f-1b48198c3382": {
+          "type": "text",
+          "settings": {
+            "text": "MQ",
+            "country_announcement": "Delivery from €9.99 or free on orders over €175",
+            "announcement_bar_link": ""
+          }
+        },
+        "5bbf9dd0-0beb-4049-a4df-749300cc8b45": {
+          "type": "text",
+          "settings": {
+            "text": "MC",
+            "country_announcement": "Delivery from €9.99 or free on orders over €175",
+            "announcement_bar_link": ""
+          }
+        },
+        "8f54bdbb-50dd-4ccf-af96-0d8de6155003": {
+          "type": "text",
+          "settings": {
+            "text": "ME",
+            "country_announcement": "Delivery from €9.99 or free on orders over €175",
+            "announcement_bar_link": ""
+          }
+        },
+        "73a26ce6-cd13-4655-ae83-c71ca52c72da": {
+          "type": "text",
+          "settings": {
+            "text": "PT",
+            "country_announcement": "Delivery from €9.99 or free on orders over €115",
+            "announcement_bar_link": ""
+          }
+        },
+        "a8943585-cda4-41ec-8edc-f10ca0290798": {
+          "type": "text",
+          "settings": {
+            "text": "SM",
+            "country_announcement": "Delivery from €9.99 or free on orders over €175",
+            "announcement_bar_link": ""
+          }
+        },
+        "1f630a65-e1f4-48f9-a76b-1f8d168aba1c": {
+          "type": "text",
+          "settings": {
+            "text": "SK",
+            "country_announcement": "Delivery from €9.99 or free on orders over €175",
+            "announcement_bar_link": ""
+          }
+        },
+        "6f6e216d-fded-4b77-ba07-3d439a80a23c": {
+          "type": "text",
+          "settings": {
+            "text": "SI",
+            "country_announcement": "Delivery from €9.99 or free on orders over €175",
+            "announcement_bar_link": ""
+          }
+        },
+        "95c3ce2c-5960-4c66-8c03-43edefbca8ca": {
+          "type": "text",
+          "settings": {
+            "text": "BL",
+            "country_announcement": "Delivery from €9.99 or free on orders over €175",
+            "announcement_bar_link": ""
+          }
+        },
+        "79d044c7-3e9d-4e9d-a872-9736ea54d780": {
+          "type": "text",
+          "settings": {
+            "text": "MF",
+            "country_announcement": "Delivery from €9.99 or free on orders over €175",
+            "announcement_bar_link": ""
+          }
+        },
+        "e9722761-2532-44b6-8ad0-07a0bce0a908": {
+          "type": "richtext",
+          "settings": {
+            "announcement_bar_text": "SHOP NEW ARRIVALS",
+            "announcement_bar_link": "shopify:\/\/collections\/new-arrivals",
+            "announcement_bar_class": ""
+          }
+        },
+        "89cf81b9-9a65-4351-b7af-4b12f4b60494": {
+          "type": "sale",
+          "disabled": true,
+          "settings": {
+            "country_code": "",
+            "exclude_country_code": "",
+            "announcement_bar_background_color": "#971b1b",
+            "announcement_bar_text_color": "#ffffff",
+            "announcement_bar_notice": "<p><strong>UP TO 60% OFF SITEWIDE<\/strong><\/p>",
+            "hidden": false,
+            "announcement_bar_class": "",
+            "announcement_bar_link": "shopify:\/\/collections\/sale",
+            "announcement_bar_heading": "<p><strong>DISCLAIMER<\/strong><\/p>",
+            "announcement_bar_message": "<p>Offer is valid starting 9:00 PM PT on 01\/10\/2024 through 9:00 PM PT on 01\/16\/2024 online only at TrueClassic.com. Not valid in stores. Offer valid for up to 60% OFF SITEWIDE, and not combinable with other offers or promotions. Offer applies only to select products marked with badges and excludes gift cards, applicable taxes, and shipping and handling. The discount will be automatically applied on eligible items at checkout. No adjustments on previous purchases.<\/p>",
+            "notice_background": "#000000",
+            "notice_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "b04d9821-ad75-4267-a112-d8c23f271a46",
+        "fd659fce-fbf9-4d02-9d3b-96a0cdecf3f4",
+        "2d4f4580-9e83-4481-8bbc-fc885433ec7a",
+        "59b9ab79-6e9d-444b-ad07-24195780216f",
+        "2d621c92-3040-4cb3-925f-110fe5e52021",
+        "c396f4b3-d5a9-415b-9c54-ed6bd59f7b2b",
+        "166bc615-2205-4b23-8840-8b7b99d7fdf9",
+        "abe0bcb6-6f1f-44b4-9a1b-8c8357fca52c",
+        "8259abb8-933a-49a0-9b18-bcbe9ef791bd",
+        "93d08f5a-4d68-4a59-8fc1-d6873e16f0c8",
+        "c7c5df78-9a4c-4f12-b77a-fc0b88ac3cba",
+        "bbcb4aa8-a391-4ba3-8ced-bce274940550",
+        "e835a0b1-53c8-49e4-91c8-97843e9b73c1",
+        "fd5e6689-be12-491f-bee0-f830a96bd50f",
+        "800e9846-baa5-49a7-9100-c5c78ed0b59c",
+        "dfae56e6-f65e-4ca7-a675-126dc1ba49ea",
+        "395aad1c-fe4b-4ff8-8f22-8212bb0734cb",
+        "9df1ca0a-bdf9-47d0-9c99-3a22aa6b8365",
+        "83e0e3de-b33a-41ca-8348-6b0a55aa6c2c",
+        "8b94eb4b-d86f-4e31-997d-231887dc3d4c",
+        "99a5bb9e-22f1-4f0c-92b2-fa9dcd8149b7",
+        "c23c43d0-c317-4091-a42f-52a52a463d2a",
+        "7c746be0-93d1-4380-9be1-d9607f2d4fdf",
+        "65c04969-0141-4d7c-a810-f81c89d70acd",
+        "c9f9449b-de1c-49c6-b35f-1b48198c3382",
+        "5bbf9dd0-0beb-4049-a4df-749300cc8b45",
+        "8f54bdbb-50dd-4ccf-af96-0d8de6155003",
+        "73a26ce6-cd13-4655-ae83-c71ca52c72da",
+        "a8943585-cda4-41ec-8edc-f10ca0290798",
+        "1f630a65-e1f4-48f9-a76b-1f8d168aba1c",
+        "6f6e216d-fded-4b77-ba07-3d439a80a23c",
+        "95c3ce2c-5960-4c66-8c03-43edefbca8ca",
+        "79d044c7-3e9d-4e9d-a872-9736ea54d780",
+        "e9722761-2532-44b6-8ad0-07a0bce0a908",
+        "89cf81b9-9a65-4351-b7af-4b12f4b60494"
+      ],
+      "settings": {
+        "announcement_bar_enabled": true,
+        "announcement_bar_home_page_only": false,
+        "announcement_bar_duration": 5
+      }
+    },
+    "announcement-bar-rest-of-the-world": {
+      "type": "announcement-bar-rest-of-the-world",
+      "blocks": {
+        "89dfe49c-d883-4806-861c-6997f93dd95d": {
+          "type": "text",
+          "settings": {
+            "text": "AE",
+            "country_announcement": "Delivery from AED 55 or free on orders over AED 600",
+            "announcement_bar_link": ""
+          }
+        },
+        "8d368f2e-e24f-416e-ab54-0f3d36f56fb3": {
+          "type": "text",
+          "settings": {
+            "text": "LK",
+            "country_announcement": "Delivery from US for 4999 or free on orders over LK 40,000",
+            "announcement_bar_link": ""
+          }
+        },
+        "527cc818-34ca-4f48-a46e-da287238f3d7": {
+          "type": "text",
+          "settings": {
+            "text": "IL",
+            "country_announcement": "Delivery from NIS 89 or free on orders over NIS 400",
+            "announcement_bar_link": ""
+          }
+        },
+        "bea3b32f-73ce-4356-88c1-0d2b6a55958c": {
+          "type": "text",
+          "settings": {
+            "text": "NZ",
+            "country_announcement": "Delivery from NZD 10.99 or free on orders over NZD 200",
+            "announcement_bar_link": ""
+          }
+        },
+        "6bb42031-b0ff-421d-8650-374884b833c5": {
+          "type": "text",
+          "settings": {
+            "text": "ZA",
+            "country_announcement": "Free shipping in South Africa over 3,000 ZAR",
+            "announcement_bar_link": ""
+          }
+        },
+        "b0066e48-00c8-499a-9a6a-b02c0dbdb676": {
+          "type": "text",
+          "settings": {
+            "text": "SA",
+            "country_announcement": "Delivery from SAR 49 or free on orders over SAR 750",
+            "announcement_bar_link": ""
+          }
+        },
+        "9fb527d3-2079-4103-b059-e2be01e499f2": {
+          "type": "text",
+          "settings": {
+            "text": "SG",
+            "country_announcement": "Delivery from SGD 19.95 or free on orders over SGD 200",
+            "announcement_bar_link": ""
+          }
+        },
+        "98c1272c-5f86-47ee-ba6d-4285c6a7a1d0": {
+          "type": "text",
+          "settings": {
+            "text": "AU",
+            "country_announcement": "Delivery from AUD 14.99 or free on orders over AUD 170",
+            "announcement_bar_link": ""
+          }
+        },
+        "1fa35c59-8fe0-47eb-8ce3-bb84413a2a9b": {
+          "type": "richtext",
+          "settings": {
+            "announcement_bar_text": "SHOP NEW ARRIVALS",
+            "announcement_bar_link": "shopify:\/\/collections\/new-arrivals",
+            "announcement_bar_class": ""
+          }
+        },
+        "e53fb227-1695-4cb7-a6c1-8d74e9729d1d": {
+          "type": "sale",
+          "disabled": true,
+          "settings": {
+            "country_code": "AU",
+            "exclude_country_code": "",
+            "announcement_bar_background_color": "#971b1b",
+            "announcement_bar_text_color": "#ffffff",
+            "announcement_bar_notice": "<p><strong>UP TO 50% OFF + EXTRA 10% OFF<br\/> Use Code: AUSTRALIA<\/strong><\/p>",
+            "hidden": false,
+            "announcement_bar_class": "",
+            "announcement_bar_link": "shopify:\/\/collections\/au-sale",
+            "announcement_bar_heading": "<p><strong>DISCLAIMER<\/strong><\/p>",
+            "announcement_bar_message": "<p>Offer is valid online only at TrueClassic.com. Not valid in stores. Offer valid until 23:59 GMT 29\/01\/2024 and cannot be combined with other offers or promotions. Items are priced as marked and excludes gift cards, applicable taxes, and shipping and handling. To claim your discount, please enter discount code at checkout. No adjustments on previous purchases.<\/p>",
+            "notice_background": "#000000",
+            "notice_color": "#ffffff"
+          }
+        },
+        "text_Q9Gnjx": {
+          "type": "text",
+          "settings": {
+            "text": "HK",
+            "country_announcement": "Delivery From HK 118.47 OR Free On Orders Over 1399",
+            "announcement_bar_link": ""
+          }
+        },
+        "text_JzJd6d": {
+          "type": "text",
+          "settings": {
+            "text": "IS",
+            "country_announcement": "Delivery from KR 2050 or free on orders over KR 18500",
+            "announcement_bar_link": ""
+          }
+        },
+        "text_AJFqza": {
+          "type": "text",
+          "settings": {
+            "text": "KW",
+            "country_announcement": "Free shipping for orders above $150",
+            "announcement_bar_link": ""
+          }
+        },
+        "text_NmKeeh": {
+          "type": "text",
+          "settings": {
+            "text": "BH",
+            "country_announcement": "Free shipping on orders above $150",
+            "announcement_bar_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "89dfe49c-d883-4806-861c-6997f93dd95d",
+        "8d368f2e-e24f-416e-ab54-0f3d36f56fb3",
+        "527cc818-34ca-4f48-a46e-da287238f3d7",
+        "bea3b32f-73ce-4356-88c1-0d2b6a55958c",
+        "6bb42031-b0ff-421d-8650-374884b833c5",
+        "b0066e48-00c8-499a-9a6a-b02c0dbdb676",
+        "9fb527d3-2079-4103-b059-e2be01e499f2",
+        "98c1272c-5f86-47ee-ba6d-4285c6a7a1d0",
+        "1fa35c59-8fe0-47eb-8ce3-bb84413a2a9b",
+        "e53fb227-1695-4cb7-a6c1-8d74e9729d1d",
+        "text_Q9Gnjx",
+        "text_JzJd6d",
+        "text_AJFqza",
+        "text_NmKeeh"
+      ],
+      "settings": {
+        "announcement_bar_enabled": true,
+        "announcement_bar_home_page_only": false,
+        "announcement_bar_duration": 5
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "bffece59-7cb9-452b-8058-0dda7e63e1e4": {
+          "type": "mm_img",
+          "settings": {
+            "mm_img_image": "shopify:\/\/shop_images\/mega-nav-new-arrivals.png",
+            "mm_img_alt": "New Arrivals",
+            "mm_img_overlay_text": "",
+            "mm_img_link": "shopify:\/\/collections\/new-arrivals"
+          }
+        },
+        "dff34305-7942-44a0-9be6-f4dd4632f86a": {
+          "type": "mm_img",
+          "settings": {
+            "mm_img_image": "shopify:\/\/shop_images\/mega-nav-jeans.png",
+            "mm_img_alt": "Shop Jeans",
+            "mm_img_overlay_text": "",
+            "mm_img_link": "shopify:\/\/collections\/mens-jeans"
+          }
+        }
+      },
+      "block_order": [
+        "bffece59-7cb9-452b-8058-0dda7e63e1e4",
+        "dff34305-7942-44a0-9be6-f4dd4632f86a"
+      ],
+      "settings": {
+        "enable_mega_menu": true,
+        "transparent_header": false,
+        "enable_mobile_account_icon": true,
+        "header_link_list": "test-menu",
+        "color_primary": "#ffffff",
+        "color_secondary": "#000000",
+        "color_tertiary": "#ffffff"
+      }
+    },
+    "02cd4821-fa60-453c-87fb-ef7e4d1e3667": {
+      "type": "test-gwp-popup",
+      "blocks": {
+        "dbe87b71-40c8-4f19-bc23-111dd228dc3b": {
+          "type": "heading",
+          "settings": {
+            "title": "FREE GIFT",
+            "heading_level": "h2",
+            "heading_size": "h4",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-chocolate",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "c68233e8-ca3a-41c3-827a-512e1dcb63fd": {
+          "type": "text",
+          "settings": {
+            "paragraph": "<p>Redeem in cart!<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "m",
+            "paragraph_color": "color-chocolate",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-m"
+          }
+        },
+        "8780b8b9-89bc-459c-a34d-e04b74679e8a": {
+          "type": "product",
+          "settings": {
+            "product": "navy-boxer-brief"
+          }
+        }
+      },
+      "block_order": [
+        "dbe87b71-40c8-4f19-bc23-111dd228dc3b",
+        "c68233e8-ca3a-41c3-827a-512e1dcb63fd",
+        "8780b8b9-89bc-459c-a34d-e04b74679e8a"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "GIFT WITH PURCHASE",
+        "delay": 0,
+        "paragraph": "loreim ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+        "background_color": "#ffffff"
+      }
+    },
+    "ae07edea-19e9-4e41-9cf8-834a148758cb": {
+      "type": "tc-exit-popup",
+      "blocks": {
+        "535740aa-f4b5-4d9b-848d-3dd2ac834e33": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/0bfcdf31-7c81-4a76-8da4-fb9dbb7367a6_1.jpg",
+            "hide_mobile": true
+          }
+        }
+      },
+      "block_order": [
+        "535740aa-f4b5-4d9b-848d-3dd2ac834e33"
+      ],
+      "disabled": true,
+      "settings": {
+        "country_code": "US",
+        "exclude_country_code": "",
+        "enable": false,
+        "popup_timeout": 1,
+        "scroll_up_distance": 30,
+        "popup_timeout_mobile": 5,
+        "subtitle": "<p>WAIT<\/p>",
+        "subtitle_font": "modernist-type",
+        "subtitle_style": "m",
+        "subtitle_color": "color-chocolate",
+        "subtitle_color_inverse": false,
+        "subtitle_margin_top": "mg-t-none",
+        "subtitle_margin_bottom": "mg-b-m",
+        "title": "True Classic®",
+        "heading_level": "h2",
+        "heading_size": "h2",
+        "heading_font": "staff-x-condensed-type",
+        "heading_color": "color-chocolate",
+        "heading_color_inverse": false,
+        "heading_margin_top": "mg-t-none",
+        "heading_margin_bottom": "mg-b-m",
+        "heading_underline": false,
+        "line_break_dot": false,
+        "paragraph": "<p>US ONLY <\/p>",
+        "paragraph_font": "modernist-type",
+        "paragraph_style": "m",
+        "paragraph_color": "color-chocolate",
+        "paragraph_color_inverse": false,
+        "paragraph_margin_top": "mg-t-none",
+        "paragraph_margin_bottom": "mg-b-m",
+        "button_label": "SHOP SALE",
+        "button_url": "",
+        "button_style": "primary red"
+      }
+    },
+    "6fdfd0c7-48e7-425b-bf47-5164c2665c3b": {
+      "type": "tc-exit-popup",
+      "blocks": {
+        "5d943d29-a8b9-4d51-9fb3-390d32e84559": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/0bfcdf31-7c81-4a76-8da4-fb9dbb7367a6_1.jpg",
+            "hide_mobile": true
+          }
+        }
+      },
+      "block_order": [
+        "5d943d29-a8b9-4d51-9fb3-390d32e84559"
+      ],
+      "disabled": true,
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "US",
+        "enable": false,
+        "popup_timeout": 5,
+        "scroll_up_distance": 350,
+        "popup_timeout_mobile": 5,
+        "subtitle": "<p>ATTEND<\/p>",
+        "subtitle_font": "modernist-type",
+        "subtitle_style": "m",
+        "subtitle_color": "color-chocolate",
+        "subtitle_color_inverse": false,
+        "subtitle_margin_top": "mg-t-none",
+        "subtitle_margin_bottom": "mg-b-m",
+        "title": "True Classic®",
+        "heading_level": "h2",
+        "heading_size": "h2",
+        "heading_font": "staff-x-condensed-type",
+        "heading_color": "color-chocolate",
+        "heading_color_inverse": false,
+        "heading_margin_top": "mg-t-none",
+        "heading_margin_bottom": "mg-b-m",
+        "heading_underline": false,
+        "line_break_dot": false,
+        "paragraph": "<p>NOT US<\/p>",
+        "paragraph_font": "modernist-type",
+        "paragraph_style": "m",
+        "paragraph_color": "color-chocolate",
+        "paragraph_color_inverse": false,
+        "paragraph_margin_top": "mg-t-none",
+        "paragraph_margin_bottom": "mg-b-m",
+        "button_label": "SHOP SALE",
+        "button_url": "",
+        "button_style": "primary red"
+      }
+    }
+  },
+  "order": [
+    "announcement-bar-north-america",
+    "announcement-bar-us",
+    "announcement-bar-south-america",
+    "announcement-bar-europe",
+    "announcement-bar-rest-of-the-world",
+    "header",
+    "02cd4821-fa60-453c-87fb-ef7e4d1e3667",
+    "ae07edea-19e9-4e41-9cf8-834a148758cb",
+    "6fdfd0c7-48e7-425b-bf47-5164c2665c3b"
+  ]
+}

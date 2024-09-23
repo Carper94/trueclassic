@@ -1,0 +1,132 @@
+{% assign shipping = shipping | times: 100 %}
+{% assign gwp_1 = gwp_1 | times: 100 %}
+{% assign gwp_2 = gwp_2 | times: 100 %}
+{% assign gwp_3 = gwp_3 | times: 100 %}
+
+{% assign gwp_1_availability = true %}
+{% assign gwp_2_availability = true %}
+{% assign gwp_3_availability = true %}
+
+{%- if gwp_1_image != null -%}
+  {% for item in gwp_1_image.variants %}
+    {% if item.available == false %}
+      {% assign gwp_1_availability = false %}
+    {% endif %}
+  {% endfor %}
+{%- endif -%}
+
+{%- if gwp_1_image != null and gwp_1_availability -%}
+  {% assign gwp_item_1 = gwp_1_image %}
+{%- elsif gwp_1_product_fallback != null -%}
+  {% assign gwp_item_1 = gwp_1_product_fallback %}
+{%- else-%}
+  {% assign gwp_item_1 = section.settings.gwp_1 %}
+{%- endif -%}
+
+{%- if gwp_2_image != null -%}
+  {% for item in gwp_2_image.variants %}
+    {% if item.available == false %}
+      {% assign gwp_2_availability = false %}
+    {% endif %}
+  {% endfor %}
+{%- endif -%}
+
+{%- if gwp_2_image != null and gwp_2_availability -%}
+  {% assign gwp_item_2 = gwp_2_image %}
+{%- elsif gwp_2_product_fallback != null -%}
+  {% assign gwp_item_2 = gwp_2_product_fallback %}
+{%- else -%}
+  {% assign gwp_item_2 = section.settings.gwp_2 %}
+{%- endif -%}
+
+{%- if gwp_3_image != null -%}
+  {% for item in gwp_3_image.variants %}
+    {% if item.available == false %}
+      {% assign gwp_3_availability = false %}
+    {% endif %}
+  {% endfor %}
+{%- endif -%}
+
+{%- if gwp_3_image != null and gwp_3_availability -%}
+  {% assign gwp_item_3 = gwp_3_image %}
+{%- elsif gwp_3_product_fallback != null -%}
+  {% assign gwp_item_3 = gwp_3_product_fallback %}
+{%- else-%}
+  {% assign gwp_item_3 = section.settings.gwp_3 %}
+{%- endif -%}
+
+{% if value > 0 and value < shipping %}
+  {% assign percentage = 4 %}
+{% elsif value == shipping %}
+  {% assign percentage = 4 %}
+{% elsif value > shipping and value < gwp_1 %}
+  {% assign percentage = 25 %}
+{% elsif value == gwp_1 %}
+  {% assign percentage = 40 %}
+{% elsif value > gwp_1 and value < gwp_2 %}
+  {% assign percentage = 55 %}
+{% elsif value == gwp_2 %}
+  {% assign percentage = 70 %}
+{% elsif value > gwp_2 and value < gwp_3 %}
+  {% assign percentage = 85 %}
+{% else %}
+  {% assign percentage = 100 %}
+{% endif %}
+
+{% if percentage < 0 %}
+  {% assign percentage = 0 %}
+{% endif %}
+
+<div class='mini-cart__progress-bar-wrapper' style='margin: 0 20px;'>
+  <div class='progress-bar__subheading tiered-free-items'>
+    {% if value >= gwp_2 %}
+      {% assign distance = gwp_3 | minus: value | plus: 100 %}
+      {% for item in cart.items %}
+        {% if item.product.id == gwp_item_2.id and item.properties._free %}
+          {% assign in_cart = true %}
+        {% endif %}
+      {% endfor %}
+
+      {% if gwp_item_2 != null %}
+        <span id='cartUpsell2'>
+          {% render 'free-item-tiered',
+            value: value,
+            product: gwp_item_2,
+            threshold: gwp_2,
+            tierd: 2
+          %}
+        </span>
+      {% endif %}
+
+      {% if gwp_item_1 != null %}
+        <span id='cartUpsell1'>
+          {% render 'free-item-tiered',
+            value: value,
+            product: gwp_item_1,
+            threshold: gwp_1,
+            tierd: 1
+          %}
+        </span>
+      {% endif %}
+
+    {% elsif value >= gwp_1 %}
+      {% assign distance = gwp_2 | minus: value | plus: 100 %}
+      {% for item in cart.items %}
+        {% if item.product.id == gwp_item_2.id and item.properties._free %}
+          {% assign in_cart = true %}
+        {% endif %}
+      {% endfor %}
+
+      <span id='cartUpsell1'>
+        {% render 'free-item-tiered',
+          value: value,
+          product: gwp_item_1,
+          threshold: gwp_1,
+          tierd: 1
+        %}
+      </span>
+    {% elsif value >= shipping %}
+      {% assign distance = gwp_1 | minus: value | plus: 100 %}
+    {% endif %}
+  </div>
+</div>

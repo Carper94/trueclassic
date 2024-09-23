@@ -1,0 +1,251 @@
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "custom_css": [
+
+      ],
+      "settings": {
+        "full_width": true,
+        "hide_title": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "0054d9d8-18a4-4ccb-b339-59b02df919fa": {
+      "type": "replo-replo-insiders-club",
+      "disabled": true,
+      "settings": {
+      }
+    },
+    "3749ee4a-9017-465f-ac0c-bfccdfd20410": {
+      "type": "replo-replo-insiders-club-12",
+      "settings": {
+      }
+    },
+    "ccfd4cae-2c12-4ee2-9b47-32d7fabb110f": {
+      "type": "contact-faq",
+      "blocks": {
+        "d7521faf-ea48-41ad-986f-9495bcd0fc5b": {
+          "type": "block",
+          "settings": {
+            "topic": "How do I join?",
+            "paragraph": "<p>Add the membership to your cart and go through the checkout process like any other purchase. After checkout, you’ll receive an onboarding email that explains how to access member benefits.<\/p>"
+          }
+        },
+        "c0d1e8ad-e452-4906-ac41-8e1f6759e7f8": {
+          "type": "block",
+          "settings": {
+            "topic": "Is the membership fee a recurring charge?",
+            "paragraph": "<p>Yes. Members pay $12 USD every year for access to the membership program. The membership will auto-renew until you decide to cancel. You can cancel your membership’s auto-renewal at any time through your <a href=\"\/account\/\" title=\"\/account\/\"><span style=\"text-decoration:underline\">account portal<\/span><\/a> or by contacting our customer support team <a href=\"mailto:support@trueclassic.com\" title=\"Email Support\">support@trueclassic.com<\/a>. There are no termination fees or hidden costs associated with cancellation, though all purchases of the membership are final. If canceled, your membership will still remain active through the current billing period.<\/p>"
+          }
+        },
+        "16e3dabc-56c8-42cb-88cc-1e6e779d7cdc": {
+          "type": "block",
+          "settings": {
+            "topic": "Do I need to have an account?",
+            "paragraph": "<p>Yes. Once you sign up, you’ll be prompted to create an account (if you don’t already have one). This is how you will access your store credit, referral links, and management of your membership.<\/p>"
+          }
+        },
+        "75827d2d-7cd8-4d62-bfb5-bb6b81377449": {
+          "type": "block",
+          "settings": {
+            "topic": "Is there anywhere my membership benefits are not valid?",
+            "paragraph": "<p>The member discounts and free shipping benefits can only be accessed on our website or in retail stores. <\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "d7521faf-ea48-41ad-986f-9495bcd0fc5b",
+        "c0d1e8ad-e452-4906-ac41-8e1f6759e7f8",
+        "16e3dabc-56c8-42cb-88cc-1e6e779d7cdc",
+        "75827d2d-7cd8-4d62-bfb5-bb6b81377449"
+      ],
+      "custom_css": [
+        ".headline.h3 {font-family: var(--font-family-primary) !important;}",
+        ".contact-faq-wrapper {max-width: 790px; margin-left: auto; margin-right: auto;}"
+      ],
+      "settings": {
+        "title": "SIGNING UP",
+        "subtitle": "",
+        "faqlink": "\/pages\/terms-conditions#membership-terms",
+        "enable_faq_link": false,
+        "background_color": "#ffffff",
+        "columns_desktop": 1,
+        "columns_mobile": "1",
+        "column_alignment": "left",
+        "padding_top": 76,
+        "padding_bottom": 0
+      }
+    },
+    "d1689daf-90cf-4aa3-87f4-751ebd64fca6": {
+      "type": "contact-faq",
+      "blocks": {
+        "314e33ab-2eb2-4e62-81dd-719d254c4c33": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "topic": "When do I get my $100 credit?",
+            "paragraph": "<p>The $100 credit will paid out in 4 installments of $25 every 90 days. Credits are valid for 90 days.<\/p>"
+          }
+        },
+        "38bc1b15-078f-459c-9c8d-2c75241b832d": {
+          "type": "block",
+          "settings": {
+            "topic": "My benefits aren’t working - why?",
+            "paragraph": "<p>You must use the same email you used when purchasing your membership in order to access your benefits. You have to sign in to your account to access your membership benefits.<\/p>"
+          }
+        },
+        "0f410533-cdae-438b-ac41-1df51dc2e111": {
+          "type": "block",
+          "settings": {
+            "topic": "How do I access my member exclusive discounts ?",
+            "paragraph": "<p>Member exclusive discounts are auto-applied and will be visible in checkout. No code is needed. However, the discounts will only apply if you are logged into your True Classic account. Please confirm you are logged in with the same email address you purchased your membership with.<\/p>"
+          }
+        },
+        "1c6a5627-0561-486d-9303-654e1cf8078d": {
+          "type": "block",
+          "settings": {
+            "topic": "How do I access my free shipping benefit?",
+            "paragraph": "<p>Free shipping is automatically applied at checkout, no code needed.<\/p>"
+          }
+        },
+        "e89c70aa-2df9-43ed-9166-c51aa2ea255a": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "topic": "How do I get my free seasonal gift?",
+            "paragraph": "<p>Each season we will offer a free gift with purchase for members. During checkout, you will be prompted to select your free gift. Limit one per member per season.<\/p>"
+          }
+        },
+        "8ffeb6be-62a0-41af-8aaf-2e3d42fc1e65": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "topic": "How do I take advantage of my early access to sales and launches?",
+            "paragraph": "<p>You’ll be emailed separately from the rest of our customers to ensure you’re the first to know about any major sales and new product drops. There’s nothing you need to do to access this benefit other than opening any emails from us.<\/p>"
+          }
+        },
+        "9711a73c-4921-4a2c-ad3c-95772f1c0cf1": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "topic": "How do I apply member only discounts to my order?",
+            "paragraph": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<\/p>"
+          }
+        },
+        "06dcf5ea-6374-4ff8-a4ae-c69f3ea846c5": {
+          "type": "block",
+          "settings": {
+            "topic": "How long do store credits last?",
+            "paragraph": "<p>Store credit expires after 90 days of getting them.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "314e33ab-2eb2-4e62-81dd-719d254c4c33",
+        "38bc1b15-078f-459c-9c8d-2c75241b832d",
+        "0f410533-cdae-438b-ac41-1df51dc2e111",
+        "1c6a5627-0561-486d-9303-654e1cf8078d",
+        "e89c70aa-2df9-43ed-9166-c51aa2ea255a",
+        "8ffeb6be-62a0-41af-8aaf-2e3d42fc1e65",
+        "9711a73c-4921-4a2c-ad3c-95772f1c0cf1",
+        "06dcf5ea-6374-4ff8-a4ae-c69f3ea846c5"
+      ],
+      "custom_css": [
+        ".headline.h3 {font-family: var(--font-family-primary) !important;}",
+        ".contact-faq-wrapper {max-width: 790px; margin-left: auto; margin-right: auto;}"
+      ],
+      "settings": {
+        "title": "ACCESSING YOUR BENEFITS",
+        "subtitle": "",
+        "faqlink": "",
+        "enable_faq_link": false,
+        "background_color": "#ffffff",
+        "columns_desktop": 1,
+        "columns_mobile": "1",
+        "column_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "e5870a9f-d83c-4f89-a3e1-d66267dd5c02": {
+      "type": "contact-faq",
+      "blocks": {
+        "bf7c03bd-8284-445f-b13f-69d96f81bce6": {
+          "type": "block",
+          "settings": {
+            "topic": "How can I cancel my membership?",
+            "paragraph": "<p>You can cancel your membership from your <a href=\"\/account\" title=\"Customer Portal\"><span style=\"text-decoration:underline\">account portal<\/span><\/a> at any time or by contacting our customer support team support@trueclassic.com. There are no termination fees or hidden costs to cancel, but we do not provide refunds or credits for the cost of the membership. If canceled, your membership will still remain active through the current billing period. Any unused credits will expire after 12 months and refunds for partial credits will not be issued.<\/p>"
+          }
+        },
+        "cc337442-c0ed-4207-97cb-a020ed686347": {
+          "type": "block",
+          "settings": {
+            "topic": "Can I pause my membership?",
+            "paragraph": "<p>No, we do not support pausing or skipping your membership at this time. However, you can cancel and rejoin the membership at any time.<\/p>"
+          }
+        },
+        "00cbde67-e787-4204-944e-fc37f5d27c13": {
+          "type": "block",
+          "settings": {
+            "topic": "How do I update my payment method for the recurring membership charge?",
+            "paragraph": "<p>You can update your payment method at any time from your account portal at any time.<\/p>"
+          }
+        },
+        "ef9a942b-9d49-4410-ba62-994550e38e07": {
+          "type": "block",
+          "settings": {
+            "topic": "Can I return my membership or request a refund?",
+            "paragraph": "<p>All purchases of the membership are final and cannot be returned or refunded. You can cancel your membership auto-renewal from your <a href=\"\/account\" title=\"\/account\"><span style=\"text-decoration:underline\">account portal<\/span><\/a> at any time or by contacting our customer support team <a href=\"mailto:support@trueclassic.com\" title=\"mailto:support@trueclassic.com\">support@trueclassic.com<\/a>. If canceled, your membership will remain active until the end of the billing period.<\/p>"
+          }
+        },
+        "397bbaf8-122f-4037-a271-de50d194cd1a": {
+          "type": "block",
+          "settings": {
+            "topic": "Why aren't my benefits working?",
+            "paragraph": "<p>Your benefits are linked to the email address you used to purchase membership, so you need to use that same email to access your benefits.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "bf7c03bd-8284-445f-b13f-69d96f81bce6",
+        "cc337442-c0ed-4207-97cb-a020ed686347",
+        "00cbde67-e787-4204-944e-fc37f5d27c13",
+        "ef9a942b-9d49-4410-ba62-994550e38e07",
+        "397bbaf8-122f-4037-a271-de50d194cd1a"
+      ],
+      "custom_css": [
+        ".headline.h3 {font-family: var(--font-family-primary) !important;}",
+        ".contact-faq-wrapper {max-width: 790px; margin-left: auto; margin-right: auto;}"
+      ],
+      "settings": {
+        "title": "MANAGING YOUR MEMBERSHIP",
+        "subtitle": "",
+        "faqlink": "",
+        "enable_faq_link": false,
+        "background_color": "#ffffff",
+        "columns_desktop": 1,
+        "columns_mobile": "1",
+        "column_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "0e201142-71d0-4d0f-9c12-f0319726d157": {
+      "type": "liquid",
+      "settings": {
+        "liquid": "<script>\nwindow.dataLayer = window.dataLayer || [];\nwindow.dataLayer.push({\n  event: 'view_membership',\n  ecommerce: {\n    value: 12,\n    currency: 'USD',\n    items: [{\n      item_id: \"6797565296712\",\n      item_name: \"Insiders Club Membership\",\n      item_brand: \"True Classic\",\n      item_category: \"Subscriptions\",\n      item_variant: \"TCTMEMBER\",\n      price: 12,\n      quantity: 1\n    }]\n  }\n});\n\n\ndocument.querySelector('button[data-button=\"add-membership\"]').addEventListener('click', function() {\n    window.dataLayer = window.dataLayer || [];\n    window.dataLayer.push({\n      event: 'add_membership_to_cart',\n      ecommerce: {\n        value: 12,\n        currency: 'USD',\n        items: [{\n          item_id: \"6797565296712\",\n          item_name: \"Insiders Club Membership\",\n          item_brand: \"True Classic\",\n          item_category: \"Subscriptions\",\n          item_variant: \"TCTMEMBER\",\n          price: 12,\n          quantity: 1\n        }]\n      }\n    });\n});\n\n\ndocument.querySelector('button[data-button=\"become-insider\"]').addEventListener('click', function() {\n    window.dataLayer = window.dataLayer || [];\n    window.dataLayer.push({\n      event: 'add_membership_to_cart',\n      ecommerce: {\n        value: 12,\n        currency: 'USD',\n        items: [{\n          item_id: \"6797565296712\",\n          item_name: \"Insiders Club Membership\",\n          item_brand: \"True Classic\",\n          item_category: \"Subscriptions\",\n          item_variant: \"TCTMEMBER\",\n          price: 12,\n          quantity: 1\n        }]\n      }\n    });\n});\n\ndocument.querySelector('button[data-button=\"top-join\"]').addEventListener('click', function() {\n    window.dataLayer = window.dataLayer || [];\n    window.dataLayer.push({\n      event: 'add_membership_to_cart',\n      ecommerce: {\n        value: 12,\n        currency: 'USD',\n        items: [{\n          item_id: \"6797565296712\",\n          item_name: \"Insiders Club Membership\",\n          item_brand: \"True Classic\",\n          item_category: \"Subscriptions\",\n          item_variant: \"TCTMEMBER\",\n          price: 12,\n          quantity: 1\n        }]\n      }\n    });\n});\n\n<\/script>\n{% if localization.country.iso_code != 'US' %}\n<script>\n  window.location.href = '\/';\n<\/script>\n{% endif %}"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "0054d9d8-18a4-4ccb-b339-59b02df919fa",
+    "3749ee4a-9017-465f-ac0c-bfccdfd20410",
+    "ccfd4cae-2c12-4ee2-9b47-32d7fabb110f",
+    "d1689daf-90cf-4aa3-87f4-751ebd64fca6",
+    "e5870a9f-d83c-4f89-a3e1-d66267dd5c02",
+    "0e201142-71d0-4d0f-9c12-f0319726d157"
+  ]
+}

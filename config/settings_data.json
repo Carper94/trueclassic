@@ -1,0 +1,2470 @@
+{
+  "current": {
+    "hide_quick_add": true,
+    "collection_more_deals": "Save Up To 60% OFF",
+    "ribbons_fest": false,
+    "ribbons_tag_1": "GIFT",
+    "ribbons_text_1": "&nbsp;VALENTINE GIFT",
+    "icon_account_mobile": false,
+    "icon_account_mobile_url": "#status",
+    "free_shipping_badge_pdp": true,
+    "preferred_countries": "US,UK,GB,CA,AU,MX,DE",
+    "language_selector_country_code": "DE,MX,CH,ES,BE,AT,CL,LU,BR,PE,AR,CO,GT,UY,CR,HN,EC,BZ,BO,CU,DO,SV,GQ,GY,HT,NA,NI,PA,PY,SR,VE,US",
+    "enable_compliance": true,
+    "pack_bubble_notice": "Pack Savings, compared to buying individually at full price.",
+    "enable_global_sale": false,
+    "hide_sitewide_sale": true,
+    "enable_custom_sale_badge": true,
+    "sale_badge_text": "TOP DEALS",
+    "custom_sale_badge_tag": "TopDeals",
+    "sale_badge_color": "#971B1B",
+    "sale_badge_bg_color": "#971b1b",
+    "enable_custom_sale_badge_2": false,
+    "custom_sale_badge_tag_2": "Bottoms_25",
+    "hide_cashback": true,
+    "hide_cashback_total_cart": true,
+    "hide_bestsellers": true,
+    "menu_sale_label": "VALENTINE'S SALE",
+    "menu_sale_link": "shopify:\/\/collections\/sale",
+    "social_twitter_link": "https:\/\/twitter.com\/trueclassictees",
+    "social_facebook_link": "https:\/\/www.facebook.com\/trueclassictees",
+    "social_instagram_link": "https:\/\/www.instagram.com\/trueclassic",
+    "social_youtube_link": "https:\/\/www.youtube.com\/channel\/UC4-Wb1Zm3oaZsNgZ5PJHW5w",
+    "social_tiktok_link": "https:\/\/www.tiktok.com\/@trueclassic",
+    "phone": "(323) 419-1092",
+    "included_hreflang": "en-ca,en-fr,en-gb,en-au,en-de,es-mx,en-mx,en-nl,en-ch,en-ae,es-es,en-es,en-no,en-fr,en-se,en-ie,en-nz,en-be,en-at,en-il,en-sg,en-fi,en-it,en-sa,en-dk,en-hk,en-cl,en-gr,en-pt,en-za",
+    "excluded_hreflang": "de-be,de-lu,en-ag,en-ai,en-ao,en-bf,en-bj,es-br,en-bs,en-bz,en-ck,en-cm,en-cv,en-dj,en-dm,en-et,en-fk,en-fo,en-ga,en-gl,en-gm,en-gn,en-gq,en-gw,en-ht,en-km,en-kn,en-ky,en-la,en-ls,en-mo,en-ms,en-mw,en-na,en-ni,en-nr,en-nu,en-sb,en-sl,en-sm,en-sr,en-st,en-sz,en-tc,en-tt,en-tv,en-tz,en-va,en-vc,en-vg,en-vu,en-wf,en-ws,en-nc,en-rw,en-td,en-mf,en-cw,en-tm,en-zw,en-al,en-cy,en-ee,fr-fr,en-hu,en-lt,en-lu,en-mc,en-pl,en-si,en-sk,en-ad,en-am,es-ar,en-aw,en-ba,en-bb,en-bd,en-bn,en-bo,en-ci,en-cn,en-cr,en-do,en-dz,en-ec,en-eg,en-fj,en-gd,en-gf,en-gi,en-gp,en-gy,en-hn,en-jm,en-ke,en-kg,en-kh,en-kr,en-lb,en-lc,en-li,en-ma,en-md,en-me,en-mk,en-mn,en-mq,en-mu,en-mv,en-my,en-ng,en-np,en-pe,en-pg,en-lk,en-pk,en-qa,en-re,en-rs,en-sc,en-sv,en-tg,en-to,en-tl,en-ug,en-uy,en-uz,en-ve,en-vn,en-zm,en-gt,en-mz,en-gh,en-kz,en-sd,en-jo,en-om,en-tn",
+    "checkout_logo_image": "shopify:\/\/shop_images\/icon-logo.svg",
+    "upsell": "mystery-active-crew-2-pack",
+    "upsell2": "mystery-polo-3-pack-1",
+    "sections": {
+      "mini-cart": {
+        "type": "mini-cart",
+        "blocks": {
+          "c8c0cb6b-c1cc-467d-8fcc-20a05dcad1cb": {
+            "type": "category_card",
+            "settings": {
+              "collection": "mens-tops"
+            }
+          },
+          "630ad226-639b-401d-9cb4-6e1f6ef072df": {
+            "type": "category_card",
+            "settings": {
+              "collection": "mens-bottoms"
+            }
+          },
+          "b76c9da2-15be-449b-89d5-d47926f907ef": {
+            "type": "category_card",
+            "settings": {
+              "collection": "mens-jackets"
+            }
+          },
+          "3eedf08e-a22d-4790-ae60-cd93044f1586": {
+            "type": "category_card",
+            "settings": {
+              "collection": "underwear-socks-collection"
+            }
+          },
+          "c13cbb8d-0665-45ec-a527-7a5ae3f249fc": {
+            "type": "category_card",
+            "settings": {
+              "collection": "best-selling-shirts"
+            }
+          },
+          "070a2ec7-3073-4dca-8558-bf10287bfe30": {
+            "type": "category_card",
+            "settings": {
+              "collection": "activewear"
+            }
+          },
+          "6869b9a2-e349-4872-a9b0-d52f7066a3c7": {
+            "type": "text",
+            "settings": {
+              "text": "US",
+              "shipping_threshold": 99,
+              "gwp1_threshold": 150,
+              "gwp2_threshold": 200,
+              "gwp3_threshold": 0,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "2cbe427f-9e87-4035-95b5-61786c6af3c8": {
+            "type": "text",
+            "settings": {
+              "text": "CA",
+              "shipping_threshold": 150,
+              "gwp1_threshold": 200,
+              "gwp2_threshold": 250,
+              "gwp3_threshold": 0,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "cf9a19e3-d5e3-43ad-9dc8-6bc6b7fe8ec4": {
+            "type": "text",
+            "settings": {
+              "text": "DE",
+              "shipping_threshold": 115,
+              "gwp1_threshold": 150,
+              "gwp2_threshold": 200,
+              "gwp3_threshold": 0,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "722fcbc0-b239-4d21-adca-4cefc7478f3f": {
+            "type": "text",
+            "settings": {
+              "text": "GB",
+              "shipping_threshold": 99,
+              "gwp1_threshold": 150,
+              "gwp2_threshold": 200,
+              "gwp3_threshold": 0,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "8dd55f8e-77a3-4776-b4e1-e9ca8a119aa2": {
+            "type": "text",
+            "settings": {
+              "text": "MX",
+              "shipping_threshold": 2000,
+              "gwp1_threshold": 2800,
+              "gwp2_threshold": 3600,
+              "gwp3_threshold": 0,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "c6d053bd-0936-4ab1-a7cc-28e6283a0fb8": {
+            "type": "text",
+            "settings": {
+              "text": "DK",
+              "shipping_threshold": 1000,
+              "gwp1_threshold": 1500,
+              "gwp2_threshold": 2000,
+              "gwp3_threshold": 0,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "1ccfc70e-6f6c-4a26-9fc7-8d57dcf796c6": {
+            "type": "text",
+            "settings": {
+              "text": "NL",
+              "shipping_threshold": 115,
+              "gwp1_threshold": 150,
+              "gwp2_threshold": 200,
+              "gwp3_threshold": 0,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "9ff8fe20-5af2-43fb-ba54-1a58c9f23f5e": {
+            "type": "text",
+            "settings": {
+              "text": "CH",
+              "shipping_threshold": 105,
+              "gwp1_threshold": 150,
+              "gwp2_threshold": 200,
+              "gwp3_threshold": 0,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "036b5679-a82c-4884-842d-62413eef470b": {
+            "type": "text",
+            "settings": {
+              "text": "AU",
+              "shipping_threshold": 170,
+              "gwp1_threshold": 225,
+              "gwp2_threshold": 300,
+              "gwp3_threshold": 0,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "6654e0b5-3663-40e6-a93e-d34384a1884c": {
+            "type": "text",
+            "settings": {
+              "text": "AE",
+              "shipping_threshold": 600,
+              "gwp1_threshold": 800,
+              "gwp2_threshold": 1000,
+              "gwp3_threshold": 0,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "7011e78c-fc61-46da-807d-e0557a8eb732": {
+            "type": "text",
+            "settings": {
+              "text": "ES",
+              "shipping_threshold": 115,
+              "gwp1_threshold": 150,
+              "gwp2_threshold": 200,
+              "gwp3_threshold": 0,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "2f9e51af-5993-4184-b3b1-3477aecc7eb2": {
+            "type": "text",
+            "settings": {
+              "text": "IE",
+              "shipping_threshold": 115,
+              "gwp1_threshold": 150,
+              "gwp2_threshold": 200,
+              "gwp3_threshold": 0,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "25adfe88-7b04-44fe-9503-59c34d9a319a": {
+            "type": "text",
+            "settings": {
+              "text": "IT",
+              "shipping_threshold": 115,
+              "gwp1_threshold": 150,
+              "gwp2_threshold": 200,
+              "gwp3_threshold": 0,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "5411943c-05cb-412b-890a-09cf120b73db": {
+            "type": "text",
+            "settings": {
+              "text": "LU",
+              "shipping_threshold": 175,
+              "gwp1_threshold": 200,
+              "gwp2_threshold": 225,
+              "gwp3_threshold": 0,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "37e77075-846b-4d84-8664-6c3ad2cdd5ae": {
+            "type": "text",
+            "settings": {
+              "text": "FR",
+              "shipping_threshold": 115,
+              "gwp1_threshold": 150,
+              "gwp2_threshold": 200,
+              "gwp3_threshold": 0,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "28e0e249-bbc7-4659-aea8-45a76baaa522": {
+            "type": "text",
+            "settings": {
+              "text": "AT",
+              "shipping_threshold": 175,
+              "gwp1_threshold": 200,
+              "gwp2_threshold": 225,
+              "gwp3_threshold": 0,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "65606464-29e9-4e42-9f3b-6528443163a8": {
+            "type": "text",
+            "settings": {
+              "text": "BE",
+              "shipping_threshold": 115,
+              "gwp1_threshold": 150,
+              "gwp2_threshold": 200,
+              "gwp3_threshold": 0,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "f9dee01b-b170-4b0e-beec-50c05ca1a70a": {
+            "type": "text",
+            "settings": {
+              "text": "FI",
+              "shipping_threshold": 115,
+              "gwp1_threshold": 150,
+              "gwp2_threshold": 200,
+              "gwp3_threshold": 0,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "7d46f749-7f29-49a5-9a53-c8f324209439": {
+            "type": "text",
+            "settings": {
+              "text": "SE",
+              "shipping_threshold": 1350,
+              "gwp1_threshold": 1750,
+              "gwp2_threshold": 2250,
+              "gwp3_threshold": 0,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "beb13401-3f92-4758-ac69-ec0c85f6c772": {
+            "type": "text",
+            "settings": {
+              "text": "IL",
+              "shipping_threshold": 400,
+              "gwp1_threshold": 600,
+              "gwp2_threshold": 1000,
+              "gwp3_threshold": 0,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "93f9b914-7ef4-43a7-b07a-2424ac1f866a": {
+            "type": "text",
+            "settings": {
+              "text": "NO",
+              "shipping_threshold": 1400,
+              "gwp1_threshold": 1750,
+              "gwp2_threshold": 2250,
+              "gwp3_threshold": 0,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "fb09adea-9f4a-40a4-89ec-db5f7438b143": {
+            "type": "text",
+            "settings": {
+              "text": "NZ",
+              "shipping_threshold": 250,
+              "gwp1_threshold": 300,
+              "gwp2_threshold": 350,
+              "gwp3_threshold": 0,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "66e3da9e-04ca-4543-8728-ce942f733e9d": {
+            "type": "text",
+            "settings": {
+              "text": "CL",
+              "shipping_threshold": 100000,
+              "gwp1_threshold": 150000,
+              "gwp2_threshold": 200000,
+              "gwp3_threshold": 0,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "19b35b12-4e13-4d1f-9411-44dd2fc764c1": {
+            "type": "text",
+            "settings": {
+              "text": "SA",
+              "shipping_threshold": 750,
+              "gwp1_threshold": 1000,
+              "gwp2_threshold": 1500,
+              "gwp3_threshold": 0,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "96ff3ae2-4cca-4fec-a5f2-098fdf883d79": {
+            "type": "text",
+            "settings": {
+              "text": "SG",
+              "shipping_threshold": 160,
+              "gwp1_threshold": 250,
+              "gwp2_threshold": 300,
+              "gwp3_threshold": 0,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "2d66ab87-5856-4c70-9b58-8c5712e146ca": {
+            "type": "text",
+            "settings": {
+              "text": "CZ",
+              "shipping_threshold": 3000,
+              "gwp1_threshold": 4000,
+              "gwp2_threshold": 5000,
+              "gwp3_threshold": 0,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "de17f459-9795-4984-ba8a-00dfc33fdf10": {
+            "type": "text",
+            "settings": {
+              "text": "AD",
+              "shipping_threshold": 175,
+              "gwp1_threshold": 225,
+              "gwp2_threshold": 300,
+              "gwp3_threshold": 0,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "00501aa6-40a1-4af9-91ca-a61e182c83b6": {
+            "type": "text",
+            "settings": {
+              "text": "CY",
+              "shipping_threshold": 175,
+              "gwp1_threshold": 225,
+              "gwp2_threshold": 300,
+              "gwp3_threshold": 0,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "c9ac2f21-3f9f-4f24-b86f-2ed06e28bace": {
+            "type": "text",
+            "settings": {
+              "text": "EE",
+              "shipping_threshold": 175,
+              "gwp1_threshold": 225,
+              "gwp2_threshold": 300,
+              "gwp3_threshold": 0,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "abf78978-6aab-4f2c-a32d-05f2c26bc2ac": {
+            "type": "text",
+            "settings": {
+              "text": "GF",
+              "shipping_threshold": 175,
+              "gwp1_threshold": 225,
+              "gwp2_threshold": 250,
+              "gwp3_threshold": 300,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "25612237-eb93-4353-b601-dffb66a81f26": {
+            "type": "text",
+            "settings": {
+              "text": "GR",
+              "shipping_threshold": 175,
+              "gwp1_threshold": 225,
+              "gwp2_threshold": 250,
+              "gwp3_threshold": 300,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "1ffd3449-5e1d-44ef-abc3-cc2eb34fa7ff": {
+            "type": "text",
+            "settings": {
+              "text": "GP",
+              "shipping_threshold": 175,
+              "gwp1_threshold": 225,
+              "gwp2_threshold": 250,
+              "gwp3_threshold": 300,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "05d5ee34-93a6-410b-9795-49283d889439": {
+            "type": "text",
+            "settings": {
+              "text": "LV",
+              "shipping_threshold": 175,
+              "gwp1_threshold": 225,
+              "gwp2_threshold": 250,
+              "gwp3_threshold": 300,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "56949c92-161b-4e21-8a16-5f3deb93d76e": {
+            "type": "text",
+            "settings": {
+              "text": "LT",
+              "shipping_threshold": 175,
+              "gwp1_threshold": 225,
+              "gwp2_threshold": 250,
+              "gwp3_threshold": 300,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "069cae75-a161-47c2-be2c-0bf89e5fdb43": {
+            "type": "text",
+            "settings": {
+              "text": "MT",
+              "shipping_threshold": 175,
+              "gwp1_threshold": 225,
+              "gwp2_threshold": 250,
+              "gwp3_threshold": 300,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "ac186ffd-0b84-4fff-b1d8-595589e37eb7": {
+            "type": "text",
+            "settings": {
+              "text": "MQ",
+              "shipping_threshold": 175,
+              "gwp1_threshold": 225,
+              "gwp2_threshold": 250,
+              "gwp3_threshold": 300,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "f660b454-3df0-4baa-a4c5-dddf70bad795": {
+            "type": "text",
+            "settings": {
+              "text": "MC",
+              "shipping_threshold": 175,
+              "gwp1_threshold": 225,
+              "gwp2_threshold": 250,
+              "gwp3_threshold": 300,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "e6449c0c-0e26-4966-a3dc-31d8d50f8694": {
+            "type": "text",
+            "settings": {
+              "text": "PT",
+              "shipping_threshold": 115,
+              "gwp1_threshold": 150,
+              "gwp2_threshold": 200,
+              "gwp3_threshold": 250,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "b70e1e6a-5dd3-4168-b7a5-aa40b080ee0e": {
+            "type": "text",
+            "settings": {
+              "text": "SM",
+              "shipping_threshold": 175,
+              "gwp1_threshold": 225,
+              "gwp2_threshold": 250,
+              "gwp3_threshold": 300,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "fa0fa360-98dd-4f9a-a48a-68962a360849": {
+            "type": "text",
+            "settings": {
+              "text": "RE",
+              "shipping_threshold": 175,
+              "gwp1_threshold": 225,
+              "gwp2_threshold": 250,
+              "gwp3_threshold": 300,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "141abb9b-cbed-44d9-8208-ed619dd05f33": {
+            "type": "text",
+            "settings": {
+              "text": "SK",
+              "shipping_threshold": 175,
+              "gwp1_threshold": 225,
+              "gwp2_threshold": 250,
+              "gwp3_threshold": 300,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "42e3e132-1e35-4492-8751-d20a938a9bcd": {
+            "type": "text",
+            "settings": {
+              "text": "SI",
+              "shipping_threshold": 175,
+              "gwp1_threshold": 225,
+              "gwp2_threshold": 250,
+              "gwp3_threshold": 300,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "72686e41-3ee5-476d-a0db-7a781cad7b5a": {
+            "type": "text",
+            "settings": {
+              "text": "BL",
+              "shipping_threshold": 175,
+              "gwp1_threshold": 225,
+              "gwp2_threshold": 250,
+              "gwp3_threshold": 300,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "1717124a-895f-4ebc-affa-571fc6dd6926": {
+            "type": "text",
+            "settings": {
+              "text": "MF",
+              "shipping_threshold": 175,
+              "gwp1_threshold": 225,
+              "gwp2_threshold": 250,
+              "gwp3_threshold": 300,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "ba3fdb1c-5158-4795-a30b-ca34b341d7bc": {
+            "type": "text",
+            "settings": {
+              "text": "VA",
+              "shipping_threshold": 175,
+              "gwp1_threshold": 225,
+              "gwp2_threshold": 250,
+              "gwp3_threshold": 300,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "e16792ae-1a8a-4ca4-aedd-929ed5d0bb92": {
+            "type": "text",
+            "settings": {
+              "text": "ZA",
+              "shipping_threshold": 3000,
+              "gwp1_threshold": 4000,
+              "gwp2_threshold": 4500,
+              "gwp3_threshold": 5000,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "d534ad18-8c87-44f7-b0da-437e529c9607": {
+            "type": "text",
+            "settings": {
+              "text": "LK",
+              "shipping_threshold": 40000,
+              "gwp1_threshold": 60000,
+              "gwp2_threshold": 70000,
+              "gwp3_threshold": 80000,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "eb2b4320-6fc6-4767-b9cf-30a75fd1a3ef": {
+            "type": "text",
+            "settings": {
+              "text": "BG",
+              "shipping_threshold": 350,
+              "gwp1_threshold": 500,
+              "gwp2_threshold": 600,
+              "gwp3_threshold": 700,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "4f5627c1-096e-4456-b688-198eb3f0981f": {
+            "type": "membership_card",
+            "settings": {
+              "membership_product_image": "shopify:\/\/shop_images\/tc_logo_mark.jpg",
+              "classic_membership_product": "inveterate-subscription-1",
+              "membership_product": "inveterate-subscription",
+              "title": "TRUE CLASSIC® MEMBERSHIP",
+              "description": "$50 store credit after signup! Plus, 20% store credit on all orders, free shipping, exclusive discounts & more.",
+              "button_label": "Become a Member",
+              "membership_free_gift": "",
+              "button_color": "var(--brand-black)",
+              "button_bg_color": "var(--brand-white)"
+            }
+          },
+          "text_MedC8b": {
+            "type": "text",
+            "settings": {
+              "text": "HK",
+              "shipping_threshold": 1399,
+              "gwp1_threshold": 1899,
+              "gwp2_threshold": 2399,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "text_Pxct6L": {
+            "type": "text",
+            "settings": {
+              "text": "PH",
+              "shipping_threshold": 7250,
+              "gwp1_threshold": 9000,
+              "gwp2_threshold": 11000,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "text_3KDVhc": {
+            "type": "text",
+            "settings": {
+              "text": "IS",
+              "shipping_threshold": 18500,
+              "gwp1_threshold": 24000,
+              "gwp2_threshold": 30700,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "text_FtXMUY": {
+            "type": "text",
+            "settings": {
+              "text": "KW",
+              "shipping_threshold": 150,
+              "gwp1_threshold": 225,
+              "gwp2_threshold": 300,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          },
+          "text_TfYVFL": {
+            "type": "text",
+            "settings": {
+              "text": "BH",
+              "shipping_threshold": 150,
+              "gwp1_threshold": 225,
+              "gwp2_threshold": 300,
+              "shipping_text": "",
+              "gwp_title": "Free Item",
+              "gwp_1_product": "",
+              "gwp_text_1": "",
+              "gwp_1_product_fallback": "",
+              "gwp_2_product": "",
+              "gwp_text_2": "",
+              "gwp_2_product_fallback": "",
+              "gwp_3_product": "",
+              "gwp_text_3": "",
+              "gwp_3_product_fallback": ""
+            }
+          }
+        },
+        "block_order": [
+          "c8c0cb6b-c1cc-467d-8fcc-20a05dcad1cb",
+          "630ad226-639b-401d-9cb4-6e1f6ef072df",
+          "b76c9da2-15be-449b-89d5-d47926f907ef",
+          "3eedf08e-a22d-4790-ae60-cd93044f1586",
+          "c13cbb8d-0665-45ec-a527-7a5ae3f249fc",
+          "070a2ec7-3073-4dca-8558-bf10287bfe30",
+          "6869b9a2-e349-4872-a9b0-d52f7066a3c7",
+          "2cbe427f-9e87-4035-95b5-61786c6af3c8",
+          "cf9a19e3-d5e3-43ad-9dc8-6bc6b7fe8ec4",
+          "722fcbc0-b239-4d21-adca-4cefc7478f3f",
+          "8dd55f8e-77a3-4776-b4e1-e9ca8a119aa2",
+          "c6d053bd-0936-4ab1-a7cc-28e6283a0fb8",
+          "1ccfc70e-6f6c-4a26-9fc7-8d57dcf796c6",
+          "9ff8fe20-5af2-43fb-ba54-1a58c9f23f5e",
+          "036b5679-a82c-4884-842d-62413eef470b",
+          "6654e0b5-3663-40e6-a93e-d34384a1884c",
+          "7011e78c-fc61-46da-807d-e0557a8eb732",
+          "2f9e51af-5993-4184-b3b1-3477aecc7eb2",
+          "25adfe88-7b04-44fe-9503-59c34d9a319a",
+          "5411943c-05cb-412b-890a-09cf120b73db",
+          "37e77075-846b-4d84-8664-6c3ad2cdd5ae",
+          "28e0e249-bbc7-4659-aea8-45a76baaa522",
+          "65606464-29e9-4e42-9f3b-6528443163a8",
+          "f9dee01b-b170-4b0e-beec-50c05ca1a70a",
+          "7d46f749-7f29-49a5-9a53-c8f324209439",
+          "beb13401-3f92-4758-ac69-ec0c85f6c772",
+          "93f9b914-7ef4-43a7-b07a-2424ac1f866a",
+          "fb09adea-9f4a-40a4-89ec-db5f7438b143",
+          "66e3da9e-04ca-4543-8728-ce942f733e9d",
+          "19b35b12-4e13-4d1f-9411-44dd2fc764c1",
+          "96ff3ae2-4cca-4fec-a5f2-098fdf883d79",
+          "2d66ab87-5856-4c70-9b58-8c5712e146ca",
+          "de17f459-9795-4984-ba8a-00dfc33fdf10",
+          "00501aa6-40a1-4af9-91ca-a61e182c83b6",
+          "c9ac2f21-3f9f-4f24-b86f-2ed06e28bace",
+          "abf78978-6aab-4f2c-a32d-05f2c26bc2ac",
+          "25612237-eb93-4353-b601-dffb66a81f26",
+          "1ffd3449-5e1d-44ef-abc3-cc2eb34fa7ff",
+          "05d5ee34-93a6-410b-9795-49283d889439",
+          "56949c92-161b-4e21-8a16-5f3deb93d76e",
+          "069cae75-a161-47c2-be2c-0bf89e5fdb43",
+          "ac186ffd-0b84-4fff-b1d8-595589e37eb7",
+          "f660b454-3df0-4baa-a4c5-dddf70bad795",
+          "e6449c0c-0e26-4966-a3dc-31d8d50f8694",
+          "b70e1e6a-5dd3-4168-b7a5-aa40b080ee0e",
+          "fa0fa360-98dd-4f9a-a48a-68962a360849",
+          "141abb9b-cbed-44d9-8208-ed619dd05f33",
+          "42e3e132-1e35-4492-8751-d20a938a9bcd",
+          "72686e41-3ee5-476d-a0db-7a781cad7b5a",
+          "1717124a-895f-4ebc-affa-571fc6dd6926",
+          "ba3fdb1c-5158-4795-a30b-ca34b341d7bc",
+          "e16792ae-1a8a-4ca4-aedd-929ed5d0bb92",
+          "d534ad18-8c87-44f7-b0da-437e529c9607",
+          "eb2b4320-6fc6-4767-b9cf-30a75fd1a3ef",
+          "4f5627c1-096e-4456-b688-198eb3f0981f",
+          "text_MedC8b",
+          "text_Pxct6L",
+          "text_3KDVhc",
+          "text_FtXMUY",
+          "text_TfYVFL"
+        ],
+        "custom_css": [
+
+        ],
+        "settings": {
+          "turn_on_gift_wrap": true,
+          "gift_section_header": "Add Gift Wrap?",
+          "gift_section_text": "Wrap your gift with our supplies.",
+          "gift_wrap_product": "gift-bag",
+          "gift_wrap_title": "Gift Bag",
+          "gift_wrap_modernist": "Fits up to 6 tees.",
+          "gift_wrap_me_image": "shopify:\/\/shop_images\/bag-300x300_c07dfb34-fbfd-490b-b585-883a6ee31b97.jpg",
+          "gift_wrap_product_myself": "gift-box",
+          "gift_wrap_title_myself": "Gift Box",
+          "gift_wrap_modernist_myself": "Fits up to 6 tees.",
+          "gift_wrap_myself_image": "shopify:\/\/shop_images\/box-300x300-v1_08dcc876-a1c9-4ad4-803e-09870618e471.jpg",
+          "membership_product": "inveterate-subscription-2",
+          "membership_image": "shopify:\/\/shop_images\/membership-cart-2-topaz-enhance-4x_b2190e39-c1ff-4774-ad10-a931d69f6dc9.png",
+          "enable_membership_notice": true,
+          "cart_messaging_text": "The Items In Your Cart Are Selling Fast!",
+          "cart_messaging_text_color": "#ffffff",
+          "cart_messaging_bg_color": "#971b1b",
+          "show_discount_pack_slider": true,
+          "discount_pack_slider_title": "MUST HAVES",
+          "discount_pack_slider_collection": "cart-addons",
+          "progress_type": "tiered_gwp",
+          "free_item_title": "Free Item",
+          "free_item": "black-active-crew-neck-and-boxer-brief-gift-with-purchase",
+          "free_item_threshold": 150,
+          "progress_bar_under_threshold_message": "<p>[DIFFERENCE] away from <strong>1<\/strong> <strong>FREE ACTIVE TEE & BOXER BRIEF!<\/strong><\/p>",
+          "progress_bar_over_threshold_message": "<p>You've unlocked <strong>FREE SHIPPING,<\/strong> <strong>1 ACTIVE TEE & 1 BOXER BRIEF!<\/strong><\/p>",
+          "progress_bar_max": 95,
+          "progress_bar_under_max_message": "<p>[DIFFERENCE] away from <strong>FREE SHIPPING <\/strong>&<\/p>",
+          "progress_bar_over_max_message": "<p>You have unlocked <strong>FREE SHIPPING<\/strong><\/p>",
+          "shipping_image": "shopify:\/\/shop_images\/shipping_icon_ff6203de-079c-44b0-9218-f0e639e34903.svg",
+          "shipping_text": "FREE SHIPPING",
+          "gwp_title": "",
+          "gwp_image_1": "shopify:\/\/shop_images\/gift1_icon_0d28de78-3373-4955-80ac-dbb51e21e1a3.svg",
+          "gwp_1": "black-boxer-brief",
+          "gwp_text_1": "FREE BOXER BRIEF",
+          "gwp_image_2": "shopify:\/\/shop_images\/gift2_icon_3b9d8799-8851-4ca8-a021-135ac1b9cff1.svg",
+          "gwp_2": "heather-light-gray-active-long-sleeve-crew-neck",
+          "gwp_text_2": "FREE ACTIVE  LONG SLEEVE",
+          "gwp_3": "",
+          "gwp_text_3": "",
+          "free_item_test": ""
+        }
+      },
+      "mobile-nav": {
+        "type": "mobile-nav",
+        "settings": {
+          "mobile_link_list": "test-menu-mobile",
+          "mobile_link_list_utilities": "mobile-menu-utilities-wlcr"
+        }
+      },
+      "colorways": {
+        "type": "colorways",
+        "settings": {
+          "colorways": "BLACK::#171719,\nBLACK WASH::#171719,\nHEATHER BLACK:: #2E2C2D,\nMEDIUM GRAY:: #96999D,\nMIRROR::#73767A,\nGRADIENT::#3E3947,\nBLUESTONE::#698590,\nSTONE BLUE::#597580,\nBURGUNDY::#69252F,\nCARBON::#171719,\nCHARCOAL::#36454F,\nHEATHER GRAY::#999999,\nCARDINAL RED::#641224,\nCOBALT::#0F3A66,\nCOFFEE::#432F29,\nCRANBERRY::#de5553,\nDARK PURPLE::#423843,\nDUSTY PINK::#EDCEC4,\nELECTRIC BLUE::#0168c5,\nEMERALD::#03615B,\nFLINT::#B6A4AA,\nKHAKI::#9e8f7f,\nFOREST GREEN::#264742,\nINDIGO::#182131,\nINDIGO WASH::#182131,\nKELLY GREEN::#028a65,\nLIGHT BLUE::#BFDDE5,\nLIGHT GRAY::#d7d5d1,\nMILITARY GREEN::#767159,\nHUNTER GREEN::#36473A,\nHEATHER HUNTER GREEN::#818682,\nLIGHT KHAKI::#D1C9B9,\nRUST::#A74A39,\nHEATHER LIGHT KHAKI::#D6D1C5,\nNAVY::#182131,\nOFF WHITE::#ECEBE0,\nORANGE::#ef6e1f,\nPALE BLUE::#D8E6ED,\nPERIWINKLE BLUE::#4f9eda,\nPURPLE::#443844,\nRASPBERRY::#d6254a,\nRED ROCK::#794A3C,\nRED::#D81D30,\nSAGE::#BDD0CA,\nSAND::#c3c0b9,\nSANDSTONE::#DED1C8,\nSLATE::#96999C,\nSLATE GREEN::#a0a69b,\nSTONE::#DBDACF,\nTAN 499::#765B3D,\nTAN::#765B3D,\nTEAL::#035E7F,\nTRUE RED::#e73035,\nTURQUOISE::#26c3e1,\nWHITE::#FFFFF,\nYELLOW::#fede69,\nHEATHER GRAY::#a5a5aa,\nCHARCOAL HEATHER::#373b3e,\nCRIMSON::#952833,\nHEATHER CRIMSON::#A77576\nHEATHER CHARCOAL::#373b3e,\nHEATHER CHARCOAL GRAY::#373b3e,\nGRAY WASH::#373b3e,\nCHARCOAL HEATHER GRAY::#373b3e,\nGRAY::#373b3e,\nIRON GRAY::#c4c4c4,\nHEATHER LIGHT GRAY::#e9e9e9,\nLIGHT HEATHER GRAY::#e9e9e9,\nHEATHER DUSTY PINK::#f1d9d1,\nHEATHER SAGE::#c9d3cb,\nHEATHER PALE BLUE #c6d6e3,\nHEATHER INDIGO::#96a9c7,\nDARK HEATHER INDIGO::#96a9c7,\nHEATHER BURGUNDY::#84414a,\nDARK HEATHER BURGUNDY::#84414a,\nHEATHER EMERALD::#2f5151,\nHEATHER MILITARY GREEN::#605d4c,\nDARK HEATHER MILITARY GREEN::#605d4c,\nHEATHER NAVY::#2e3748,\nDARK HEATHER NAVY::#2e3748,\nPACIFIC BLUE::#698590,\nMILITARY BEIGE::#958A7A,\nOXFORD BLUE::#93B4D7,\nOLIVA CAMO::#544F3D,\nGLACIER GRAY::#B5CBDB,\nLILAC GREY::#9896A4,\nHEATHER PURPLE::#67505C,\nMELLOW YELLOW::#F6E199,\nMILITARY BEIGE::#958A7A,\nMILITARY CAMO::#767159,\nCAMO::#767159,\nGUN METAL::#4f4f51,\nGUNMETAL::#4f4f51,\nMINERAL MAUVE::#d4aeb5,\nLIGHT BLUE::#BFDDE5,\nBABY BLUE::#BFDDE5,\nHEATHER PALE BLUE::#E9EDF6,\nLILAC GRAY::#C8C9D8,\nIVORY::#FBFAF3,\nMEDIUM INDIGO WASH::#586C84,\nBLUE QUARTZ::#D2E2EA,\nGREEN LAPIS::#DBE8DD,\nPINK OPAL::#F0DED6,\nMAHOGANY::#4B242D,\nHEATHER DARK OAK::#453430,\nDARK OLIVE::#3D4434,\nBANKER BLUE::#8B95AC,\nSTONE::#383B3E,\nLIGHT GRAY::#D2D2D2,\nECRU::#ECE6DF,\nSUEDE BROWN::#63392E,\nDARK OAK::#372724,\nARMY GREEN::#60563f,\nEVERGREEN::#14443c,\nOATMEAL::#D9DAD2,\nHEATHER OATMEAL::#D7D0C0,\nEVERGREEN HEATHER::#173D3B,\nDEEP SEA BLUE HEATHER::#26344C"
+        }
+      },
+      "newsletter": {
+        "type": "newsletter",
+        "settings": {
+          "heading": "SIGN UP & GET 20% OFF",
+          "subheading": "Stay up to date on the latest and receive 20% off your first order."
+        }
+      },
+      "breadcrumbs": {
+        "type": "breadcrumbs",
+        "settings": {
+          "link_list": "",
+          "breadcrumbs_enabled": false
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "footer_link_list": "footer-menu-2-0",
+          "enable_policies": true,
+          "footer_policies": "policies-menu",
+          "android_app_link": "https:\/\/play.google.com\/store\/apps\/details?id=co.tapcart.app.id_uAGoYMR3CG&hl",
+          "ios_app_link": "https:\/\/apps.apple.com\/us\/app\/true-classic\/id1590039576",
+          "text": "20% off",
+          "placeholder": "Enter Email Address",
+          "paragraph": "Exclusive deals, early access, and first look at new products, right to your inbox.",
+          "already_subscribed_message": "You're already subscribed",
+          "success_message": "Thanks for subscribing",
+          "error_message": "Something went wrong",
+          "klaviyo_list_id": "LUzTHf"
+        }
+      },
+      "app-optimization": {
+        "type": "app-optimization",
+        "blocks": {
+          "61b4855e-b893-4b69-bf38-c734ce4e854f": {
+            "type": "app",
+            "settings": {
+              "title": "Happy Returns",
+              "url": "npkg.com\/@happyreturns\/happyreturns-script-tag",
+              "block_index": true,
+              "block_product": true,
+              "block_collection": true,
+              "block_page": false,
+              "block_blog": true,
+              "block_article": true,
+              "block_cart": true,
+              "block_search": true,
+              "block_customers": true,
+              "block_gift_card": true,
+              "scroll_index": false,
+              "scroll_product": false,
+              "scroll_collection": false,
+              "scroll_page": false,
+              "scroll_blog": false,
+              "scroll_article": false,
+              "scroll_cart": false,
+              "scroll_search": false,
+              "scroll_customers": false,
+              "scroll_gift_card": false,
+              "interaction_index": false,
+              "interaction_product": false,
+              "interaction_collection": false,
+              "interaction_page": false,
+              "interaction_blog": false,
+              "interaction_article": false,
+              "interaction_cart": false,
+              "interaction_search": false,
+              "interaction_customers": false,
+              "interaction_gift_card": false,
+              "interaction_selectors_1": "",
+              "interaction_event_1": "click",
+              "interaction_selectors_2": "",
+              "interaction_event_2": "click"
+            }
+          },
+          "94a5e450-4f38-40ef-8dd6-0418449b04a5": {
+            "type": "app",
+            "settings": {
+              "title": "Order Lookup",
+              "url": "orderstatus.w3apps.co\/js\/orderlookup.js",
+              "block_index": true,
+              "block_product": true,
+              "block_collection": true,
+              "block_page": false,
+              "block_blog": true,
+              "block_article": true,
+              "block_cart": true,
+              "block_search": true,
+              "block_customers": false,
+              "block_gift_card": true,
+              "scroll_index": false,
+              "scroll_product": false,
+              "scroll_collection": false,
+              "scroll_page": false,
+              "scroll_blog": false,
+              "scroll_article": false,
+              "scroll_cart": false,
+              "scroll_search": false,
+              "scroll_customers": false,
+              "scroll_gift_card": false,
+              "interaction_index": false,
+              "interaction_product": false,
+              "interaction_collection": false,
+              "interaction_page": false,
+              "interaction_blog": false,
+              "interaction_article": false,
+              "interaction_cart": false,
+              "interaction_search": false,
+              "interaction_customers": false,
+              "interaction_gift_card": false,
+              "interaction_selectors_1": "",
+              "interaction_event_1": "click",
+              "interaction_selectors_2": "",
+              "interaction_event_2": "click"
+            }
+          },
+          "355010af-3a56-457d-95b9-b66105378dcb": {
+            "type": "app",
+            "settings": {
+              "title": "GOVX",
+              "url": "id-shop.govx.com\/app\/trueclassictees-com.myshopify.com\/govx.js",
+              "block_index": true,
+              "block_product": true,
+              "block_collection": true,
+              "block_page": false,
+              "block_blog": true,
+              "block_article": true,
+              "block_cart": true,
+              "block_search": true,
+              "block_customers": true,
+              "block_gift_card": true,
+              "scroll_index": false,
+              "scroll_product": false,
+              "scroll_collection": false,
+              "scroll_page": false,
+              "scroll_blog": false,
+              "scroll_article": false,
+              "scroll_cart": false,
+              "scroll_search": false,
+              "scroll_customers": false,
+              "scroll_gift_card": false,
+              "interaction_index": false,
+              "interaction_product": false,
+              "interaction_collection": false,
+              "interaction_page": false,
+              "interaction_blog": false,
+              "interaction_article": false,
+              "interaction_cart": false,
+              "interaction_search": false,
+              "interaction_customers": false,
+              "interaction_gift_card": false,
+              "interaction_selectors_1": "",
+              "interaction_event_1": "click",
+              "interaction_selectors_2": "",
+              "interaction_event_2": "click"
+            }
+          }
+        },
+        "block_order": [
+          "61b4855e-b893-4b69-bf38-c734ce4e854f",
+          "94a5e450-4f38-40ef-8dd6-0418449b04a5",
+          "355010af-3a56-457d-95b9-b66105378dcb"
+        ],
+        "settings": {
+          "enable": false,
+          "debug_enable": false
+        }
+      },
+      "tc-checkout-inveterate-redemption": {
+        "type": "tc-checkout-inveterate-redemption",
+        "settings": {
+        }
+      },
+      "videowise-background": {
+        "type": "videowise-background",
+        "custom_css": [
+          "@media screen and (max-width: 1440px) {.video-section {padding-bottom: 0; }}"
+        ],
+        "settings": {
+          "videowise_background_id": "6454008bb3464e002920a115",
+          "bg_color": "",
+          "heading": "Video",
+          "heading_size": "h2",
+          "enable_video_looping": true,
+          "video_url": "",
+          "description": "",
+          "full_width": false,
+          "padding_top": 0,
+          "padding_bottom": 100
+        }
+      },
+      "featured-collection": {
+        "type": "featured-collection",
+        "settings": {
+          "title": "Featured collection",
+          "collection": ""
+        }
+      },
+      "product-recommendation": {
+        "type": "product-recommendation",
+        "blocks": {
+          "dc84e7c7-d9fc-4a68-85a4-7037d9e167d7": {
+            "type": "collection",
+            "settings": {
+              "title": "",
+              "collection": "best-sellers"
+            }
+          }
+        },
+        "block_order": [
+          "dc84e7c7-d9fc-4a68-85a4-7037d9e167d7"
+        ],
+        "settings": {
+          "title": "",
+          "css_class": "",
+          "show_recently_viewed": true
+        }
+      },
+      "tc-collection-inline": {
+        "type": "tc-collection-inline",
+        "custom_css": [
+          ".collection {padding-left: 0 !important; padding-right: 0 !important;}",
+          "@media screen and (max-width: 768px) {.collection, slider-component {padding-left: 0 !important; padding-right: 0 !important; } .collection {padding: 0.5rem !important; } .product-card__image-wrapper .product-card__size-selector {position: unset !important; } .product-card__image-wrapper .product-card__size-selector .size-swatch {padding: 0.5rem; } .slider.slider--tablet {column-gap: 0.75rem; }}",
+          "h2.headline {text-align: center;}"
+        ],
+        "settings": {
+          "title": "BEST SELLERS",
+          "heading_level": "h2",
+          "heading_size": "h2",
+          "heading_font": "staff-x-condensed-type",
+          "heading_color": "color-chocolate",
+          "heading_color_inverse": false,
+          "heading_margin_top": "mg-t-none",
+          "heading_margin_bottom": "mg-b-l",
+          "heading_underline": false,
+          "line_break_dot": false,
+          "collection": "mens-jeans",
+          "products_to_show": 25,
+          "columns_desktop": 4,
+          "full_width": true,
+          "enable_section_width": false,
+          "max_section_width_desktop": 1200,
+          "enable_desktop_slider": true,
+          "enable_card_width": true,
+          "max_card_width_desktop": 590,
+          "columns_mobile": "2",
+          "swipe_on_mobile": true,
+          "padding_top": 36,
+          "padding_bottom": 36
+        }
+      },
+      "tc-collection-inline-alt": {
+        "type": "tc-collection-inline-alt",
+        "custom_css": [
+          ".collection {padding-left: 0 !important; padding-right: 0 !important;}",
+          "@media screen and (max-width: 768px) {.collection, slider-component {padding-left: 0 !important; padding-right: 0 !important; } .collection {padding: 0.5rem !important; } .product-card__image-wrapper .product-card__size-selector {position: unset !important; } .product-card__image-wrapper .product-card__size-selector .size-swatch {padding: 0.5rem; } .slider.slider--tablet {column-gap: 0.75rem; }}"
+        ],
+        "settings": {
+          "title": "",
+          "heading_level": "h2",
+          "heading_size": "h2",
+          "heading_font": "staff-x-condensed-type",
+          "heading_color": "color-chocolate",
+          "heading_color_inverse": false,
+          "heading_margin_top": "mg-t-none",
+          "heading_margin_bottom": "mg-b-none",
+          "heading_underline": false,
+          "line_break_dot": false,
+          "collection": "crew-neck-tees-1",
+          "products_to_show": 25,
+          "columns_desktop": 4,
+          "full_width": true,
+          "enable_section_width": false,
+          "max_section_width_desktop": 1200,
+          "enable_desktop_slider": true,
+          "enable_card_width": true,
+          "max_card_width_desktop": 700,
+          "columns_mobile": "2",
+          "swipe_on_mobile": true,
+          "padding_top": 28,
+          "padding_bottom": 28
+        }
+      },
+      "tc-rich-text": {
+        "type": "tc-rich-text",
+        "settings": {
+          "section_bg_color": "#ffffff",
+          "desktop_content_position": "center",
+          "content_alignment": "center",
+          "full_width": true,
+          "padding_top": 40,
+          "padding_bottom": 52
+        }
+      },
+      "tc-exit-popup": {
+        "type": "tc-exit-popup",
+        "blocks": {
+          "38819043-41a2-4cbc-bd9f-a379531a2090": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/0bfcdf31-7c81-4a76-8da4-fb9dbb7367a6_1.jpg",
+              "hide_mobile": true
+            }
+          }
+        },
+        "block_order": [
+          "38819043-41a2-4cbc-bd9f-a379531a2090"
+        ],
+        "settings": {
+          "country_code": "",
+          "exclude_country_code": "",
+          "enable": false,
+          "popup_timeout": 15,
+          "scroll_up_distance": 200,
+          "popup_timeout_mobile": 16,
+          "subtitle": "<p>UP TO 60% OFF SALE<\/p>",
+          "subtitle_font": "modernist-type",
+          "subtitle_style": "xl",
+          "subtitle_color": "color-black",
+          "subtitle_color_inverse": false,
+          "subtitle_margin_top": "mg-t-s",
+          "subtitle_margin_bottom": "mg-b-s",
+          "title": "BEFORE YOU GO",
+          "heading_level": "h5",
+          "heading_size": "h3",
+          "heading_font": "staff-x-condensed-type",
+          "heading_color": "color-black",
+          "heading_color_inverse": false,
+          "heading_margin_top": "mg-t-none",
+          "heading_margin_bottom": "mg-b-s",
+          "heading_underline": false,
+          "line_break_dot": false,
+          "paragraph": "<p>Our best-selling bundle packs outfit your entire week, so you don’t have to. Shop one-and-done packs at affordable prices.<\/p>",
+          "paragraph_font": "modernist-type",
+          "paragraph_style": "l",
+          "paragraph_color": "color-chocolate",
+          "paragraph_color_inverse": false,
+          "paragraph_margin_top": "mg-t-l",
+          "paragraph_margin_bottom": "mg-b-l",
+          "button_label": "Shop Sale",
+          "button_url": "\/collections\/sale",
+          "button_style": "primary red"
+        }
+      },
+      "icons-reviews-checkout": {
+        "type": "icons-reviews-checkout",
+        "blocks": {
+          "6869b9a2e349-4872-a9b0-d52f7066a3c7": {
+            "type": "shipping",
+            "settings": {
+              "text": "US",
+              "shipping_threshold": 99
+            }
+          },
+          "2cbe427f9e87-4035-95b5-61786c6af3c8": {
+            "type": "shipping",
+            "settings": {
+              "text": "CA",
+              "shipping_threshold": 150
+            }
+          },
+          "cf9a19e3d5e3-43ad-9dc8-6bc6b7fe8ec4": {
+            "type": "shipping",
+            "settings": {
+              "text": "DE",
+              "shipping_threshold": 115
+            }
+          },
+          "722fcbc0b239-4d21-adca-4cefc7478f3f": {
+            "type": "shipping",
+            "settings": {
+              "text": "GB",
+              "shipping_threshold": 100
+            }
+          },
+          "8dd55f8e77a3-4776-b4e1-e9ca8a119aa2": {
+            "type": "shipping",
+            "settings": {
+              "text": "MX",
+              "shipping_threshold": 2000
+            }
+          },
+          "c6d053bd0936-4ab1-a7cc-28e6283a0fb8": {
+            "type": "shipping",
+            "settings": {
+              "text": "DK",
+              "shipping_threshold": 1000
+            }
+          },
+          "1ccfc70e6f6c-4a26-9fc7-8d57dcf796c6": {
+            "type": "shipping",
+            "settings": {
+              "text": "NL",
+              "shipping_threshold": 115
+            }
+          },
+          "9ff8fe205af2-43fb-ba54-1a58c9f23f5e": {
+            "type": "shipping",
+            "settings": {
+              "text": "CH",
+              "shipping_threshold": 105
+            }
+          },
+          "036b5679a82c-4884-842d-62413eef470b": {
+            "type": "shipping",
+            "settings": {
+              "text": "AU",
+              "shipping_threshold": 170
+            }
+          },
+          "6654e0b53663-40e6-a93e-d34384a1884c": {
+            "type": "shipping",
+            "settings": {
+              "text": "AE",
+              "shipping_threshold": 600
+            }
+          },
+          "7011e78cfc61-46da-807d-e0557a8eb732": {
+            "type": "shipping",
+            "settings": {
+              "text": "ES",
+              "shipping_threshold": 115
+            }
+          },
+          "2f9e51af5993-4184-b3b1-3477aecc7eb2": {
+            "type": "shipping",
+            "settings": {
+              "text": "IE",
+              "shipping_threshold": 115
+            }
+          },
+          "25adfe887b04-44fe-9503-59c34d9a319a": {
+            "type": "shipping",
+            "settings": {
+              "text": "IT",
+              "shipping_threshold": 115
+            }
+          },
+          "5411943c05cb-412b-890a-09cf120b73db": {
+            "type": "shipping",
+            "settings": {
+              "text": "LU",
+              "shipping_threshold": 175
+            }
+          },
+          "37e77075846b-4d84-8664-6c3ad2cdd5ae": {
+            "type": "shipping",
+            "settings": {
+              "text": "FR",
+              "shipping_threshold": 115
+            }
+          },
+          "28e0e249bbc7-4659-aea8-45a76baaa522": {
+            "type": "shipping",
+            "settings": {
+              "text": "AT",
+              "shipping_threshold": 175
+            }
+          },
+          "6560646429e9-4e42-9f3b-6528443163a8": {
+            "type": "shipping",
+            "settings": {
+              "text": "BE",
+              "shipping_threshold": 115
+            }
+          },
+          "f9dee01bb170-4b0e-beec-50c05ca1a70a": {
+            "type": "shipping",
+            "settings": {
+              "text": "FI",
+              "shipping_threshold": 115
+            }
+          },
+          "7d46f7497f29-49a5-9a53-c8f324209439": {
+            "type": "shipping",
+            "settings": {
+              "text": "SE",
+              "shipping_threshold": 1350
+            }
+          },
+          "beb134013f92-4758-ac69-ec0c85f6c772": {
+            "type": "shipping",
+            "settings": {
+              "text": "IL",
+              "shipping_threshold": 400
+            }
+          },
+          "93f9b9147ef4-43a7-b07a-2424ac1f866a": {
+            "type": "shipping",
+            "settings": {
+              "text": "NO",
+              "shipping_threshold": 1400
+            }
+          },
+          "fb09adea9f4a-40a4-89ec-db5f7438b143": {
+            "type": "shipping",
+            "settings": {
+              "text": "NZ",
+              "shipping_threshold": 200
+            }
+          },
+          "66e3da9e04ca-4543-8728-ce942f733e9d": {
+            "type": "shipping",
+            "settings": {
+              "text": "CL",
+              "shipping_threshold": 100000
+            }
+          },
+          "19b35b124e13-4d1f-9411-44dd2fc764c1": {
+            "type": "shipping",
+            "settings": {
+              "text": "SA",
+              "shipping_threshold": 750
+            }
+          },
+          "96ff3ae24cca-4fec-a5f2-098fdf883d79": {
+            "type": "shipping",
+            "settings": {
+              "text": "SG",
+              "shipping_threshold": 200
+            }
+          },
+          "2d66ab875856-4c70-9b58-8c5712e146ca": {
+            "type": "shipping",
+            "settings": {
+              "text": "CZ",
+              "shipping_threshold": 3000
+            }
+          },
+          "de17f4599795-4984-ba8a-00dfc33fdf10": {
+            "type": "shipping",
+            "settings": {
+              "text": "AD",
+              "shipping_threshold": 175
+            }
+          },
+          "00501aa640a1-4af9-91ca-a61e182c83b6": {
+            "type": "shipping",
+            "settings": {
+              "text": "CY",
+              "shipping_threshold": 175
+            }
+          },
+          "c9ac2f213f9f-4f24-b86f-2ed06e28bace": {
+            "type": "shipping",
+            "settings": {
+              "text": "EE",
+              "shipping_threshold": 175
+            }
+          },
+          "abf789786aab-4f2c-a32d-05f2c26bc2ac": {
+            "type": "shipping",
+            "settings": {
+              "text": "GF",
+              "shipping_threshold": 175
+            }
+          },
+          "25612237eb93-4353-b601-dffb66a81f26": {
+            "type": "shipping",
+            "settings": {
+              "text": "GR",
+              "shipping_threshold": 175
+            }
+          },
+          "1ffd34495e1d-44ef-abc3-cc2eb34fa7ff": {
+            "type": "shipping",
+            "settings": {
+              "text": "GP",
+              "shipping_threshold": 175
+            }
+          },
+          "05d5ee3493a6-410b-9795-49283d889439": {
+            "type": "shipping",
+            "settings": {
+              "text": "LV",
+              "shipping_threshold": 175
+            }
+          },
+          "56949c92161b-4e21-8a16-5f3deb93d76e": {
+            "type": "shipping",
+            "settings": {
+              "text": "LT",
+              "shipping_threshold": 175
+            }
+          },
+          "069cae75a161-47c2-be2c-0bf89e5fdb43": {
+            "type": "shipping",
+            "settings": {
+              "text": "MT",
+              "shipping_threshold": 175
+            }
+          },
+          "ac186ffd0b84-4fff-b1d8-595589e37eb7": {
+            "type": "shipping",
+            "settings": {
+              "text": "MQ",
+              "shipping_threshold": 175
+            }
+          },
+          "f660b4543df0-4baa-a4c5-dddf70bad795": {
+            "type": "shipping",
+            "settings": {
+              "text": "MC",
+              "shipping_threshold": 175
+            }
+          },
+          "e6449c0c0e26-4966-a3dc-31d8d50f8694": {
+            "type": "shipping",
+            "settings": {
+              "text": "PT",
+              "shipping_threshold": 115
+            }
+          },
+          "b70e1e6a5dd3-4168-b7a5-aa40b080ee0e": {
+            "type": "shipping",
+            "settings": {
+              "text": "SM",
+              "shipping_threshold": 175
+            }
+          },
+          "fa0fa36098dd-4f9a-a48a-68962a360849": {
+            "type": "shipping",
+            "settings": {
+              "text": "RE",
+              "shipping_threshold": 175
+            }
+          },
+          "141abb9bcbed-44d9-8208-ed619dd05f33": {
+            "type": "shipping",
+            "settings": {
+              "text": "SK",
+              "shipping_threshold": 175
+            }
+          },
+          "42e3e1321e35-4492-8751-d20a938a9bcd": {
+            "type": "shipping",
+            "settings": {
+              "text": "SI",
+              "shipping_threshold": 175
+            }
+          },
+          "72686e413ee5-476d-a0db-7a781cad7b5a": {
+            "type": "shipping",
+            "settings": {
+              "text": "BL",
+              "shipping_threshold": 175
+            }
+          },
+          "1717124a895f-4ebc-affa-571fc6dd6926": {
+            "type": "shipping",
+            "settings": {
+              "text": "MF",
+              "shipping_threshold": 175
+            }
+          },
+          "ba3fdb1c5158-4795-a30b-ca34b341d7bc": {
+            "type": "shipping",
+            "settings": {
+              "text": "VA",
+              "shipping_threshold": 175
+            }
+          },
+          "e16792ae1a8a-4ca4-aedd-929ed5d0bb92": {
+            "type": "shipping",
+            "settings": {
+              "text": "ZA",
+              "shipping_threshold": 3000
+            }
+          },
+          "eb2b43206fc6-4767-b9cf-30a75fd1a3ef": {
+            "type": "shipping",
+            "settings": {
+              "text": "BG",
+              "shipping_threshold": 350
+            }
+          },
+          "d297b7c9-3942-49f9-8ca2-96db46e55bf7": {
+            "type": "shipping",
+            "settings": {
+              "text": "SW",
+              "shipping_threshold": 2000
+            }
+          },
+          "shipping_CzhbnN": {
+            "type": "shipping",
+            "settings": {
+              "text": "HK",
+              "shipping_threshold": 1399
+            }
+          },
+          "shipping_my3wir": {
+            "type": "shipping",
+            "settings": {
+              "text": "PH",
+              "shipping_threshold": 7250
+            }
+          },
+          "shipping_gkpJhr": {
+            "type": "shipping",
+            "settings": {
+              "text": "IS",
+              "shipping_threshold": 18500
+            }
+          }
+        },
+        "block_order": [
+          "6869b9a2e349-4872-a9b0-d52f7066a3c7",
+          "2cbe427f9e87-4035-95b5-61786c6af3c8",
+          "cf9a19e3d5e3-43ad-9dc8-6bc6b7fe8ec4",
+          "722fcbc0b239-4d21-adca-4cefc7478f3f",
+          "8dd55f8e77a3-4776-b4e1-e9ca8a119aa2",
+          "c6d053bd0936-4ab1-a7cc-28e6283a0fb8",
+          "1ccfc70e6f6c-4a26-9fc7-8d57dcf796c6",
+          "9ff8fe205af2-43fb-ba54-1a58c9f23f5e",
+          "036b5679a82c-4884-842d-62413eef470b",
+          "6654e0b53663-40e6-a93e-d34384a1884c",
+          "7011e78cfc61-46da-807d-e0557a8eb732",
+          "2f9e51af5993-4184-b3b1-3477aecc7eb2",
+          "25adfe887b04-44fe-9503-59c34d9a319a",
+          "5411943c05cb-412b-890a-09cf120b73db",
+          "37e77075846b-4d84-8664-6c3ad2cdd5ae",
+          "28e0e249bbc7-4659-aea8-45a76baaa522",
+          "6560646429e9-4e42-9f3b-6528443163a8",
+          "f9dee01bb170-4b0e-beec-50c05ca1a70a",
+          "7d46f7497f29-49a5-9a53-c8f324209439",
+          "beb134013f92-4758-ac69-ec0c85f6c772",
+          "93f9b9147ef4-43a7-b07a-2424ac1f866a",
+          "fb09adea9f4a-40a4-89ec-db5f7438b143",
+          "66e3da9e04ca-4543-8728-ce942f733e9d",
+          "19b35b124e13-4d1f-9411-44dd2fc764c1",
+          "96ff3ae24cca-4fec-a5f2-098fdf883d79",
+          "2d66ab875856-4c70-9b58-8c5712e146ca",
+          "de17f4599795-4984-ba8a-00dfc33fdf10",
+          "00501aa640a1-4af9-91ca-a61e182c83b6",
+          "c9ac2f213f9f-4f24-b86f-2ed06e28bace",
+          "abf789786aab-4f2c-a32d-05f2c26bc2ac",
+          "25612237eb93-4353-b601-dffb66a81f26",
+          "1ffd34495e1d-44ef-abc3-cc2eb34fa7ff",
+          "05d5ee3493a6-410b-9795-49283d889439",
+          "56949c92161b-4e21-8a16-5f3deb93d76e",
+          "069cae75a161-47c2-be2c-0bf89e5fdb43",
+          "ac186ffd0b84-4fff-b1d8-595589e37eb7",
+          "f660b4543df0-4baa-a4c5-dddf70bad795",
+          "e6449c0c0e26-4966-a3dc-31d8d50f8694",
+          "b70e1e6a5dd3-4168-b7a5-aa40b080ee0e",
+          "fa0fa36098dd-4f9a-a48a-68962a360849",
+          "141abb9bcbed-44d9-8208-ed619dd05f33",
+          "42e3e1321e35-4492-8751-d20a938a9bcd",
+          "72686e413ee5-476d-a0db-7a781cad7b5a",
+          "1717124a895f-4ebc-affa-571fc6dd6926",
+          "ba3fdb1c5158-4795-a30b-ca34b341d7bc",
+          "e16792ae1a8a-4ca4-aedd-929ed5d0bb92",
+          "eb2b43206fc6-4767-b9cf-30a75fd1a3ef",
+          "d297b7c9-3942-49f9-8ca2-96db46e55bf7",
+          "shipping_CzhbnN",
+          "shipping_my3wir",
+          "shipping_gkpJhr"
+        ],
+        "settings": {
+          "satisfaction_text": "100% Satisfaction Guarantee",
+          "shipping_text": "Free  &amp; Easy Returns"
+        }
+      },
+      "tc-collection-inline-shirts": {
+        "type": "tc-collection-inline-shirts",
+        "custom_css": [
+          ".collection {padding-left: 0 !important; padding-right: 0 !important;}",
+          "@media screen and (max-width: 768px) {.collection, slider-component {padding-left: 0 !important; padding-right: 0 !important; } .collection {padding: 0.5rem !important; } .slider-button.slider-button--next, .slider-button.slider-button--prev {padding: 0; } .slider.slider--tablet {column-gap: 0.75rem; }}",
+          "h2.headline {text-align: center;}",
+          ".product-card__quick-atc-wrap {display: none;}"
+        ],
+        "settings": {
+          "title": "Best Sellers",
+          "heading_level": "h2",
+          "heading_size": "h2",
+          "heading_font": "staff-x-condensed-type",
+          "heading_color": "color-chocolate",
+          "heading_color_inverse": false,
+          "heading_margin_top": "mg-t-none",
+          "heading_margin_bottom": "mg-b-m",
+          "heading_underline": false,
+          "line_break_dot": false,
+          "collection": "crew-neck-tees",
+          "products_to_show": 8,
+          "columns_desktop": 4,
+          "full_width": false,
+          "enable_section_width": false,
+          "max_section_width_desktop": 700,
+          "enable_desktop_slider": true,
+          "enable_card_width": false,
+          "max_card_width_desktop": 400,
+          "columns_mobile": "2",
+          "swipe_on_mobile": true,
+          "padding_top": 36,
+          "padding_bottom": 36
+        }
+      },
+      "tc-featured-list": {
+        "type": "tc-featured-list",
+        "settings": {
+          "bg_color": "#ffffff",
+          "hide_on_desktop": false,
+          "hide_on_mobile": false,
+          "title": "Featured List",
+          "heading_alignment": "right",
+          "heading_size": 40,
+          "heading_size_mobile": 14,
+          "columns_desktop": 3,
+          "full_width": false,
+          "hide_controls": false,
+          "columns_mobile": "1",
+          "swipe_on_mobile": false,
+          "spacing_grid_horizontal": 8,
+          "spacing_grid_vertical": 8,
+          "title_x": "center",
+          "item_title_size": 20,
+          "item_title_size_mobile": 12,
+          "padding_top": 36,
+          "padding_bottom": 40
+        }
+      },
+      "tc-collection-inline-button-ups": {
+        "type": "tc-collection-inline-button-ups",
+        "custom_css": [
+          ".collection {padding-left: 0 !important; padding-right: 0 !important;}",
+          "@media screen and (max-width: 768px) {.collection, slider-component {padding-left: 0 !important; padding-right: 0 !important; } .collection {padding: 0.5rem !important; } .slider-button.slider-button--next, .slider-button.slider-button--prev {padding: 0; } .slider.slider--tablet {column-gap: 0.75rem; }}",
+          "h2.headline {text-align: center;}",
+          ".product-card__quick-atc-wrap {display: none;}"
+        ],
+        "settings": {
+          "title": "Best Sellers",
+          "heading_level": "h2",
+          "heading_size": "h2",
+          "heading_font": "staff-x-condensed-type",
+          "heading_color": "color-chocolate",
+          "heading_color_inverse": false,
+          "heading_margin_top": "mg-t-none",
+          "heading_margin_bottom": "mg-b-m",
+          "heading_underline": false,
+          "line_break_dot": false,
+          "collection": "button-up-shirt",
+          "products_to_show": 8,
+          "columns_desktop": 4,
+          "full_width": true,
+          "enable_section_width": true,
+          "max_section_width_desktop": 700,
+          "enable_desktop_slider": false,
+          "enable_card_width": false,
+          "max_card_width_desktop": 400,
+          "columns_mobile": "2",
+          "swipe_on_mobile": true,
+          "padding_top": 36,
+          "padding_bottom": 36
+        }
+      },
+      "tc-collection-inline-jeans": {
+        "type": "tc-collection-inline-jeans",
+        "custom_css": [
+          ".collection {padding-left: 0 !important; padding-right: 0 !important;}",
+          "@media screen and (max-width: 768px) {.collection, slider-component {padding-left: 0 !important; padding-right: 0 !important; } .collection {padding: 0.5rem !important; } .slider-button.slider-button--next, .slider-button.slider-button--prev {padding: 0; } .slider.slider--tablet {column-gap: 0.5rem; }}",
+          "h2.headline {text-align: center;}",
+          ".product-card__quick-atc-wrap {display: none;}"
+        ],
+        "settings": {
+          "title": "Best Sellers",
+          "heading_level": "h2",
+          "heading_size": "h2",
+          "heading_font": "staff-x-condensed-type",
+          "heading_color": "color-chocolate",
+          "heading_color_inverse": false,
+          "heading_margin_top": "mg-t-none",
+          "heading_margin_bottom": "mg-b-m",
+          "heading_underline": false,
+          "line_break_dot": false,
+          "collection": "mens-jeans",
+          "products_to_show": 12,
+          "columns_desktop": 4,
+          "full_width": false,
+          "enable_section_width": false,
+          "max_section_width_desktop": 700,
+          "enable_desktop_slider": false,
+          "enable_card_width": false,
+          "max_card_width_desktop": 400,
+          "columns_mobile": "2",
+          "swipe_on_mobile": true,
+          "padding_top": 36,
+          "padding_bottom": 36
+        }
+      },
+      "tc-scrollable-nav": {
+        "type": "tc-scrollable-nav",
+        "blocks": {
+          "a185f3f0-008b-4269-8487-4195c424de9e": {
+            "type": "menu_item",
+            "settings": {
+              "country_code": "",
+              "exclude_country_code": "",
+              "text": "UP TO 60%",
+              "url": "shopify:\/\/collections\/sale",
+              "image": "shopify:\/\/shop_images\/V1-A.png",
+              "link_text_color": "#971b1b"
+            }
+          },
+          "48ed3f3c-77dd-4eab-8c89-392132b6b4cb": {
+            "type": "menu_item",
+            "settings": {
+              "country_code": "",
+              "exclude_country_code": "",
+              "text": "Crew Necks",
+              "url": "shopify:\/\/collections\/crew-neck-tees",
+              "image": "shopify:\/\/shop_images\/mobile_scroll_nav_crew_necks.png",
+              "link_text_color": "#2e2520"
+            }
+          },
+          "d6148fb1-92c2-4252-92ed-62e09b2cc400": {
+            "type": "menu_item",
+            "settings": {
+              "country_code": "",
+              "exclude_country_code": "",
+              "text": "Activewear",
+              "url": "shopify:\/\/collections\/activewear",
+              "image": "shopify:\/\/shop_images\/002.png",
+              "link_text_color": "#2e2520"
+            }
+          },
+          "4dcf767f-14d1-446e-9451-67cf5af6f25e": {
+            "type": "menu_item",
+            "settings": {
+              "country_code": "US",
+              "exclude_country_code": "",
+              "text": "Pack Builder",
+              "url": "shopify:\/\/collections\/bundle-builder",
+              "image": "shopify:\/\/shop_images\/mobile_scroll_nav_pack_builder_v2.png",
+              "link_text_color": "#2e2520"
+            }
+          },
+          "dee322d8-0738-4a40-8fff-247d1bda8758": {
+            "type": "menu_item",
+            "settings": {
+              "country_code": "",
+              "exclude_country_code": "",
+              "text": "New Arrivals",
+              "url": "shopify:\/\/collections\/new-arrivals",
+              "image": "shopify:\/\/shop_images\/mobile_scroll_nav_new_arrivals_v2.png",
+              "link_text_color": "#2e2520"
+            }
+          },
+          "4b6641c3-687f-4d31-80eb-aba9bcfacc0a": {
+            "type": "menu_item",
+            "settings": {
+              "country_code": "",
+              "exclude_country_code": "",
+              "text": "Shop All",
+              "url": "shopify:\/\/collections\/all",
+              "image": "shopify:\/\/shop_images\/mobile_scroll_nav_shop_all.png",
+              "link_text_color": "#2e2520"
+            }
+          }
+        },
+        "block_order": [
+          "a185f3f0-008b-4269-8487-4195c424de9e",
+          "48ed3f3c-77dd-4eab-8c89-392132b6b4cb",
+          "d6148fb1-92c2-4252-92ed-62e09b2cc400",
+          "4dcf767f-14d1-446e-9451-67cf5af6f25e",
+          "dee322d8-0738-4a40-8fff-247d1bda8758",
+          "4b6641c3-687f-4d31-80eb-aba9bcfacc0a"
+        ],
+        "custom_css": [
+
+        ],
+        "settings": {
+          "show_only_home": true
+        }
+      },
+      "endrock-pack-builder": {
+        "type": "endrock-pack-builder",
+        "settings": {
+          "info_message": "Save up to 60% with packs, when compared to the MSRP of an individual shirt.",
+          "selected_pack_size": "9"
+        }
+      },
+      "checkout-processing-times": {
+        "type": "checkout-processing-times",
+        "settings": {
+          "show_processing": true,
+          "processing_time_message": "Please add 1-2 business days for order processing."
+        }
+      },
+      "checkout-cutoff-times-v3": {
+        "type": "checkout-cutoff-times-v3",
+        "settings": {
+          "show_cutoff_times": false
+        }
+      },
+      "checkout-upsell": {
+        "type": "checkout-upsell",
+        "blocks": {
+          "cf84e333-d45d-44ff-810f-732d62e09639": {
+            "type": "checkout-upsell",
+            "settings": {
+              "product": "inveterate-subscription-2",
+              "disallow_dupes": true,
+              "custom_property_key": "_inveterate_subscription",
+              "custom_property_val": "true",
+              "alt_title": ""
+            }
+          },
+          "2472ae1e-95aa-4e7d-9ac5-947ab99c4d90": {
+            "type": "checkout-upsell",
+            "settings": {
+              "product": "mystery-active-crew-2-pack",
+              "disallow_dupes": false,
+              "custom_property_key": "",
+              "custom_property_val": "",
+              "alt_title": ""
+            }
+          },
+          "40130476-3e2a-476d-ae6f-426d985f823c": {
+            "type": "checkout-upsell",
+            "disabled": true,
+            "settings": {
+              "product": "mystery-polo-3-pack-1",
+              "disallow_dupes": true,
+              "custom_property_key": "",
+              "custom_property_val": "",
+              "alt_title": ""
+            }
+          }
+        },
+        "block_order": [
+          "cf84e333-d45d-44ff-810f-732d62e09639",
+          "2472ae1e-95aa-4e7d-9ac5-947ab99c4d90",
+          "40130476-3e2a-476d-ae6f-426d985f823c"
+        ],
+        "settings": {
+        }
+      },
+      "set-localisation": {
+        "type": "set-localisation",
+        "settings": {
+          "enable_localisation_redirect": false,
+          "localisation_list": "mx,de,ar"
+        }
+      }
+    },
+    "content_for_index": [
+
+    ],
+    "blocks": {
+      "733389323033596483": {
+        "type": "shopify:\/\/apps\/okendo-product-reviews-ugc\/blocks\/theme-settings\/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+        "disabled": false,
+        "settings": {
+          "show_preview_data": true
+        }
+      },
+      "17174303574952363282": {
+        "type": "shopify:\/\/apps\/fondue-cashback-promotions\/blocks\/caseback-embed\/dcfd972d-99c5-4526-b55b-2d76e990dec8",
+        "disabled": false,
+        "settings": {
+        }
+      },
+      "7885500093077574326": {
+        "type": "shopify:\/\/apps\/videowise-video-platform\/blocks\/script_embed\/b48d6c0c-3e3f-4791-a9ab-a5ab7ec82f4d",
+        "disabled": false,
+        "settings": {
+        }
+      },
+      "855628211100114053": {
+        "type": "shopify:\/\/apps\/klaviyo-email-marketing-sms\/blocks\/klaviyo-onsite-embed\/2632fe16-c075-4321-a88b-50b567f42507",
+        "disabled": false,
+        "settings": {
+        }
+      },
+      "5182753405494462628": {
+        "type": "shopify:\/\/apps\/inveterate\/blocks\/app-embed\/fc24aab3-e6d2-461b-961d-9ebb32143cf2",
+        "disabled": false,
+        "settings": {
+          "product": "inveterate-subscription",
+          "redirect_url": "",
+          "membership_product_redirect": true,
+          "early_access_enable": true,
+          "early_access_action": "popup",
+          "early_access_popup_heading": "Membership Required",
+          "early_access_popup_body": "Only members can access this page. Subscribe to our membership to continue.",
+          "early_access_popup_button": "Join Membership Program",
+          "early_access_popup_button_background": "#9245d8",
+          "early_access_card_border_color": "#9245d8",
+          "early_access_popup_button_foreground": "#ffffff",
+          "early_access_modal_background": "#ffffff",
+          "early_access_modal_foreground": "#000000",
+          "early_access_additional_tags": "",
+          "exclusive_access_enable": true,
+          "exclusive_access_action": "popup",
+          "exclusive_access_popup_heading": "Membership Required",
+          "exclusive_access_popup_body": "Only members can access this page. Subscribe to our membership to continue.",
+          "exclusive_access_popup_button": "Join Membership Program",
+          "exclusive_access_popup_button_background": "#9245d8",
+          "exclusive_access_popup_card_border_color": "#9245d8",
+          "exclusive_access_popup_button_foreground": "#ffffff",
+          "exclusive_access_modal_background": "#ffffff",
+          "exclusive_access_modal_foreground": "#000000",
+          "exclusive_access_additional_tags": ""
+        }
+      },
+      "7919968004221747976": {
+        "type": "shopify:\/\/apps\/status-customer-accounts\/blocks\/app-embed\/00efb73e-3a22-41bb-be0f-8609abc31574",
+        "disabled": false,
+        "settings": {
+        }
+      },
+      "7586417359830130585": {
+        "type": "shopify:\/\/apps\/govalo\/blocks\/app-embed\/0261c814-5eb7-41a0-a529-3dcb870c5415",
+        "disabled": false,
+        "settings": {
+        }
+      },
+      "15683396631634586217": {
+        "type": "shopify:\/\/apps\/inbox\/blocks\/chat\/841fc607-4181-4ad1-842d-e24d7f8bad6b",
+        "disabled": true,
+        "settings": {
+          "button_color": "#202a36",
+          "button_icon": "chat_bubble",
+          "button_text": "no_text",
+          "button_horizontal_position": "bottom_right",
+          "button_vertical_position": "lowest",
+          "greeting_message": "👋 Hi, message us with any questions. We're happy to help!"
+        }
+      },
+      "12509190167029697241": {
+        "type": "shopify:\/\/apps\/blotout-edgetag\/blocks\/app-embed\/ae22d985-ba57-41f5-94c5-18d3dd98ea3c",
+        "disabled": false,
+        "settings": {
+        }
+      }
+    }
+  },
+  "platform_customizations": {
+    "custom_css": [
+      "@media screen and (max-width: 768px) {* {scroll-behavior: smooth; }}",
+      "@media screen and (max-width: 480px) {}",
+      "button[aria-label=\"Open Form\"] .kl-private-reset-css-Xuajs1.go3176171171 > p > span {font-family: \"Staff X Condensed\", sans-serif !important; text-transform: uppercase;}",
+      ".product-video-text-media-wrapper iframe {transition: all 200ms linear; background: black;}"
+    ]
+  }
+}

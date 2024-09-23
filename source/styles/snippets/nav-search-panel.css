@@ -1,0 +1,21 @@
+.nav-search-panel__searchbar-wrapper {
+  display: flex;
+  height: 100%;
+  padding: var(--spacer-s) 0px;
+  gap: var(--spacer-m);
+  align-items: center;
+  justify-content: center;
+
+  & #nav__search-close {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      padding: 20px;
+    }
+  }
+}

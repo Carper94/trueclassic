@@ -1,0 +1,48 @@
+<div class='payicon'>
+  <div class='iconp'>
+    {% render 'icon-visa' %}
+  </div>
+  <div class='iconp'>
+    {% render 'icon-mastercard' %}
+  </div>
+  <div class='iconp'>
+    {% render 'icon-amex' %}
+  </div>
+  <div class='iconp'>
+    {% render 'icon-applepay' %}
+  </div>
+  {% if localization.country.iso_code == 'NL'
+    or localization.country.iso_code == 'GB'
+    or localization.country.iso_code == 'CA'
+    or localization.country.iso_code == 'CH'
+  %}
+    <div class='iconp'>
+      {% render 'icon-klarna' %}
+    </div>
+  {% endif %}
+  {% if localization.country.iso_code == 'CH' %}
+    <div class='iconp'>
+      {% render 'icon-sofort' %}
+    </div>
+  {% endif %}
+  {% if localization.country.iso_code == 'NL' %}
+    <div class='iconp'>
+      {% render 'icon-ideal' %}
+    </div>
+  {% endif %}
+  {% if localization.country.iso_code == 'MX' %}
+    <div
+      class='iconp'
+      style='
+        height: 37px;
+        width: 53px;
+        border-radius: 5px;
+        background-color: #fff;
+        border: 1px solid #e2e2e2;
+        display: flex;
+      '
+    >
+      {% render 'icon-mercadopago' %}
+    </div>
+  {% endif %}
+</div>

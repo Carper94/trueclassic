@@ -1,0 +1,16 @@
+{% case size %}
+  {% when 'S' %}
+    &nbsp;Small
+  {% when 'M' %}
+    &nbsp;Medium
+  {% when 'L' %}
+    &nbsp;Large
+  {% when 'XL' %}
+    &nbsp;XL
+  {% when '2XL' %}
+    &nbsp;2XL
+  {% when '3XL' %}
+    &nbsp;3XL
+  {% else %}
+    &nbsp;{{ size }}
+{% endcase %}

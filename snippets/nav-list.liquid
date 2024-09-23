@@ -1,0 +1,23 @@
+{% if links != blank %}
+  <div
+    {% if id != blank %}
+      id='{{ id }}'
+    {% endif %}
+    class='nav-item-list-container {{ class }}'
+  >
+    <ul class='list-unstyled'>
+      {% liquid
+        for link in links
+          if link.links.size > 0
+            render 'nav-link', isNavTab: true, is_mobile: is_mobile, is_accordion: is_accordion, link: link, class: list_item_class
+          else
+            if forloop.index == 2
+              render 'nav-link', link: link, class: list_item_class, testLink: true
+            endif
+            render 'nav-link', link: link, class: list_item_class
+          endif
+        endfor
+      %}
+    </ul>
+  </div>
+{% endif %}

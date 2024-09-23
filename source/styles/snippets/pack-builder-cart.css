@@ -1,0 +1,161 @@
+.pack-builder-cart {
+  background-color: var(--brand-white);
+
+  @media (--large) {
+    position: sticky;
+    top: calc(var(--header-height) - var(--announcement-height) + var(--spacer-m));
+  }
+
+  @media (--large-down) {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: var(--pack-builder-cart-index);
+    width: 100%;
+    padding: 0 var(--spacer-m);
+    border-top: var(--divider);
+    --form-spacer: var(--spacer-s);
+  }
+}
+
+.pack-builder__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: var(--pack-builder-scrim-index);
+  background-color: var(--color-scrim);
+}
+
+.pack-builder-cart__header {
+  display: flex;
+  gap: var(--spacer-m);
+  padding: var(--spacer-m) 0;
+  align-items: center;
+
+  @media (--large-down) {
+    padding: var(--spacer-m) 0 var(--spacer-s);
+  }
+
+  @media (--large) {
+    border-bottom: var(--divider);
+    justify-content: space-between;
+  }
+
+  &>* {
+    padding: .5rem;
+  }
+
+  & .headline {
+    width: 60%;
+    text-align: left;
+  }
+
+  & .pack-builder-cart__total {
+    width: 30%;
+    text-align: right;
+  }
+
+  & button {
+    width: 10%;
+    text-align: right;
+  }
+}
+
+.pack-builder-cart__total {
+  margin-left: auto;
+
+  & div {
+    color: var(--brand-red);
+  }
+}
+
+.pack-builder-cart__toggle {
+  position: relative;
+
+  & svg {
+    width: 24px;
+    height: 24px;
+    color: var(--brand-black);
+  }
+
+  @media (--large) {
+    display: none;
+  }
+
+  &:not(.active) {
+    & .close {
+      display: none;
+    }
+  }
+
+  &.active {
+    & .open {
+      display: none;
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: var(--spacer-m);
+  }
+}
+
+.pack-builder-cart__list-wrapper {
+  width: 100%;
+
+  @media (--large) {
+    max-height: 50vh;
+    overflow-y: auto;
+  }
+
+  @media (--large-down) {
+    max-height: 33vh;
+    overflow-y: auto;
+
+    &:not(.active) {
+      display: none;
+    }
+  }
+
+  &>span {
+    display: block;
+    width: 100%;
+  }
+}
+
+.pack-builder-cart__footer {
+  border-top: var(--divider);
+
+  @media (--large-down) {
+    padding: var(--spacer-s) 0;
+  }
+
+  & .progress-bar {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.pack-builder-cart__actions {
+  display: flex;
+  justify-content: center;
+
+  & button {
+    background-color: var(--brand-red);
+    color: var(--brand-white);
+    width: 100%;
+    max-width: 350px;
+  }
+}
+
+/* special pack builder sticky settings using the header not at top classes */
+body.sticky-header-active:not(.header-at-top).scroll--down {
+  & .pack-builder-cart {
+    @media (--large) {
+      top: var(--spacer-m);
+    }
+  }
+}

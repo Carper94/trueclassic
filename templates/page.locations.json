@@ -1,0 +1,232 @@
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "custom_css": [
+
+      ],
+      "settings": {
+        "full_width": false,
+        "hide_title": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "5de27417-4256-4964-aee0-a9e1a2d75184": {
+      "type": "page-locations",
+      "blocks": {
+        "template--14468770791496__5de27417-4256-4964-aee0-a9e1a2d75184-1668534849e43586d3-0": {
+          "type": "location",
+          "settings": {
+            "store_image": "shopify:\/\/shop_images\/TC_Amazon_Webpages_01_1.png",
+            "store_name": "Michigan Avenue (Chicago area)",
+            "us_location": "520 North Michigan Avenue Space 12Chicago, Illinois 60611",
+            "page_url": "shopify:\/\/pages\/northbridge",
+            "coming_soon": false,
+            "state": "Illinois"
+          }
+        },
+        "765426b5-a0d6-4e01-b4b5-39ca28fff802": {
+          "type": "location",
+          "settings": {
+            "store_image": "shopify:\/\/shop_images\/TC_Amazon_Webpages_05.png",
+            "store_name": "Armitage Avenue (Chicago area)",
+            "us_location": "838 West Armitage Avenue Chicago, Illinois 60614",
+            "page_url": "shopify:\/\/pages\/armitage-avenue",
+            "coming_soon": false,
+            "state": "Illinois"
+          }
+        },
+        "8a0a88a6-f8ca-4c00-8447-c85ad817048e": {
+          "type": "location",
+          "settings": {
+            "store_image": "shopify:\/\/shop_images\/DC.jpg",
+            "store_name": "Tysons Corner (Washington DC area)",
+            "us_location": "1961 Chain Bridge Road Space E1BU Tysons Corner, Virginia 22102",
+            "page_url": "shopify:\/\/pages\/tysons-corner",
+            "coming_soon": false,
+            "state": "Virginia"
+          }
+        },
+        "6051b9b6-a49f-490b-afc6-1f7612336fda": {
+          "type": "location",
+          "settings": {
+            "store_image": "shopify:\/\/shop_images\/Valley_Fair_tile.png",
+            "store_name": "Valley Fair (San Jose\/San Francisco area)",
+            "us_location": "2855 Stevens Creek Boulevard Suite 2629 Santa Clara, California 95050",
+            "page_url": "shopify:\/\/pages\/valley-fair",
+            "coming_soon": false,
+            "state": "California"
+          }
+        },
+        "b444d69e-0260-40a2-8a8a-089472d20fde": {
+          "type": "location",
+          "settings": {
+            "store_image": "shopify:\/\/shop_images\/Del_Amo.jpg",
+            "store_name": "Del Amo (Los Angeles area)",
+            "us_location": "3525 W Carson Street Suite 45A  Torrance, California 90503",
+            "page_url": "shopify:\/\/pages\/del-amo",
+            "coming_soon": false,
+            "state": "California"
+          }
+        },
+        "897a4eb1-8a83-44f5-8559-f586a99f80d7": {
+          "type": "location",
+          "settings": {
+            "store_image": "shopify:\/\/shop_images\/houston_905bd628-db25-4fb1-8357-8ebdd90b9299.jpg",
+            "store_name": "The Galleria (Houston area)",
+            "us_location": "5135 W. Alabama St.Houston, TX. 77056",
+            "page_url": "shopify:\/\/pages\/houston",
+            "coming_soon": false,
+            "state": "Texas"
+          }
+        },
+        "0d38b353-a6a7-45fa-836c-72282d26383a": {
+          "type": "location",
+          "settings": {
+            "store_image": "shopify:\/\/shop_images\/raton.jpg",
+            "store_name": "Boca Raton (Miami area)",
+            "us_location": "6000 Glades Road, Suite 1226, Boca Raton, FL 33431",
+            "page_url": "shopify:\/\/pages\/true-classic-boca-raton",
+            "coming_soon": false,
+            "state": "Florida"
+          }
+        },
+        "fd255d35-3ffd-404e-ba23-80d05c1d428d": {
+          "type": "location",
+          "settings": {
+            "store_image": "shopify:\/\/shop_images\/1_fe200732-5782-4344-9b3b-d53cfdffb636.png",
+            "store_name": "Stonebriar (Dallas area)",
+            "us_location": "2601 Preston Road Suite #1088, Frisco, TX 75034",
+            "page_url": "shopify:\/\/pages\/true-classic-stonebriar",
+            "coming_soon": false,
+            "state": "Texas"
+          }
+        }
+      },
+      "block_order": [
+        "template--14468770791496__5de27417-4256-4964-aee0-a9e1a2d75184-1668534849e43586d3-0",
+        "765426b5-a0d6-4e01-b4b5-39ca28fff802",
+        "8a0a88a6-f8ca-4c00-8447-c85ad817048e",
+        "6051b9b6-a49f-490b-afc6-1f7612336fda",
+        "b444d69e-0260-40a2-8a8a-089472d20fde",
+        "897a4eb1-8a83-44f5-8559-f586a99f80d7",
+        "0d38b353-a6a7-45fa-836c-72282d26383a",
+        "fd255d35-3ffd-404e-ba23-80d05c1d428d"
+      ],
+      "settings": {
+        "section_class": ""
+      }
+    },
+    "21c8b2ad-85ad-44a2-a06a-ed11a2733b6d": {
+      "type": "location-map-svg",
+      "blocks": {
+        "47bb935a-1014-47cd-9816-d33ddccfe5b0": {
+          "type": "store",
+          "settings": {
+            "title": "Valley Fair",
+            "store_details": "<p>True Classic<br\/><strong>Valley Fair<\/strong><br\/>2855 Stevens Creek Boulevard Suite 2629<br\/>Santa Clara, California 95050<\/p>",
+            "state": "California",
+            "top": 38,
+            "left": 7,
+            "position": "right"
+          }
+        },
+        "4c00e6f9-eb2d-4d20-8921-2ee66b98d465": {
+          "type": "store",
+          "settings": {
+            "title": "Del Amo",
+            "store_details": "<p>True Classic<br\/><strong>Del Amo<\/strong><br\/>3525 W Carson Street Suite 45A<br\/>Torrance, California 90503<\/p>",
+            "state": "California",
+            "top": 52,
+            "left": 10,
+            "position": "right"
+          }
+        },
+        "7820459e-7744-47f9-9dd0-600fec188f84": {
+          "type": "store",
+          "settings": {
+            "title": "Armitage Avenue",
+            "store_details": "<p>True Classic<br\/><strong>Armitage Avenue<\/strong><br\/>838 West Armitage Avenue <br\/>Chicago, Illinois 60614<\/p>",
+            "state": "Illinois",
+            "top": 30,
+            "left": 66,
+            "position": "right"
+          }
+        },
+        "e8a8a82a-11c1-4117-bdb4-febd02933a8e": {
+          "type": "store",
+          "settings": {
+            "title": "Michigan Avenue",
+            "store_details": "<p>True Classic<br\/><strong>Michigan Avenue<\/strong><br\/>520 North Michigan Avenue Space 12<br\/>Chicago, Illinois 60611<\/p>",
+            "state": "Illinois",
+            "top": 35,
+            "left": 67,
+            "position": "right"
+          }
+        },
+        "d19063e2-711e-4469-b954-f5f57ba5eeaa": {
+          "type": "store",
+          "settings": {
+            "title": "Tysons Corner",
+            "store_details": "<p>True Classic<br\/><strong>Tysons Corner<\/strong><br\/>1961 Chain Bridge Road Space E1BU<br\/>Tysons Corner, Virginia 22102<\/p>",
+            "state": "Virginia",
+            "top": 33,
+            "left": 87,
+            "position": "left"
+          }
+        },
+        "52af051c-a209-41a0-a10c-d78aa833046d": {
+          "type": "store",
+          "settings": {
+            "title": "Stonebriar",
+            "store_details": "<p>True Classic<br\/><strong>Stonebriar<\/strong><br\/>2601 Preston Road Suite #1088, Frisco, TX 75034<\/p>",
+            "state": "Texas",
+            "top": 63,
+            "left": 55,
+            "position": "right"
+          }
+        },
+        "dee0e98d-4ac5-4b56-b363-af1a498940fe": {
+          "type": "store",
+          "settings": {
+            "title": "The Galleria",
+            "store_details": "<p>True Classic<br\/><strong>The Galleria<\/strong><br\/>5135 W. Alabama St.<br\/>Houston, TX. 77056<\/p>",
+            "state": "Texas",
+            "top": 75,
+            "left": 56,
+            "position": "right"
+          }
+        },
+        "130f1274-de16-47b1-978d-92cb35625ed9": {
+          "type": "store",
+          "settings": {
+            "title": "Boca Raton",
+            "store_details": "<p>True Classic<br\/><strong>Boca Raton<\/strong><br\/>6000 Glades Rd.<br\/>Boca Raton, FL. 33431<\/p>",
+            "state": "Florida",
+            "top": 82,
+            "left": 87,
+            "position": "left"
+          }
+        }
+      },
+      "block_order": [
+        "47bb935a-1014-47cd-9816-d33ddccfe5b0",
+        "4c00e6f9-eb2d-4d20-8921-2ee66b98d465",
+        "7820459e-7744-47f9-9dd0-600fec188f84",
+        "e8a8a82a-11c1-4117-bdb4-febd02933a8e",
+        "d19063e2-711e-4469-b954-f5f57ba5eeaa",
+        "52af051c-a209-41a0-a10c-d78aa833046d",
+        "dee0e98d-4ac5-4b56-b363-af1a498940fe",
+        "130f1274-de16-47b1-978d-92cb35625ed9"
+      ],
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main",
+    "5de27417-4256-4964-aee0-a9e1a2d75184",
+    "21c8b2ad-85ad-44a2-a06a-ed11a2733b6d"
+  ]
+}

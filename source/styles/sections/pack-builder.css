@@ -1,0 +1,107 @@
+.pack-builder {
+  &>*+* {
+    margin-top: var(--spacer-l);
+  }
+
+  & .product-card__actions {
+    margin-top: 0.8125rem;
+
+    & .klaviyo-button-container {
+      margin-top: 0px;
+    }
+
+    & .klaviyo-bis-trigger {
+      width: 100%;
+      height: 49.8px;
+
+      @media (--medium-down) {
+        height: 46px;
+      }
+    }
+  }
+}
+
+.pack-builder__main {
+  position: relative;
+  border-top: 3px solid var(--brand-gray-dark);
+}
+
+.pack-builder__main .container {
+  overflow: hidden;
+}
+
+.pack-builder__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: var(--pack-builder-scrim-index);
+  background-color: var(--color-scrim);
+}
+
+.pack-builder__grid-wrapper {
+  padding: var(--spacer-l) 0;
+
+  @media (--large) {
+    display: grid;
+    grid-gap: var(--spacer-m);
+    grid-template-columns: 1fr 315px;
+    align-items: start;
+  }
+
+  & .product-card-grid-wrapper {
+    @media (--large) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+@media screen and (--medium-down) {
+  .pack-builder .product-card-grid-wrapper {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: var(--spacer-s);
+    justify-content: center;
+  }
+
+  .product-card__rating-stars {
+    margin-top: 0 !important;
+  }
+
+  @media screen and (max-width: 389px) {
+
+    .pack-builder .product-card__rating .okeReviews.oke-sr>div,
+    .pack-builder .oke-sr-count {
+      flex-wrap: wrap;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .klaviyo_notify-me.product-card__actions .size-select select {
+    padding-left: var(--spacer-m);
+    padding-right: var(--spacer-m);
+  }
+}
+
+.pack-builder .product-card__actions.klaviyo_notify-me .klaviyo-product-container {
+  width: 100%;
+}
+
+.pack-builder .product-card__actions.klaviyo_notify-me .size-select+button+.klaviyo-product-container {
+  width: 75%;
+}
+
+.pack-builder .product-card__actions .klaviyo-product-container {
+  width: 0;
+}
+
+.pack-builder .product-card__actions .size-select {
+  min-width: 4.5rem;
+  max-width: 4.5rem;
+}
+
+.pack-builder .product-card__actions .size-select select {
+    padding-left: var(--spacer-s);
+    padding-right: var(--spacer-l);
+    text-align: center;
+}

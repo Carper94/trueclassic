@@ -1,0 +1,218 @@
+<div class='section-flipped {{ section.settings.css_class }} conatiner'>
+  <div class='content-wrapper'>
+    <div class='section-flipped-grid'>
+      {% for block in section.blocks %}
+        <div class='{% cycle "section-flipped-content", "section-flipped-figure" %}'>
+          {% case block.type %}
+            {% when 'figure' %}
+              <div class='flipped-figure'>
+                <img
+                  src='{{ block.settings.image | image_url | default: 'https://cdn.shopify.com/s/files/1/0220/4008/4552/files/refesh_3-desktop_72c10847-f715-4def-8f50-078a331dc22a.jpg?' }}'
+                  srcset='
+                    {%- if block.settings.width >= 375 -%}{{ section.settings.image | image_url: width: 375 }} 375w,{%- endif -%}
+                    {%- if block.settings.width >= 750 -%}{{ section.settings.image | image_url: width: 750 }} 750w,{%- endif -%}
+                    {%- if block.settings.width >= 1100 -%}{{ section.settings.image | image_url: width: 1100 }} 1100w,{%- endif -%}
+                    {%- if block.settings.width >= 1500 -%}{{ section.settings.image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                    {%- if block.settings.width >= 2000 -%}{{ section.settings.image | image_url: width: 2000 }} 2000w,{%- endif -%}
+                    {%- if block.settings.width >= 2500 -%}{{ section.settings.image | image_url: width: 2500 }} 2500w,{%- endif -%}
+                    {{ block.settings.image | image_url }} {{ section.settings.image.width }}w
+                  '
+                  alt='{{ block.settings.heading | escape }}'
+                  width='{{ block.settings.width }}'
+                  height='{{ block.settings.height }}'
+                  loading='lazy'
+                >
+              </div>
+
+            {% when 'content' %}
+              <div class='flipped-content'>
+                <span class='flipped-tagline'>
+                  {{ block.settings.tagline | escape }}
+                </span>
+                <h2 class='flipped-heading'>{{ block.settings.heading | escape }}</h2>
+                <p class='flipped-description'>
+                  {{ block.settings.description | escape }}
+                </p>
+                {% if section.settings.linkto != blank %}
+                  <a class='button light' href='{{ block.settings.linkto }}'>
+                    {{ block.settings.linklabel | escape }}
+                  </a>
+                {% endif %}
+              </div>
+          {% endcase %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<style>
+  .section-flipped {
+    background: #fafafa;
+  }
+  .section-flipped-grid {
+    display: grid;
+    gap: 0;
+    margin: 0;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'area-figure'
+      'area-content';
+    background: #262626;
+  }
+  .flipped-figure {
+    grid-area: area-figure;
+  }
+  .flipped-figure img {
+    object-fit: cover;
+    width: 100%;
+    height: 300px;
+    border-radius: 0;
+    margin: auto;
+  }
+  .flipped-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    grid-area: area-content;
+    height: 100%;
+    max-width: 600px;
+    padding: 16px 8px;
+    margin: auto;
+    text-align: center;
+    color: #fff;
+  }
+  .flipped-tagline {
+    margin-top: 8px;
+    font-size: 19px;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    text-transformation: uppercase;
+  }
+  .flipped-heading {
+    margin-top: 8px;
+    font-size: 19px;
+    line-height: 1.2;
+  }
+  .flipped-description {
+    font-size: 15px;
+    line-height: 1.4;
+  }
+  @media (min-width: 768px) {
+    .section-flipped-grid {
+      padding: 0;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        'area-1 area-2'
+        'area-3 area-4';
+    }
+    .section-flipped-grid > *:nth-child(1) {
+      grid-area: area-1;
+    }
+    .section-flipped-grid > *:nth-child(2) {
+      grid-area: area-2;
+    }
+    .section-flipped-grid > *:nth-child(3) {
+      grid-area: area-4;
+    }
+    .section-flipped-grid > *:nth-child(4) {
+      grid-area: area-3;
+    }
+    .flipped-figure img {
+      height: 600px;
+    }
+    .section-flipped-content {
+      text-align: left;
+    }
+    .flipped-heading {
+      font-size: 42px;
+    }
+    .flipped-description {
+      font-size: 19px;
+    }
+  }
+</style>
+{% schema %}
+{
+  "name": "Section Flipped",
+  "tag": "section",
+  "class": "section-flipped",
+  "settings": [
+    {
+      "type": "text",
+      "id": "css_class",
+      "label": "Add CSS Class"
+    },
+    {
+      "type": "select",
+      "id": "direction",
+      "label": "Direction",
+      "default": "right",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "right", "label": "Right" }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "content",
+      "name": "Content",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "text",
+          "id": "tagline",
+          "default": "Tagline",
+          "label": "Tagline"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Heading",
+          "label": "Heading"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "default": "Description",
+          "label": "Description"
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "name": "Figure",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Section Flipped",
+      "blocks": [
+        {
+          "type": "figure"
+        },
+        {
+          "type": "content"
+        },
+        {
+          "type": "figure"
+        },
+        {
+          "type": "content"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

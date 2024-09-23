@@ -1,0 +1,276 @@
+{%- liquid
+  assign country_codes = section.settings.country_code | split: ','
+  assign exclude_country_codes = section.settings.exclude_country_code | split: ','
+  assign should_show_banner = false
+  assign link_url = section.settings.collection_link.url
+
+  if section.settings.country_code == '' and section.settings.exclude_country_code == ''
+    assign should_show_banner = true
+  else
+    assign is_excluded = false
+    for exclude_code in exclude_country_codes
+      if localization.country.iso_code == exclude_code
+        assign is_excluded = true
+        break
+      endif
+    endfor
+
+    unless is_excluded
+      if section.settings.country_code == ''
+        assign should_show_banner = true
+      else
+        for code in country_codes
+          if localization.country.iso_code == code
+            assign should_show_banner = true
+            break
+          endif
+        endfor
+      endif
+    endunless
+  endif
+-%}
+{% if should_show_banner %}
+  {%- liquid
+    assign sc_id = '#shopify-section-' | append: section.id
+    assign heading = section.settings.heading | escape
+    assign tagline = section.settings.tagline | escape
+    assign image = section.settings.image
+    assign width = section.settings.image.width
+    assign height = section.settings.image.height
+    assign class = section.settings.image.class
+    assign card_heading_level = 'h2'
+    assign use_link = true
+    assign use_ajax = false
+  %}
+
+  <style>
+    {{ sc_id }} {
+      padding-top: {{ section.settings.padding_top | times: 0.50 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.50 }}px;
+    }
+
+    @media screen and (min-width: 769px) {
+      {{ sc_id }} {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+
+    {% if section.settings.cta_position == 'top' %}
+    @media screen and (min-width: 769px) {
+      .all-products-text-wrapper, .all-products-text-wrapper-inline {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        align-items: flex-end;
+      }
+    }
+    {% endif %}
+  </style>
+
+  <section class='featured-collection featured-all-products'>
+    <div class=''>
+      <div class='all-products-list'>
+        <div class='all-products-text-wrapper container mx-auto'>
+          <div class='all-products-text-wrapper-inline'>
+            <h2 class='all-products-title staff-x-condensed-type'>{{ heading | escape }}</h2>
+            <p class='all-products-tagline color-gray'>{{ tagline | escape }}</p>
+            {% if section.settings.cta_position == 'top' %}
+              <div
+                class='container all-products-link top'
+                style='margin-left: auto; margin-right: 0;'
+              >
+                {%- liquid
+                  assign pre_button_text = section.settings.pre_cta
+                  assign heading = section.settings.heading
+                  assign button_text = heading | append: pre_button_text
+                -%}
+                {% render 'tc-link',
+                  link_text: button_text,
+                  link_url: section.settings.collection_link.url,
+                  new_tab: false,
+                  link_classes: 'secondary',
+                  link_color_inverse: false,
+                  icon: 'arrow-right',
+                  link_margin_top: 'mg-t-none',
+                  link_margin_bottom: 'mg-b-none',
+                  full_width: false,
+                  disabled: false
+                %}
+              </div>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class='container mx-auto all-products-grid direction-{{ section.settings.class }}'>
+          <div class='all-products-main featured-products-main'>
+            <div class='all-products-image-wrapper lazy-image-placeholder'>
+              {% if link_url != blank %}
+                <a href="{{ link_url }}"> 
+              {% endif %}
+                <picture>
+                  <source media="(max-width: 767px)" srcset="{{ section.settings.mobile_image | image_url }}">
+                  <source media="(min-width: 768px)" srcset="{{ section.settings.image | image_url }}">
+                  <img
+                    src="{{ section.settings.image | image_url: size: 'master' }}"
+                    loading="lazy"
+                    alt="image.alt"
+                    class="product-card__image"
+                    width="{{ section.settings.image.width }}"
+                    height="{{ section.settings.image.height | divided_by: image.aspect_ratio }}"
+                  >
+                </picture>
+              {% if link_url != blank %}
+                </a>
+              {% endif %}
+            </div>
+          </div>
+
+          <div class='all-products-featured'>
+            {% for product in section.settings.collection_link.products limit: 4 %}
+              {% render 'product-card',
+                product: product,
+                card_heading_level: card_heading_level,
+                use_link: use_link,
+                use_ajax: use_ajax,
+                hide_legend: true,
+                use_variant_image: false
+              %}
+            {% endfor %}
+            {% if section.settings.cta_position == 'bottom' %}
+              <div class='all-products-link bottom' style='width: 100%;'>
+                {%- liquid
+                  assign button_text = section.settings.heading | prepend: 'Shop All '
+                -%}
+                {% render 'tc-link',
+                  link_text: button_text,
+                  link_url: section.settings.collection_link.url,
+                  new_tab: false,
+                  link_classes: 'secondary',
+                  link_color_inverse: false,
+                  icon: 'arrow-right',
+                  link_margin_top: 'mg-t-none',
+                  link_margin_bottom: 'mg-b-none',
+                  full_width: true,
+                  disabled: false
+                %}
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endif %}
+{% schema %}
+{
+  "name": "TCT Featured Products",
+  "tag": "section",
+  "class": "section section-all-products",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Geolocation"
+    },
+    {
+      "type": "text",
+      "id": "country_code",
+      "label": "Country code",
+      "info": "Enter the country code for the country you want to show the section to. You can have multiple country codes, just separate them with a comma. Example: US,CA,GB. Leave empty to show to all countries."
+    },
+    {
+      "type": "text",
+      "id": "exclude_country_code",
+      "label": "Exclude country code",
+      "info": "Enter the country code for the countries you DON'T want to show the section to. You can have multiple country codes, just separate them with a comma. Example: US,CA,GB"
+    },
+    {
+      "type": "select",
+      "id": "class",
+      "label": "Direction",
+      "default": "right",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+    {
+      "type": "collection",
+      "id": "collection_link",
+      "label": "Collection"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile Image"
+    },
+    {
+      "type": "select",
+      "id": "cta_position",
+      "options": [
+        {
+          "value": "top",
+          "label": "Top"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        }
+      ],
+      "default": "top",
+      "label": "CTA Position"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Headline"
+    },
+    {
+      "type": "text",
+      "id": "pre_cta",
+      "label": "Pre CTA",
+      "default": "Shop All "
+    },
+    {
+      "type": "text",
+      "id": "tagline",
+      "default": "Stylish, comfortable and a straight up classic.",
+      "label": "Tagline"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "TCT Featured Products"
+    }
+  ]
+}
+{% endschema %}

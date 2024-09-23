@@ -1,0 +1,106 @@
+.footer__form-title {
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 1px;
+  font-size: 30px;
+}
+
+.klaviyo-form-container button {
+  background-color: var(--brand-brown) !important;
+  font-family: var(--font-family-button) !important;
+  border-top-right-radius: 5px !important;
+  border-bottom-right-radius: 5px !important;
+  height: 28px !important;
+}
+
+.klaviyo-form-container input {
+  height: 50px !important;
+  border-top-left-radius: 5px !important;
+  border-bottom-left-radius: 5px !important;
+  border-radius: 1px solid black !important;
+}
+
+.klaviyo-form-container .needsclick:has(button) {
+  padding: 0 !important;
+}
+.klaviyo-form-container .needsclick:has(form) {
+  width: 100%;
+}
+
+.klaviyo-form-container button:hover {
+  background-color: var(--brand-brown) !important;
+  opacity: .7;
+}
+
+
+.klaviyo-form-container {
+  display: none;
+  width: 100%;
+}
+
+.klaviyo-form-container.active {
+  display: block;
+}
+
+.klaviyo-dynamic-get-on-list {
+  background-color: var(--brand-brown);
+  color: white;
+}
+
+@media screen and (max-width: 62rem) {
+  .footer__form-title {
+    font-size: 22px;
+  }
+}
+
+.loading-spinner {
+  display: inline-block;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-left: 10px;
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.email-input.field {
+  position: relative;
+  max-width: 260px;
+}
+
+.email-input.field input {
+  width: 100%;
+}
+
+.email-input.field input[required] {
+}
+
+.email-input.field input::placeholder {
+}
+
+button.klaviyo-form__submit {
+  background-color: transparent;
+  color: var(--brand-black);
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  height: 4.125rem;
+  min-width: 48px;
+}
+
+#footerDesktopForm .email-input {
+  color: var(--brand-black);
+}

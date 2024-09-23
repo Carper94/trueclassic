@@ -1,0 +1,25 @@
+{% if localization.country.iso_code == 'CA' %}
+  {% assign max = section.settings.progress_bar_max | times: 175 %}
+{% elsif localization.country.iso_code == 'AU' %}
+  {% assign max = section.settings.progress_bar_max | times: 200 %}
+{% elsif localization.country.iso_code == 'MX' %}
+  {% assign max = section.settings.progress_bar_max | times: 2000 %}
+{% else %}
+  {% assign max = section.settings.progress_bar_max | times: 100 %}
+{% endif %}
+{% assign value = cart.total_price %}
+
+{% capture under_max_message %}
+  <span class="font-medium">{{ section.settings.progress_bar_under_max_message }}</span>
+{% endcapture %}
+
+{% capture over_max_message %}
+  <span class="font-medium">{{ section.settings.progress_bar_over_max_message }}</span>
+{% endcapture %}
+
+{% render 'progress-bar-old',
+  value: value,
+  max: max,
+  under_max_message: under_max_message,
+  over_max_message: over_max_message
+%}

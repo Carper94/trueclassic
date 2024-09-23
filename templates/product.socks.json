@@ -1,0 +1,280 @@
+{
+  "sections": {
+    "main": {
+      "type": "product-main",
+      "blocks": {
+        "95e1be07-938a-4918-80e6-9a650b58e3dd": {
+          "type": "description_accordion",
+          "settings": {
+            "title": "Perfect Fit, Made to Last Guarantee",
+            "content_html": "<p class=\"guarantee-us\">We give a fit about comfort and quality, and want you to look good and feel good for years to come. That’s why every product comes with a <a href=\"https:\/\/www.trueclassictees.com\/pages\/fit-guarantee\">Perfect Fit, Made to Last Guarantee<\/a> – if it doesn’t fit right or wears a little too soon, let us know within 30 days and we’ll replace it for free, no questions asked.<\/p>"
+          }
+        },
+        "c913fead-294f-44f9-8aa6-a1db375beb97": {
+          "type": "description_accordion",
+          "settings": {
+            "title": "Care Guide",
+            "content_html": "We recommend washing on cold and laying flat to dry, or use a low temp dryer setting. Drying may result in about 5% shrinkage."
+          }
+        },
+        "c2c09715-2d4e-4543-8b1a-2408124d1239": {
+          "type": "description_accordion",
+          "settings": {
+            "title": "Free Returns & Exchanges",
+            "content_html": "<a href='https:\/\/trueclassictees-com.myshopify.com\/pages\/returns-exchanges'>Start a return<\/a> or get in touch with our team by contacting us at <a href='mailto:support@trueclassic.com'>support@trueclassic.com<\/a> or by calling our phone number at <a href='tel:+13234191092'>(323) 419-1092<\/a>."
+          }
+        }
+      },
+      "block_order": [
+        "95e1be07-938a-4918-80e6-9a650b58e3dd",
+        "c913fead-294f-44f9-8aa6-a1db375beb97",
+        "c2c09715-2d4e-4543-8b1a-2408124d1239"
+      ],
+      "settings": {
+        "show_icons": false,
+        "icon_image_1": "",
+        "icon_text_1": "",
+        "icon_image_2": "",
+        "icon_text_2": "",
+        "icon_image_3": "",
+        "icon_text_3": "",
+        "icon_image_4": "",
+        "icon_text_4": "",
+        "icon_image_5": "",
+        "icon_text_5": "",
+        "icon_image_6": "",
+        "icon_text_6": "",
+        "show_discount_pack_slider": false,
+        "discount_pack_slider_title": "",
+        "discount_pack_slider_collection": ""
+      }
+    },
+    "product-video-with-text": {
+      "type": "product-video-with-text",
+      "blocks": {
+        "template--14565189419080__product-video-with-text-16837423236acf3040-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "The True Classic Difference"
+          }
+        },
+        "template--14565189419080__product-video-with-text-16837423236acf3040-1": {
+          "type": "text",
+          "settings": {
+            "text": "Pairing the latest technology with a proprietary blend to ensure ultimate comfortability and functionality all day long."
+          }
+        },
+        "template--14565189419080__product-video-with-text-16837423236acf3040-2": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label_1": "Button Text",
+            "button_link_1": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--14565189419080__product-video-with-text-16837423236acf3040-0",
+        "template--14565189419080__product-video-with-text-16837423236acf3040-1",
+        "template--14565189419080__product-video-with-text-16837423236acf3040-2"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "image": "shopify:\/\/shop_images\/bottoms_fa2f3b7d-0d4a-484c-bf11-c85f06658086.jpg",
+        "self_hosted_video_url": "",
+        "video_url": "",
+        "videowise": "",
+        "video_bg_color": "brown-bg",
+        "text_color": "dark-text",
+        "button_color": "light",
+        "heading_level": "h2"
+      }
+    },
+    "product-recommendation": {
+      "type": "product-recommendation",
+      "blocks": {
+        "42cf6e8a-c4ee-4230-8ea5-1e97d8d2c082": {
+          "type": "collection",
+          "settings": {
+            "title": "Pairs well with",
+            "collection": "add-ons"
+          }
+        }
+      },
+      "block_order": [
+        "42cf6e8a-c4ee-4230-8ea5-1e97d8d2c082"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "title": "",
+        "css_class": "",
+        "show_recently_viewed": true
+      }
+    },
+    "product-ugc": {
+      "type": "product-ugc",
+      "blocks": {
+        "4ee284ed-a0f8-4d49-be02-c8b21972d139": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/baddadbeerreview_2021_instagram_influencers_re-min_50ef2d91-9097-4d8a-b4e9-a2f69a803bef.jpg"
+          }
+        },
+        "96300091-570e-4b48-b594-48110808e423": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/FE8EC1BD-4F44-411A-B802-08B99D749488-min_e58765ff-0cf2-45c9-aed2-c84ade3c8d53.jpg"
+          }
+        },
+        "1cd7df74-e09e-4123-bedd-61ecc5bbfb6e": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/iamkingcole_2022_brand_ambassadors_2021_10_03_11_08_19-min_8855518d-5d6b-4039-a7ca-387c1745efd7.jpg"
+          }
+        },
+        "c0b2ee6a-3095-42a6-b19e-5e77d8e115f2": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/image_6483441-1-min_3ee76beb-55c8-48fc-b9c8-72b6f652315e.jpg"
+          }
+        },
+        "5d6b51fd-6d3b-49c5-87c9-aac27ebfcc54": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/mr_mackenzie_2021_instagram_influencers_2021_11_17_02_02_45-min_0fa46a67-5d99-4d76-a223-6c14e64d004e.jpg"
+          }
+        },
+        "b0c56ae4-bd13-482c-967b-d7753518d1a8": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/nate_thomassss_2022_brand_ambassadors_2021_10_24_06_12_40-min_1158ff54-36ee-47f6-9787-c2b910e7ed8b.jpg"
+          }
+        },
+        "bb399c32-af3b-4b9c-9797-4ee4d5a735d5": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/nateholley18_2021_instagram_influencers_2021_10_02_10_30_41-min_c88fd8d0-51f2-4145-9ee5-a556e722ab39.jpg"
+          }
+        },
+        "034e130a-b5ea-4dd5-9091-9434df41ff96": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/Spence_Spends-min_d77aea9a-5fd4-4ece-9753-7017c45e231a.jpg"
+          }
+        },
+        "44406ca3-e072-45e3-ad31-69ba9474c6a4": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/tecumseh_x_2021_instagram_influencers_2021_08_15_07_02_02-min_1f86c878-d41f-4cf7-b22e-eae6b1ff6e84.jpg"
+          }
+        },
+        "601526ce-365a-4346-ae93-913a23c18348": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/therealfrankpascale_2021_instagram_influencers_2021_07_31_03_31_25-min_6c767a60-9ee8-45d5-af1e-cee104c80855.jpg"
+          }
+        },
+        "8603a590-3024-49ba-945d-d16c80b1d665": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/TrueClassic-3_copy-min.jpg"
+          }
+        },
+        "b6b64311-ffcb-4643-8d06-c23e4d908478": {
+          "type": "image",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/zenmotorcyclemaintenance_2022_brand_ambassadors_2022_01_25_01_48_06-min.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "4ee284ed-a0f8-4d49-be02-c8b21972d139",
+        "96300091-570e-4b48-b594-48110808e423",
+        "1cd7df74-e09e-4123-bedd-61ecc5bbfb6e",
+        "c0b2ee6a-3095-42a6-b19e-5e77d8e115f2",
+        "5d6b51fd-6d3b-49c5-87c9-aac27ebfcc54",
+        "b0c56ae4-bd13-482c-967b-d7753518d1a8",
+        "bb399c32-af3b-4b9c-9797-4ee4d5a735d5",
+        "034e130a-b5ea-4dd5-9091-9434df41ff96",
+        "44406ca3-e072-45e3-ad31-69ba9474c6a4",
+        "601526ce-365a-4346-ae93-913a23c18348",
+        "8603a590-3024-49ba-945d-d16c80b1d665",
+        "b6b64311-ffcb-4643-8d06-c23e4d908478"
+      ],
+      "disabled": true,
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "heading": "Trusted by 2.5+ Million Men Worldwide",
+        "sub_heading": ""
+      }
+    },
+    "product-okendo": {
+      "type": "product-okendo",
+      "settings": {
+      }
+    },
+    "product-faqs": {
+      "type": "product-faqs",
+      "blocks": {
+        "eb864e7b-21d0-41d0-b466-72df0716784e": {
+          "type": "block",
+          "settings": {
+            "question": "What are the features of a True Classic crew neck t-shirt?",
+            "paragraph": "<p>Answer Every guy looks great in classic crew necks. They flatter the arms, chest, and back. And if you pick the right shirt, it’ll last you a lifetime. Try our <a href=\"https:\/\/www.trueclassictees.com\/collections\/pocket-tees\">crews with pockets <\/a>or without them. Also available in <a href=\"https:\/\/www.trueclassictees.com\/collections\/long-sleeve-tees\">long sleeve crews<\/a>.<\/p><p>All of our classic, slim fit crew neck tees are fitted and sized to flatter your body — no matter what shape or size. That’s because we know the difference between an ok shirt and a great shirt — it’s all in how a shirt sits on your arms and shoulders. Plus, we put a lot of work into making sure our shirts won’t shrink and your back won’t itch (our shirts are tagless). Our cotton crew neck t shirt are perfectly balanced with polyester for a slim fitted crew.<\/p>"
+          }
+        },
+        "22718428-f85b-4231-809c-25ea29ce086d": {
+          "type": "block",
+          "settings": {
+            "question": "Which crew necks are most popular?",
+            "paragraph": "<p>Keep it simple with the essential <a href=\"https:\/\/www.trueclassictees.com\/products\/white-crew-neck-tee\">white crew<\/a> or <a href=\"https:\/\/www.trueclassictees.com\/products\/black-crew-neck-tee\">black crew neck shirt<\/a>. You can purchase <a href=\"https:\/\/www.trueclassictees.com\/products\/the-classic-pack\">crew 3 packs of the basics<\/a> or our staple<a href=\"https:\/\/www.trueclassictees.com\/products\/staple-pack\"> 6 pack of crews<\/a>, so your wardrobe has a foundation to build on.<\/p>"
+          }
+        },
+        "06939478-7ce2-4b6f-a88c-38bfe0be5971": {
+          "type": "block",
+          "settings": {
+            "question": "How should a crew neck fit your body?",
+            "paragraph": "<p>A crew neck should accentuate your upper body, primarily your arms and shoulders. It should fit snugly around your neck, but you shouldn’t feel constrained or choked. Use our <a href=\"https:\/\/www.trueclassictees.com\/pages\/calculator\">Find My Fit calculator<\/a> to find the best crew neck size.<\/p>"
+          }
+        },
+        "22fa6d2b-a195-49a4-b58d-996f222ceae9": {
+          "type": "block",
+          "settings": {
+            "question": "What should men avoid when buying a men's crew neck t-shirt?",
+            "paragraph": "<p>One of our biggest pet peeves is gathering around the crew neck collar. When you sport a crew neck, it should lay flat along your chest. But if it gathers and doesn’t sit right around your collarbone … run for the hills.<\/p>"
+          }
+        },
+        "0b34b159-5b77-4233-8659-391a4995e07d": {
+          "type": "block",
+          "settings": {
+            "question": "How do you style a men's crew neck t-shirt?",
+            "paragraph": "<p>In warmer months, style your crew neck with slim-fit jeans for a night out on the town. And as it cools off, reach for your favorite <a href=\"https:\/\/www.trueclassictees.com\/collections\/bottoms-1\" title=\"https:\/\/www.trueclassictees.com\/collections\/bottoms-1\">fleece joggers<\/a> and layer your crew neck under a quality hoodie.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "eb864e7b-21d0-41d0-b466-72df0716784e",
+        "22718428-f85b-4231-809c-25ea29ce086d",
+        "06939478-7ce2-4b6f-a88c-38bfe0be5971",
+        "22fa6d2b-a195-49a4-b58d-996f222ceae9",
+        "0b34b159-5b77-4233-8659-391a4995e07d"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "faq_title": "FAQ"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product-video-with-text",
+    "product-recommendation",
+    "product-ugc",
+    "product-okendo",
+    "product-faqs"
+  ]
+}

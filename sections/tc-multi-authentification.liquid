@@ -1,0 +1,311 @@
+{%- style -%}
+  .section-{{ section.id }}-spacing {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 768px) {
+    .section-{{ section.id }}-spacing {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  .section-authentification {
+
+  }
+
+  .section-authentification > .content-wrapper {
+
+  }
+
+  .section-authentification > .content-wrapper.multi-login {
+    display: flex;
+  }
+
+  @media screen and (min-width: 990px) {
+    .section-authentification > .content-wrapper.multi-login {
+      flex-direction: row;
+    }
+    .section-authentification > .content-wrapper.multi-login > * {
+      width: 33.33%
+    }
+
+    .section-authentification > .content-wrapper > * {
+      border-right: 1px solid #e5e5e5;
+    }
+
+    .section-authentification > .content-wrapper > *:last-child {
+      border-right: 0;
+    }
+
+    .section-authentification .account-page {
+      padding: 0 var(--spacer-l);
+    }
+  }
+
+  @media screen and (max-width: 989px) {
+    .section-authentification > .content-wrapper.multi-login {
+      flex-direction: column;
+    }
+    .section-authentification > .content-wrapper.multi-login > * {
+      width: 100%
+    }
+
+    .section-authentification > .content-wrapper > * {
+      padding: 1rem 0;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .section-authentification > .content-wrapper > *:last-child {
+      border-bottom: 0;
+    }
+
+    .section-authentification .account-page {
+      padding: var(--spacer-m);
+    }
+  }
+
+  .form-container form [name="hiko-container"] {
+    display: none;
+  }
+
+  .section-authentification .account-page {
+    margin: 0 auto;
+  }
+{%- endstyle -%}
+
+<div class='section-authentification container section-{{ section.id }}-spacing'>
+  <div class='content-wrapper multi-login'>
+    <div class='multi-auth__login'>
+      <section class='account-page'>
+        <div class='form-success hide' data-reset-success>
+          {{ 'customer.recover_password.success' | t }}
+        </div>
+
+        <div class='form-container' data-account-section>
+          {% form 'customer_login' %}
+            <h2>{{ 'customer.login.title' | t }}</h2>
+            {%- render 'form-errors', errors: form.errors -%}
+            <label for='customer-email' class='visually-hidden'>
+              {{ 'customer.login.email' | t }}
+            </label>
+            <input
+              type='email'
+              name='customer[email]'
+              id='customer-email'
+              class='{% if form.errors contains 'email' %}input-error{% endif %}'
+              placeholder='{{ 'customer.login.email' | t }}'
+              spellcheck='false'
+              autocomplete='off'
+              autocapitalize='off'
+              autofocus
+            >
+
+            {% if form.password_needed %}
+              <label for='customer-password' class='visually-hidden'>
+                {{ 'customer.login.password' | t }}
+              </label>
+              <input
+                type='password'
+                name='customer[password]'
+                id='customer-password'
+                class='{% if form.errors contains 'password' %}input-error{% endif %}'
+                placeholder='{{ 'customer.login.password' | t }}'
+              >
+            {% endif %}
+
+            <div class='button-container'>
+              <input
+                id='customer-login-submit'
+                type='submit'
+                class='button primary'
+                value='{{ 'customer.login.sign_in' | t }}'
+              >
+            </div>
+
+            {% if form.password_needed %}
+              <button
+                id='recover-password-trigger'
+                class='text-button'
+                type='button primary'
+                data-account-toggle
+              >
+                {{ 'customer.login.forgot_password' | t }}
+              </button>
+            {% endif %}
+
+            <a href='{{ routes.root_url }}'>{{ 'customer.login.cancel' | t }}</a>
+          {% endform %}
+        </div>
+
+        <div class='hide' data-account-section>
+          <h1>{{ 'customer.recover_password.title' | t }}</h1>
+          <p>{{ 'customer.recover_password.subtext' | t }}</p>
+
+          {% form 'recover_customer_password' %}
+            {{ form.errors | default_errors }}
+
+            {% if form.posted_successfully? %}
+              <span class='hide' data-form-state></span>
+            {% endif %}
+
+            <label for='recover-email' class='label-hidden'>
+              {{ 'customer.recover_password.email' | t }}
+            </label>
+            <input
+              type='email'
+              name='email'
+              id='recover-email'
+              placeholder='{{ 'customer.recover_password.email' | t }}'
+              spellcheck='false'
+              autocomplete='off'
+              autocapitalize='off'
+            >
+
+            <div class='button-container'>
+              <input
+                id='recover-submit'
+                type='submit'
+                class='button'
+                value='{{ 'customer.recover_password.submit' | t }}'
+              >
+            </div>
+
+            <button class='text-button' type='button' data-account-toggle>
+              {{ 'customer.recover_password.cancel' | t }}
+            </button>
+          {% endform %}
+        </div>
+
+        {% if shop.checkout.guest_login %}
+          <h1>{{ 'customer.login.guest_title' | t }}</h1>
+
+          {% form 'guest_login' %}
+            <input type='submit' class='button' value='{{ 'customer.login.guest_continue' | t }}'>
+          {% endform %}
+        {% endif %}
+      </section>
+    </div>
+
+    <div class='multi-auth__signup'>
+      <section class='account-page'>
+        <div class='form-container'>
+          {% form 'create_customer' %}
+            <h2>{{ 'customer.register.title' | t }}</h2>
+            {%- render 'form-errors', errors: form.errors -%}
+
+            <label for='FirstName' class='visually-hidden'>
+              {{ 'customer.register.first_name' | t }}
+            </label>
+            <input
+              type='text'
+              name='customer[first_name]'
+              id='FirstName'
+              placeholder='{{ 'customer.register.first_name' | t }}'
+              autofocus
+              {% if form.first_name %}
+                value='{{ form.first_name }}'
+              {% endif %}
+            >
+
+            <label for='LastName' class='visually-hidden'>
+              {{ 'customer.register.last_name' | t }}
+            </label>
+            <input
+              type='text'
+              name='customer[last_name]'
+              id='LastName'
+              placeholder='{{ 'customer.register.last_name' | t }}'
+              {% if form.last_name %}
+                value='{{ form.last_name }}'
+              {% endif %}
+            >
+
+            <label for='Email' class='visually-hidden'>
+              {{ 'customer.register.email' | t }}
+            </label>
+            <input
+              type='email'
+              name='customer[email]'
+              id='Email'
+              class='{% if form.errors contains 'email' %}input-error{% endif %}'
+              placeholder='{{ 'customer.register.email' | t }}'
+              value='{% if form.email %}{{ form.email }}{% endif %}'
+              spellcheck='false'
+              autocomplete='off'
+              autocapitalize='off'
+            >
+
+            <label for='CreatePassword' class='visually-hidden'>
+              {{ 'customer.register.password' | t }}
+            </label>
+            <input
+              type='password'
+              name='customer[password]'
+              id='CreatePassword'
+              class='{% if form.errors contains 'password' %}input-error{% endif %}'
+              placeholder='{{ 'customer.register.password' | t }}'
+            >
+
+            <div class='button-container'>
+              <input
+                type='submit'
+                value='{{ 'customer.register.submit' | t }}'
+                class='button primary'
+              >
+              <div class='form-link'>
+                <a href='{{ shop.url }}'>{{ 'customer.register.cancel' | t }}</a>
+              </div>
+            </div>
+          {% endform %}
+        </div>
+      </section>
+    </div>
+
+    <div class='multi-auth__social'>
+      <section class='account-page'>
+        <h2>Social Signup</h2>
+        {% form 'create_customer' %}{% endform %}
+      </section>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Multi Authentification",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom",
+      "default": 52
+    }
+  ],
+  "presets": [
+    {
+      "name": "Multi Authentification"
+    }
+  ]
+}
+{% endschema %}

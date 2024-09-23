@@ -1,0 +1,286 @@
+{%- liquid
+    assign mb = section.settings.membership_product
+    assign mb_id = mb.id
+    assign mb_handle = mb.handle
+    assign mb_title = mb.title
+    assign mb_requires_selling_plan = mb.requires_selling_plan
+    assign mb_has_only_default_variant = mb.has_only_default_variant
+    assign mb_variants = mb.variants
+    assign mb_first_available_variant = mb.first_available_variant
+    assign mb_first_available_variant_id = mb_first_available_variant.id
+    assign mb_first_available_variant_title = mb_first_available_variant.title
+    assign mb_first_available_variant_requires_selling_plan = mb_first_available_variant.requires_selling_plan
+    assign mb_first_available_variant_selling_plan_allocations = mb_first_available_variant.selling_plan_allocations
+    assign mb_selected_or_first_available_selling_plan_allocation = mb.selected_or_first_available_selling_plan_allocation
+    assign mb_selected_or_first_available_selling_plan_allocation_selling_plan_group_id = mb_selected_or_first_available_selling_plan_allocation.selling_plan_group_id
+    assign mb_selected_or_first_available_selling_plan_allocation_selling_plan_id = mb_selected_or_first_available_selling_plan_allocation.selling_plan.id
+    assign mb_selected_or_first_available_selling_plan_allocation_checkout_charge_amount = mb_selected_or_first_available_selling_plan_allocation.checkout_charge_amount
+  -%}
+
+  {% assign in_cart = false %}
+  {% for item in cart.items %}
+    {% if item.product.id == mb.id %}
+      {% assign in_cart = true %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+
+
+
+<script>
+  function sendEventATCMembership() {
+    dataLayer.push({ 'ecommerce': null });dataLayer.push({
+      'event': 'add_membership_to_cart',
+      'ecommerce': {
+        'value': '{{ mb.price | money_without_currency | remove: ',' | remove: '$' | remove: "'" | remove: '"' }}',
+        'currency': 'USD',
+          'items': [{
+          'item_id': '{{ mb.id }}',
+          'item_name': '{{ mb.title | remove: "'" | remove: '"' }}',
+          'selling_plan': '{{ mb_selected_or_first_available_selling_plan_allocation_selling_plan_id | remove: "'" | remove: '"' }}',
+          'source': 'Cart Upsell',
+          'item_brand': '{{ mb.vendor | remove: "'" | remove: '"' }}',
+          'item_category': '{{ mb.type | remove: "'" | remove: '"' }}',
+          'item_variant': 'TCTMEMBER',
+          'currency': 'USD',
+          'price': '{{ mb.price | money_without_currency | remove: ',' | remove: '$' | remove: "'" | remove: '"' }}',
+          }]
+        }
+    });
+  }
+</script>
+
+<style>
+  .membership-upsell-section {
+      position: relative;
+      margin: 0px;
+      background-color: #1D1D1D;
+      padding: 15px 0px;
+  }
+
+  .membership-upsell-section .bg-color-chocolate{
+    padding: 18px 20px;
+  }
+
+  .membership-upsell-section .h2 {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 0;
+    margin-top: 0;
+    text-align: center;
+    letter-spacing: 0.03em;
+    margin-bottom:10px; 
+  }
+
+  p.membership-yearly a:hover {
+    color: #fff !important;
+  }
+    
+  .membership-upsell-section .h2.membership-savings {
+    color: #FFDE6A;
+    margin-bottom: 2px;
+    font-size: 27px;
+  }
+
+  .membership-upsell-section .h2.membership-price {
+    margin: 0px auto;
+    font-size: 25px;
+  }
+  
+  .membership-upsell-section .h3 {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.15;
+    margin-bottom: 0;
+    margin-top: 0;
+    text-align: center;
+    letter-spacing: 0.03em;
+  }
+  .membership-upsell-section .benefits-list.collapsed{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .3s ease;
+  }
+  .membership-upsell-section .benefits-list {
+    max-height: 171px;
+    overflow: hidden;
+    transition: max-height .3s ease;
+  }
+
+  .membership-upsell-section .button.show-benefits {
+    color:#fff;
+    margin: 1rem auto;
+    text-transform:lowercase;
+    border:none;
+    background:none;
+    padding:0;
+    font-size:13.5px;
+    cursor:pointer;
+    text-decoration:underline;
+  }
+  .membership-upsell-section .atc-btn {
+    border:1px solid var(--brand-yellow);
+  }
+  .membership-upsell-section .flex{
+    width: 100%;
+    justify-content: space-around;
+    align-items:center;
+  }
+  .membership-upsell-section .membership-text {
+    text-align:center;
+    width: 40%;
+  }
+  .membership-btn {
+    width: 60%;
+    text-align: center;
+  }
+  .membership-upsell-section .only {
+    font-size:22px;
+    line-height:1.2;
+  }
+  .membership-upsell-section .billed {
+    font-size:12.5px;
+  }
+  .membership-upsell-section li {
+    list-style:disc;
+    margin-left: 0;
+  }
+  .membership-upsell-section .benefits-list ul {
+    margin-bottom: 0;
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .membership-upsell-section .text.s, .membership-upsell-section .text.s p.membership-savings-details {
+    font-size: 18px;
+    line-height: 21px;
+    padding: 0px 12px;
+  }
+  .membership-upsell-section .text.s, .membership-upsell-section .text.s p.membership-yearly {
+    font-size: 14px;
+  }
+  @media screen and (max-width: 768px){
+    .membership-upsell-section .only{
+      font-size:18.5px;
+      line-height:1.2;
+    }
+    .membership-upsell-section .billed {
+      font-size: 11.5px;
+    }
+    .membership-upsell-section .benefits-list ul {
+      margin-bottom: 0;
+      max-width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  @media screen and (min-width: 768px){
+    .membership-upsell-section .benefits-list ul li {
+      font-size: 14.5px!important;
+    }
+  }
+  .membership-upsell-section .loading-overlay__spinner {
+    position: absolute;
+    width: 1.25rem;
+    height: 1.25rem;
+    left: 50%;
+    transform: translateX(-80%);
+  }
+  .membership-image {
+    display: block;
+    max-width: 65%;
+    width: 100%;
+    height: auto;
+    margin: 10px auto;
+  }
+</style>
+<div class="membership-upsell-section {% if in_cart %}hidden{% endif %}" id='membership-upsell-section'>
+  <div class="mg-t-m mg-b-m" style='padding: 0 10px;'>
+    <h2 class="h2 color-brand-white staff-x-condensed-type membership-savings">
+      {% assign new_total = cart.items_subtotal_price %}
+      GET {{ new_total | divided_by: 5 | money }} CREDIT ON THIS ORDER
+    </h2>
+    {% render 'tc-paragraph',
+      text: '<p class="membership-savings-details">PLUS GET 20% credit &amp; free shipping on all future orders.</p>',
+      text_font: 'modernist-type',
+      text_style: 's',
+      text_color: 'color-white',
+      text_color_inverse: false,
+      text_margin_top: 'mg-t-none',
+      text_margin_bottom: 'mg-b-m',
+      text_align: 'text-center',
+      block_id: 'unique_id'
+    %}
+    {%- liquid
+      assign image_height = image.width | divided_by: image.aspect_ratio
+      assign image_class = 'membership-image'
+      assign sizes = '100%'
+    -%}
+    {{
+      image
+      | image_url: width: 1500
+      | image_tag:
+        width: image.width,
+        height: image_height,
+        class: image_class,
+        sizes: sizes,
+        loading: loading,
+        widths: '165, 265, 360, 535, 750',
+        alt: image.alt
+      | escape
+    }}
+    <h2 class="h2 color-brand-white staff-x-condensed-type membership-price">
+      Membership is just $1/mo*
+    </h2>
+    {% render 'tc-paragraph',
+      text: '<p class="membership-yearly">*billed at $12/yr - <a href="/pages/true-classic-membership"><u>read more details</u></a></p>',
+      text_font: 'modernist-type',
+      text_style: 's',
+      text_color: 'color-white',
+      text_color_inverse: false,
+      text_margin_top: 'mg-t-none',
+      text_margin_bottom: 'mg-b-m',
+      text_align: 'text-center',
+      block_id: 'unique_id'
+    %}
+    <div class="flex">
+      <form class="membership-btn" 
+        data-delegate='cartmembershipupsell'
+        data-variant-id='{{ mb_first_available_variant_id }}'
+        data-variant-selling-plan-id='{{ mb_selected_or_first_available_selling_plan_allocation_selling_plan_id }}'
+      >
+
+        <button class="button bg-color-yellow color-brand-black"
+          id="addToCartButton"
+          style='width: -webkit-fill-available; max-width: 90%; margin-left: auto; margin-right: auto; border: 0;'
+          onclick="
+            dataLayer.push({ 'ecommerce': null });dataLayer.push({
+              'event': 'add_membership_to_cart',
+              'ecommerce': {
+                'value': {{ mb.price | money_without_currency | remove: ',' | remove: '$' | remove: "'" | remove: '"' }},
+                'currency': 'USD',
+                  'items': [{
+                  'item_id': '{{ mb.id }}',
+                  'item_name': '{{ mb.title | remove: "'" | remove: '"' }}',
+                  'selling_plan': '{{ mb_selected_or_first_available_selling_plan_allocation_selling_plan_id | remove: "'" | remove: '"' }}',
+                  'source': 'Cart Upsell',
+                  'item_brand': '{{ mb.vendor | remove: "'" | remove: '"' }}',
+                  'item_category': '{{ mb.type | remove: "'" | remove: '"' }}',
+                  'currency': 'USD',
+                  'price': {{ mb.price | money_without_currency | remove: ',' | remove: '$' | remove: "'" | remove: '"' }},
+                  }]
+                }
+            });
+          "
+        >
+        <span class='btn-text'>
+          {% render 'tc-icons', icon: 'none' %}
+          ADD TO CART
+        </span>
+        {% render 'button-loader' %}
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

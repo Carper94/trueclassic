@@ -1,0 +1,18 @@
+.accordion-array__item {
+  font-family: var(--font-family-primary);
+
+  & .accordion__tab {
+    padding: var(--spacer-s) 0px;
+  }
+
+  & .accordion__panel {
+    padding-bottom: var(--spacer-m);
+    font-size: var(--font-size-medium);
+  }
+
+  &:last-child {
+    & .accordion__panel {
+      padding-bottom: 0px;
+    }
+  }
+}

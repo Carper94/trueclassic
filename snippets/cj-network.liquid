@@ -1,0 +1,3 @@
+<script>
+cjShopifyData={"ordersCount":"{{customer.orders_count}}","orderId":"{{order_number}}","items":[{% for line_item in line_items%}{"itemId":"{{line_item.sku|handleize}}","unitPrice":{{line_item.price|times:0.01}},"quantity":{{line_item.quantity}},"discount":{{line_item.line_level_total_discount|times:0.01}}},{% endfor %}]} 
+</script>

@@ -1,0 +1,63 @@
+<style>
+  #timer{{ unique_id }} {
+    margin-top: {{ margin_top }}px;
+    margin-bottom: {{ margin_bottom }}px;
+    max-width: 900px !important;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: {{ font_size }}rem;
+    font-family: 'Staff X Condensed';
+    text-align: center;
+    font-weight: 200;
+  }
+  @media screen and (max-width: 768px) {
+    #timer{{ unique_id }} {
+      font-size: {{ font_size_mobile }}rem;
+    }
+  }
+</style>
+<div
+  id='timer{{ unique_id }}'
+  class='banner_countdown banner__heading'
+  style=''
+>
+  <span id='timer-days{{ unique_id }}' class='timer-days'></span> :
+  <span id='timer-hours{{ unique_id }}' class='timer-hours'></span> :
+  <span id='timer-mins{{ unique_id }}' class='timer-mins'></span> :
+  <span id='timer-secs{{ unique_id }}' class='timer-secs'></span>
+</div>
+
+<script type='text/javascript'>
+  function itsTheFinalCountdown(unique_id) {
+    const moonLanding = new Date(
+      '{{ month }} {{ day }}, {{ year }} {{ hour }}:{{ minute }}:00 GMT+00:00'
+    );
+    console.log(moonLanding);
+
+    const endDate = new Date(moonLanding).getTime();
+    const now = new Date();
+    const nowUtc = new Date(now.getTime() + now.getTimezoneOffset() * 60 * 1000);
+    const pstOffset = -7 * 60 * 60 * 1000;
+    const nowPst = new Date(nowUtc.getTime() + pstOffset);
+    const t = endDate - nowPst.getTime();
+    console.log(t);
+
+    if (t >= 0) {
+      let daysLeft = Math.floor(t / (1000 * 60 * 60 * 24));
+      let hoursLeft = Math.floor((t % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      let minutesLeft = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
+      let secondsLeft = Math.floor((t % (1000 * 60)) / 1000);
+
+      document.getElementById('timer-days' + unique_id).innerHTML = ('0' + daysLeft).slice(-2);
+      document.getElementById('timer-hours' + unique_id).innerHTML = ('0' + hoursLeft).slice(-2);
+      document.getElementById('timer-mins' + unique_id).innerHTML = ('0' + minutesLeft).slice(-2);
+      document.getElementById('timer-secs' + unique_id).innerHTML = ('0' + secondsLeft).slice(-2);
+    } else {
+      document.getElementById('timer' + unique_id).innerHTML = '{{ text_end }}';
+    }
+  }
+
+  let unique_id = '{{ unique_id }}';
+  itsTheFinalCountdown(unique_id);
+  setInterval(() => itsTheFinalCountdown(unique_id), 1000);
+</script>

@@ -1,0 +1,138 @@
+{% for option in product.options_with_values %}
+
+  {% assign variant_option  = nil %}
+  {% assign option_index    = 0 %}
+
+  <fieldset class='size-swatch {% if forloop.first == true %} active first-step {% endif %}{% if forloop.last == true and has_selling_plan == false %} submit-quick-add {% endif %}'>
+    <legend>
+      {{ option.name }}
+    </legend>
+    <i class='product-card__icon-close' aria-label='Close' role='button'>✕</i>
+    <div class='size-swatch__input-wrapper size-swatch__input-wrapp'>
+      {% assign first = true %}
+      {% for value in option.values %}
+        {% assign disable = false %}
+
+        {% for variant in product.variants %}
+        
+          {% if variant.options contains value and variant.available == false %}
+            {% assign disable = true %}
+          {% endif %}
+       
+        {% endfor %}
+
+        {% if disable %}
+          {% continue %}
+        {% endif %}
+
+        <div class='size-option'>
+          <input
+            type='radio'
+            id='Size-{{ product.id }}-{{ value | replace: " ", "-" }}-{{ forloop.index0 }}'
+            class='visually-hidden quick-atc-option'
+            name='Size-Option-{{ product.id }}'
+            aria-label='Size-{{ product.id }}-{{ forloop.index0 }}'
+            aria-labeledby='Size-{{ product.id }}-{{ forloop.index0 }}-label'
+            value='{{ value }}'
+            onclick="
+              dataLayer.push({ 'ecommerce': null });
+              dataLayer.push({
+                'event': 'quick_add_to_cart',
+                'ecommerce': {
+                  'value': {{ product.price | times: 0.01 }},
+                  'currency': '{{ localization.country.currency.iso_code }}',
+                    'items': [{
+                    'item_id': '{{ product.id }}',
+                    'item_name': '{{ product.title }}',
+                    'item_variant_title': '{{ value }}',
+                    'item_brand': '{{ product.vendor }}',
+                    'item_category': '{{ product.type }}',
+                    'item_variant': '{{ product.selected_or_first_available_variant.sku }}',
+                    'currency': '{{ localization.country.currency.iso_code }}',
+                    'quantity': 1,
+                    'price': {{ product.price | money_without_currency }}
+                    }]
+                  }
+              })"
+          >
+          <label
+            {% if value contains 'One size fits all' %}
+              class='one-all'
+            {% elsif value contains '.00' %}
+              class="gc-value"
+            {% endif %}
+            id='Size-{{ product.id }}-{{ forloop.index0 }}-label'
+            for='Size-{{ product.id }}-{{ value | replace: " ", "-" }}-{{ forloop.index0 }}'
+          >
+            <span class='swatch-text'>
+              {%- if value contains '.00' -%}
+                {% assign val = value %}
+                {% assign val = val | remove: '$' %}
+                {% assign val = val | remove: '.' %}
+                {{ val | money }}
+              {%- else -%}
+                {{ value }}
+              {%- endif -%}
+            </span>
+          </label>
+        </div>
+        {% assign first = false %}
+      {% endfor %}
+    </div> 
+  </fieldset>
+{% endfor %}
+
+{% if has_selling_plan %}
+  <fieldset class='size-swatch frequency-step submit-quick-add'>
+    <legend>
+      Delivery Frequency:
+    </legend>
+    <i class='product-card__icon-close' aria-label='Close' role='button'>✕</i>
+    <div class='size-swatch__input-wrapper size-swatch__input-wrapp'>
+      {% comment %} {% endcomment %}
+      <div class='size-option frequency-option'>
+          <input
+            type='radio'
+            id='frequency-{{ product.id }}-{{ value | replace: " ", "-" }}-otp'
+            class='visually-hidden quick-atc-option is-selling-plan'
+            name='selling_plan'
+            aria-label='frequency-{{ product.id }}-otp'
+            aria-labeledby='frequency-{{ product.id }}-otp-label'
+            value='null'
+          >
+          <label
+            class="gc-value"
+            id='frequency-{{ product.id }}-otp-label'
+            for='frequency-{{ product.id }}-{{ value | replace: " ", "-" }}-otp'
+          >
+            <span class='swatch-text'>
+              One Time
+            </span>
+          </label>
+        </div>
+
+      {% for plan in product.selling_plan_groups[0].selling_plans %}
+        <div class='size-option frequency-option'>
+          <input
+            type='radio'
+            id='frequency-{{ product.id }}-{{ value | replace: " ", "-" }}-{{ forloop.index0 }}'
+            class='visually-hidden quick-atc-option is-selling-plan'
+            name='selling_plan'
+            aria-label='frequency-{{ product.id }}-{{ forloop.index0 }}'
+            aria-labeledby='frequency-{{ product.id }}-{{ forloop.index0 }}-label'
+            value='{{ plan.id }}'
+          >
+          <label
+            class="gc-value"
+            id='frequency-{{ product.id }}-{{ forloop.index0 }}-label'
+            for='frequency-{{ product.id }}-{{ value | replace: " ", "-" }}-{{ forloop.index0 }}'
+          >
+            <span class='swatch-text'>
+              {{ plan.name | remove: 'Delivered' | remove: 'every' }}
+            </span>
+          </label>
+        </div>
+      {% endfor %}
+    </div> 
+  </fieldset>
+{% endif %} 

@@ -1,0 +1,61 @@
+{% liquid
+  assign settings = section.settings
+  assign line_item_products = cart.items | map: 'product'
+  assign line_item_products_ids = line_item_products | map: 'id'
+  assign is_shown_discount_slider = false
+  assign in_cart = false
+  assign threshold = threshold | divided_by: 100
+%}
+
+{% for item in cart.items %}
+  {% if item.product.id == settings.free_item.id and item.properties._free %}
+    {% assign in_cart = true %}
+  {% endif %}
+{% endfor %}
+
+{% if in_cart == false %}
+  {% if localization.country.iso_code == 'US'
+    or localization.country.iso_code == 'GB'
+    or localization.country.iso_code == 'CA'
+    or localization.country.iso_code == 'AU'
+    or localization.country.iso_code == 'MX'
+    or localization.country.currency.symbol == '€'
+  %}
+    <div class='free-item'>
+      <h2 class='headline h4'>
+        {{ settings.free_item_title }}
+      </h2>
+
+      {% assign product = settings.free_item %}
+      {% assign id = 'discount-pack-' | append: product.id %}
+
+      <div class='discount-pack-list-item'>
+        <div class='discount-pack-list-item__image-container'>
+          <div class='discount-pack-list-item__image-wrapper'>
+            <img
+              class='discount-pack-list-item__image'
+              loading='lazy'
+              src='{{ product.featured_media | img_url: '120x' }}'
+              alt='{{ product.featured_media.alt }}'
+            >
+          </div>
+        </div>
+        {% render 'discount-pack-list-item-form-free',
+          product: product,
+          free: 'free',
+          threshold: threshold
+        %}
+        <div class='discount-pack-list-item__actions'>
+          <button
+            type='submit'
+            class='button dark small'
+            form='{{ id }}'
+            aria-label='Add'
+          >
+            Add
+          </button>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{% endif %}

@@ -1,0 +1,160 @@
+/**
+ * Styles in this file will be added to the site via theme.liquid layout (found inside the dist/layout directory) using the asset-router-css.liquid snippet )
+ * for more info on theme layouts see: https://shopify.dev/tutorials/develop-theme-layouts
+ *
+ * This theme uses postcss-preset-env which allows for future CSS syntax to be used.
+ * By default, all features are enabled.
+ * https://preset-env.cssdb.org/features
+ *
+ * Compiles to ./dist/assets/styles/layout.theme.css
+ */
+
+/* Import Modern CSS Reset https://github.com/hankchizljaw/modern-css-reset */
+@import "modern-css-reset";
+
+@import "swiper/swiper-bundle.css";
+
+/* Set project variables & settings such as colors, breakpoints, animation etc. */
+@import "../settings/animation.css";
+@import "../settings/breakpoints.css";
+@import "../settings/colors.css";
+@import "../settings/properties.css";
+@import "../settings/selectors.css";
+@import "../settings/typography.css";
+@import "../settings/units.css";
+@import "../settings/z-index.css";
+
+/* Base Styles */
+@import "../base/base.css";
+@import "../base/forms.css";
+@import "../base/helpers.css";
+@import "../base/layout.css";
+@import "../base/svg.css";
+@import "../base/table.css";
+
+/* Component Styles */
+@import "../components/buttons.css";
+@import "../components/footer.css";
+@import "../components/hamburger.css";
+@import "../components/media-card.css";
+
+@import "../snippets/size-swatch.css";
+@import "../snippets/category-card.css";
+@import "../snippets/category-slider.css";
+@import "../snippets/announcement-bar.css";
+@import "../snippets/testimonial-slider.css";
+@import "../snippets/searchbar.css";
+@import "../snippets/videowise.css";
+@import "../snippets/klaviyo-form.css";
+@import "../snippets/product-rebuy-widget.css";
+
+@import "../sections/header-section.css";
+@import "../sections/collection-all-products.css";
+@import "../sections/collection-pill.css";
+@import "../sections/image-banner.css";
+@import "../sections/mini-image-banner.css";
+@import "../sections/newsletter.css";
+@import "../sections/contact.css";
+@import "../sections/location.css";
+@import "../sections/video-with-text.css";
+@import "../sections/two-image-banner.css";
+@import "../sections/featured-reviews.css";
+@import "../sections/how-to-started.css";
+@import "../sections/affiliate-image-banner.css";
+
+@import "../sections/faq.css";
+@import "../sections/account-page.css";
+@import "../sections/section-divider.css";
+@import "../sections/search.css";
+@import "../sections/blog.css";
+@import "../sections/article.css";
+@import "../sections/value-props.css";
+@import "../sections/image-slider.css";
+@import "../sections/our-story-contact.css";
+@import "../sections/owner-story.css";
+@import "../sections/image-with-text.css";
+@import "../sections/featured-collection.css";
+@import "../sections/quiz-options.css";
+@import "../sections/columns.css";
+@import "../sections/affiliate-image-banner.css";
+@import "../sections/video.css";
+@import "../sections/rich-text.css";
+@import "../sections/tc-featured-list.css";
+@import "../sections/collection-seo-links.css";
+
+/*  PAGES  */
+@import "../sections/help-center.css";
+
+/*  PDP  */
+@import "../sections/section-product-main.css";
+
+@import "../sections/product-main";
+@import "../sections/product-recommendation";
+@import "../sections/product-ugc";
+@import "../sections/product-okendo";
+@import "../sections/product-faqs";
+@import "../sections/product-video-text";
+
+@import "../snippets/product-price.css";
+@import "../snippets/product-card.css";
+@import "../snippets/product-card-grid.css";
+@import "../snippets/featured-collections.css";
+@import "../snippets/accordion.css";
+@import "../snippets/accordion-array.css";
+@import "../snippets/breadcrumbs.css";
+@import "../snippets/color-swatch.css";
+@import "../snippets/progress-bar.css";
+@import "../snippets/free-shipping-badge.css";
+@import "../snippets/gorgias-widget.css";
+@import "../snippets/pagination.css";
+@import "../snippets/size-select.css";
+@import "../snippets/captcha.css";
+@import "../snippets/tooltips.css";
+@import "../snippets/klaviyo-section-rendered-bis.css";
+
+@import "../snippets/product-size-guide";
+@import "../snippets/product-option-giftcard";
+
+/* mini cart components */
+@import "../sections/mini-cart.css";
+@import "../snippets/cart-line-item-list.css";
+
+/* navigation */
+@import "../components/nav-panel.css";
+@import "../components/sticky.css";
+@import "../sections/mobile-nav.css";
+
+/* filtered grid */
+@import "../snippets/product-filtered-grid.css";
+@import "../snippets/filter-drawer.css";
+@import "../snippets/filter-list.css";
+@import "../snippets/sort-drawer.css";
+@import "../snippets/sort-list.css";
+
+@import "../snippets/discount-pack-slider.css";
+@import "../snippets/discount-pack-list-item.css";
+
+@import "../overrides/skt.css";
+@import "../overrides/globale.css";
+
+@import "../sections/icon-row.css";
+@import "../sections/tc-icon-row.css";
+@import "../sections/section-with-comment.css";
+@import "../snippets/category-card-grid.css";
+
+@import "../react/components/MiniCartPackBuilderRecapture.css";
+
+@import "../sections/list-collections.css";
+
+@import "../snippets/nav-search-panel.css";
+
+@import "../snippets/instant-search-dropdown.css";
+@import "../snippets/country-selector.css";
+@import "../react/components/InstantSearchResults.css";
+@import "../react/components/InstantSearchActions.css";
+
+@import "../snippets/mega-menu.css";
+@import "../snippets/membership-upsell.css";
+
+/* **** Note **** strictly coupled template styles should not be imported here. They are
+are added conditionallly via the asset-router-css.liquid file. This helps keep the css more lean  */

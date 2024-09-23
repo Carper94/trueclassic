@@ -1,0 +1,91 @@
+.accordion-wrapper {
+  --title-animation-ypos: -70%;
+
+  & .accordion__tab--active {
+    & .accordion__title {
+      transform: translateY(var(--title-animation-ypos));
+    }
+  }
+
+  & .accordion__panel {
+    display: none;
+  }
+
+  & .accordion__panel--active {
+    display: block;
+    animation: fade-in var(--global-transition);
+  }
+}
+
+.accordion-wrapper {
+  --title-animation-ypos: -70%;
+
+  & .accordion__panel-products.accordion__tab--active {
+    & .accordion__title {
+      transform: translateY(var(--title-animation-ypos));
+    }
+  }
+
+  & .accordion__panel-products {
+    display: none;
+  }
+
+  & .accordion__panel-products.accordion__panel--active {
+    display: block;
+    animation: fade-in var(--global-transition);
+  }
+}
+
+.accordion-tab-wrapper,
+.accordion__tab,
+.accordion__tab-products {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.accordion__tab,
+.accordion__tab-products {
+  background-color: transparent;
+  border: 0px;
+  padding: var(--spacer-xs) 0px;
+  cursor: pointer;
+
+  &::before {
+    display: block;
+    content: attr(title);
+    height: 100%;
+    overflow: hidden;
+    visibility: hidden;
+  }
+}
+
+.accordion__title,
+.accordion-icon-wrapper {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.accordion__title {
+  left: 0;
+  transition: transform var(--global-transition);
+  text-align: left;
+  padding-right: 2rem;
+}
+
+.accordion-icon-wrapper {
+  right: 0px;
+}
+
+.faq__title + .accordion-array__item .accordion__panel *,
+.faq__title + .accordion-array__item .accordion__panel strong {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.faq__title + .accordion-array__item .accordion__panel strong {
+  display: inline-block;
+}

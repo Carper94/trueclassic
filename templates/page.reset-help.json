@@ -1,0 +1,23 @@
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "settings": {
+        "full_width": false,
+        "hide_title": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "9fffc14f-5b90-489a-b1f1-09f82182b5dd": {
+      "type": "html",
+      "settings": {
+        "html": "<script>fetch('https:\/\/www.trueclassictees.com\/account\/reset', {method: 'GET', cache: \"no-cache\"}).then(() => {})\nfetch('https:\/\/www.trueclassictees.com\/account\/_t\/_c', {method: 'GET', cache: \"no-cache\"}).then(() => {})\nfetch('https:\/\/www.trueclassictees.com\/account', {method: 'GET', cache: \"no-cache\"}).then(() => {})\nfetch('https:\/\/www.trueclassictees.com\/', {method: 'GET', cache: \"no-cache\"}).then(() => {})\n\nfetch('https:\/\/www.trueclassictees.com\/account\/reset', {method: 'GET'}).then(() => {})\nfetch('https:\/\/www.trueclassictees.com\/account\/_t\/_c', {method: 'GET'}).then(() => {})\nfetch('https:\/\/www.trueclassictees.com\/account', {method: 'GET'}).then(() => {})\nfetch('https:\/\/www.trueclassictees.com\/', {method: 'GET'}).then(() => {})\n<\/script>"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "9fffc14f-5b90-489a-b1f1-09f82182b5dd"
+  ]
+}

@@ -1,0 +1,56 @@
+{% liquid
+  assign title = section.settings.title
+  assign hours = section.settings.hours
+%}
+
+<div class='container content-wrapper section-spacer container--narrow'>
+  <div class='contact-info-wrapper'>
+    <div class='contact-info__title headline'>
+      <h2 class='headline h3'>{{ title }}</h2>
+    </div>
+    <div class='contact-info__subtitle font-medium'>
+      {{ hours }}
+    </div>
+
+    {% render 'contact-info' %}
+
+    {% comment %}
+    <div class='contact-form-wrapper'>
+      <div class='contact-form'>
+        {% comment %} Edgemesh Server: Dynamic Data {% endcomment %}
+        <dynamic>
+          {% render 'contact-form' %}
+        </dynamic>
+      </div>
+    </div>
+    {% endcomment %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Contact Information",
+  "tag": "section",
+  "class": "contact-info-section",
+  "settings": [
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Title",
+      "default": "OTHER QUESTIONS? ASK AWAY"
+    },
+    {
+      "id": "hours",
+      "type": "text",
+      "label": "Hours",
+      "default": "Available Monday through Friday from 7am to 7pm Pacific"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact Information",
+      "category": "text"
+    }
+  ]
+}
+{% endschema %}

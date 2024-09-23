@@ -1,0 +1,994 @@
+{%- liquid
+  assign function_id = function_id | remove: '-'
+  assign membership_in_cart = false
+  for item in cart.items
+    if item.product.id == 6797565296712
+      assign membership_in_cart = true
+    endif
+  endfor
+  if membership_in_cart == true
+    assign not_in_cart = false
+  else
+    assign not_in_cart = true
+  endif
+-%}
+
+<dynamic>
+  <style>
+    .mini-cart .cart-line-item__price{
+      justify-content: end;
+      padding-right: 10px;
+      align-items: self-start;
+      height: fit-content;
+    }
+  </style>
+  <aside class='mini-cart'>
+    <div class='mini-cart__content'>
+      <div class='mini-cart__pre-header' style='position: relative;'>
+        <button
+          id='mini-cart-close'
+          class='mini-cart__button-close icon-button'
+          data-delegate='minicartclose'
+          data-noclick
+        >
+          <span class='visually-hidden'>Close cart</span>
+          {% render 'icon-close' %}
+        </button>
+
+      </div>
+
+      <div
+        class='
+          mini-cart__header
+          {%- for block in section.blocks -%}
+            {% if block.type == 'text' and block.settings.text == localization.country.iso_code %}
+              threshold
+            {% endif %}
+          {%- endfor -%}
+        '
+      >
+        {% if section.settings.progress_type == 'shipping' %}
+          {% if localization.country.iso_code == 'US'
+            or localization.country.iso_code == 'GB'
+            or localization.country.iso_code == 'CA'
+            or localization.country.iso_code == 'AU'
+            or localization.country.iso_code == 'MX'
+            or localization.country.currency.symbol == '€'
+          %}
+            <div class='mini-cart__progress-bar-wrapper'>
+              {% render 'mini-cart-progress-bar-old' %}
+            </div>
+          {% endif %}
+        {% endif %}
+
+        {% assign value = cart.total_price %}
+
+        {% assign membership_value = 0 %}
+        {% for item in cart.items %}
+          {% if item.product.title == 'Insiders Club Membership' %}
+            {% assign value = value | minus: item.product.price %}
+          {% endif %}
+        {% endfor %}
+
+        {% assign threshold = section.settings.free_item_threshold | times: 100 %}
+        {% if localization.country.iso_code == 'CA' %}
+          {% assign threshold = threshold | times: 1.33334 %}
+        {% elsif localization.country.iso_code == 'AU' %}
+          {% assign threshold = threshold | times: 1.33334 %}
+        {% elsif localization.country.iso_code == 'MX' %}
+          {% assign threshold = threshold | times: 20 %}
+        {% endif %}
+
+        {% assign max = section.settings.progress_bar_max | times: 100 %}
+        {% if localization.country.iso_code == 'CA' %}
+          {% assign max = max | times: 1.4 %}
+        {% elsif localization.country.iso_code == 'AU' %}
+          {% assign max = max | times: 1.75 %}
+        {% elsif localization.country.iso_code == 'MX' %}
+          {% assign max = max | times: 10 %}
+        {% endif %}
+        {% if section.settings.progress_type == 'gwp' %}
+          {% if localization.country.iso_code == 'US'
+            or localization.country.iso_code == 'GB'
+            or localization.country.iso_code == 'CA'
+            or localization.country.iso_code == 'AU'
+            or localization.country.iso_code == 'MX'
+            or localization.country.currency.symbol == '€'
+          %}
+            {% render 'mini-cart-progress-bar', max: max, value: value, threshold: threshold %}
+          {% endif %}
+        {% endif %}
+        <div id='miniCartGWPs'>
+          {% for block in section.blocks -%}
+            {% if block.type == 'text' and block.settings.text == localization.country.iso_code %}
+              {% comment %} {% render 'progress-bar-tiered',
+                value: value,
+                gwp_title: block.settings.gwp_title,
+                shipping: block.settings.shipping_threshold,
+                gwp_1: block.settings.gwp1_threshold,
+                gwp_image_1: block.settings.gwp_image_1,
+                gwp_text_1: block.settings.gwp_text_1,
+                gwp_image_2: block.settings.gwp_image_2,
+                gwp_text_2: block.settings.gwp_text_2,
+                gwp_image_3: block.settings.gwp_image_3,
+                gwp_text_3: block.settings.gwp_text_3,
+                gwp_2: block.settings.gwp2_threshold,
+                gwp_3: block.settings.gwp3_threshold
+              %} {% endcomment %}
+              {% render 'endrock-progress-bar-tiered',
+                value: value,
+                gwp_title: block.settings.gwp_title,
+                shipping: block.settings.shipping_threshold,
+                gwp_1: block.settings.gwp1_threshold,
+                gwp_image_1: block.settings.gwp_image_1,
+                gwp_text_1: block.settings.gwp_text_1,
+                gwp_image_2: block.settings.gwp_image_2,
+                gwp_text_2: block.settings.gwp_text_2,
+                gwp_image_3: block.settings.gwp_image_3,
+                gwp_text_3: block.settings.gwp_text_3,
+                gwp_2: block.settings.gwp2_threshold,
+                gwp_3: block.settings.gwp3_threshold
+              %}
+            {% endif %}
+          {% endfor %}
+        </div>
+        {% if customer and customer.tags contains 'inveterate-subscriber' %}
+        {% if cart.items_subtotal_price > 9999 %}
+
+        <div class='mini-cart__test-gwp hidden m-b-s'>
+          {% render 'test-gwp', product: section.settings.free_item_test %}
+        </div>
+        {% endif %}
+        {% endif %}
+
+        {% assign new_total_show_ = cart.items_subtotal_price | divided_by: 5 %}
+        {% if section.settings.enable_membership_notice == true and cart.item_count > 0 %}
+          {% if localization.country.iso_code == 'US' %}
+          {% unless customer.tags contains 'inveterate-subscriber' %}
+            {% if not_in_cart == true %}
+              <div class='membership-notice'>
+                <div class='membership-notice-inner' style='font-size: 14px; font-weight: bold;color: #2C2C2C; background-color: #FFF9E7; padding-top: 8px; padding-bottom: 8px; margin-bottom: 0.75rem; text-align: center; display: flex; align-items: center; column-gap: 0.2rem; justify-content: center;letter-spacing: 0.03em;'>
+                    🔓 Unlock {{ new_total_show_ | money }} store credit. <button onclick="handleMembershipClick()" style='font-size: 14px; font-weight: bold;color: red;'><u>See how.</u></button>
+                </div>
+              </div>
+            {% endif %}
+          {% endunless %}
+          {% endif %}
+        {% endif %}
+
+        {% assign savings = 0 %}
+        {% assign automatic = 0 %}
+
+        {% assign free_item = section.settings.free_item %}
+        {% for line_item in cart.items %}
+          {% assign compare_at_price = line_item.product.compare_at_price
+            | times: line_item.quantity
+          %}
+          {% if line_item.product.id == free_item.id and line_item.properties._free %}
+            {% assign savings = savings | plus: compare_at_price %}
+          {% else %}
+            {% if compare_at_price > line_item.original_line_price %}
+              {% assign difference = compare_at_price | minus: line_item.original_line_price %}
+              {% assign savings = savings | plus: difference %}
+            {% endif %}
+
+            {% if line_item.original_line_price > line_item.final_line_price %}
+              {% comment %} CASHBACK SETTINGS {% endcomment %}
+              {% if line_item.product.tags contains 'Sale_Eligible'
+                and settings.hide_cashback == false
+                and localization.country.iso_code == 'US'
+              %}
+                {% assign difference = compare_at_price | minus: line_item.final_line_price %}
+                {% assign automatic_difference = line_item.final_line_price
+                  | times: 4
+                  | divided_by: 10
+                %}
+                {% assign savings = savings | plus: difference %}
+                {% assign automatic = automatic | plus: automatic_difference %}
+                {% comment %} END CASHBACK SETTINGS {% endcomment %}
+                {% comment %} SITEWIDE SALE SETTINGS {% endcomment %}
+              {% elsif line_item.product.tags contains 'Sale_Eligible'
+                and settings.hide_sitewide_sale == false
+              %}
+                {% assign difference = line_item.original_line_price
+                  | minus: line_item.final_line_price
+                %}
+                {% assign automatic = automatic | plus: difference %}
+
+                {% comment %} END SITEWIDE SALE SETTINGS {% endcomment %}
+              {% else %}
+                {% assign difference = line_item.original_line_price
+                  | minus: line_item.final_line_price
+                %}
+                {% assign savings = savings | plus: difference %}
+              {% endif %}
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+
+        {% if cart.item_count > 0 %}
+          <div class='mini-cart__actions'>
+            <a href='/checkout' class='button primary red' id='checkoutTop'>
+              <span class='btn-text'>
+                {% render 'tc-icons', icon: 'arrow-right' %}
+                Secure Checkout
+              </span>
+              {%- render 'button-loader' -%}
+            </a>
+            <button
+              data-delegate='minicartclose'
+              class='text-button keep-shopping'
+            >
+              {% render 'tc-icons', icon: 'arrow-right' %}
+              KEEP SHOPPING
+            </button>
+          </div>
+        {% endif %}
+      </div>
+
+      <div class='mini-cart__body'>
+        {% if cart.item_count > 0 %}
+          <form
+            id='mini-cart-form'
+            class='mini-cart__form'
+            data-delegate='minicartform'
+          >
+            {% assign free_item = section.settings.free_item %}
+            <div class='mini-cart__line-item-wrapper'>
+              {% render 'cart-line-item-list', free_item: free_item %}
+            </div>
+          </form>
+
+
+          {% if localization.country.iso_code == "US" %}
+            {% if section.settings.turn_on_gift_wrap %}
+            {% render 'gift-wrap-form'
+              gift_wrap_myself_image: section.settings.gift_wrap_myself_image,
+              gift_wrap_me_image: section.settings.gift_wrap_me_image,
+              gift_section_header: section.settings.gift_section_header,
+              gift_section_text: section.settings.gift_section_text,
+              gift_wrap_product: section.settings.gift_wrap_product,
+              gift_wrap_title: section.settings.gift_wrap_title,
+              gift_wrap_modernist: section.settings.gift_wrap_modernist,
+              gift_wrap_product_myself: section.settings.gift_wrap_product_myself,
+              gift_wrap_title_myself: section.settings.gift_wrap_title_myself,
+              gift_wrap_modernist_myself: section.settings.gift_wrap_modernist_myself
+            %}
+
+            {% endif %}
+          {% endif %}
+
+          {% if section.settings.progress_type == 'gwp' %}
+            {% if value >= threshold %}
+              {% if localization.country.iso_code == 'US'
+                or localization.country.iso_code == 'GB'
+                or localization.country.iso_code == 'CA'
+                or localization.country.iso_code == 'AU'
+                or localization.country.iso_code == 'MX'
+                or localization.country.currency.symbol == '€'
+              %}
+                {% render 'free-item', value: value, threshold: threshold %}
+              {% endif %}
+            {% endif %}
+          {% endif %}
+        {% else %}
+          <div class='mini-cart__empty'>
+            <span class='cart-empty-message'>Your cart is empty</span>
+            {% assign cart_empty_collections = section.blocks
+              | where: 'type', 'category_card'
+              | map: 'settings'
+              | map: 'collection'
+            %}
+            <div class='mini-cart__packbuilder-recapture'></div>
+            {% render 'category-card-grid',
+              title: 'Categories',
+              collections: cart_empty_collections,
+              size: 'auto'
+            %}
+          </div>
+        {% endif %}
+      </div>
+
+      {% for block in section.blocks -%}
+        {% if block.type == 'text' and block.settings.text == localization.country.iso_code %}
+          {% render 'progress-bar-tiered2',
+            value: value,
+            shipping: block.settings.shipping_threshold,
+            gwp_1: block.settings.gwp1_threshold,
+            gwp_2: block.settings.gwp2_threshold,
+            gwp_3: block.settings.gwp3_threshold,
+            gwp_1_image: block.settings.gwp_1_product,
+            gwp_2_image: block.settings.gwp_2_product,
+            gwp_3_image: block.settings.gwp_3_product,
+            gwp_1_product_fallback: block.settings.gwp_1_product_fallback,
+            gwp_2_product_fallback: block.settings.gwp_2_product_fallback,
+            gwp_3_product_fallback: block.settings.gwp_3_product_fallback,
+          %}
+        {% endif %}
+      {% endfor %}
+
+      {% if cart.item_count > 0 %}
+        {% comment %} FONDUE CASHBACK MODULE {% endcomment %}
+        <div class="fondue-cashback-module"></div>
+        {% comment %} END - FONDUE CASHBACK MODULE {% endcomment %}
+
+        {% if localization.country.iso_code == 'US' %}
+          {% if not_in_cart == false %}
+            {% unless customer.tags contains 'inveterate-subscriber' %}
+              {% unless cart.item_count < 2 %}
+                {% comment %}  BASIC  {% endcomment %}
+                {% if membership_in_cart %}
+                  <div style='background-color: #fffbec; padding: 20px;'>
+                    <h2 class='headline h2'>Membership Earnings</h2>
+                    <p class='text-center mg-b-m' style='text-transform: uppercase;font-size: 12px;'>
+                      For future purchases
+                    </p>
+                    <div
+                      class='mini-cart__membership-credits flex'
+                      style='justify-content: space-between'
+                    >
+                      <div class='font-large mg-b-s' style='font-size: 17px;'>
+                        Store Credit Earnings
+                      </div>
+                      <div class='font-large'>
+                        {% assign new_total_before = cart.items_subtotal_price | minus: 1200 %}
+                        {% assign new_total = new_total_before | divided_by: 5 %}
+                        {{- new_total | money -}}
+                      </div>
+                    </div>
+                  </div>
+                {% endif %}
+              {% endunless %}
+            {% endunless %}
+          {% endif %}
+
+          {% if customer.tags contains 'inveterate-subscriber'
+            and customer.tags contains '78287ebf'
+          %}
+            <div style='background-color: #fffbec; padding: 20px;'>
+              <h2 class='headline h2'>Membership Earnings</h2>
+              <div class='mini-cart__membership-credits'>
+                <div class='font-large'>Store Credit</div>
+                <div class='font-large'>
+                  {% assign new_total_show = cart.items_subtotal_price | divided_by: 5 %}
+                  {{ new_total_show | money }}
+                </div>
+              </div>
+            </div>
+          {% elsif customer.tags contains 'inveterate-subscriber'
+            and customer.tags contains '79163d8c'
+          %}
+            <div style='background-color: #fffbec; padding: 20px;'>
+              <h2 class='headline h2'>Membership Earnings</h2>
+              <div class='mini-cart__membership-credits'>
+                <div class='font-large'>Store Credit</div>
+                <div class='font-large'>
+                  {{ cart.items_subtotal_price | times: 0.2 | money }}
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        {% endif %}
+        <div class='mini-cart__footer'>
+          <div class='mini-cart__summary'>
+            <div class='mini-cart__totals'>
+              <table>
+                {% if savings > 0 %}
+                  {% assign total = cart.items_subtotal_price | plus: savings | plus: automatic %}
+                  <tr class='mini-cart__total'>
+                    <th class='font-large'>
+                      <span>Products Total</span>
+                    </th>
+                    <td class='font-large'>{{ total | money }}</td>
+                  </tr>
+                  <tr class='mini-cart__total-new' style='display: none;'>
+                    <th class='font-large'><span class='new-total'>Subtotal</span></th>
+                    <td class='font-large'>
+                      <s style='color: #474747'>{{ total | money }}</s>
+                      {{ cart.items_subtotal_price | money }}
+                    </td>
+                  </tr>
+                {% else %}
+                  {% assign total = cart.items_subtotal_price | plus: savings | plus: automatic %}
+                  <tr class='mini-cart__product-total' style='display: none;'>
+                    <th class='font-large'>
+                      <span>Products Total</span>
+                    </th>
+                    <td class='font-large'>{{ total | money }}</td>
+                  </tr>
+                {% endif %}
+                <tr class='mini-cart__savings-new'>
+                  <th class='font-large'>Savings</th>
+                  <td class='font-large'>
+                    {% if savings > 0 -%}
+                      -{{ savings | money -}}
+                    {%- else -%}
+                      Calculated at checkout
+                    {%- endif %}
+                  </td>
+                </tr>
+                <tr class='mini-cart__discount-new' style='display: none;'>
+                  <th class='font-large'><span class='mini-cart__discount-amount'></span>% Off</th>
+                  <td class='font-large'>-$<span class='mini-cart__discount-dollars'></span></td>
+                </tr>
+                <tr class='mini-cart__shipping'>
+                  <th class='font-large'>Shipping</th>
+                  <td class='font-large'>
+                    {% for block in section.blocks -%}
+                      {% if block.type == 'text'
+                        and block.settings.text == localization.country.iso_code
+                      %}
+                        {% assign free_shipping = block.settings.shipping_threshold | times: 100 %}
+                      {% endif %}
+                    {% endfor %}
+                    {% if cart.items_subtotal_price > free_shipping -%}
+                      FREE
+                    {%- else -%}
+                      Calculated at checkout
+                    {%- endif %}
+                  </td>
+                </tr>
+                <tr class='mini-cart__subtotal'>
+                  <th class='font-large'>Subtotal</th>
+                  <td data-price='{{ cart.items_subtotal_price }}' class='font-large'>
+                    {% if savings > 0 -%}
+                      <s>{{ total | money }}</s>
+                      <span class='total-price'>{{ cart.items_subtotal_price | money }}</span>
+                    {%- else -%}
+                      <span class='total-price'>{{ cart.items_subtotal_price | money }}</span>
+                    {%- endif %}
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class='mini-cart__actions mg-t-s'>
+              <a href='/checkout' class='button primary red' id='checkoutBottom'>
+                <span class='btn-text'>
+                  {% render 'tc-icons', icon: 'lock' %}
+                  Secure Checkout
+                </span>
+                {%- render 'button-loader' -%}
+              </a>
+              {% if localization.country.iso_code == 'NL'
+                or localization.country.iso_code == 'GB'
+                or localization.country.iso_code == 'CA'
+                or localization.country.iso_code == 'MX'
+                or localization.country.iso_code == 'CH'
+              %}
+                {% render 'payicons' %}
+              {% endif %}
+              <button
+                data-delegate='minicartclose'
+                class='text-button keep-shopping'
+              >
+                {% render 'tc-icons', icon: 'arrow-right' %}
+                KEEP SHOPPING
+              </button>
+            </div>
+          </div>
+        </div>
+        {% if localization.country.iso_code == 'US' %}
+          {% unless customer and customer.tags contains 'inveterate-subscriber' %}
+              {% render 'mini-cart-membership-upsell', product: section.settings.membership_product, image: section.settings.membership_image, not_in_cart: not_in_cart %}
+          {% endunless %}
+        {% endif %}
+        <div
+          class='mini-cart__discount-pack-wrapper'
+          style='padding: var(--spacer-m) var(--spacer-m) 0; max-width: 100vw;background-color: #F7F7F7'
+        >
+          {% render 'discount-pack-slider' %}
+        </div>
+      {% endif %}
+    </div>
+  </aside>
+</dynamic>
+
+<script>
+
+window.addEventListener('load', () => {
+  if(localStorage.getItem('openCartOnNextLoad') === 'true') {
+    document.querySelector('#mini-cart-open').click()
+    localStorage.setItem('openCartOnNextLoad', 'false')
+  }
+})
+
+function handleMembershipClick() {
+  if(window.innerHeight < 1000) {
+    window.location.href="#membership-upsell-section"
+  } else {
+    if(window.innerWidth < 1280) {
+      window.location.href="#membership-upsell-section"
+    } else {
+      localStorage.setItem('openCartOnNextLoad', 'true')
+      window.open('/pages/true-classic-membership','_blank')
+    }
+  }
+}
+
+
+</script>
+
+{% schema %}
+{
+  "name": "Mini Cart",
+  "class": "section-mini-cart",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Gift Wrap"
+    },
+    {
+      "type":"checkbox",
+      "id":"turn_on_gift_wrap",
+      "label":"Turn On Gift Wrap"
+    },
+    {
+      "type":"text",
+      "id":"gift_section_header",
+      "label":"Gift Section Header"
+    },
+    {
+      "type":"text",
+      "id":"gift_section_text",
+      "label":"Gift Section Text"
+    },
+    {
+      "type": "product",
+      "id": "gift_wrap_product",
+      "label": "Gift wrap product"
+    },
+    {
+      "type": "text",
+      "id": "gift_wrap_title",
+      "label": "Gift wrap title",
+      "default": "Wrap it for me"
+    },
+    {
+      "type": "text",
+      "id": "gift_wrap_modernist",
+      "label": "Gift wrap modernist",
+      "default": "Fully wrapper & ready"
+    },
+    {
+      "type":"image_picker",
+      "id":"gift_wrap_me_image",
+      "label":"Gift Wrap Box Image",
+      "info":"Image for Gift Wrap Box"
+    },
+    {
+      "type": "product",
+      "id": "gift_wrap_product_myself",
+      "label": "Gift wrap by myself product"
+    },
+    {
+      "type": "text",
+      "id": "gift_wrap_title_myself",
+      "label": "Gift wrap by myself title",
+      "default": "Wrap it myself"
+    },
+    {
+      "type": "text",
+      "id": "gift_wrap_modernist_myself",
+      "label": "Gift wrap by myself modernist",
+      "default": "Skip the store"
+    },
+    {
+      "type":"image_picker",
+      "id":"gift_wrap_myself_image",
+      "label":"Gift Wrap Myself Image",
+      "info":"Image for Gift Wrap Myself"
+    },
+    {
+      "type": "header",
+      "content": "__________________________"
+    },
+    {
+      "type": "header",
+      "content": "Membership Upsell"
+    },
+    {
+      "type":"product",
+      "id":"membership_product",
+      "label":"Membership Product"
+    },
+    {
+      "type":"image_picker",
+      "id":"membership_image",
+      "label":"Membership Image",
+      "info":"Image for Membership"
+    },
+    {
+      "type":"checkbox",
+      "id":"enable_membership_notice",
+      "label":"Membership Notice",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "__________________________"
+    },
+    {
+      "type": "header",
+      "content": "Discount Pack Slider"
+    },
+    {
+      "type": "text",
+      "id": "cart_messaging_text",
+      "label": "Cart Messaging Text"
+    },
+    {
+      "type": "color",
+      "id": "cart_messaging_text_color",
+      "label": "Cart Messaging Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "cart_messaging_bg_color",
+      "label": "Cart Messaging Background Color",
+      "default": "#000000"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_discount_pack_slider",
+      "label": "Show Discount Pack Slider"
+    },
+    {
+      "type": "text",
+      "id": "discount_pack_slider_title",
+      "label": "Discount Pack Slider Title",
+      "default": "Discount Pack Slider"
+    },
+    {
+      "type": "collection",
+      "id": "discount_pack_slider_collection",
+      "label": "Discount Pack Slider Collection"
+    },
+    {
+      "type": "select",
+      "id": "progress_type",
+      "label": "Progress Bar Type",
+      "default": "shipping",
+      "options": [
+        { "value": "shipping", "label": "Shipping Only" },
+        { "value": "gwp", "label": "GWP" },
+        { "value": "tiered_gwp", "label": "Tiered GWP" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Free Item GWP"
+    },
+    {
+      "type": "text",
+      "id": "free_item_title",
+      "label": "Free Item Title",
+      "default": "Free Item"
+    },
+    {
+      "type": "product",
+      "id": "free_item",
+      "label": "Free Item Product"
+    },
+    {
+      "type": "number",
+      "id": "free_item_threshold",
+      "label": "Free Item Threshold",
+      "default": 150
+    },
+    {
+      "id": "progress_bar_under_threshold_message",
+      "type": "richtext",
+      "label": "Progress Bar Under Max Message"
+    },
+    {
+      "id": "progress_bar_over_threshold_message",
+      "type": "richtext",
+      "label": "Progress Bar Over Max Message"
+    },
+    {
+      "type": "number",
+      "id": "progress_bar_max",
+      "label": "Progress Bar Max",
+      "default": 100
+    },
+    {
+      "id": "progress_bar_under_max_message",
+      "type": "richtext",
+      "label": "Progress Bar Under Max Message"
+    },
+    {
+      "id": "progress_bar_over_max_message",
+      "type": "richtext",
+      "label": "Progress Bar Over Max Message"
+    },
+    {
+      "type": "header",
+      "content": "Free Item GWP V2"
+    },
+    {
+      "type": "image_picker",
+      "id": "shipping_image",
+      "label": "Shipping Image"
+    },
+    {
+      "type": "text",
+      "id": "shipping_text",
+      "label": "Shipping Text"
+    },
+    {
+      "type": "text",
+      "id": "gwp_title",
+      "label": "Free Items Title",
+      "default": "Free Item"
+    },
+    {
+      "type": "image_picker",
+      "id": "gwp_image_1",
+      "label": "Free Item Image 1"
+    },
+    {
+      "type": "product",
+      "id": "gwp_1",
+      "label": "Free Item Product 1"
+    },
+    {
+      "type": "text",
+      "id": "gwp_text_1",
+      "label": "Free Item Text 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "gwp_image_2",
+      "label": "Free Item Image 2"
+    },
+    {
+      "type": "product",
+      "id": "gwp_2",
+      "label": "Free Item Product 2"
+    },
+    {
+      "type": "text",
+      "id": "gwp_text_2",
+      "label": "Free Item Text 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "gwp_image_3",
+      "label": "Free Item Image 3"
+    },
+    {
+      "type": "product",
+      "id": "gwp_3",
+      "label": "Free Item Product 3"
+    },
+    {
+      "type": "text",
+      "id": "gwp_text_3",
+      "label": "Free Item Text 3"
+    },
+    {
+      "type": "product",
+      "id": "free_item_test",
+      "label": "Free Item GWP test"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Inveterate Upsell",
+      "type": "membership_card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "membership_product_image",
+          "label": "TC Membership Image"
+        },
+        {
+          "type": "product",
+          "id": "classic_membership_product",
+          "label": "True Crew Classic Membership Product"
+        },
+        {
+          "type": "product",
+          "id": "membership_product",
+          "label": "True Crew All Access Membership Product"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "TRUE CLASSIC® MEMBERSHIP"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description",
+          "default": "Get 20% off every order, free shipping, and more!"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "Become a Member"
+        },
+        {
+          "type": "product",
+          "id": "membership_free_gift",
+          "label": "Free Product with Membership"
+        },
+        {
+          "type": "select",
+          "id": "button_color",
+          "options": [
+            {
+              "value": "var(--brand-white)",
+              "label": "Light"
+            },
+            {
+              "value": "var(--brand-black)",
+              "label": "Dark"
+            },
+            {
+              "value": "var(--brand-yellow)",
+              "label": "Yellow"
+            },
+            {
+              "value": "var(--brand-red)",
+              "label": "Red"
+            }
+          ],
+          "default": "var(--brand-black)",
+          "label": "Button text color"
+        },
+        {
+          "type": "select",
+          "id": "button_bg_color",
+          "options": [
+            {
+              "value": "var(--brand-white)",
+              "label": "Light"
+            },
+            {
+              "value": "var(--brand-black)",
+              "label": "Dark"
+            },
+            {
+              "value": "var(--brand-yellow)",
+              "label": "Yellow"
+            },
+            {
+              "value": "var(--brand-red)",
+              "label": "Red"
+            }
+          ],
+          "default": "var(--brand-white)",
+          "label": "Button background color"
+        }
+      ]
+    },
+    {
+      "name": "Empty Cart Category",
+      "type": "category_card",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        }
+      ]
+    },
+    {
+      "name": "Country",
+      "type": "text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "US, CA, AU, GB etc."
+        },
+        {
+          "type": "number",
+          "id": "shipping_threshold",
+          "label": "Shipping Threshold"
+        },
+        {
+          "type": "number",
+          "id": "gwp1_threshold",
+          "label": "Gift with purchase 1"
+        },
+        {
+          "type": "number",
+          "id": "gwp2_threshold",
+          "label": "Gift with purchase 2"
+        },
+        {
+          "type": "number",
+          "id": "gwp3_threshold",
+          "label": "Gift with purchase 3"
+        },
+        {
+          "type": "header",
+          "content": "Free Item GWP V2"
+        },
+        {
+          "type": "image_picker",
+          "id": "shipping_image",
+          "label": "Shipping Image"
+        },
+        {
+          "type": "text",
+          "id": "shipping_text",
+          "label": "Shipping Text"
+        },
+        {
+          "type": "text",
+          "id": "gwp_title",
+          "label": "Free Items Title",
+          "default": "Free Item"
+        },
+        {
+          "type": "image_picker",
+          "id": "gwp_image_1",
+          "label": "Free Item Image 1"
+        },
+        {
+          "type": "product",
+          "id": "gwp_1_product",
+          "label": "Free Item Product 1"
+        },
+        {
+          "type": "text",
+          "id": "gwp_text_1",
+          "label": "Free Item Text 1"
+        },
+        {
+          "type": "product",
+          "id": "gwp_1_product_fallback",
+          "label": "Fallback: Free Item Product 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "gwp_image_2",
+          "label": "Free Item Image 2"
+        },
+        {
+          "type": "product",
+          "id": "gwp_2_product",
+          "label": "Free Item Product 2"
+        },
+        {
+          "type": "text",
+          "id": "gwp_text_2",
+          "label": "Free Item Text 2"
+        },
+        {
+          "type": "product",
+          "id": "gwp_2_product_fallback",
+          "label": "Fallback: Free Item Product 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "gwp_image_3",
+          "label": "Free Item Image 3"
+        },
+        {
+          "type": "product",
+          "id": "gwp_3_product",
+          "label": "Free Item Product 3"
+        },
+        {
+          "type": "text",
+          "id": "gwp_text_3",
+          "label": "Free Item Text 3"
+        },
+        {
+          "type": "product",
+          "id": "gwp_3_product_fallback",
+          "label": "Fallback: Free Item Product 3"
+        }
+      ]
+    }
+  ],
+  "presets": []
+}
+{% endschema %}

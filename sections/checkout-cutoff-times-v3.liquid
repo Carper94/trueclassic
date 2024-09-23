@@ -1,0 +1,131 @@
+{% if section.settings.show_cutoff_times %}
+
+  {% assign pricing_threshold_ship = 14999 %}
+  {% if checkout.total_price < pricing_threshold_ship %}
+    {% assign is_free_expedited = false %}
+  {% else %}
+    {% assign is_free_expedited = true %}
+  {% endif %}
+
+  <style>
+  
+    {% for block in section.blocks %}
+
+      {% unless block.settings.text == 'US' %}
+
+        {% if checkout.shipping_address.country_code == block.settings.text %}
+
+          .section.section--shipping-method [data-shipping-methods] .content-box__row:nth-child(2) .radio__label:after {
+            content: "{{ block.settings.cutoff_time_standard }}"!important;
+          }
+
+          {% if block.settings.cutoff_time_expedited != "" %}
+            .section.section--shipping-method [data-shipping-methods] .content-box__row:nth-child(3) .radio__label:after {
+              content: "{{ block.settings.cutoff_time_expedited }}";
+            }
+          {% endif %}
+
+          {% if block.settings.cutoff_time_priority != "" %}
+            .section.section--shipping-method [data-shipping-methods] .content-box__row:nth-child(4) .radio__label:after {
+              content: "{{ block.settings.cutoff_time_priority }}";
+            }
+          {% endif %}
+
+          .section.section--shipping-method .radio__label:after {
+            content: "{{ block.settings.cutoff_time_single }}"!important;
+          }
+
+        {% endif %}
+
+      {% else %}
+
+        {% if checkout.shipping_address.country_code == block.settings.text %}
+
+          {% unless is_free_expedited == false %}
+
+            .section.section--shipping-method [data-shipping-methods] .content-box__row:nth-child(2) .radio__label:after {
+              content: "{{ block.settings.cutoff_time_expedited }}"!important;
+            }
+
+            .section.section--shipping-method [data-shipping-methods] .content-box__row:nth-child(3) .radio__label:after {
+              content: "{{ block.settings.cutoff_time_standard }}";
+            }
+
+          {% else %}
+
+            .section.section--shipping-method [data-shipping-methods] .content-box__row:nth-child(2) .radio__label:after {
+              content: "{{ block.settings.cutoff_time_standard }}"!important;
+            }
+
+            .section.section--shipping-method [data-shipping-methods] .content-box__row:nth-child(3) .radio__label:after {
+              content: "{{ block.settings.cutoff_time_expedited }}";
+            }
+
+          {% endunless %}
+
+          .section.section--shipping-method [data-shipping-methods] .content-box__row:nth-child(4) .radio__label:after {
+            content: "{{ block.settings.cutoff_time_priority }}";
+          }
+
+        {% endif %}
+
+      {% endunless %}
+
+    {% endfor %}
+  </style>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Cutoff Time v3",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_cutoff_times",
+      "label": "Show Cutoff times."
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Country",
+      "type": "text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "US, CA, AU, GB etc."
+        },
+        {
+          "type": "header",
+          "content": "Messaging for multiple shipping options"
+        },
+        {
+          "type": "text",
+          "id": "cutoff_time_standard",
+          "label": "First Shipping Option",
+          "default": "Order before 12 PM PST on the 10 to get it by the 25rd."
+        },
+        {
+          "type": "text",
+          "id": "cutoff_time_expedited",
+          "label": "Second Shipping Option"
+        },
+        {
+          "type": "text",
+          "id": "cutoff_time_priority",
+          "label": "Third Shipping Option"
+        },
+        {
+          "type": "header",
+          "content": "Messaging for single shipping option (threshold+)"
+        },
+        {
+          "type": "text",
+          "id": "cutoff_time_single",
+          "label": "Single Shipping Option"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

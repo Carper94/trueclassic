@@ -1,0 +1,25 @@
+<div class='section-product-okendo section-fullwidth section-space cream-bg{% if product.template_suffix == 'us-only' and localization.country.name != 'United States' %} ge-remove{% endif %}'>
+  <div class='content-wrapper content-maxwidth-medium'>
+    {% if settings.theme_styles != blank %}
+      <h2 class='h2 headline staff-x-type color-brand-black text-center'>CUSTOMER REVIEWS</h2>
+    {% else %}
+      <h2 class='section__headline text-center'>CUSTOMER REVIEWS</h2>
+    {% endif %}
+
+    {% render 'okendo-reviews-widget', product: product %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product Okendo",
+  "tag": "section",
+  "class": "section-product-okendo",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Product Okendo"
+    }
+  ]
+}
+{% endschema %}

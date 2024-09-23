@@ -1,0 +1,87 @@
+{% liquid
+  assign block_settings = section.blocks | map: 'settings'
+%}
+
+<div class='container'>
+  <div class='content-wrapper section-spacer'>
+    {% render 'testimonial-slider',
+      heading: section.settings.heading,
+      block_settings: block_settings
+    %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Testimonial Slider",
+  "tag": "section",
+  "class": "testimonial-slider-section",
+  "settings": [
+    {
+      "id": "heading",
+      "type": "text",
+      "label": "Heading",
+      "default": "Customer Love"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Testimonial",
+      "type": "testimonial",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "testimonial_img",
+          "label": "Testimonial Image"
+        },
+        {
+          "type": "text",
+          "id": "testimonial_rating",
+          "label": "Testimonial Rating"
+        },
+        {
+          "type": "text",
+          "id": "testimonial_headline",
+          "label": "Testimonial Headline"
+        },
+        {
+          "type": "text",
+          "id": "testimonial_full_text",
+          "label": "Testimonial Full Text"
+        },
+        {
+          "type": "image_picker",
+          "id": "avatar",
+          "label": "Customer Avatar"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Customer Name"
+        },
+        {
+          "type": "text",
+          "id": "height",
+          "label": "Customer Height"
+        },
+        {
+          "type": "text",
+          "id": "weight",
+          "label": "Customer Weight"
+        },
+        {
+          "type": "product",
+          "id": "product_reviewed",
+          "label": "Product Reviewed"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonial Slider",
+      "category": "Text"
+    }
+  ]
+}
+{% endschema %}

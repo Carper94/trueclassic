@@ -1,0 +1,150 @@
+<div class='guarantee-container' style='display: none!important'>
+  <p>Perfect fit, Made to last Guarantee</p>
+  <a href='#' class='button tertiary'>
+    <svg
+      width='13'
+      height='8'
+      viewBox='0 0 13 8'
+      fill='BLACK'
+      stroke='WHIBLACKTE'
+      xmlns='http://www.w3.org/2000/svg'
+    >
+      <path d="M12.6263 4.35355C12.8215 4.15829 12.8215 3.84171 12.6263 3.64645L9.4443 0.464467C9.24904 0.269205 8.93246 0.269205 8.73719 0.464467C8.54193 0.659729 8.54193 0.976311 8.73719 1.17157L11.5656 4L8.73719 6.82843C8.54193 7.02369 8.54193 7.34027 8.73719 7.53553C8.93246 7.7308 9.24904 7.7308 9.4443 7.53553L12.6263 4.35355ZM-4.37114e-08 4.5L12.2727 4.5L12.2727 3.5L4.37114e-08 3.5L-4.37114e-08 4.5Z" fill="currentColor"></path>
+      <rect x="4.05324e-07" y="4" width="12.2727" height="8.10647e-07" stroke="currentColor" stroke-width="8.10647e-07"></rect>
+    </svg>
+    <span>Learn More</span></a
+  >
+</div>
+
+<div
+  class='reeview-app-widget'
+  id='reeview-app-widget_63dd492c555d61002a0f56d6'
+></div>
+<br>
+{% if product.metafields.custom.icon_links.value[0] != blank %}
+  <div class='product__icons'>
+    <ul class='product__icons--list'>
+      {% if product.metafields.custom.icon_links.value[0] != blank
+        and product.metafields.custom.icon_links.value[1] != blank
+      %}
+        <li class='product__icon--item'>
+          <img
+            src='{{ product.metafields.custom.icon_links.value[0] }}'
+            alt='icon'
+            width='50'
+            height='50'
+            loading='lazy'
+          >
+          <p>{{ product.metafields.custom.icon_links.value[1] }}</p>
+        </li>
+      {% endif %}
+
+      {% if product.metafields.custom.icon_links.value[2] != blank
+        and product.metafields.custom.icon_links.value[3] != blank
+      %}
+        <li class='product__icon--item'>
+          <img
+            src='{{ product.metafields.custom.icon_links.value[2] }}'
+            alt='icon'
+            width='50'
+            height='50'
+            loading='lazy'
+          >
+          <p>{{ product.metafields.custom.icon_links.value[3] }}</p>
+        </li>
+      {% endif %}
+
+      {% if product.metafields.custom.icon_links.value[4] != blank
+        and product.metafields.custom.icon_links.value[5] != blank
+      %}
+        <li class='product__icon--item'>
+          <img
+            src='{{ product.metafields.custom.icon_links.value[4] }}'
+            alt='icon'
+            width='50'
+            height='50'
+            loading='lazy'
+          >
+          <p>{{ product.metafields.custom.icon_links.value[5] }}</p>
+        </li>
+      {% endif %}
+
+      {% if product.metafields.custom.icon_links.value[6] != blank
+        and product.metafields.custom.icon_links.value[7] != blank
+      %}
+        <li class='product__icon--item'>
+          <img
+            src='{{ product.metafields.custom.icon_links.value[6] }}'
+            alt='icon'
+            width='50'
+            height='50'
+            loading='lazy'
+          >
+          <p>{{ product.metafields.custom.icon_links.value[7] }}</p>
+        </li>
+      {% endif %}
+
+      {% if product.metafields.custom.icon_links.value[8] != blank
+        and product.metafields.custom.icon_links.value[9] != blank
+      %}
+        <li class='product__icon--item'>
+          <img
+            src='{{ product.metafields.custom.icon_links.value[8] }}'
+            alt='icon'
+            width='50'
+            height='50'
+            loading='lazy'
+          >
+          <p>{{ product.metafields.custom.icon_links.value[9] }}</p>
+        </li>
+      {% endif %}
+
+      {% if product.metafields.custom.icon_links.value[10] != blank
+        and product.metafields.custom.icon_links.value[11] != blank
+      %}
+        <li class='product__icon--item'>
+          <img
+            src='{{ product.metafields.custom.icon_links.value[10] }}'
+            alt='icon'
+            width='50'
+            height='50'
+            loading='lazy'
+          >
+          <p>{{ product.metafields.custom.icon_links.value[11] }}</p>
+        </li>
+      {% endif %}
+
+      {% if product.metafields.custom.icon_links.value[12] != blank
+        and product.metafields.custom.icon_links.value[13] != blank
+      %}
+        <li class='product__icon--item'>
+          <img
+            src='{{ product.metafields.custom.icon_links.value[12] }}'
+            alt='icon'
+            width='50'
+            height='50'
+            loading='lazy'
+          >
+          <p>{{ product.metafields.custom.icon_links.value[13] }}</p>
+        </li>
+      {% endif %}
+    </ul>
+  </div>
+{% endif %}
+{% comment %}
+   {% if section.settings.show_icons %}
+    <br>
+    <div
+      class='product-icons'
+    >
+      {% for i in (1..6) %}
+        {% assign icon_image = 'icon_image_' | append: i %}
+        {% assign icon_text = 'icon_text_' | append: i %}
+        <div class='product-icons__icon'>
+          <div class='product-icons__svg'>{{ section.settings[icon_image] }}</div>
+          <p>{{ section.settings[icon_text] }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endcomment %}

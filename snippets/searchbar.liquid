@@ -1,0 +1,83 @@
+{% liquid
+  if id == blank
+    assign id = 'searchbar'
+  endif
+%}
+
+<div class='searchbar-wrapper'>
+  <form
+    action='{{ routes.search_url }}'
+    method='get'
+    role='search'
+    class='searchbar__form'
+    name='search-form'
+  >
+    <div class='searchbar__inner-wrapper'>
+      <label
+        {% if id %}
+          for='{{ id }}'
+        {% endif %}
+        class='visually-hidden'
+        >Search</label
+      >
+      <input
+        {% if id %}
+          id='{{ id }}'
+        {% endif %}
+        class='searchbar__input'
+        type='search'
+        name='q'
+        placeholder='Search 100s of tees, jeans, and more'
+        aria-label='Search'
+        minlength='1'
+      >
+      <button type='submit' class='searchbar__button icon-button' aria-label='Search'>
+        {% render 'icon-search' %}
+        <span class='visually-hidden'>Search</span>
+      </button>
+    </div>
+  </form>
+  <div id='emptySearch'>Search cannot be empty</div>
+</div>
+<style>
+  #emptySearch {
+    position: absolute;
+    color: #971b1b;
+    font-size: 14px;
+    width: fit-content;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    padding: 0.25rem 1rem;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.5s ease-in-out;
+  }
+  #emptySearch.show {
+    opacity: 1;
+    z-index: 1;
+    transition: opacity 0.5s ease-in-out;
+  }
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const searchForm = document.querySelector('.searchbar__form');
+    const searchInput = document.querySelector('.searchbar__input');
+    const emptySearch = document.getElementById('emptySearch');
+
+    if (searchForm && searchInput) {
+      searchForm.addEventListener('submit', function (event) {
+        const query = searchInput.value.trim();
+        
+        if (query.length === 0) {
+          event.preventDefault();
+          emptySearch.classList.add('show');
+          setTimeout(function () {
+            emptySearch.classList.remove('show');
+          }, 2000);
+        }
+      });
+    }
+  });
+</script>

@@ -1,0 +1,89 @@
+<div class='slide-fit-form'>
+  <div class='fit-header'>
+    <h2 class='modal-header staff-x-condensed-type h4 color-chocolate'>Welcome to the Virtual Fitting Room</h2>
+    <p class='modal-description'>Fill in the details to try this product</p>
+  </div>
+  <br>
+  <br>
+  <form class='fit-form' onsubmit='return false'>
+    <label class='fit-switch'>
+      <input
+        type='checkbox'
+        name='height-toggle'
+        data-delegate='heighttoggle'
+        checked='checked'
+        hidden
+      >
+      <span class='slider'></span>
+      <span class='toggler'><span>metric</span><span>imperial</span></span>
+    </label>
+    <div class='height'>
+      <input type='number' name='feet' placeholder='Feet' autofocus oninput="if (this.value.length === 1) document.getElementsByName('inches')[0].focus()" min="5" max="9" step="1">
+      <input type='number' name='inches' placeholder='Inches' oninput="if (this.value.length === 2) document.getElementsByName('weight')[0].focus()"  min="0" max="11" step="1">
+      <input
+        type='text'
+        name='meter'
+        placeholder='Centimeters'
+        style='display: none;'
+      >
+    </div>
+    <div class='weight'>
+      <input type='number' name='weight' placeholder='Weight (LBS)' oninput="if (this.value.length === 3) document.getElementsByName('age')[0].focus()"  min="60" max="400" step="1">
+    </div>
+    <div class='age'><input type='number' name='age' placeholder='Age' oninput="if (this.value.length === 2) document.getElementsByName('submit')[0].focus()" min="1" max="99" step="1"></div>
+    <input type='submit' id='form-button-next' class='form-button' value='Next' disabled name="submit">
+  </form>
+</div>
+
+<div class='slide-fit-size'>
+
+  <div class='fit-nofound'>
+    <h3>Unable to find your fit</h3>
+  </div>
+
+<div class='fit-option'>
+<h2 id="headline-recommended-sizes" class="staff-x-condensed-type h3 color-chocolate">Recommended Sizes<span id='fit-let' hidden></span><span id='fit-num' hidden></span></h2>
+  <span class='fit-log' hidden></span> 
+  
+
+  <div class="recommended-container" id="recommend-container"> 
+    {% if upsell == true %}
+      {%- liquid 
+          assign staple_pack = all_products['staple-pack']
+          assign jeans = all_products['black-classic-straight-jeans']
+      -%}
+      <div class="recommend-fit recommend-left is-close" id="recommend-fit-left">
+      <h3 class="staff-x-condensed-type h4 color-chocolate shirt-size"></h3>
+        <a id="link-recommend-left" href="#" title="{{ staple_pack.title }}">{{ staple_pack.featured_image | image_url: width: 200 | image_tag: height: 300 }}</a>
+        <h3>{{ staple_pack.title }}</h3>
+        <p>
+          {% if staple_pack.compare_at_price > staple_pack.price %}
+            <span class="price price--full"><s>{{ staple_pack.compare_at_price | money }}</s></span>
+            <span class="price price--discount"><span class="money">{{ staple_pack.price | money }}</span></span>
+          {% else %}
+            <span class="price price--full">{{ staple_pack.price | money }}</span>
+          {% endif %}
+        </p>
+        <div id="recommended-staple-pack"></div>
+        
+      </div> 
+      <div class="recommend-fit recommend-right is-close" id="recommend-fit-right">
+      <h3 class="staff-x-condensed-type h4 color-chocolate jean-size"></h3>
+        <a id="link-recommend-right" href="#" title="{{ jeans.title }}"> {{ jeans.featured_image | image_url: width: 200 | image_tag: height: 300 }} </a>
+        <h3>{{ jeans.title }}</h3> 
+        <p>
+          {% if jeans.compare_at_price > jeans.price %}
+            <span class="price price--full"><s>{{ jeans.compare_at_price | money }}</s></span>
+            <span class="price price--discount"><span class="money">{{ jeans.price | money }}</span></span>
+          {% else %}
+            <span class="price price--full">{{ jeans.price | money }}</span>
+          {% endif %}
+        </p>
+        <div id="recommended-jeans"></div>
+        
+      </div>
+      <div class="not-found-card">Unable to find your size</div>
+    {% endif %}
+  </div>
+  <button id='form-button-reset' class='{% if upsell %} form-button-reset {% else %}  form-button {% endif %}'><span>Reset</span></button>
+</div>

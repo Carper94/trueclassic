@@ -1,0 +1,6 @@
+:root {
+  --hcm-focus-outline: 3px solid transparent;
+  --box-shadow-focus: 0 0 0 3px var(--brand-gray-dark);
+  --divider: 1px solid var(--brand-gray-light);
+  --divider-bold: 2px solid var(--brand-black);
+}

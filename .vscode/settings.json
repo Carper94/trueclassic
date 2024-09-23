@@ -1,0 +1,29 @@
+{
+  "editor.tabSize": 2,
+  "editor.wordWrap": "off",
+  "editor.detectIndentation": true,
+  "editor.guides.bracketPairs": "active",
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features",
+    "editor.formatOnSave": false
+  },
+  "html.validate.scripts": true,
+  "html.validate.styles": false,
+  "editor.formatOnSave": false,
+  "editor.colorDecorators": true,
+  "files.associations": {
+    "*.css": "scss"
+  },
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "js/ts.implicitProjectConfig.checkJs": true,
+  "typescript.validate.enable": false,
+  "files.exclude": {
+    "assets/customers.*": true,
+    "assets/layout.*": true,
+    "assets/template.*": true
+  },
+  "editor.autoIndent": "keep",
+  "liquid.format.enable": false
+}

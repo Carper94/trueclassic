@@ -1,0 +1,23 @@
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "settings": {
+        "full_width": false,
+        "hide_title": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "d366e50b-ba46-4fea-a039-c35e93190876": {
+      "type": "liquid",
+      "settings": {
+        "liquid": "<div class='container'>\n  <div class='content-wrapper'>\n    {% for collection in collections %}\n      <h2>{{ collection.title }}<\/h2>\n      {% assign all_tags = '' %}\n      {% for product in collection.products %}\n        {% assign product_tags = product.tags | split: ',' %}\n        {% assign all_tags = all_tags | concat: product_tags %}\n      {% endfor %}\n      {% assign unique_tags = all_tags | uniq %}\n      <ul>\n        {% for tag in unique_tags %}\n          {% assign tag_count = all_tags | where: tag | size %}\n          {% if tag_count > 1 %}\n            <li>\n              <strong>{{ tag }}<\/strong> ({{ tag_count }})\n            <\/li>\n          {% endif %}\n        {% endfor %}\n      <\/ul>\n    {% endfor %}\n  <\/div>\n<\/div>"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "d366e50b-ba46-4fea-a039-c35e93190876"
+  ]
+}

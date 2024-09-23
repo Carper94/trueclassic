@@ -1,0 +1,177 @@
+{
+  "general": {
+    "accessibility": {
+      "skip_to_content": "Verder naar inhoud"
+    },
+    "meta": {
+      "tags": "Getagd \"{{ tags }}\"",
+      "page": "Pagina {{ page }}"
+    },
+    "404": {
+      "title": "404 Pagina niet gevonden",
+      "subtext_html": "De pagina die u zocht bestaat niet. Klik <a href=\"\/collections\/all\">hier<\/a> om verder te shoppen."
+    },
+    "password_page": {
+      "opening_soon": "Binnenkort open",
+      "spread_the_word": "Vertel het verder",
+      "login_form_heading": "Login met wachtwoord",
+      "login_form_password_label": "Wachtwoord",
+      "login_form_password_placeholder": "Uw wachtwoord",
+      "login_form_submit": "Bevestig",
+      "signup_form_heading": "Ontdek wanneer we open gaan",
+      "signup_form_email_label": "E-mail",
+      "signup_form_email_placeholder": "Uw e-mail",
+      "signup_form_submit": "Bevestig",
+      "signup_form_success": "We zullen u een e-mail sturen net voor we open gaan!",
+      "admin_link_html": "Ben u de eigenaar van deze shop? <a href=\"\/admin\">hier inloggen<\/a>",
+      "password_link": "Login met wachtwoord",
+      "powered_by_shopify_html": "Deze shop zal worden ondersteund door {{ shopify }}"
+    },
+    "social": {
+      "share_on_facebook": "Deel",
+      "share_on_twitter": "Tweet",
+      "share_on_pinterest": "Pin",
+      "alt_text": {
+        "share_on_facebook": "Deel op Facebook",
+        "share_on_twitter": "Tweet op Twitter",
+        "share_on_pinterest": "Pin op Pinterest",
+        "share_on_tumblr": "Deel op Tumblr"
+      },
+      "share_on_tumblr": "Deel"
+    },
+    "search": {
+      "title": "Zoek naar producten",
+      "placeholder": "Zoek in onze winkel",
+      "submit": "Zoeken",
+      "heading": {
+        "one": "Zoekresultaat",
+        "other": "Zoekresultaten"
+      },
+      "results_with_count": {
+        "one": "{{ count }} resultaat voor \"{{ terms }}\"",
+        "other": "{{ count }} resultaten voor \"{{ terms }}\""
+      },
+      "no_results_html": "Probeer een ander trefwoord of ga terug naar de <a href=\"\/\">startpagina<\/a>."
+    },
+    "newsletter_form": {
+      "newsletter_email": "Kom bij onze maillijst",
+      "email_placeholder": "E-mail",
+      "confirmation": "Bedankt voor het abonneren",
+      "submit": "Abonneren"
+    }
+  },
+  "blogs": {
+    "article": {
+      "author_on_date_html": "Geplaats door {{ author }} op {{ date }}",
+      "comment_meta_html": "{{ author }} op {{ date }}",
+      "read_more": "Lees verder",
+      "read_more_title": "Lees verder: {{ title }}",
+      "by_author": "door {{ author }}",
+      "tags": "Labels",
+      "additional_posts": "Andere berichten"
+    },
+    "comments": {
+      "title": "Laat een reactie achter",
+      "name": "Naam",
+      "email": "E-mail",
+      "message": "Bericht",
+      "post": "Plaats reactie",
+      "moderated": "Reacties moeten worden goedgekeurd alvorens deze geplaatst worden.",
+      "success_moderated": "Uw reactie is succesvol geplaatst. Deze zal binnenkort worden gepubliceerd na moderatie.",
+      "success": "Uw reactie is succesvol geplaatst! Bedankt!",
+      "with_count": {
+        "one": "{{ count }} reactie",
+        "other": "{{ count }} reacties"
+      }
+    },
+    "general": {
+      "categories": "Categorie",
+      "recent_articles": "Recente artikelen"
+    }
+  },
+  "customer": {
+    "account": {
+      "title": "Uw Account",
+      "details": "Account Details",
+      "view_addresses": "Uw adressen",
+      "return": "Ga terug naar Account Details",
+      "log_out": "Uitloggen"
+    },
+    "activate_account": {
+      "title": "Activeer Account",
+      "subtext": "Maak een wachtwoord aan om uw account te activeren.",
+      "password": "Wachtwoord",
+      "password_confirm": "Bevestig wachtwoord"
+    },
+    "order": {
+      "sku": "SKU",
+      "price": "Prijs",
+      "quantity": "Hoeveelheid",
+      "total": "Totaal",
+      "fulfilled_at": "Datum vervuld",
+      "track_shipment": "Track verzending",
+      "tracking_url": "Tracking link",
+      "tracking_company": "Bedrijf",
+      "tracking_number": "Volgnummer",
+      "subtotal": "Subtotaal"
+    },
+    "recover_password": {
+      "title": "Wachtwoord opnieuw instellen",
+      "email": "E-mail",
+      "submit": "Bevestig",
+      "cancel": "Annuleer",
+      "subtext": "We zullen u een e-mail sturen om uw wachtwoord opnieuw in te stellen.",
+      "success": "U ontvangt dadelijk een e-mail om uw wachtwoord opnieuw in te stellen."
+    },
+    "reset_password": {
+      "title": "Stel uw wachtwoord opnieuw in",
+      "subtext": "Voeg een nieuw wachtwoord in voor {{ email }}",
+      "password": "Wachtwoord",
+      "password_confirm": "Bevestig wachtwoord",
+      "submit": "Opnieuw instellen"
+    },
+    "register": {
+      "title": "Registeren",
+      "first_name": "Voornaam",
+      "last_name": "Achternaam",
+      "email": "E-mail",
+      "password": "Wachtwoord",
+      "submit": "Registreren",
+      "cancel": "Terug naar de shop"
+    }
+  },
+  "products": {
+    "product": {
+      "regular_price": "Normale prijs",
+      "sold_out": "Uitverkocht",
+      "unavailable": "Niet beschikbaar",
+      "on_sale": "Sale",
+      "on_sale_from_html": "In sale van {{ price }}",
+      "from_text_html": "Vanaf {{ price }}",
+      "quantity": "Aantal",
+      "add_to_cart": "In winkelmandje",
+      "on_sale_html": "In de uitverkoop {{ price }}"
+    },
+    "pdp": {
+      "classic_description": "Klassieke look, moderne pasvorm, katoenpolyblend.",
+      "active_description": "Vochtafvoerend, 4-weg stretch, plus UPF.",
+      "size_description": "Neem een ​​maat groter als je tussen twee maten in zit. Onze overhemden passen nauwsluitend.",
+      "shipping_description": "Gratis verzending bij Amerikaanse bestellingen van meer dan $ 100 en eenvoudig retourneren!"
+    }
+  },
+  "gift_cards": {
+    "issued": {
+      "title": "Uw cadeaubon ter waarde van {{ value }}!",
+      "subtext": "Dit is uw cadeaubon!",
+      "disabled": "Niet geactiveerd",
+      "expired": "Vervallen op {{ expiry }}",
+      "active": "Vervalt op {{ expiry }}",
+      "redeem": "Gebruik deze code tijdens het uitchecken.",
+      "shop_link": "Begin te shoppen",
+      "print": "Printen",
+      "remaining_html": "{{ balance }} over",
+      "add_to_apple_wallet": "Voeg toe aan Apple Wallet",
+      "initial_value": "Waarde cadeaukaart: {{ value }}"
+    }
+  }
+}

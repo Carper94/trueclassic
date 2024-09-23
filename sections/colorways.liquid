@@ -1,0 +1,47 @@
+{% liquid
+  assign colorways = section.settings.colorways | replace: '\n', ''
+  assign colorway_array = colorways | split: ','
+  assign css_vars = ''
+%}
+
+{% for colorway in colorway_array %}
+  {% liquid
+    assign color = colorway | split: '::'
+    assign name = color[0] | handleize
+    assign hex = color[1]
+
+    capture css_var
+      echo '--swatch-'
+      echo name
+      echo ': '
+      echo hex
+      echo ';'
+    endcapture
+  %}
+
+  {% assign css_vars = css_vars | append: css_var %}
+
+{% endfor %}
+
+<div>
+  <style type="text/css" id="colorways">
+    :root {
+      {{ css_vars }}
+    }
+  </style>
+</div>
+
+{% schema %}
+{
+  "name": "Colorways",
+  "class": "section-colorways",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "colorways",
+      "label": "All Colorways",
+      "info": "The format below must be followed exactly: name::hex,"
+    }
+  ]
+}
+{% endschema %}

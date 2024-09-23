@@ -1,0 +1,900 @@
+{%- liquid
+  assign sc_id = '#shopify-section-' | append: section.id
+-%}
+
+{% comment %} STYLES {% endcomment %}
+
+<style type='text/css'>
+  {{ sc_id }} {
+    padding-top: {{ section.settings.padding_top | times: 0.50 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.50 }}px;
+  }
+
+  @media screen and (min-width: 769px) {
+    {{ sc_id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .tc-timeline {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+  }
+
+  .timeline-line {
+    position: relative;
+    width: 2px;
+    min-height: calc(((28px + 4vh) * {{ section.blocks | size }}) - 5.5vh);
+  }
+
+  .timeline-line::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: calc(50% - 1px);
+    width: 2px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: -1;
+  }
+
+  .timeline-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: calc(50% - 1px);
+    width: 2px;
+    height: calc(100% * var(--scroll-percent, 0));
+    background: rgba(255, 255, 255, 0.5);
+    z-index: -1;
+  }
+
+  .timeline {
+    position: sticky;
+    top: 50%;
+    width: 0;
+    padding: 0;
+    left: 10px;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+
+  .timeline > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    padding-left: 5px;
+    position: absolute;
+    top: 0;
+    width: 70px;
+    color: white;
+  }
+
+  .timeline > ul > li {
+    margin: 4vh 0;
+  }
+
+  .timeline > ul > li:first-child {
+    margin: 0 0 4vh 0;
+  }
+
+  .timeline > ul > li:last-child {
+    margin: 4vh
+     0 0 0;
+  }
+
+  .timeline .year > * {
+    font-weight: bold;
+    opacity: 0.3;
+  }
+
+  .timeline-content {
+    flex: 1 1 auto;
+  }
+
+   @media screen and (min-width: 768px) {
+    .milestone:nth-child(odd) {
+      flex-direction: row;
+    }
+    .milestone:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+  }
+     @media screen and (max-width: 560px) {
+    .milestone .timeline-item__media {
+      margin-bottom: 20px;
+    }
+  }
+  @media (min-width: var(--media-medium)) {
+    .timeline-item > * {
+      width: 50%;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .timeline-content {
+      padding-left: 60px;
+      background-color: var(--brand-chocolate);
+    }
+  }
+
+  .timeline-item img {
+    height: auto;
+    min-width: 100%;
+  }
+
+  @media screen and (min-width: 769px){
+    .timeline-item-content__inner {
+      padding: 4.75rem;
+    }
+  }
+  @media screen and (max-width: 769px){
+    .timeline-item {
+      flex-direction: column;
+    }
+  }
+  @media screen and (max-width: 560px){
+    .rt-timeline {
+      margin: 0;
+    }
+    .tc-rich-text__blocks {
+      text-align: left!important;
+      padding-left: 1rem;
+    }
+  }
+</style>
+
+{% comment %} CONTENT {% endcomment %}
+
+<div class='rich-text bg-color-chocolate'>
+  <div class='rich-text__wrapper rich-text__wrapper--center rt-timeline' style=''>
+    <div class='tc-rich-text__blocks rich-text__blocks center'>
+      <h2 class='headline staff-x-condensed-type h2 color-white  mg-t-xl mg-b-xl  underlined-styled'>
+        HOW IT STARTED
+      </h2>
+    </div>
+  </div>
+</div>
+
+<div class='tc-timeline'>
+  <div class='timeline'>
+    <div class='timeline-line'></div>
+    <ul>
+      {%- for block in section.blocks -%}
+        <li
+          id='timeline-year-{{ forloop.index }}'
+          class='timeline-year'
+        >
+          <span class='year' data-year='{{ block.settings.year }}'>
+            {% if block.settings.year == '2020-21' %}
+              <span style='display: none;'>20</span>20-21
+            {% else %}
+              {{- block.settings.year -}}
+            {% endif %}
+          </span>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+
+  <div class='tc-timeline__inner timeline-content'>
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'section' -%}
+          <div
+            id='milestone-{{ forloop.index }}'
+            class='timeline-item milestone aa half {{ block.settings.media_position }}'
+            style='background-color: {{ block.settings.bg_color }};'
+          >
+            <div class='timeline-item__media'>
+              {%- liquid
+                assign image_height = block.settings.image.width | divided_by: block.settings.image.aspect_ratio
+                assign image_class = ''
+                assign sizes = '50vw'
+                assign loading = 'lazy'
+              -%}
+              {{
+                block.settings.image
+                | image_url: width: 3000
+                | image_tag:
+                  width: block.settings.image.width,
+                  height: image_height,
+                  class: image_class,
+                  sizes: sizes,
+                  loading: loading,
+                  widths: '165, 265, 360, 535, 750, 1070, 1500, 1780, 2000, 3000, 3800',
+                  alt: block.settings.image.alt
+                | escape
+              }}
+            </div>
+            <div class='timeline-item-content aa c'>
+              <div class='timeline-item-content__inner padding'>
+                <span
+                  class='{{ block.settings.heading_color }}'
+                  data-year='{{ block.settings.year }}'
+                >
+                  {{- block.settings.year -}}
+                </span>
+                {% render 'tc-heading',
+                  title: block.settings.title,
+                  heading_level: block.settings.heading_level,
+                  heading_font: block.settings.heading_font,
+                  heading_size: block.settings.heading_size,
+                  heading_color: block.settings.heading_color,
+                  heading_color_inverse: block.settings.heading_color_inverse,
+                  heading_margin_top: block.settings.heading_margin_top,
+                  heading_margin_bottom: block.settings.heading_margin_bottom,
+                  heading_underline: block.settings.heading_underline,
+                  line_break_dot: block.settings.line_break_dot
+                %}
+                {%
+                  render 'tc-paragraph',
+                  text: block.settings.paragraph,
+                  text_font: block.settings.paragraph_font,
+                  text_style: block.settings.paragraph_style,
+                  text_color: block.settings.paragraph_color,
+                  text_color_inverse: block.settings.paragraph_color_inverse,
+                  text_margin_top: block.settings.paragraph_margin_top,
+                  text_margin_bottom: block.settings.paragraph_margin_bottom,
+                %}
+              </div>
+            </div>
+          </div>
+      {%- endcase -%}
+    {%- endfor -%}
+  </div>
+</div>
+<script>
+  {% comment %} document.addEventListener('DOMContentLoaded', function () {
+    window.addEventListener('scroll', function () {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      var timelineYears = document.querySelectorAll('.timeline-year');
+
+      timelineYears.forEach(function (year, index) {
+        var milestone = document.getElementById('milestone-' + (index + 1));
+        var milestoneTop = milestone.offsetTop - window.innerHeight;
+        var milestoneBottom = milestone.offsetTop + milestone.offsetHeight - window.innerHeight / 2;
+
+        if (scrollTop > milestoneTop && scrollTop < milestoneBottom) {
+          var opacity = 0.3 + (scrollTop - milestoneTop) / 200;
+          year.style.opacity = opacity;
+        } else {
+          year.style.opacity = 0.3;
+        }
+      });
+
+      var tcTimeline = document.querySelector('.tc-timeline');
+      var tcTimelineRect = tcTimeline.getBoundingClientRect();
+      var tcTimelineStart = tcTimelineRect.top + scrollTop;
+
+      var scrollPercent =
+        (scrollTop - tcTimelineStart) / (tcTimelineRect.height - window.innerHeight);
+      scrollPercent = Math.max(0, Math.min(1, scrollPercent));
+
+      tcTimeline.style.setProperty('--scroll-percent', scrollPercent);
+    });
+  }); {% endcomment %}
+
+  document.addEventListener('DOMContentLoaded', function () {
+    window.addEventListener('scroll', function () {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      var timelineYears = document.querySelectorAll('.timeline-year');
+
+      timelineYears.forEach(function (year, index) {
+        var milestone = document.getElementById('milestone-' + (index + 1));
+        var milestoneTop = milestone.offsetTop - window.innerHeight / 2;
+        var milestoneBottom = milestone.offsetTop + milestone.offsetHeight - window.innerHeight / 2;
+
+        if (scrollTop > milestoneTop && scrollTop < milestoneBottom) {
+          var opacity = 0.3 + (scrollTop - milestoneTop) / 200;
+          year.style.opacity = 1;
+        } else {
+          year.style.opacity = 0.3;
+        }
+      });
+
+      var tcTimeline = document.querySelector('.tc-timeline');
+      var tcTimelineRect = tcTimeline.getBoundingClientRect();
+      var tcTimelineStart = tcTimelineRect.top + scrollTop;
+
+      var scrollPercent = (scrollTop - tcTimelineStart) / (tcTimelineRect.height - window.innerHeight);
+      scrollPercent = Math.max(0, Math.min(1, scrollPercent));
+
+      var timelineLine = document.querySelector('.timeline-line');
+      timelineLine.style.setProperty('--scroll-percent', scrollPercent);
+    });
+  });
+</script>
+
+{% comment %} SCHEMA {% endcomment %}
+
+{% schema %}
+{
+  "name": "TC Timeline",
+  "tag": "section",
+  "class": "section section-tc-timeline",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section specific"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "section",
+      "name": "Section",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Layout"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Background color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "select",
+          "id": "media_position",
+          "options": [
+            {
+              "value": "xrow",
+              "label": "Left"
+            },
+            {
+              "value": "xrow-r",
+              "label": "Right"
+            }
+          ],
+          "default": "xrow",
+          "label": "Media position"
+        },
+        {
+          "type": "header",
+          "content": "Content"
+        },
+        {
+          "type": "text",
+          "id": "year",
+          "default": "2019",
+          "label": "Year"
+        },
+        {
+          "type": "header",
+          "content": "Heading"
+        },
+        {
+          "id": "title",
+          "type": "text",
+          "label": "Heading text",
+          "default": "True Classic®"
+        },
+        {
+          "type": "select",
+          "id": "heading_level",
+          "options": [
+            {
+              "value": "h1",
+              "label": "Level 1"
+            },
+            {
+              "value": "h2",
+              "label": "Level 2"
+            },
+            {
+              "value": "h3",
+              "label": "Level 3"
+            },
+            {
+              "value": "h4",
+              "label": "Level 4"
+            },
+            {
+              "value": "h5",
+              "label": "Level 5"
+            },
+            {
+              "value": "h6",
+              "label": "Level 6"
+            },
+            {
+              "value": "span",
+              "label": "Span"
+            }
+          ],
+          "default": "h2",
+          "label": "Heading level"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h0",
+              "label": "XX Large"
+            },
+            {
+              "value": "h1",
+              "label": "X Large"
+            },
+            {
+              "value": "h2",
+              "label": "Large"
+            },
+            {
+              "value": "h3",
+              "label": "Base"
+            },
+            {
+              "value": "h4",
+              "label": "Small"
+            },
+            {
+              "value": "h5",
+              "label": "X Small"
+            },
+            {
+              "value": "h6",
+              "label": "XX Small"
+            }
+          ],
+          "default": "h2",
+          "label": "Heading size"
+        },
+        {
+          "type": "select",
+          "id": "heading_font",
+          "options": [
+            {
+              "value": "staff-x-condensed-type",
+              "label": "Staff X Condensed"
+            },
+            {
+              "value": "modernist-type",
+              "label": "Modernist"
+            },
+            {
+              "value": "modernist-mono-type",
+              "label": "Modernist Mono"
+            },
+            {
+              "value": "roboto-mono-type",
+              "label": "Roboto Mono"
+            },
+            {
+              "value": "montserrat-type",
+              "label": "Montserrat"
+            }
+          ],
+          "default": "staff-x-condensed-type",
+          "label": "Heading font family"
+        },
+        {
+          "type": "select",
+          "id": "heading_color",
+          "options": [
+            {
+              "value": "color-white",
+              "label": "White"
+            },
+            {
+              "value": "color-black",
+              "label": "Black"
+            },
+            {
+              "value": "color-chocolate",
+              "label": "Chocolate"
+            },
+            {
+              "value": "color-chocolate-light",
+              "label": "Chocolate Light"
+            },
+            {
+              "value": "color-chocolate-mid",
+              "label": "Chocolate Medium"
+            },
+            {
+              "value": "color-chocolate-dark",
+              "label": "Chocolate Dark"
+            },
+            {
+              "value": "color-milk-chocolate",
+              "label": "Milk Chocolate"
+            },
+            {
+              "value": "color-shitake",
+              "label": "Shitake"
+            },
+            {
+              "value": "color-sage",
+              "label": "Sage"
+            },
+            {
+              "value": "color-sage-light",
+              "label": "Sage light"
+            },
+            {
+              "value": "color-cream",
+              "label": "Cream"
+            },
+            {
+              "value": "color-cream-light",
+              "label": "Cream Light"
+            },
+            {
+              "value": "color-yellow",
+              "label": "Yellow"
+            },
+            {
+              "value": "color-red",
+              "label": "Red"
+            }
+          ],
+          "default": "color-chocolate",
+          "label": "Heading color"
+        },
+        {
+          "type": "checkbox",
+          "id": "heading_color_inverse",
+          "label": "Light colors on mobile",
+          "default": false
+        },
+        {
+          "type": "select",
+          "id": "heading_margin_top",
+          "options": [
+            {
+              "value": "mg-t-xxl",
+              "label": "XX Large"
+            },
+            {
+              "value": "mg-t-xl",
+              "label": "X Large"
+            },
+            {
+              "value": "mg-t-l",
+              "label": "Large"
+            },
+            {
+              "value": "mg-t-m",
+              "label": "Medium"
+            },
+            {
+              "value": "mg-t-s",
+              "label": "Small"
+            },
+            {
+              "value": "mg-t-xs",
+              "label": "X Small"
+            },
+            {
+              "value": "mg-t-none",
+              "label": "No margin"
+            }
+          ],
+          "default": "mg-t-none",
+          "label": "Heading margin top"
+        },
+        {
+          "type": "select",
+          "id": "heading_margin_bottom",
+          "options": [
+            {
+              "value": "mg-b-xxl",
+              "label": "XX Large"
+            },
+            {
+              "value": "mg-b-xl",
+              "label": "X Large"
+            },
+            {
+              "value": "mg-b-l",
+              "label": "Large"
+            },
+            {
+              "value": "mg-b-m",
+              "label": "Medium"
+            },
+            {
+              "value": "mg-b-s",
+              "label": "Small"
+            },
+            {
+              "value": "mg-b-xs",
+              "label": "X Small"
+            },
+            {
+              "value": "mg-b-none",
+              "label": "No margin"
+            }
+          ],
+          "default": "mg-b-m",
+          "label": "Heading margin bottom"
+        },
+        {
+          "type": "checkbox",
+          "id": "heading_underline",
+          "label": "Underline",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "line_break_dot",
+          "label": "Break line only at dots",
+          "default": false
+        },
+
+        {
+          "type": "header",
+          "content": "Paragraph"
+        },
+        {
+          "id": "paragraph",
+          "type": "richtext",
+          "label": "Paragraph text",
+          "default": "<p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>"
+        },
+        {
+          "type": "select",
+          "id": "paragraph_font",
+          "options": [
+            {
+              "value": "staff-x-condensed-type",
+              "label": "Staff X Condensed"
+            },
+            {
+              "value": "modernist-type",
+              "label": "Modernist"
+            },
+            {
+              "value": "modernist-mono-type",
+              "label": "Modernist Mono"
+            },
+            {
+              "value": "roboto-mono-type",
+              "label": "Roboto Mono"
+            },
+            {
+              "value": "montserrat-type",
+              "label": "Montserrat"
+            }
+          ],
+          "default": "modernist-type",
+          "label": "Paragraph font family"
+        },
+        {
+          "type": "select",
+          "id": "paragraph_style",
+          "options": [
+            {
+              "value": "xxl",
+              "label": "XX Large"
+            },
+            {
+              "value": "xl",
+              "label": "X Large"
+            },
+            {
+              "value": "l",
+              "label": "Large"
+            },
+            {
+              "value": "m",
+              "label": "Base"
+            },
+            {
+              "value": "s",
+              "label": "Small"
+            },
+            {
+              "value": "xs",
+              "label": "X Small"
+            },
+            {
+              "value": "xxs",
+              "label": "XX Small"
+            }
+          ],
+          "default": "m",
+          "label": "Paragraph size"
+        },
+        {
+          "type": "select",
+          "id": "paragraph_color",
+          "options": [
+            {
+              "value": "color-white",
+              "label": "White"
+            },
+            {
+              "value": "color-black",
+              "label": "Black"
+            },
+            {
+              "value": "color-chocolate",
+              "label": "Chocolate"
+            },
+            {
+              "value": "color-chocolate-light",
+              "label": "Chocolate Light"
+            },
+            {
+              "value": "color-chocolate-mid",
+              "label": "Chocolate Medium"
+            },
+            {
+              "value": "color-chocolate-dark",
+              "label": "Chocolate Dark"
+            },
+            {
+              "value": "color-milk-chocolate",
+              "label": "Milk Chocolate"
+            },
+            {
+              "value": "color-shitake",
+              "label": "Shitake"
+            },
+            {
+              "value": "color-sage",
+              "label": "Sage"
+            },
+            {
+              "value": "color-sage-light",
+              "label": "Sage light"
+            },
+            {
+              "value": "color-cream",
+              "label": "Cream"
+            },
+            {
+              "value": "color-cream-light",
+              "label": "Cream Light"
+            },
+            {
+              "value": "color-yellow",
+              "label": "Yellow"
+            },
+            {
+              "value": "color-red",
+              "label": "Red"
+            }
+          ],
+          "default": "color-chocolate",
+          "label": "Paragraph color"
+        },
+        {
+          "type": "checkbox",
+          "id": "paragraph_color_inverse",
+          "label": "Light colors on mobile",
+          "default": false
+        },
+        {
+          "type": "select",
+          "id": "paragraph_margin_top",
+          "options": [
+            {
+              "value": "mg-t-xxl",
+              "label": "XX Large"
+            },
+            {
+              "value": "mg-t-xl",
+              "label": "X Large"
+            },
+            {
+              "value": "mg-t-l",
+              "label": "Large"
+            },
+            {
+              "value": "mg-t-m",
+              "label": "Medium"
+            },
+            {
+              "value": "mg-t-s",
+              "label": "Small"
+            },
+            {
+              "value": "mg-t-xs",
+              "label": "X Small"
+            },
+            {
+              "value": "mg-t-none",
+              "label": "No margin"
+            }
+          ],
+          "default": "mg-t-none",
+          "label": "Paragraph margin top"
+        },
+        {
+          "type": "select",
+          "id": "paragraph_margin_bottom",
+          "options": [
+            {
+              "value": "mg-b-xxl",
+              "label": "XX Large"
+            },
+            {
+              "value": "mg-b-xl",
+              "label": "X Large"
+            },
+            {
+              "value": "mg-b-l",
+              "label": "Large"
+            },
+            {
+              "value": "mg-b-m",
+              "label": "Medium"
+            },
+            {
+              "value": "mg-b-s",
+              "label": "Small"
+            },
+            {
+              "value": "mg-b-xs",
+              "label": "X Small"
+            },
+            {
+              "value": "mg-b-none",
+              "label": "No margin"
+            }
+          ],
+          "default": "mg-b-m",
+          "label": "Paragraph margin bottom"
+        },
+
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "TC Timeline",
+      "settings": {
+        "padding_top": 60,
+        "padding_bottom": 60
+      },
+      "blocks": [
+        {
+          "type": "section"
+        },
+        {
+          "type": "section"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

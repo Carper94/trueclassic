@@ -1,0 +1,28 @@
+{% if MHEIGHT != blank %}
+  <td width='45' class='size-length size-mheight'>
+    {% if ME == 'in' %}
+      {% assign MHEIGHT = MHEIGHT | split: '.' %}
+      {{ MHEIGHT.first }} ft {{ MHEIGHT.last }} in
+    {% else %}
+      {{ MHEIGHT | split: '.' }}
+    {% endif -%}
+  </td>
+{%- endif -%}
+
+{% if CHEST != blank -%}
+  <td width='45' class='size-length size-chest'>
+    {%- if ME == 'in' %}{{ CHEST }}{% else %}{{ CHEST | split: '.' }}{% endif -%}
+  </td>
+{%- endif -%}
+
+{% if WAIST != blank -%}
+  <td width='45' class='size-length size-waist'>
+    {%- if ME == 'in' %}{{ WAIST }}{% else %}{{ WAIST | split: '.' }}{% endif -%}
+  </td>
+{%- endif -%}
+
+{% if HIPS != blank -%}
+  <td width='45' class='size-length size-hips'>
+    {%- if ME == 'in' %}{{ HIPS }}{% else %}{{ HIPS | split: '.' }}{% endif -%}
+  </td>
+{%- endif -%}

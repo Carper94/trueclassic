@@ -1,0 +1,184 @@
+{{ 'affiliate-image-banner.css' | asset_url | stylesheet_tag }}
+
+<style>
+  .affiliate-image-banner .affiliate-content{
+    color: {{ section.settings.font_color }};
+  }
+</style>
+
+<div class='affiliate-image-banner'>
+  <div class='wrapper'>
+    <div class='banner-image hide--mobile'>
+      {%- if section.settings.desktop_image != blank -%}
+        <img
+          srcset='
+            {%- if section.settings.desktop_image.width >= 375 -%}{{ section.settings.desktop_image | image_url: width: 375 }} 375w,{%- endif -%}
+            {%- if section.settings.desktop_image.width >= 750 -%}{{ section.settings.desktop_image | image_url: width: 750 }} 750w,{%- endif -%}
+            {%- if section.settings.desktop_image.width >= 1100 -%}{{ section.settings.desktop_image | image_url: width: 1100 }} 1100w,{%- endif -%}
+            {%- if section.settings.desktop_image.width >= 1500 -%}{{ section.settings.desktop_image | image_url: width: 1500 }} 1500w,{%- endif -%}
+            {%- if section.settings.desktop_image.width >= 2000 -%}{{ section.settings.desktop_image | image_url: width: 2000 }} 2000w,{%- endif -%}
+            {{ section.settings.desktop_image | image_url }} {{ section.settings.desktop_image.width }}w
+          '
+          src='{{ section.settings.desktop_image | image_url: width: 1500 }}'
+          loading='lazy'
+          class='affiliate-image'
+          alt='{{ section.settings.desktop_image.alt | escape }}'
+          width='{{ section.settings.desktop_image.width }}'
+          height='{{ section.settings.desktop_image.height }}'
+        >
+      {%- endif -%}
+    </div>
+    <div class='banner-image hide--desktop'>
+      {%- if section.settings.mobile_image != blank -%}
+        <img
+          srcset='
+            {%- if section.settings.mobile_image.width >= 375 -%}{{ section.settings.mobile_image | image_url: width: 375 }} 375w,{%- endif -%}
+            {%- if section.settings.mobile_image.width >= 750 -%}{{ section.settings.mobile_image | image_url: width: 750 }} 750w,{%- endif -%}
+            {%- if section.settings.mobile_image.width >= 1100 -%}{{ section.settings.mobile_image | image_url: width: 1100 }} 1100w,{%- endif -%}
+            {%- if section.settings.mobile_image.width >= 1500 -%}{{ section.settings.mobile_image | image_url: width: 1500 }} 1500w,{%- endif -%}
+            {%- if section.settings.mobile_image.width >= 2000 -%}{{ section.settings.mobile_image | image_url: width: 2000 }} 2000w,{%- endif -%}
+            {{ section.settings.mobile_image | image_url }} {{ section.settings.mobile_image.width }}w
+          '
+          src='{{ section.settings.mobile_image | image_url: width: 1500 }}'
+          loading='lazy'
+          class='affiliate-image'
+          alt='{{ section.settings.mobile_image.alt | escape }}'
+          width='{{ section.settings.mobile_image.width }}'
+          height='{{ section.settings.mobile_image.height }}'
+        >
+      {%- endif -%}
+    </div>
+    <div class='affiliate-content {{ section.settings.content_position }}'>
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'title' -%}
+            <p class='desktop_title hide--mobile'>{{ block.settings.desktop_title }}</p>
+            <p class='mobile_title hide--desktop'>{{ block.settings.mobile_title }}</p>
+          {%- when 'heading' -%}
+            <h2 class='desktop_heading hide--mobile'>{{ block.settings.desktop_heading }}</h2>
+            <h2 class='mobile_heading hide--desktop'>{{ block.settings.mobile_heading }}</h2>
+          {%- when 'description' -%}
+            <div class='desktop_description hide--mobile'>
+              {{ block.settings.desktop_description }}
+            </div>
+            <div class='mobile_description hide--desktop'>
+              {{ block.settings.mobile_description }}
+            </div>
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Affiliate Image Banner",
+  "class": "affalitiate-image-banner",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 300,
+      "max": 1900,
+      "step": 20,
+      "unit": "px",
+      "label": "Max Width",
+      "default": 800
+    },
+    {
+    "type": "select",
+    "id": "content_position",
+    "options": [
+      {
+        "value": "right",
+        "label": "Right"
+      },
+      {
+        "value": "center",
+        "label": "Center"
+      },
+      {
+        "value": "left",
+        "label": "Left"
+      }
+    ],
+      "default": "center",
+      "label": "Content Position"
+    },
+    {
+      "type": "color",
+      "id": "font_color",
+      "label": "Font Color"
+    },
+    {
+      "type": "image_picker",
+      "id": "desktop_image",
+      "label": "Desktop Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile Image"
+    }
+  ],
+
+  "blocks": [
+    {
+      "type": "title",
+      "name": "title",
+      "settings": [
+        {
+          "type": "text",
+          "id": "desktop_title",
+          "label": "Desktop Title"
+        },
+        {
+          "type": "text",
+          "id": "mobile_title",
+          "label": "Mobile Title"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "name": "heading",
+      "settings": [
+        {
+          "type": "text",
+          "id": "desktop_heading",
+          "label": "Desktop Heading"
+        },
+        {
+          "type": "text",
+          "id": "mobile_heading",
+          "label": "Mobile Heading"
+        }
+      ]
+    },
+    {
+      "type": "description",
+      "name": "description",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "desktop_description",
+          "label": "Desktop Description"
+        },
+        {
+          "type": "richtext",
+          "id": "mobile_description",
+          "label": "Mobile Description"
+        }
+      ]
+    }
+  ],
+
+  "presets":[
+    {
+      "name": "Affiliate Image Banner"
+    }
+  ]
+
+}
+{% endschema %}

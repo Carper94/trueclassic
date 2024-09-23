@@ -1,0 +1,18 @@
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "settings": {
+      }
+    },
+    "577792a1-2192-49de-b07b-274a2be557e9": {
+      "type": "main-fit-finder",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main",
+    "577792a1-2192-49de-b07b-274a2be557e9"
+  ]
+}

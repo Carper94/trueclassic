@@ -1,0 +1,15 @@
+{% comment %}
+{% unless product.vendor == 'Fondue' %}
+  <div class='product-card__rating-stars'>
+    {% render 'okendo-reviews-product-rating-summary', product: product %}
+  </div>
+{% endunless %}
+{% endcomment %}
+
+<div class="content-wrapper section-spacer">
+  <h1>{{ page.title }}</h1>
+  {% if shop.metafields.okendo.WidgetPreRenderBodyStyleTags != blank %}
+      {{ shop.metafields.okendo.WidgetPreRenderBodyStyleTags }}
+  {% endif %}
+  <div data-oke-widget></div>
+</div>

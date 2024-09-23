@@ -1,0 +1,102 @@
+
+<div class="container">
+  <div class="content-wrapper section-spacer">
+    {% for block in section.blocks %}
+      {% liquid
+          assign image = block.settings.image
+          assign quote = block.settings.quote
+          assign name = block.settings.name
+          assign signature = block.settings.signature
+          assign img_order = block.settings.img_order
+      %}
+      <div class="owner-story-container {% if img_order %}grid-column-reverse{% endif %}">
+        <div class="owner-story__img-container {% if img_order %}grid-order-reverse{% endif %}">
+          {%- if image != blank -%}
+            <img
+              srcset="{%- if image.width >= 375 -%}{{ image | image_url: width: 375 }} 375w,{%- endif -%}
+                {%- if image.width >= 750 -%}{{ image | image_url: width: 750 }} 750w,{%- endif -%}
+                {%- if image.width >= 1100 -%}{{ image | image_url: width: 1100 }} 1100w,{%- endif -%}
+                {%- if image.width >= 1500 -%}{{ image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                {%- if image.width >= 2000 -%}{{ image | image_url: width: 2000 }} 2000w,{%- endif -%}
+                {%- if image.width >= 2500 -%}{{ image | image_url: width: 2500 }} 2500w,{%- endif -%}
+                {{ image | image_url }} {{ image.width }}w"
+              src="{{ image | image_url: width: 1500 }}"
+              alt="{{ image.alt | escape }}"
+              width="{{ image.width }}"
+              height="{{ image.height }}"
+              loading="lazy"
+            >
+          {%- endif -%}
+        </div>
+        <div class="owner_story__content-flex">
+          <div class="owner-story__content-grid">
+            <div class=owner-story__content-col-1>
+              {% render 'icon-quote' %}
+            </div>
+            <div class="owner-story__content-col-2">
+              {% if quote != blank %}
+                <p class="owner-quote">{{ quote }}</p>
+              {% endif %}
+              {% if name != blank %}
+                <p class="owner-name bold">{{ name }}</p>
+              {% endif %}
+              {% if signature != blank %}
+                <p class="owner-signature h1 script-font bold">{{ signature }}</p>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Owner Story",
+  "tag": "section",
+  "class": "owner-story-section",
+  "settings": [
+  ],
+  "blocks": [
+    {
+      "name": "Story",
+      "type": "block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name / Title"
+        },
+        {
+          "type": "text",
+          "id": "signature",
+          "label": "Signature"
+        },
+        {
+          "type": "checkbox",
+          "id": "img_order",
+          "label": "Image Second"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Owner Story",
+      "category": "text"
+    }
+  ]
+}
+{% endschema %}

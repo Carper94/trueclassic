@@ -1,0 +1,114 @@
+{%- assign show_gift = true -%}
+
+{%- for item in checkout.line_items -%}
+  {%- for p in item.properties %}
+    {%- if p.first contains 'Free Gift' -%}
+      {%- assign show_gift = false -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endfor -%}
+
+{%- if show_gift == true -%}
+  <script>
+    const formatter = new Intl.NumberFormat({
+      style: 'currency',
+      currency: '{{ checkout.currency }}',
+    });
+    (function ($) {
+      function initUpsell() {
+        $.ajax({
+          url: '/cart?view=upsell',
+          type: 'GET',
+          success: function (data) {
+            var html = data;
+            if ($('.ch-upsell-wrapper').length) {
+              $('.ch-upsell-wrapper').remove();
+            }
+            $(html).insertAfter('.order-summary__section--product-list');
+          },
+          error: function (request, error) {
+            console.log(JSON.stringify(request));
+          },
+        });
+      }
+
+      $(document).on('click', '.js-ch-upsell__add', function () {
+
+        var variant_id = $(this).parent().parent().find('.ch-upsell__variants select').val();
+        var compare_price = $(this).parent().parent().find('.ch-upsell__price__compare').data()
+        var upsell_price = $(this).parent().parent().find('.ch-upsell__price__new').data();
+        var currency = $('.total-line-table__tbody .total-line--subtotal--new .total-line__price .money').text();
+        var theNumber = Number(currency.replace(/[^0-9-]+/g, ''));
+        var savings = $('.total-line-table__tbody .total-line--savings .skeleton-while-loading .money').text();
+        var savingsNumber = Number(savings.replace(/[^0-9-]+/g, ''));
+
+        const sellingPlanId = $(this).parent().parent().find('.ch-upsell__new-data').data().planId || ''
+        const customPropertyKey = $(this).parent().parent().find('.ch-upsell__new-data').data().customPropertyKey || 'Free Gift'
+        const customPropertyVal = $(this).parent().parent().find('.ch-upsell__new-data').data().customPropertyKey || ''
+
+        upsell_price  = Number(upsell_price.price)
+        compare_price = Number(compare_price.price)
+
+        if (currency == '') {
+          currency = $( '.total-line-table__tbody .total-line--subtotal--new .total-line__price').text();
+        }
+        if (savings == '') {
+          savings = $('.total-line-table__tbody .total-line--savings .skeleton-while-loading' ).text();
+        }
+
+        if(compare_price === 0) {
+          theNumber += upsell_price
+        } else {
+          const difference = compare_price - upsell_price;
+          savingsNumber += difference;
+          theNumber += compare_price
+        }
+      
+        if(!customPropertyKey) {
+          propLine = {'Free Gift': ''}
+        } else {
+          propLine = {[customPropertyKey]:customPropertyVal}
+        }
+
+        const dataObj = {
+          id: variant_id,
+          quantity: 1,
+          selling_plan: sellingPlanId,
+          properties: propLine
+        }
+
+        $.ajax({
+          url: '/cart/add.js',
+          type: 'POST',
+          data: dataObj,
+          dataType: 'json',
+          success: function (data) {
+            setTimeout(function () {
+              $('.ch-upsell-wrapper').remove();
+            }, 1000);
+            window.OrderSummaryUpdater.prototype.refresh() 
+            setTimeout(function () {
+              $('.total-line-table__tbody .total-line--subtotal--new .total-line__price').text(formatter.format(theNumber / 100));
+              $('.total-line-table__tbody .total-line--savings .skeleton-while-loading').text( '-' + formatter.format(savingsNumber / 100));
+            }, 6000);
+          },
+          error: function (request, error) {
+            console.log(JSON.stringify(request));
+          },
+        });
+      });
+
+      // Init
+      if (Shopify.Checkout.step == 'contact_information') {
+        initUpsell();
+      }
+    })(Checkout.$);
+
+    document.querySelectorAll('.js-ch-upsell__add').forEach((item) => {
+      item.addEventListener('click', function () {
+        const cartNumber = Number(window.localStorage.getItem('cartNumber')) + 1;
+        window.localStorage.setItem('cartNumber', cartNumber);
+      });
+    });
+  </script>
+{%- endif -%}

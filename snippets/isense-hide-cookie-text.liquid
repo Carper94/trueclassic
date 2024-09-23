@@ -1,0 +1,37 @@
+<!-- This script is added by GDPR/CCPA Compliance + Cookie Management App -->
+<div>
+  <script type='text/javascript'>
+    var cookiePrefText = document.querySelector('#cookie-pref-text');
+
+    function showCookiePrefText(adittionalChecks = 0) {
+      let cpdCookie = (document.cookie.match(
+        /^(?:.*;)?\s*cookieconsent_preferences_disabled(\s*=\s*([^;]+)?)(?:.*)?$/
+      ) || [, null])[1];
+      if (cpdCookie) {
+        cookiePrefText.style.display = 'block';
+      } else {
+        if (adittionalChecks > 0) {
+          setTimeout(function () {
+            showCookiePrefText(adittionalChecks - 1);
+          }, 500);
+        }
+      }
+    }
+
+    function hideCookiePrefText(adittionalChecks = 0) {
+      cookiePrefText = document.querySelector('#cookie-pref-text');
+      if (cookiePrefText) {
+        cookiePrefText.style.display = 'none';
+        showCookiePrefText(10);
+      } else {
+        if (adittionalChecks > 0) {
+          setTimeout(function () {
+            hideCookiePrefText(adittionalChecks - 1);
+          }, 500);
+        }
+      }
+    }
+
+    hideCookiePrefText(6);
+  </script>
+</div>

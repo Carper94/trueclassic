@@ -1,0 +1,116 @@
+.template-product .product-card-grid-wrapper,
+.template-product .product-card-grid-wrapper-noscript {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: var(--spacer-m);
+
+  @media (--medium) {
+    padding-bottom: 2rem;
+
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.product-card,
+.product-card-no-script {
+  max-width: 100% !important;
+}
+
+noscript .product-filtered-grid__header {
+  display: none;
+}
+
+.rebuy-swiper,
+.product-card-grid-wrapper-swiper {
+  max-width: 1440px;
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.featured-swiper .swiper-wrapper,
+.rebuy-swiper .swiper-wrapper,
+.product-card-grid-wrapper-swiper .swiper-wrapper {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rebuy-mobile-quickadd {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .rebuy-mobile-quickadd {
+    display: none;
+  }
+}
+
+.template-product {
+  & .featured-collections-wrapper {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+
+    & .swiper {
+      padding-bottom: 0rem;
+
+      @media (--medium) {
+        padding-bottom: 2rem;
+      }
+    }
+  }
+
+  & .product-card__title {
+    & a {
+      @media (--medium) {
+        font-size: 18px !important;
+      }
+
+      color: #232323 !important;
+    }
+  }
+
+  & .product-card__image-wrapper img.product-card__image,
+  & .rebuy-widget .rebuy-product-block .rebuy-product-media img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover !important;
+    aspect-ratio: 13/16;
+  }
+
+  & .swiper-scrollbar {
+    background: #d6d6d6;
+  }
+
+  & .swiper-container-horizontal > .swiper-scrollbar {
+    border-radius: 2px;
+    height: 5px;
+    width: 200px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/*the ugly one*/
+body.page-product .product-card__quick-atc {
+  background: var(--btn-primary-background-color) !important;
+  border: 1px solid #000 !important;
+  color: var(--brand-white) !important;
+  border-radius: var(--btn-border-radius) !important;
+}
+
+@media (min-width: 768px) {
+  body.page-product .product-card__quick-atc {
+    border: none !important;
+  }
+}
+
+body.page-product #section-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}

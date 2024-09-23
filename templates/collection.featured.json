@@ -1,0 +1,220 @@
+{
+  "sections": {
+    "1655164469db317a5a": {
+      "type": "mini-image-banner",
+      "blocks": {
+        "ff472a26-a4c8-4f6a-8437-7f8d316bfd53": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "BEST SELLERS",
+            "small_text": false
+          }
+        },
+        "165516446954287317-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "BEST SELLERS"
+          }
+        }
+      },
+      "block_order": [
+        "ff472a26-a4c8-4f6a-8437-7f8d316bfd53",
+        "165516446954287317-0"
+      ],
+      "settings": {
+        "featured_mini_banner": true,
+        "text_color": "dark"
+      }
+    },
+    "af369399-178a-4e59-af6a-dcca3bafde21": {
+      "type": "icon-row",
+      "disabled": true,
+      "settings": {
+        "alignment": "start",
+        "background_color": "",
+        "desktop_slides_per_view": 8,
+        "mobile_slides_per_view": 2,
+        "static": false,
+        "loop_desktop": false,
+        "loop_mobile": false,
+        "autoplay": false,
+        "quotes": false,
+        "autoplay_speed": 3000
+      }
+    },
+    "8a1d91b4-8175-4f62-b029-bb694661a8a9": {
+      "type": "collection-pills",
+      "blocks": {
+        "template--14580061798472__8a1d91b4-8175-4f62-b029-bb694661a8a9-1688010791bb0f5ff5-0": {
+          "type": "button",
+          "settings": {
+            "button_sub": "",
+            "button_label": "Button Text",
+            "icon": "",
+            "collection_link": ""
+          }
+        },
+        "template--14580061798472__8a1d91b4-8175-4f62-b029-bb694661a8a9-1688010791bb0f5ff5-1": {
+          "type": "button",
+          "settings": {
+            "button_sub": "",
+            "button_label": "Button Text",
+            "icon": "",
+            "collection_link": ""
+          }
+        },
+        "template--14580061798472__8a1d91b4-8175-4f62-b029-bb694661a8a9-1688010791bb0f5ff5-2": {
+          "type": "button",
+          "settings": {
+            "button_sub": "",
+            "button_label": "Button Text",
+            "icon": "",
+            "collection_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--14580061798472__8a1d91b4-8175-4f62-b029-bb694661a8a9-1688010791bb0f5ff5-0",
+        "template--14580061798472__8a1d91b4-8175-4f62-b029-bb694661a8a9-1688010791bb0f5ff5-1",
+        "template--14580061798472__8a1d91b4-8175-4f62-b029-bb694661a8a9-1688010791bb0f5ff5-2"
+      ],
+      "disabled": true,
+      "settings": {
+        "featured_pills": false
+      }
+    },
+    "60106edc-7f5a-4fd8-b38c-dd96d67942b7": {
+      "type": "countdown",
+      "disabled": true,
+      "settings": {
+        "end_date_year": "2023",
+        "end_date_month": "June",
+        "end_date_day": 19,
+        "end_date_hour": 6,
+        "end_date_minute": 0,
+        "ended_timer_text": "This offer has ended.",
+        "font_size": 2.4,
+        "font_size_mobile": 2,
+        "margin_top": 10,
+        "margin_bottom": 10,
+        "enable_exclusions": false,
+        "exclusions_title": "40% CashBack Terms and Conditions",
+        "exclusions_content": ""
+      }
+    },
+    "166190412638443256": {
+      "type": "collection-pills",
+      "blocks": {
+        "4b448301-f721-40a6-b8b4-b53ab47aa307": {
+          "type": "button",
+          "settings": {
+            "button_sub": "GIFTS",
+            "button_label": "JUST FOR HIM",
+            "icon": "",
+            "collection_link": "gift-guide"
+          }
+        },
+        "template--14509502988360__9cfb22f8-d689-47ca-a0ed-dc07def05b01-1674161747fef18b40-0": {
+          "type": "button",
+          "settings": {
+            "button_sub": "GIFTS",
+            "button_label": "UP TO 70% OFF",
+            "icon": "",
+            "collection_link": "up-to-60-off-fathers-day-gifts"
+          }
+        },
+        "template--14509502988360__9cfb22f8-d689-47ca-a0ed-dc07def05b01-1674161747fef18b40-2": {
+          "type": "button",
+          "settings": {
+            "button_sub": "GIFTS",
+            "button_label": "BEST SELLERS HE'LL LOVE",
+            "icon": "",
+            "collection_link": "best-sellers"
+          }
+        },
+        "template--14509502988360__9cfb22f8-d689-47ca-a0ed-dc07def05b01-1674161747fef18b40-1": {
+          "type": "button",
+          "settings": {
+            "button_sub": "LIMITED TIME",
+            "button_label": "EXCLUSIVE GIFTS",
+            "icon": "",
+            "collection_link": "fathers-day-exclusive-packs"
+          }
+        }
+      },
+      "block_order": [
+        "4b448301-f721-40a6-b8b4-b53ab47aa307",
+        "template--14509502988360__9cfb22f8-d689-47ca-a0ed-dc07def05b01-1674161747fef18b40-0",
+        "template--14509502988360__9cfb22f8-d689-47ca-a0ed-dc07def05b01-1674161747fef18b40-2",
+        "template--14509502988360__9cfb22f8-d689-47ca-a0ed-dc07def05b01-1674161747fef18b40-1"
+      ],
+      "disabled": true,
+      "settings": {
+        "featured_pills": true
+      }
+    },
+    "main": {
+      "type": "collection",
+      "settings": {
+        "heading": "",
+        "clearance_text": "",
+        "clearance_link": "",
+        "enable_featured_promo_1": false,
+        "enable_wide_promo_1": true,
+        "enable_wider_promo_1": false,
+        "hide_promo_1": false,
+        "promo_image_1": "shopify:\/\/shop_images\/pickle.png",
+        "aspect_ratio_1": 160,
+        "promo_position_1": 8,
+        "promo_preheading_1": "",
+        "circle_preheading_1": false,
+        "promo_heading_1": "",
+        "underline_heading_1": false,
+        "promo_paragraph_1": "",
+        "promo_link_1": "",
+        "overlay_opacity_1": 0,
+        "promo_alignment_1": "left",
+        "enable_featured_promo_2": false,
+        "enable_wide_promo_2": false,
+        "enable_wider_promo_2": false,
+        "hide_promo_2": false,
+        "aspect_ratio_2": 54,
+        "promo_position_2": 8,
+        "promo_preheading_2": "",
+        "circle_preheading_2": false,
+        "promo_heading_2": "",
+        "underline_heading_2": false,
+        "promo_paragraph_2": "",
+        "promo_link_2": "",
+        "overlay_opacity_2": 0,
+        "promo_alignment_2": "left",
+        "promo_style_2": "style-1",
+        "enable_featured_image": false,
+        "image_position": 8,
+        "enable_featured_image_2": false,
+        "image_position_2": 12
+      }
+    },
+    "8adf0f79-80a5-4274-89af-fe04dc69aad3": {
+      "type": "collection-faq",
+      "settings": {
+        "background_color": "#ffffff",
+        "columns_desktop": 3,
+        "columns_mobile": "1",
+        "column_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "1655164469db317a5a",
+    "af369399-178a-4e59-af6a-dcca3bafde21",
+    "8a1d91b4-8175-4f62-b029-bb694661a8a9",
+    "60106edc-7f5a-4fd8-b38c-dd96d67942b7",
+    "166190412638443256",
+    "main",
+    "8adf0f79-80a5-4274-89af-fe04dc69aad3"
+  ]
+}

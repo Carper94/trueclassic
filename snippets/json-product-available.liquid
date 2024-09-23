@@ -1,0 +1,11 @@
+{
+  "available": {{ product.available | json }},
+  "variants": [
+    {% for variant in product.variants %}
+      {
+        "id": {{ variant.id | json }},
+        "available": {{ variant.available | json }}
+      }{% if forloop.last != true %},{% endif %}
+    {% endfor %}
+  ]
+}

@@ -1,0 +1,105 @@
+{% capture image_section_2 %}
+  {%- liquid
+    assign sc_id = '#shopify-section-' | append: section.id
+    assign image_desktop_2 = section.settings.section_image_2
+    assign image_mobile_2 = section.settings.section_image_mobile_2
+    assign banner = '.img-banner-' | append: section.id
+    assign unique_id_ = section.id | remove: '-'
+    assign unique_id = unique_id_ | remove: '_'
+
+    assign breakpoint = section.settings.breakpoint
+    assign min_breakpoint = breakpoint
+    assign max_breakpoint = breakpoint | plus: 1
+
+    if image_desktop_2.aspect_ratio < 1
+      assign aspect_ratio_desktop_2 = '105%'
+    elsif image_desktop_2.aspect_ratio == 1
+      assign aspect_ratio_desktop_2 = '100%'
+    elsif image_desktop_2.aspect_ratio >= 1.2 and image_desktop_2.aspect_ratio <= 1.4
+      assign aspect_ratio_desktop_2 = '100%'
+    elsif image_desktop_2.aspect_ratio >= 1.6 and image_desktop_2.aspect_ratio <= 1.8
+      assign aspect_ratio_desktop_2 = '75%'
+    elsif image_desktop_2.aspect_ratio >= 1.81 and image_desktop_2.aspect_ratio <= 2.4
+      assign aspect_ratio_desktop_2 = '75.25%'
+    elsif image_desktop_2.aspect_ratio >= 2.41 and image_desktop_2.aspect_ratio <= 2.8
+      assign aspect_ratio_desktop_2 = '56.25%'
+    elsif image_desktop_2.aspect_ratio >= 2.81
+      assign aspect_ratio_desktop_2 = '56.25%'
+    endif
+
+    assign image_desktop_2_height = image_desktop_2.width | divided_by: image_desktop_2.aspect_ratio
+    if image_mobile_2 == null
+      assign image_desktop_2_class = ''
+    else
+      assign image_desktop_2_class = 'desktop-image'
+    endif
+  -%}
+
+  <style>
+  
+  .collection-image__content_2 {
+    grid-column: span 1;
+  }.
+  
+  </style>
+  <div class="collection-image__content_2">
+    {{
+      image_desktop_2
+      | image_url: width: 3000
+      | image_tag:
+        width: image_desktop_2.width,
+        height: image_desktop_2_height,
+        class: image_desktop_2_class,
+        sizes: '100%',
+        loading: 'lazy',
+        widths: '165, 265, 360, 535, 750, 1070, 1500, 1780, 2000, 3000, 3800',
+        alt: image_desktop_2.alt
+      | escape
+    }}
+
+    {% unless image_mobile_2 == null %}
+      {%- liquid
+        assign image_2_mobile_height = image_mobile_2.width | divided_by: image_mobile_2.aspect_ratio
+        assign image_2_mobile_class = 'mobile-image'
+        assign sizes_mobile = '100vw'
+      -%}
+      {{
+        image_mobile_2
+        | image_url: width: 1500
+        | image_tag:
+          width: image_mobile_2.width,
+          height: image_mobile_2_height,
+          class: image_2_mobile_class,
+          sizes: sizes_mobile,
+          loading: loading,
+          widths: '165, 265, 360, 535, 750, 1070, 1500, 1780, 2000, 3000',
+          alt: image_mobile_2.alt
+        | escape
+      }}
+    {% endunless %}
+  </div>
+  <style>
+  .collection-image__content_2 {
+    grid-column: span 1;
+  }
+  .mobile-image {
+    width: 100%;
+    display: none;
+  }
+  .desktop-image {
+    width: 100%;
+    display: block;
+  }
+  @media screen and ( max-width: 768px ) {
+    .collection-image__content_2 {
+      grid-column: span 2;
+    }
+    .mobile-image {
+      display: block;
+    }
+    .desktop-image {
+      display: none;
+    }
+  }
+</style>
+{% endcapture %}

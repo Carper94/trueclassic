@@ -1,0 +1,106 @@
+<div class='container'>
+  <div class='{% if section.settings.featured_pills %}featured-pills-wrapper {% else %}content-wrapper {% endif %}collection-pills-slider'>
+    <div class='collection-pill-container swiper'>
+      <div
+        class='swiper-wrapper{% if section.settings.featured_pills %} featured-pills{% endif %}'
+      >
+        {% for block in section.blocks %}
+          {%- if block.settings.button_label != blank
+            and block.settings.collection_link != blank
+          -%}
+            {% liquid
+              assign active = ''
+              if block.settings.collection_link == collection.handle
+                assign active = 'active'
+              endif
+            %}
+            <div class='swiper-slide{% if block.settings.icon != blank %} swiper-slide__icon{% endif %}'>
+              <a
+                href='{{ block.settings.collection_link }}'
+                class='button collection-pill {{ active }}'
+              >
+                {% if block.settings.icon != blank %}
+                  {{ block.settings.icon }}
+                {% endif %}
+                {% if block.settings.button_sub != blank %}
+                  <span class='pill-sub-text'>{{ block.settings.button_sub | escape }}</span>
+                {% endif %}
+                {{ block.settings.button_label | escape }}
+              </a>
+            </div>
+          {%- endif -%}
+        {% endfor %}
+      </div>
+      <button
+        tabindex='-1'
+        class='swiper-button-next swiper-button'
+        title='Arrow Next'
+      ></button>
+      <button
+        tabindex='-1'
+        class='swiper-button-prev swiper-button'
+        title='Arrow Preview'
+      ></button>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Collection Pills",
+  "tag": "section",
+  "class": "collection-pills-section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "featured_pills",
+      "label": "Featured Pills"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "button",
+      "name": "Button",
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_sub",
+          "label": "Button Sub-Text"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "default": "Button Text",
+          "label": "Button Text"
+        },
+        {
+          "type": "html",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "collection",
+          "id": "collection_link",
+          "label": "Collection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Pills",
+      "blocks": [
+        {
+          "type": "button"
+        },
+        {
+          "type": "button"
+        },
+        {
+          "type": "button"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

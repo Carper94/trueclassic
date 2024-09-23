@@ -1,0 +1,141 @@
+{%- liquid
+  assign percentage_diff_amount = compare_at_price | minus: price
+  assign discounted_price = compare_at_price | minus: percentage_diff_amount
+  assign percentage_diff = percentage_diff_amount | times: 100.0 | divided_by: compare_at_price
+  assign percentage_diff_round = percentage_diff | round
+  assign custom_sale_badge_tags = settings.custom_sale_badge_tag | split: ', '
+-%}
+
+{% comment %} TOOLTIP {% endcomment %}
+
+{%- capture block_tooltip -%}
+  <block-tooltip style='position: relative;' class='color-black'>
+    <span class='tooltip__label price'>
+      {% render 'tc-icons', icon: 'info' %}
+    </span>
+    <div class='tooltip__content text s'>
+      <div class='tooltip__content--inner light-font '>
+        <div
+          class='tooltip__close-button mobile--only'
+          aria-label='Close tooltip'
+          title='Close tooltip'
+        >
+          {% render 'tc-icons', icon: 'close-small' %}
+        </div>
+        {{ settings.pack_bubble_notice }}
+      </div>
+    </div>
+  </block-tooltip>
+{%- endcapture -%}
+
+{% comment %} START {% endcomment %}
+
+{% if discounted_price != null
+  and compare_at_price > price
+  and percentage_diff > 5
+%}
+
+  <span class='visually-hidden'>{{ 'Regular price' }}</span>
+  <span
+    class='price price--full{% if price == 0 %} price--full-free{% endif %}{% if cart == true %} cart-price{% endif %}'
+    data-product-id='{{ product_id }}'
+    data-variant-id='{{ variant_id }}'
+    ><s>
+    {% unless localization.country.iso_code == 'US' or localization.country.iso_code == 'KW' or localization.country.iso_code == 'BH' %}
+      {% unless localization.country.currency.symbol == '€' or localization.country.currency.symbol == '£' %}{{ localization.country.iso_code }}{% endunless %}
+    {% endunless %}
+    {{- compare_at_price | money -}}
+    </s></span
+  >
+
+  <span class='visually-hidden'>{{ 'Discounted price' }}</span>
+  <span class='price price--discount{% if cart == true %} cart-price{% endif %}' data-product-id='{{ product_id }}'
+    {% if settings.enable_global_sale == true %}
+      data-percentage-off='{{ percentage_diff_round }}'
+    {% endif %}
+    {% if product.tags contains 'PackSavings' or product.tags contains 'PACK' or product.tags contains 'Pack' or product.tags contains 'pack' %}
+      {% unless product.tags contains 'POTW' or product.tags contains 'Clearance' or product.tags contains 'Sale' %}
+        {% for tag in custom_sale_badge_tags %}
+            {% if settings.enable_custom_sale_badge and product.tags contains tag %}
+              data-custom-sale-badge='true'
+              data-percentage-off='{{ percentage_diff_round }}'
+            {% else %}
+              data-pack-savings='true'
+            {% endif %}
+        {% endfor %}
+      {% endunless %}
+    {% endif %}
+    data-variant-id='{{ variant_id }}'
+  >
+    {% if price == 0 %}
+      FREE
+    {% else %}
+      {% unless localization.country.iso_code == 'US' or localization.country.iso_code == 'KW' or localization.country.iso_code == 'BH' %}
+        {% unless localization.country.currency.symbol == '€' or localization.country.currency.symbol == '£' %}{{ localization.country.iso_code }}{% endunless %}
+        {{ localization.country.symbol }}
+      {% endunless %}
+      {{- price | money -}}
+      {% if product.tags contains 'PackSavings' or product.tags contains 'PACK' or product.tags contains 'Pack' or product.tags contains 'pack' %}
+        {% unless product.tags contains 'POTW' or product.tags contains 'Clearance' or product.tags contains 'Sale' %}
+          {% unless settings.enable_global_sale == true %}
+            {% for tag in custom_sale_badge_tags %}
+              {% unless settings.enable_global_sale == true %}
+                {% unless settings.sale_badge_text == empty %}
+                  {% unless settings.enable_custom_sale_badge and product.tags contains tag %}
+                    {{ block_tooltip }}
+                  {% else %}
+                    {% unless product.tags contains 'PackSavings' or product.tags contains 'PACK' or product.tags contains 'Pack' or product.tags contains 'pack' %}
+                      {%- if percentage_diff -%}
+                        <div class="mg-x-xs badge-top-bubble" style="background-color: #971b1b; color: #ffffff;">
+                          <span class="discount-percentage">
+                            {{ percentage_diff }}% OFF
+                          </span>
+                        </div>
+                      {%- endif -%}
+                    {% endunless %}
+                  {% endunless %}
+                {% endunless %}
+              {% endunless %}
+            {% endfor %}
+          {% endunless %}
+        {% endunless %}
+      {% endif %}
+    {% endif %}
+  </span>
+
+{% else %}
+
+  {% if price == 0 %}
+    <span
+      class='price price--full{% if cart == true %} cart-price{% endif %}'
+      data-product-id='{{ product_id }}'
+      data-variant-id='{{ variant_id }}'
+      ><s>
+        {% unless localization.country.iso_code == 'US' or localization.country.iso_code == 'KW' or localization.country.iso_code == 'BH' %}
+          {% unless localization.country.currency.symbol == '€' or localization.country.currency.symbol == '£' %}
+            {{ localization.country.iso_code }}
+          {% endunless %}
+            {{ localization.country.symbol }}
+          {% endunless %}
+        {{- original_price | money -}}
+      </s></span
+    >
+  {% endif %}
+
+  <span
+    class='price{% if price == 0 %} price--discount{% endif %}{% if cart == true %} cart-price{% endif %}'
+    data-product-id='{{ product_id }}'
+    data-variant-id='{{ variant_id }}'
+  >
+    {% if price == 0 %}
+      FREE
+    {% else %}
+      {% unless localization.country.iso_code == 'US' or localization.country.iso_code == 'KW' or localization.country.iso_code == 'BH' %}
+        {% unless localization.country.currency.symbol == '€' or localization.country.currency.symbol == '£' %}{{ localization.country.iso_code }}{% endunless %}
+        {{ localization.country.symbol }}
+      {% endunless %}
+      {{- price | money -}}
+    {% endif -%}
+  </span>
+
+{% endif %}

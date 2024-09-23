@@ -1,0 +1,37 @@
+
+{% if localization.country.iso_code == 'US' %}
+  <div class='product-main-content'>
+
+    {% assign containsProduct = false %}
+    {% assign packCollections = 'pdp-packs-crews-3,pdp-packs-crews-6,pdp-packs-crews-9' | split: ',' %}
+
+    {% for collectionHandle in packCollections %}
+      {% for collectionProduct in collections[collectionHandle].products %}
+        {% if collectionProduct.id == product.id %}
+          {% assign containsProduct = true %}
+          {% break %}
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+
+    {% if containsProduct %}
+      {{ 'endrock-pdp-goli.css' | asset_url | stylesheet_tag }}
+      {% render 'endrock-goli-product-main-form' %}
+    {% else %}
+      {% render 'product-main-form' %}
+    {% endif %}
+
+{% else %}
+
+  <div class='product-main-content'>
+    {% render 'product-main-form' %}
+  {% endif %}
+
+{% liquid
+  render 'product-videowise'
+  render 'product-main-description'
+  render 'discount-pack-slider'
+  render 'product-modal'
+%}
+
+</div>

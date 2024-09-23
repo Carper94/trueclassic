@@ -1,0 +1,149 @@
+{% if members_only == true %}
+{% if customer and customer.tags contains 'inveterate-subscriber' %}
+
+{% unless country != empty %}
+
+  <style type='text/css'>
+    #announcement-bar-{{ number }}[class*="announcement-bar__"] {
+      background-color: {{ background_color }}!important;
+    }
+    #announcement-bar-{{ number }}[class*="announcement-bar__"] .announcement__tooltip {
+      width: 320px;
+      background-color: white;
+      left: 10px;
+      top: 48px;
+      border: 1px solid var(--brand-gray);
+    }
+    .announcement-bar svg,
+    #announcement-bar-{{ number }} .announcement__tooltip-notice,
+    #announcement-bar-{{ number }} .announcement__tooltip-notice > *,
+    #announcement-bar-{{ number }} .announcement__tooltip-notice > * > * {
+      color: {{ text_color }};
+    }
+    #announcement-bar-{{ number }} .announcement__tooltip .announcement__tooltip-heading p,
+    #announcement-bar-{{ number }} .announcement__tooltip .announcement__tooltip-message p {
+      color: var(--brand-black);
+    }
+  </style>
+  <section
+    id='announcement-bar-{{ number }}'
+    class='announcement-bar announcement-bar__{{ class }} {% if hidden == true %} hide{% endif %}'
+  >
+    <div class='flex'>
+      <div class='announcement__tooltip-notice'>
+        <a href='{{ url }}'>{{ notice }}</a>
+      </div>
+      <div id='announcement-sale_{{ class }}' style='display: none;'>
+        {{ notice }}
+      </div>
+      {% unless message == blank %}
+        <button class='anouncement__button-info icon-button'>
+          <span class='visually-hidden'>Announcement Info</span>
+          {% render 'icon-announcement' %}
+        </button>
+      {% endunless %}
+      <button class='anouncement__button-close icon-button'>
+        <span class='visually-hidden'>Close Announcement</span>
+        {% render 'icon-close' %}
+      </button>
+      {% unless message == blank %}
+        <div class='announcement__tooltip pg-x-m pg-y-s'>
+          <button class='close tooltip__open' style='position: absolute; right: 6px; color: black;'>
+            <svg
+              style='color: black;'
+              xmlns='http://www.w3.org/2000/svg'
+              viewBox='0 0 24 24'
+              width='24'
+              height='24'
+              class='svg-icon svg-icon--close'
+            >
+              <g stroke="currentColor" stroke-width="2" stroke-miterlimit="10"><path d="m4 4 16 16M20 4 4 20"></path></g>
+            </svg>
+          </button>
+          <div class='announcement__tooltip-heading mg-b-m'>
+            {{ heading }}
+          </div>
+          <div class='announcement__tooltip-message'>
+            {{ message }}
+          </div>
+        </div>
+      {% endunless %}
+    </div>
+  </section>
+{% else %}
+  {% if country contains localization.country.iso_code %}
+    <style type='text/css'>
+      #announcement-bar-{{ number }}[class*="announcement-bar__"] {
+        background-color: {{ background_color }}!important;
+      }
+      #announcement-bar-{{ number }}[class*="announcement-bar__"] .announcement__tooltip {
+        width: 320px;
+        background-color: white;
+        left: 10px;
+        top: 48px;
+        border: 1px solid var(--brand-gray);
+      }
+      .announcement-bar svg,
+      #announcement-bar-{{ number }} .announcement__tooltip-notice,
+      #announcement-bar-{{ number }} .announcement__tooltip-notice > *,
+      #announcement-bar-{{ number }} .announcement__tooltip-notice > * > * {
+        color: {{ text_color }};
+      }
+      #announcement-bar-{{ number }} .announcement__tooltip .announcement__tooltip-heading p,
+      #announcement-bar-{{ number }} .announcement__tooltip .announcement__tooltip-message p {
+        color: var(--brand-black);
+      }
+    </style>
+    <section
+      id='announcement-bar-{{ number }}'
+      class='announcement-bar announcement-bar__{{ class }} {% if hidden == true %} hide{% endif %}'
+    >
+      <div class='flex'>
+        <div class='announcement__tooltip-notice'>
+          <a href='{{ url }}'>{{ notice }}</a>
+        </div>
+        <div id='announcement-sale_{{ class }}' style='display: none;'>
+          {{ notice }}
+        </div>
+        {% unless message == blank %}
+          <button class='anouncement__button-info icon-button'>
+            <span class='visually-hidden'>Announcement Info</span>
+            {% render 'icon-announcement' %}
+          </button>
+        {% endunless %}
+        <button class='anouncement__button-close icon-button'>
+          <span class='visually-hidden'>Close Announcement</span>
+          {% render 'icon-close' %}
+        </button>
+        {% unless message == blank %}
+          <div class='announcement__tooltip pg-x-m pg-y-s'>
+            <button
+              class='close tooltip__open'
+              style='position: absolute; right: 6px; color: black;'
+            >
+              <svg
+                style='color: black;'
+                xmlns='http://www.w3.org/2000/svg'
+                viewBox='0 0 24 24'
+                width='24'
+                height='24'
+                class='svg-icon svg-icon--close'
+              >
+                <g stroke="currentColor" stroke-width="2" stroke-miterlimit="10"><path d="m4 4 16 16M20 4 4 20"></path></g>
+              </svg>
+            </button>
+            <div class='announcement__tooltip-heading mg-b-m'>
+              {{ heading }}
+            </div>
+            <div class='announcement__tooltip-message'>
+              {{ message }}
+            </div>
+          </div>
+        {% endunless %}
+      </div>
+    </section>
+  {% endif %}
+
+{% endunless %}
+{% endif %}
+{% endif %}

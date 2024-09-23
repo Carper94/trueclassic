@@ -1,0 +1,17 @@
+.collection-seo-link .h5 {
+  margin-bottom: 1rem;
+}
+
+.collection-seo-link nav {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 0.5rem 1rem;
+
+  @media (--medium) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (--large) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

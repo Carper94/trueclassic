@@ -1,0 +1,129 @@
+.blog-article-container {
+  max-width: var(--global-width-medium);
+  margin: 0 auto;
+
+  & .article-page-title {
+    margin-bottom: var(--spacer-s);
+    text-align: center;
+
+    @media (--medium) {
+      margin-bottom: var(--spacer-l);
+      text-align: left;
+    }
+  }
+
+  & article img {
+    margin: 0 auto;
+  }
+
+  & .article-main-image-wrapper {
+    position: relative;
+    padding-top: 62%;
+    width: 100%;
+    margin-bottom: var(--spacer-m);
+
+    & img {
+      height: 100%;
+      width: 100%;
+      border-radius: 12px;
+      border: var(--btn-border-width) solid var(--brand-gray-dark);
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+    }
+  }
+
+  & .article-content {
+    margin-top: var(--spacer-s);
+  }
+
+  & .article-social-links {
+    margin: var(--spacer-l) 0;
+  }
+
+  & .social-sharing {
+    display: flex;
+    gap: 15px;
+    margin-top: var(--spacer-s);
+  }
+
+  & .article-navigation {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.article-title {
+  font-size: var(--font-size-large);
+
+  @media (--medium) {
+    font-size: var(--font-size-x-large);
+  }
+}
+
+.article-author {
+  color: var(--brand-gray-dark);
+  font-size: var(--font-size-x-small);
+
+  @media (--medium) {
+    font-size: var(--font-size-small);
+  }
+
+  & span {
+    text-transform: capitalize;
+  }
+}
+
+.article-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 215px);
+  overflow: visible;
+
+  & .article-image-wrapper {
+    position: relative;
+    padding-top: 100%;
+    width: 100%;
+    gap: var(--spacer-m);
+    margin-bottom: var(--spacer-m);
+
+    & img {
+      height: 100%;
+      width: 100%;
+      border-radius: 12px;
+      border: var(--btn-border-width) solid var(--brand-gray-dark);
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+    }
+  }
+}
+
+.related.headline {
+  font-size: var(--font-size-large);
+  margin-bottom: var(--spacer-s);
+
+  @media (--medium) {
+    font-size: var(--font-size-script-large);
+    margin-bottom: var(--spacer-s);
+  }
+}
+
+.related-posts-slider {
+  padding: var(--spacer-l) 0;
+
+  @media (--medium) {
+    padding: 60px 0;
+  }
+
+  & ul,
+  & li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  & .swiper-slide:not(last-child) {
+    width: auto;
+    margin-right: var(--spacer-m);
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "custom_css": [
+
+      ],
+      "settings": {
+        "full_width": false,
+        "hide_title": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "75c2b651-2b34-49cc-8488-087beb2946e1": {
+      "type": "page-store",
+      "blocks": {
+        "3dab38e2-9a33-4c12-a32b-e61264c1edce": {
+          "type": "image_picker",
+          "settings": {
+            "retail_image": "shopify:\/\/shop_images\/Del-Amo-2.jpg"
+          }
+        },
+        "1d0a3ddd-273a-4899-ace7-fbf46e0d5d2b": {
+          "type": "image_picker",
+          "settings": {
+            "retail_image": "shopify:\/\/shop_images\/Del-Amo-1.jpg"
+          }
+        },
+        "2d7b3825-dc2b-471b-beb8-6aaf2feb4d3c": {
+          "type": "image_picker",
+          "settings": {
+            "retail_image": "shopify:\/\/shop_images\/Del-Amo-3.jpg"
+          }
+        },
+        "42010474-fffc-4ade-807b-756471199f6a": {
+          "type": "text",
+          "settings": {
+            "day": "Monday - Saturday",
+            "hours": "10 am - 9 pm"
+          }
+        },
+        "ba67b020-fd7e-4181-b501-f1ef10bc1fef": {
+          "type": "text",
+          "settings": {
+            "day": "Sunday",
+            "hours": "11 am - 7 pm"
+          }
+        }
+      },
+      "block_order": [
+        "3dab38e2-9a33-4c12-a32b-e61264c1edce",
+        "1d0a3ddd-273a-4899-ace7-fbf46e0d5d2b",
+        "2d7b3825-dc2b-471b-beb8-6aaf2feb4d3c",
+        "42010474-fffc-4ade-807b-756471199f6a",
+        "ba67b020-fd7e-4181-b501-f1ef10bc1fef"
+      ],
+      "settings": {
+        "section_class": "",
+        "image_url": "shopify:\/\/shop_images\/DC.jpg",
+        "streetAddress": "3525 W Carson Street Suite 450A",
+        "addressLocality": "Torrance",
+        "addressRegion": "CA, California",
+        "postalCode": "90503",
+        "address_map": "https:\/\/goo.gl\/maps\/zFnP2Sz7vyrVvmCR7",
+        "latitude": "33.8326849343664",
+        "longitude": "-118.3472314865076",
+        "phone": "(310) 388-3627",
+        "email": "delamo@trueclassictees.com",
+        "description": "<p>Our newest storefront is located at Del Amo Fashion Center, a Southern-California favorite and the largest shopping center in the Western United States. Experience all that True Classic has to offer in-store and get to know our signature fit and feel that <em>actually <\/em>makes a difference. Through the main entrance you can easily find us on the main level. See you there.<\/p>"
+      }
+    },
+    "113588e7-8359-46fd-b6f6-3c4e7215e22f": {
+      "type": "section-map",
+      "settings": {
+        "html": "<iframe src=\"https:\/\/www.google.com\/maps\/embed?pb=!1m18!1m12!1m3!1d3314.21849410224!2d-118.3471993!3d33.8324755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dd4b2a10df750d%3A0xba8b81cb151faf5d!2s3525%20W%20Carson%20St%2C%20Torrance%2C%20CA%2090503!5e0!3m2!1sen!2sus!4v1674932163161!5m2!1sen!2sus\" width=\"100%\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"><\/iframe>",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "3f3da7ce-6092-4700-a6d0-574b3221906b": {
+      "type": "image-card-list",
+      "blocks": {
+        "template--14485159313480__3f3da7ce-6092-4700-a6d0-574b3221906b-1670305060b22340f2-0": {
+          "type": "card",
+          "settings": {
+            "store_image": "shopify:\/\/shop_images\/TC_Amazon_Webpages_05.png",
+            "store_name": "Armitage Avenue",
+            "us_location": "838 West Armitage Avenue Chicago, Illinois 60614",
+            "page_url": "shopify:\/\/pages\/armitage-avenue"
+          }
+        },
+        "595f9cd8-84e3-4956-92dc-093fd13e2b92": {
+          "type": "card",
+          "settings": {
+            "store_image": "shopify:\/\/shop_images\/TC_Amazon_Webpages_01_1.png",
+            "store_name": "Michigan Avenue",
+            "us_location": "520 North Michigan Avenue Space 12 Chicago, Illinois 60611",
+            "page_url": "shopify:\/\/pages\/northbridge"
+          }
+        }
+      },
+      "block_order": [
+        "template--14485159313480__3f3da7ce-6092-4700-a6d0-574b3221906b-1670305060b22340f2-0",
+        "595f9cd8-84e3-4956-92dc-093fd13e2b92"
+      ],
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main",
+    "75c2b651-2b34-49cc-8488-087beb2946e1",
+    "113588e7-8359-46fd-b6f6-3c4e7215e22f",
+    "3f3da7ce-6092-4700-a6d0-574b3221906b"
+  ]
+}

@@ -1,0 +1,32 @@
+{%liquid
+  assign google = "Google Play Store"
+  assign apple = "Apple App Store"
+%}
+
+{% if android_app_store_link != blank %}
+  <a
+    target="_blank"
+    href="{{ android_app_store_link }}"
+    title="{{ google }}"
+  >
+    {% if 'icon-app-android' %}
+      {% render 'icon-app-android' %}
+    {% else %}
+      <span class="icon-fallback-text">{{ google }}</span>
+    {% endif %}
+  </a>
+{% endif %}
+
+{% if ios_app_store_link != blank %}
+  <a
+    target="_blank"
+    href={{ ios_app_store_link }}
+    title={{ apple }}
+  >
+    {% if 'icon-app-ios' %}
+      {% render 'icon-app-ios' %}
+    {% else %}
+      <span class="icon-fallback-text">{{ apple }}</span>
+    {% endif %}
+  </a>
+{% endif %}

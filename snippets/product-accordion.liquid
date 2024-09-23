@@ -1,0 +1,36 @@
+{% if title != blank and content != blank %}
+  {% liquid
+    assign is_expanded = false
+  %}
+  <div class='accordion-wrapper'>
+    <div class='accordion-tab-wrapper {% if is_expanded == true %}accordion__tab--active{% endif %} '>
+      <button
+        class='accordion__tab-products'
+        type='button'
+        title='{{ title }}'
+        aria-expanded='{{ is_expanded }}'
+        aria-label='{{ title }}'
+      >
+        <span class='accordion__title' style='color: #000000;'>
+          {{ title }}
+        </span>
+      </button>
+
+      <div class='accordion-icon-wrapper'>
+        <div class='accordion__plus {% if is_expanded == true %}hide{% endif %}'>
+          {% render 'icon-caret-down' %}
+        </div>
+        <div class='accordion__minus {% if is_expanded == false %}hide{% endif %}'>
+          {% render 'icon-caret-up' %}
+        </div>
+      </div>
+    </div>
+
+    <div
+      class='accordion__panel-products {% if is_expanded == true %}accordion__panel--active{% endif %}'
+      aria-live='polite'
+    >
+      {{ content }}
+    </div>
+  </div>
+{% endif %}

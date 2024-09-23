@@ -1,0 +1,15 @@
+.instant-search-dropdown {
+  background-color: var(--brand-white);
+  max-width: 1263px;
+
+  &.mobile {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    position: fixed;
+    z-index: var(--mobile-nav-search-index);
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 9.9375rem !important;
+  }
+}

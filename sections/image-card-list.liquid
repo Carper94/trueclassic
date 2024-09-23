@@ -1,0 +1,110 @@
+
+<div class='section-store-locations container {{ section.settings.section_class }}'>
+  <div class='content-wrapper'>
+    <h2 class='headline staff-x-condensed-type h3 color-black'>OTHER LOCATIONS</h2>
+    
+    <div class='location-stores-grid'>
+      {% for block in section.blocks %}
+        
+        <div class='card'>
+          <img
+            src='{{ block.settings.store_image | image_url }}'
+            alt='{{ block.settings.store_name }}'
+            loading='lazy'
+            width='300'
+            height='300'
+          >
+          <p class='color-chocolate'>
+            <strong>
+              {{ block.settings.store_name }}
+            </strong>
+          </p>
+          <a
+            href='{{ block.settings.page_url }}'
+            onclick="
+              dataLayer.push({
+              'event': 'store_name',
+              'location': '{{ block.settings.store_name }}'
+              });
+            "
+          >
+            {{ block.settings.us_location }}
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% style %}
+  .section-store-locations {
+    padding: 1rem 0;
+  }
+
+  .location-stores-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+
+  @media (min-width: 768px) {
+    .location-stores-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .location-stores-grid img {
+    background: #ddd;
+    border-radius: 0px;
+    width: 300px;
+    height: auto;
+    margin-bottom: 8px;
+    object-fit: cover;
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "TCT Image Card List",
+  "class": "section",
+  "blocks": [
+    {
+      "name": "Card",
+      "type": "card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "store_image",
+          "label": "Store Image"
+        },
+        {
+          "type": "text",
+          "id": "store_name",
+          "label": "Store Name"
+        },
+        {
+          "type": "text",
+          "id": "us_location",
+          "label": "US Location"
+        },
+        {
+          "type": "url",
+          "id": "page_url",
+          "label": "Page URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "TCT Image Card List",
+      "blocks": [
+        {
+          "type": "card"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

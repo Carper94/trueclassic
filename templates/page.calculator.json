@@ -1,0 +1,28 @@
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "settings": {
+      }
+    },
+    "54ea7abf-957d-42e3-bc01-9ccccbc77a2c": {
+      "type": "html",
+      "custom_css": [
+
+      ],
+      "settings": {
+        "html": "<div id=\"find-fit-height\" style=\"min-height: 60vh;\">\n<\/div>"
+      }
+    },
+    "5a134272-9606-4f9a-bc8b-d3abf168e2ea": {
+      "type": "main-fit-finder",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main",
+    "54ea7abf-957d-42e3-bc01-9ccccbc77a2c",
+    "5a134272-9606-4f9a-bc8b-d3abf168e2ea"
+  ]
+}

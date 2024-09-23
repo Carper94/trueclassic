@@ -1,0 +1,99 @@
+{% if customer and customer.tags contains 'inveterate-subscriber' %}
+
+  {% if cart.item_count > 0 %}
+    <h3 class='headline staff-x-condensed-type h6 color-chocolate  inverse-down mg-t-none mg-b-s'>
+      Free Gift with Purchase
+    </h3>
+
+    {% liquid
+      assign in_cart = false
+    %}
+
+    {% for item in cart.items %}
+      {% if item.product.id == product.id and item.properties._free_w_purchase %}
+        {% assign in_cart = true %}
+      {% endif %}
+    {% endfor %}
+
+    {% if in_cart == false %}
+      <div class='free-item'>
+        <h2 class='headline h4'>
+          {{ settings.free_item_title }}
+        </h2>
+
+        {% assign id = 'discount-pack-' | append: product.id %}
+
+        <div class='discount-pack-list-item'>
+          <div class='discount-pack-list-item__image-container'>
+            <div class='discount-pack-list-item__image-wrapper'>
+              <img
+                class='discount-pack-list-item__image'
+                loading='lazy'
+                src='{{ product.featured_media | image_url: width: 120 }}'
+                alt='{{ product.featured_media.alt }}'
+                width='120'
+                height='120'
+              >
+            </div>
+          </div>
+
+          {%- liquid
+            assign selected = ''
+            for item in cart.items
+              for option in item.options_with_values
+                assign selected = option.value
+                if selected == 'Small'
+                  assign selected = 'S'
+                elsif selected == 'Medium'
+                  assign selected = 'M'
+                elsif selected == 'Large'
+                  assign selected = 'L'
+                endif
+              endfor
+            endfor
+          -%}
+          <form
+            id='{{ id }}'
+            class='discount-pack-list-item__form-free'
+            data-delegate='testgwpform'
+            data-product-id='{{ product.id }}'
+            data-product-handle='{{ product.handle }}'
+          >
+            <div class='discount-pack-list-item__title-wrapper'>
+              <div class='headline'>
+                {{ product.title }}
+              </div>
+            </div>
+            <div class='discount-pack-list-item__price'>
+              {% if product.compare_at_price > product.price %}
+                {% render 'product-price',
+                  price: 0,
+                  compare_at_price: product.compare_at_price,
+                  product_id: product.id
+                %}
+              {% else %}
+                {% render 'product-price',
+                  price: 0,
+                  compare_at_price: product.price,
+                  product_id: product.id
+                %}
+              {% endif %}
+            </div>
+
+            <div class='discount-pack-list-item__actions'>
+              <button
+                type='submit'
+                class='button dark small'
+                form='{{ id }}'
+                aria-label='Add'
+              >
+                Add
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    {% endif %}
+  {% endif %}
+
+{% endif %}

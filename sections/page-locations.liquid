@@ -1,0 +1,297 @@
+{% assign us_states = "Alabama,Alaska,Arizona,Arkansas,California,Colorado,Connecticut,Delaware,Florida,Georgia,Hawaii,Idaho,Illinois,Indiana,Iowa,Kansas,Kentucky,Louisiana,Maine,Maryland,Massachusetts,Michigan,Minnesota,Mississippi,Missouri,Montana,Nebraska,Nevada,NewHampshire,NewJersey,NewMexico,NewYork,NorthCarolina,NorthDakota,Ohio,Oklahoma,Oregon,Pennsylvania,RhodeIsland,SouthCarolina,SouthDakota,Tennessee,Texas,Utah,Vermont,Virginia,Washington,WestVirginia,Wisconsin,Wyoming" | split: "," %}
+<style>
+  .location-stores-grid .card.hidden {
+    display: none !important;
+  }
+  .state-filter{
+    display:block;
+    margin-bottom:5px;
+    padding-left: 0;
+  }
+  .state-filter.active {
+    font-weight: bold;
+  }
+  .filter-container h3 {
+    text-decoration:underline;
+  }
+  @media(min-width:768px){
+    .filter-container {
+      width: 20%;
+      min-width: 150px;
+      max-width: 160px;
+    }
+  }
+  @media(max-width: 767.9px){
+    .state-filter{
+      white-space: nowrap;
+      padding-right: 15px;
+    }
+
+    .filter-loc-container {
+      width: 100%;
+      overflow: auto;
+    }
+    .wrap-locations {
+      flex-direction: column;
+    }
+    .filter-loc-items {
+      flex-direction: row;
+      display: flex;
+    }
+  }
+
+</style>
+<div class='section-store-locations container color-black {{ section.settings.section_class }}'>
+  <div class='content-wrapper'>
+    <div class="wrap-locations flex">
+      <div class="filter-container">
+        <h4 class='headline h6 mg-b-m'>Filter</h4>
+        {% assign selected_states = '' | split: ',' %}
+        <div class="filter-loc-container">
+          <div class='filter-loc-items'>
+          <button class="state-filter" data-state="show-all">Show All</button>
+          {% for block in section.blocks %}
+            {% assign us_state = block.settings.state %}
+            {% if us_states contains us_state %}
+              {% unless selected_states contains us_state %}
+                <button class="state-filter" data-state="{{ us_state }}">{{ us_state }}</button>
+                {% assign selected_states = selected_states | append: us_state %}
+              {% endunless %}
+            {% endif %}
+
+          {% endfor %}
+          </div>
+        </div>
+      </div>
+      <div class='location-stores-grid'>
+        {% for block in section.blocks %}
+          <a
+            data-state='{{ block.settings.state }}'
+            {% unless block.settings.coming_soon %}
+            class='card'
+            href='{{ block.settings.page_url }}'
+            title='Go to location page'
+            onclick="
+              dataLayer.push({
+              'event': 'store_location',
+              'location': '{{ block.settings.store_name }}'
+              });
+            "
+            {% else %}
+              class="coming-soon"
+            {% endunless %}
+          >
+            {% if block.settings.coming_soon %}
+              <div class="store-coming-soon">
+                <img
+                  src='{{ block.settings.store_image | image_url }}'
+                  alt='{{ block.settings.store_name }}'
+                  loading='lazy'
+                  width='300'
+                  height='300'
+                >
+                <p>Coming soon!</p>
+              </div>
+            {% else %}
+              <img
+                src='{{ block.settings.store_image | image_url }}'
+                alt='{{ block.settings.store_name }}'
+                loading='lazy'
+                width='300'
+                height='300'
+              >
+            {% endif %}
+            <p class='color-black'>
+              <strong>
+                {{ block.settings.store_name }}
+              </strong>
+            </p>
+            <p>
+              {{ block.settings.us_location }}
+            </p>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+    <div class='location-map'>
+      <img
+        src='{{ section.settings.image | image_url: '500x500', crop: 'center', scale: '2' }}'
+        srcset='
+          {%- if section.settings.image.width >= 375 -%}{{ section.settings.image | image_url: width: 375 }} 375w,{%- endif -%}
+          {%- if section.settings.image.width >= 750 -%}{{ section.settings.image | image_url: width: 750 }} 750w,{%- endif -%}
+          {%- if section.settings.image.width >= 1100 -%}{{ section.settings.image | image_url: width: 1100 }} 1100w,{%- endif -%}
+          {%- if section.settings.image.width >= 1500 -%}{{ section.settings.image | image_url: width: 1500 }} 1500w,{%- endif -%}
+          {%- if section.settings.image.width >= 2000 -%}{{ section.settings.image | image_url: width: 2000 }} 2000w,{%- endif -%}
+          {%- if section.settings.image.width >= 2500 -%}{{ section.settings.image | image_url: width: 2500 }} 2500w,{%- endif -%}
+          {{ section.settings.image | image_url }} {{ section.settings.image.width }}w
+        '
+        alt='{{ section.settings.heading | escape }}'
+        width='{{ section.settings.image.width }}'
+        height='{{ section.settings.image.height }}'
+        loading='lazy'
+      >
+    </div>
+  </div>
+</div>
+
+<script>
+document.querySelectorAll('.state-filter').forEach((btn) => {
+  btn.addEventListener('click', (e) => {
+    const otherButtons = document.querySelectorAll('.state-filter');
+    otherButtons.forEach((otherBtn) => {
+      if (otherBtn !== btn) {
+        otherBtn.classList.remove('active');
+      }
+    });
+
+    btn.classList.add('active');
+
+    const state = e.target.dataset.state;
+    const storesMap = document.querySelectorAll('.content-wrapper.loca .loc');
+    const stores = document.querySelectorAll('.location-stores-grid a');
+    storesMap.forEach((storeM) => {
+      if (state === 'show-all') {
+        storeM.classList.remove('hidden');
+        return;
+      }
+      if (storeM.dataset.state === state) {
+        storeM.classList.remove('hidden');
+      } else {
+        storeM.classList.add('hidden');
+      }
+    });
+    stores.forEach((store) => {
+      if (state === 'show-all') {
+        store.classList.remove('hidden');
+        return;
+      }
+      if (store.dataset.state === state) {
+        store.classList.remove('hidden');
+      } else {
+        store.classList.add('hidden');
+      }
+    });
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "TCT Location Map",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_class",
+      "label": "Section CSS Class"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Location Image Banner"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Location",
+      "type": "location",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "store_image",
+          "label": "Store Image"
+        },
+        {
+          "type": "text",
+          "id": "store_name",
+          "label": "Store Name"
+        },
+        {
+          "type": "text",
+          "id": "us_location",
+          "label": "US Location"
+        },
+        {
+          "type": "url",
+          "id": "page_url",
+          "label": "Page URL"
+        },
+        {
+          "type": "checkbox",
+          "id": "coming_soon",
+          "label": "Store coming soon",
+          "default": false
+        },
+        {
+          "type":"select",
+          "id":"state",
+          "label":"State",
+          "options": [
+            { "value": "Alabama", "label": "Alabama" },
+            { "value": "Alaska", "label": "Alaska" },
+            { "value": "Arizona", "label": "Arizona" },
+            { "value": "Arkansas", "label": "Arkansas" },
+            { "value": "California", "label": "California" },
+            { "value": "Colorado", "label": "Colorado" },
+            { "value": "Connecticut", "label": "Connecticut" },
+            { "value": "Delaware", "label": "Delaware" },
+            { "value": "District Of Columbia", "label": "District Of Columbia" },
+            { "value": "Florida", "label": "Florida" },
+            { "value": "Georgia", "label": "Georgia" },
+            { "value": "Hawaii", "label": "Hawaii" },
+            { "value": "Idaho", "label": "Idaho" },
+            { "value": "Illinois", "label": "Illinois" },
+            { "value": "Indiana", "label": "Indiana" },
+            { "value": "Iowa", "label": "Iowa" },
+            { "value": "Kansas", "label": "Kansas" },
+            { "value": "Kentucky", "label": "Kentucky" },
+            { "value": "Louisiana", "label": "Louisiana" },
+            { "value": "Maine", "label": "Maine" },
+            { "value": "Maryland", "label": "Maryland" },
+            { "value": "Massachusetts", "label": "Massachusetts" },
+            { "value": "Michigan", "label": "Michigan" },
+            { "value": "Minnesota", "label": "Minnesota" },
+            { "value": "Mississippi", "label": "Mississippi" },
+            { "value": "Missouri", "label": "Missouri" },
+            { "value": "Montana", "label": "Montana" },
+            { "value": "Nebraska", "label": "Nebraska" },
+            { "value": "Nevada", "label": "Nevada" },
+            { "value": "New Hampshire", "label": "New Hampshire" },
+            { "value": "New Jersey", "label": "New Jersey" },
+            { "value": "New Mexico", "label": "New Mexico" },
+            { "value": "New York", "label": "New York" },
+            { "value": "North Carolina", "label": "North Carolina" },
+            { "value": "North Dakota", "label": "North Dakota" },
+            { "value": "Ohio", "label": "Ohio" },
+            { "value": "Oklahoma", "label": "Oklahoma" },
+            { "value": "Oregon", "label": "Oregon" },
+            { "value": "Pennsylvania", "label": "Pennsylvania" },
+            { "value": "Rhode Island", "label": "Rhode Island" },
+            { "value": "South Carolina", "label": "South Carolina" },
+            { "value": "South Dakota", "label": "South Dakota" },
+            { "value": "Tennessee", "label": "Tennessee" },
+            { "value": "Texas", "label": "Texas" },
+            { "value": "Utah", "label": "Utah" },
+            { "value": "Vermont", "label": "Vermont" },
+            { "value": "Virginia", "label": "Virginia" },
+            { "value": "Washington", "label": "Washington" },
+            { "value": "West Virginia", "label": "West Virginia" },
+            { "value": "Wisconsin", "label": "Wisconsin" },
+            { "value": "Wyoming", "label": "Wyoming" }
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "TCT Location Map",
+      "blocks": [
+        {
+          "type": "location"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

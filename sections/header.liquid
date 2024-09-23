@@ -1,0 +1,449 @@
+<style>
+    {% comment %} basic styles  {% endcomment %}
+
+    .section-annoucement-bar {
+      position: fixed;
+      left: 0;
+      right: 0;
+      max-height: var(--annoucement-bar-height);
+      height: 100%;
+      z-index: 126;
+    }
+
+    .annoucement-section, .a-header, .announcement-bar {
+      height: var(--annoucement-bar-height);
+    }
+
+    .section-header.shopify-section-group-header-group {
+      position: relative;
+      z-index: 4;
+    }
+
+    .header-wrapper {
+      position: fixed;
+    }
+
+    body .header-nav-wrapper {
+      margin-top: var(--annoucement-bar-height);
+
+    }
+
+    /* regular navbar */
+
+    body:not(.page-index) #MainContent {
+      margin-top: 108px;
+    }
+
+    /* transparent navbar */
+
+    body.page-index #MainContent {
+      {% comment %} margin-top: var(--annoucement-bar-height)!important; {% endcomment %}
+      margin-top: calc(var(--annoucement-bar-height) + 68px);
+    }
+
+    .header-wrapper.hd-scrolled .header-middle h1,
+    .header-wrapper.hd-scrolled .header-middle .h1,
+    .svg-graphic.svg-graphic--logo-true-classic {
+      transition: all 0.15s ease-out;
+    }
+
+    .header-wrapper.hd-scrolled .header-middle h1,
+    .header-wrapper.hd-scrolled .header-middle .h1 {
+      padding: 0.3rem 0 !important;
+    }
+
+    @media (min-width: 768px) {
+      .header-wrapper.hd-scrolled svg.svg-graphic.svg-graphic--logo-true-classic {
+        width: 80% !important;
+        height: auto !important;
+      }
+    }
+
+    .desktop-only--header ul:not(.instant-search-results__list) {
+      display: flex !important;
+      margin: 0.75rem 0;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .section-header ~ .shopify-section-group-header-group {
+      z-index: initial;
+    }
+
+    {% if section.settings.transparent_header == true %}
+
+      body.page-index #MainContent {
+        margin-top: var(--annoucement-bar-height)!important;
+      }
+
+    body.page-index .header-wrapper:not(.hd-scrolled) .header-nav-wrapper,
+    body.page-index .header-wrapper:not(.hd-scrolled) .header-subnav-wrapper {
+      background-color: transparent;
+      color: {{ section.settings.color_primary }} !important;
+    }
+
+    body .header-wrapper .header-nav-wrapper:not(#mega-menu),
+    body .header-wrapper .header-nav-wrapper > *:not(#mega-menu),
+    body .header-wrapper .header-nav-wrapper > * > *:not(#mega-menu),
+    body .header-wrapper .header-nav-wrapper > * > * > *:not(#mega-menu) {
+      transition: all 0.15s ease-out;
+    }
+
+    body.page-index .header-wrapper:not(.hd-scrolled) .header-nav-wrapper a,
+    body.page-index .header-wrapper:not(.hd-scrolled) .header-nav-wrapper button,
+    body.page-index .header-wrapper:not(.hd-scrolled) .header-nav-wrapper svg,
+    body.page-index .header-wrapper:not(.hd-scrolled) .nav-item.nav-item--sub a,
+    body.page-index .header-wrapper:not(.hd-scrolled) .header-subnav-wrapper {
+      color: {{ section.settings.color_primary }};
+    }
+
+    body.page-index .header-wrapper:not(.hd-scrolled) .hamburger,
+    body.page-index .header-wrapper:not(.hd-scrolled) .hamburger:after,
+    body.page-index .header-wrapper:not(.hd-scrolled) .hamburger:before,
+    body.page-index .hd-scrolled .header-nav-wrapper,
+    body.page-index .header-nav-wrapper:hover {
+      background-color: {{ section.settings.color_primary }};
+    }
+
+    body.page-index .header-wrapper.hd-scrolled .header-nav-wrapper,
+    body.page-index .header-wrapper:hover .header-nav-wrapper,
+    body.page-index .header-wrapper:hover .header-subnav-wrapper,
+    body.page-index .header-wrapper.hd-scrolled .header-subnav-wrapper {
+      background-color: {{ section.settings.color_tertiary }};
+      color: {{ section.settings.color_secondary }};
+    }
+
+    body.page-index .header-wrapper.hd-scrolled .header-nav-wrapper a,
+    body.page-index .header-wrapper.hd-scrolled .header-nav-wrapper button,
+    body.page-index .header-wrapper.hd-scrolled .header-nav-wrapper svg,
+    body.page-index .header-wrapper.hd-scrolled .nav-item.nav-item--sub a,
+    body.page-index .header-wrapper.hd-scrolled .header-subnav-wrapper,
+    body.page-index .header-wrapper:hover .header-nav-wrapper a,
+    body.page-index .header-wrapper:hover .header-nav-wrapper button,
+    body.page-index .header-wrapper:hover .header-nav-wrapper svg,
+    body.page-index .header-wrapper:hover .nav-item.nav-item--sub a,
+    body.page-index .header-wrapper:hover .header-subnav-wrapper {
+      color: {{ section.settings.color_secondary }};
+    }
+
+    body.page-index .header-wrapper.hd-scrolled .hamburger,
+    body.page-index .header-wrapper.hd-scrolled .hamburger:after,
+    body.page-index .header-wrapper.hd-scrolled .hamburger:before,
+    body.page-index .header-wrapper:hover .hamburger,
+    body.page-index .header-wrapper:hover .hamburger:after,
+    body.page-index .header-wrapper:hover .hamburger:before {
+      background-color: {{ section.settings.color_secondary }};
+    }
+    {% endif %}
+
+    body .header-subnav-wrapper {
+      height: 0;
+      overflow: hidden;
+      border: 0;
+    }
+
+    body .header-subnav-wrapper.active {
+      height: auto;
+      position: absolute;
+    }
+
+    {% if request.page_type == 'page' or request.page_type == 'product' %}
+      {% if page.metafields.custom.transparent_header == true or product.metafields.custom.transparent_header == true %}
+
+        body #MainContent {
+          margin-top: var(--annoucement-bar-height)!important;
+        }
+
+        body .header-wrapper.hd-scrolled .header-middle h1,
+        body .header-wrapper.hd-scrolled .header-middle .h1 {
+          padding: 0.3rem 0 !important;
+        }
+
+        @media (min-width: 768px) {
+          body .header-wrapper.hd-scrolled svg.svg-graphic.svg-graphic--logo-true-classic {
+            width: 80% !important;
+            height: auto !important;
+          }
+        }
+
+        @media (max-width: 767.9px) {
+          .header-wrapper.hd-scrolled .header-middle h1 svg {
+            width: 92%;
+          }
+        }
+
+        body .nav__panel.active {
+          background-color: transparent !important;
+        }
+
+        body .header-wrapper:not(.hd-scrolled) .header-nav-wrapper,
+        body .header-wrapper:not(.hd-scrolled) .header-subnav-wrapper {
+          background-color: transparent;
+          color: {{ section.settings.color_primary }} !important;
+        }
+
+        body .header-wrapper .header-nav-wrapper {
+          transition: all 0.15s ease-out;
+        }
+
+        body .header-wrapper:not(.hd-scrolled) .header-nav-wrapper a,
+        body .header-wrapper:not(.hd-scrolled) .header-nav-wrapper button,
+        body .header-wrapper:not(.hd-scrolled) .header-nav-wrapper svg,
+        body .header-wrapper:not(.hd-scrolled) .nav-item.nav-item--sub a,
+        body .header-wrapper:not(.hd-scrolled) .header-subnav-wrapper {
+          color: {{ section.settings.color_primary }};
+        }
+
+        body .header-wrapper:not(.hd-scrolled) .hamburger,
+        body .header-wrapper:not(.hd-scrolled) .hamburger:after,
+        body .header-wrapper:not(.hd-scrolled) .hamburger:before {
+          background-color: {{ section.settings.color_primary }};
+        }
+
+        body .header-wrapper.hd-scrolled .header-nav-wrapper,
+        body .header-wrapper:hover .header-nav-wrapper,
+        body .header-wrapper:hover .header-subnav-wrapper,
+        body .header-wrapper.hd-scrolled .header-subnav-wrapper {
+          background-color: {{ section.settings.color_tertiary }};
+          color: {{ section.settings.color_secondary }};
+        }
+
+        body .header-wrapper.hd-scrolled .header-nav-wrapper a,
+        body .header-wrapper.hd-scrolled .header-nav-wrapper button,
+        body .header-wrapper.hd-scrolled .header-nav-wrapper svg,
+        body .header-wrapper.hd-scrolled .nav-item.nav-item--sub a,
+        body .header-wrapper.hd-scrolled .header-subnav-wrapper,
+        body .header-wrapper:hover .header-nav-wrapper a,
+        body .header-wrapper:hover .header-nav-wrapper button,
+        body .header-wrapper:hover .header-nav-wrapper svg,
+        body .header-wrapper:hover .nav-item.nav-item--sub a,
+        body .header-wrapper:hover .header-subnav-wrapper {
+          color: {{ section.settings.color_secondary }};
+        }
+        body .header-wrapper.hd-scrolled .hamburger,
+        body .header-wrapper.hd-scrolled .hamburger:after,
+        body .header-wrapper.hd-scrolled .hamburger:before,
+        body .header-wrapper:hover .hamburger,
+        body .header-wrapper:hover .hamburger:after,
+        body .header-wrapper:hover .hamburger:before {
+          background-color: {{ section.settings.color_secondary }};
+        }
+      {% endif %}
+    {% endif %}
+
+  @media screen and (max-width: 580px)  {
+    .announcement__tooltip-notice > a > p > strong {
+      font-size: 0.85rem;
+    }
+  }
+
+  @media screen and (max-width: 580px)  {
+    #primary-nav-toggle {
+      padding: 1rem 0.45rem 1rem 0!important;
+    }
+  }
+</style>
+
+<script type='text/javascript'>
+  window.onscroll = function () {
+    scrollFunction();
+  };
+  function scrollFunction() {
+    if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 25) {
+      document.querySelector('.header-wrapper').classList.add('hd-scrolled');
+    } else {
+      document.querySelector('.header-wrapper').classList.remove('hd-scrolled');
+    }
+  }
+
+  window.onscroll = function () {
+    scrollFunction();
+  };
+</script>
+
+{% liquid
+  assign nav_menu = section.settings.header_link_list.links
+
+  capture sub_nav
+    for item in nav_menu
+      for sub_item in item.links
+        render 'nav-panel', tab: sub_item, class: 'content-wrapper desktop-only--header', list_item_class: 'nav-item--sub'
+      endfor
+      if forloop.first == true
+        capture left_nav
+          render 'nav-list', links: item.links, class: 'desktop-only--header', list_item_class: 'nav-item--main'
+        endcapture
+      else
+        capture right_nav
+          render 'nav-list', links: item.links, class: 'desktop-only--header', list_item_class: 'nav-item--main'
+        endcapture
+      endif
+    endfor
+    render 'nav-panel', is_search: true, class: 'content-wrapper desktop-only--header'
+  endcapture
+%}
+
+<div
+  class='header-wrapper'
+>
+  <header class='header header-element'>
+    <div class='header-wrapper'>
+      <div class='header-nav-wrapper header-element'>
+        <div class='header-middle'>
+          {% render 'nav-header-logo' %}
+        </div>
+
+        <nav class='header-left' aria-label='navigation'>
+          {% render 'nav-control', control: 'primary-toggle' %}
+          {{ left_nav }}
+        </nav>
+
+        <div class='header-right'>
+          <div class='header-utilities'>
+            {% render 'nav-utilities' %}
+          </div>
+        </div>
+        {% if section.settings.enable_mega_menu %}
+          {% render 'mega-menu' %}
+        {% endif %}
+      </div>
+
+      <div id='header-subnavs' class='header-subnav-wrapper desktop-only--header'>
+        {{ sub_nav }}
+      </div>
+    </div>
+  </header>
+</div>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+
+    {
+      "type": "checkbox",
+      "id": "enable_mega_menu",
+      "label": "Enable Mega Menu",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "transparent_header",
+      "label": "Enable Transparent Header",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_mobile_account_icon",
+      "label": "Enable mobile login icon",
+      "default": true
+    },
+    {
+      "type": "link_list",
+      "id": "header_link_list",
+      "label": "Header Menu"
+    },
+    {
+      "type": "color",
+      "id": "color_primary",
+      "label": "Color 1",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "color_secondary",
+      "label": "Color 2",
+      "default": "#212121"
+    },
+    {
+      "type": "color",
+      "id": "color_tertiary",
+      "label": "Color on scroll",
+      "default": "#FFFFFF"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "mm_img",
+      "name": "MegaMenuImage",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "mm_img_image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "mm_img_alt",
+          "label": "Alt text"
+        },
+        {
+          "type": "text",
+          "id": "mm_img_overlay_text",
+          "label": "Overlay text"
+        },
+        {
+          "type": "url",
+          "id": "mm_img_link",
+          "label": "Link to collection/pdp"
+        }
+      ]
+    },
+    {
+      "name": "Country",
+      "type": "text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "US, CA, AU, GB etc."
+        },
+        {
+          "type": "text",
+          "id": "country_announcement",
+          "label": "Country Announcement"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<script type='application/ld+json'>
+  {
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": "{{ shop.name }}",
+    {% if section.settings.logo %}
+      {% assign image_size = section.settings.logo.width %}
+      "logo": "https:{{ section.settings.logo | image_url: image_size }}",
+    {% endif %}
+    "sameAs": [
+      "{{ settings.social_twitter_link }}",
+      "{{ settings.social_facebook_link }}",
+      "{{ settings.social_pinterest_link }}",
+      "{{ settings.social_instagram_link }}",
+      "{{ settings.social_tumblr_link }}",
+      "{{ settings.social_snapchat_link }}",
+      "{{ settings.social_youtube_link }}",
+      "{{ settings.social_vimeo_link }}"
+    ],
+    "url": "{{ shop.url }}{{ page.url }}"
+  }
+</script>
+
+{% if template.name == 'index' %}
+  <script type='application/ld+json'>
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "name": "{{ shop.name }}",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "{{ shop.url }}/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      },
+      "url": "{{ shop.url }}{{ page.url }}"
+    }
+  </script>
+{% endif %}

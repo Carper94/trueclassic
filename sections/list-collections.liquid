@@ -1,0 +1,37 @@
+{% comment %}
+  This page represents the /collections and /products pages.
+{% endcomment %}
+
+<div class="section-spacer">
+  <div class="container">
+  <div class="content-wrapper">
+    <div class="list-collections">
+      {% assign collections_to_render = section.blocks | where: 'type', 'category_card' | map: 'settings' | map: 'collection' %}
+      {% render 'category-card-grid' collections: collections_to_render, size: 'auto' %}
+    </div>
+  </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Collections List",
+    "blocks":[
+      {
+        "name": "Collection",
+        "type": "category_card",
+        "settings":[
+          {
+            "type": "collection",
+            "id": "collection",
+            "label": "Collection"
+          }
+        ]
+      }
+    ],
+    "settings": [],
+    "presets":[]
+  }
+{% endschema %}
+
+

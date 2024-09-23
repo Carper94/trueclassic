@@ -1,0 +1,82 @@
+<script>
+function addClassicMembership() {
+  const membershipButton = document.querySelector('.classic-member .membership-buttons .button');
+  membershipButton.classList.add('loading');
+  fetch('/cart/add.js', {
+    body: JSON.stringify({
+      items: [
+        {
+          id: {{ classic_product_form_id }},
+          quantity: 1,
+          selling_plan: {{ classic_selling_plan_id }},
+          properties: {
+            _inveterate_subscription: true,
+          },
+        },
+      ],
+    }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    method: 'POST',
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then(items => {
+    document.dispatchEvent(new Event('cartaddsuccess'));
+  })
+  .catch(error => {
+    console.log('Failed to add membership to cart');
+  })
+}
+
+function addMembership() {
+  const membershipButton = document.querySelector('.all-access .membership-buttons .button');
+  membershipButton.classList.add('loading');
+  fetch('/cart/add.js', {
+    body: JSON.stringify({
+      items: [
+        {
+          id: {{ product_form_id }},
+          quantity: 1,
+          selling_plan: {{ selling_plan_id }},
+          properties: {
+            _inveterate_subscription: true,
+          },
+        },
+      ],
+    }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    method: 'POST',
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then(items => {
+    document.dispatchEvent(new Event('cartaddsuccess'));
+  })
+  .catch(error => {
+    console.log('Failed to add membership to cart');
+  })
+}
+
+function handleMembershipButtonClick(e) {
+  if (e.target.dataset.delegate === 'addClassicmembership') {
+    addClassicMembership();
+  } else if (e.target.dataset.delegate === 'addmembership') {
+    addMembership();
+  }
+}
+
+document.addEventListener('click', handleMembershipButtonClick);
+
+</script>

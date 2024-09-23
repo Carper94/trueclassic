@@ -1,0 +1,11 @@
+{% assign name = 'Size' %}
+{% assign values = 'S,M,L,XL,2XL,3XL' | split: ',' %}
+
+<div class='pack-builder-size-controls'>
+  <div class='pack-builder-size-controls__heading'>
+    <h2 class='headline h3'>Select A Size</h2>
+  </div>
+  <form data-delegate='packbuildersizeform' name='pack-builder-size'>
+    {% render 'size-swatch', name: name, values: values %}
+  </form>
+</div>

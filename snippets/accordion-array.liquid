@@ -1,0 +1,7 @@
+{% if title_array != blank and content_array != blank %}
+  {% for title in title_array %}
+    <div class='accordion-array__item {% if class == 'grid' %} grid__item{% endif %}'>
+      {% render 'accordion', title: title, content: content_array[forloop.index0] %}
+    </div>
+  {% endfor %}
+{% endif %}

@@ -1,0 +1,48 @@
+{% assign value = cart.total_price | times: 0.01 %}
+
+<style>
+  #progressBar {
+    width: 100%;
+    max-width: -webkit-fill-available;
+    height: 10px;
+    background-color: #e0e2d6;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  #progressBar #progressBarProgress {
+    height: 100%;
+    padding: 0 10px;
+    background-color: #676a4e;
+    box-sizing: border-box;
+    -webkit-transition: width 1000ms linear, opacity 1000ms linear;
+    transition: width 1000ms linear, opacity 1000ms linear;
+  }
+</style>
+
+<div id='progressBar'>
+  <div id='progressBarProgress' class='bar' style='width: {{ value }}%;'></div>
+</div>
+{% assign restOf = 100 | minus: value %}
+{% if restOf >= 0 %}
+  <p class='text-center mg-b-s'>
+    You are {{ localization.country.currency.symbol -}}
+    {{- restOf }} from free shipping
+  </p>
+{% else %}
+  <p class='text-center mg-b-s'>You unlocked free shipping!</p>
+{% endif %}
+
+<script>
+  const progressBar = document.getElementById('progressBar');
+  const progressBarProgress = document.getElementById('progressBarProgress');
+  if (!progressBarProgress) {
+  } else {
+    function updateDOM(progressBarWidth) {
+      const progressBar = document.getElementById('progressBarProgress');
+      progressBar.style.opacity = 1;
+      progressBar.style.width = progressBarWidth + '%';
+    }
+    requestAnimationFrame(() => updateDOM({{ cart.items_subtotal_price }}));
+  }
+</script>

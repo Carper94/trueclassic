@@ -1,0 +1,125 @@
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "custom_css": [
+
+      ],
+      "settings": {
+        "full_width": false,
+        "hide_title": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "75c2b651-2b34-49cc-8488-087beb2946e1": {
+      "type": "page-store",
+      "blocks": {
+        "3dab38e2-9a33-4c12-a32b-e61264c1edce": {
+          "type": "image_picker",
+          "settings": {
+            "retail_image": "shopify:\/\/shop_images\/raton.jpg"
+          }
+        },
+        "1d0a3ddd-273a-4899-ace7-fbf46e0d5d2b": {
+          "type": "image_picker",
+          "settings": {
+            "retail_image": "shopify:\/\/shop_images\/IMG_5960.jpg"
+          }
+        },
+        "2d7b3825-dc2b-471b-beb8-6aaf2feb4d3c": {
+          "type": "image_picker",
+          "settings": {
+            "retail_image": "shopify:\/\/shop_images\/IMG_5957.jpg"
+          }
+        },
+        "42010474-fffc-4ade-807b-756471199f6a": {
+          "type": "text",
+          "settings": {
+            "day": "Monday - Thursday",
+            "hours": "10 am - 8 pm"
+          }
+        },
+        "ba67b020-fd7e-4181-b501-f1ef10bc1fef": {
+          "type": "text",
+          "settings": {
+            "day": "Friday - Saturday",
+            "hours": "10 am - 9pm"
+          }
+        },
+        "a4533789-3a07-4943-b968-a654da5529ba": {
+          "type": "text",
+          "settings": {
+            "day": "Sunday",
+            "hours": "11 am - 7pm"
+          }
+        }
+      },
+      "block_order": [
+        "3dab38e2-9a33-4c12-a32b-e61264c1edce",
+        "1d0a3ddd-273a-4899-ace7-fbf46e0d5d2b",
+        "2d7b3825-dc2b-471b-beb8-6aaf2feb4d3c",
+        "42010474-fffc-4ade-807b-756471199f6a",
+        "ba67b020-fd7e-4181-b501-f1ef10bc1fef",
+        "a4533789-3a07-4943-b968-a654da5529ba"
+      ],
+      "settings": {
+        "section_class": "",
+        "image_url": "shopify:\/\/shop_images\/IMG_5964.jpg",
+        "streetAddress": "6000 Glades Rd, Suite 1226",
+        "addressLocality": "Boca Raton",
+        "addressRegion": "FL",
+        "postalCode": "33431",
+        "address_map": "https:\/\/maps.app.goo.gl\/1dXWqH9rLU8gNSXT7",
+        "latitude": "26.36425733143576",
+        "longitude": "-80.13174364283738",
+        "phone": "+1 (561) 961-0092",
+        "email": "",
+        "description": "<p>Visit us in our newest store opening November 15th at Town Center @ Boca Raton. Experience the best of what True Classic has to offer in-store and and get to know our signature Perfect Fit and Feel. We are located near Nordstrom & Saks Fifth Ave and look forward to seeing you in person.<\/p>"
+      }
+    },
+    "113588e7-8359-46fd-b6f6-3c4e7215e22f": {
+      "type": "section-map",
+      "settings": {
+        "html": "<iframe src=\"https:\/\/www.google.com\/maps\/embed?pb=!1m14!1m8!1m3!1d14299.331237568273!2d-80.1317365!3d26.3642691!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d91fada5e854ef%3A0xb50f342009e37ffc!2sTrue%20Classic!5e0!3m2!1sfr!2sfr!4v1700180219783!5m2!1sfr!2sfr\" width=\"100%\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"><\/iframe>",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "3f3da7ce-6092-4700-a6d0-574b3221906b": {
+      "type": "image-card-list",
+      "blocks": {
+        "template--14485159313480__3f3da7ce-6092-4700-a6d0-574b3221906b-1670305060b22340f2-0": {
+          "type": "card",
+          "settings": {
+            "store_image": "shopify:\/\/shop_images\/TC_Amazon_Webpages_05.png",
+            "store_name": "Armitage Avenue",
+            "us_location": "838 West Armitage Avenue Chicago, Illinois 60614",
+            "page_url": "shopify:\/\/pages\/armitage-avenue"
+          }
+        },
+        "595f9cd8-84e3-4956-92dc-093fd13e2b92": {
+          "type": "card",
+          "settings": {
+            "store_image": "shopify:\/\/shop_images\/TC_Amazon_Webpages_01_1.png",
+            "store_name": "Michigan Avenue",
+            "us_location": "520 North Michigan Avenue Space 12 Chicago, Illinois 60611",
+            "page_url": "shopify:\/\/pages\/northbridge"
+          }
+        }
+      },
+      "block_order": [
+        "template--14485159313480__3f3da7ce-6092-4700-a6d0-574b3221906b-1670305060b22340f2-0",
+        "595f9cd8-84e3-4956-92dc-093fd13e2b92"
+      ],
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main",
+    "75c2b651-2b34-49cc-8488-087beb2946e1",
+    "113588e7-8359-46fd-b6f6-3c4e7215e22f",
+    "3f3da7ce-6092-4700-a6d0-574b3221906b"
+  ]
+}

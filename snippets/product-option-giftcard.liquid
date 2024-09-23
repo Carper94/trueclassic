@@ -1,0 +1,36 @@
+<fieldset class='product-option-giftcard product-option'>
+  <legend>
+    {{ product_option.name }}:
+    <span class='light-font'>{% render 'size-text', size: product_option.selected_value %}</span>
+  </legend>
+  <div class='product-option__input-wrapper'>
+    {% for value in product_option.values %}
+      {% assign variant = product.variants[forloop.index0] %}
+      <input
+        type='radio'
+        id='{{ product_option.name }}-{{ forloop.index0 }}'
+        class='visually-hidden'
+        name='Option-{{ product_option.name | escape }}'
+        aria-label='{{ product_option.name | escape }}'
+        value='{{ value }}'
+        {% comment %}
+          {% if value == 'Custom Value' %}
+             data-custom-giftcard-button
+          {% endif %}
+        {% endcomment %}
+        {% if product_option.selected_value == value %}
+          checked
+        {% endif %}
+        data-option
+      >
+      <label
+        for='{{ product_option.name }}-{{ forloop.index0 }}'
+      >
+        <span class='product-option-text'>
+          {{ variant.price | money }}
+          {% comment %} {% if value == "Custom Value" %}{{ value }}{% else %}{{ variant.price | money }}{% endif %} {% endcomment %}
+        </span>
+      </label>
+    {% endfor %}
+  </div>
+</fieldset>

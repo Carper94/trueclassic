@@ -1,0 +1,1458 @@
+{
+  "sections": {
+    "a63a4360-13fb-4bb0-90f3-6d396c3c35f1": {
+      "type": "two-image-banner",
+      "blocks": {
+        "template--14616116068424__a63a4360-13fb-4bb0-90f3-6d396c3c35f1-heading-1": {
+          "type": "heading",
+          "settings": {
+            "title": "Australia Day",
+            "heading_level": "span",
+            "heading_size": "h4",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-chocolate",
+            "heading_color_inverse": true,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-none",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "d612391b-3cab-4adb-9bda-2bfbd205fbf5": {
+          "type": "heading",
+          "settings": {
+            "title": "UP TO 50% OFF",
+            "heading_level": "h2",
+            "heading_size": "h2",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-chocolate",
+            "heading_color_inverse": true,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-none",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "template--14616116068424__a63a4360-13fb-4bb0-90f3-6d396c3c35f1-text-1": {
+          "type": "text",
+          "settings": {
+            "paragraph": "<p>+ Extra 10% OFF with the code:<\/p><p><strong>AUSTRALIA<\/strong><\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "l",
+            "paragraph_color": "color-chocolate",
+            "paragraph_color_inverse": true,
+            "paragraph_margin_top": "mg-t-s",
+            "paragraph_margin_bottom": "mg-b-l"
+          }
+        },
+        "cbcf40e4-02c1-46d3-b6c7-f00021469f9c": {
+          "type": "link",
+          "settings": {
+            "link_text": "Shop the Sale",
+            "link_url": "shopify:\/\/collections\/sale",
+            "new_tab": false,
+            "link_style": "primary",
+            "link_color_inverse": true,
+            "link_icon": "arrow-right",
+            "link_margin_top": "mg-t-none",
+            "link_margin_bottom": "mg-b-m",
+            "full_width": false,
+            "disabled": false
+          }
+        }
+      },
+      "block_order": [
+        "template--14616116068424__a63a4360-13fb-4bb0-90f3-6d396c3c35f1-heading-1",
+        "d612391b-3cab-4adb-9bda-2bfbd205fbf5",
+        "template--14616116068424__a63a4360-13fb-4bb0-90f3-6d396c3c35f1-text-1",
+        "cbcf40e4-02c1-46d3-b6c7-f00021469f9c"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "span {font-weight: 300;}",
+        "@media screen and (max-width: 768px) {.two-img-banner {padding-left: 0 !important; padding-right: 0 !important; } .two-img-banner .banner-content {justify-content: flex-end; align-items: flex-start; padding: 1.5rem; color: #ffffff; }}",
+        "@media screen and (min-width: 768px) {.two-img-banner {flex-direction: row-reverse; }}"
+      ],
+      "settings": {
+        "country_code": "AU",
+        "exclude_country_code": "",
+        "class_test": "",
+        "hidden": false,
+        "section_bg_color": "#fcfbf7",
+        "full_width": true,
+        "banner_link": "shopify:\/\/collections\/au-sale",
+        "banner_link_title": "True Classic Sale",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "inner_padding_top": 0,
+        "inner_padding_bottom": 0,
+        "section_image_lg": "shopify:\/\/shop_images\/Mask_group_3_bb8453c5-f84d-4655-964f-9684fdab24dc.png",
+        "section_image_mb": "shopify:\/\/shop_images\/Mobile_4.png",
+        "section_image_md": "shopify:\/\/shop_images\/TC_core_seasonal_editorial0153_1_1.png",
+        "content_width_desktop": 400,
+        "content_alignment_desktop": "center",
+        "content_spacing_mobile": 0,
+        "content_alignment_mobile": "left",
+        "overlay": false,
+        "overlay_is_mobile": false,
+        "overlay_color": "#000000",
+        "overlay_opacity": 0.4
+      }
+    },
+    "40ee1dac-3f1a-46cf-8d4f-cde087f382f5": {
+      "type": "tc-image-banner",
+      "blocks": {
+        "0fcb9c30-96b9-4e05-b9a4-a9febc7d5f41": {
+          "type": "heading",
+          "settings": {
+            "title": "UP TO",
+            "heading_level": "span",
+            "heading_size": "h4",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-white",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-none",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "heading_xGaFWB": {
+          "type": "heading",
+          "settings": {
+            "title": "60% OFF",
+            "heading_level": "h1",
+            "heading_size": "h1",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-holiday-yellow",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-none",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "heading_78d4bV": {
+          "type": "heading",
+          "settings": {
+            "title": "SITEWIDE",
+            "heading_level": "h1",
+            "heading_size": "h1",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-holiday-yellow",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-none",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "65af84c7-fe24-4e87-8e95-e6010aaee84a": {
+          "type": "text",
+          "settings": {
+            "paragraph": "<p>Layer it on with the best <\/p><p>deal of the year (so far).<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "xl",
+            "paragraph_color": "color-white",
+            "paragraph_color_inverse": true,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-s"
+          }
+        },
+        "08a2abf5-b16a-4f76-8327-614952813064": {
+          "type": "link",
+          "settings": {
+            "link_text": "STOCK UP",
+            "link_url": "shopify:\/\/collections\/sale",
+            "new_tab": false,
+            "link_style": "primary inverse",
+            "link_color_inverse": true,
+            "link_icon": "arrow-right",
+            "link_margin_top": "mg-t-none",
+            "link_margin_bottom": "mg-b-none",
+            "full_width": false,
+            "disabled": false
+          }
+        }
+      },
+      "block_order": [
+        "0fcb9c30-96b9-4e05-b9a4-a9febc7d5f41",
+        "heading_xGaFWB",
+        "heading_78d4bV",
+        "65af84c7-fe24-4e87-8e95-e6010aaee84a",
+        "08a2abf5-b16a-4f76-8327-614952813064"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "span {font-weight: 300;}",
+        "h1 {line-height: 1;}",
+        "@media screen and (max-width: 767.9px) {h1 {line-height: 1.2; } div.text p:first-child {margin: 0.1rem 0 0; } div.text p:last-child {margin: 0 0 0.74rem !important; } .img-banner-block.img-banner-content {top: 8rem !important; }}"
+      ],
+      "settings": {
+        "ab_class": "",
+        "country_code": "",
+        "exclude_country_code": "",
+        "class_test": "",
+        "hidden": false,
+        "section_bg_color": "#ffffff",
+        "full_width": true,
+        "breakpoint": 768,
+        "section_max_width": 4000,
+        "section_height": "adapt",
+        "media_position": "unset",
+        "media_size": "full",
+        "banner_link": "shopify:\/\/collections\/sale",
+        "banner_link_title": "True Classic Sale",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "inner_padding_top": 0,
+        "inner_padding_bottom": 0,
+        "aspect_ratio": 50,
+        "section_image": "shopify:\/\/shop_images\/desktop-home-banner.png",
+        "section_image_mobile": "shopify:\/\/shop_images\/mobile-home-banner.png",
+        "media_margin_left": 0,
+        "media_margin_right": 0,
+        "media_margin_top": 0,
+        "media_margin_bottom": 0,
+        "enable_lazyload": false,
+        "content_width": 100,
+        "content_fit": false,
+        "text_position": "left",
+        "text_position_mobile": "left",
+        "content_padding_dt": "1",
+        "content_padding_mb": "3",
+        "enable_absolute": false,
+        "enable_distance_top": false,
+        "content_top": 46,
+        "content_top_mobile": 38,
+        "enable_distance_bottom": false,
+        "content_bottom": 50,
+        "enable_distance_left": true,
+        "content_left": 4,
+        "enable_distance_right": false,
+        "content_right": 50,
+        "mobile_positioning": "unset",
+        "reverse_mobile": true,
+        "mobile_overlay": false,
+        "mobile_overlay_color": "#000000",
+        "mobile_overlay_opacity": 0,
+        "enable_prime_style": false,
+        "enable_custom_styles": false,
+        "custom_styles": "",
+        "custom_styles_mobile": ""
+      }
+    },
+    "videowise_video_toggle_PnYFTV": {
+      "type": "videowise-video-toggle",
+      "blocks": {
+        "video_MUR8kb": {
+          "type": "video",
+          "settings": {
+            "size": "medium",
+            "videowise": "<style>.videowise-background-component_6598d9221e757f002870cccf{background-image: url(\"\/\/www.trueclassictees.com\/cdn\/shop\/files\/preview_images\/7126cc97b46040c3a2feca957ee6fbc4.thumbnail.0000000000.jpg?v=1702470814&width=500\");  aspect-ratio:1;}@media (min-width: 720px) {.videowise-background-component_6598d9221e757f002870cccf {background-image: url(\"\/\/www.trueclassictees.com\/cdn\/shop\/files\/preview_images\/3518dfd2ed2046fa8b6130e1a22e24bf.thumbnail.0000000000.jpg?v=1702932424&width=1920\"); aspect-ratio: 16\/9;}}<\/style>\n<div class=\"videowise-background videowise-background-component_6598d9221e757f002870cccf\" data-widget-id=\"6598d9221e757f002870cccf\">\n<video width=\"100%\" height=\"auto\" playsinline=\"true\" muted=\" true\" autoplay=\"true\" loop>\n <source \nsrcset=\"https:\/\/cdn2.videowise.com\/converted\/videos\/1704496762584_832607d4-3700-4811-af0b-678b98f31ca4_h264c.mp4\" type=\"video\/mp4\" media=\"(max-width: 767px)\">  \n  <source srcset=\"https:\/\/cdn2.videowise.com\/converted\/videos\/1704496782958_c573542d-d348-4cad-a87a-7a432d516c85_h264c.mp4\" type=\"video\/mp4\" media=\"(min-width: 768px)\"> \n \n<\/video>\n<\/div>\n<script src=\"https:\/\/assets.videowise.com\/videowise-bg.js.gz\">\n<\/script>"
+          }
+        },
+        "video_9giK8m": {
+          "type": "video",
+          "settings": {
+            "size": "large",
+            "videowise": "<style>.videowise-background-component_6598e6d6f9f034002946036c{background-image: url(\"\/\/www.trueclassictees.com\/cdn\/shop\/files\/preview_images\/895066f47d8c4cecaaaf810fd88b4e06.thumbnail.0000000000.jpg?v=1702473925&width=500\");  aspect-ratio:1;}@media (min-width: 768px) {.videowise-background-component_6598e6d6f9f034002946036c {background-image: url(\"\/\/www.trueclassictees.com\/cdn\/shop\/files\/preview_images\/182b92fe4fab4a36ad6ca61949e684e9.thumbnail.0000000000.jpg?v=1702479674&width=1920\"); aspect-ratio: 16\/9;}}<\/style>\n<div class=\"videowise-background videowise-background-component_6598e6d6f9f034002946036c\" data-widget-id=\"6598e6d6f9f034002946036c\">\n<video width=\"100%\" height=\"auto\" playsinline=\"true\" muted=\" true\" autoplay=\"true\" loop>\n<source \nsrcset=\"https:\/\/cdn2.videowise.com\/converted\/videos\/1704522080567_091cdfab-051b-4c74-9066-f298c9d44453_h264c.mp4\" type=\"video\/mp4\" media=\"(max-width: 767px)\">  \n  <source srcset=\"https:\/\/cdn2.videowise.com\/converted\/videos\/1704522099059_6ef9100b-82fa-4a80-8230-af65de0d8a26_h264c.mp4\" type=\"video\/mp4\" media=\"(min-width: 768px)\"> \n  \n<\/video>\n<\/div>\n<script src=\"https:\/\/assets.videowise.com\/videowise-bg.js.gz\">\n<\/script>"
+          }
+        },
+        "video_GCQ6jj": {
+          "type": "video",
+          "settings": {
+            "size": "x-large",
+            "videowise": "<style>.videowise-background-component_6598872fed51be0029fe0937{background-image: url(\"\/\/www.trueclassictees.com\/cdn\/shop\/files\/preview_images\/7126cc97b46040c3a2feca957ee6fbc4.thumbnail.0000000000.jpg?v=1702470814&width=500\"\n); aspect-ratio:1 }@media (min-width: 768px) {.videowise-background-component_6598872fed51be0029fe0937 {background-image: url(\"\/\/www.trueclassictees.com\/cdn\/shop\/files\/preview_images\/14afe68032994cd99d3ceb136d6153b4.thumbnail.0000000000.jpg?v=1702470774&width=1920\"\n);aspect-ratio: 16\/9;}}<\/style>\n<div class=\"videowise-background videowise-background-component_6598872fed51be0029fe0937\" data-widget-id=\"6598872fed51be0029fe0937\">\n<video width=\"100%\" height=\"auto\" playsinline=\"true\" muted=\" true\" autoplay=\"true\" loop>\n<source srcset=\"https:\/\/cdn2.videowise.com\/converted\/videos\/1704496328159_db17cb63-8dcb-4900-bc42-32ab84b02ae5_h264c.mp4\" type=\"video\/mp4\" media=\"(max-width: 767px)\">  \n  <source \nsrcset=\"https:\/\/cdn2.videowise.com\/converted\/videos\/1704496309656_a9f90a47-f88e-4a04-801f-57809f386997_h264c.mp4\" type=\"video\/mp4\" media=\"(min-width: 768px)\"> \n<\/video>\n<\/div>\n<script src=\"https:\/\/assets.videowise.com\/videowise-bg.js.gz\">\n<\/script>"
+          }
+        }
+      },
+      "block_order": [
+        "video_MUR8kb",
+        "video_9giK8m",
+        "video_GCQ6jj"
+      ],
+      "settings": {
+        "bg_color": "#fffae9",
+        "preload_bg_color": ""
+      }
+    },
+    "endrock_membership_banner_4pEmdA": {
+      "type": "endrock-membership-banner",
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0,
+        "full_width": false,
+        "bg_color": "#1b1b1b",
+        "container_bg_color": "",
+        "heading": "GET 20% credit & free shipping on all future orders.",
+        "subheading": "Join the Insider Club",
+        "membership_image": "shopify:\/\/shop_images\/Screenshot_2024-01-18_at_4.50_4.png",
+        "footer_text": "is just $1\/mo*",
+        "footer_price_text": "*Billed at $12\/yr",
+        "membership_product": "inveterate-subscription-2",
+        "btn_label": "Join now & start saving",
+        "read_more_link": "shopify:\/\/pages\/true-classic-membership",
+        "read_more_label": "Read more details"
+      }
+    },
+    "23f5e72e-15a8-48c4-a4a1-7250b37c0159": {
+      "type": "endrock-video-toggle",
+      "blocks": {
+        "714a7eba-4439-4ee3-9e47-082725d08101": {
+          "type": "video",
+          "settings": {
+            "video": "shopify:\/\/files\/videos\/102-TCDifferenceUpdate-TEE-M-16x9.mp4",
+            "video_mobile": "shopify:\/\/files\/videos\/102-TCDifferenceUpdate-TEE-M-1x1.mp4",
+            "size": "medium",
+            "videowise_desktop": "",
+            "videowise_mobile": ""
+          }
+        },
+        "d170f196-09bf-4239-acca-bd31ed8eb300": {
+          "type": "video",
+          "settings": {
+            "video": "shopify:\/\/files\/videos\/21-Corey-TCDifference-ClassicTee-16x9.mp4",
+            "video_mobile": "shopify:\/\/files\/videos\/21-Corey-TCDifference-ClassicTee-1x1.mp4",
+            "size": "large",
+            "videowise_desktop": "",
+            "videowise_mobile": ""
+          }
+        },
+        "d8a45862-4c71-4e4d-a10b-5907b76add4b": {
+          "type": "video",
+          "settings": {
+            "video": "shopify:\/\/files\/videos\/17-MrMoodyTCDifference-ClassicTee-16x9.mp4",
+            "video_mobile": "shopify:\/\/files\/videos\/17-MrMoodyTCDifference-ClassicTee-1x1.mp4",
+            "size": "x-large",
+            "videowise_desktop": "",
+            "videowise_mobile": ""
+          }
+        }
+      },
+      "block_order": [
+        "714a7eba-4439-4ee3-9e47-082725d08101",
+        "d170f196-09bf-4239-acca-bd31ed8eb300",
+        "d8a45862-4c71-4e4d-a10b-5907b76add4b"
+      ],
+      "disabled": true,
+      "settings": {
+        "bg_color": "#fffae9"
+      }
+    },
+    "f321930b-4be5-4f94-a1f9-d083ea0cae05": {
+      "type": "tc-rich-text",
+      "blocks": {
+        "fe8332ab-dc92-45cb-84ad-16b12adc47cc": {
+          "type": "heading",
+          "settings": {
+            "title": "EXPERIENCE THE <span class=\"underlined-styled\">DIFFERENCE<\/span>",
+            "heading_level": "h2",
+            "heading_size": "h2",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-chocolate",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-s",
+            "heading_margin_bottom": "mg-b-none",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "9b15be00-f850-4754-8db3-e634e194128a": {
+          "type": "text",
+          "settings": {
+            "paragraph": "<p>We bring the perfect fit and feel to timeless styles, made accessible to the everyday man.<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "m",
+            "paragraph_color": "color-chocolate",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-m"
+          }
+        },
+        "7802d56d-9180-406f-a526-bdff45732b30": {
+          "type": "link",
+          "settings": {
+            "link_text": "SHOP THE SALE",
+            "link_url": "shopify:\/\/collections\/sale",
+            "new_tab": false,
+            "link_style": "primary",
+            "link_color_inverse": false,
+            "link_icon": "arrow-right",
+            "link_margin_top": "mg-t-m",
+            "link_margin_bottom": "mg-b-xs",
+            "full_width": false,
+            "disabled": false
+          }
+        }
+      },
+      "block_order": [
+        "fe8332ab-dc92-45cb-84ad-16b12adc47cc",
+        "9b15be00-f850-4754-8db3-e634e194128a",
+        "7802d56d-9180-406f-a526-bdff45732b30"
+      ],
+      "custom_css": [
+        "p {max-width: 700px; margin-left: auto; margin-right: auto;}"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "section_bg_color": "#fffae9",
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "full_width": true,
+        "padding_top": 12,
+        "padding_bottom": 32
+      }
+    },
+    "bb3104d6-fd2d-4bf1-b6ab-2986c8f95c64": {
+      "type": "tc-shoppable",
+      "blocks": {
+        "279523d8-0d23-4595-b7e5-ef3dd1ae9717": {
+          "type": "sale-point",
+          "settings": {
+            "product": "gunmetal-puffer-vest",
+            "title": "",
+            "extra_callout": "",
+            "left_d": 34,
+            "top_d": 41,
+            "mobile_dot_alignment": 83,
+            "left_m": 65,
+            "top_m": 27
+          }
+        },
+        "e9477868-5dfe-47d8-9620-528bba097e93": {
+          "type": "sale-point",
+          "settings": {
+            "product": "navy-sweater-fleece-jacket",
+            "title": "",
+            "extra_callout": "",
+            "left_d": 15,
+            "top_d": 49,
+            "mobile_dot_alignment": 0,
+            "left_m": 39,
+            "top_m": 44
+          }
+        }
+      },
+      "block_order": [
+        "279523d8-0d23-4595-b7e5-ef3dd1ae9717",
+        "e9477868-5dfe-47d8-9620-528bba097e93"
+      ],
+      "disabled": true,
+      "settings": {
+        "bg_color": "#fffae9",
+        "text_color": "#ffffff",
+        "dot_color": "#ffffff",
+        "bubble_bg_color": "#53433a",
+        "padding_y": 0,
+        "padding_x": 0,
+        "enable_dots": true,
+        "breakpoint": 994,
+        "image_desktop": "shopify:\/\/shop_images\/2023_FAW_LIFESTYLE122932_1.jpg",
+        "image_mobile": "shopify:\/\/shop_images\/Screenshot_2023-12-27_at_4.35.16_PM.png"
+      }
+    },
+    "two_image_banner_Gfhk6h": {
+      "type": "two-image-banner",
+      "blocks": {
+        "heading_tejmdz": {
+          "type": "heading",
+          "settings": {
+            "title": "up to",
+            "heading_level": "h4",
+            "heading_size": "h3",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-chocolate-dark",
+            "heading_color_inverse": true,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-none",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "heading_rBPqtm": {
+          "type": "heading",
+          "settings": {
+            "title": "60% OFF",
+            "heading_level": "h2",
+            "heading_size": "h2",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-cream-light",
+            "heading_color_inverse": true,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-none",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "text_3wGEp8": {
+          "type": "text",
+          "settings": {
+            "paragraph": "<p>100 new styles added. <\/p><p>Once they’re gone, they’re gone.<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "l",
+            "paragraph_color": "color-black",
+            "paragraph_color_inverse": true,
+            "paragraph_margin_top": "mg-t-s",
+            "paragraph_margin_bottom": "mg-b-l"
+          }
+        },
+        "link_Ee7h6N": {
+          "type": "link",
+          "settings": {
+            "link_text": "Shop the Sale",
+            "link_url": "shopify:\/\/collections\/sale",
+            "new_tab": false,
+            "link_style": "primary",
+            "link_color_inverse": true,
+            "link_icon": "arrow-right",
+            "link_margin_top": "mg-t-none",
+            "link_margin_bottom": "mg-b-m",
+            "full_width": false,
+            "disabled": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_tejmdz",
+        "heading_rBPqtm",
+        "text_3wGEp8",
+        "link_Ee7h6N"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "h4 {font-family: JuniperBay !important;}",
+        "* {line-height: 1.15;}",
+        "@media screen and (max-width: 768px) {.two-img-banner {padding-left: 0 !important; padding-right: 0 !important; } .two-img-banner .banner-content {justify-content: flex-end; align-items: flex-start; padding: 2.5rem; }}",
+        "@media (min-width: 776px) {.two-img-banner {flex-direction: row-reverse; } h2, h3, h4 {color: #732c02; } a.button {background-color: #732c02; }}"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "class_test": "",
+        "hidden": false,
+        "section_bg_color": "#fcfbf7",
+        "full_width": true,
+        "banner_link": "shopify:\/\/collections\/sale",
+        "banner_link_title": "True Classic Sale",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "inner_padding_top": 0,
+        "inner_padding_bottom": 0,
+        "section_image_lg": "shopify:\/\/shop_images\/2023_FAW_LIFESTYLE173590.png",
+        "section_image_mb": "shopify:\/\/shop_images\/2023_FAW_LIFESTYLE143152.png",
+        "section_image_md": "shopify:\/\/shop_images\/2023_FAW_LIFESTYLE143152.png",
+        "content_width_desktop": 400,
+        "content_alignment_desktop": "left",
+        "content_spacing_mobile": 0,
+        "content_alignment_mobile": "left",
+        "overlay": false,
+        "overlay_is_mobile": false,
+        "overlay_color": "#000000",
+        "overlay_opacity": 0.4
+      }
+    },
+    "b8745286-dc81-43b9-8efa-93c35317311d": {
+      "type": "two-image-banner",
+      "blocks": {
+        "b09f82e7-662e-4ef9-8ce3-c71b9269829c": {
+          "type": "heading",
+          "settings": {
+            "title": "Boxing Day Sale",
+            "heading_level": "h4",
+            "heading_size": "h3",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-chocolate-dark",
+            "heading_color_inverse": true,
+            "heading_margin_top": "mg-t-s",
+            "heading_margin_bottom": "mg-b-none",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "e613cde5-a687-4a24-8803-08712c6f7120": {
+          "type": "heading",
+          "settings": {
+            "title": "UP TO 60% OFF",
+            "heading_level": "h2",
+            "heading_size": "h3",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-chocolate-dark",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "42843282-0601-4d61-aa78-8fcfa3b871d0": {
+          "type": "text",
+          "settings": {
+            "paragraph": "<p>Time to celebrate our biggest <\/p><p>Boxing Day Sale ever...<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "m",
+            "paragraph_color": "color-chocolate",
+            "paragraph_color_inverse": true,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-m"
+          }
+        },
+        "697a51e6-8718-42be-b4b0-1622eb270459": {
+          "type": "link",
+          "settings": {
+            "link_text": "Shop the Sale",
+            "link_url": "shopify:\/\/collections\/sale",
+            "new_tab": false,
+            "link_style": "primary",
+            "link_color_inverse": false,
+            "link_icon": "arrow-right",
+            "link_margin_top": "mg-t-none",
+            "link_margin_bottom": "mg-b-m",
+            "full_width": false,
+            "disabled": false
+          }
+        }
+      },
+      "block_order": [
+        "b09f82e7-662e-4ef9-8ce3-c71b9269829c",
+        "e613cde5-a687-4a24-8803-08712c6f7120",
+        "42843282-0601-4d61-aa78-8fcfa3b871d0",
+        "697a51e6-8718-42be-b4b0-1622eb270459"
+      ],
+      "disabled": true,
+      "settings": {
+        "country_code": "GB,CA,AU,NZ",
+        "exclude_country_code": "",
+        "class_test": "",
+        "hidden": false,
+        "section_bg_color": "#ffffff",
+        "full_width": true,
+        "banner_link": "shopify:\/\/collections\/sale",
+        "banner_link_title": "True Classic Sale",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "inner_padding_top": 0,
+        "inner_padding_bottom": 0,
+        "section_image_lg": "shopify:\/\/shop_images\/Mask_group_7a78f20b-46af-4265-b565-23c5178da8ac.png",
+        "section_image_mb": "shopify:\/\/shop_images\/Mobile_3.png",
+        "section_image_md": "shopify:\/\/shop_images\/2023_FAW_LAYDOWN_24911_1.png",
+        "content_width_desktop": 400,
+        "content_alignment_desktop": "center",
+        "content_spacing_mobile": 1,
+        "content_alignment_mobile": "center",
+        "overlay": false,
+        "overlay_is_mobile": true,
+        "overlay_color": "#000000",
+        "overlay_opacity": 0.4
+      }
+    },
+    "059e8a23-ad7e-4a51-8a46-791d8000a8a3": {
+      "type": "tc-featured-list",
+      "blocks": {
+        "template--14561063796808__059e8a23-ad7e-4a51-8a46-791d8000a8a3-16830488900bbfe97f-0": {
+          "type": "featured",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MG_8040_1.png",
+            "title": "CREWS",
+            "url": "shopify:\/\/collections\/crew-neck-tees"
+          }
+        },
+        "7da7dd27-eae7-4cda-93e4-aafc992ac11a": {
+          "type": "featured",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Truw_Classic_Denim_Campaign-568_1.png",
+            "title": "LONG-SLEEVES",
+            "url": "shopify:\/\/collections\/long-sleeve-tees"
+          }
+        },
+        "template--14561063796808__059e8a23-ad7e-4a51-8a46-791d8000a8a3-16830488900bbfe97f-1": {
+          "type": "featured",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/A79I0241_1.png",
+            "title": "ACTIVEWEAR",
+            "url": "shopify:\/\/collections\/activewear"
+          }
+        },
+        "66331ea7-174f-47fc-9b31-85a6cfc8cb8f": {
+          "type": "featured",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Jeans_-_Cropped_1.png",
+            "title": "JEANS",
+            "url": "shopify:\/\/collections\/mens-jeans"
+          }
+        },
+        "f2daa3e6-2d04-4b4f-906d-7638db7debee": {
+          "type": "featured",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/TC_core_seasonal_editorial0607_2.png",
+            "title": "BUTTON UPS",
+            "url": "shopify:\/\/collections\/button-up-shirt"
+          }
+        },
+        "a6e281b0-0686-4119-ade7-5f01fc8e8c60": {
+          "type": "featured",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/tc_pickle_ball-787_1.png",
+            "title": "POLOS",
+            "url": "shopify:\/\/collections\/polos"
+          }
+        },
+        "62efcc09-f877-459a-82b1-08d06e98e5a2": {
+          "type": "featured",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Mask_group_4292e8d4-6124-4d00-ba7a-0b2928543696.png",
+            "title": "PANTS",
+            "url": "shopify:\/\/collections\/pants"
+          }
+        },
+        "10c0e904-2447-4a6d-9f51-b10afe73ef42": {
+          "type": "featured",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/CL1_7574_1.png",
+            "title": "V-NECKS",
+            "url": "shopify:\/\/collections\/v-neck-tees"
+          }
+        },
+        "ba162fa0-03a1-42d2-a444-a25357d3eb19": {
+          "type": "featured",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/underwear_1.png",
+            "title": "UNDERWEAR",
+            "url": "shopify:\/\/collections\/mens-boxer-briefs"
+          }
+        },
+        "893ac684-fe10-4ec3-b100-c01f4ab29c15": {
+          "type": "featured",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Hats_-_Cropped.png",
+            "title": "HATS",
+            "url": "shopify:\/\/collections\/mens-hats"
+          }
+        },
+        "2ae7279d-da5a-420c-b476-e2133a8d22ff": {
+          "type": "featured",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Jackets_-_Cropped.png",
+            "title": "JACKETS",
+            "url": "shopify:\/\/collections\/mens-jackets"
+          }
+        }
+      },
+      "block_order": [
+        "template--14561063796808__059e8a23-ad7e-4a51-8a46-791d8000a8a3-16830488900bbfe97f-0",
+        "7da7dd27-eae7-4cda-93e4-aafc992ac11a",
+        "template--14561063796808__059e8a23-ad7e-4a51-8a46-791d8000a8a3-16830488900bbfe97f-1",
+        "66331ea7-174f-47fc-9b31-85a6cfc8cb8f",
+        "f2daa3e6-2d04-4b4f-906d-7638db7debee",
+        "a6e281b0-0686-4119-ade7-5f01fc8e8c60",
+        "62efcc09-f877-459a-82b1-08d06e98e5a2",
+        "10c0e904-2447-4a6d-9f51-b10afe73ef42",
+        "ba162fa0-03a1-42d2-a444-a25357d3eb19",
+        "893ac684-fe10-4ec3-b100-c01f4ab29c15",
+        "2ae7279d-da5a-420c-b476-e2133a8d22ff"
+      ],
+      "custom_css": [
+        ".slider-buttons {padding: 0 !important; top: -3.5rem;}",
+        ".slider-buttons button {padding: 0 1rem !important;}",
+        ".featured-list-title {font-size: 40px; margin-bottom: 1rem;}",
+        "@media screen and (max-width: 768px) {.featured-list-title {font-size: 26px; margin-bottom: 1rem; } .slider-buttons {padding: 0 !important; top: -3rem; }}"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "bg_color": "#ffffff",
+        "hide_on_desktop": false,
+        "hide_on_mobile": false,
+        "title": "SHOP BY CATEGORY",
+        "heading_alignment": "left",
+        "heading_size": 40,
+        "heading_size_mobile": 22,
+        "columns_desktop": 4,
+        "full_width": true,
+        "hide_controls": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "spacing_grid_horizontal": 32,
+        "spacing_grid_vertical": 32,
+        "title_x": "flex-start",
+        "item_title_size": 20,
+        "item_title_size_mobile": 16,
+        "padding_top": 28,
+        "padding_bottom": 0
+      }
+    },
+    "bdb2a1a4-bb6a-4c0b-9ddc-6b689348c242": {
+      "type": "featured-reviews",
+      "blocks": {
+        "template--14541328810056__bdb2a1a4-bb6a-4c0b-9ddc-6b689348c242-16850394917e038436-0": {
+          "type": "review",
+          "settings": {
+            "review": "<p>“Best T-Shirts. Best<\/p><p> Customer Service.”<\/p>",
+            "review_font": "modernist-type",
+            "review_style": "xxl",
+            "review_color": "color-white",
+            "review_margin": "mg-y-l",
+            "paragraph": "<p>JOHN M. • 6'0\" • 185lbs<\/p>",
+            "paragraph_font": "staff-x-condensed-type",
+            "paragraph_style": "l",
+            "paragraph_color": "color-white",
+            "paragraph_margin": "mg-y-m",
+            "subline": "<p>Reviewing: <a href=\"\/products\/all-black-3-pack\" title=\"All Black 3-Pack\">All Black 3-Pack<\/a><\/p>",
+            "subline_font": "modernist-type",
+            "subline_style": "m",
+            "subline_color": "color-chocolate-light",
+            "subline_margin": "mg-y-s"
+          }
+        },
+        "2780570a-a8c7-474d-a8a5-a3ba13686bf2": {
+          "type": "review",
+          "settings": {
+            "review": "<p>“Great Quality and<\/p><p> Impressive Fit”<\/p>",
+            "review_font": "modernist-type",
+            "review_style": "xxl",
+            "review_color": "color-white",
+            "review_margin": "mg-y-l",
+            "paragraph": "<p>MARK S. • 6'4\" • 240lbs<\/p>",
+            "paragraph_font": "staff-x-condensed-type",
+            "paragraph_style": "l",
+            "paragraph_color": "color-white",
+            "paragraph_margin": "mg-y-m",
+            "subline": "<p>Reviewing: <a href=\"\/products\/military-green-crew-neck-tee\" title=\"Military Green Crew Neck T-Shirt\">Military Green Crew Neck T-Shirt<\/a><\/p>",
+            "subline_font": "modernist-type",
+            "subline_style": "m",
+            "subline_color": "color-chocolate-light",
+            "subline_margin": "mg-y-s"
+          }
+        },
+        "066f42cc-8335-4421-948a-0d18d373ec95": {
+          "type": "review",
+          "settings": {
+            "review": "<p>“Quality Material and <\/p><p>fit like a glove on the body.”<\/p>",
+            "review_font": "modernist-type",
+            "review_style": "xxl",
+            "review_color": "color-white",
+            "review_margin": "mg-y-l",
+            "paragraph": "<p>FRANK PASCALE • 5'10\" • 175lbs<\/p>",
+            "paragraph_font": "staff-x-condensed-type",
+            "paragraph_style": "l",
+            "paragraph_color": "color-white",
+            "paragraph_margin": "mg-y-m",
+            "subline": "<p>Reviewing: <a href=\"\/products\/charcoal-heather-gray-short-sleeve-performance-shirt\" title=\"Charcoal Heather Gray Active Crew Neck T-Shirt\">Charcoal Heather Gray Active Crew Neck T-Shirt<\/a><\/p>",
+            "subline_font": "modernist-type",
+            "subline_style": "m",
+            "subline_color": "color-chocolate-light",
+            "subline_margin": "mg-y-s"
+          }
+        },
+        "ad2c8749-8461-4f0d-bbe7-50fd60047f52": {
+          "type": "review",
+          "settings": {
+            "review": "<p>“Great Fit,<\/p><p>Great Price”<\/p>",
+            "review_font": "modernist-type",
+            "review_style": "xxl",
+            "review_color": "color-white",
+            "review_margin": "mg-y-l",
+            "paragraph": "<p>MICHAEL JONES • 6'3\" • 205lbs<\/p>",
+            "paragraph_font": "staff-x-condensed-type",
+            "paragraph_style": "l",
+            "paragraph_color": "color-white",
+            "paragraph_margin": "mg-y-m",
+            "subline": "<p>Reviewing: <a href=\"\/products\/bluestone-v-neck-t-shirt\" title=\"Bluestone V-Neck T-Shirt\">Bluestone V-Neck T-shirt<\/a><\/p>",
+            "subline_font": "modernist-type",
+            "subline_style": "m",
+            "subline_color": "color-chocolate-light",
+            "subline_margin": "mg-y-s"
+          }
+        },
+        "98fecbfb-bf71-41dd-a4d4-e5d30f6d4c7a": {
+          "type": "review",
+          "settings": {
+            "review": "<p>“Best T-Shirt<\/p><p><span style=\"text-decoration:underline\">Ever<\/span>.”<\/p>",
+            "review_font": "modernist-type",
+            "review_style": "xxl",
+            "review_color": "color-white",
+            "review_margin": "mg-y-l",
+            "paragraph": "<p>NICK VAN DER VEGT • 5'11\" • 200lbs<\/p>",
+            "paragraph_font": "staff-x-condensed-type",
+            "paragraph_style": "l",
+            "paragraph_color": "color-white",
+            "paragraph_margin": "mg-y-m",
+            "subline": "<p>Reviewing: <a href=\"\/products\/bluestone-crew-neck-t-shirt\" title=\"Bluestone Crew Neck T-Shirt\">Bluestone Crew Neck T-Shirt<\/a><\/p>",
+            "subline_font": "modernist-type",
+            "subline_style": "m",
+            "subline_color": "color-chocolate-light",
+            "subline_margin": "mg-y-s"
+          }
+        }
+      },
+      "block_order": [
+        "template--14541328810056__bdb2a1a4-bb6a-4c0b-9ddc-6b689348c242-16850394917e038436-0",
+        "2780570a-a8c7-474d-a8a5-a3ba13686bf2",
+        "066f42cc-8335-4421-948a-0d18d373ec95",
+        "ad2c8749-8461-4f0d-bbe7-50fd60047f52",
+        "98fecbfb-bf71-41dd-a4d4-e5d30f6d4c7a"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "section_bg_color": "#53433a",
+        "full_width": false,
+        "section_title": "<span class=\"underlined-styled\">Customer Love<\/span>",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "inner_padding_top": 0,
+        "inner_padding_bottom": 0,
+        "optional_image_link": "shopify:\/\/collections\/best-selling-shirts",
+        "section_image": "shopify:\/\/shop_images\/tc_core_studio_05_copy_bc53cbf2-2574-4539-acd1-a4767fdfb6f4.jpg",
+        "content_width_desktop": 610,
+        "content_alignment_desktop": "center",
+        "content_spacing_mobile": 0,
+        "content_alignment_mobile": "center",
+        "mobile_overlay": true,
+        "mobile_overlay_color": "#000000",
+        "mobile_overlay_opacity": 0.7
+      }
+    },
+    "4eeaf5f4-264c-4b57-96fb-af2cc3e53870": {
+      "type": "featured-products",
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "class": "right",
+        "collection_link": "crew-neck-tees",
+        "image": "shopify:\/\/shop_images\/Crews-HP_Category-Desktop.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/Crews-HP_Category-1x1-Mobile.jpg",
+        "cta_position": "bottom",
+        "heading": "CREWS",
+        "tagline": "The perfect fit that started it all.",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "b78c9106-a753-46cc-a43e-1638a3d85dab": {
+      "type": "featured-products",
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "class": "left",
+        "collection_link": "long-sleeve-tees",
+        "image": "shopify:\/\/shop_images\/Long_Sleeve-HP_Category-Desktop_15bbbe94-1cf5-469d-bd9c-503d1b96093c.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/Long_Sleeve-HP_Category-1x1-Mobile_c0cbf320-832b-4a70-bde1-c80cb2b5d521.jpg",
+        "cta_position": "bottom",
+        "heading": "LONG SLEEVES",
+        "tagline": "Ultra-soft layers you'll live in all season long.",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "cd9fbb26-1410-4a36-a786-557e0aa44a38": {
+      "type": "featured-products",
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "class": "right",
+        "collection_link": "activewear",
+        "image": "shopify:\/\/shop_images\/Activewear-HP_Category-Desktop_c092c974-3e03-453e-9887-ddcee6e8f84b.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/Crews-HP_Category-1x1-Mobile-1_1d38e4d3-ff4b-4d8c-b923-2934a1b11766.jpg",
+        "cta_position": "bottom",
+        "heading": "ACTIVEWEAR",
+        "tagline": "Your favorite performance fabric. Better price.",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "9483c21b-00b4-42b8-9ba4-05fc0ebd4132": {
+      "type": "featured-products",
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "class": "left",
+        "collection_link": "button-up-shirt",
+        "image": "shopify:\/\/shop_images\/Button_Ups-HP_Category-Desktop_4800b087-e8ad-41b3-9d6b-28293a5f09d4.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/Button_Ups-HP_Category-1x1_8fe1a236-1645-46a0-acd9-a5682c86be21.jpg",
+        "cta_position": "bottom",
+        "heading": "BUTTON UPS",
+        "tagline": "The most comfortable ones you’ll ever wear.",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "6c7126c7-a9e4-418f-8baf-a7290d64346a": {
+      "type": "featured-products",
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "class": "right",
+        "collection_link": "mens-jeans",
+        "image": "shopify:\/\/shop_images\/Jeans-HP_Category-Desktop_b6615b68-4c02-4d3e-9c2b-361f34bed193.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/Jeans-HP_Category-1x1-Mobile_bd93aae8-109d-4cd2-8c50-23b9b659ee33.jpg",
+        "cta_position": "bottom",
+        "heading": "JEANS",
+        "tagline": "A perfect blend of softness and stretch.",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "4db12bc6-053c-4b1b-9675-d97d6875e66d": {
+      "type": "featured-products",
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "class": "left",
+        "collection_link": "pants",
+        "image": "shopify:\/\/shop_images\/Pants-HP_Category-Desktop_9d509b8f-ed8e-47c8-85f2-598460855ef0.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/Pants-HP_Category-1x1-Mobile_0f00148d-c37d-49b1-92a2-3ace79bba656.jpg",
+        "cta_position": "bottom",
+        "heading": "PANTS",
+        "tagline": "Versatile and made for movement.",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "188f4cd4-4f85-4168-8fb8-149b6be04ea1": {
+      "type": "featured-products",
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "class": "right",
+        "collection_link": "the-tall-shop",
+        "image": "shopify:\/\/shop_images\/Tall-HP_Category-Desktop_13b32a4b-6de7-4e6e-9961-9af27636f259.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/Tall-HP_Category-1x1-Mobile_83f3d108-d79b-4fe5-932b-7e8b3408fd2f.jpg",
+        "cta_position": "bottom",
+        "heading": "TALL",
+        "tagline": "A perfect fit for the vertically gifted.",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "main": {
+      "type": "page",
+      "disabled": true,
+      "settings": {
+        "full_width": false,
+        "hide_title": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "c21fd275-46b9-4d66-a727-8f9662131bd7": {
+      "type": "columns",
+      "blocks": {
+        "template--14564720017480__c21fd275-46b9-4d66-a727-8f9662131bd7-1683913162a7ef9112-0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/perfect_fit_50x50_f03f1f2d-3204-430e-95ec-036e9fb75937.svg",
+            "title": "PERFECT<br>FIT",
+            "text": "<p> <\/p>",
+            "link_label": "",
+            "link": "",
+            "max_width": 20
+          }
+        },
+        "template--14564720017480__c21fd275-46b9-4d66-a727-8f9662131bd7-1683913162a7ef9112-1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/fair_price_50x50_72e0ae56-5399-4c5e-97ec-c42744657290.svg",
+            "title": "FAIR<br>PRICE",
+            "text": "<p> <\/p>",
+            "link_label": "",
+            "link": "",
+            "max_width": 50
+          }
+        },
+        "template--14564720017480__c21fd275-46b9-4d66-a727-8f9662131bd7-1683913162a7ef9112-2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/premium_quality_50x50_fe157f57-95c0-42c7-a0d7-867b82de1b2b.svg",
+            "title": "PREMIUM<br>QUALITY",
+            "text": "<p> <\/p>",
+            "link_label": "",
+            "link": "",
+            "max_width": 50
+          }
+        },
+        "69f17a3d-271b-4a11-827c-253bda3d3b5e": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/ultra_soft_50x50_6b83f63f-9a13-4257-ac4d-e71472007361.svg",
+            "title": "ULTRA<br>SOFT",
+            "text": "<p> <\/p>",
+            "link_label": "",
+            "link": "",
+            "max_width": 50
+          }
+        },
+        "6df8ac0b-7e24-4ab2-888e-0da489c6d25f": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/150k_reviews_50x50_ca444d0b-4b2d-4f1a-9aaf-1298bb74c2f8.svg",
+            "title": "150,000+<br>REVIEWS",
+            "text": "<p> <\/p>",
+            "link_label": "",
+            "link": "",
+            "max_width": 50
+          }
+        },
+        "621479e6-6765-40d5-9a29-9789d92a9bc8": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/easy_care_50x50_d6edacc7-f6cf-4592-bbfb-037567c11829.svg",
+            "title": "EASY<br>CARE",
+            "text": "<p> <\/p>",
+            "link_label": "",
+            "link": "",
+            "max_width": 50
+          }
+        }
+      },
+      "block_order": [
+        "template--14564720017480__c21fd275-46b9-4d66-a727-8f9662131bd7-1683913162a7ef9112-0",
+        "template--14564720017480__c21fd275-46b9-4d66-a727-8f9662131bd7-1683913162a7ef9112-1",
+        "template--14564720017480__c21fd275-46b9-4d66-a727-8f9662131bd7-1683913162a7ef9112-2",
+        "69f17a3d-271b-4a11-827c-253bda3d3b5e",
+        "6df8ac0b-7e24-4ab2-888e-0da489c6d25f",
+        "621479e6-6765-40d5-9a29-9789d92a9bc8"
+      ],
+      "custom_css": [
+        ".multicolumn-card-spacing {display: flex; justify-content: center;}",
+        ".multicolumn-list h3,.multicolumn-list p {color: #53433a;}",
+        ".multicolumn-card-spacing img {max-width: fit-content; min-height: auto; max-width: 60px !important; min-width: fit-content;}",
+        ".multicolumn-card__info {padding: 0rem 0; position: relative; top: 1rem;}",
+        "@media screen and (max-width: 769px) {.multicolumn-card-spacing img {min-height: auto; max-width: 50px; } .grid {row-gap: 4rem; } .grid__item {width: calc(55% \/ 2); }}"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "bg_color": "#fffae9",
+        "title": "",
+        "sub_title": "",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 6,
+        "column_alignment": "center",
+        "content_alignment": "center",
+        "button_label": "",
+        "button_link": "",
+        "columns_mobile": "2",
+        "swipe_mobile": false,
+        "enable_borders_around": false,
+        "enable_borders": false,
+        "padding_top": 100,
+        "padding_bottom": 100,
+        "content_style": "1",
+        "icons_fit": true,
+        "special": false,
+        "special_alt": false,
+        "special_icons": false
+      }
+    },
+    "62666fc0-399d-4af5-841e-ae6eed8f7b10": {
+      "type": "section-with-comment",
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "background_color": "",
+        "text_title": "<span class=\"underlined-styled\">PRESS<\/span>",
+        "text_paragraph": "It’s not just a shirt. It’s an overall <span class=\"underlined-styled\">difference<\/span> in your appearance.",
+        "text_author": "- New York Post",
+        "padding_top": 60,
+        "padding_bottom": 24
+      }
+    },
+    "7c31399f-ef28-4250-9b2e-6205bbc12bc7": {
+      "type": "tc-icon-list",
+      "blocks": {
+        "template--14541328810056__7c31399f-ef28-4250-9b2e-6205bbc12bc7-16838164338de19e34-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/new-york-post.svg"
+          }
+        },
+        "template--14541328810056__7c31399f-ef28-4250-9b2e-6205bbc12bc7-16838164338de19e34-1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/entrepreneur.svg"
+          }
+        },
+        "eb449406-dc3e-4cb6-802e-7fd1a2fb0991": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/forbes.svg"
+          }
+        },
+        "f99ca6f8-e055-4372-8389-e5f8514f1774": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/inc.svg"
+          }
+        }
+      },
+      "block_order": [
+        "template--14541328810056__7c31399f-ef28-4250-9b2e-6205bbc12bc7-16838164338de19e34-0",
+        "template--14541328810056__7c31399f-ef28-4250-9b2e-6205bbc12bc7-16838164338de19e34-1",
+        "eb449406-dc3e-4cb6-802e-7fd1a2fb0991",
+        "f99ca6f8-e055-4372-8389-e5f8514f1774"
+      ],
+      "custom_css": [
+        ".icon-list {max-width: 970px;}"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "section_bg": "#ffffff",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "e10e5e7f-8120-4635-8302-18fe62564170": {
+      "type": "tc-image-banner",
+      "blocks": {
+        "template--14541328810056__e10e5e7f-8120-4635-8302-18fe62564170-1685940631b422c339-0": {
+          "type": "heading",
+          "settings": {
+            "title": "BUILD YOUR PACK",
+            "heading_level": "h2",
+            "heading_size": "h1",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-white",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-l",
+            "heading_underline": true,
+            "line_break_dot": false
+          }
+        },
+        "template--14541328810056__e10e5e7f-8120-4635-8302-18fe62564170-1685940631b422c339-1": {
+          "type": "text",
+          "settings": {
+            "paragraph": "<p>Meet the easiest way to customize your closet.<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "xl",
+            "paragraph_color": "color-white",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-l"
+          }
+        },
+        "caac95ce-d074-4fbc-b50b-e7580a4dea64": {
+          "type": "link",
+          "settings": {
+            "link_text": "Build your pack",
+            "link_url": "shopify:\/\/collections\/bundle-builder",
+            "new_tab": false,
+            "link_style": "primary inverse",
+            "link_color_inverse": false,
+            "link_icon": "arrow-right",
+            "link_margin_top": "mg-t-none",
+            "link_margin_bottom": "mg-b-m",
+            "full_width": false,
+            "disabled": false
+          }
+        }
+      },
+      "block_order": [
+        "template--14541328810056__e10e5e7f-8120-4635-8302-18fe62564170-1685940631b422c339-0",
+        "template--14541328810056__e10e5e7f-8120-4635-8302-18fe62564170-1685940631b422c339-1",
+        "caac95ce-d074-4fbc-b50b-e7580a4dea64"
+      ],
+      "settings": {
+        "ab_class": "",
+        "country_code": "US,GB,AU,CA,DE",
+        "exclude_country_code": "",
+        "class_test": "",
+        "hidden": false,
+        "section_bg_color": "#ffffff",
+        "full_width": true,
+        "breakpoint": 768,
+        "section_max_width": 4000,
+        "section_height": "adapt",
+        "media_position": "unset",
+        "media_size": "full",
+        "banner_link": "shopify:\/\/collections\/bundle-builder",
+        "banner_link_title": "True Classic Sale",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "inner_padding_top": 0,
+        "inner_padding_bottom": 0,
+        "aspect_ratio": 50,
+        "section_image": "shopify:\/\/shop_images\/build-your-pack.png",
+        "section_image_mobile": "shopify:\/\/shop_images\/10-13-22StylizedFlatlay_SN_MK_LOOK_5_Oct13202224_V1_copy.jpg",
+        "media_margin_left": 0,
+        "media_margin_right": 0,
+        "media_margin_top": 0,
+        "media_margin_bottom": 0,
+        "enable_lazyload": false,
+        "content_width": 40,
+        "content_fit": false,
+        "text_position": "center",
+        "text_position_mobile": "center",
+        "content_padding_dt": "2",
+        "content_padding_mb": "2",
+        "enable_absolute": false,
+        "enable_distance_top": true,
+        "content_top": 50,
+        "content_top_mobile": 50,
+        "enable_distance_bottom": false,
+        "content_bottom": 50,
+        "enable_distance_left": true,
+        "content_left": 50,
+        "enable_distance_right": false,
+        "content_right": 50,
+        "mobile_positioning": "unset",
+        "reverse_mobile": true,
+        "mobile_overlay": true,
+        "mobile_overlay_color": "#000000",
+        "mobile_overlay_opacity": 0.5,
+        "enable_prime_style": false,
+        "enable_custom_styles": false,
+        "custom_styles": "",
+        "custom_styles_mobile": ""
+      }
+    },
+    "303fab90-87c0-42fb-83f5-7ad18ca6b50d": {
+      "type": "tc-image-banner",
+      "blocks": {
+        "ef4827fa-4976-412a-ac10-0c30fcbcea33": {
+          "type": "heading",
+          "settings": {
+            "title": "WIN AT THE HOLIDAY BUZZER",
+            "heading_level": "h1",
+            "heading_size": "h0",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-black",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-s",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "bd54ff2f-e452-432b-a9be-d267d67c902b": {
+          "type": "text",
+          "settings": {
+            "paragraph": "<p>Get him an E-Gift card and let him make the call.<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "xl",
+            "paragraph_color": "color-black",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-m"
+          }
+        },
+        "619ce91c-0614-4b2d-b983-9e0ee2a176a8": {
+          "type": "link",
+          "settings": {
+            "link_text": "SHOP NOW",
+            "link_url": "shopify:\/\/collections\/gift-cards-1",
+            "new_tab": false,
+            "link_style": "primary black",
+            "link_color_inverse": false,
+            "link_icon": "arrow-right",
+            "link_margin_top": "mg-t-none",
+            "link_margin_bottom": "mg-b-none",
+            "full_width": false,
+            "disabled": false
+          }
+        }
+      },
+      "block_order": [
+        "ef4827fa-4976-412a-ac10-0c30fcbcea33",
+        "bd54ff2f-e452-432b-a9be-d267d67c902b",
+        "619ce91c-0614-4b2d-b983-9e0ee2a176a8"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "h1 {line-height: 1; white-space: nowrap;}",
+        "@media screen and (min-width: 1000px) {h1 {font-size: 70px; }}",
+        "@media screen and (min-width: 776px) {.full > .img-banner-content {left: 22% !important; }}",
+        "@media screen and (max-width: 775.9px) {.img-banner .img-banner-content {top: 1rem !important; left: 2rem !important; transform: none !important; max-width: 80vw !important; padding-right: 20%; } p {display: block; max-width: 230px; }}"
+      ],
+      "settings": {
+        "ab_class": "",
+        "country_code": "",
+        "exclude_country_code": "",
+        "class_test": "",
+        "hidden": false,
+        "section_bg_color": "#fffae9",
+        "full_width": true,
+        "breakpoint": 776,
+        "section_max_width": 4000,
+        "section_height": "adapt",
+        "media_position": "reverse",
+        "media_size": "large",
+        "banner_link": "shopify:\/\/collections\/sale",
+        "banner_link_title": "True Classic Sale",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "inner_padding_top": 0,
+        "inner_padding_bottom": 0,
+        "aspect_ratio": 50,
+        "section_image": "shopify:\/\/shop_images\/Mask_group_083b71d3-b375-4f39-89f2-db756c52a39e.png",
+        "section_image_mobile": "shopify:\/\/shop_images\/banner-mobile_63489e91-ce4b-4cc6-94f5-5ae6ecffec1b.png",
+        "media_margin_left": 0,
+        "media_margin_right": 0,
+        "media_margin_top": 0,
+        "media_margin_bottom": 0,
+        "enable_lazyload": false,
+        "content_width": 30,
+        "content_fit": false,
+        "text_position": "left",
+        "text_position_mobile": "left",
+        "content_padding_dt": "0",
+        "content_padding_mb": "0",
+        "enable_absolute": false,
+        "enable_distance_top": false,
+        "content_top": 46,
+        "content_top_mobile": 42,
+        "enable_distance_bottom": false,
+        "content_bottom": 50,
+        "enable_distance_left": true,
+        "content_left": 4,
+        "enable_distance_right": false,
+        "content_right": 50,
+        "mobile_positioning": "unset",
+        "reverse_mobile": true,
+        "mobile_overlay": true,
+        "mobile_overlay_color": "#000000",
+        "mobile_overlay_opacity": 0.1,
+        "enable_prime_style": false,
+        "enable_custom_styles": false,
+        "custom_styles": "",
+        "custom_styles_mobile": ""
+      }
+    }
+  },
+  "order": [
+    "a63a4360-13fb-4bb0-90f3-6d396c3c35f1",
+    "40ee1dac-3f1a-46cf-8d4f-cde087f382f5",
+    "videowise_video_toggle_PnYFTV",
+    "endrock_membership_banner_4pEmdA",
+    "23f5e72e-15a8-48c4-a4a1-7250b37c0159",
+    "f321930b-4be5-4f94-a1f9-d083ea0cae05",
+    "bb3104d6-fd2d-4bf1-b6ab-2986c8f95c64",
+    "two_image_banner_Gfhk6h",
+    "b8745286-dc81-43b9-8efa-93c35317311d",
+    "059e8a23-ad7e-4a51-8a46-791d8000a8a3",
+    "bdb2a1a4-bb6a-4c0b-9ddc-6b689348c242",
+    "4eeaf5f4-264c-4b57-96fb-af2cc3e53870",
+    "b78c9106-a753-46cc-a43e-1638a3d85dab",
+    "cd9fbb26-1410-4a36-a786-557e0aa44a38",
+    "9483c21b-00b4-42b8-9ba4-05fc0ebd4132",
+    "6c7126c7-a9e4-418f-8baf-a7290d64346a",
+    "4db12bc6-053c-4b1b-9675-d97d6875e66d",
+    "188f4cd4-4f85-4168-8fb8-149b6be04ea1",
+    "main",
+    "c21fd275-46b9-4d66-a727-8f9662131bd7",
+    "62666fc0-399d-4af5-841e-ae6eed8f7b10",
+    "7c31399f-ef28-4250-9b2e-6205bbc12bc7",
+    "e10e5e7f-8120-4635-8302-18fe62564170",
+    "303fab90-87c0-42fb-83f5-7ad18ca6b50d"
+  ]
+}

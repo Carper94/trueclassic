@@ -1,0 +1,173 @@
+{% if collection %}
+  {% assign filters = collection.filters %}
+{% endif %}
+
+{% if search %}
+  {% assign filters = search.filters %}
+{% endif %}
+
+<aside class='filter-drawer-wrapper'>
+  <div class='filter-drawer' aria-hidden='true'>
+    <div class='filter-drawer__content'>
+      <div class='filter-drawer__header'>
+        <div class='filter-drawer__header-inner'>
+          <h2 class='headline h4'>Filters</h2>
+          <button
+            id='filter-drawer-close'
+            class='filter-drawer__button-close icon-button'
+            data-delegate='filterdrawerclose'
+            data-noclick
+          >
+            <span class='visually-hidden'>Close Filter</span>
+            {% render 'icon-close' %}
+          </button>
+        </div>
+      </div>
+      <form
+        id='filter-form'
+        class='filter-drawer__form filter-drawer__form-new'
+        data-delegate='filterform'
+      >
+        {% for filter in filters %}
+          {% unless filter.label == 'Tag Based' %}
+            {% unless collection.handle != 'mens-jeans' and filter.label == 'fit' %}
+              {% render 'filter-list', filter: filter %}
+            {% endunless %}
+          {% endunless %}
+        {% endfor %}
+      </form>
+      <div class='filter-drawer__footer'>
+        <div class='filter-drawer__actions'>
+          <button
+            id='filter-apply'
+            class='button dark filter-apply'
+            type='submit'
+            form='filter-form'
+            data-delegate='filterapply'
+          >
+            {%- render 'icon-cta-arrow' -%}
+            Apply Filters
+          </button>
+          <button
+            id='filter-clear'
+            class='button light'
+            type='button'
+            form='filter-form'
+            data-delegate='filterclear'
+          >
+            {%- render 'icon-cta-arrow' -%}
+            Clear Filters
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</aside>
+<script>
+
+
+  /* This is the script for the filter number count.*/
+
+  //parser for grabbing html from page
+  const parser = new DOMParser();
+  let debounceTimer;
+  const applyBtn = document.getElementById('filter-apply');
+  const originalHTML = applyBtn.innerHTML;
+  const clearBtn = document.getElementById('filter-clear')
+  const collectionTitle = document.querySelector('.mini-image-banner__heading') || document.querySelector('.img-banner__heading');
+
+  async function handleFilterNumber(e){
+    //if target is checkbox
+    if(e.target.type === 'checkbox'){
+        // Clear the previous debounce timer, if any
+      clearTimeout(debounceTimer);
+
+      // Start a new debounce timer with a delay of 1000ms for spam clicking
+      const activeInputs = document.querySelectorAll(".filter-drawer input:checked");
+      debounceTimer = setTimeout(async () => {
+      {% if collection %}
+        let url = window.location.href.split('?')[0];
+        url += "?";
+      {% else %}
+        //if search
+        let url = window.location.href;
+      {% endif %}
+
+        //if there are any active inputs
+        if (activeInputs.length > 0){
+          applyBtn.disabled = true;
+          clearBtn.disabled = true;
+          applyBtn.innerHTML = "Filtering..."
+
+          //loop through active inputs and concat filters
+          activeInputs.forEach((input, i) => {
+            const name = input.getAttribute("name");
+            const getCurrentTitle = input.dataset.filterTitle;
+            const value = input.value;
+            url = url.concat(`${name}=${value}&`);
+            // // filter_url.searchParams.append('x', 42);
+            // filter_url.searchParams.set('x', 42);
+
+            // const urlParams = new URLSearchParams(url);
+            // urlParams.append('orderx', 'dateeeee');
+            // window.location.search = urlParams;
+
+            // console.log('collectionTitle', collectionTitle);
+            // console.log('og:title', document.querySelector('meta[name="og:title"'));
+
+            if(i === 0) {
+              collectionTitle.innerHTML = getCurrentTitle
+              document.querySelector('link[rel="canonical"]').href = getCurrentTitle
+              // document.querySelector('meta[name="og:title"').setAttribute("content", getCurrentTitle)
+            } else {
+              collectionTitle.innerHTML = input.dataset.filterOriginalTitle
+              document.querySelector('link[rel="canonical"]').href = input.dataset.filterOriginalTitle
+              // document.querySelector('meta[name="og:title"').setAttribute("content", input.dataset.filterOriginalTitle)
+            }
+
+            // window.history.replaceState(null, null, `?${name}=${value}`); // this works
+          });
+
+          //once done ensure that the items are available
+          url += "filter.v.availability=1";
+          // console.log('url after ', url);
+
+          //get page that has the filtered collection products
+          const newDocument = await getPage(url);
+          const productCount = newDocument.querySelector('.product-filtered-grid__count').innerHTML.match(/\d+/)[0];;
+          if (productCount > 0){
+            //update apply button text
+            applyBtn.innerHTML = `Apply To See ${productCount} Results`;
+            applyBtn.disabled = false;
+            clearBtn.disabled = false;
+          }else{
+            //if no results
+            applyBtn.innerHTML = "No Results Found";
+            applyBtn.disabled = true;
+            clearBtn.disabled = false;
+          }
+        }else{
+          buttonReset();
+        }
+      }, 1000);
+    }
+  }
+
+  const buttonReset = () => {
+      applyBtn.innerHTML = originalHTML;
+      applyBtn.disabled = false;
+  }
+
+  //get the filtered url contents
+  const getPage = async(url) => {
+    const res = await fetch(url);
+    const text = await res.text();
+    return parser.parseFromString(text, 'text/html');
+  }
+
+  //event listeners
+  document.addEventListener('change', handleFilterNumber);
+  clearBtn.addEventListener('click',buttonReset);
+
+
+</script>

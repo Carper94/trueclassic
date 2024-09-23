@@ -1,0 +1,194 @@
+
+
+{% assign disabled_indexes = disabled_indexes | split: ',' %}
+{% comment %} {% assign rememberProducts = "Pants,Trousers,Shorts,Comfort Chino Pants,Crew Neck Tee,LS Crew,Sweater Crew,LS Shirts,LS Henley,Puffers,Sweatpants,Active Jogger/Sweatpants,Unlined Active Short,Crew Socks,Boxer" | split:","%} {% endcomment %}
+{% comment %} <fieldset data-option-name="{{name | escape}}" class='size-swatch {% if product.handle contains 'gift-card' %} size-swatch-giftcard{% endif %}'> {% endcomment %}
+<fieldset class='size-swatch {% if product.handle contains 'gift-card' %} size-swatch-giftcard{% endif %}'>
+  <div style="display: flex;">
+  {% if use_input == true %}
+    <legend style='display: flex;'>
+      <div>
+        {{ name -}}
+        {%- if selected_value -%}
+          : <span class='light-font'>{% render 'size-text', size: selected_value %}</span>
+        {%- endif %}
+      </div>
+    </legend>
+  {% else %}
+    <legend style='display: flex; justify-content: space-between;'>
+      <div>
+        {% if collection.template_suffix == 'packbuilder' %}
+          {{ name | prepend: 'Shirt ' }}:
+        {% else %}
+          {{ name }}:
+        {% endif %}
+        <span class='size-legend'>{% render 'size-text', size: selected_value %}</span>
+      </div>
+      {% comment %} ** PDP FIT FINDER ** {% endcomment %}
+      {% unless product.handle contains 'sunglasses' %}
+        {% unless product.type == 'Gift Cards' %}
+          {% assign bottoms = false %}
+          {% for tag in product.tags %}
+            {% if tag == 'Comfort Chino Pants' or tag == 'Comfort Chino Short' or tag == 'Jeans' %}
+              {% assign bottoms = true %}
+            {% endif %}
+          {% endfor %}
+          <div class='product-size-guide-wrapper endrock-testing-variant' aria-label='{{ site.title }} Size Guide' style='margin: 0!important; align-items: center; row-gap: 0.5rem;'>
+            {% unless product.type == 'Hat' %}
+              {% unless product.type contains 'Socks' or product.type contains 'socks' %}
+                <div id='old-fit-finder-block'  style='padding-left: .5rem;'>
+                  <button
+                    type='button'
+                    style='white-space: nowrap;'
+                    data-open='modal-find-your-fit'
+                    data-delegate='combo'
+                    aria-haspopup='true'
+                    aria-expanded='false'
+                    title='Find Your Fit'
+                    class='button-size-guide'
+                    onclick='initForm();'
+                  >
+                    {% render 'icon-size-fit' %}
+
+                    Find Your Fit
+                  </button>
+                </div>
+              {% endunless %}
+              <button
+                type='button'
+                class='button-size-guide'
+                style='white-space: nowrap;'
+                data-open='modal-size-chart'
+                aria-haspopup='true'
+                aria-expanded='false'
+                title='Size Chart'
+              >
+                {% render 'icon-size-guide' %}
+
+                {% unless product.type == 'Socks' %}
+                  Size Chart
+                {% else %}
+                  Measurements Chart
+                {% endunless %}
+              </button>
+            {% endunless %}
+          </div>
+
+          <script>
+            document.querySelector('.product-size-guide-wrapper ').onclick = function () {
+              dataLayer.push({ event: 'size_guide_click' });
+            };
+          </script>
+        {% endunless %}
+      {% endunless %}
+    </legend>
+  {% endif %}
+  </div>
+  <div
+    class='size-swatch__input-wrapper'
+    data-selected-variant='{{ product.selected_or_first_available_variant.id | json }}'
+  >
+    {% for value in values %}
+      {% assign value_index = forloop.index0 %}
+      {% assign disabled = false %}
+      {% for disabled_index in disabled_indexes %}
+        {% assign disabled_index_int = disabled_index | times: 1 %}
+        {% if value_index == disabled_index_int %}
+          {% assign disabled = true %}
+        {% endif %}
+      {% endfor %}
+
+      {%- assign show_country_iso = false -%}
+      {%- assign show_country_symbol = false -%}
+
+      {% unless localization.country.iso_code == 'US' %}
+        {%- unless localization.country.currency.symbol == '€' or localization.country.currency.symbol == '£' -%}
+          {%- assign show_country_iso = true -%}
+        {%- endunless -%}
+        {%- assign show_country_symbol = true -%}
+      {% endunless %}
+
+      {% for variant in product.variants %}
+        {% for option in variant.options %}
+          {% if option == value %}
+            {%- assign variant_price_without_currency = variant.price |  money_without_currency -%}
+            {%- assign variant_compare_price_without_currency = variant.compare_at_price |  money_without_currency -%}
+            {%- assign variant_price =  variant.price | money -%}
+            {%- assign variant_compare_price =  variant.compare_at_price | money -%}
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+
+      <input
+        type='radio'
+        id='{{ name }}-{{ value }}-{{ forloop.index0 }}'
+        class='visually-hidden'
+        name='Option-{{ name | escape }}'
+        aria-label='{{ name | escape }}'
+        data-id='{{ forloop.index0 }}'
+        aria-labelledby='{{ name }}-{{ forloop.index0 }}-label'
+        {% if variant_price %}data-price="{%- if show_country_iso -%}{{ localization.country.iso_code }}{%- endif -%}{% if show_country_symbol %}{{ localization.country.symbol }} {% endif %}{{ variant_price }}"{% endif %}
+        {% if variant_compare_price %}data-compare-price="{%- if show_country_iso -%}{{ localization.country.iso_code }}{%- endif -%}{%- if show_country_symbol %}{{ localization.country.symbol }} {%- endif %}{{ variant_compare_price }}"{% endif %}
+        value='{{ value }}'
+        data-price-no-currency="{{ variant_price_without_currency }}"
+        data-compare-price-no-currency="{{ variant_compare_price_without_currency }}"
+        {% if value == 'Custom Value' %}
+          data-custom-giftcard-button
+        {% endif %}
+        {% comment %} {% unless rememberProducts contains product.type %}
+          {% if selected_value == value %}
+            checked
+          {% endif %}
+        {% endunless %} {% endcomment %}
+        {% if selected_value == value %}
+          checked
+        {% endif %}
+        data-option
+      >
+      <label
+        class='
+          {%- liquid
+            if disabled
+              echo 'product-is-sold-out'
+            endif
+            if product.handle contains 'gift-card'
+              echo 'product-option-giftcard-button'
+            endif
+          -%}
+        '
+        id='{{ name }}-{{ forloop.index0 }}-label'
+        for='{{ name }}-{{ value }}-{{ forloop.index0 }}'
+        {% if disabled %}
+          title='out of stock'
+        {% endif %}
+      >
+        <span class='swatch-text'>
+          {% if disabled %}
+            {% unless product.handle contains 'gift-card' %}
+              <span>{{ value }}</span>
+            {% else %}
+              <span>{{ product.price | money }}</span>
+            {% endunless %}
+            <span class='visually-hidden'>sold out</span>
+          {% else %}
+            {% unless product.handle contains 'gift-card' %}
+              <span>{{ value }}</span>
+            {% else %}
+              {% assign lastGiftCardVariant = product.variants | last %}
+              {% for variant in product.variants %}
+                {% for option in variant.options %}
+                  {% if option == value %}
+                      <span>{{ variant.price | money }}</span>
+                  {% endif %}
+                {% endfor %}
+              {% endfor %}
+            {% endunless %}
+          {% endif %}
+        </span>
+      </label>
+    {% endfor %}
+    <div class='product-main-form__desc product-main-form__desc--size'>
+      {{ desc }}
+    </div>
+  </div>
+</fieldset>

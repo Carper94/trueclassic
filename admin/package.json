@@ -1,0 +1,14 @@
+{
+  "name": "admin",
+  "version": "1.0.0",
+  "scripts": {
+    "add-color": "nodemon ./metafields/add-color.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "graphql-request": "^4.3.0",
+    "nodemon": "^2.0.16"
+  }
+}

@@ -1,0 +1,35 @@
+{% if template contains 'product' and localization.country.iso_code != "US" %}
+<style>
+  .guarantee-int {
+    display: block !important;
+  }
+  .guarantee-us {
+    display: none;
+  }
+</style>
+{% endif %}
+
+<div class='product-description product-main-accordion'>
+  {% liquid
+    assign blocks = section.blocks | where: 'type', 'description_accordion'
+  %}
+  {% render 'product-accordion', title: 'Description', content: product.description %}
+
+  {% assign firstBlock = blocks.first %}
+
+  {% for block in blocks %}
+    {%
+      render 'product-accordion',
+      title: block.settings.title,
+      content: block.settings.content_html,
+    %}
+  {% endfor %}
+
+  {% if template contains 'product' %}
+    {% capture table %}
+      {% render 'specification-table' %}
+    {% endcapture %}
+
+    {% render 'product-accordion', title: 'Measurements', content: table %}
+  {% endif %}
+</div>

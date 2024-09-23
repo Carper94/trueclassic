@@ -1,0 +1,422 @@
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "disabled": true,
+      "settings": {
+        "full_width": false,
+        "hide_title": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "13948946-b749-44ba-88fc-cddce5b856eb": {
+      "type": "tc-image-banner",
+      "blocks": {
+        "template--14579556319304__13948946-b749-44ba-88fc-cddce5b856eb-1686544622199acc27-0": {
+          "type": "heading",
+          "settings": {
+            "title": "CUSTOMER REFERRAL PROGRAM",
+            "heading_level": "h2",
+            "heading_size": "h4",
+            "heading_font": "modernist-type",
+            "heading_color": "color-white",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "9482e24d-36e0-41d3-b663-6b3f58f8bc6f": {
+          "type": "heading",
+          "settings": {
+            "title": "SPREAD THE WORD. EARN 15% STORE CREDIT.",
+            "heading_level": "h2",
+            "heading_size": "h3",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-white",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": false,
+            "line_break_dot": true
+          }
+        },
+        "template--14579556319304__13948946-b749-44ba-88fc-cddce5b856eb-1686544622199acc27-1": {
+          "type": "text",
+          "settings": {
+            "paragraph": "<p>You know better than anyone that a great fit makes all the difference. Now, we’re rewarding you for spreading the word.<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "l",
+            "paragraph_color": "color-white",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-none"
+          }
+        }
+      },
+      "block_order": [
+        "template--14579556319304__13948946-b749-44ba-88fc-cddce5b856eb-1686544622199acc27-0",
+        "9482e24d-36e0-41d3-b663-6b3f58f8bc6f",
+        "template--14579556319304__13948946-b749-44ba-88fc-cddce5b856eb-1686544622199acc27-1"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "hidden": false,
+        "section_bg_color": "#ffffff",
+        "full_width": true,
+        "breakpoint": 768,
+        "section_max_width": 4000,
+        "section_height": "adapt",
+        "media_position": "unset",
+        "media_size": "full",
+        "banner_link": "",
+        "banner_link_title": "True Classic Sale",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "inner_padding_top": 0,
+        "inner_padding_bottom": 0,
+        "aspect_ratio": 50,
+        "section_image": "shopify:\/\/shop_images\/Group_2433_1_6a586460-573b-4a62-850d-672a38147a4e.png",
+        "section_image_mobile": "shopify:\/\/shop_images\/Mask_group_2_feb97f41-8342-4a0a-9319-d3d3098841b7.png",
+        "media_margin_left": 0,
+        "media_margin_right": 0,
+        "media_margin_top": 0,
+        "media_margin_bottom": 0,
+        "enable_lazyload": false,
+        "content_width": 40,
+        "content_fit": false,
+        "text_position": "center",
+        "text_position_mobile": "center",
+        "content_padding_dt": "0",
+        "content_padding_mb": "0",
+        "enable_absolute": false,
+        "enable_distance_top": true,
+        "content_top": 50,
+        "content_top_mobile": 50,
+        "enable_distance_bottom": false,
+        "content_bottom": 50,
+        "enable_distance_left": true,
+        "content_left": 50,
+        "enable_distance_right": false,
+        "content_right": 50,
+        "mobile_positioning": "unset",
+        "reverse_mobile": true,
+        "mobile_overlay": true,
+        "mobile_overlay_color": "#000000",
+        "mobile_overlay_opacity": 0.2
+      }
+    },
+    "8991e2cf-7b18-4ffc-b097-f66be1fa6cd1": {
+      "type": "image-banner",
+      "blocks": {
+        "8aaf24b0-95da-44aa-871c-0698d0fad80a": {
+          "type": "heading",
+          "settings": {
+            "heading": "CUSTOMER REFERRAL PROGRAM",
+            "heading_level": "h1",
+            "heading_font": "modernist",
+            "heading_color": "var(--brand-white)",
+            "heading_color_inverse": false,
+            "heading_size": 2.4,
+            "heading_size_mobile": 1.1,
+            "heading_letter_spacing": 1.5,
+            "heading_weight": "100",
+            "heading_margin_bottom": "1",
+            "underline": false,
+            "line_break_dot": false
+          }
+        },
+        "template--14552771035208__8991e2cf-7b18-4ffc-b097-f66be1fa6cd1-16814338813ec155ef-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "SPREAD THE WORD. EARN 15% STORE CREDIT.",
+            "heading_level": "h2",
+            "heading_font": "staff-x",
+            "heading_color": "var(--brand-white)",
+            "heading_color_inverse": false,
+            "heading_size": 3.2,
+            "heading_size_mobile": 1.2,
+            "heading_letter_spacing": 0,
+            "heading_weight": "500",
+            "heading_margin_bottom": "1",
+            "underline": false,
+            "line_break_dot": true
+          }
+        },
+        "template--14552771035208__8991e2cf-7b18-4ffc-b097-f66be1fa6cd1-16814338813ec155ef-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>You know better than anyone that a great fit makes all the difference. Now, we’re rewarding you for spreading the word.<\/p>",
+            "paragraph_font": "modernist",
+            "paragraph_color": "var(--brand-white)",
+            "paragraph_color_inverse": false,
+            "paragraph_size": 1.4,
+            "paragraph_size_mobile": 0.8,
+            "paragraph_weight": "400",
+            "paragraph_margin_bottom": "0"
+          }
+        }
+      },
+      "block_order": [
+        "8aaf24b0-95da-44aa-871c-0698d0fad80a",
+        "template--14552771035208__8991e2cf-7b18-4ffc-b097-f66be1fa6cd1-16814338813ec155ef-0",
+        "template--14552771035208__8991e2cf-7b18-4ffc-b097-f66be1fa6cd1-16814338813ec155ef-1"
+      ],
+      "disabled": true,
+      "custom_css": [
+
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "hidden": false,
+        "section_bg_color": "#ffffff",
+        "full_width": true,
+        "breakpoint": 768,
+        "section_max_width": 4000,
+        "section_height": "adapt",
+        "media_position": "unset",
+        "media_size": "full",
+        "banner_link": "",
+        "banner_link_title": "True Classic Sale",
+        "padding_top": 0,
+        "padding_bottom": 64,
+        "inner_padding_top": 0,
+        "inner_padding_bottom": 0,
+        "aspect_ratio": 50,
+        "section_image": "shopify:\/\/shop_images\/Group_2433_1_6a586460-573b-4a62-850d-672a38147a4e.png",
+        "section_image_mobile": "shopify:\/\/shop_images\/Mask_group_2_feb97f41-8342-4a0a-9319-d3d3098841b7.png",
+        "media_margin_left": 0,
+        "media_margin_right": 0,
+        "media_margin_top": 0,
+        "media_margin_bottom": 0,
+        "enable_lazyload": false,
+        "content_width": 90,
+        "content_fit": false,
+        "text_position": "center",
+        "text_position_mobile": "center",
+        "content_padding_dt": "0",
+        "content_padding_mb": "0",
+        "enable_absolute": false,
+        "enable_distance_top": true,
+        "content_top": 50,
+        "content_top_mobile": 50,
+        "enable_distance_bottom": false,
+        "content_bottom": 50,
+        "enable_distance_left": true,
+        "content_left": 50,
+        "enable_distance_right": false,
+        "content_right": 50,
+        "mobile_positioning": "unset",
+        "reverse_mobile": false,
+        "mobile_overlay": false,
+        "mobile_overlay_color": "#000000",
+        "mobile_overlay_opacity": 0.5
+      }
+    },
+    "38017bc7-668c-4a22-989e-82ea452ddeae": {
+      "type": "columns",
+      "blocks": {
+        "template--14552771035208__38017bc7-668c-4a22-989e-82ea452ddeae-1681433893bdf1c45f-0": {
+          "type": "column",
+          "settings": {
+            "title": "01",
+            "text": "<p><strong>ACCESS IN SECONDS<\/strong><\/p><p>Simply use the form below to qualify<\/p>",
+            "link_label": "",
+            "link": "",
+            "max_width": 50
+          }
+        },
+        "template--14552771035208__38017bc7-668c-4a22-989e-82ea452ddeae-1681433893bdf1c45f-1": {
+          "type": "column",
+          "settings": {
+            "title": "02",
+            "text": "<p><strong>SPREAD THE WORD<\/strong><\/p><p>Share your 15% off custom code or link with friends & family<\/p>",
+            "link_label": "",
+            "link": "",
+            "max_width": 50
+          }
+        },
+        "template--14552771035208__38017bc7-668c-4a22-989e-82ea452ddeae-1681433893bdf1c45f-2": {
+          "type": "column",
+          "settings": {
+            "title": "03",
+            "text": "<p><strong>START EARNING<\/strong><\/p><p>Refer a first-time customer and earn 15% store credit on their initial order!<\/p>",
+            "link_label": "",
+            "link": "",
+            "max_width": 50
+          }
+        }
+      },
+      "block_order": [
+        "template--14552771035208__38017bc7-668c-4a22-989e-82ea452ddeae-1681433893bdf1c45f-0",
+        "template--14552771035208__38017bc7-668c-4a22-989e-82ea452ddeae-1681433893bdf1c45f-1",
+        "template--14552771035208__38017bc7-668c-4a22-989e-82ea452ddeae-1681433893bdf1c45f-2"
+      ],
+      "custom_css": [
+
+      ],
+      "settings": {
+        "bg_color": "#ffffff",
+        "title": "GETTING STARTED IS EASY",
+        "sub_title": "It pays to share the True Classic Difference with friends and family.",
+        "heading_size": "h3",
+        "heading_alignment": "center",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "content_alignment": "center",
+        "button_label": "",
+        "button_link": "",
+        "columns_mobile": "1",
+        "swipe_mobile": false,
+        "enable_borders_around": false,
+        "enable_borders": true,
+        "padding_top": 52,
+        "padding_bottom": 0,
+        "content_style": "1",
+        "icons_fit": false,
+        "special": false,
+        "special_alt": true,
+        "special_icons": false
+      }
+    },
+    "c659fd39-a054-4bd1-9aa9-cb53efa586ea": {
+      "type": "tc-image-banner",
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "hidden": false,
+        "section_bg_color": "#ffffff",
+        "full_width": true,
+        "breakpoint": 768,
+        "section_max_width": 4000,
+        "section_height": "adapt",
+        "media_position": "unset",
+        "media_size": "full",
+        "banner_link": "",
+        "banner_link_title": "True Classic Sale",
+        "padding_top": 64,
+        "padding_bottom": 40,
+        "inner_padding_top": 0,
+        "inner_padding_bottom": 0,
+        "aspect_ratio": 50,
+        "section_image": "shopify:\/\/shop_images\/Mask_group_1_59fb312c-ff2e-4ba4-b2ac-e70a78e88fcd.png",
+        "section_image_mobile": "shopify:\/\/shop_images\/Mask_group_3_8635ad1f-425c-4c34-ae64-c00ce215365c.png",
+        "media_margin_left": 0,
+        "media_margin_right": 0,
+        "media_margin_top": 0,
+        "media_margin_bottom": 0,
+        "enable_lazyload": false,
+        "content_width": 40,
+        "content_fit": false,
+        "text_position": "left",
+        "text_position_mobile": "center",
+        "content_padding_dt": "0",
+        "content_padding_mb": "0",
+        "enable_absolute": false,
+        "enable_distance_top": true,
+        "content_top": 50,
+        "content_top_mobile": 50,
+        "enable_distance_bottom": false,
+        "content_bottom": 50,
+        "enable_distance_left": true,
+        "content_left": 50,
+        "enable_distance_right": false,
+        "content_right": 50,
+        "mobile_positioning": "unset",
+        "reverse_mobile": true,
+        "mobile_overlay": false,
+        "mobile_overlay_color": "#000000",
+        "mobile_overlay_opacity": 0
+      }
+    },
+    "4cde3ef3-0312-41f4-aff4-db56565fd2ac": {
+      "type": "html",
+      "settings": {
+        "html": "<iframe id=\"affiliate-sign-up-form\" style=\"border: 0; width: 100%; min-height: 550px;\" src=\"https:\/\/app.socialsnowball.io\/register-form\/8936\/93edec2d-729a-4f5d-a355-e26e712f5d6b\"><\/iframe>\n<script>\/\/ <![CDATA[\n!async function(){let e=document.querySelector(\"#affiliate-sign-up-form\");window.addEventListener(\"message\",t=>{t.origin===new URL(e.getAttribute(\"src\")).origin&&(e.style.height=t.data.height)})}();\n\/\/ ]]><\/script>"
+      }
+    },
+    "00430986-f7a1-434d-a21c-7a705f30f057": {
+      "type": "columns",
+      "blocks": {
+        "template--14552771035208__00430986-f7a1-434d-a21c-7a705f30f057-1681433893bdf1c45f-0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/true_classic_campaign_tt-1295_2.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": "",
+            "max_width": 500
+          }
+        },
+        "template--14552771035208__00430986-f7a1-434d-a21c-7a705f30f057-1681433893bdf1c45f-1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/10-13-22StylizedFlatlay_SN_MK_LOOK_1_Oct13202270_V2_1.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": "",
+            "max_width": 500
+          }
+        },
+        "template--14552771035208__00430986-f7a1-434d-a21c-7a705f30f057-1681433893bdf1c45f-2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MG_7895_1.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": "",
+            "max_width": 500
+          }
+        }
+      },
+      "block_order": [
+        "template--14552771035208__00430986-f7a1-434d-a21c-7a705f30f057-1681433893bdf1c45f-0",
+        "template--14552771035208__00430986-f7a1-434d-a21c-7a705f30f057-1681433893bdf1c45f-1",
+        "template--14552771035208__00430986-f7a1-434d-a21c-7a705f30f057-1681433893bdf1c45f-2"
+      ],
+      "settings": {
+        "bg_color": "#fffae9",
+        "title": "The more you share, the more you earn.",
+        "sub_title": "Simply log in to your referral program account to redeem your rewards every month. It pays to get your loved ones looking and feeling as good as you do in your True Classic.",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "content_alignment": "left",
+        "button_label": "Button label",
+        "button_link": "",
+        "columns_mobile": "2",
+        "swipe_mobile": false,
+        "enable_borders_around": false,
+        "enable_borders": false,
+        "padding_top": 64,
+        "padding_bottom": 64,
+        "content_style": "1",
+        "icons_fit": false,
+        "special": true,
+        "special_alt": false,
+        "special_icons": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "13948946-b749-44ba-88fc-cddce5b856eb",
+    "8991e2cf-7b18-4ffc-b097-f66be1fa6cd1",
+    "38017bc7-668c-4a22-989e-82ea452ddeae",
+    "c659fd39-a054-4bd1-9aa9-cb53efa586ea",
+    "4cde3ef3-0312-41f4-aff4-db56565fd2ac",
+    "00430986-f7a1-434d-a21c-7a705f30f057"
+  ]
+}

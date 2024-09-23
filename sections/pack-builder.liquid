@@ -1,0 +1,134 @@
+{% assign product_array = collection.products %}
+{%- liquid
+  assign sc_id = '#shopify-section-' | append: section.id
+  assign unique_id_ = section.id | remove: '-'
+  assign unique_id = unique_id_ | remove: '_'
+-%}
+
+{%- liquid
+  assign country_codes = section.settings.country_code | split: ','
+  assign exclude_country_codes = section.settings.exclude_country_code | split: ','
+  assign should_show_section = false
+
+  if section.settings.country_code == '' and section.settings.exclude_country_code == ''
+    assign should_show_section = true
+  else
+    assign is_excluded = false
+    for exclude_code in exclude_country_codes
+      if localization.country.iso_code == exclude_code
+        assign is_excluded = true
+        break
+      endif
+    endfor
+
+    unless is_excluded
+      if section.settings.country_code == ''
+        assign should_show_section = true
+      else
+        for code in country_codes
+          if localization.country.iso_code == code
+            assign should_show_section = true
+            break
+          endif
+        endfor
+      endif
+    endunless
+  endif
+-%}
+
+{% if should_show_section %}
+
+  <div class='pack-builder'>
+    <div class='pack-builder__header'>
+      <div class='container'>
+        <div class=''>
+          {% render 'pack-builder-size-controls' %}
+        </div>
+      </div>
+    </div>
+    <div class='pack-builder__main'>
+      <div class='pack-builder__scrim-wrapper'></div>
+      <div class='container'>
+        <div class='content-wrapper'>
+          <div class='pack-builder__grid-wrapper'>
+            {%
+              render 'product-card-grid-pack-builder'
+              product_array: product_array,
+              use_ajax: true,
+              use_link: false,
+              hide_legend: true,
+              use_variant_image: true,
+              hasSellingPlan: false
+            %}
+            {% render 'pack-builder-cart' %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endif %}
+
+<script>
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ ecommerce: null });
+    window.dataLayer.push({
+      'event': 'view_item_list',
+      'ecommerce': {
+        'item_list_id': '{{ collection.id }}',
+        'item_list_name': '{{ collection.title }}',
+        'currency': '{{ localization.country.currency.iso_code }}',
+        'items': [
+          {% for product in collection.products %}
+          {
+              'item_id': '{{ product.id }}',
+              'item_name': '{{ product.title }}',
+              'item_brand': '{{ product.vendor }}',
+              'item_category': '{{ product.type }}',
+              'item_variant': '{{ product.selected_or_first_available_variant.sku }}',
+              'item_variant_title' : '{{ product.selected_or_first_available_variant.title }}',
+              'price': {{ product.price | money_without_currency }},
+              'currency': '{{ localization.country.currency.iso_code }}'
+          },
+          {% endfor %}
+        ]
+      }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Pack Builder",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Geolocation"
+    },
+    {
+      "type": "text",
+      "id": "country_code",
+      "label": "Country code",
+      "info": "Enter the country code for the country you want to show the banner to. You can have multiple country codes, just separate them with a comma. Example: US,CA,GB. Leave empty to show to all countries."
+    },
+    {
+      "type": "text",
+      "id": "exclude_country_code",
+      "label": "Exclude country code",
+      "info": "Enter the country code for the countries you DON'T want to show the banner to. You can have multiple country codes, just separate them with a comma. Example: US,CA,GB"
+    },
+    {
+      "type": "number",
+      "id": "max",
+      "label": "Max"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Pack Builder",
+      "settings": {
+        "max": 100
+      }
+    }
+  ]
+}
+{% endschema %}

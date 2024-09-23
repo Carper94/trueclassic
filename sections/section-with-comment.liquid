@@ -1,0 +1,153 @@
+{%- liquid
+  assign sc_id = '#shopify-section-' | append: section.id
+-%}
+{%- liquid
+  assign country_codes = section.settings.country_code | split: ','
+  assign exclude_country_codes = section.settings.exclude_country_code | split: ','
+  assign should_show_banner = false
+
+  if section.settings.country_code == '' and section.settings.exclude_country_code == ''
+    assign should_show_banner = true
+  else
+    assign is_excluded = false
+    for exclude_code in exclude_country_codes
+      if localization.country.iso_code == exclude_code
+        assign is_excluded = true
+        break
+      endif
+    endfor
+
+    unless is_excluded
+      if section.settings.country_code == ''
+        assign should_show_banner = true
+      else
+        for code in country_codes
+          if localization.country.iso_code == code
+            assign should_show_banner = true
+            break
+          endif
+        endfor
+      endif
+    endunless
+  endif
+-%}
+{% if should_show_banner %}
+  {% style %}
+    {{ sc_id }} {
+      padding-top: {{ section.settings.padding_top | times: 0.50 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.50 }}px;
+      background-color: {{ section.settings.background_color }};
+    }
+
+    @media screen and (min-width: 769px) {
+      {{ sc_id }} {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+
+    .comment-text:before,
+    .comment-text:after {
+      background-image: url({{ 'quote.svg' | asset_url }});
+    }
+  {% endstyle %}
+
+  <div class='section-with-comment-container container'>
+    <div class='content-wrapper'>
+      <div class='section-comment-wrapper'>
+        {% if section.settings.text_title != blank %}
+          {% render 'tc-heading',
+            title: section.settings.text_title,
+            heading_level: 'h2',
+            heading_font: '',
+            heading_size: 'h5',
+            heading_color: 'color-chocolate',
+            heading_margin: ''
+          %}
+        {% endif %}
+        {% if section.settings.text_paragraph != blank %}
+          <div class='comment-text color-black'>{{ section.settings.text_paragraph }}</div>
+        {% endif %}
+        {% if section.settings.text_paragraph != blank %}
+          <p class='comment-author'>{{ section.settings.text_author }}</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endif %}
+{% schema %}
+{
+  "name": "Section With Comment",
+  "class": "section-with-comment",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Geolocation"
+    },
+    {
+      "type": "text",
+      "id": "country_code",
+      "label": "Country code",
+      "info": "Enter the country code for the country you want to show the section to. You can have multiple country codes, just separate them with a comma. Example: US,CA,GB. Leave empty to show to all countries."
+    },
+    {
+      "type": "text",
+      "id": "exclude_country_code",
+      "label": "Exclude country code",
+      "info": "Enter the country code for the countries you DON'T want to show the section to. You can have multiple country codes, just separate them with a comma. Example: US,CA,GB"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color"
+    },
+    {
+      "id": "text_title",
+      "type": "text",
+      "label": "Title",
+      "default": "DON'T JUST TAKE OUR WORD FOR IT..."
+    },
+    {
+      "id": "text_paragraph",
+      "type": "text",
+      "label": "Comment",
+      "default": "FEELS JUST LIKE VUDRI. BUT MORE AFFORDABLE AND EVEN MORE COMFORTABLE. DON'T SLEEP ON THIS COLLECTION"
+    },
+    {
+      "id": "text_author",
+      "type": "text",
+      "label": "Author",
+      "default": "- MYLES W."
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Section With Comment"
+    }
+  ]
+}
+{% endschema %}

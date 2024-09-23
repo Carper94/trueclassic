@@ -1,0 +1,62 @@
+{% liquid
+  assign title = product.title
+  if title != blank
+    assign unit_title = 'item'
+  elsif product.tags contains 'Variety Reviews' or title contains 'Jean' or title contains 'jean' or title contains 'Fleece'
+    assign unit_title = 'item'
+  elsif title contains 'Chino' or title contains 'chino' or title contains 'Bottoms 2-Set' or title contains 'bottoms 2-set'
+    assign unit_title = 'chino'
+  elsif title contains 'Pants' or title contains 'pants'
+    assign unit_title = 'pant'
+  elsif title contains 'Polo' or title contains 'polo'
+    assign unit_title = 'polo'
+  elsif title contains 'Long Sleeve' or title contains 'long sleeve'
+    assign unit_title = 'shirt'
+  elsif title contains 'Henley' or title contains 'henley'
+    assign unit_title = 'henley'
+  elsif title contains 'Sock' or title contains 'sock' or title contains 'Brief' or title contains 'brief'
+    assign unit_title = 'pair'
+  elsif title contains 'Jogger' or title contains 'jogger'
+    assign unit_title = 'jogger'
+  elsif title contains 'Hoodie'
+    assign unit_title = 'hoodie'
+  elsif title contains 'Cap'
+    assign unit_title = 'cap'
+  elsif title contains 'Jacket'
+    assign unit_title = 'jacket'
+  elsif title contains 'Short' or title contains 'short'
+    unless title contains 'Short Sleeve'
+      assign unit_title = 'short'
+    endunless
+  endif
+
+  assign pack_size = product.metafields.custom.pack_size
+  assign pack_quantity = pack_size | split: '-' | first
+  assign price_per_unit = product.price | divided_by: pack_quantity | money
+  assign price_per_unit_msrp = product.compare_at_price | divided_by: pack_quantity | money
+%}
+{% if template contains 'product' %}
+  <span
+    class='price-per text s'
+    data-payment-count='{{ pack_quantity }}'
+    data-product-id='{{ product.id }}'
+    data-variant-id='{{ product.selected_or_first_available_variant.id }}'
+    >Only {% comment %} <s>{{ price_per_unit_msrp }}</s> {% endcomment %}
+    {% unless localization.country.iso_code == 'US' %}
+      {% comment %} {{ localization.country.iso_code }} {% endcomment %}
+      {% unless localization.country.currency.symbol == '€' or localization.country.currency.symbol == '£' or localization.country.iso_code == 'KW' or localization.country.iso_code == 'BH'%}{{ localization.country.iso_code }}{% endunless %}
+      {{ localization.country.symbol }}
+    {% endunless %}
+    {{ price_per_unit }}
+    <span style='display: inline-block'>per {{ unit_title -}}</span>
+  </span>
+{% else %}
+  <div
+    class='product-card__savings text s'
+    data-payment-count='{{ pack_quantity }}'
+    data-product-id='{{ product.id }}'
+    data-variant-id='{{ product.selected_or_first_available_variant.id }}'
+  >
+    Only {{ price_per_unit }} per {{ unit_title }}!
+  </div>
+{% endif %}

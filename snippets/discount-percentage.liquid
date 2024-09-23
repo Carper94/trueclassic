@@ -1,0 +1,18 @@
+{% assign discount_percent_raw = product.compare_at_price
+  | minus: product.price
+  | times: 100.0
+  | divided_by: product.compare_at_price
+%}
+
+{% comment %} Round to the nearest 1 percent {% endcomment %}
+{% assign discount_percent = discount_percent_raw | round: 0 %}
+
+{% if product != blank and discount_percent != blank and discount_percent_raw >= 5 %}
+  <span
+    class='discount-percentage'
+    data-product-id='{{ product.id }}'
+    data-variant-id='{{ product.first_available_variant.id }}'
+  >
+    {{ discount_percent }}% OFF
+  </span>
+{% endif %}

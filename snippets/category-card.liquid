@@ -1,0 +1,25 @@
+{% assign collection = collection %}
+{% assign size = size %}
+
+<div class='category-card {{ size }}'>
+  <div class='category-card__image-wrapper'>
+    <img
+      height='175'
+      width='150'
+      src=' {{ collection.featured_image.src }}'
+      srcset='
+        {{ collection.featured_image.src | image_url: height: 150, width: 150 }} 500w,
+        {{ collection.featured_image.src | image_url: height: 300, width: 300 }} 767w
+      '
+      alt='{{ collection.featured_image.alt }}'
+      loading='lazy'
+    >
+  </div>
+  <div class='category-card__actions'>
+    {% if collection_name != blank %}
+      <a href='{{ collection.url }}'>{{ collection_name }}</a>
+    {% else %}
+      <a href='{{ collection.url }}'>{{ collection.title }}</a>
+    {% endif %}
+  </div>
+</div>

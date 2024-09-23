@@ -1,0 +1,63 @@
+{% if localization.country.iso_code == 'US'
+  or localization.country.iso_code == 'CA'
+  or localization.country.iso_code == 'GB'
+  or localization.country.iso_code == 'AU'
+  or localization.country.iso_code == 'DE'
+  or localization.country.iso_code == 'MX'
+%}
+  {% assign money_difference = max | minus: value | money %}
+  {% if value != blank and threshold != blank %}
+    {% assign percentage = 100 | times: value | divided_by: threshold %}
+    {% assign percentage = 100 | minus: percentage %}
+    {% assign shipping_break = 100 | times: value | divided_by: max %}
+  {% endif %}
+
+  {% assign message = under_max_message | replace: '[DIFFERENCE]', money_difference %}
+  {% assign money_difference = threshold | minus: value | money %}
+  {% assign message = message
+    | append: under_threshold_message
+    | replace: '[DIFFERENCE]', money_difference
+  %}
+
+  {% if shipping_break >= 100 %}
+    {% assign money_difference = threshold | minus: value | money %}
+    {% assign message = over_max_message
+      | append: under_threshold_message
+      | replace: '[DIFFERENCE]', money_difference
+    %}
+  {% endif %}
+
+  {% if percentage <= 0 %}
+    {% assign percentage = 0 %}
+    {% assign message = over_threshold_message %}
+  {% endif %}
+{% endif %}
+
+<div class='progress-bar {{ class }}' style='--percentage: {{ percentage }}%'>
+  <div class='progress-bar__heading'>
+    {{ message }}
+  </div>
+  <div class='progress-bar__outer{% if localization.country.iso_code == "AU" %} progress-bar__AU{% elsif localization.country.iso_code == "CA" %} progress-bar__CA{% endif %}'>
+    {% if localization.country.iso_code == 'US'
+      or localization.country.iso_code == 'GB'
+      or localization.country.iso_code == 'DE'
+      or localization.country.iso_code == 'MX'
+    %}
+      <p style='left: 10%'>Free Shipping</p>
+      <p style='left: 65.3%'>|</p>
+      <p style='left: 75%'>Gift</p>
+    {% elsif localization.country.iso_code == 'AU' %}
+      <p style='left: 10%'>Free Shipping</p>
+      <p style='left: 87%'>|</p>
+      <p style='left: 89%'>Gift</p>
+    {% elsif localization.country.iso_code == 'CA' %}
+      <p style='left: 10%'>Free Shipping</p>
+      <p style='left: 69.5%'>|</p>
+      <p style='left: 89%'>Gift</p>
+    {% endif %}
+    <div class='progress-bar__inner'>
+      <span class='visually-hidden'>{{ percentage }}%</span>
+    </div>
+  </div>
+  <div class='progress-bar__subheading'></div>
+</div>

@@ -1,0 +1,35 @@
+
+{%
+  liquid
+  assign divider = ""
+    if section.settings.thick_divider == true
+      assign divider = "divider-bold"
+    else
+      assign divider = "divider"
+    endif
+%}
+
+<div class="container">
+  <div class="section-spacer content-wrapper">
+    <div class="{{ divider }}"></div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Section Divider",
+  "class": "section-divider",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "thick_divider",
+      "label": "Make divider thicker"
+    }
+  ],
+"presets": [
+    {
+      "name": "Section Divider"
+    }
+  ]
+}
+{% endschema %}

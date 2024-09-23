@@ -1,0 +1,105 @@
+<div class='section-text'>
+  {% if section.settings.text_title != blank %}
+    <h2>{{ section.settings.text_title }}</h2>
+  {% endif %}
+  {% if section.settings.text_paragraph != blank %}
+    <p>{{ section.settings.text_paragraph }}</p>
+  {% endif %}
+</div>
+
+{% style %}
+  .section-text h2 {
+    font-family: 'Staff X Condensed';
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 37px;
+    letter-spacing: 0em;
+    text-align: {{ section.settings.text_title_justify }};
+    text-transform: {{ section.settings.text_title_transform }};
+  }
+
+  .section-text p {
+    text-align: {{ section.settings.text_paragraph_justify }};
+    text-transform: {{ section.settings.text_paragraph_transform }};
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Section Text",
+  "settings": [
+    {
+      "id": "text_title",
+      "type": "text",
+      "label": "Text heading",
+      "default": "Title"
+    },
+    {
+      "type": "select",
+      "id": "text_title_size",
+      "label": "Title Font Size",
+      "default": "1.6rem",
+      "options": [
+        { "value": "0.8rem", "label": "Small" },
+        { "value": "1.6rem", "label": "Normal" },
+        { "value": "3rem", "label": "Large" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "text_title_justify",
+      "label": "Title Text Align",
+      "default": "left",
+      "options": [
+        { "value": "center", "label": "Center" },
+        { "value": "left", "label": "Left" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "text_title_transform",
+      "label": "Title Text Transform",
+      "default": "capitalize",
+      "options": [
+        { "value": "uppercase", "label": "Uppercase" },
+        { "value": "capitalize", "label": "Capitalize" },
+        { "value": "lowecase", "label": "Lowecase" }
+      ]
+    },
+    {
+      "id": "text_paragraph",
+      "type": "richtext",
+      "label": "Add custom text below",
+      "default": "<p>Add your text here</p>"
+    },
+    {
+      "type": "select",
+      "id": "text_paragraph_justify",
+      "label": "Title Text Align",
+      "default": "left",
+      "options": [
+        { "value": "center", "label": "Center" },
+        { "value": "left", "label": "Left" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "text_paragraph_transform",
+      "label": "Title Text Transform",
+      "default": "capitalize",
+      "options": [
+        { "value": "uppercase", "label": "Uppercase" },
+        { "value": "capitalize", "label": "Capitalize" },
+        { "value": "lowecase", "label": "Lowecase" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Section Text"
+    }
+  ]
+}
+{% endschema %}

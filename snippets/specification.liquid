@@ -1,0 +1,185 @@
+{% liquid
+  assign currenCountry = 'US'
+
+  assign in = 'in'
+  assign cm = 'cm'
+
+  assign dm = in
+
+  unless localization.country.iso_code == currenCountry
+    assign dm = cm
+  endunless
+%}
+
+<table class='size-chart'>
+  <tr>
+    <td width='10' class='size-head'>SIZE</td>
+
+    {% if inseam == true or inseam != blank %}
+      <td width='90'>INSEAM</td>
+    {% endif %}
+
+    {% if S != blank
+      or SB != blank
+      or M != blank
+      or MB != blank
+      or L != blank
+      or LB != blank
+      or XL != blank
+      or XLB != blank
+      or XL2 != blank
+      or XLB2 != blank
+      or XL3 != blank
+      or XLB3 != blank
+      or XL4 != blank
+      or XLB4 != blank
+    %}
+      <td width='45' class='size-head'>BODY LENGTH</td>
+      <td width='45' class='size-head'>SLEEVE LENGTH</td>
+    {% endif %}
+  </tr>
+
+  {% if inseam != blank %}
+    <tr>
+      <td width='10' class='size-dimention'>All</td>
+      <td width='90' class='size-length'>
+        <span> {{ inseam }} </span> {{ dm }}
+      </td>
+    </tr>
+
+  {% else %}
+    {% if SB != blank or SS != blank or S != blank %}
+      <tr>
+        <td width='10' class='size-dimention'>S</td>
+        <td width='45' class='size-length'>
+          <span>
+            {%- if SB != blank %}{{ SB }}{% else %}{{ S }}{% endif -%}
+          </span>
+          {{ dm }}
+        </td>
+        <td width='45' class='size-length'>
+          <span>
+            {%- if SB != blank %}{{ SS }}{% else %}{{ S }}{% endif -%}
+          </span>
+          {{ dm }}
+        </td>
+      </tr>
+    {% endif %}
+    {% if MB != blank or MS != blank or M != blank %}
+      <tr>
+        <td width='10' class='size-dimention'>M</td>
+        <td width='45' class='size-length'>
+          <span>
+            {%- if MB != blank %}{{ MB }}{% else %}{{ M }}{% endif -%}
+          </span>
+          {{ dm }}
+        </td>
+        <td width='45' class='size-length'>
+          <span>
+            {%- if MS != blank %}{{ MS }}{% else %}{{ M }}{% endif %}
+          </span>
+          {{ dm }}
+        </td>
+      </tr>
+    {% endif %}
+    {% if LB != blank or LS != blank or L != blank %}
+      <tr>
+        <td width='10' class='size-dimention'>L</td>
+        <td width='45' class='size-length'>
+          <span>
+            {%- if LB != blank %}{{ LB }}{% else %}{{ L }}{% endif -%}
+          </span>
+          {{ dm }}
+        </td>
+        <td width='45' class='size-length'>
+          <span>
+            {%- if LS != blank %}{{ LS }}{% else %}{{ L }}{% endif -%}
+          </span>
+          {{ dm }}
+        </td>
+      </tr>
+    {% endif %}
+    {% if XLB != blank or XLS != blank or XL != blank %}
+      <tr>
+        <td width='10' class='size-dimention'>XL</td>
+        <td width='45' class='size-length'>
+          <span>
+            {%- if XLB != blank %}{{ XLB }}{% else %}{{ XL }}{% endif -%}
+          </span>
+          {{ dm }}
+        </td>
+        <td width='45' class='size-length'>
+          <span>
+            {%- if XLS != blank %}{{ XLS }}{% else %}{{ XL }}{% endif -%}
+          </span>
+          {{ dm }}
+        </td>
+      </tr>
+    {% endif %}
+    {% if XL2B != blank or XL2S != blank or XL2 != blank %}
+      <tr>
+        <td width='10' class='size-dimention'>2XL</td>
+        <td width='45' class='size-length'>
+          <span>
+            {%- if XL2B != blank %}{{ XL2B }}{% else %}{{ XL2 }}{% endif -%}
+          </span>
+          {{ dm }}
+        </td>
+        <td width='45' class='size-length'>
+          <span>
+            {%- if XL2S != blank %}{{ XL2S }}{% else %}{{ XL2 }}{% endif -%}
+          </span>
+          {{ dm }}
+        </td>
+      </tr>
+    {% endif %}
+    {% if XL3B != blank or XL3S != blank or XL3 != blank %}
+      <tr>
+        <td width='10' class='size-dimention'>3XL</td>
+        <td width='45' class='size-length'>
+          <span>
+            {%- if XL3B != blank %}{{ XL3B }}{% else %}{{ XL3 }}{% endif -%}
+          </span>
+          {{ dm }}
+        </td>
+        <td width='45' class='size-length'>
+          <span>
+            {%- if XL3S != blank %}{{ XL3S }}{% else %}{{ XL3 }}{% endif -%}
+          </span>
+          {{ dm }}
+        </td>
+      </tr>
+    {% endif %}
+    {% if XL4B != blank or XL4S != blank or XL4 != blank %}
+      <tr>
+        <td width='10' class='size-dimention'>4XL</td>
+        <td width='45' class='size-length'>
+          <span>
+            {%- if XL4B != blank %}{{ XL4B }}{% else %}{{ XL4 }}{% endif -%}
+          </span>
+          {{ dm }}
+        </td>
+        <td width='45' class='size-length'>
+          <span>
+            {%- if XL4S != blank %}{{ XL4S }}{% else %}{{ XL4 }}{% endif -%}
+          </span>
+          {{ dm }}
+        </td>
+      </tr>
+    {% endif %}
+  {% endif %}
+</table>
+
+{% if localization.country.iso_code != currenCountry %}
+  <div>
+    <script>
+      function convert() {
+        document.querySelectorAll('.size-length span').forEach((element) => {
+          const inches = element.textContent;
+          element.textContent = inches * Math.round(2.54);
+        });
+      }
+      window.addEventListener('DOMContentLoaded', convert);
+    </script>
+  </div>
+{% endif %}

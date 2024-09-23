@@ -1,0 +1,112 @@
+{% comment %}
+  variables available:
+
+  heading: {string} Heading text
+  heading_level: {string} title tag : h1, h2, h3 ...
+  heading_font: {string} Font family
+  heading_color: {string} Color of text
+  heading_color_inverse: {boolean} if dark color on desktop, inverse color on mobile
+  heading_size: {string} Heading size (desktop)
+  heading_size_mobile: {number} Heading size (mobile)
+  heading_letter_spacing: {number} Letter spacing
+  heading_weight: {number} Font weight
+  heading_margin_bottom: {number} Margin bottom
+  underline: {boolean} Underline the heading
+  line_break_dot: {boolean} On mobile, will for the break the line where a dot is first
+  banner_link: {string} from section settings, link to where click anywhere on the banner will go
+  block_id: {string} unique id
+
+
+  Example:
+
+  {% render 'heading',
+    heading: block.settings.heading,
+    heading_level: block.settings.heading_level,
+    heading_font: block.settings.heading_font,
+    heading_color: block.settings.heading_color,
+    heading_color_inverse: block.settings.heading_color_inverse,
+    heading_size: block.settings.heading_size,
+    heading_size_mobile: block.settings.heading_size_mobile,
+    heading_letter_spacing: block.settings.heading_letter_spacing,
+    heading_weight: block.settings.heading_weight,
+    heading_margin_bottom: block.settings.heading_margin_bottom,
+    underline: block.settings.underline,
+    line_break_dot: block.settings.line_break_dot,
+    banner_link: section.settings.banner_link,
+    block_id: block.id
+  %}
+{% endcomment %}
+
+<style type='text/css'>
+  .block{{ block_id }}.img-banner__heading,
+  .block{{ block_id }}.img-banner__heading > a,
+  .block{{ block_id }}.img-banner__heading > a:hover {
+    font-weight: {{ heading_weight }};
+    color: {{ heading_color }};
+    text-decoration: none;
+    line-height: calc(1 + 0.8 / 1.6);
+    letter-spacing: {{ heading_letter_spacing }}px;
+  }
+
+  @media screen and (max-width: 480px) {
+    .block{{ block_id }}.img-banner__heading,
+    .block{{ block_id }}.img-banner__heading > a,
+    .block{{ block_id }}.img-banner__heading > a:hover {
+      font-size: {{ heading_size_mobile }}rem;
+      margin-bottom: {{ heading_margin_bottom | times: 0.65 }}rem;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .block{{ block_id }}.img-banner__heading,
+    .block{{ block_id }}.img-banner__heading > a,
+    .block{{ block_id }}.img-banner__heading > a:hover {
+      max-width: {{ heading_width_mobile }}px;
+      font-size: {{ heading_size_mobile }}rem;
+      margin-bottom: {{ heading_margin_bottom | times: 0.85 }}rem;
+      {% if heading_color_inverse %}
+        color: var(--brand-white);
+      {% else %}
+        color: {{ heading_color }};
+      {% endif %}
+    }
+  }
+
+  @media screen and (min-width: 769px) {
+    .block{{ block_id }}.img-banner__heading,
+    .block{{ block_id }}.img-banner__heading > a,
+    .block{{ block_id }}.img-banner__heading > a:hover {
+      font-size: {{ heading_size }}rem;
+      margin-bottom: {{ heading_margin_bottom }}rem;
+    }
+  }
+
+  @media screen and (min-width: 769px) and (max-width: 1200px) {
+    .block{{ block_id }}.img-banner__heading,
+    .block{{ block_id }}.img-banner__heading > a,
+    .block{{ block_id }}.img-banner__heading > a:hover {
+      font-size: {{ heading_size | times: 0.75 }}rem;
+    }
+  }
+
+  .block{{ block_id }}.img-banner__heading.underlined-styled:after,
+  .block{{ block_id }}.img-banner__heading .underlined-styled:after {
+    background-color: {{ heading_color }};
+  }
+  .template-collection .block{{ block_id }}.img-banner__heading.underlined-styled:after,
+  .template-collection .block{{ block_id }}.img-banner__heading .underlined-styled:after {
+    background-color: #A79797;
+  }
+</style>
+<{{ heading_level }}
+  class='block{{ block_id }} img-banner__heading {% if line_break_dot == true %} responsive-heading{% endif %} {{ heading_font }}-type {% if underline %}underlined-styled{% endif %}'
+  {{ shopify_attributes }}
+>
+  {%- if banner_link != null -%}
+    <a class='block-inner-link' href='{{ banner_link }}'>
+      {{ heading }}
+    </a>
+  {%- else %}
+    {{ heading }}
+  {%- endif %}
+</{{ heading_level }}>

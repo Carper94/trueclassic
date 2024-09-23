@@ -1,0 +1,19 @@
+.size-select {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+
+  & select {
+    height: 100%;
+    width: 100%;
+    appearance: none;
+  }
+
+  & svg {
+    position: absolute;
+    right: var(--spacer-s);
+    width: 20px;
+    height: auto;
+    pointer-events: none;
+  }
+}

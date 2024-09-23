@@ -1,0 +1,70 @@
+#true-classic-gift-card .size-swatch-giftcard .product-option-giftcard-button {
+  font-size: 16px !important;
+  line-height: 24px !important;
+  font-family: var(--font-family-primary) !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden;
+  height: 0;
+  padding-top: 56.25% !important;
+  position: relative;
+  display: inline-flex;
+  border: 0.0625rem solid var(--brand-gray-medium);
+  border-radius: calc(var(--btn-border-radius) + 6px) !important;
+  background-color: var(--brand-brown);
+  color: var(--brand-white) !important;
+}
+
+#true-classic-gift-card .product-main-form__add-to-cart {
+  flex-wrap: wrap;
+  row-gap: 0.5rem;
+}
+
+#true-classic-gift-card .size-swatch-giftcard .product-option-giftcard-button * {
+  font-size: inherit;
+  font-family: var(--font-staff-x-condensed);
+  white-space: nowrap;
+}
+
+#true-classic-gift-card .size-swatch-giftcard .size-swatch__input-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+@media (min-width: 1444px) {
+  #true-classic-gift-card .size-swatch-giftcard .size-swatch__input-wrapper {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+#true-classic-gift-card .product-option-giftcard-button:hover {
+  background-color: var(--brand-cream) !important;
+  color: var(--brand-black) !important;
+}
+
+#true-classic-gift-card .size-swatch input:checked+label {
+  color: var(--brand-black) !important;
+  background-color: var(--brand-cream);
+}
+
+div[data-custom-giftcard-amount] {
+  margin-top: 0rem;
+  margin-bottom: 0.75rem;
+}
+
+#true-classic-gift-card .product-main-form__add-to-cart button {
+  max-width: 100% !important;
+  width: 100%;
+}
+
+#true-classic-gift-card .product-main-form__add-to-cart #add-to-cart {
+  max-width: calc(100% - 76px);
+  display: block !important;
+
+  @media (--medium) {
+    max-width: calc(100% - 70px) !important;
+  }
+}

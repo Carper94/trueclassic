@@ -1,0 +1,311 @@
+{%- style -%}
+  .er-video-toggle {
+
+  }
+  .er-video-toggle.section-{{ section.id }} {
+    background: {{ section.settings.bg_color }};
+    position: relative;
+  }
+  .er-video-toggle__video {
+    display: none;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  .er-video-toggle__video.active {
+    display: block;
+  }
+  .er-video-toggle__video video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    -o-object-fit: cover;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+  .er-video-toggle__selector-wrapper {
+    background: #E2E2E2;
+    display: flex;
+    justify-content: center;
+    padding: 16px 0;
+  }
+  .er-video-toggle__selector-inner {
+    display: flex;
+    gap: 25px;
+  }
+  .er-video-toggle__selector-text {
+    font-size: 20px;
+    font-weight: 400;
+    color: #212121;
+    display: flex;
+    align-items: center;
+  }
+  .er-video-toggle__selector {
+    display: flex;
+    background: white;
+    border-radius: 50px;
+    padding: 8px 12px;
+  }
+  .er-video-toggle__selector-button {
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: uppercase;
+    border-radius: 50px;
+    padding: 6px 20px;
+    cursor: pointer;
+  }
+  input[name='er_video_size_toggle_input']:checked + label.er-video-toggle__selector-button {
+    background: #53433A;
+    color: white;
+  }
+  input[name='er_video_size_toggle_input']:checked + .er-video-toggle__video {
+    display: block;
+  }
+  @media screen and (max-width: 620px) {
+    .er-video-toggle__selector-wrapper {
+      position: absolute;
+      width: 80%;
+      top: 50%;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      height: fit-content;
+      background: #23232399;
+      border-radius: 20px;
+      padding: 12px 0;
+    }
+    .er-video-toggle__selector-inner {
+      flex-direction: column;
+      gap: 8px;
+    }
+    .er-video-toggle__selector-text {
+      color: white;
+      display: flex;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 400;
+    }
+    .er-video-toggle__selector-button {
+      font-size: 12px;
+      font-weight: 400;
+    }
+  }
+{%- endstyle -%}
+
+{% if section.blocks.size > 0 %}
+  <div class='er-video-toggle section-{{ section.id }}'>
+    <a href='/collections/sale'>
+      <div class='container'>
+        {% for block in section.blocks %}
+          <div
+            class='er-video-toggle__video'
+            data-index={{ forloop.index0 }}
+            {% if forloop.index0 == 2 %}
+              style='display: block;'
+            {% endif %}
+          >
+            <deferred-media>
+              {% comment %} {{
+                block.settings.video
+                | video_tag: autoplay: true, loop: true, controls: false, muted: true, class: 'desktop-only'
+              }}
+              {{
+                block.settings.video_mobile
+                | video_tag: autoplay: true, loop: true, controls: false, muted: true, class: 'mobile-only'
+              }} {% endcomment %}
+              {% if block.settings.videowise_desktop %}
+                <div class="desktop-only">
+                  {{ block.settings.videowise_desktop }}
+                </div>
+              {% else %}
+                <video
+                  playsinline='playsinline'
+                  autoplay='true'
+                  loop='true'
+                  muted='true'
+                  class='desktop-only'
+                  poster='{{ block.settings.video.preview_image.src | image_url: width: 1920 }}'
+                  data-src='{{ block.settings.video.sources[1].url }}'>
+                  <source src='' type='video/mp4'>
+                  Your browser does not support the video tag.
+                </video>
+              {% endif %}
+
+              {% if block.settings.videowise_mobile %}
+                <div class="mobile-only">
+                  {{ block.settings.videowise_mobile }}
+                </div>
+              {% else %}
+                <video
+                  playsinline='playsinline'
+                  autoplay='true'
+                  loop='true'
+                  muted='true'
+                  class='mobile-only'
+                  poster='{{ block.settings.video_mobile.preview_image.src | image_url: width: 500 }}'
+                  data-src='{{ block.settings.video_mobile.sources[1].url }}'>
+                  <source src='' type='video/mp4'>
+                  Your browser does not support the video tag.
+                </video>
+              {% endif %}
+
+            </deferred-media>
+          </div>
+        {% endfor %}
+      </div>
+    </a>
+    <div class='container er-video-toggle__selector-wrapper'>
+      <div class='er-video-toggle__selector-inner'>
+        <div class='er-video-toggle__selector-text'>Compare in different sizes:</div>
+        <div class='er-video-toggle__selector'>
+          {% for block in section.blocks %}
+            <input
+              class='visually-hidden'
+              type='radio'
+              id='toggle-{{ forloop.index0 }}'
+              name='er_video_size_toggle_input'
+              data-index={{ forloop.index0 }}
+              value={{ block.settings.size }}
+              autocomplete='off'
+              {% if forloop.index0 == 2 %}
+                checked
+              {% endif %}
+              >
+            <label
+              for='toggle-{{ forloop.index0 }}'
+              class='er-video-toggle__selector-button'
+            >{{ block.settings.size }}</label>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+<script>
+  // Intersection Observer to lazy load videos
+  document.addEventListener("DOMContentLoaded", function() {
+    var videoElements = document.querySelectorAll('video[data-src]');
+
+    var observer = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var video = entry.target;
+          video.src = video.dataset.src;
+          video.removeAttribute('data-src');
+          observer.unobserve(video);
+        }
+      });
+    });
+
+    videoElements.forEach(function(video) {
+      observer.observe(video);
+    });
+  });
+</script>
+
+<script>
+  function erVideoToggle() {
+    const sizeSelectors = document.querySelectorAll('input[name="er_video_size_toggle_input"]');
+    if (!sizeSelectors) return;
+    sizeSelectors.forEach(input => {
+      input.addEventListener('change', () => erVideoToggleChangeSize(input));
+    });
+  }
+  function erVideoToggleChangeSize(input) {
+
+    const index = input.getAttribute('data-index');
+
+    // Select all matching elements
+    const elements = document.querySelectorAll('.er-video-toggle__selector input');
+    
+    // Loop through each element and set its checked property to false
+    elements.forEach(element => {
+        element.checked = false;
+    });
+    document.querySelector(`.er-video-toggle__selector input[id="toggle-${index}"]`).checked = true;
+
+    // Select all matching elements
+    const videoElements = document.querySelectorAll('.er-video-toggle__video');
+    
+    // Loop through each element and set its checked property to false
+    videoElements.forEach(element => {
+        element.style.display = "none";
+    });
+
+    console.log(document.querySelector(`.er-video-toggle__video[data-index="${index}"]`))
+    document.querySelector(`.er-video-toggle__video[data-index="${index}"]`).style.setProperty('display', 'block', 'important');
+
+    
+      /*
+    const currentVideoActive = document.querySelector('.er-video-toggle__video.active');
+    if (!currentVideoActive) return;
+    currentVideoActive.classList.remove('active');
+    const newVideo = document.querySelector(`.er-video-toggle__video[data-index="${index}"]`);
+    newVideo.classList.add('active');
+      */
+  }
+  document.addEventListener('DOMContentLoaded', () => {
+    erVideoToggle();
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Video Toggle AB Test",
+  "limit": 1,
+  "max_blocks": 3,
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "video",
+      "name": "Video",
+      "settings": [
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Native Video Desktop"
+        },
+        {
+          "type": "video",
+          "id": "video_mobile",
+          "label": "Native Video Mobile"
+        },
+        {
+          "type": "text",
+          "id": "size",
+          "label": "Size"
+        },
+        {
+          "type": "header",
+          "content": "Videowise",
+          "info": "Below is optional use of videowise hosting (overwrites native)"
+        },
+        {
+          "type": "liquid",
+          "id": "videowise_desktop",
+          "label": "Videowise Video Desktop"
+        },
+        {
+        "type": "liquid",
+        "id": "videowise_mobile",
+        "label": "Videowise Video Mobile"
+      }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Video Toggle AB Test"
+    }
+  ]
+}
+{% endschema %}

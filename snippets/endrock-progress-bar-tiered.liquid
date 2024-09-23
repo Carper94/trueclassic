@@ -1,0 +1,391 @@
+{% assign shipping = shipping | times: 100 %}
+{% assign gwp_1 = gwp_1 | times: 100 %}
+{% assign gwp_2 = gwp_2 | times: 100 %}
+{% assign gwp_3 = gwp_3 | times: 100 %}
+{%- if gwp_1_image -%}
+  {% assign gwp_item_1 = gwp_1_image %}
+{%- else-%}
+  {% assign gwp_item_1 = section.settings.gwp_1 %}
+{%- endif -%}
+{% assign gwp_item_2 = section.settings.gwp_2 %}
+{%- if gwp_3_image -%}
+  {% assign gwp_item_3 = gwp_3_image %}
+{%- else-%}
+  {% assign gwp_item_3 = section.settings.gwp_3 %}
+{%- endif -%}
+
+{% if value < 1 %}
+  {% assign percentage = 0 %}
+{% elsif value >= 1 and value < shipping %}
+  {% assign percentage = value | times: 6 | divided_by: shipping %}
+{% elsif value == shipping %}
+  {% assign percentage = 6 %}
+{% elsif value > shipping and value < gwp_1 %}
+  {% assign percentage = value | times: 44 | divided_by: gwp_1 %}
+{% elsif value == gwp_1 %}
+  {% assign percentage = 44 %}
+{% elsif value > gwp_1 and value < gwp_2 %}
+  {% assign percentage = value | times: 82 | divided_by: gwp_2 %}
+{% elsif value == gwp_2 %}
+  {% assign percentage = 100 %}
+{% endif %}
+
+{% style %}
+  .endrock-mini-cart__progress-bar-wrapper .progress-bar .progress-bar__outer {
+    background-color: #ddd;
+    background-color: var(--brand-gray-light);
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  .endrock-mini-cart__progress-bar-wrapper .tiered-progress-bar .progress-bar__outer {
+    margin-bottom: 0;
+  }
+  .endrock-mini-cart__progress-bar-wrapper .tiered-progress-bar .tier-wrapper {
+    width: fit-content;
+    max-width: 115px;
+    margin-left: auto;
+    margin-right: auto;
+    display: FLEX;
+    flex-direction: column;
+    align-items: center;
+  }
+  .endrock-mini-cart__progress-bar-wrapper .tiered-progress-bar {
+    position: relative;
+    overflow: visible;
+    margin: 0;
+  }
+  .endrock-mini-cart__progress-bar-wrapper .tiered-progress-bar .tiered-bubble__outer {
+    position: relative;
+    top: -12px;
+    margin-top: -20px;
+    z-index: 2;
+    background: #ededed;
+    border-radius: 50%;
+    padding: 4px;
+  }
+  .endrock-mini-cart__progress-bar-wrapper .tiered-progress-bar .tiered-bubble {
+    background-color: #fff;
+    width: 48px;
+    height: 48px;
+    padding: 0.25rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .endrock-mini-cart__progress-bar-wrapper .tiered-progress-bar .tiered-bubble img {
+    margin: 2px auto;
+    border-radius: 20%;
+    opacity: 0.95;
+    height: auto;
+    width: 30px;
+  }
+  .endrock-mini-cart__progress-bar-wrapper .tiered-progress-bar .tier-bubble__price {
+    padding-top: 0;
+    color: #2E2520;
+    text-align: center;
+    font-family: "Modernist";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 14px;
+    letter-spacing: 0.48px;
+    margin-bottom: 4px;
+    opacity: 1;
+  }
+  .endrock-mini-cart__progress-bar-wrapper .tiered-progress-bar .tier-bubble__title {
+    color:#2E2520;
+    text-align: center;
+    font-family: "Modernist";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 0.36px;
+    opacity: 1;
+  }
+  .endrock-mini-cart__progress-bar-wrapper .tiered-progress-bar .tiered-bubble_container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    column-gap: 64px;
+  }
+  .endrock-mini-cart__progress-bar-wrapper .tiered-progress-bar .tiered-bubble_filled {
+    position: relative;
+  }
+  .endrock-mini-cart__progress-bar-wrapper .tiered-progress-bar .tiered-bubble_filled img {
+    opacity: 1;
+  }
+  .endrock-mini-cart__progress-bar-wrapper .tiered-progress-bar .tiered-bubble_filled .bubble {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    position: absolute;
+    border-radius: 50%;
+    border: solid 1px #2ecc71;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: bubbleAnimation 0.5s linear forwards;
+    opacity: 0;
+  }
+  .endrock-mini-cart__progress-bar-wrapper .tiered-progress-bar .tiered-bubble_filled .check-mark {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: solid 3px #2ecc71;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0);
+    animation: checkAnimation 0.5s linear forwards;
+    animation-delay: 0.5s;
+  }
+  .endrock-mini-cart__progress-bar-wrapper .tiered-progress-bar .tiered-bubble_filled .check-mark svg {
+    width: 50%;
+    height: 50%;
+  }
+  .endrock-mini-cart__progress-bar-wrapper .tiered-progress-bar .tiered-bubble_filled .discount-pack-list-item__image {
+    opacity: .3;
+  }
+  .endrock-mini-cart__progress-bar-wrapper  .tiered-progress-bar .progress-bar__inner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    direction: rtl;
+    z-index: 0;
+    border-radius: 0 100px 100px 0;
+  }
+  .tiered-bubble_filled + .tier-bubble__price, .tiered-bubble_filled + .tier-bubble__price + .tier-bubble__title {
+    opacity: 1;
+  }
+  .mini-cart__content .endrock-mini-cart__progress-bar-wrapper .headline {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+  .endrock-mini-cart__progress-bar-wrapper .progress-bar__heading p {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 0.42px;
+  }
+  .endrock-mini-cart__progress-bar-wrapper .progress-bar__heading span.text {
+    font-weight: 700;
+  }
+  .endrock-mini-cart__progress-bar-wrapper .show_progress-bar {
+    height: 4px;
+    background-color: #7CCB7C;
+    box-shadow: none;
+    -webkit-animation: progress-bar-stripes 1s linear infinite, progress-bar-width 1s linear;
+    -o-animation: progress-bar-stripes 1s linear infinite, progress-bar-width 1s linear;
+    animation: progress-bar-stripes 1s linear infinite, progress-bar-width 1s linear;
+    background-image: -webkit-linear-gradient(45deg, #0000003d 25%, transparent 25%, transparent 50%, #0000003d 50%, #0000003d 75%, transparent 75%, transparent);
+    background-image: -o-linear-gradient(45deg, #0000003d 25%, transparent 25%, transparent 50%, #0000003d 50%, #0000003d 75%, transparent 75%, transparent);
+    background-image: linear-gradient(45deg, #0000003d 25%, transparent 25%, transparent 50%, #0000003d 50%, #0000003d 75%, transparent 75%, transparent);
+    background-size: 15px 15px;
+  }
+  @-webkit-keyframes progress-bar-stripes {
+    from {
+      background-position: 40px 0;
+    }
+    to {
+      background-position: 0 0;
+    }
+  }
+  @keyframes progress-bar-stripes {
+    from {
+      background-position: 40px 0;
+    }
+    to {
+      background-position: 0 0;
+    }
+  }
+  @keyframes progress-bar-width {
+    from {
+      width:0;
+    }
+    to {
+      width: {{ percentage }}
+    }
+  }
+  @keyframes bubbleAnimation {
+    0% {
+      transform: translate(-50%, 150%);
+      opacity: 0;
+    }
+    50% {
+      transform: translate(-50%, -150%);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, -300%);
+      opacity: 0;
+    }
+  }
+  @keyframes checkAnimation {
+    0% {
+      transform: scale(0);
+    }
+    70% {
+      transform: scale(1.3);
+    }
+    80% {
+      transform: scale(1);
+    }
+    90% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+{% endstyle %}
+
+<div class='endrock-mini-cart__progress-bar-wrapper' style='margin-bottom: 20px;'>
+  {% if value > gwp_2 %}
+    <h2 class='headline text-center progress-bar-headline'>
+      You've Unlocked All Gifts!
+    </h2>
+  {% elsif value >= gwp_1 %}
+    <h2 class='headline text-center progress-bar-headline'>
+      You've Unlocked {% if gwp_text_1 != '' %}{{ gwp_text_1 | capitalize }}{% else %}{{ section.settings.gwp_text_1 | capitalize }}{% endif %}!
+    </h2>
+  {% elsif value >= shipping %}
+    <h2 class='headline text-center progress-bar-headline'>You've Unlocked Free Shipping!</h2>
+  {% else %}
+    <h2 class='headline text-center progress-bar-headline'>Unlock Free Gifts!</h2>
+  {% endif %}
+
+  <div
+    class='progress-bar tiered-progress-bar'
+    style='--percentage: {{ percentage }}%;'
+  >
+    <div class='progress-bar__heading progress-bar__heading'>
+      {% if value >= gwp_2 %}
+        <p class="text-center"></p>
+      {% elsif value >= gwp_1 %}
+        {% assign distance = gwp_2 | minus: value %}
+        <p class="text-center">
+          You are {{ distance | money }} from a <span class="text">{% if gwp_text_2 != '' %}</span>
+            {{ gwp_text_2 | capitalize }}
+          {% else %}
+            {{ section.settings.gwp_text_2 | capitalize }}
+          {% endif %}!
+        </p>
+      {% elsif value >= shipping %}
+        {% assign distance = gwp_1 | minus: value %}
+        <p class="text-center">
+          You are {{ distance | money }} from a <span class="text">{% if gwp_text_1 != '' %}</span>
+            {{ gwp_text_1 | capitalize }}
+          {% else %}
+            {{ section.settings.gwp_text_1 | capitalize }}
+          {% endif %}!
+        </p>
+      {% else %}
+        {% assign distance = shipping | minus: value %}
+        <p class="text-center">
+          You are {{ distance | money }} from <span class="text">{{ section.settings.shipping_text }}!</span>
+        </p>
+      {% endif %}
+    </div>
+    <div
+      class='progress-bar__outer'
+    >    
+      <div class="show_progress-bar progress_width-animation" style="width:{{ percentage }}%;"></div>
+    </div>
+     <div class='tiered-bubble_container'>
+        <div class='tier-wrapper'>
+          <div
+            class='tiered-bubble__outer{% if value >= shipping %} tiered-bubble_filled{% elsif value > 0 %} tiered-bubble_half-filled{% endif %}'
+          >
+            <div class='tiered-bubble'>
+              {% if value >= shipping %}
+                {% render 'endrock-bubbles-animation' %}
+              {% endif %}
+              <img
+                class='discount-pack-list-item__image'
+                src='{{ section.settings.shipping_image | image_url: width: 120 }}'
+                alt='{{ section.settings.shipping_image.alt }}'
+                width='44'
+                height='44'
+                loading='lazy'
+              >
+            </div>
+          </div>
+          <p class='tier-bubble__price'>
+            {{ localization.country.currency.symbol -}}
+            {{- shipping | divided_by: 100 }}
+          </p>
+          <p class='tier-bubble__title'>
+            {{ section.settings.shipping_text | capitalize }}
+          </p>
+        </div>
+        <div class='tier-wrapper'>
+          <div
+            class='tiered-bubble__outer{% if value >= gwp_1 %} tiered-bubble_filled{% elsif value >= shipping %} tiered-bubble_half-filled{% endif %}'
+          >
+            <div class='tiered-bubble'>
+              {% if value >= gwp_1 %}
+                {% render 'endrock-bubbles-animation' %}
+              {% endif %}
+              <img
+                class='discount-pack-list-item__image'
+                src='{%- if gwp_image_1 -%}{{- gwp_image_1 | image_url: width: 120 -}}{%- else -%} {{- section.settings.gwp_image_1 | image_url: width: 120 -}}{%- endif -%}'
+                alt='{{ section.settings.gwp_image_1.alt }}'
+                width='44'
+                height='44'
+                loading='lazy'
+              >
+            </div>
+          </div>
+          <p class='tier-bubble__price'>
+            {{ localization.country.currency.symbol -}}
+            {{- gwp_1 | divided_by: 100 }}
+          </p>
+          <p class='tier-bubble__title'>
+          {%- if gwp_text_1 != '' -%}
+            {{ gwp_text_1 | capitalize }}
+          {%- else -%}
+            {{ section.settings.gwp_text_1 | capitalize | replace: "Free ", "" | capitalize }}
+          {%- endif -%}
+          </p>
+        </div>
+        <div class='tier-wrapper'>
+          <div
+            class='tiered-bubble__outer{% if value >= gwp_2 %} tiered-bubble_filled{% elsif value >= gwp_1 %} tiered-bubble_half-filled{% endif %}'
+          >
+            <div class='tiered-bubble'>
+              {% if value >= gwp_2 %}
+                {% render 'endrock-bubbles-animation' %}
+              {% endif %}
+              <img
+                class='discount-pack-list-item__image'
+                src='{%- if gwp_image_2 -%}{{- gwp_image_2 | image_url: width: 120 -}}{%- else -%} {{- section.settings.gwp_image_2 | image_url: width: 120 -}}{%- endif -%}'
+                alt='{{ section.settings.gwp_image_2.alt }}'
+                width='44'
+                height='44'
+                loading='lazy'
+              >
+            </div>
+          </div>
+          <p class='tier-bubble__price'>
+            {{ localization.country.currency.symbol -}}
+            {{- gwp_2 | divided_by: 100 }}
+          </p>
+          <p class='tier-bubble__title'>
+            {%- if gwp_text_2 != '' -%}
+              {{- gwp_text_2 | capitalize -}}
+            {%- else -%}
+              {{- section.settings.gwp_text_2 | capitalize | replace: "Free ", "" | capitalize -}}
+            {%- endif -%}
+          </p>
+        </div>
+      </div>
+  </div>
+</div>

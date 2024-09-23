@@ -1,0 +1,7 @@
+#FreeShippingBanner {
+  display: none;
+}
+
+.cc-window.cc-banner.cc-type-opt-in {
+  z-index: 99999;
+}

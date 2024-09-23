@@ -1,0 +1,87 @@
+{% comment %}
+  variables available:
+
+  button_label: {string} Heading text
+  button_font: {string} Font family
+  button_color: {string} Color of text
+  button_color_inverse: {boolean} if dark color on desktop, inverse color on mobile
+  button_size: {string} Button size (desktop)
+  button_link: {number} Button link
+  button_style_secondary: {number} Button style secondary
+  button_weight: {string} Button weight
+  button_letter_spacing: {string} Button letter spacing
+  button_padding_horizontal: {number} Button padding horizontal
+  button_padding_vertical: {number} Button padding vertical
+  block_id: {string} unique id
+
+
+  Example:
+
+  {% render 'button',
+    button_label: block.settings.button_label,
+    button_font: block.settings.button_font,
+    button_color: block.settings.button_color,
+    button_bg_color: block.settings.button_bg_color,
+    button_width: block.settings.button_width,
+    button_color_inverse: block.settings.button_color_inverse,
+    button_size: block.settings.button_size,
+    button_link: block.settings.button_link,
+    button_style_secondary: block.settings.button_style_secondary,
+    button_weight: block.settings.button_weight,
+    button_letter_spacing: block.settings.button_letter_spacing,
+    button_padding_horizontal: block.settings.button_padding_horizontal,
+    button_padding_vertical: block.settings.button_padding_vertical,
+    block_id: block.id
+  %}
+{% endcomment %}
+
+<style type='text/css'>
+  .block{{ block_id }} a.button {
+    color: {{ button_color }}!important;
+    background-color: {{ button_bg_color }}!important;
+    border: none!important;
+    {% unless button_width == 0 %}
+      width: {{ button_width }}px!important;
+    {% endunless %}
+    font-size: {{ button_size }}rem;
+  }
+  .block{{ block_id }} a.button--inline {
+    color: {{ button_color }}!important;
+    background-color: {{ button_bg_color }}!important;
+    border: none!important;
+    border-radius: 0px!important;
+    {% unless button_width == 0 %}
+      width: {{ button_width }}px!important;
+    {% endunless %}
+    font-size: {{ button_size }}rem;
+  }
+  @media screen and (max-width: 768px) {
+    .block{{ block_id }} a.button, .block{{ block_id }} a.button--inline {
+      {% if button_color_inverse %}
+        background-color: var(--brand-white)!important;
+        color: var(--brand-chocolate-mid)!important;
+      {% endif %}
+    }
+    .block{{ block_id }} a.button, .block{{ block_id }} a.button--inline {
+      {% if button_color_inverse %}
+        background-color: var(--brand-white)!important;
+        color: var(--brand-chocolate-mid)!important;
+      {% endif %}
+    }
+  }
+</style>
+<div {{ block.shopify_attributes }} class='block{{ block_id }} content__buttons'>
+  {%- if button_label != blank -%}
+    <a
+      {% if button_link == blank %}
+        role='link' aria-disabled='true'
+      {% else %}
+        href='{{ button_link }}'
+      {% endif %}
+      class='{% if button_style_secondary %} button--inline{% else %} button{% endif %} {{ button_font }}-type'
+    >
+      {%- render 'icon-cta-arrow' -%}
+      {{- button_label -}}
+    </a>
+  {%- endif -%}
+</div>

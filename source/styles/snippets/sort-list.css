@@ -1,0 +1,5 @@
+body .sort-list {
+  & > * + * {
+    margin-top: var(--spacer-s);
+  }
+}

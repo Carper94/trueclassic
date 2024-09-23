@@ -1,0 +1,149 @@
+{% liquid
+  assign show = true
+  if section.settings.show_only_home
+    if template.name != 'index'
+      assign show = false
+    endif
+  endif
+%}
+
+{% if show %}
+  <style>
+    .er-scrollable-nav-A-variant-wrapper {
+      max-width: 100vw !important;
+    }
+
+    .er-scrollable-navigation__wrapper {
+      display: block;
+      width: 100%;
+      max-width: 100vw !important;
+      overflow-x: hidden;
+      background: #fffae9;
+      height: fit-content;
+    }
+
+    @media screen and (min-width: 470px) {
+      .er-scrollable-navigation__wrapper {
+        display: none;
+      }
+    }
+
+    .er-scrollable-navigation__wrapper .menu-items__wrapper {
+      padding: 10px 0px;
+      display: flex;
+      width: 100%;
+      overflow-x: scroll;
+      scroll-behavior: smooth;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .er-scrollable-navigation__wrapper .menu-items__wrapper::-webkit-scrollbar {
+      display: none;
+    }
+
+    .er-scrollable-navigation__wrapper .menu-items__wrapper .menu-items--item-outer {
+      display: flex;
+      flex-direction: column;
+      padding: 0 5px;
+      min-width: 78px;
+      text-decoration: none;
+    }
+
+    .er-scrollable-navigation__wrapper .menu-items__wrapper .menu-items--item-outer:first-child {
+      padding: 0 5px 0 10px;
+    }
+
+    .er-scrollable-navigation__wrapper .menu-items__wrapper .menu-items--item-outer:hover {
+      text-decoration: none;
+    }
+
+    .er-scrollable-navigation__wrapper .menu-items__wrapper .menu-items--item-outer .image,
+    .er-scrollable-navigation__wrapper .menu-items__wrapper .menu-items--item-outer .image img {
+      border-radius: 50%;
+    }
+
+    .er-scrollable-navigation__wrapper .menu-items__wrapper .menu-items--item-outer .text {
+      font-size: 11px;
+      line-height: 16px;
+      font-weight: 400;
+      text-align: center;
+      margin-top: 5px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .er-scrollable-navigation__wrapper .menu-items__wrapper .menu-items--item-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  </style>
+  {% if section.blocks.size > 0 %}
+    <div class='er-scrollable-navigation__wrapper'>
+      <div class='menu-items__wrapper'>
+        {% for block in section.blocks %}
+          <a href='{{ block.settings.url }}' class='menu-items--item-outer'>
+            <div class='menu-items--item-inner'>
+              <div class='image'>
+                <img
+                  src='{{ block.settings.image | image_url: width: '80' }}'
+                  loading='eager'
+                  width='64'
+                  height='64'
+                  alt='{{ block.settings.text }}'
+                >
+              </div>
+              <div class='text' style='color: {{ block.settings.link_text_color }}'>
+                {{ block.settings.text }}
+              </div>
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+{% endif %}
+
+{% schema %}
+{
+  "name": "ER scrollable nav v1",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_only_home",
+      "label": "Show only on homepage",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "menu_item",
+      "name": "Menu Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Link text"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Menu item link"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Menu item image"
+        },
+        {
+          "type": "color",
+          "id": "link_text_color",
+          "label": "Link text color",
+          "default": "#2E2520"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

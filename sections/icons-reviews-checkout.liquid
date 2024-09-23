@@ -1,0 +1,346 @@
+{% comment %} TO DO  {% endcomment %}
+{% comment %}
+  - make image and text editable in global theme settings.
+{% endcomment %}
+{% comment %} END TO DO {% endcomment %}
+
+<script type='text/javascript'>
+  window.addEventListener('DOMContentLoaded', function () {
+    const valuePropsTestimonials = document.getElementById('value-props-testimonials');
+    const isMobile = window.innerWidth < 1000;
+    let targetElement;
+    let className;
+
+    if (isMobile) {
+      className = 'mobile-only-box';
+      targetElement = document.querySelector('.step__footer');
+    } else {
+      className = 'desktop-only-box';
+      if (Shopify.Checkout.step == 'contact_information') {
+        targetElement = document.querySelector('.GiftNote');
+      } else if (Shopify.Checkout.step == 'shipping_method') {
+        targetElement = document.querySelector(
+          '.order-summary__section.order-summary__section--total-lines'
+        );
+      } else if (Shopify.Checkout.step == 'payment_method') {
+        targetElement = document.querySelector(
+          '.order-summary__section.order-summary__section--total-lines'
+        );
+      } else if (Shopify.Checkout.step == 'review') {
+        targetElement = document.querySelector('.GiftNote');
+      }
+    }
+
+    if (isMobile) {
+      if (targetElement) {
+        targetElement.insertAdjacentElement('afterend', valuePropsTestimonials);
+        valuePropsTestimonials.classList.remove('hidden');
+        valuePropsTestimonials.classList.add(className);
+      }
+      valuePropsTestimonials.classList.remove('desktop-only-box');
+    } else {
+      if (targetElement) {
+        targetElement.insertAdjacentElement('afterend', valuePropsTestimonials);
+        valuePropsTestimonials.classList.remove('hidden');
+        valuePropsTestimonials.classList.add(className);
+      }
+      valuePropsTestimonials.classList.remove('mobile-only-box');
+    }
+  });
+</script>
+
+<style type='text/css'>
+  #value-props-testimonials {
+    opacity: 0;
+    -webkit-animation: fadeIn 0.5s ease-in-out;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  #value-props-testimonials.desktop-only-box,
+  #value-props-testimonials.mobile-only-box {
+    opacity: 1;
+  }
+
+  #value-props-testimonials.hidden {
+    position: absolute;
+  }
+
+  @-webkit-keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .usp-section {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    border-top: 1px solid rgba(175, 175, 175, 0.34);
+    padding: 15px 0px;
+    margin-top: 1.5em;
+  }
+
+  .GiftNote {
+    margin: 20px 0px 0px;
+  }
+
+  .usp-block {
+    text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    row-gap: 0.5rem;
+  }
+
+  .testimonial-rating--wrapper.desktop-only {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    column-gap: 0.55rem;
+    align-items: center;
+  }
+
+  .usp-block img {
+    height: 30px;
+    width: auto;
+    max-width: 100%;
+    -o-object-fit: contain;
+    object-fit: contain;
+  }
+
+  .usp-block svg,
+  .testimonial-rating--wrapper svg {
+    width: 100px;
+    font-weight: 700;
+    fill: rgb(255, 222, 106);
+    stroke: rgb(40, 40, 40);
+  }
+
+  .testimonial-slider .slide-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding: 0px 1.25rem;
+    width: 100%;
+    height: 100%;
+  }
+
+  .testimoial-bock {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: calc(100% - 30px);
+    border: 1px solid rgb(0, 0, 0);
+    padding: 15px;
+    border-radius: 15px;
+    margin: 10px 0px;
+  }
+
+  .testimonial-quote {
+    width: 40px;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+  }
+
+  .testimonial-author--wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 0.625rem;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    font-weight: 700;
+    font-size: 0.75rem;
+  }
+
+  .mobile-only-box {
+    display: none;
+  }
+
+  @media (min-width: 1000px) {
+    .main__content {
+      padding-bottom: 7rem;
+    }
+  }
+
+  @media (max-width: 999px) {
+    .desktop-only-box {
+      display: none;
+    }
+    .mobile-only-box {
+      display: block;
+    }
+  }
+</style>
+
+{% assign country_code = checkout.shipping_address.country_code %}
+
+<div id='value-props-testimonials' class='hidden'>
+  <div class='usp-section'>
+    <div class='usp-block'>
+      <img
+        src='https://cdn.shopify.com/s/files/1/0650/4883/8385/files/Satisfaction_Guarantee.png?v=1672746986'
+        loading='lazy'
+        width='30.65'
+        height='30'
+      >
+      <span>{{ section.settings.satisfaction_text }}</span>
+    </div>
+    <div class='usp-block'>
+      <img
+        src='https://cdn.shopify.com/s/files/1/0650/4883/8385/files/Easy_Returns.png?v=1672746986'
+        loading='lazy'
+        width='30'
+        height='30'
+      >
+      <span>{{ section.settings.shipping_text }}</span>
+    </div>
+    <div class='usp-block'>
+      <img
+        src='https://cdn.shopify.com/s/files/1/0650/4883/8385/files/Free_Shipping.png?v=1672746986'
+        loading='lazy'
+        width='43.84'
+        height='30'
+      >
+      {% for block in section.blocks %}
+        {% if block.settings.text == country_code %}
+          <span
+            >Free {{ country_code }} Shipping Over {{ block.settings.shipping_threshold }}
+            {{ checkout.currency }}
+          </span>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  <div class='testimoial-bock'>
+    <div class='testimonial-quote'>{% render 'tc-icons', icon: 'quote' %}</div>
+    <div class='testimonial-content--wrapper'>
+      <div class='testimonial-rating--wrapper desktop-only'>
+        {% render 'tc-icons', icon: 'stars' %}
+        <span class='testimonial__rating'>5.0</span>
+        <span class='testimonial__headline'>Best shirt ever!</span>
+      </div>
+      <p class='testimonial__text'>They fit amazing! Honestly best shirts i've ever worn!</p>
+      <div class='testimonial-author--wrapper'>
+        <div class='testimonial-author--content'>
+          <div>
+            <span>Nick Van Der Vegt</span>
+            &nbsp;•
+            <span>5'11"</span>&nbsp;•
+            <span>200lbs</span>
+          </div>
+          <div>Reviewing: The Staple 6-Pack</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class='testimoial-bock'>
+    <div class='testimonial-quote'>{% render 'tc-icons', icon: 'quote' %}</div>
+    <div class='testimonial-content--wrapper'>
+      <div class='testimonial-rating--wrapper desktop-only'>
+        {% render 'tc-icons', icon: 'stars' %}
+        <span class='testimonial__rating'>5.0</span>
+        <span class='testimonial__headline'>Great fit, Great Price</span>
+      </div>
+      <p class='testimonial__text'>
+        True Classic® Tees provide awesome shirts. They are soft, the material they use is amazing. I
+        like the way it fits me and the fact that is is affordable.
+      </p>
+      <div class='testimonial-author--wrapper'>
+        <div class='testimonial-author--content'>
+          <div>
+            <span>Michael Jones</span>
+            &nbsp;•
+            <span>6'3"</span>&nbsp;•
+            <span>205lbs</span>
+          </div>
+          <div>Reviewing: Bluestone V-Neck T-Shirt</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Free Shipping Threshold",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Settings"
+    },
+    {
+      "type": "text",
+      "id": "satisfaction_text",
+      "label": "Satisfaction text",
+      "default": "100% Satisfaction Guarantee"
+    },
+    {
+      "type": "text",
+      "id": "shipping_text",
+      "label": "Shipping text",
+      "default": "Free  &amp; Easy Returns"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "shipping",
+      "name": "Shipping Threshold",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "US, CA, AU, GB etc."
+        },
+        {
+          "type": "number",
+          "id": "shipping_threshold",
+          "label": "Threshold Price"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Free Shipping Threshold"
+    }
+  ]
+}
+{% endschema %}

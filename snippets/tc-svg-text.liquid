@@ -1,0 +1,18 @@
+{% style %}
+
+.tc-svg-text-container--{{ section.id }} {
+  width: {{ block.width_d }}px;
+}
+
+@media screen and (max-width: 571px) {
+  .tc-svg-text-container--{{ section.id }} {
+    width: {{ block.width_m }}px;
+  }
+}
+
+{% endstyle %}
+
+<div class="tc-svg-text-container tc-svg-text-container--{{ section.id }}">
+  <img src="{{ block.image | img_url: 'master'  }}" alt="{{ block.title }}">
+  <p>{{ block.title }}</p>
+</div>

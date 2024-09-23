@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="24px" height="24px">
+  <g>
+    <line stroke='currentColor' stroke-width='2' stroke-miterlimit='10' x1="4" y1="4" x2="20" y2="20" />
+    <line stroke='currentColor' stroke-width='2' stroke-miterlimit='10' x1="20" y1="4" x2="4" y2="20" />
+  </g>
+</svg>

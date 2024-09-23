@@ -1,0 +1,218 @@
+{%- comment -%}
+  This is a required section for the Shopify Theme Store.
+  It is available in the "Header" section in the theme editor.
+
+  Theme Store required settings
+  - Show announcement
+  - Text: message to announce
+  - Link: link of the announcement bar
+
+  Theme Store optional settings
+  - Home page only: only shows on the home page
+{%- endcomment -%}
+{% assign south_america_countries = 'AR,BO,BR,CL,CO,EC,FK,GF,GY,PY,PE,SR,UY,VE' | split: ',' %}
+{%- liquid
+  assign sc_id = '#shopify-section-' | append: section.id
+-%}
+{% unless south_america_countries contains localization.country.iso_code %}
+  <style>
+    {{ sc_id }} {
+      display: none;
+    }
+  </style>
+{% endunless %}
+{% if south_america_countries contains localization.country.iso_code %}
+  <div
+    class='annoucement-section'
+    data-section-id='{{ section.id }}'
+    data-section-type='annoucement-bar'
+  >
+    <header class='a-header a-header-element'>
+      <div class='a-header-wrapper'>
+        {% if section.settings.announcement_bar_enabled %}
+          {% for block in section.blocks %}
+            {% if block.type == 'sale' %}
+              {% unless block.settings.exclude_country_code contains localization.country.iso_code %}   
+                {% render 'dynamic-annoucement',
+                  number: forloop.index,
+                  class: block.settings.announcement_bar_class,
+                  text_color: block.settings.announcement_bar_text_color,
+                  background_color: block.settings.announcement_bar_background_color,
+                  hidden: block.settings.hidden,
+                  heading: block.settings.announcement_bar_heading,
+                  notice: block.settings.announcement_bar_notice,
+                  message: block.settings.announcement_bar_message,
+                  url: block.settings.announcement_bar_link,
+                  country: block.settings.country_code
+                %}
+              {% endunless %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+
+        {% liquid
+          if section.settings.announcement_bar_enabled
+            render 'announcement-bar'
+          endif
+        %}
+      </div>
+    </header>
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "South America",
+  "class": "section-annoucement-bar",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Announcement bar",
+      "info": "Country codes available: AR, BO, BR, CL, CO, EC, FK, GF, GY, PY, PE, SR, UY, VE"
+    },
+    {
+      "type": "checkbox",
+      "id": "announcement_bar_enabled",
+      "label": "Show announcement",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "announcement_bar_home_page_only",
+      "label": "Show on home page only",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "announcement_bar_duration",
+      "label": "Slide Duration in seconds",
+      "min": 1,
+      "max": 10,
+      "default": 5
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "name": "Announcement",
+      "settings": [
+        {
+          "type": "liquid",
+          "id": "announcement_bar_text",
+          "default": "Announcement Message Here",
+          "label": "Announcement message"
+        },
+        {
+          "type": "url",
+          "id": "announcement_bar_link",
+          "label": "Announcement link"
+        },
+        {
+          "type": "text",
+          "id": "announcement_bar_class",
+          "label": "Additional class"
+        }
+      ]
+    },
+    {
+      "type": "sale",
+      "name": "Annoucement Sale",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Geolocation"
+        },
+        {
+          "type": "text",
+          "id": "country_code",
+          "label": "Country code",
+          "info": "Enter the country code for the country you want to show the banner to. You can have multiple country codes, just separate them with a comma. Example: US,CA,GB. Leave empty to show to all countries."
+        },
+        {
+          "type": "text",
+          "id": "exclude_country_code",
+          "label": "Exclude country code",
+          "info": "Enter the country code for the countries you DON'T want to show the banner to. You can have multiple country codes, just separate them with a comma. Example: US,CA,GB"
+        },
+        {
+          "type": "color",
+          "id": "announcement_bar_background_color",
+          "label": "Background color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "announcement_bar_text_color",
+          "label": "Text color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "richtext",
+          "id": "announcement_bar_notice",
+          "default": "<p>SALE PROMO</p>",
+          "label": "Sale  message"
+        },
+        {
+          "type": "checkbox",
+          "id": "hidden",
+          "label": "Hidden",
+          "info": "Hide the sale banner on the site (activate via URL param to show)"
+        },
+        {
+          "type": "text",
+          "id": "announcement_bar_class",
+          "label": "Additional class"
+        },
+        {
+          "type": "url",
+          "id": "announcement_bar_link",
+          "label": "Announcement link"
+        },
+        {
+          "type": "richtext",
+          "id": "announcement_bar_heading",
+          "label": "Tooltip heading"
+        },
+        {
+          "type": "richtext",
+          "id": "announcement_bar_message",
+          "label": "Tooltip message"
+        },
+        {
+          "type": "color",
+          "id": "notice_background",
+          "label": "Background color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "notice_color",
+          "label": "Text color",
+          "default": "#ffffff"
+        }
+      ]
+    },
+    {
+      "name": "Country",
+      "type": "text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "US, CA, AU, GB etc."
+        },
+        {
+          "type": "text",
+          "id": "country_announcement",
+          "label": "Country Announcement"
+        },
+        {
+          "type": "url",
+          "id": "announcement_bar_link",
+          "label": "Announcement link"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

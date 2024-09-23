@@ -1,0 +1,193 @@
+{% assign bottoms = false %}
+{% for tag in product.tags %}
+  {% if tag == 'Comfort Chino Pants' or tag == 'Comfort Chino Short' or tag == 'Jeans' %}
+    {% assign bottoms = true %}
+  {% endif %}
+{% endfor %}
+<div class='container section-main-fit-finder'>
+  <div class='content-wrapper'>
+    <div
+      class='product-size-guide-wrapper visually-hidden '
+      aria-label='{{ shop.name }} Size Guide'
+    >
+      <button
+        type='button'
+        id='fit-button'
+        class='button-size-guide'
+        data-open='modal-find-your-fit'
+        data-delegate='combo'
+        aria-haspopup='true'
+        aria-expanded='false'
+        title='Find Your Fit'
+      >
+        {% render 'icon-size-fit' %}
+        FIND YOUR FIT
+      </button>
+    </div>
+    {% render 'modal-find-your-fit', upsell: true %}
+
+    {% render 'modal-loading' %}
+  </div>
+  <style>
+    #modal-size-chart {
+      display: none !important;
+    }
+    .modal-dialog {
+      overflow: hidden;
+      border: 1px solid #ddd;
+      height:unset !important;
+    }
+    .modal-popup {
+      display: block;
+      position: relative;
+      background: 0 0;
+      z-index: 10;
+      padding: 0 !important;
+    }
+    .modal-close {
+      display: none;
+    }
+
+    .modal-loading {
+      top: 40%;
+    }
+    .size-guide-image {
+      object-fit: cover;
+      width: 100%;
+    }
+    .size-guide-figure {
+      height: 100%;
+      position: relative;
+    }
+
+    .fit-table {
+      min-height: 500px;
+    }
+
+    .section-main-fit-finder {
+      padding: 2rem 0;
+    }
+    .modal-dialog {
+      max-width: 100%;
+    }
+
+    @media (min-width: 768px) {
+      .modal-dialog {
+        max-height: 100% !important;
+      }
+
+      .fit-table {
+        height: 65vh;
+        min-height: 550px;
+      }
+
+      .slide-fit-size {
+        height: 100%;
+      }
+    }
+
+    .form-button-reset {
+      background: 0 0;
+      color: gray;
+      font-weight: 600;
+      font-size: 19px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .fit-headline {
+      padding: 8px;
+      text-align: left !important;
+    }
+
+    .fit-option {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: auto;
+      height: 100%;
+      max-width: 85%;
+      gap: 2rem;
+      padding: 1rem 0;
+    }
+
+    .fit-option img {
+      object-fit: cover;
+      height: auto;
+      width: 100%;
+    }
+
+    .slide-fit-log {
+      font-size: 1.8rem !important;
+      width: 2.25rem !important;
+      height: 2.25rem !important;
+    }
+
+    [hidden] {
+      display: none;
+    }
+
+    .recommended-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+
+      gap: 2rem;
+      {% comment %} height: 300px; {% endcomment %}
+      min-height: 30vh;
+    }
+
+    .recommend-fit {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .recommend-fit.is-open:not(.is-close) {
+      display: flex;
+      flex: 1;
+      margin: auto;
+    }
+
+    .recommended-container > div:is(.is-close) {
+      flex: auto !important;
+    }
+
+    .is-close {
+      display: none;
+    }
+
+    .not-found-card {
+      display: none;
+    }
+
+    .recommended-container .is-close + .is-close + .not-found-card {
+      display: block;
+    }
+    .recommended-container .is-open + .is-open + .not-found-card {
+      display: none;
+    }
+  </style>
+  <script>
+    window.addEventListener('load', function () {
+      document.getElementById('fit-button').click();
+    });
+  </script>
+</div>
+{% schema %}
+{
+  "name": "Main Fit Finder",
+  "class": "main-fit-finder",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Main Fit Finder"
+    }
+  ]
+}
+{% endschema %}

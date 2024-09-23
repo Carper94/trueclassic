@@ -1,0 +1,107 @@
+{%- liquid
+  assign country_codes = settings.language_selector_country_code | split: ','
+  assign exclude_country_codes = settings.language_selector_exclude_country_code | split: ','
+  assign should_show_selector = false
+
+  if settings.language_selector_country_code == '' and settings.language_selector_exclude_country_code == ''
+    assign should_show_selector = true
+  else
+    assign is_excluded = false
+    for exclude_code in exclude_country_codes
+      if localization.country.iso_code == exclude_code
+        assign is_excluded = true
+        break
+      endif
+    endfor
+
+    unless is_excluded
+      if settings.language_selector_country_code == ''
+        assign should_show_selector = true
+      else
+        for code in country_codes
+          if localization.country.iso_code == code
+            assign should_show_selector = true
+            break
+          endif
+        endfor
+      endif
+    endunless
+  endif
+-%}
+{% if should_show_selector %}
+  {% if localization.available_languages.size > 1 %}
+    <localization-form class='LangHeader'>
+      {% form 'localization' %}
+        <div class='disclosure'>
+          <button
+            type='button'
+            class='disclosure__button'
+            aria-expanded='false'
+            aria-controls='LanguageList'
+          >
+            {{ localization.language.iso_code | capitalize }}
+
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              width='12.5'
+              height='6.31'
+              viewBox='0 0 12.5 6.31'
+              class='svg-icon svg-icon--chevron desktop-only'
+            >
+              <title>Choose your country</title>
+              <path d="M6.25 6.31c-.18 0-.35-.06-.49-.19L.26 1.31C-.06 1.04-.09.57.19.26S.93-.09 1.24.19l5.01 4.37L11.26.19c.31-.27.79-.24 1.06.07s.24.79-.07 1.06L6.74 6.13c-.14.12-.32.19-.49.19z"></path>
+            </svg>
+          </button>
+
+          <ul
+            id='LanguageList'
+            role='list'
+            class='disclosure__list'
+            hidden
+          >
+            {% for language in localization.available_languages %}
+              <li class='disclosure__item' tabindex='-1'>
+                <a
+                  href='#'
+                  {% if language.iso_code == localization.language.iso_code %}
+                    aria-current='true' class='selected'
+                  {% endif -%}
+                  hreflang='{{ language.iso_code }}'
+                  lang='{{ language.iso_code }}'
+                  data-value='{{ language.iso_code }}'
+                >
+                  <svg
+                    class='{% if language.iso_code == localization.language.iso_code %}selected{% endif %} desktop-only'
+                    width='20'
+                    height='20'
+                    viewBox='0 0 20 20'
+                    fill='none'
+                  >
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M6 14.94L18.47 2.47l1.06 1.06L6 17.06.47 11.53l1.06-1.06L6 14.94z" fill="currentColor"></path>
+                  </svg>
+                  {{ language.iso_code | capitalize }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+
+          <input
+            type='hidden'
+            name='language_code'
+            value='{{ localization.language.iso_code }}'
+          >
+        </div>
+      {% endform %}
+    </localization-form>
+  {% endif %}
+{% endif %}
+
+<div>
+  <style type='text/css'>
+    {% if localization.country.name != 'United States' %}
+    .ge-remove {
+      display: none !important;
+    }
+    {% endif %}
+  </style>
+</div>

@@ -1,0 +1,137 @@
+.filter-drawer-wrapper {
+  visibility: hidden;
+
+  &.active {
+    visibility: visible;
+
+    & .filter-drawer {
+      transform: translate(0%, 0%);
+    }
+
+    &::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-color: var(--color-scrim);
+      z-index: var(--scrim-index);
+    }
+  }
+}
+
+.filter-drawer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: var(--mini-cart-index);
+  background-color: var(--brand-white);
+  width: 100%;
+  transition: transform, 300ms;
+  transform: translate(100%, 0%);
+
+  @media (--small) {
+    max-width: 390px;
+    left: auto;
+  }
+
+  & button {
+    font-size: var(--btn-font-size-medium);
+  }
+
+  & ul,
+  & li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: var(--font-size-small);
+  }
+
+  & li {
+    display: flex;
+    align-items: center;
+  }
+
+  & li label {
+    margin-left: var(--spacer-xs);
+    text-transform: capitalize;
+  }
+}
+
+.filter-drawer__content {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100%;
+}
+
+.filter-drawer__header {
+  padding: var(--spacer-m);
+}
+
+.filter-drawer__header-inner {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  & :--heading {
+    width: 100%;
+  }
+}
+
+.filter-drawer__button-close {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 0;
+
+  &::after {
+    content: "";
+    position: absolute;
+    padding: 20px;
+  }
+}
+
+.filter-drawer__form {
+  padding: var(--spacer-m);
+  overflow-y: auto;
+}
+
+.filter-drawer__footer {
+  padding: var(--spacer-m) var(--spacer-m) var(--spacer-s);
+  border-top: var(--divider);
+
+  & > * + * {
+    margin-top: var(--spacer-m);
+  }
+}
+
+.filter-drawer__actions {
+  display: flex;
+  flex-direction: column;
+
+  & > * + * {
+    margin-top: var(--spacer-s);
+  }
+
+  & #filter-apply {
+    background-color: var(--brand-red);
+  }
+
+  & #filter-clear {
+    background-color: transparent;
+    color: var(--brand-black);
+
+    & svg {
+      transform: rotate(180deg);
+    }
+  }
+
+  & .button {
+    color: var(--brand-white);
+    display: block;
+    width: 100%;
+  }
+}

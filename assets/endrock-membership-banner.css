@@ -1,0 +1,143 @@
+.membership-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: 0 auto;
+  gap: 8.2%;
+  align-items: center;
+  padding: 32px 0;
+}
+
+.membership-header__heading {
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 36px;
+  text-transform: uppercase;
+  text-align: center;
+  font-family: "Staff X Condensed";
+  color: #FFDE6A;
+  margin-bottom: 4px;
+}
+
+.membership-header__sub-heading {
+  text-align: center;
+  font-family: 'SKModernist';
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0.54px;
+  color: #ffffff;
+}
+
+.membership_image {
+  max-width: 244px;
+  width: 100%;
+}
+
+.membership_image img {
+  width: 100%;
+  height: auto;
+}
+
+.membership-footer {
+  text-align: center;
+}
+
+.membership-footer .footer-text {
+  text-align: center;
+  font-family: "Staff X Condensed";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  color: #ffffff;
+}
+
+.membership-footer .footer-price__text {
+  text-align: center;
+  font-family: 'SKModernist';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.48px;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.membership-footer .join_now {
+  font-family: "SkModernist";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #2E2520;
+  background: #FFDE6A;
+  margin-bottom: 4px;
+}
+
+.membership-footer .join_now:hover {
+  background: #ffde6a
+}
+
+.membership-footer .read_more {
+  text-align: center;
+  font-family: "SkModernist";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.42px;
+  text-decoration-line: underline !important;
+  color: #fff !important;
+}
+
+.membership-header {
+  max-width: 350px;
+}
+
+@media (max-width: 1000px) {
+  .membership-wrapper {
+    width: 90%;
+  }
+}
+
+@media (max-width: 767px) {
+  .membership-wrapper {
+    flex-direction: column;
+    padding: 32px;
+    width: 100%;
+    margin: 0;
+    gap: 28px;
+  }
+
+  .membership-header__sub-heading {
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  .membership-footer .footer-text {
+    font-size: 24px;
+  }
+
+  .membership-footer .footer-price__text {
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: .42px;
+    margin-bottom: 16px;
+  }
+
+  .membership-footer .join_now {
+    margin-bottom: 8px;
+  }
+
+  .membership-footer .read_more {
+    line-height: 16px;
+  }
+}

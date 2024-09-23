@@ -1,0 +1,25 @@
+{%liquid
+  assign material_name = material | replace: '-', '' | capitalize
+  
+  if is_current_product == true or material_url == blank
+    assign material_url = "#"
+    assign class = "inactive"
+  endif
+%}
+<div class="material-swatch__option">
+  <input
+    type="button"
+    class="material-swatch__button input-button {{class}}" 
+    data-href={{ material_url }}
+    data-swatch-working
+    data-swatch-{{ material }}=""
+    value="{{ material_name }}"
+    {% if is_current_product == true %}
+      data-swatch-is-active
+    {% endif %}
+  >
+  </input>
+  <div class="product-main-form__desc product-main-form__desc--material">
+    {{ desc }}
+  </div>
+</div>

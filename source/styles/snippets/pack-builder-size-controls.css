@@ -1,0 +1,22 @@
+.pack-builder-size-controls {
+  @media (--large-down) {
+    &>*+* {
+      margin-top: var(--spacer-s);
+    }
+  }
+
+  @media (--large) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 800px;
+    margin: auto;
+  }
+
+  @media (--large-down) {
+    justify-content: center;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

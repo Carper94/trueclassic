@@ -1,0 +1,287 @@
+{%- liquid
+  assign country_codes = section.settings.country_code | split: ','
+  assign exclude_country_codes = section.settings.exclude_country_code | split: ','
+  assign should_show_banner = false
+
+  if section.settings.country_code == '' and section.settings.exclude_country_code == ''
+    assign should_show_banner = true
+  else
+    assign is_excluded = false
+    for exclude_code in exclude_country_codes
+      if localization.country.iso_code == exclude_code
+        assign is_excluded = true
+        break
+      endif
+    endfor
+
+    unless is_excluded
+      if section.settings.country_code == ''
+        assign should_show_banner = true
+      else
+        for code in country_codes
+          if localization.country.iso_code == code
+            assign should_show_banner = true
+            break
+          endif
+        endfor
+      endif
+    endunless
+  endif
+-%}
+{%- if should_show_banner -%}
+{% if product.type == 'Crew Neck Tee' %} 
+
+{% liquid
+  assign block_settings = section.blocks | map: 'settings'
+  assign questions = block_settings | map: 'question'
+  assign answers = block_settings | map: 'paragraph'
+%}
+
+<style>
+  .product-accordion input {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+  }
+
+  .product-accordion {
+    overflow: hidden;
+  }
+
+  .product-accordion .accordion-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    font-family: 'Modernist';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    display: flex;
+    letter-spacing: 0.03em;
+    color: #323232;
+    padding: 1.2rem 0;
+    border-bottom: 0;
+    transition:  border-color ease-in 300ms;
+
+    border-bottom: var(--divider);
+
+  }
+
+  .product-accordion .accordion-content {
+    max-height: 0;
+    flex-direction: column;
+
+    paddint-bottom: 2rem;
+    transition: max-height 0.10s;
+  }
+
+   .product-accordion input:checked ~ .accordion-label {
+      padding: 1rem 0;
+ border-color: transparent;
+
+    }
+
+ .product-accordion input:checked ~ .accordion-label svg {
+    transform: rotate(180deg)
+}
+
+  .product-accordion input:checked ~ .accordion-content {
+    display: flex;
+    max-height: 100vh;
+    padding: 1em 0;
+  }
+</style>
+<div class='container product-faq faq section-fullwidth section-space'>
+  <div class='content-wrapper content-maxwidth-medium'>
+    <div class='faq-wrapper product-faq-wrapper'>
+      <div class='faq__title'>
+        {% if settings.theme_styles != blank %}
+          <h2 class='h2 headline staff-x-type color-brand-black'>
+            {{ section.settings.faq_title }}
+          </h2>
+        {% else %}
+          <h2 class='section__headline text-left'>
+            {{ section.settings.faq_title }}
+          </h2>
+        {% endif %}
+      </div>
+      <div>
+
+
+        <div class='product-accordion'>
+          <input type='checkbox' id='tab1'>
+          <label class='accordion-label' for='tab1'>
+          What are the features of a True Classic® crew neck t-shirt?
+            <div class='accordion__icon '>
+            <svg
+              width='30'
+              height='30'
+              fill='#7a7878'
+              xmlns='http://www.w3.org/2000/svg'
+              viewBox='0 0 256 256'
+            >
+              <path d="M128,182a5.98159,5.98159,0,0,1-4.24268-1.75732l-80-80a6.00006,6.00006,0,0,1,8.48536-8.48536L128,167.51465l75.75732-75.75733a6.00006,6.00006,0,0,1,8.48536,8.48536l-80,80A5.98159,5.98159,0,0,1,128,182Z"></path>
+            </svg>
+          </div>
+          </label>
+          <div class='accordion-content'>
+            <p>Every guy looks great in classic crew necks. They flatter the arms, chest, and back. And if you pick the right shirt, it’ll last you a lifetime. Try our <a href="https://www.trueclassictees.com/collections/pocket-tees">crews with pockets </a>or without them. Also available in <a href="https://www.trueclassictees.com/collections/long-sleeve-tees">long sleeve crews</a>.
+            </p>
+            <p>All of our classic, slim fit crew neck tees are fitted and sized to flatter your body — no matter what shape or size. That’s because we know the difference between an ok shirt and a great shirt — it’s all in how a shirt sits on your arms and shoulders. Plus, we put a lot of work into making sure our shirts won’t shrink and your back won’t itch (our shirts are tagless). Our cotton crew neck t shirt are perfectly balanced with polyester for a slim fitted crew.</p>
+          </div>
+        </div>
+        </div>
+
+        <div class='product-accordion'>
+          <input type='checkbox' id='tab2'>
+          <label class='accordion-label' for='tab2'>
+            Which crew necks are most popular?
+            <div class='accordion__icon '>
+            <svg
+              width='30'
+              height='30'
+              fill='#7a7878'
+              xmlns='http://www.w3.org/2000/svg'
+              viewBox='0 0 256 256'
+            >
+              <path d="M128,182a5.98159,5.98159,0,0,1-4.24268-1.75732l-80-80a6.00006,6.00006,0,0,1,8.48536-8.48536L128,167.51465l75.75732-75.75733a6.00006,6.00006,0,0,1,8.48536,8.48536l-80,80A5.98159,5.98159,0,0,1,128,182Z"></path>
+            </svg>
+          </div>
+          </label>
+          <div class='accordion-content'>
+      <p>Keep it simple with the essential <a href="https://www.trueclassictees.com/products/white-crew-neck-tee">white crew</a> or <a href="https://www.trueclassictees.com/products/black-crew-neck-tee">black crew neck shirt</a>. You can purchase <a href="https://www.trueclassictees.com/products/the-classic-pack">crew 3 packs of the basics</a> or our staple<a href="https://www.trueclassictees.com/products/staple-pack"> 6 pack of crews</a>, so your wardrobe has a foundation to build on.</p>
+
+          </div>
+        </div>
+
+        <div class='product-accordion'>
+          <input type='checkbox' id='tab3'>
+          <label class='accordion-label' for='tab3'>
+          How should a crew neck fit your body?
+          <div class='accordion__icon '>
+            <svg
+              width='30'
+              height='30'
+              fill='#7a7878'
+              xmlns='http://www.w3.org/2000/svg'
+              viewBox='0 0 256 256'
+            >
+              <path d="M128,182a5.98159,5.98159,0,0,1-4.24268-1.75732l-80-80a6.00006,6.00006,0,0,1,8.48536-8.48536L128,167.51465l75.75732-75.75733a6.00006,6.00006,0,0,1,8.48536,8.48536l-80,80A5.98159,5.98159,0,0,1,128,182Z"></path>
+            </svg>
+          </div>
+          </label>
+          <div class='accordion-content'>
+      <p>A crew neck should accentuate your upper body, primarily your arms and shoulders. It should fit snugly around your neck, but you shouldn’t feel constrained or choked. Use our <a href="https://www.trueclassictees.com/pages/calculator">Find My Fit calculator</a> to find the best crew neck size.</p>
+
+          </div>
+        </div>
+
+        <div class='product-accordion'>
+          <input type='checkbox' id='tab4'>
+          <label class='accordion-label' for='tab4'>
+          What should men avoid when buying a men's crew neck t-shirt?
+          <div class='accordion__icon '>
+            <svg
+              width='30'
+              height='30'
+              fill='#7a7878'
+              xmlns='http://www.w3.org/2000/svg'
+              viewBox='0 0 256 256'
+            >
+              <path d="M128,182a5.98159,5.98159,0,0,1-4.24268-1.75732l-80-80a6.00006,6.00006,0,0,1,8.48536-8.48536L128,167.51465l75.75732-75.75733a6.00006,6.00006,0,0,1,8.48536,8.48536l-80,80A5.98159,5.98159,0,0,1,128,182Z"></path>
+            </svg>
+          </div>
+          </label>
+          <div class='accordion-content'>
+      <p>One of our biggest pet peeves is gathering around the crew neck collar. When you sport a crew neck, it should lay flat along your chest. But if it gathers and doesn’t sit right around your collarbone … run for the hills.</p>
+
+          </div>
+        </div>
+
+        <div class='product-accordion'>
+          <input type='checkbox' id='tab5'>
+          <label class='accordion-label' for='tab5'>
+          How do you style a men's crew neck t-shirt?
+          <div class='accordion__icon '>
+            <svg
+              width='30'
+              height='30'
+              fill='#7a7878'
+              xmlns='http://www.w3.org/2000/svg'
+              viewBox='0 0 256 256'
+            >
+              <path d="M128,182a5.98159,5.98159,0,0,1-4.24268-1.75732l-80-80a6.00006,6.00006,0,0,1,8.48536-8.48536L128,167.51465l75.75732-75.75733a6.00006,6.00006,0,0,1,8.48536,8.48536l-80,80A5.98159,5.98159,0,0,1,128,182Z"></path>
+            </svg>
+          </div>
+          </label>
+          <div class='accordion-content'>
+      <p>In warmer months, style your crew neck with slim-fit jeans for a night out on the town. And as it cools off, reach for your favorite <a href="https://www.trueclassictees.com/collections/bottoms-1" title="https://www.trueclassictees.com/collections/bottoms-1">fleece joggers</a> and layer your crew neck under a quality hoodie.</p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+{% endif %}
+{%- endif -%}
+{% schema %}
+{
+  "name": "Product FAQ",
+  "tag": "section",
+  "class": "section-product-faq",
+  "settings": [
+  {
+      "type": "header",
+      "content": "Geolocation"
+    },
+    {
+      "type": "text",
+      "id": "country_code",
+      "label": "Country code",
+      "info": "Enter the country code for the country you want to show the banner to. You can have multiple country codes, just separate them with a comma. Example: US,CA,GB. Leave empty to show to all countries."
+    },
+    {
+      "type": "text",
+      "id": "exclude_country_code",
+      "label": "Exclude country code",
+      "info": "Enter the country code for the countries you DON'T want to show the banner to. You can have multiple country codes, just separate them with a comma. Example: US,CA,GB"
+    },
+    {
+      "id": "faq_title",
+      "type": "text",
+      "label": "Title",
+      "default": "PRODUCT FAQ"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Q&A",
+      "type": "block",
+      "settings": [
+        {
+          "id": "question",
+          "type": "text",
+          "label": "Question",
+          "default": "Question"
+        },
+        {
+          "id": "paragraph",
+          "type": "textarea",
+          "label": "Answer",
+          "default": "<p>Answer</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product FAQ",
+      "category": "text"
+    }
+  ]
+}
+{% endschema %}

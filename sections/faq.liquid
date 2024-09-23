@@ -1,0 +1,155 @@
+{% liquid
+  assign block_settings = section.blocks | map: 'settings'
+  assign questions = block_settings | map: 'question'
+  assign answers = block_settings | map: 'paragraph'
+%}
+
+{%- liquid
+  assign sc_id = '#shopify-section-' | append: section.id
+-%}
+
+<style type='text/css'>
+  {{ sc_id }} {
+    padding-top: {{ section.settings.padding_top | times: 0.50 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.50 }}px;
+    background-color: {{ section.settings.background_color }};
+  }
+
+  @media screen and (min-width: 769px) {
+    {{ sc_id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+</style>
+
+<section class='faq'>
+  <div class='container'>
+    <div class='content-wrapper section-spacer container--narrow'>
+      <div class='faq-wrapper'>
+        <div class='faq__title'>
+          <h2 class='headline h4'>{{ section.settings.faq_title }}</h2>
+        </div>
+
+        {% render 'accordion-array', title_array: questions, content_array: answers %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "FAQ",
+  "tag": "section",
+  "class": "faq-section",
+  "settings": [
+    {
+      "id": "faq_title",
+      "type": "text",
+      "label": "Title",
+      "default": "FAQ"
+    },
+    {
+      "id": "background_color",
+      "type": "color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 3,
+      "label": "Number of columns on desktop"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        }
+      ],
+      "default": "1",
+      "label": "Columns on mobile"
+    },
+    {
+      "type": "select",
+      "id": "column_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left",
+      "label": "Column alignment"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Q&A",
+      "type": "block",
+      "settings": [
+        {
+          "id": "question",
+          "type": "text",
+          "label": "Question",
+          "default": "Question"
+        },
+        {
+          "id": "paragraph",
+          "type": "richtext",
+          "label": "Answer",
+          "default": "<p>Answer</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ",
+      "category": "text"
+    }
+  ]
+}
+{% endschema %}

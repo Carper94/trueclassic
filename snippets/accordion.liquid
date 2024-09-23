@@ -1,0 +1,34 @@
+{% if title != blank and content != blank %}
+  {% if is_expanded == blank %}
+    {% assign is_expanded = false %}
+  {% endif %}
+
+  <div class='accordion-wrapper'>
+    <div class='accordion-tab-wrapper {% if is_expanded == true %}accordion__tab--active{% endif %}'>
+      <button
+        class='accordion__tab'
+        type='button'
+        title='{{ title }}'
+        aria-expanded='{{ is_expanded }}'
+        aria-label='{{ title }}'
+      >
+        <span class='accordion__title text uppercase'>
+          {{ title }}
+        </span>
+      </button>
+
+      <div class='accordion-icon-wrapper'>
+        <div class='accordion__plus'>
+          {% render 'icon-chevron' %}
+        </div>
+      </div>
+    </div>
+
+    <div
+      class='accordion__panel {% if is_expanded == true %}accordion__panel--active{% endif %}'
+      aria-live='polite'
+    >
+      {{ content }}
+    </div>
+  </div>
+{% endif %}

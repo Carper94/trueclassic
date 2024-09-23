@@ -1,0 +1,158 @@
+.store-info,
+.store-description {
+  padding: 0 0 1.5rem 0;
+}
+
+.store-info ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  color: var(--brand-gray-dark) !;
+}
+
+.store-info ul a,
+.store-info ul li {
+  color: var(--brand-black) !important;
+}
+
+.store-description {
+  gap: 2rem;
+}
+
+.store-description p {
+  max-width: 600px;
+}
+
+.store-description,
+.store-images ul,
+.store-list ul {
+  display: grid;
+}
+
+.store-info ul,
+.store-images ul,
+.store-list ul {
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.store-description {
+  grid-template-columns: 1fr;
+}
+
+.store-images ul {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.store-list ul {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.store-list {
+  padding-top: 1rem;
+  border-top: var(--divider);
+}
+
+.store-images ul li img,
+.store-list ul li img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0px;
+}
+
+@media (min-width: 768px) {
+  .store-description {
+    grid-template-columns: 2fr 1fr;
+    padding-top: var(--spacer-m);
+  }
+
+  .store-images ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .store-list ul {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.section-store-locations {
+  padding: 1rem 0;
+}
+
+.location-map {
+  padding: 2rem 0;
+}
+
+.location-map > img {
+  margin: auto;
+  height: 100%;
+  object-fit: contain;
+}
+
+.location-stores-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.location-stores-grid a.coming-soon {
+  cursor: auto;
+}
+
+.location-stores-grid a.coming-soon:hover {
+  text-decoration: none;
+}
+
+.store-coming-soon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.store-coming-soon img {
+  filter: blur(2px);
+  margin-bottom: 0 !important;
+}
+
+.store-coming-soon:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, .3);
+  z-index: 1;
+}
+
+.store-coming-soon p {
+  position: absolute;
+  z-index: 2;
+  color: #fff;
+  font-family: var(--font-family-headline);
+  text-transform: uppercase;
+  font-size: 1.8rem;
+  border-bottom: 1px solid #fff;
+  line-height: 30px;
+}
+
+@media (min-width: 768px) {
+  .location-stores-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.location-stores-grid img {
+  background: #ddd;
+  border-radius: 0px;
+  width: 300px;
+  height: auto;
+  margin-bottom: 8px;
+  object-fit: cover;
+}

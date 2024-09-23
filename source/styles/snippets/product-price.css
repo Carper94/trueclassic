@@ -1,0 +1,31 @@
+.price {
+  color: var(--brand-black);
+  font-family: var(--font-family-product-price);
+}
+
+.product-card .price.price--discount .money {
+  color: var(--brand-red);
+}
+
+.price-per {
+  background: #fff;
+  font-size: var(--font-size-medium);
+  color: var(--brand-red);
+}
+
+.price-container .price--full {
+  color: var(--brand-gray-dark);
+
+  @media (--medium-down) {
+    padding: 0 0.5rem 0 0;
+    text-align: left;
+  }
+}
+
+.price--full-free {
+  color: var(--brand-gray-dark);
+}
+
+.price--print {
+  color: var(--brand-red);
+}

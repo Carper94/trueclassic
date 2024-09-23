@@ -1,0 +1,1058 @@
+{
+  "sections": {
+    "7a6dc099-2064-4f55-98e3-316161ad8a2a": {
+      "type": "tc-timeline",
+      "blocks": {
+        "template--14541330055240__7a6dc099-2064-4f55-98e3-316161ad8a2a-16848117015fe86b78-0": {
+          "type": "section",
+          "settings": {
+            "bg_color": "#fffae9",
+            "media_position": "xrow",
+            "year": "2018",
+            "title": "Ryan has the big idea",
+            "heading_level": "h2",
+            "heading_size": "h4",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-chocolate",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": false,
+            "line_break_dot": false,
+            "paragraph": "<p>Our Founder Ryan has the idea for the first True Classic t-shirt, setting out on a mission to help the everyday guy look good and feel good in a t-shirt that finally fits right at an accessible price.<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "l",
+            "paragraph_color": "color-chocolate",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-m",
+            "image": "shopify:\/\/shop_images\/Mask_group-2.png"
+          }
+        },
+        "template--14541330055240__7a6dc099-2064-4f55-98e3-316161ad8a2a-16848117015fe86b78-1": {
+          "type": "section",
+          "settings": {
+            "bg_color": "#53433a",
+            "media_position": "xrow-r",
+            "year": "2019",
+            "title": "True Classic launches its first tee",
+            "heading_level": "h2",
+            "heading_size": "h4",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-white",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": false,
+            "line_break_dot": false,
+            "paragraph": "<p>Nick and Matt join as partners and True Classic launches its first crew neck t-shirt in six colors.<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "l",
+            "paragraph_color": "color-white",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-m",
+            "image": "shopify:\/\/shop_images\/Mask_group-1.png"
+          }
+        },
+        "8bf2b2a2-2f64-451c-abfe-2e59d0ff39bc": {
+          "type": "section",
+          "settings": {
+            "bg_color": "#fffae9",
+            "media_position": "xrow",
+            "year": "2020-21",
+            "title": "Our t-shirts take off",
+            "heading_level": "h2",
+            "heading_size": "h4",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-chocolate",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": false,
+            "line_break_dot": false,
+            "paragraph": "<p>From our first hire to hitting our first $100 million mark in just two years - profitable and bootstrapped - it was a year of firsts in many ways. But it would be just a few of many more milestone moments to come. <\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "l",
+            "paragraph_color": "color-chocolate",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-m",
+            "image": "shopify:\/\/shop_images\/image_158.png"
+          }
+        },
+        "80e0e58f-859f-4304-8f1f-1b7889f1ac7f": {
+          "type": "section",
+          "settings": {
+            "bg_color": "#53433a",
+            "media_position": "xrow-r",
+            "year": "2022",
+            "title": "True Classic goes global in 192 countries",
+            "heading_level": "h2",
+            "heading_size": "h4",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-white",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": false,
+            "line_break_dot": false,
+            "paragraph": "<p>They asked, we listened. Bringing our perfect fitting t-shirts to the rest of the world was a natural next step.<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "l",
+            "paragraph_color": "color-white",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-m",
+            "image": "shopify:\/\/shop_images\/image_150_1.png"
+          }
+        },
+        "f59c13e4-5475-411a-8b1e-d21fd72ef6a5": {
+          "type": "section",
+          "settings": {
+            "bg_color": "#fffae9",
+            "media_position": "xrow",
+            "year": "2022",
+            "title": "And expands to new categories",
+            "heading_level": "h2",
+            "heading_size": "h4",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-chocolate",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": false,
+            "line_break_dot": false,
+            "paragraph": "<p>From Activewear to men’s bottoms, 2022 was the year we brought our same dedication to fit and feel to everything else men need to get dressed.<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "l",
+            "paragraph_color": "color-chocolate",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-m",
+            "image": "shopify:\/\/shop_images\/Mask_group_4.png"
+          }
+        },
+        "dc577429-4b73-4450-a56b-544d4e4cdca9": {
+          "type": "section",
+          "settings": {
+            "bg_color": "#53433a",
+            "media_position": "xrow-r",
+            "year": "2022",
+            "title": "Our doors open in 5 retail stores (and counting)",
+            "heading_level": "h2",
+            "heading_size": "h4",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-white",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": false,
+            "line_break_dot": false,
+            "paragraph": "<p>Meeting our community in real life has been the best part of the journey, with 5 brick-and-mortar locations where guys can feel the True Classic Difference for themselves.<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "l",
+            "paragraph_color": "color-white",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-m",
+            "image": "shopify:\/\/shop_images\/Mask_group-3.png"
+          }
+        },
+        "affd5ef0-ca67-4ad5-8ade-a547b6b8816e": {
+          "type": "section",
+          "settings": {
+            "bg_color": "#fffbec",
+            "media_position": "xrow",
+            "year": "2023",
+            "title": "And we’re just getting started...",
+            "heading_level": "h2",
+            "heading_size": "h4",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-chocolate",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": false,
+            "line_break_dot": false,
+            "paragraph": "<p>From give-back initiatives to helping a whole new wave of people (we’re looking at you women) look good and feel good, there’s more value to add to the world and we’re just getting started.<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "l",
+            "paragraph_color": "color-chocolate",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-m",
+            "image": "shopify:\/\/shop_images\/Mask_group-4.png"
+          }
+        }
+      },
+      "block_order": [
+        "template--14541330055240__7a6dc099-2064-4f55-98e3-316161ad8a2a-16848117015fe86b78-0",
+        "template--14541330055240__7a6dc099-2064-4f55-98e3-316161ad8a2a-16848117015fe86b78-1",
+        "8bf2b2a2-2f64-451c-abfe-2e59d0ff39bc",
+        "80e0e58f-859f-4304-8f1f-1b7889f1ac7f",
+        "f59c13e4-5475-411a-8b1e-d21fd72ef6a5",
+        "dc577429-4b73-4450-a56b-544d4e4cdca9",
+        "affd5ef0-ca67-4ad5-8ade-a547b6b8816e"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 768px) {.timeline-item-content__inner {padding-right: 6vw !important; padding-left: 6vw !important; padding-top: 0rem !important; padding-bottom: 0rem !important; }}",
+        "@media screen and (max-width: 768px) {.timeline-item-content__inner {padding: 2rem !important; } .timeline {top: 55% !important; }}",
+        "@media screen and (max-width: 560px) {.tc-rich-text__blocks {padding-left: 2rem !important; }}"
+      ],
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "3e6e12d5-21d6-4500-902e-3202d80b59d6": {
+      "type": "tc-rich-text",
+      "blocks": {
+        "template--14541330055240__3e6e12d5-21d6-4500-902e-3202d80b59d6-168556282765c3bae2-0": {
+          "type": "heading",
+          "settings": {
+            "title": "Meet the Founders",
+            "heading_level": "h3",
+            "heading_size": "h2",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-white",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": true,
+            "line_break_dot": false
+          }
+        }
+      },
+      "block_order": [
+        "template--14541330055240__3e6e12d5-21d6-4500-902e-3202d80b59d6-168556282765c3bae2-0"
+      ],
+      "custom_css": [
+        ".tc-rich-text__blocks {text-align: center !important;}"
+      ],
+      "settings": {
+        "section_bg_color": "#755e52",
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "full_width": true,
+        "padding_top": 96,
+        "padding_bottom": 32
+      }
+    },
+    "da5e9513-e0fe-4ef2-afe1-b8542c8d7e3c": {
+      "type": "tc-image-banner",
+      "blocks": {
+        "88355026-ffc1-437d-ae9d-de42acd1d529": {
+          "type": "text",
+          "settings": {
+            "paragraph": "<p>\"Our goal with this company has always revolved around over-indexing on the value we give our customers and communities. Value can come in the form of best in class customer service, entertaining ads that make you laugh, products that are intentionally designed to help you look better and donating shirts at scale to help communities in need.\"<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "l",
+            "paragraph_color": "color-white",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-none"
+          }
+        },
+        "e69551ee-55de-48b4-a786-f265f8997c19": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/ryan-signature.png",
+            "classes": ""
+          }
+        },
+        "e1dd5841-fb22-40b0-8e47-3dad2443773b": {
+          "type": "text",
+          "settings": {
+            "paragraph": "<p><strong>Ryan Bartlett <\/strong>| Co-Founder & CEO<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "l",
+            "paragraph_color": "color-white",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-xl",
+            "paragraph_margin_bottom": "mg-b-none"
+          }
+        }
+      },
+      "block_order": [
+        "88355026-ffc1-437d-ae9d-de42acd1d529",
+        "e69551ee-55de-48b4-a786-f265f8997c19",
+        "e1dd5841-fb22-40b0-8e47-3dad2443773b"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 769px) {.small > .img-banner-media {margin-left: 5%; width: 30%; } .img-banner-block-content {width: 45%; }}",
+        "@media screen and (max-width: 768px) {.img-banner-block > img {height: auto; width: 250px; margin-left: auto; margin-right: auto; padding-left: 2rem; padding-right: 2rem; } .img-banner-block-content {padding-left: 2rem; padding-right: 2rem; }}"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "hidden": false,
+        "section_bg_color": "#755e52",
+        "full_width": false,
+        "breakpoint": 768,
+        "section_max_width": 4000,
+        "section_height": "adapt",
+        "media_position": "normal",
+        "media_size": "small",
+        "banner_link": "",
+        "banner_link_title": "True Classic Sale",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "inner_padding_top": 20,
+        "inner_padding_bottom": 24,
+        "aspect_ratio": 50,
+        "section_image": "shopify:\/\/shop_images\/Rectangle_640.png",
+        "media_margin_left": 0,
+        "media_margin_right": 0,
+        "media_margin_top": 20,
+        "media_margin_bottom": 24,
+        "enable_lazyload": false,
+        "content_width": 70,
+        "content_fit": false,
+        "text_position": "left",
+        "text_position_mobile": "center",
+        "content_padding_dt": "0",
+        "content_padding_mb": "0",
+        "enable_absolute": false,
+        "enable_distance_top": true,
+        "content_top": 50,
+        "content_top_mobile": 50,
+        "enable_distance_bottom": false,
+        "content_bottom": 50,
+        "enable_distance_left": true,
+        "content_left": 50,
+        "enable_distance_right": false,
+        "content_right": 50,
+        "mobile_positioning": "after",
+        "reverse_mobile": true,
+        "mobile_overlay": false,
+        "mobile_overlay_color": "#000000",
+        "mobile_overlay_opacity": 0.5,
+        "enable_prime_style": false
+      }
+    },
+    "084250ad-a9a7-4070-8f2b-262ef84a39b2": {
+      "type": "tc-image-banner",
+      "blocks": {
+        "d2b49063-afbc-4fd6-9248-9e72dc6d1210": {
+          "type": "text",
+          "settings": {
+            "paragraph": "<p>\"When we started True Classic, we set out to create the best men’s essential products for every guy out there, while also making an impact in our community. I am happy to say we have made good on that promise and giving back to our community is a pillar of our everyday mission.\"<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "l",
+            "paragraph_color": "color-white",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-none"
+          }
+        },
+        "aba57135-ba3a-4d0f-8770-298f85d8f2e1": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/nick-signature.png",
+            "classes": ""
+          }
+        },
+        "ec7dbf4d-ecff-4087-a779-39fc2d0c8622": {
+          "type": "text",
+          "settings": {
+            "paragraph": "<p><strong>Nick Ventura <\/strong>| Co-Founder<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "l",
+            "paragraph_color": "color-white",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-xl",
+            "paragraph_margin_bottom": "mg-b-none"
+          }
+        }
+      },
+      "block_order": [
+        "d2b49063-afbc-4fd6-9248-9e72dc6d1210",
+        "aba57135-ba3a-4d0f-8770-298f85d8f2e1",
+        "ec7dbf4d-ecff-4087-a779-39fc2d0c8622"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 769px) {.small > .img-banner-media {margin-left: 5%; width: 30%; } .img-banner-block-content {width: 45%; }}",
+        "@media screen and (max-width: 768px) {.img-banner-block > img {height: auto; width: 250px; margin-left: auto; margin-right: auto; padding-left: 2rem; padding-right: 2rem; } .img-banner-block-content {padding-left: 2rem; padding-right: 2rem; }}"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "hidden": false,
+        "section_bg_color": "#755e52",
+        "full_width": false,
+        "breakpoint": 768,
+        "section_max_width": 4000,
+        "section_height": "adapt",
+        "media_position": "normal",
+        "media_size": "small",
+        "banner_link": "",
+        "banner_link_title": "True Classic Sale",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "inner_padding_top": 20,
+        "inner_padding_bottom": 24,
+        "aspect_ratio": 50,
+        "section_image": "shopify:\/\/shop_images\/Rectangle_641.png",
+        "media_margin_left": 0,
+        "media_margin_right": 0,
+        "media_margin_top": 20,
+        "media_margin_bottom": 24,
+        "enable_lazyload": false,
+        "content_width": 70,
+        "content_fit": false,
+        "text_position": "left",
+        "text_position_mobile": "center",
+        "content_padding_dt": "0",
+        "content_padding_mb": "0",
+        "enable_absolute": false,
+        "enable_distance_top": true,
+        "content_top": 50,
+        "content_top_mobile": 50,
+        "enable_distance_bottom": false,
+        "content_bottom": 50,
+        "enable_distance_left": true,
+        "content_left": 50,
+        "enable_distance_right": false,
+        "content_right": 50,
+        "mobile_positioning": "after",
+        "reverse_mobile": true,
+        "mobile_overlay": false,
+        "mobile_overlay_color": "#000000",
+        "mobile_overlay_opacity": 0.5,
+        "enable_prime_style": false
+      }
+    },
+    "ac910acc-d1c6-4d29-b9ee-632642074156": {
+      "type": "tc-image-banner",
+      "blocks": {
+        "5b3fd3ea-161b-4717-b858-4d3bb1790316": {
+          "type": "text",
+          "settings": {
+            "paragraph": "<p>\"I’m proud of our work with several organizations that get much-needed clothing in the hands of homeless veterans. As we scale and our donations increase, it is very rewarding to see True Classic’s social impact.\"<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "l",
+            "paragraph_color": "color-white",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-none"
+          }
+        },
+        "e3e1a29d-49be-449a-8abb-83ffbd8c5776": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/matthew-signature.png",
+            "classes": ""
+          }
+        },
+        "5307d46b-b1b6-45d4-897e-a8fa4e58be96": {
+          "type": "text",
+          "settings": {
+            "paragraph": "<p><strong>Matthew Winnick <\/strong>| Co-Founder<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "l",
+            "paragraph_color": "color-white",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-xl",
+            "paragraph_margin_bottom": "mg-b-none"
+          }
+        }
+      },
+      "block_order": [
+        "5b3fd3ea-161b-4717-b858-4d3bb1790316",
+        "e3e1a29d-49be-449a-8abb-83ffbd8c5776",
+        "5307d46b-b1b6-45d4-897e-a8fa4e58be96"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 769px) {.small > .img-banner-media {margin-left: 5%; width: 30%; } .img-banner-block-content {width: 45%; }}",
+        "@media screen and (max-width: 768px) {.img-banner-block > img {height: auto; width: 250px; margin-left: auto; margin-right: auto; padding-left: 2rem; padding-right: 2rem; } .img-banner-block-content {padding-left: 2rem; padding-right: 2rem; }}"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "hidden": false,
+        "section_bg_color": "#755e52",
+        "full_width": false,
+        "breakpoint": 768,
+        "section_max_width": 4000,
+        "section_height": "adapt",
+        "media_position": "normal",
+        "media_size": "small",
+        "banner_link": "",
+        "banner_link_title": "True Classic Sale",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "inner_padding_top": 20,
+        "inner_padding_bottom": 24,
+        "aspect_ratio": 50,
+        "section_image": "shopify:\/\/shop_images\/Rectangle_642.png",
+        "media_margin_left": 0,
+        "media_margin_right": 0,
+        "media_margin_top": 20,
+        "media_margin_bottom": 24,
+        "enable_lazyload": false,
+        "content_width": 70,
+        "content_fit": false,
+        "text_position": "left",
+        "text_position_mobile": "center",
+        "content_padding_dt": "0",
+        "content_padding_mb": "0",
+        "enable_absolute": false,
+        "enable_distance_top": true,
+        "content_top": 50,
+        "content_top_mobile": 50,
+        "enable_distance_bottom": false,
+        "content_bottom": 50,
+        "enable_distance_left": true,
+        "content_left": 50,
+        "enable_distance_right": false,
+        "content_right": 46,
+        "mobile_positioning": "after",
+        "reverse_mobile": true,
+        "mobile_overlay": false,
+        "mobile_overlay_color": "#000000",
+        "mobile_overlay_opacity": 0.5,
+        "enable_prime_style": false
+      }
+    },
+    "0f7af4d4-3a75-412a-8e7a-f622492acb01": {
+      "type": "tc-image-banner",
+      "blocks": {
+        "b2d30887-7969-4380-93d0-cb07db13a7fb": {
+          "type": "heading",
+          "settings": {
+            "title": "Our Story",
+            "heading_level": "h2",
+            "heading_size": "h2",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-black",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": true,
+            "line_break_dot": false
+          }
+        },
+        "eae1fe88-b922-40bf-a60b-61d78c1140fb": {
+          "type": "text",
+          "settings": {
+            "paragraph": "<p>We started with a cause that hit home, literally. Our Co-Founder and CEO, Ryan, has deep family ties to the military with parents and grandparents that served in WWII, Vietnam, the Gulf War, and more. Partnering with the Tiny House Project was just the start of a personal and professional passion to bring awareness to the ever rising homelessness issue within the veteran community. Since then, they've been able to expand their donations to other homeless shelters, schools & local communities in need.<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "s",
+            "paragraph_color": "color-black",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-m"
+          }
+        }
+      },
+      "block_order": [
+        "b2d30887-7969-4380-93d0-cb07db13a7fb",
+        "eae1fe88-b922-40bf-a60b-61d78c1140fb"
+      ],
+      "custom_css": [
+        "@media screen and (max-width: 768px) {.img-banner-block-content {padding-left: 2rem; padding-right: 2rem; }}",
+        ".underlined-styled:after {background-color: #53343a;}"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "hidden": false,
+        "section_bg_color": "#ffffff",
+        "full_width": true,
+        "breakpoint": 768,
+        "section_max_width": 4000,
+        "section_height": "adapt",
+        "media_position": "reverse",
+        "media_size": "medium",
+        "banner_link": "",
+        "banner_link_title": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "inner_padding_top": 0,
+        "inner_padding_bottom": 0,
+        "aspect_ratio": 50,
+        "section_image": "shopify:\/\/shop_images\/DreamWeaverPhotos_TinyHouse-9641_1.png",
+        "media_margin_left": 0,
+        "media_margin_right": 0,
+        "media_margin_top": 0,
+        "media_margin_bottom": 0,
+        "enable_lazyload": false,
+        "content_width": 30,
+        "content_fit": false,
+        "text_position": "left",
+        "text_position_mobile": "center",
+        "content_padding_dt": "0",
+        "content_padding_mb": "0",
+        "enable_absolute": false,
+        "enable_distance_top": true,
+        "content_top": 50,
+        "content_top_mobile": 50,
+        "enable_distance_bottom": false,
+        "content_bottom": 50,
+        "enable_distance_left": true,
+        "content_left": 50,
+        "enable_distance_right": false,
+        "content_right": 50,
+        "mobile_positioning": "after",
+        "reverse_mobile": true,
+        "mobile_overlay": false,
+        "mobile_overlay_color": "#000000",
+        "mobile_overlay_opacity": 0.1,
+        "enable_prime_style": false
+      }
+    },
+    "f3e8c05b-2dff-4a73-a108-1e65d239aaf2": {
+      "type": "tc-grid-banner",
+      "blocks": {
+        "template--14521884442696__f3e8c05b-2dff-4a73-a108-1e65d239aaf2-heading-1": {
+          "type": "heading",
+          "settings": {
+            "title": "We show up for humans",
+            "heading_level": "h2",
+            "heading_size": "h2",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-black",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "template--14521884442696__f3e8c05b-2dff-4a73-a108-1e65d239aaf2-text-1": {
+          "type": "text",
+          "settings": {
+            "paragraph": "<p>Our charitable donations are on-demand and timely based on the current needs of the communities around us. To put it simply, we’re a company that consistently shows up for humans when they need us the most.<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "l",
+            "paragraph_color": "color-black",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-m"
+          }
+        },
+        "74b3fa70-ca16-4ef0-93a9-4813fd806a7c": {
+          "type": "text",
+          "settings": {
+            "paragraph": "<p>Whether it’s sending supplies to cities after natural disasters, replacing people’s wardrobes after their house burnt down, helping teachers get supplies for their students, or putting clothing on the backs of the homeless, we’re here to help and wield our resources for good.<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "l",
+            "paragraph_color": "color-black",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-m"
+          }
+        },
+        "97db59aa-5a01-41f7-8892-bf68b15a4ace": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Screen_Shot_2023-09-06_at_4.06.57_PM.png",
+            "classes": ""
+          }
+        },
+        "2efbb1e2-b3d5-4ddd-9711-33cf5153fbbc": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Screen_Shot_2023-09-06_at_4.07.23_PM.png",
+            "classes": ""
+          }
+        },
+        "15c14d25-fe63-4b8d-a4e3-8cefcf266a03": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Screen_Shot_2023-09-06_at_4.07.41_PM.png",
+            "classes": ""
+          }
+        },
+        "7008bd11-4ced-403f-bd22-b70d7b351790": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/IMG_3019.jpg",
+            "classes": ""
+          }
+        },
+        "0c1668db-1c55-437a-9a02-927388722e31": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Screen_Shot_2023-09-06_at_2.54.43_PM.png",
+            "classes": ""
+          }
+        },
+        "1303c933-aba7-4566-9718-52b09a7482ce": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/IMG_3151.jpg",
+            "classes": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--14521884442696__f3e8c05b-2dff-4a73-a108-1e65d239aaf2-heading-1",
+        "template--14521884442696__f3e8c05b-2dff-4a73-a108-1e65d239aaf2-text-1",
+        "74b3fa70-ca16-4ef0-93a9-4813fd806a7c",
+        "97db59aa-5a01-41f7-8892-bf68b15a4ace",
+        "2efbb1e2-b3d5-4ddd-9711-33cf5153fbbc",
+        "15c14d25-fe63-4b8d-a4e3-8cefcf266a03",
+        "7008bd11-4ced-403f-bd22-b70d7b351790",
+        "0c1668db-1c55-437a-9a02-927388722e31",
+        "1303c933-aba7-4566-9718-52b09a7482ce"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "hidden": false,
+        "section_bg_color": "#fcfbf7",
+        "full_width": true,
+        "breakpoint": 768,
+        "section_max_width": 4000,
+        "section_height": "adapt",
+        "media_position": "normal",
+        "media_size": "medium",
+        "banner_link": "",
+        "banner_link_title": "True Classic Sale",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "inner_padding_top": 0,
+        "inner_padding_bottom": 0,
+        "video": "shopify:\/\/files\/videos\/kcal.mp4",
+        "aspect_ratio": 50,
+        "media_margin_left": 40,
+        "media_margin_right": 40,
+        "media_margin_top": 40,
+        "media_margin_bottom": 0,
+        "enable_lazyload": false,
+        "content_width": 40,
+        "content_fit": false,
+        "text_position": "left",
+        "text_position_mobile": "center",
+        "content_padding_dt": "0",
+        "content_padding_mb": "0",
+        "enable_absolute": false,
+        "enable_distance_top": true,
+        "content_top": 50,
+        "content_top_mobile": 50,
+        "enable_distance_bottom": false,
+        "content_bottom": 50,
+        "enable_distance_left": true,
+        "content_left": 50,
+        "enable_distance_right": false,
+        "content_right": 50,
+        "mobile_positioning": "after",
+        "reverse_mobile": true,
+        "mobile_overlay": false,
+        "mobile_overlay_color": "#000000",
+        "mobile_overlay_opacity": 0.5,
+        "enable_prime_style": false
+      }
+    },
+    "d2da8da7-b55d-4ee2-9529-2dfc95223e36": {
+      "type": "tc-image-banner",
+      "blocks": {
+        "04ddd809-7a03-47ed-bf41-997a347b6de9": {
+          "type": "heading",
+          "settings": {
+            "title": "We've Donated 500,000<span class=\"color-chocolate\">+<\/span> Shirts",
+            "heading_level": "h2",
+            "heading_size": "h2",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-black",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "5f502351-4e89-49aa-9bf1-b168f9dee1ff": {
+          "type": "text",
+          "settings": {
+            "paragraph": "<p>...And counting. We’re about direct action. T-shirts are the number three most requested item in homeless shelters + donation facilities, so we donate monthly to communities in need.<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "l",
+            "paragraph_color": "color-black",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-m"
+          }
+        }
+      },
+      "block_order": [
+        "04ddd809-7a03-47ed-bf41-997a347b6de9",
+        "5f502351-4e89-49aa-9bf1-b168f9dee1ff"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "@media screen and (max-width: 768px) {.img-banner-block-content {padding-left: 2rem; padding-right: 2rem; }}"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "hidden": false,
+        "section_bg_color": "#fcfbf7",
+        "full_width": true,
+        "breakpoint": 768,
+        "section_max_width": 4000,
+        "section_height": "adapt",
+        "media_position": "normal",
+        "media_size": "medium",
+        "banner_link": "",
+        "banner_link_title": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "inner_padding_top": 0,
+        "inner_padding_bottom": 0,
+        "aspect_ratio": 50,
+        "section_image": "shopify:\/\/shop_images\/Images.png",
+        "media_margin_left": 120,
+        "media_margin_right": 120,
+        "media_margin_top": 120,
+        "media_margin_bottom": 120,
+        "enable_lazyload": false,
+        "content_width": 40,
+        "content_fit": false,
+        "text_position": "left",
+        "text_position_mobile": "center",
+        "content_padding_dt": "0",
+        "content_padding_mb": "0",
+        "enable_absolute": false,
+        "enable_distance_top": true,
+        "content_top": 50,
+        "content_top_mobile": 50,
+        "enable_distance_bottom": false,
+        "content_bottom": 50,
+        "enable_distance_left": true,
+        "content_left": 50,
+        "enable_distance_right": false,
+        "content_right": 50,
+        "mobile_positioning": "after",
+        "reverse_mobile": true,
+        "mobile_overlay": false,
+        "mobile_overlay_color": "#000000",
+        "mobile_overlay_opacity": 0.1,
+        "enable_prime_style": false
+      }
+    },
+    "69af3ddc-a60d-4787-91d3-b35bb28926e9": {
+      "type": "tc-image-banner",
+      "blocks": {
+        "7f31e50b-0686-4b99-8c82-1516d35e2b34": {
+          "type": "heading",
+          "settings": {
+            "title": "Looking to partner?",
+            "heading_level": "h2",
+            "heading_size": "h2",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-black",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "65c2a3a3-f938-4ff1-8a93-503e1a832b8c": {
+          "type": "text",
+          "settings": {
+            "paragraph": "<p>We are passionate about connecting with organizations, people, and communities who are like-minded and looking to make a difference in their communities. Contact us with inquiries, requests, and or recommendations. We can’t wait to connect.<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "l",
+            "paragraph_color": "color-black",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-l"
+          }
+        },
+        "26e4b30b-2ed2-4420-9b4f-75fd9a4103af": {
+          "type": "link",
+          "settings": {
+            "link_text": "Contact us",
+            "link_url": "shopify:\/\/pages\/contact",
+            "new_tab": false,
+            "link_style": "primary",
+            "link_color_inverse": false,
+            "link_icon": "arrow-right",
+            "link_margin_top": "mg-t-none",
+            "link_margin_bottom": "mg-b-none",
+            "full_width": false,
+            "disabled": false
+          }
+        }
+      },
+      "block_order": [
+        "7f31e50b-0686-4b99-8c82-1516d35e2b34",
+        "65c2a3a3-f938-4ff1-8a93-503e1a832b8c",
+        "26e4b30b-2ed2-4420-9b4f-75fd9a4103af"
+      ],
+      "custom_css": [
+        "@media screen and (max-width: 900px) {.img-banner-block.img-banner-media {padding: 2rem !important; }}"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "hidden": false,
+        "section_bg_color": "#fcfbf7",
+        "full_width": true,
+        "breakpoint": 768,
+        "section_max_width": 4000,
+        "section_height": "adapt",
+        "media_position": "normal",
+        "media_size": "medium",
+        "banner_link": "",
+        "banner_link_title": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "inner_padding_top": 0,
+        "inner_padding_bottom": 0,
+        "aspect_ratio": 50,
+        "section_image": "shopify:\/\/shop_images\/image_156.png",
+        "media_margin_left": 120,
+        "media_margin_right": 120,
+        "media_margin_top": 120,
+        "media_margin_bottom": 120,
+        "enable_lazyload": false,
+        "content_width": 40,
+        "content_fit": false,
+        "text_position": "left",
+        "text_position_mobile": "center",
+        "content_padding_dt": "0",
+        "content_padding_mb": "0",
+        "enable_absolute": false,
+        "enable_distance_top": true,
+        "content_top": 50,
+        "content_top_mobile": 50,
+        "enable_distance_bottom": false,
+        "content_bottom": 50,
+        "enable_distance_left": true,
+        "content_left": 50,
+        "enable_distance_right": false,
+        "content_right": 50,
+        "mobile_positioning": "after",
+        "reverse_mobile": true,
+        "mobile_overlay": false,
+        "mobile_overlay_color": "#000000",
+        "mobile_overlay_opacity": 0.1,
+        "enable_prime_style": false
+      }
+    },
+    "e0bc4666-78a5-448e-9143-bf2b43915424": {
+      "type": "tc-image-banner",
+      "blocks": {
+        "e071ab38-6f8d-4b20-bfbf-b5156c30c97d": {
+          "type": "heading",
+          "settings": {
+            "title": "Looking to Partner?",
+            "heading_level": "h3",
+            "heading_size": "h2",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-black",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-m",
+            "heading_underline": true,
+            "line_break_dot": false
+          }
+        },
+        "520d8615-3d72-45cf-9700-5318b6f33780": {
+          "type": "text",
+          "settings": {
+            "paragraph": "<p>We are passionate about connecting with organizations, people, and communities who are like-minded and looking to make a difference in their communities. Contact us with inquiries, requests, and or recommendations. We can’t wait to connect.<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "l",
+            "paragraph_color": "color-black",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-m"
+          }
+        },
+        "a583d1d9-3293-4b8c-9234-ddb0fda2f36d": {
+          "type": "link",
+          "settings": {
+            "link_text": "Contact US",
+            "link_url": "shopify:\/\/pages\/contact",
+            "new_tab": false,
+            "link_style": "primary",
+            "link_color_inverse": false,
+            "link_icon": "arrow-right",
+            "link_margin_top": "mg-t-none",
+            "link_margin_bottom": "mg-b-m",
+            "full_width": false,
+            "disabled": false
+          }
+        }
+      },
+      "block_order": [
+        "e071ab38-6f8d-4b20-bfbf-b5156c30c97d",
+        "520d8615-3d72-45cf-9700-5318b6f33780",
+        "a583d1d9-3293-4b8c-9234-ddb0fda2f36d"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "@media screen and (min-width: 990px) {.img-banner-block-content {width: 65%; padding-left: 6rem; }}",
+        "@media screen and (max-width: 768px) {.img-banner-block > img {padding-left: 2rem; padding-right: 2rem; padding-top: 2rem; }}"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "hidden": false,
+        "section_bg_color": "#fcfbf7",
+        "full_width": false,
+        "breakpoint": 768,
+        "section_max_width": 4000,
+        "section_height": "700",
+        "media_position": "normal",
+        "media_size": "medium",
+        "banner_link": "",
+        "banner_link_title": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "inner_padding_top": 0,
+        "inner_padding_bottom": 0,
+        "aspect_ratio": 50,
+        "section_image": "shopify:\/\/shop_images\/image_156.png",
+        "media_margin_left": 0,
+        "media_margin_right": 0,
+        "media_margin_top": 68,
+        "media_margin_bottom": 68,
+        "enable_lazyload": true,
+        "content_width": 25,
+        "content_fit": false,
+        "text_position": "left",
+        "text_position_mobile": "center",
+        "content_padding_dt": "2",
+        "content_padding_mb": "0",
+        "enable_absolute": false,
+        "enable_distance_top": true,
+        "content_top": 50,
+        "content_top_mobile": 50,
+        "enable_distance_bottom": false,
+        "content_bottom": 50,
+        "enable_distance_left": true,
+        "content_left": 50,
+        "enable_distance_right": false,
+        "content_right": 50,
+        "mobile_positioning": "after",
+        "reverse_mobile": true,
+        "mobile_overlay": false,
+        "mobile_overlay_color": "#000000",
+        "mobile_overlay_opacity": 0.1,
+        "enable_prime_style": false
+      }
+    }
+  },
+  "order": [
+    "7a6dc099-2064-4f55-98e3-316161ad8a2a",
+    "3e6e12d5-21d6-4500-902e-3202d80b59d6",
+    "da5e9513-e0fe-4ef2-afe1-b8542c8d7e3c",
+    "084250ad-a9a7-4070-8f2b-262ef84a39b2",
+    "ac910acc-d1c6-4d29-b9ee-632642074156",
+    "0f7af4d4-3a75-412a-8e7a-f622492acb01",
+    "f3e8c05b-2dff-4a73-a108-1e65d239aaf2",
+    "d2da8da7-b55d-4ee2-9529-2dfc95223e36",
+    "69af3ddc-a60d-4787-91d3-b35bb28926e9",
+    "e0bc4666-78a5-448e-9143-bf2b43915424"
+  ]
+}

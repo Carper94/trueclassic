@@ -1,0 +1,502 @@
+.section-endrock-pack-builder {
+  visibility: hidden;
+}
+.section-endrock-pack-builder.active {
+  visibility: visible;
+  transition: all 300ms ease-in-out;
+}
+.section-endrock-pack-builder.active::after {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  background-color: var(--color-scrim);
+  z-index: 199;
+  z-index: var(--scrim-index);
+  transition: background-color 0.2s ease;
+}
+.section-endrock-pack-builder::after {
+  content: "";
+  background-color: transparent;
+}
+.endrock-pack-builder {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 999999;
+  background-color: #ffffff;
+  background-color: var(--brand-white);
+  width: 100%;
+  transition: all 300ms ease-in-out;
+  transform: translate(100%, 0%);
+  max-width: 30rem;
+  left: auto;
+  display: flex;
+  flex-direction: column;
+}
+.section-endrock-pack-builder.active .endrock-pack-builder {
+  transform: translate(0%, 0%);
+  transition: all 300ms ease-in-out;
+}
+.endrock-pack-builder__header {
+  position: relative;
+  height: 30px;
+  width: 100%;
+}
+#endrock-pack-builder__button-close {
+  position: fixed;
+  top: 8px;
+  right: 8px;
+  z-index: 3;
+  width: 30px;
+  height: 30px;
+}
+.endrock-pack-builder__content {
+  padding: 0 30px;
+  height: 100%;
+  height: calc(100% - 170px);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.endrock-pack-builder__content .title {
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+}
+.endrock-pack-builder__content  .pack-size-info {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.03em;
+  color: #2E2520;
+  margin: 20px 0 0;
+}
+.endrock-pack-builder__content  .pack-size-info span {
+  color: #666666;
+}
+.endrock-pack-builder__content .size-selector__wrapper {
+  width: 100%;
+  height: fit-content;
+  position: relative;
+}
+@media screen and (max-width: 768px) {
+  .endrock-pack-builder__content .size-selector__wrapper.scroll-gradient::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 90px;
+    background: linear-gradient(to right, transparent, #ffffff);
+    pointer-events: none;
+  }
+}
+.endrock-pack-builder__content .size-selector {
+  width: 100%;
+  overflow-x: auto;
+}
+.endrock-pack-builder__content .size-selector__inner {
+  display: flex;
+  gap: 6px;
+  padding: 1rem 0 8px;
+  position: relative;
+}
+.endrock-pack-builder__content .size-selector__item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: solid 1px #BCBCBC;
+  border-radius: 5px;
+  cursor: pointer;
+  min-width: 100px;
+  min-height: 70px;
+}
+.endrock-pack-builder__content .size-selector__item .badge {
+  position: absolute;
+  top: -7px;
+  background: #FFDE6A;
+  padding: 3px 5px;
+  font-family: var(--font-staff-x-condensed);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.endrock-pack-builder__content .size-selector__item .pack-size {
+  color: #2E2520;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.endrock-pack-builder__content .size-selector__item .price-per-item {
+  color: #666666;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0.03em;
+}
+.endrock-pack-builder__content input[name='er_pack_builder_size']:checked + .size-selector__item {
+  background: #53433A;
+}
+.endrock-pack-builder__content input[name='er_pack_builder_size']:checked + .size-selector__item .pack-size,
+.endrock-pack-builder__content input[name='er_pack_builder_size']:checked + .size-selector__item .price-per-item {
+  color: white;
+}
+.endrock-pack-builder__content .color-selector-header {
+  display: flex;
+  margin: 20px 0 10px;
+}
+.endrock-pack-builder__content .color-selector-header div:nth-child(1) {
+  flex-grow: 1;
+}
+.endrock-pack-builder__content .color-selector-header div:nth-child(2) {
+  min-width: 82px;
+}
+.endrock-pack-builder__content .color-selector {
+  display: none;
+  margin-top: 14px;
+  gap: 12px;
+}
+.endrock-pack-builder__content .color-selector__color-box {
+  min-width: 45px;
+  height: 45px;
+  background: black;
+  border: solid 1px black;
+  border-radius: 4px;
+}
+.endrock-pack-builder__content .color-selector select,
+.endrock-pack-builder__content .size-toggle select {
+  height: 45px;
+  border-color: #BCBCBC;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.05em;
+  padding: 12px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="7" viewBox="0 0 14 7" fill="none"><path d="M1 0.5L7 6.5L13 0.500001" stroke="%23666666" stroke-linecap="round" stroke-linejoin="round"/></svg>') no-repeat;
+  padding-right: 38px;
+  background-position: right 15px top 50%;
+  min-width: 82px;
+}
+.endrock-pack-builder__content .color-selector.active {
+  display: flex;
+}
+.endrock-pack-builder__content .color-selector .custom-select {
+  height: 45px;
+  border: solid 1px #BCBCBC;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.05em;
+  padding: 12px;
+  flex-grow: 1;
+  cursor: pointer;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="7" viewBox="0 0 14 7" fill="none"><path d="M1 0.5L7 6.5L13 0.500001" stroke="%23666666" stroke-linecap="round" stroke-linejoin="round"/></svg>') no-repeat;
+  background-position: right 15px top 50%;
+  padding-right: 30px;
+}
+.endrock-pack-builder__content .color-selector__wrapper .custom-select-items__wrapper {
+  width: 100%;
+  height: fit-content;
+  position: relative;
+}
+@media screen and (max-width: 768px) {
+  .endrock-pack-builder__content .color-selector__wrapper .custom-select-items__wrapper.scroll-gradient::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 90px;
+    background: linear-gradient(to right, transparent, #ffffff);
+    pointer-events: none;
+  }
+}
+.endrock-pack-builder__content .color-selector__wrapper .custom-select-items {
+  display: none;
+  padding: 20px 0 0;
+  border-bottom: solid 1px #BCBCBC;
+  width: 100%;
+  overflow-x: auto;
+}
+.endrock-pack-builder__content .color-selector__wrapper .custom-select-items.active {
+  display: block;
+}
+.endrock-pack-builder__content .color-selector__wrapper .custom-select-items__inner {
+  display: flex;
+  gap: 16px;
+  padding: 0 0 8px;
+  position: relative;
+}
+.endrock-pack-builder__content .color-selector__wrapper .custom-select-color {
+  border: solid 1px #BCBCBC;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+.endrock-pack-builder__content .color-selector__wrapper .custom-select-color.active {
+  border-color: black;
+}
+.endrock-pack-builder__content .color-selector__wrapper .custom-select-color .image {
+  position: relative;
+  min-width: 72px;
+  min-height: 72px;
+  background-color: #e9e9e9;
+  border-radius: 4px 4px 0 0;
+}
+.endrock-pack-builder__content .color-selector__wrapper .custom-select-color img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: fill;
+  object-fit: fill;
+  border-radius: 4px 4px 0 0;
+}
+.endrock-pack-builder__content .color-selector__wrapper .custom-select-color .color {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0.03em;
+  background: white;
+  text-align: center;
+  padding: 4px;
+  border-radius: 0 0 4px 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.endrock-pack-builder__content .pack-upgrade {
+  padding: 20px 0;
+  margin: 0;
+  border-bottom: solid 1px #BCBCBC;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.endrock-pack-builder__content .pack-upgrade div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.endrock-pack-builder__content .pack-upgrade p {
+  font-family: 'Mono';
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.endrock-pack-builder__content .pack-upgrade.hidden {
+  display: none;
+}
+.endrock-pack-builder__content .pack-upgrade svg {
+  width: 14px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+.endrock-pack-builder__content .pack-upgrade .pack-upgrade__info-box {
+  position: relative;
+  background: #fffae9;
+  width: 100%;
+  padding: 0;
+  margin-top: 10px;
+  max-width: 300px;
+  font-size: 13px;
+  cursor: pointer;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.8s ease, max-height 0.8s ease;
+}
+.endrock-pack-builder__content .pack-upgrade .pack-upgrade__info-box.open {
+  padding: 10px 16px;
+  opacity: 1;
+  max-height: fit-content;
+}
+.endrock-pack-builder__content .pack-upgrade .pack-upgrade__info-box--close {
+  position: absolute;
+  top: 0;
+  right: 5px;
+}
+.endrock-pack-builder__content .whats-inside-title {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.03em;
+  margin: 12px 0;
+}
+.endrock-pack-builder__content .pack-content-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 10px;
+}
+.endrock-pack-builder__content .pack-content-images .image {
+  position: relative;
+  display: none;
+  height: 80px;
+  background-color: #e9e9e9;
+  overflow: visible;
+}
+.endrock-pack-builder__content .pack-content-images .image.active {
+  display: block;
+}
+.endrock-pack-builder__content .pack-content-images  .count-badge {
+  height: 25px;
+  width: 25px;
+  background: #53433A;
+  color: white;
+  position: absolute;
+  border-radius: 50%;
+  right: -7px;
+  top: -8px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+.endrock-pack-builder__content .pack-content-images img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+.endrock-pack-builder__footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: fit-content;
+  background: white;
+  padding: 1rem;
+  z-index: 2;
+}
+.endrock-pack-builder__footer .subtotal {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.endrock-pack-builder__footer .subtotal s {
+  margin-right: 8px;
+  color: #666666;
+}
+.endrock-pack-builder__footer button {
+  width: 100%;
+}
+.endrock-pack-builder__footer .subtotal-price-per-item {
+  font-size: 12px;
+}
+@media screen and (max-width: 768px) {
+  .endrock-pack-builder__content .pack-content-images {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  .endrock-pack-builder__content .pack-upgrade p {
+    font-size: 14px;
+  }
+}
+.endrock-pack-builder__content .size-toggle select {
+  flex-grow: 1;
+}
+.endrock-pack-builder__content .size-toggle-title {
+  margin: 20px 0 10px;
+}
+.endrock-pack-builder__content .size-toggle-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+}
+.endrock-pack-builder__content .size-toggle-container .switch {
+  position: relative;
+  display: inline-block;
+  width: 53px;
+  height: 28px;
+}
+.endrock-pack-builder__content .size-toggle-container .switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.endrock-pack-builder__content .size-toggle-container .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 34px;
+  -webkit-transition: .4s;
+  transition: .4s;
+  overflow: hidden !important;
+}
+.endrock-pack-builder__content .size-toggle-container .slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  background-color: white;
+  border-radius: 50%;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+.endrock-pack-builder__content .size-toggle-container input:checked + .slider {
+  background-color: #53433A;
+}
+.endrock-pack-builder__content .size-toggle-container input:focus + .slider {
+  box-shadow: 0 0 1px #53433A;
+}
+.endrock-pack-builder__content .size-toggle-container input:checked + .slider:before {
+  -webkit-transform: translateX(23px);
+  -ms-transform: translateX(23px);
+  transform: translateX(23px);
+}
+.endrock-pack-builder__content .size-toggle-switch-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.endrock-pack-builder__content .size-toggle-switch-title {
+  font-size: 12px;
+}
+.js-er-variant-select.hidden {
+  display: none;
+}
+.color-selector-header .size-title.hidden {
+  display: none;
+}

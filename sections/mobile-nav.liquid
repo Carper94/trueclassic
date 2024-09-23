@@ -1,0 +1,93 @@
+{% liquid
+  assign nav_menu = section.settings.mobile_link_list.links
+  assign nav_utils = section.settings.mobile_link_list_utilities
+%}
+
+<aside class='mobile-nav hidden-scroll'>
+  <section
+    class='mobile-header-section'
+    data-section-id='{{ section.id }}'
+    data-section-type='header'
+  >
+    <div
+      id='mobile-nav-container'
+      class='mobile-nav__focustrap mobile-nav__container container'
+      data-mobile-nav-focustrap
+    >
+      <div class='mobile-nav__header'>
+        <h2 class='visually-hidden'>Navigation menu</h2>
+        <div class='mobile-nav__back bold  mg-t-l mg-b-xl mg-x-m'>
+          <button
+            id='mobile-nav-back-button'
+            class='mobile-nav__button-back text-button pseudo-link'
+            type='button'
+          >
+            {% render 'icon-chevron' %}
+            Back
+          </button>
+        </div>
+        <div class='mobile-nav__close'>
+          <button
+            id='mobile-nav-close'
+            class='mobile-nav__button-close icon-button'
+            type='button'
+            data-delegate='mobilenavclose'
+          >
+            <span class='visually-hidden'>Close navigation menu</span>
+            {% render 'icon-close' %}
+          </button>
+        </div>
+      </div>
+      <div class='mobile-nav__main'>
+        <div class='mobile-nav__body'>
+          <nav id='mobile-navs' class='mobile-nav__main-nav bold'>
+            {% render 'nav-list',
+              is_mobile: true,
+              links: nav_menu,
+              class: 'mobile-only--header',
+              list_item_class: 'nav-item--main'
+            %}
+          </nav>
+          <div id='mobile-subnavs' class='mobile-nav__sub-nav'>
+            {% for item in nav_menu %}
+              {% render 'nav-panel',
+                is_mobile: true,
+                tab: item,
+                class: 'mobile-only--header',
+                list_item_class: 'nav-item--sub'
+              %}
+            {% endfor %}
+          </div>
+        </div>
+        <!-- Footer -->
+        <div class='mobile-nav__footer'>
+          <div class='mobile-nav__utilities'>
+            {% render 'link-list', link_list: nav_utils %}
+          </div>
+          <div class='mobile-nav__swiper'>
+            {% render 'mobile-nav-testimonials' %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</aside>
+
+{% schema %}
+{
+  "name": "Mobile Nav",
+  "class": "section-mobile-nav",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "mobile_link_list",
+      "label": "Mobile Menu"
+    },
+    {
+      "type": "link_list",
+      "id": "mobile_link_list_utilities",
+      "label": "Mobile Menu Utilities"
+    }
+  ]
+}
+{% endschema %}

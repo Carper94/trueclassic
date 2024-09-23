@@ -1,0 +1,1023 @@
+{%- liquid
+  assign country_codes = section.settings.country_code | split: ','
+  assign exclude_country_codes = section.settings.exclude_country_code | split: ','
+  assign should_show_banner = false
+  assign optional_link = section.settings.optional_image_link
+
+  if section.settings.country_code == '' and section.settings.exclude_country_code == ''
+    assign should_show_banner = true
+  else
+    assign is_excluded = false
+    for exclude_code in exclude_country_codes
+      if localization.country.iso_code == exclude_code
+        assign is_excluded = true
+        break
+      endif
+    endfor
+
+    unless is_excluded
+      if section.settings.country_code == ''
+        assign should_show_banner = true
+      else
+        for code in country_codes
+          if localization.country.iso_code == code
+            assign should_show_banner = true
+            break
+          endif
+        endfor
+      endif
+    endunless
+  endif
+-%}
+{%- if should_show_banner -%}
+  {%- liquid
+    assign sc_id = '#shopify-section-' | append: section.id
+    assign image_lg = section.settings.section_image
+    assign banner = '.featured-reviews-' | append: section.id
+    assign unique_id_ = section.id | remove: '-'
+    assign unique_id = unique_id_ | remove: '_'
+  -%}
+
+  {% comment %} STYLES {% endcomment %}
+
+  <style type='text/css'>
+    {% comment %} ---# TOP LEVEL SECTION #--- {% endcomment %}
+
+    {%- if section.settings.full_width != true -%}
+      {{ sc_id }} {
+        max-width: var(--container-width);
+        margin-left: auto;
+        margin-right: auto;
+      }
+    {%- endif -%}
+
+    {%- if section.settings.full_width == true -%}
+      {{ sc_id }} {
+        max-width: 100vw !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+    {%- endif -%}
+
+    {{ sc_id }} {
+      padding-top: {{ section.settings.padding_top | times: 0.50 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.50 }}px;
+    }
+
+    @media screen and (min-width: 768px) {
+      {{ sc_id }} {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+
+    {{ banner }} {
+      padding-top: {{ section.settings.inner_padding_top | times: 0.50 }}px;
+      padding-bottom: {{ section.settings.inner_padding_bottom | times: 0.50 }}px;
+    }
+
+    @media screen and (min-width: 768px) {
+      {{ banner }} {
+        padding-top: {{ section.settings.inner_padding_top }}px;
+        padding-bottom: {{ section.settings.inner_padding_bottom }}px;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .featured-reviews .banner-content .banner-content__inner {
+        padding-left: {{ section.settings.content_spacing_mobile }}rem;
+        padding-right: {{ section.settings.content_spacing_mobile }}rem;
+        text-align: {{ section.settings.content_alignment_mobile }};
+        max-width: fit-content;
+        width: 100%;
+      }
+    }
+    @media screen and (min-width: 769px) {
+      .featured-reviews .banner-content .banner-content__inner {
+        width: 100%;
+      }
+    }
+    @media screen and (min-width: 769px) {
+      .featured-reviews .banner-content .banner-content__inner ul {
+        max-width: {{ section.settings.content_width_desktop }}px;
+        text-align: {{ section.settings.content_alignment_desktop }};
+      }
+    }
+
+    @media screen and (min-width: 990px) {
+      .featured-reviews .banner-media .media {
+        width: 100%;
+      }
+    }
+
+    .featured-reviews slider-component {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+
+  {% comment %} CONTENT {% endcomment %}
+  <div
+    class='featured-reviews featured-reviews-{{ section.id }}'
+    style='background-color: {{ section.settings.section_bg_color }};'
+  >
+    <div class='banner-content' style='z-index: 3;'>
+      <div class='banner-content__inner'>
+        <div class='headline h5 color-white text-center'>{{ section.settings.section_title }}</div>
+        <slider-component>
+          <ul
+            class='grid grid--1-col-desktop grid--1-col-tablet-down slider slider--tablet featured-list--{{ section.blocks.size }}-items'
+            id='Slider-{{ section.id }}'
+            role='list'
+          >
+            {%- liquid
+              assign columns = section.blocks.size
+              if columns > 3
+                assign columns = 3
+              endif
+            -%}
+
+            {%- for block in section.blocks -%}
+              <li
+                id='Slide-{{ section.id }}-{{ forloop.index }}'
+                class='grid__item slider__slide'
+                {{ block.shopify_attributes }}
+              >
+                {% comment %} REVIEW {% endcomment %}
+                <div class='review-text {{ block.settings.review_margin }}'>
+                  {% render 'tc-paragraph',
+                    text: block.settings.review,
+                    text_font: block.settings.review_font,
+                    text_style: block.settings.review_style,
+                    text_color: block.settings.review_color,
+                    block_id: block.id
+                  %}
+                </div>
+                {% comment %} AUTHOR {% endcomment %}
+                <div class='author {{ block.settings.paragraph_margin }}'>
+                  {% render 'tc-paragraph',
+                    text: block.settings.paragraph,
+                    text_font: block.settings.paragraph_font,
+                    text_style: block.settings.paragraph_style,
+                    text_color: block.settings.paragraph_color,
+                    block_id: block.id
+                  %}
+                </div>
+                {% comment %} TO DO : MAKE SETTING {% endcomment %}
+                <div class='featured-reviews-stars color-white'>
+                  {% render 'tc-icons', icon: 'stars' %}
+                </div>
+                {% comment %} REVIEWING {% endcomment %}
+                <div class='subline {{ block.settings.subline_margin }}'>
+                  {% render 'tc-paragraph',
+                    text: block.settings.subline,
+                    text_style: block.settings.subline_style,
+                    text_font: block.settings.subline_font,
+                    text_color: block.settings.subline_color,
+                    block_id: block.id
+                  %}
+                </div>
+              </li>
+            {%- endfor -%}
+          </ul>
+          <div class='slider-buttons pg-x-m' style='color: white;'>
+            <button
+              type='button'
+              class='slider-button slider-button--prev'
+              name='previous'
+              aria-label='Previous slide'
+            >
+              {% render 'tc-icons', icon: 'caret-left' %}
+            </button>
+            <button
+              type='button'
+              class='slider-button slider-button--next'
+              name='next'
+              aria-label='Next slide'
+            >
+              {% render 'tc-icons', icon: 'caret-right' %}
+            </button>
+          </div>
+        </slider-component>
+      </div>
+    </div>
+    {% if section.settings.mobile_overlay == true %}
+      <style type='text/css'>
+        @media screen and (max-width: 769px) {
+          {{ sc_id }} .img-overlay {
+            background-color: {{ section.settings.mobile_overlay_color }};
+            opacity: {{ section.settings.mobile_overlay_opacity }};
+          }
+        }
+      </style>
+      <div class='img-overlay'></div>
+    {% endif %}
+    <div class='banner-media'>
+      {% if optional_link != blank %}
+        <a href="{{ optional_link }}" style="width: 100%;">
+      {% endif %}
+        {% if image_lg != null %}
+          <div class='media'>
+            {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
+            {%- liquid
+              assign image_lg_height = image_lg.width | divided_by: image_lg.aspect_ratio
+              assign image_lg_class = 'image-lg'
+              assign sizes_lg = '50vw'
+              if section.settings.enable_lazyload
+                assign loading = 'lazy'
+              else
+                assign loading = 'eager'
+              endif
+            -%}
+            {{
+              image_lg
+              | image_url: width: 3000
+              | image_tag:
+                width: image_lg.width,
+                height: image_lg_height,
+                class: image_lg_class,
+                sizes: sizes_lg,
+                loading: loading,
+                widths: '165, 265, 360, 535, 750, 1070, 1500, 1780, 2000, 3000, 3800',
+                alt: image_lg.alt
+              | escape
+            }}
+          </div>
+          {% comment %}theme-check-enable ImgLazyLoading{% endcomment %}
+        {% else %}
+          <div class='media'>
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
+          </div>
+        {% endif %}
+      {% if optional_link != blank %}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+
+  {% comment %} SCHEMA {% endcomment %}
+{%- endif -%}
+{% schema %}
+{
+  "name": "TC Featured Reviews",
+  "tag": "section",
+  "class": "section section-featured-reviews",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Geolocation"
+    },
+    {
+      "type": "text",
+      "id": "country_code",
+      "label": "Country code",
+      "info": "Enter the country code for the country you want to show the banner to. You can have multiple country codes, just separate them with a comma. Example: US,CA,GB. Leave empty to show to all countries."
+    },
+    {
+      "type": "text",
+      "id": "exclude_country_code",
+      "label": "Exclude country code",
+      "info": "Enter the country code for the countries you DON'T want to show the banner to. You can have multiple country codes, just separate them with a comma. Example: US,CA,GB"
+    },
+    {
+      "type": "header",
+      "content": "Section specific"
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Section background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Section layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Make section full width",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Section title"
+    },
+    {
+      "id": "section_title",
+      "type": "text",
+      "label": "Section title",
+      "default": "Customer Love"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "inner_padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Inner top padding",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "inner_padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Inner bottom padding",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "url",
+      "id": "optional_image_link",
+      "label": "Optional Image Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "section_image",
+      "label": "Image"
+    },
+    {
+      "type": "header",
+      "content": "Content settings desktop"
+    },
+    {
+      "type": "range",
+      "id": "content_width_desktop",
+      "min": 300,
+      "max": 900,
+      "step": 10,
+      "unit": "px",
+      "label": "Content width on desktop",
+      "default": 480
+    },
+    {
+      "type": "select",
+      "id": "content_alignment_desktop",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center",
+      "label": "Text alignment on desktop"
+    },
+    {
+      "type": "header",
+      "content": "Content settings mobile"
+    },
+    {
+      "type": "range",
+      "id": "content_spacing_mobile",
+      "min": 0,
+      "max": 10,
+      "step": 0.1,
+      "unit": "rem",
+      "label": "Padding horizontal on mobile",
+      "default": 1
+    },
+    {
+      "type": "select",
+      "id": "content_alignment_mobile",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center",
+      "label": "Text alignment on mobile"
+    },
+    {
+      "type": "header",
+      "content": "Overlay"
+    },
+    {
+      "type": "checkbox",
+      "id": "mobile_overlay",
+      "label": "Overlay on mobile",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "mobile_overlay_color",
+      "label": "Overlay color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "mobile_overlay_opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "unit": "op",
+      "label": "Overlay opacity",
+      "default": 0.5
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Review"
+        },
+        {
+          "id": "review",
+          "type": "richtext",
+          "label": "Review",
+          "default": "<p>“BEST T-SHIRTS. BEST CUSTOMER SERVICE.”</p>"
+        },
+        {
+          "type": "select",
+          "id": "review_font",
+          "options": [
+            {
+              "value": "staff-x-type",
+              "label": "Staff X Condensed"
+            },
+            {
+              "value": "staff-x-condensed-type",
+              "label": "Staff X Condensed"
+            },
+            {
+              "value": "modernist-type",
+              "label": "Modernist"
+            },
+            {
+              "value": "modernist-mono-type",
+              "label": "Modernist Mono"
+            },
+            {
+              "value": "roboto-mono-type",
+              "label": "Roboto Mono"
+            },
+            {
+              "value": "montserrat-type",
+              "label": "Montserrat"
+            }
+          ],
+          "default": "staff-x-condensed-type",
+          "label": "Review font family"
+        },
+        {
+          "type": "select",
+          "id": "review_style",
+          "options": [
+            {
+              "value": "xxl",
+              "label": "XX Large"
+            },
+            {
+              "value": "xl",
+              "label": "X Large"
+            },
+            {
+              "value": "l",
+              "label": "Large"
+            },
+            {
+              "value": "m",
+              "label": "Base"
+            },
+            {
+              "value": "s",
+              "label": "Small"
+            },
+            {
+              "value": "xs",
+              "label": "X Small"
+            },
+            {
+              "value": "xxs",
+              "label": "XX Small"
+            }
+          ],
+          "default": "m",
+          "label": "Review size"
+        },
+        {
+          "type": "select",
+          "id": "review_color",
+          "options": [
+            {
+              "value": "color-white",
+              "label": "White"
+            },
+            {
+              "value": "color-black",
+              "label": "Black"
+            },
+            {
+              "value": "color-chocolate",
+              "label": "Chocolate"
+            },
+            {
+              "value": "color-chocolate-light",
+              "label": "Chocolate Light"
+            },
+            {
+              "value": "color-chocolate-mid",
+              "label": "Chocolate Medium"
+            },
+            {
+              "value": "color-chocolate-dark",
+              "label": "Chocolate Dark"
+            },
+            {
+              "value": "color-milk-chocolate",
+              "label": "Milk Chocolate"
+            },
+            {
+              "value": "color-shitake",
+              "label": "Shitake"
+            },
+            {
+              "value": "color-sage",
+              "label": "Sage"
+            },
+            {
+              "value": "color-sage-light",
+              "label": "Sage light"
+            },
+            {
+              "value": "color-cream",
+              "label": "Cream"
+            },
+            {
+              "value": "color-cream-light",
+              "label": "Cream Light"
+            },
+            {
+              "value": "color-yellow",
+              "label": "Yellow"
+            },
+            {
+              "value": "color-red",
+              "label": "Red"
+            }
+          ],
+          "default": "color-chocolate",
+          "label": "Review color"
+        },
+        {
+          "type": "select",
+          "id": "review_margin",
+          "options": [
+            {
+              "value": "mg-y-xxl",
+              "label": "XX Large"
+            },
+            {
+              "value": "mg-y-xl",
+              "label": "X Large"
+            },
+            {
+              "value": "mg-y-l",
+              "label": "Large"
+            },
+            {
+              "value": "mg-y-m",
+              "label": "Medium"
+            },
+            {
+              "value": "mg-y-s",
+              "label": "Small"
+            },
+            {
+              "value": "mg-y-xs",
+              "label": "X Small"
+            },
+            {
+              "value": "mg-y-none",
+              "label": "No margin"
+            }
+          ],
+          "default": "mg-y-none",
+          "label": "Review margin"
+        },
+        {
+          "type": "header",
+          "content": "Author"
+        },
+        {
+          "id": "paragraph",
+          "type": "richtext",
+          "label": "Author",
+          "default": "<p>Jared Funkhauser</p>"
+        },
+        {
+          "type": "select",
+          "id": "paragraph_font",
+          "options": [
+            {
+              "value": "staff-x-type",
+              "label": "Staff X Condensed"
+            },
+            {
+              "value": "staff-x-condensed-type",
+              "label": "Staff X Condensed"
+            },
+            {
+              "value": "modernist-type",
+              "label": "Modernist"
+            },
+            {
+              "value": "modernist-mono-type",
+              "label": "Modernist Mono"
+            },
+            {
+              "value": "roboto-mono-type",
+              "label": "Roboto Mono"
+            },
+            {
+              "value": "montserrat-type",
+              "label": "Montserrat"
+            }
+          ],
+          "default": "staff-x-condensed-type",
+          "label": "Author name font family"
+        },
+        {
+          "type": "select",
+          "id": "paragraph_style",
+          "options": [
+            {
+              "value": "xxl",
+              "label": "XX Large"
+            },
+            {
+              "value": "xl",
+              "label": "X Large"
+            },
+            {
+              "value": "l",
+              "label": "Large"
+            },
+            {
+              "value": "m",
+              "label": "Base"
+            },
+            {
+              "value": "s",
+              "label": "Small"
+            },
+            {
+              "value": "xs",
+              "label": "X Small"
+            },
+            {
+              "value": "xxs",
+              "label": "XX Small"
+            }
+          ],
+          "default": "m",
+          "label": "Author name font size"
+        },
+        {
+          "type": "select",
+          "id": "paragraph_color",
+          "options": [
+            {
+              "value": "color-white",
+              "label": "White"
+            },
+            {
+              "value": "color-black",
+              "label": "Black"
+            },
+            {
+              "value": "color-chocolate",
+              "label": "Chocolate"
+            },
+            {
+              "value": "color-chocolate-light",
+              "label": "Chocolate Light"
+            },
+            {
+              "value": "color-chocolate-mid",
+              "label": "Chocolate Medium"
+            },
+            {
+              "value": "color-chocolate-dark",
+              "label": "Chocolate Dark"
+            },
+            {
+              "value": "color-milk-chocolate",
+              "label": "Milk Chocolate"
+            },
+            {
+              "value": "color-shitake",
+              "label": "Shitake"
+            },
+            {
+              "value": "color-sage",
+              "label": "Sage"
+            },
+            {
+              "value": "color-sage-light",
+              "label": "Sage light"
+            },
+            {
+              "value": "color-cream",
+              "label": "Cream"
+            },
+            {
+              "value": "color-cream-light",
+              "label": "Cream Light"
+            },
+            {
+              "value": "color-yellow",
+              "label": "Yellow"
+            },
+            {
+              "value": "color-red",
+              "label": "Red"
+            }
+          ],
+          "default": "color-chocolate",
+          "label": "Author name color"
+        },
+        {
+          "type": "select",
+          "id": "paragraph_margin",
+          "options": [
+            {
+              "value": "mg-y-xxl",
+              "label": "XX Large"
+            },
+            {
+              "value": "mg-y-xl",
+              "label": "X Large"
+            },
+            {
+              "value": "mg-y-l",
+              "label": "Large"
+            },
+            {
+              "value": "mg-y-m",
+              "label": "Medium"
+            },
+            {
+              "value": "mg-y-s",
+              "label": "Small"
+            },
+            {
+              "value": "mg-y-xs",
+              "label": "X Small"
+            },
+            {
+              "value": "mg-y-none",
+              "label": "No margin"
+            }
+          ],
+          "default": "mg-y-none",
+          "label": "Author name margin"
+        },
+        {
+          "type": "header",
+          "content": "Reviewing"
+        },
+        {
+          "id": "subline",
+          "type": "richtext",
+          "label": "Subline",
+          "default": "<p>Reviewing: All Black 3-Pack</p>"
+        },
+        {
+          "type": "select",
+          "id": "subline_font",
+          "options": [
+            {
+              "value": "staff-x-type",
+              "label": "Staff X Condensed"
+            },
+            {
+              "value": "staff-x-condensed-type",
+              "label": "Staff X Condensed"
+            },
+            {
+              "value": "modernist-type",
+              "label": "Modernist"
+            },
+            {
+              "value": "modernist-mono-type",
+              "label": "Modernist Mono"
+            },
+            {
+              "value": "roboto-mono-type",
+              "label": "Roboto Mono"
+            },
+            {
+              "value": "montserrat-type",
+              "label": "Montserrat"
+            }
+          ],
+          "default": "staff-x-condensed-type",
+          "label": "Reviewing font family"
+        },
+        {
+          "type": "select",
+          "id": "subline_style",
+          "options": [
+            {
+              "value": "xxl",
+              "label": "XX Large"
+            },
+            {
+              "value": "xl",
+              "label": "X Large"
+            },
+            {
+              "value": "l",
+              "label": "Large"
+            },
+            {
+              "value": "m",
+              "label": "Base"
+            },
+            {
+              "value": "s",
+              "label": "Small"
+            },
+            {
+              "value": "xs",
+              "label": "X Small"
+            },
+            {
+              "value": "xxs",
+              "label": "XX Small"
+            }
+          ],
+          "default": "m",
+          "label": "Reviewing font size"
+        },
+        {
+          "type": "select",
+          "id": "subline_color",
+          "options": [
+            {
+              "value": "color-white",
+              "label": "White"
+            },
+            {
+              "value": "color-black",
+              "label": "Black"
+            },
+            {
+              "value": "color-chocolate",
+              "label": "Chocolate"
+            },
+            {
+              "value": "color-chocolate-light",
+              "label": "Chocolate Light"
+            },
+            {
+              "value": "color-chocolate-mid",
+              "label": "Chocolate Medium"
+            },
+            {
+              "value": "color-chocolate-dark",
+              "label": "Chocolate Dark"
+            },
+            {
+              "value": "color-milk-chocolate",
+              "label": "Milk Chocolate"
+            },
+            {
+              "value": "color-shitake",
+              "label": "Shitake"
+            },
+            {
+              "value": "color-sage",
+              "label": "Sage"
+            },
+            {
+              "value": "color-sage-light",
+              "label": "Sage light"
+            },
+            {
+              "value": "color-cream",
+              "label": "Cream"
+            },
+            {
+              "value": "color-cream-light",
+              "label": "Cream Light"
+            },
+            {
+              "value": "color-yellow",
+              "label": "Yellow"
+            },
+            {
+              "value": "color-red",
+              "label": "Red"
+            }
+          ],
+          "default": "color-chocolate",
+          "label": "Reviewing color"
+        },
+        {
+          "type": "select",
+          "id": "subline_margin",
+          "options": [
+            {
+              "value": "mg-y-xxl",
+              "label": "XX Large"
+            },
+            {
+              "value": "mg-y-xl",
+              "label": "X Large"
+            },
+            {
+              "value": "mg-y-l",
+              "label": "Large"
+            },
+            {
+              "value": "mg-y-m",
+              "label": "Medium"
+            },
+            {
+              "value": "mg-y-s",
+              "label": "Small"
+            },
+            {
+              "value": "mg-y-xs",
+              "label": "X Small"
+            },
+            {
+              "value": "mg-y-none",
+              "label": "No margin"
+            }
+          ],
+          "default": "mg-y-none",
+          "label": "Reviewing margin"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "TC Featured Reviews",
+      "settings": {},
+      "blocks": [
+        {
+          "type": "review"
+        },
+        {
+          "type": "review"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,45 @@
+{% capture under_max_message %}
+  <span class="font-medium">{{ section.settings.progress_bar_under_max_message }}</span>
+{% endcapture %}
+
+{% capture over_max_message %}
+  <span class="font-medium">{{ section.settings.progress_bar_over_max_message }}</span>
+{% endcapture %}
+
+{% capture under_threshold_message %}
+  <span class="font-medium">{{ section.settings.progress_bar_under_threshold_message }}</span>
+{% endcapture %}
+
+{% capture over_threshold_message %}
+  {% if localization.country.currency.symbol == "€" and localization.country.iso_code != "DE" %}
+    <span class="font-medium"><p>You've unlocked <strong>3 FREE TEES!</strong></p></span>
+  {% else %}
+    <span class="font-medium">{{ section.settings.progress_bar_over_threshold_message }}</span>
+  {% endif %}
+{% endcapture %}
+{% comment %}push{% endcomment %}
+
+<div class='mini-cart__progress-bar-wrapper free-item-progress-bar'>
+  <p class='text-center'>
+    {% render 'free-shipping-verbage' %}
+  </p>
+  {% if localization.country.iso_code == 'US'
+    or localization.country.iso_code == 'AU'
+    or localization.country.iso_code == 'CA'
+    or localization.country.iso_code == 'GB'
+    or localization.country.iso_code == 'MX'
+    or localization.country.currency.symbol == '€'
+  %}
+    {% comment %}
+      {% render 'progress-bar',
+        value: value,
+        threshold: threshold,
+        under_threshold_message: under_threshold_message,
+        over_threshold_message: over_threshold_message,
+        max: max,
+        under_max_message: under_max_message,
+        over_max_message: over_max_message
+      %}
+    {% endcomment %}
+  {% endif %}
+</div>

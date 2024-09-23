@@ -1,0 +1,50 @@
+{% liquid
+  assign phone = settings.phone
+  assign email = settings.email
+%}
+
+<div class='contact-info-details-wrapper'>
+  <ul class='contact-info__list list-unstyled'>
+    {% if phone != blank %}
+      <li>
+        {% render 'icon-phone' %}
+        <a href='tel:{{ phone }}'>{{ phone }}</a>
+      </li>
+    {% endif %}
+    {% if email != blank %}
+      <li>
+        {% render 'icon-email' %}
+        <a href='mailto:{{ email }}'>{{ email }}</a>
+      </li>
+    {% endif %}
+    <li>
+      {% render 'icon-chat' %}
+      <button
+        class='text-button'
+        onclick="if(document.getElementById('zowieFloatingButton')) { document.getElementById('zowieFloatingButton').click() } else { document.getElementById('zowieFloatingButtonMobile').click() }"
+      >
+        Chat now
+      </button>
+    </li>
+    <li>
+      {% render 'icon-chat' %}
+      <a href='https://wa.me/13234191092'>Whats App</a>
+    </li>
+    {% if localization.country.iso_code == 'US' or localization.country.iso_code == 'CA' %}
+      <li>
+        {% render 'icon-chat' %}
+        <button class='text-button gorgias-link-button'>Text SUPPORT to 69146</button>
+      </li>
+    {% elsif localization.country.iso_code == 'GB' %}
+      <li>
+        {% render 'icon-chat' %}
+        <button class='text-button gorgias-link-button'>Text SUPPORT to 447888867816</button>
+      </li>
+    {% elsif localization.country.iso_code == 'AU' %}
+      <li>
+        {% render 'icon-chat' %}
+        <button class='text-button gorgias-link-button'>Text SUPPORT to 61483931830</button>
+      </li>
+    {% endif %}
+  </ul>
+</div>

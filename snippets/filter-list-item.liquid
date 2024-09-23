@@ -1,0 +1,51 @@
+{% assign id = filter_value.param_name | append: '-' | append: filter_value.value | strip %}
+{% assign size = filter_value.value | size | minus: 1 %}
+{% assign startsWith = filter_value.value | slice: 0 %}
+{% assign endsWith = filter_value.value | slice: size %}
+{% assign value = filter_value.value | strip %}
+{% assign filterParam = label | camelcase | remove:' ' %}
+
+{% assign collectionTitle = collection.title |  split: ' ' %}
+{% assign collectionFilterTitle = '' %}
+
+{% for title in collectionTitle %}
+  {% comment %} <p>{{ title }}</p> {% endcomment %}
+  {% if forloop.last == true %}
+    {% assign collectionFilterTitle = collectionFilterTitle | prepend: '-' %}
+  {% else %}
+    {% assign collectionFilterTitle = collectionFilterTitle | append: '+' %}
+    {% assign collectionFilterTitle = collectionFilterTitle | append: title %}
+  {% endif %}
+{% endfor %}
+
+<div class='filter-list-item filter-list-item-new {{ type }}' {% if startsWith == ' ' or endsWith == ' ' or label == "Product Type 2" %}style="display: none;"{% endif %}>
+  <input
+    type='checkbox'
+    id='{{ id }}'
+    value='{{ value }}'
+    name='{{ filter_value.param_name | strip }}'
+    title='{{ value }}'
+    data-filter-original-title="{{ collection.title }}"
+    data-filter-title="{{ value  }} {{ collection.title }}"
+    data-filter-param="{{ filter_value.value }}"
+    data-filter-type="{{ label | camelcase | remove:' ' }}"
+
+    {% if filter_value.active %}
+      checked
+    {% endif %}
+  >
+  <label
+    for='{{ id }}'
+    aria-label='{{ label }} {{ value }}'
+    {% if type == 'color' %}
+      style='background-color: var(--swatch-{{ filter_value.value | handleize }});'
+    {% endif %}
+  >
+    {% if type != 'color' and value != 'One size fits all' %}
+      {{ value }}
+    {% endif %}
+    {% if type == 'circle' and value == 'One size fits all' %}
+      UNI
+    {% endif %}
+  </label>
+</div>

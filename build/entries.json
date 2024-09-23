@@ -1,0 +1,27 @@
+{
+  "js": {
+    "layout.theme": "./source/scripts/layout/layout.theme.js",
+    "layout.checkout": "./source/scripts/layout/layout.checkout.js",
+    "layout.gift-card": "./source/scripts/layout/layout.gift-card.js",
+    "layout.password": "./source/scripts/layout/layout.password.js",
+    "template.index": "./source/scripts/templates/template.index.js",
+    "template.product": "./source/scripts/templates/template.product.js",
+    "template.collection": "./source/scripts/templates/template.collection.js",
+    "template.cart": "./source/scripts/templates/template.cart.js",
+    "template.customers": "./source/scripts/templates/template.customers.js",
+    "template.collection.packbuilder": "./source/scripts/templates/template.collection.packbuilder.js"
+  },
+  "css": {
+    "layout.theme.css": "./source/styles/layout/layout.theme.css",
+    "layout.checkout.css": "./source/styles/layout/layout.checkout.css",
+    "layout.gift-card.css": "./source/styles/layout/layout.gift-card.css",
+    "layout.password.css": "./source/styles/layout/layout.password.css",
+    "template.index.css": "./source/styles/templates/template.index.css",
+    "template.article.css": "./source/styles/templates/template.article.css",
+    "template.product.css": "./source/styles/templates/template.product.css",
+    "template.collection.css": "./source/styles/templates/template.collection.css",
+    "template.cart.css": "./source/styles/templates/template.cart.css",
+    "template.customers.css": "./source/styles/templates/template.customers.css",
+    "template.collection.packbuilder.css": "./source/styles/templates/template.collection.packbuilder.css"
+  }
+}

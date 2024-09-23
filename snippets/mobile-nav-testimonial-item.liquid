@@ -1,0 +1,40 @@
+<div class='testimonial--wrapper bg-color-sage-light'>
+  <div class='testimonial-rating--wrapper-2'>
+    <div class='testimonial-rating-starts'>
+      {% assign starRating = stars | times: 1 %}
+      {% for i in (1..5) %}
+        {% if i <= starRating %}
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            width='21'
+            height='21'
+            viewBox='0 0 21 21'
+            class='svg-icon svg-icon--star'
+          >
+            <path d="M16.0165 2.00768L17.7861 7.45399L17.8983 7.79948H18.2616H23.9882L19.3553 11.1655L19.0614 11.379L19.1737 11.7245L20.9433 17.1708L16.3104 13.8048L16.0165 13.5913L15.7226 13.8048L11.0897 17.1708L12.8593 11.7245L12.9716 11.379L12.6777 11.1655L8.04476 7.79948H13.7713H14.1346L14.2469 7.45399L16.0165 2.00768Z" fill="black" stroke="black"></path>
+          </svg>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <br>
+    <span class='text xl color-chocolate modernist-type' style='font-weight: bold;'
+      >"{{ headline }}"</span
+    >
+  </div>
+  <div class=''>
+    <p class='text s color-chocolate mg-y-s modernist-type'>
+      {{ review }}
+    </p>
+    <div class='testimonial-author--wrapper'>
+      <div class='text m color-chocolate-dark mg-y-s staff-x-condensed-type'>
+        <div>
+          <span>{{ name }}</span>
+          &nbsp;•
+          <span>{{ height }}</span>&nbsp;•
+          <span>{{ weight }}</span>
+        </div>
+        <div class='text s color-chocolate mg-y-none modernist-type'>Reviewing: {{ product }}</div>
+      </div>
+    </div>
+  </div>
+</div>

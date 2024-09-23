@@ -1,0 +1,66 @@
+{%- liquid
+  if product.image != blank
+    assign img = product.image
+  elsif use_variant_image
+    assign img = product.variants[0].featured_image
+  else
+    assign img = product.featured_image
+  endif
+
+  assign title = product.title
+-%}
+
+<div class='gwp-test-product {% if noscript %}product-card-no-script{% else %}product-card{% endif %} {% if product_not_found %} recently_not_found  {% endif %}'>
+  <div class='product-card__image-wrapper {% if template.name == 'index' %}lazy-image-placeholder{% endif %} '>
+    <a href='{{ product.url }}'>
+      <img
+        class='product-card__image {% if template.name == 'index' %}lazy-image{% endif %}'
+        loading='lazy'
+        {% if template.name == 'index' %}
+          data-src='{{ img | image_url: height: 300 }}'
+          data-srcset='
+            {{ img | image_url: width: 150 }} 150w,
+            {{ img | image_url: width: 200 }} 200w,
+            {{ img | image_url: width: 300 }} 300w,
+            {{ img | image_url: width: 360 }} 360w,
+            {{ img | image_url: width: 480 }} 480w
+          '
+          data-sizes='
+            (min-width: 480px) 480px,
+            (min-width: 360px) 360px,
+            (min-width: 300px) 300px,
+            300px
+          '
+        {% else %}
+          src='{{ img | image_url: height: 300 }}'
+          srcset='
+            {{ img | image_url: width: 150 }} 150w,
+            {{ img | image_url: width: 200 }} 200w,
+            {{ img | image_url: width: 300 }} 300w,
+            {{ img | image_url: width: 360 }} 360w,
+            {{ img | image_url: width: 480 }} 480w
+          '
+          sizes='
+            (min-width: 480px) 480px,
+            (min-width: 360px) 360px,
+            (min-width: 300px) 300px,
+            300px
+          '
+        {% endif %}
+        alt='{{ img.alt | escape | prepend: shop.name }}'
+        height='{{ img.heigh | default: 300 }}'
+        width='{{ img.width | default: 200 }}'
+      >
+    </a>
+  </div>
+
+  <div class='product-card__title-container'>
+    <div class='product-card__title text s'>
+      <a href='{{ product.url }}' title='{{ product.title }}' class='color-gray-dark'>
+        {{ title }}
+      </a>
+    </div>
+  </div>
+</div>
+
+{% render 'product-json', product: product %}

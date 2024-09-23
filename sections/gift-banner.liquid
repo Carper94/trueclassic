@@ -1,0 +1,138 @@
+<style>
+  .gift-banner{
+    position: relative;
+    margin-top:20px;
+  }
+  .gift-banner picture{
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
+  }
+  .gift-banner .banner-title{
+    color:#732C02;
+    text-align:center;
+    font-size:{{ section.settings.gift_banner_title_font_size }}px;
+  }
+  .gift-banner .banner-text{
+    width: 100%;
+    position: absolute;
+    margin:auto;
+    z-index:2;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+    .gift-banner .banner-subtitle{
+    color:#732C02;
+    text-align:center;
+    }
+  @media screen and (min-width: 580px){    
+  .gift-banner .banner-subtitle{
+    font-size:{{ section.settings.gift_banner_subtitle_font_size }}px;
+  }
+  }
+</style>
+<div class="container">
+  <div class="content content-wrapper">
+    <div class="gift-banner">
+      <picture>
+        <source media="(max-width: 767px)" srcset="{{ section.settings.gift_banner_mobile | image_url }}">
+        <source media="(min-width: 768px)" srcset="{{ section.settings.gift_banner_desktop | image_url }}">
+        <img
+          src="{{ section.settings.gift_banner_desktop | image_url: size: 'master' }}"
+          loading="eager"
+          alt="Gift Banner"
+          width="{{ section.settings.gift_banner_desktop.width }}"
+          height="{{ section.settings.gift_banner_desktop.height }}"
+        >
+      </picture>
+      <div class="banner-text">
+        <div class="banner-title {{ section.settings.title_font }}">
+          {{ section.settings.gift_banner_title | replace: '<p>', '' | replace: '</p>', '' }}
+        </div>
+        <div class="banner-subtitle">
+          {{ section.settings.gift_banner_subtitle }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Gift Banner",
+    "settings":[
+      {
+        "type":"image_picker",
+        "id":"gift_banner_desktop",
+        "label":"Desktop Banner",
+        "info":"Banner for desktop"
+      },
+      {
+        "type":"image_picker",
+        "id":"gift_banner_mobile",
+        "label":"Mobile Banner",
+        "info":"Banner for mobile"
+      },
+      {
+        "type":"html",
+        "id":"gift_banner_title",
+        "label":"Banner Title"
+      },
+      {
+        "type":"range",
+        "id":"gift_banner_title_font_size",
+        "label":"Banner Title Font Size",
+        "min":20,
+        "max":100,
+        "default":40,
+        "unit":"px"
+      },
+      {
+        "type": "select",
+        "id": "title_font",
+        "options": [
+          {
+            "value": "staff-x-type",
+            "label": "Staff X Condensed"
+          },
+          {
+            "value": "staff-x-condensed-type",
+            "label": "Staff X Condensed"
+          },
+          {
+            "value": "modernist-type",
+            "label": "Modernist"
+          },
+          {
+            "value": "modernist-mono-type",
+            "label": "Modernist Mono"
+          },
+          {
+            "value": "roboto-mono-type",
+            "label": "Roboto Mono"
+          },
+          {
+            "value": "montserrat-type",
+            "label": "Montserrat"
+          }
+        ],
+        "default": "staff-x-condensed-type",
+        "label": "Review font family"
+      },
+      {
+        "type":"text",
+        "id":"gift_banner_subtitle",
+        "label":"Banner Subtitle"
+      },
+      {
+        "type":"range",
+        "id":"gift_banner_subtitle_font_size",
+        "label":"Banner Subtitle Font Size",
+        "min":15,
+        "max":80,
+        "default":20,
+        "unit":"px"
+      }
+    ]
+  }
+{% endschema %}

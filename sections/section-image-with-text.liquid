@@ -1,0 +1,183 @@
+<div class='section-image-with-text container {{ section.settings.css_class }}'>
+  <div class='content-wrapper'>
+    <div class='section-image-with-text-grid direction-{{ section.settings.direction }}'>
+      <div class='section-image-with-text-figure'>
+        <img
+          src='{{ section.settings.image | image_url: '500x500', crop: 'center', scale: '2' | default: 'https://cdn.shopify.com/s/files/1/0220/4008/4552/files/refesh_3-desktop_72c10847-f715-4def-8f50-078a331dc22a.jpg?' }}'
+          srcset='
+            {%- if section.settings.image.width >= 375 -%}{{ section.settings.image | image_url: width: 375 }} 375w,{%- endif -%}
+            {%- if section.settings.image.width >= 750 -%}{{ section.settings.image | image_url: width: 750 }} 750w,{%- endif -%}
+            {%- if section.settings.image.width >= 1100 -%}{{ section.settings.image | image_url: width: 1100 }} 1100w,{%- endif -%}
+            {%- if section.settings.image.width >= 1500 -%}{{ section.settings.image | image_url: width: 1500 }} 1500w,{%- endif -%}
+            {%- if section.settings.image.width >= 2000 -%}{{ section.settings.image | image_url: width: 2000 }} 2000w,{%- endif -%}
+            {%- if section.settings.image.width >= 2500 -%}{{ section.settings.image | image_url: width: 2500 }} 2500w,{%- endif -%}
+            {{ section.settings.image | image_url }} {{ section.settings.image.width }}w
+          '
+          alt='{{ section.settings.heading | escape }}'
+          width='{{ section.settings.image.width }}'
+          height='{{ section.settings.image.height }}'
+          loading='lazy'
+        >
+      </div>
+
+      <div class='section-image-with-text-content'>
+        <h2 class='section-image-with-text-heading'>{{ section.settings.heading | escape }}</h2>
+        <p class='section-image-with-text-description'>
+          {{ section.settings.description | escape }}
+        </p>
+        {% if section.settings.linkto != blank %}
+          <a class='button light' href='{{ section.settings.linkto }}'>
+            {{ section.settings.linklabel | escape }}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+   @media (max-width: 768px) {
+     .section-image-with-text .content-wrapper {
+       padding-left: .5rem!important;
+       padding-right: .5rem!important;
+      }
+    }
+  
+  .section-image-with-text-grid {
+    display: grid;
+    gap: 2rem;
+    margin: 0;
+    padding: 0px;
+    min-height: 400px;
+    border-radius: 16px;
+  }
+
+  .section-image-with-text-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'area-figure'
+      'area-content';
+  }
+
+  .section-image-with-text-figure {
+    grid-area: area-figure;
+  }
+
+  .section-image-with-text-content {
+    display: flex;
+    flex-direction: column;
+    grid-area: area-content;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .section-image-with-text-figure img {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    border-radius: 0.75rem;
+    margin: auto;
+  }
+
+  .section-image-with-text-heading {
+    margin-top: 8px;
+    font-size: 32px !important;
+    line-height: 1.2;
+    color: #000;
+    font-family: var(--font-family-headline);
+  }
+
+  .section-image-with-text-description {
+    background: #fff;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #5a5959;
+  }
+
+  @media (min-width: 768px) {
+    .section-image-with-text-grid {
+      padding-top: 2rem;
+      /* padding: 2rem; */
+    }
+
+    .section-image-with-text-grid.direction-left {
+      grid-template-areas: 'area-figure area-content';
+      grid-template-columns: 1.1fr 1fr;
+    }
+
+    .section-image-with-text-grid.direction-right {
+      grid-template-areas: 'area-content area-figure';
+      grid-template-columns: 1fr 1.1fr;
+    }
+
+    .section-image-with-text-content {
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .section-image-with-text-heading {
+      font-size: 48px;
+    }
+
+    .section-image-with-text-description {
+      font-size: 19px;
+    }
+  }
+</style>
+{% schema %}
+{
+  "name": "Section Image With Text",
+  "tag": "section",
+  "class": "section-image-with-text",
+  "settings": [
+    {
+      "type": "text",
+      "id": "css_class",
+      "label": "Add CSS Class"
+    },
+    {
+      "type": "select",
+      "id": "direction",
+      "label": "Direction",
+      "default": "right",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "EXPERIENCE THE DIFFERENCE",
+      "label": "Headline"
+    },
+    {
+      "type": "text",
+      "id": "description",
+      "default": "We are a people-driven brand, creating products you can trust with a fit and feel that actually make a difference.",
+      "label": "Description"
+    },
+    {
+      "type": "text",
+      "id": "linklabel",
+      "label": "Label"
+    },
+    {
+      "type": "url",
+      "id": "linkto",
+      "label": "Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Section Image With Text"
+    }
+  ]
+}
+{% endschema %}

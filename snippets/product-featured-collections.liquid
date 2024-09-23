@@ -1,0 +1,166 @@
+{%- liquid
+  assign is_collection = false
+  for collection in product.collections
+    if collection.title contains "Men's Activewear" or collection.title contains "Men's Active Shorts" or collection.title contains "Men's Active Joggers"
+      capture is_collection_val
+        assign is_collection = true
+        echo is_collection
+      endcapture
+    endif
+  endfor
+  assign is_tagged_tops = false
+  for tag in product.tags
+    if tag == 'Crew Neck Tee' or tag == 'V-Neck Tee' or tag == 'Short Sleeve Henley' or tag == 'Long Sleeve Henley' or tag == 'Long Sleeve Crew' or tag == 'Long Body Crew Neck Tee' or tag == 'Button Up' or tag == 'Short Sleeve Polo' or tag == 'Short Sleeve Active Polo' or tag == 'Tall Active Crew Neck' or tag == 'Long Sleeve Active Shirt' or tag == ' Short Sleeve Active Shirt' or tag == 'Baseball Raglan'
+      capture is_tagged_tops_val
+        assign is_tagged_tops = true
+        echo is_tagged_tops
+      endcapture
+    endif
+  endfor
+-%}
+
+<style>
+  .collection-hidden {
+    display: none;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+  }
+  .carousel-collections > .carousel-collection {
+    padding: 1rem 0 !important;
+  }
+  .rebuy-button-disabled {
+    display: none;
+  }
+</style>
+    
+<div class='carousel-collections'>
+  <div class='head-carousel'></div>
+  <div
+    class='featured-collections-wrapper carousel-collection collection-hidden'
+    id='collections-rebuy'
+  >
+    {% if is_collection_val == true %}
+      <div
+        class='featured-collections-wrapper__rebuy  d-block'
+        data-rebuy-id='50229'
+        data-rebuy-shopify-product-ids='{{ product.id }}'
+      >
+        {% render 'product-card-rebuy' %}
+      </div>
+      <div
+        class='featured-collections-wrapper__rebuy d-none'
+        data-rebuy-id='50229'
+        data-rebuy-shopify-product-ids='{{ product.id }}'
+      >
+        {% render 'product-card-rebuy' %}
+      </div>
+    {% elsif is_tagged_tops_val == true %}
+      <div
+        class='featured-collections-wrapper__rebuy d-none'
+        data-rebuy-id='75780'
+        data-rebuy-shopify-product-ids='{{ product.id }}'
+      >
+        {% render 'product-card-rebuy' %}
+      </div>
+      <div
+        class='featured-collections-wrapper__rebuy d-block'
+        data-rebuy-id='75780'
+        data-rebuy-shopify-product-ids='{{ product.id }}'
+      >
+        {% render 'product-card-rebuy' %}
+      </div>
+    {% else %}
+      <div
+        class='featured-collections-wrapper__rebuy'
+        data-rebuy-id='78341'
+        data-rebuy-shopify-product-ids='{{ product.id }}'
+      >
+        {% render 'product-card-rebuy' %}
+      </div>
+    {% endif %}
+  </div>
+  <div class='featured-collections-wrapper'>
+    {% unless product %}
+      <div class='content-wrapper--tabs content-wrapper'>
+        <div class='featured-collections-tabs-wrapper'>
+          {% for title in title_array limit: collection_limit %}
+            {% liquid
+              assign active = ''
+              assign expanded = 'false'
+              if forloop.index0 == 0
+                assign active = 'active'
+                assign expanded = 'true'
+              endif
+            %}
+            <button
+              class='featured-collections__tab {{ active }}'
+              id='featured-collections__tab-{{ title | downcase | replace: " ", "-" }}-{{ forloop.index0 }}'
+              title='{{ title }}'
+              aria-expanded='{{ expanded }}'
+              aria-controls='featured-collections__panel-{{ title | downcase | replace: " ", "-" }}-{{ forloop.index0 }}'
+            >
+              {{ title }}
+            </button>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class='featured-collections-panels-wrapper content-wrapper'>
+        {% for collection in collection_array %}
+          {% liquid
+            assign class = ''
+            if forloop.index0 == 0
+              assign class = 'active'
+            endif
+          %}
+          <div
+            class='featured-collections__panel {{ class }}'
+            id='featured-collections__panel-{% for title in title_array limit: collection_limit %}{{ title | downcase | replace: " ", "-" }}{% endfor %}-{{ forloop.index0 }}'
+            aria-live='polite'
+          >
+            {% render 'product-card-grid',
+              product_array: collection.products,
+              card_limit: card_limit,
+              card_heading_level: 'h3'
+            %}
+          </div>
+        {% endfor %}
+      </div>
+    {% endunless %}
+
+    {% if show_recently_viewed %}
+      <div class='content-wrapper--tabs '>
+        <div class='featured-collections-tabs-wrapper'>
+          <button
+            class='featured-collections__tab active'
+            id='featured-collections__tab-{{ title_array.size | plus: 1 }}'
+            title='{{ 'Recently Viewed' }}'
+            aria-expanded='{{ expanded }}'
+            aria-controls='featured-collections__panel-{{ title_array.size | plus: 1 }}'
+            data-recently-viewed
+          >
+            <h2 class='section__headline text-left' style='margin-bottom: 1rem'>
+              {{ 'Recently Viewed' }}
+            </h2>
+          </button>
+        </div>
+      </div>
+
+      <div class='featured-collections-panels-wrapper '>
+        <div
+          class='featured-collections__panel active'
+          id='featured-collections__panel-{{ collection_array.size | plus: 1 }}'
+          data-recently-viewed
+          aria-live='polite'
+        >
+          {% render 'recently-viewed-product-card-grid',
+            product_array: null,
+            card_limit: 4,
+            card_heading_level: 'h3'
+          %}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</div>

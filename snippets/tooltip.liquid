@@ -1,0 +1,119 @@
+{% comment %}
+  Usage:
+  render 'tooltip',
+  tooltip_id: 'block.id',
+  tooltip_id: block.id,
+  tooltip_width: '380px',
+  tooltip_label: block.settings.tooltip_label,
+  tooltip_text: block.settings.tooltip_text,
+  tooltip_text_size: block.settings.tooltip_text_size,
+  tooltip_text_weight: block.settings.tooltip_text_weight,
+  tooltip_color: block.settings.tooltip_color,
+  tooltip_bg_color: block.settings.tooltip_bg_color,
+  tooltip_overlay: true,
+  tooltip_overlay_color: '0, 0, 0',
+  tooltip_overlay_opacity: 0.45
+{% endcomment %}
+
+{%- liquid
+  assign unique_tooltip = tooltip_id | remove: '-'
+  assign unique_tooltip_id = unique_tooltip | remove: '-'
+  assign tooltip_width = tooltip_width
+  assign tooltip_label = tooltip_label
+  assign tooltip_text = tooltip_text
+  assign tooltip_text_size = tooltip_text_size
+  assign tooltip_text_weight = tooltip_text_weight
+  assign tooltip_color = tooltip_color
+  assign tooltip_color_inverse = tooltip_color_inverse
+  assign tooltip_overlay = tooltip_overlay
+  assign tooltip_overlay_color = tooltip_overlay_color
+  assign tooltip_overlay_opacity = tooltip_overlay_opacity
+-%}
+
+{% style %}
+        #{{ unique_tooltip_id }} block-tooltip {
+          display: block;
+          cursor: pointer;
+          position: ABSOLUTE;
+          bottom: 20px;
+          left: 0;
+          right: 0;
+        }
+        #{{ unique_tooltip_id }} block-tooltip .tooltip__label {
+          display: inline-block;
+          font-size: {{ tooltip_text_size }}rem;
+          font-weight: {{ tooltip_text_weight }};
+          color: {{ tooltip_color }};
+          white-space: nowrap;
+        }
+
+        @media screen and (max-width: {{ min_breakpoint }}px) {
+          #{{ unique_tooltip_id }} block-tooltip .tooltip__label {
+            {% if tooltip_color_inverse == true %}
+              color: var(--brand-white);
+            {% else %}
+              color: var(--brand-black);
+            {% endif %}
+          }
+        }
+
+        #{{ unique_tooltip_id }} .tooltip__content {
+          background-color: rgba({{ tooltip_overlay_color }}, {{ tooltip_overlay_opacity }});
+        }
+
+        #{{ unique_tooltip_id }} .tooltip__content--inner {
+          max-width: {{ tooltip_width }};
+          padding: var(--spacer-m);
+          background-color: {{ tooltip_bg_color }};
+        }
+
+        @media screen and (max-width: {{ min_breakpoint }}px) {
+
+  #{{ unique_tooltip_id }} .tooltip__content {
+    background-color: transparent;
+  }
+        .tooltip__content--inner {
+          width: 80%;
+          max-width: 100%!important;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+    }
+        }
+
+        .tooltip__content--inner p {
+          font-size: 0.85rem;
+        }
+      }
+{% endstyle %}
+
+<div id='{{ unique_tooltip_id }}'>
+  <block-tooltip>
+    <span class='tooltip__label'>{{ tooltip_label }}</span>
+    <div class='tooltip__content'>
+      <div class='tooltip__content--inner'>
+        <button
+          class='tooltip__close-button'
+          aria-label='Close tooltip'
+          title='Close tooltip'
+        >
+          <svg
+            width='24'
+            height='24'
+            viewBox='0 0 24 24'
+            fill='none'
+            xmlns='http://www.w3.org/2000/svg'
+          >
+            <rect x="1.25" y="1.25" width="21.5" height="21.5" rx="5.75" stroke="black" stroke-width="1.5"/>
+            <line x1="9.27271" y1="14.7781" x2="13.8689" y2="10.1819" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="0.75" y1="-0.75" x2="7.25" y2="-0.75" transform="matrix(-0.707107 -0.707107 -0.707107 0.707107 13.9478 15.6567)" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+        {{ tooltip_text }}
+      </div>
+    </div>
+  </block-tooltip>
+</div>

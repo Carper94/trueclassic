@@ -1,0 +1,84 @@
+{% comment %}
+  
+  variables available:
+
+  text: {string} Heading text
+  paragraph_font: {string} Font family
+  paragraph_color: {string} Color of text
+  paragraph_color_inverse: {boolean} if dark color on desktop, inverse color on mobile
+  paragraph_size: {string} Paragrpah size (desktop)
+  paragraph_size_mobile: {number} Paragrpah size (mobile)
+  paragraph_letter_spacing: {number} Letter spacing
+  paragraph_weight: {number} Font weight
+  paragraph_margin_bottom: {number} Margin bottom
+  block_id: {string} unique id
+
+
+  Example:
+
+  {% render 'paragraph',
+    text: block.settings.text,
+    paragraph_font: block.settings.paragraph_font,
+    paragraph_color: block.settings.paragraph_color,
+    paragraph_color_inverse: block.settings.paragraph_color_inverse,
+    paragraph_size: block.settings.paragraph_size,
+    paragraph_size_mobile: block.settings.paragraph_size_mobile,
+    paragraph_margin_bottom: block.settings.paragraph_margin_bottom,
+    block_id: block.id
+  %}
+
+{% endcomment %}
+
+<style type='text/css'>
+  .block{{ block_id }}.img-banner__paragraph > div,
+  .block{{ block_id }}.img-banner__paragraph > div > p,
+  .block{{ block_id }}.img-banner__paragraph > div > p > a,
+  .block{{ block_id }}.img-banner__paragraph > div > p > a:hover {
+    font-weight: {{ paragraph_weight }};
+    color: {{ paragraph_color }};
+    text-decoration: none;
+  }
+
+  @media screen and (max-width: 480px) {
+    .block{{ block_id }}.img-banner__paragraph > div,
+    .block{{ block_id }}.img-banner__paragraph > div > p,
+    .block{{ block_id }}.img-banner__paragraph > div > p > a,
+    .block{{ block_id }}.img-banner__paragraph > div > p > a:hover {
+      font-size: {{ paragraph_size_mobile }}rem;
+      margin-bottom: {{ paragraph_margin_bottom | times: 0.65 }}rem;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .block{{ block_id }}.img-banner__paragraph > div,
+    .block{{ block_id }}.img-banner__paragraph > div > p,
+    .block{{ block_id }}.img-banner__paragraph > div > p > a,
+    .block{{ block_id }}.img-banner__paragraph > div > p > a:hover {
+      font-size: {{ paragraph_size_mobile }}rem;
+      margin-bottom: {{ paragraph_margin_bottom | times: 0.85 }}rem;
+      {% if paragraph_color_inverse %}
+        color: var(--brand-white);
+      {% else %}
+        color: {{ paragraph_color }};
+      {% endif %}
+    }
+  }
+
+  @media screen and (min-width: 769px) {
+    .block{{ block_id }}.img-banner__paragraph > div,
+    .block{{ block_id }}.img-banner__paragraph > div > p,
+    .block{{ block_id }}.img-banner__paragraph > div > p > a,
+    .block{{ block_id }}.img-banner__paragraph > div > p > a:hover {
+      font-size: {{ paragraph_size }}rem;
+      margin-bottom: {{ paragraph_margin_bottom }}rem;
+    }
+  }
+</style>
+<div
+  class='block{{ block_id }} img-banner__paragraph'
+  {{ block.shopify_attributes }}
+>
+  <div class='{{ paragraph_font }}-type'>
+    {{ text }}
+  </div>
+</div>

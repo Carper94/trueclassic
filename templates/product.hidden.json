@@ -1,0 +1,18 @@
+{
+  "sections": {
+    "main": {
+      "type": "product-hidden",
+      "disabled": true,
+      "settings": {}
+    },
+    "product-reviews": {
+      "type": "product-reviews",
+      "disabled": true,
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "product-reviews"
+  ]
+}

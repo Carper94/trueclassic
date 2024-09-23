@@ -1,0 +1,40 @@
+<div class='product-card-grid-wrapper'>
+  {% if collection.handle == 'crew-neck-tees' or collection.handle == 'crew-neck-tees-1' or collection.handle == 'best-sellers' or collection.handle == 'sale' %}
+    {% render 'endrock-pack-builder-card' %}
+  {% endif %}
+  {% for product in product_array %}
+  {% if forloop.index == 11 and section.settings.membership_product != blank %}
+    {% render 'endrock-insider-credit-card', section:section %}
+  {%- else -%}
+    {% unless product.template_suffix == 'hidden' and collection.template_suffix != 'packbuilder' %}
+        {% if product.available %}
+          {% unless product.template_suffix == 'us-only'
+            and localization.country.name != 'United States'
+          %}
+            {% render 'product-card',
+              product: product,
+              card_heading_level: card_heading_level,
+              use_link: use_link,
+              use_ajax: use_ajax,
+              hide_legend: hide_legend,
+              use_variant_image: use_variant_image
+              hasSellingPlan: hasSellingPlan
+            %}
+          {% endunless %}
+          {% if forloop.index == promo_position_1 %}
+            {{ promo_block_1 }}
+          {% elsif forloop.index == promo_position_2 %}
+            {{ promo_block_2 }}
+          {% elsif forloop.index == image_position %}
+            {{ image_block }}
+          {% elsif forloop.index == image_position_2 %}
+            {{ image_block_2 }}
+          {% endif %}
+        {% else %}
+          {% assign promo_position_1 = promo_position_1 | plus: 1 %}
+          {% assign promo_position_2 = promo_position_2 | plus: 1 %}
+        {% endif %}
+    {% endunless %}
+  {% endif %}
+  {% endfor %}
+</div>

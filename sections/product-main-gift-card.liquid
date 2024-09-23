@@ -1,0 +1,85 @@
+<section data-section-id='{{ section.id }}' data-section-type='product'>
+  <div class='container'>
+    <div class='product-main'>
+      {% render 'product-gallery' %}
+      <div class='product-main__details content-wrapper'>
+        {% render 'product-main-form' %}
+        <div class='product-description solo'>
+          {{ product.description }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+{%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
+
+<script type='application/ld+json'>
+  {
+    "@context": "http://schema.org/",
+    "@type": "Product",
+    "name": "{{ product.title | escape }}",
+    "url": "{{ shop.url }}{{ product.url }}",
+    {% if product.featured_image %}
+      {% assign image_size = product.featured_image.width %}
+      "image": [
+        "https:{{ product.featured_image.src | image_url: image_size }}"
+      ],
+    {% endif %}
+    "description": "{{ product.description | strip_html | strip_newlines | escape }}",
+    {% if current_variant.sku != blank %}
+      "sku": "{{ current_variant.sku }}",
+    {% endif %}
+    "brand": {
+      "@type": "Thing",
+      "name": "{{ product.vendor | escape }}"
+    },
+    "offers": {
+      "@type" : "Offer",
+      "availability" : "http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}",
+      "price" : "{{ product.price | divided_by: 100.00 }}",
+      "priceCurrency" : "{{ shop.currency }}"
+    }
+    {% if product.metafields.okendo.summaryData.reviewCount > 0 %}
+    ,"aggregateRating": {
+      "@type": "AggregateRating",
+      "description": "Okendo Reviews",
+      "ratingValue": "{{ product.metafields.okendo.summaryData.reviewAverageValue }}",
+      "ratingCount": "{{ product.metafields.okendo.summaryData.reviewCount }}"
+    }
+    {% elsif product.metafields.okendo.ReviewCount > 0 %}
+    ,"aggregateRating": {
+      "@type": "AggregateRating",
+      "description": "Okendo Reviews",
+      "ratingValue": "{{ product.metafields.okendo.ReviewAverageValue }}",
+      "ratingCount": "{{ product.metafields.okendo.ReviewCount }}"
+    }
+    {% endif %}
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Main",
+  "settings": [],
+  "blocks": [
+    {
+      "name": "Description Accordion",
+      "type": "description_accordion",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

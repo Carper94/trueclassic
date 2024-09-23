@@ -1,0 +1,307 @@
+{% liquid
+  assign footer_nav = section.settings.footer_link_list.links
+
+  capture links_shop
+    render 'link-list', link_list: footer_nav[0], link_class: 'alt'
+  endcapture
+
+  capture links_menu
+    render 'link-list', link_list: footer_nav[1], link_class: 'alt'
+  endcapture
+
+  capture links_info
+    render 'link-list', link_list: footer_nav[2], link_class: 'alt'
+  endcapture
+%}
+{% assign north_america_countries = 'CA,US,MX,AG,BS,BB,BZ,BM,DM,DO,SV,CR,GD,GP,GT,HT,HN,JM,PM,MQ,MX,NI,PA,PR,KN,LC,VC,TT,TC,VG,VI'
+  | split: ','
+%}
+{% assign south_america_countries = 'AR,BO,BR,CL,CO,EC,FK,GF,GY,PY,PE,SR,UY,VE' | split: ',' %}
+{% assign europe_countries = 'AL,AD,AT,BY,BE,BA,BG,HR,CY,CZ,DK,EE,FO,FI,FR,DE,GI,GR,HU,IS,IE,IM,IT,KZ,XK,LV,LI,LT,LU,MK,MT,MD,MC,ME,NL,NO,PL,PT,RO,RU,SM,RS,SK,SI,ES,SJ,SE,CH,TR,UA,GB,VA'
+  | split: ','
+%}
+
+{%- liquid
+  assign sc_id = '#shopify-section-' | append: section.id
+-%}
+{% if north_america_countries contains localization.country.iso_code
+  or south_america_countries contains localization.country.iso_code
+  or europe_countries contains localization.country.iso_code
+%}
+  <style>
+    {{ sc_id }} {
+      display: none;
+    }
+  </style>
+{% endif %}
+{% unless north_america_countries contains localization.country.iso_code
+  or south_america_countries contains localization.country.iso_code
+  or europe_countries contains localization.country.iso_code
+%}
+<footer>
+  {% if localization.country.iso_code == 'GB' or localization.country.iso_code == 'CA' %}
+    <script>
+      var script = document.createElement('script');
+      script.src = '//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js';
+      script.type = 'text/javascript';
+      script.async = true;
+
+      document.head.appendChild(script);
+    </script>
+  {% endif %}
+  <div class='container content-wrapper'>
+    <!-- Desktop version -->
+    <span class='footer-desktop-wrapper desktop-only'>
+      <div class='footer-form'>
+        {% for block in section.blocks %}
+          {% render 'klaviyo-form',
+            form: true,
+            title: block.settings.text,
+            text: block.settings.paragraph,
+            placeholder: block.settings.placeholder,
+            klaviyo_list_id: block.settings.klaviyo_list_id,
+            already_subscribed_message: block.settings.already_subscribed_message,
+            success_message: block.settings.success_message,
+            error_message: block.settings.error_message,
+            unique_id: 'footerDesktopForm-{{ block.settings.country_code }}',
+            country: block.settings.country_code
+          %}
+      {% endfor %}
+        <div class='footer__social-links'>
+          {% render 'social-links' %}
+        </div>
+
+        {% if localization.country.iso_code == 'GB' or localization.country.iso_code == 'CA' %}
+          <div
+            class='trustpilot-widget'
+            data-locale='en-US'
+            data-template-id='53aa8807dec7e10d38f59f32'
+            data-businessunit-id='5ee77af38c5f730001d191e9'
+            data-style-height='150px'
+            data-style-width='100%'
+            data-theme='dark'
+            style='max-width:255px'
+          >
+            <a
+              href='https://www.trustpilot.com/review/trueclassictees.com'
+              target='_blank'
+              rel='noopener'
+              >Trustpilot</a
+            >
+          </div>
+        {% endif %}
+      </div>
+
+      <div class='footer-link-list-wrapper'>
+        <div class='footer__link-list'>
+          <h3 class='headline h2 footer__link-list-title'>Shop</h3>
+          {{ links_shop }}
+        </div>
+        <div class='footer__link-list'>
+          <h3 class='headline footer__link-list-title'>More info</h3>
+          {{ links_menu }}
+        </div>
+        <div class='footer__link-list'>
+          <h3 class='headline footer__link-list-title'>Support</h3>
+          {{ links_info }}
+        </div>
+      </div>
+    </span>
+
+    <!-- Mobile version -->
+    <span class='footer-mobile-wrapper mobile-only'>
+      <div class='footer-form'>
+        {% for block in section.blocks %}
+          {% render 'klaviyo-form',
+            form: true,
+            title: block.settings.text,
+            text: block.settings.paragraph,
+            placeholder: block.settings.placeholder,
+            klaviyo_list_id: block.settings.klaviyo_list_id,
+            already_subscribed_message: block.settings.already_subscribed_message,
+            success_message: block.settings.success_message,
+            error_message: block.settings.error_message,
+            unique_id: 'footerMobileForm-{{ block.settings.country_code }}',
+            country: block.settings.country_code
+          %}
+      {% endfor %}
+        <div class='footer__social-links'>
+          {% render 'social-links' %}
+        </div>
+
+        {% if localization.country.iso_code == 'GB' or localization.country.iso_code == 'CA' %}
+          <div
+            class='trustpilot-widget'
+            data-locale='en-US'
+            data-template-id='53aa8807dec7e10d38f59f32'
+            data-businessunit-id='5ee77af38c5f730001d191e9'
+            data-style-height='150px'
+            data-style-width='100%'
+            data-theme='dark'
+          >
+            <a
+              href='https://www.trustpilot.com/review/trueclassictees.com'
+              target='_blank'
+              rel='noopener'
+              >Trustpilot</a
+            >
+          </div>
+        {% endif %}
+      </div>
+      {% render 'accordion', title: 'SHOP', content: links_shop %}
+      {% render 'accordion', title: 'MORE INFO', content: links_menu %}
+      {% render 'accordion', title: 'SUPPORT', content: links_info %}
+      <div class='footer__country-selector mobile-only'>
+        {% render 'country-selector', unique_id: 'Mobile' %}
+        <br>
+      </div>
+    </span>
+
+    <div class='footer-flex'>
+      <div class='footer__country-selector desktop-only'>
+        {% render 'country-selector', unique_id: 'Desktop' %}
+      </div>
+
+      <div class='footer__copyright'>
+        <h2 class='visually-hidden'>Copyright & Attribution</h2>
+        {%- if section.settings.enable_policies == true -%}
+          <ul class='footer-block__details-content list-unstyled aa c mg-y-xs'>
+            {%- for link in section.settings.footer_policies.links -%}
+              <li class='pg-x-xs'>
+                <a
+                  href='{{ link.url }}'
+                  class='color-chocolate-light text s {% if link.active %} list-menu__item--active{% endif %}'
+                >
+                  {{ link.title }}
+                </a>
+              </li>
+              {% if forloop.last == false %}
+                <span class='color-chocolate-light text xxs desktop-only'>|</span>
+              {% endif %}
+            {%- endfor -%}
+            <li>
+              <button
+                type='button'
+                class='color-chocolate-light text s'
+                id='fides-modal-link'
+                style='padding-left: 0;'
+              >
+                <span class='color-chocolate-light text xxs desktop-only'>|</span>&nbsp;Privacy
+                Preferences
+              </button>
+            </li>
+          </ul>
+        {%- endif -%}
+        <small>
+          {% render 'copyright' %}
+          {% comment %}
+            {% render 'attribution' %}
+          {% endcomment %}
+        </small>
+      </div>
+
+      <div class='footer__app-links'>
+        <h2 class='visually-hidden'>App Links</h2>
+        {% render 'app-links',
+          android_app_store_link: section.settings.android_app_link,
+          ios_app_store_link: section.settings.ios_app_link
+        %}
+      </div>
+    </div>
+  </div>
+</footer>
+{% endunless %}
+{% schema %}
+{
+  "name": "Rest of the World",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "footer_link_list",
+      "label": "Footer Menu"
+    },
+    {
+      "id": "enable_policies",
+      "type": "checkbox",
+      "label": "Enable Policies Menu",
+      "default": true
+    },
+    {
+      "type": "link_list",
+      "id": "footer_policies",
+      "label": "Policies Menu"
+    },
+    {
+      "id": "android_app_link",
+      "type": "url",
+      "label": "Google Play Store Link"
+    },
+    {
+      "id": "ios_app_link",
+      "type": "url",
+      "label": "Apple App Store Link"
+    }
+  ],
+  "blocks":[
+    {
+    "type": "klaviyo_form",
+    "name": "Klaviyo Form",
+      "settings":[
+        {
+          "type": "header",
+          "content": "Klaviyo Form"
+        },
+        {
+          "type": "text",
+          "id": "country_code",
+          "label": "Country Code to Show",
+          "info": "Leave blank to show to continent"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Title",
+          "default": "Unlock 25% off"
+        },
+        {
+          "type": "text",
+          "id": "placeholder",
+          "label": "Placeholder text",
+          "default": "Enter Email Address"
+        },
+        {
+          "type": "text",
+          "id": "paragraph",
+          "label": "Text",
+          "default": "Exclusive deals, early access, and first look at new products, right to your inbox."
+        },
+        {
+          "type": "text",
+          "id": "already_subscribed_message",
+          "label": "Already subscribed message",
+          "default": "You're already subscribed"
+        },
+        {
+          "type": "text",
+          "id": "success_message",
+          "label": "Success message",
+          "default": "Thanks for subscribing"
+        },
+        {
+          "type": "text",
+          "id": "error_message",
+          "label": "Error message",
+          "default": "Something went wrong"
+        },
+        {
+          "type": "text",
+          "id": "klaviyo_list_id",
+          "label": "Klaviyo list ID",
+          "default": "LUzTHf"
+        }
+      ]
+    }
+  ],
+  "presets": []
+}
+{% endschema %}

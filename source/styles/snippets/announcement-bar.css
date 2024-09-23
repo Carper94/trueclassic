@@ -1,0 +1,142 @@
+.announcement-bar {
+  background-color: var(--brand-brown);
+  color: var(--brand-white);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 100;
+
+  &[class*="announcement-bar__"] {
+    position: absolute !important;
+    width: 100%;
+    z-index: 101;
+    opacity: 1;
+    animation: dropIn 1s ease-in-out;
+
+    & .flex {
+      display: flex;
+      align-items: center;
+
+      & .anouncement__button-close {
+        position: absolute;
+        display: flex;
+        right: 40px;
+        max-width: 18px;
+
+        @media (--medium-down) {
+          right: 5px;
+        }
+      }
+
+      & .anouncement__button-info {
+        position: absolute;
+        display: flex;
+        left: 40px;
+        max-width: 18px;
+
+        @media (--medium-down) {
+          left: 5px;
+        }
+      }
+    }
+  }
+
+  .announcement__tooltip {
+    position: absolute;
+    display: none;
+
+    @media (--large) {
+      .close {
+        display: none;
+      }
+    }
+  }
+
+  .announcement-link,
+  .announcement__tooltip-notice > p {
+    line-height: 38px;
+  }
+
+  & .swiper {
+    height: auto;
+  }
+
+  & .swiper-wrapper {
+    max-width: 500px;
+  }
+
+  & .swiper-slide {
+    text-align: center;
+    font-family: var(--font-modernist);
+    font-size: var(--font-3xs);
+    font-weight: var(--font-weight-bold);
+    color: var(--brand-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  & .swiper-button-prev,
+  & .swiper-button-next {
+    color: var(--brand-white);
+    background-color: transparent;
+    border: none;
+    outline: none;
+    position: absolute;
+    padding: 0;
+    top: 0;
+    height: var(--annoucement-bar-height);
+
+    &::after {
+      content: none;
+    }
+
+    & svg {
+      max-width: 20px;
+    }
+  }
+
+  & .swiper-slide a {
+    color: var(--brand-white);
+    background: var(--brand-brown);
+
+    &:hover {
+      color: var(--brand-white);
+      text-decoration: none;
+    }
+  }
+
+  & .swiper-content--container {
+    max-width: 350px;
+
+    @media (--medium) {
+      max-width: 800px;
+    }
+  }
+}
+
+@media (--header-breakpoint-down) {
+  .announcement-bar.hide-announcement-bar {
+    display: none;
+  }
+}
+
+.announcement__tooltip-notice {
+  font-size: var(--font-2xs);
+}
+
+.svg-icon--info {
+  display: flex;
+}
+
+@keyframes dropIn {
+  0% {
+    top: -38px;
+  }
+
+  100% {
+    top: 0;
+  }
+}

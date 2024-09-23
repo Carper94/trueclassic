@@ -1,0 +1,79 @@
+{
+  "sections": {
+    "main": {
+      "type": "page-contact",
+      "settings": {
+      }
+    },
+    "16545468595dd6952f": {
+      "type": "contact-faq",
+      "blocks": {
+        "c6704e69-8363-4cd9-9dc7-616b7ac2b266": {
+          "type": "url",
+          "settings": {
+            "buttontext": "Chat Now",
+            "buttonlink": "#"
+          }
+        },
+        "b083e56a-3017-4f05-94d5-750193789f8f": {
+          "type": "url",
+          "settings": {
+            "buttontext": "FAQ",
+            "buttonlink": "shopify:\/\/pages\/help-center"
+          }
+        },
+        "60d2acc4-b07a-446e-bf41-8326cd709902": {
+          "type": "url",
+          "settings": {
+            "buttontext": "Returns & Exchanges",
+            "buttonlink": "https:\/\/www.trueclassictees.com\/pages\/help-center#risk-free-returns-exchanges#return-exchange-policy"
+          }
+        },
+        "48284d88-b1d2-4929-91a3-e11ab1b5a069": {
+          "type": "url",
+          "settings": {
+            "buttontext": "Shipping Policy",
+            "buttonlink": "https:\/\/www.trueclassictees.com\/pages\/help-center#delivery-shipping#shipping"
+          }
+        }
+      },
+      "block_order": [
+        "c6704e69-8363-4cd9-9dc7-616b7ac2b266",
+        "b083e56a-3017-4f05-94d5-750193789f8f",
+        "60d2acc4-b07a-446e-bf41-8326cd709902",
+        "48284d88-b1d2-4929-91a3-e11ab1b5a069"
+      ],
+      "settings": {
+        "title": "WE'RE HERE TO HELP",
+        "subtitle": "",
+        "faqlink": "shopify:\/\/pages\/help-center",
+        "enable_faq_link": true,
+        "background_color": "#ffffff",
+        "columns_desktop": 1,
+        "columns_mobile": "1",
+        "column_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "1654546868bc380e36": {
+      "type": "contact-info",
+      "settings": {
+        "title": "OTHER QUESTIONS? ASK AWAY",
+        "hours": "Phone support available Monday through Friday from 7am to 7pm Pacific"
+      }
+    },
+    "aaa86ee5-a263-46b2-8421-5e5e8e5ce10d": {
+      "type": "html",
+      "settings": {
+        "html": "<p>*I agree to receive recurring automated marketing text messages (e.g. cart reminders) at the phone number provided. Consent is not a condition to purchase. Msg &amp; data rates may apply. Msg frequency varies. Reply HELP for help and STOP to cancel. View our <a href=\"\/pages\/terms-conditions\">Terms of Service<\/a> and <a href=\"\/pages\/privacy-policy\">Privacy policy<\/a>.<\/p><br>"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "16545468595dd6952f",
+    "1654546868bc380e36",
+    "aaa86ee5-a263-46b2-8421-5e5e8e5ce10d"
+  ]
+}

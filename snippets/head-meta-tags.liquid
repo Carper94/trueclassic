@@ -1,0 +1,20 @@
+{% assign colorAccent = '#000' %}
+{% assign favicon = 'favicon.png' %}
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+{% if colorAccent != blank %}
+  <meta name="theme-color" content="{{ colorAccent }}">
+{% endif %}
+{% if collection.handle contains "best-selling-shirts" %}
+  <link rel="canonical" href="{{ shop.url }}/collections/best-sellers" />
+  {% elsif collection.handle contains "crew-neck-tees-1" %}
+  <link rel="canonical" href="{{ shop.url }}/collections/crew-neck-tees" />
+    
+  {% else %}
+  <link rel="canonical" href="{{ canonical_url }}" />
+  {% endif %}
+{% if favicon != blank %}
+  <link rel="shortcut icon" href="{{ favicon | asset_url }}" type="image/png">
+{% endif %}

@@ -1,0 +1,138 @@
+.tc-shoppable {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+
+
+.tc-shoppable img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.tc-shoppable .tap-bubble {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: max-content;
+  color: inherit !important;
+  font-family: var(--font-family-button);
+  border-radius: 5px; 
+  padding: 0.5em 0.75em;
+  z-index: 5;
+}
+
+.tc-shoppable .tap-bubble-container,
+.tc-shoppable .tap-bubble.bag {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tc-shoppable .tap-bubble-container {
+  z-index: 6;
+  transform: translate(-50%,-50%);
+}
+
+.tc-shoppable .tap-bubble.bag {
+  bottom: 0;
+  left: 0;
+  border-radius: 100px;
+  margin: 0.5em;
+  padding: 0.75em;
+}
+
+.tc-shoppable .svg-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tc-shoppable.active .bag {
+  transition: ease-out 250ms;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0)
+}
+
+.tc-shoppable.tc-shoppable.active .tap-bubble-container {
+  width: auto;
+}
+
+.tc-shoppable .shoppable-link {
+  transition: ease-out 250ms;
+  font-size: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0)
+}
+
+.tc-shoppable.active .shoppable-link {
+  opacity: 1;
+  pointer-events: all;
+  transform: scale(1);
+  gap: 8px;
+}
+
+.tc-shoppable .dot {
+  position: absolute;
+  transition: ease-out 250ms;
+  height: 17px;
+  width: 17px;
+  background-color: rgba(255,255,255,0.75);
+  border-radius: 100px;
+  opacity: 1;
+  transform: scale(1)
+}
+
+.tc-shoppable.active .dot {
+  display: flex;
+  opacity: 0;
+  transform: scale(0)
+}
+
+.tc-shoppable a p {
+  line-height: 1.2;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none; 
+  -khtml-user-select: none; 
+  -moz-user-select: none; 
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.tc-shoppable .desktop {
+  display: block;
+}
+
+.tc-shoppable .mobile {
+  display: none;
+}
+
+@media screen and (max-width: 992px) {
+  .tc-shoppable .tap-bubble-container {
+    max-width: 60%;
+  }
+  .tc-shoppable .shoppable-link {
+    font-size: 12px;
+  }
+  .tc-shoppable .tap-bubble  {
+    padding: .45em;
+  }
+  .tc-shoppable .tap-bubble.bag {
+    padding: 0.55em;
+  }
+  .tc-shoppable .svg-container.bag svg {
+    height: 17px;
+    width: 17px;
+  }
+  .tc-shoppable img {
+    min-height: 350px;
+  }
+  .tc-shoppable .dot {
+    height: 14px;
+    width: 14px;
+  }
+}

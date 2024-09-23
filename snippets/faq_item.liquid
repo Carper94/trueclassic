@@ -1,0 +1,33 @@
+<div class='accordion-array__item'>
+  <div class='accordion-wrapper'>
+    <h2 class='accordion-tab-wrapper'>
+      <button
+        class='accordion__tab'
+        type='button'
+        title='{{ title }}'
+        aria-expanded='false'
+        aria-label='{{ title }}'
+      >
+        <span class='accordion__title text uppercase'>
+          {{ title }}
+        </span>
+      </button>
+
+      <div class='accordion-icon-wrapper'>
+        <div class='accordion__plus'>
+          {% render 'icon-chevron' %}
+        </div>
+        <div class='accordion__minus hide'>
+          {% render 'icon-chevron' %}
+        </div>
+      </div>
+    </h2>
+
+    <div
+      class='accordion__panel'
+      aria-live='polite'
+    >
+      {{ content }}
+    </div>
+  </div>
+</div>

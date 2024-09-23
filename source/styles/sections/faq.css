@@ -1,0 +1,26 @@
+.faq-wrapper {
+  padding: var(--spacer-m);
+  color: var(--brand-black);
+  border: var(--input-border-size) solid var(--brand-black);
+  border-radius: 12px;
+
+  @media (--large) {
+    padding: var(--spacer-l) var(--spacer-xl);
+  }
+
+  & .faq__title {
+    text-align: center;
+  }
+
+  & .accordion-array__item {
+    border-bottom: var(--divider);
+
+    &:last-child {
+      border: none;
+    }
+
+    & .accordion__tab {
+      padding: var(--spacer-s) 0px;
+    }
+  }
+}

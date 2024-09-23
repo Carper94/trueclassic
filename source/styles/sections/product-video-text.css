@@ -1,0 +1,112 @@
+.product-video-text {
+  padding: 0;
+
+  @media (--medium) {
+    padding: 4rem 0;
+  }
+
+  & .product-video-section-wrapper {
+    background-color: var(--brand-brown);
+    display: grid;
+    grid-template-columns: 1fr;
+    border: none;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+
+    & .product-video-text-media {
+      width: 100%;
+
+      & .product-video-text-media-wrapper {
+        position: relative;
+        height: 100%;
+        width: 100%;
+      }
+
+      & .video-poster,
+      & .player-wrapper {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        transition: opacity 0.5s ease;
+        overflow: hidden;
+        inset: 0;
+
+        & iframe,
+        & img {
+          max-width: 100% !important;
+          widtht: 100% !important;
+        }
+      }
+    }
+
+    & .product-video-text-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 3rem 2rem;
+      width: 100%;
+      margin: auto;
+      max-width: 500px;
+      gap: 1rem;
+      text-align: center;
+
+      @media (--medium) {
+        align-items: flex-start;
+        text-align: left;
+        padding: 1rem;
+      }
+
+      & .product-video-text__heading {
+        font-family: var(--font-staff-x-condensed);
+        color: var(--brand-white);
+      }
+
+      & .product-video-text__text {
+        font-family: var(--font-modernist);
+        color: var(--brand-white);
+      }
+    }
+  }
+
+  & .product-video-section-wrapper {
+    @media (--medium) {
+      gap: 4rem;
+      grid-template-columns: 2fr 1fr;
+    }
+  }
+}
+
+/* integrate this*/
+.group-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 14px;
+}
+
+.group-icon-wrapper > div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2px;
+}
+
+@media (min-width: 768px) {
+  .group-icon-wrapper > div {
+    gap: 14px;
+    flex-direction: row;
+  }
+}
+
+#video-iframe {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  position: absolute !important;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background:#000;
+}

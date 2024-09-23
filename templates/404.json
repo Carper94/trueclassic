@@ -1,0 +1,303 @@
+{
+  "sections": {
+    "7638387b-f496-44ed-81b3-811523440c1d": {
+      "type": "tc-image-banner",
+      "blocks": {
+        "template--14541328154696__7638387b-f496-44ed-81b3-811523440c1d-heading-1": {
+          "type": "heading",
+          "settings": {
+            "title": "too good to last",
+            "heading_level": "h2",
+            "heading_size": "h2",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-white",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-none",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "565c8aef-f6c0-4e2a-8967-79bc746b1312": {
+          "type": "heading",
+          "settings": {
+            "title": "The item you were looking for is sold out but don’t worry, there's a lot more where that came from.",
+            "heading_level": "span",
+            "heading_size": "h5",
+            "heading_font": "modernist-type",
+            "heading_color": "color-white",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-none",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        }
+      },
+      "block_order": [
+        "template--14541328154696__7638387b-f496-44ed-81b3-811523440c1d-heading-1",
+        "565c8aef-f6c0-4e2a-8967-79bc746b1312"
+      ],
+      "custom_css": [
+        "span {text-transform: unset;}",
+        ".h5 {font-size: 22px;}",
+        "@media screen and (max-width: 767px) {.img-banner-block-content h2 {font-size: 26px; } .img-banner-block-content span {font-size: 13px; max-width: 233px; }}",
+        "@media screen and (min-width: 767px) {.img-banner {min-height: 250px !important; }}"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "class_test": "section-class",
+        "hidden": false,
+        "section_bg_color": "#ffffff",
+        "full_width": true,
+        "breakpoint": 768,
+        "section_max_width": 4000,
+        "section_height": "550",
+        "media_position": "unset",
+        "media_size": "full",
+        "banner_link": "",
+        "banner_link_title": "True Classic® Sale",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "inner_padding_top": 0,
+        "inner_padding_bottom": 0,
+        "aspect_ratio": 50,
+        "section_image": "shopify:\/\/shop_images\/4100_LIGHTGREY_5_1_3caa9bfd-9730-4002-98c2-b7e8827eea86.png",
+        "section_image_mobile": "shopify:\/\/shop_images\/4100_LIGHTGREY_5_2.png",
+        "media_margin_left": 0,
+        "media_margin_right": 0,
+        "media_margin_top": 0,
+        "media_margin_bottom": 0,
+        "enable_lazyload": false,
+        "content_width": 40,
+        "content_fit": true,
+        "text_position": "center",
+        "text_position_mobile": "center",
+        "content_padding_dt": "0",
+        "content_padding_mb": "0",
+        "enable_absolute": false,
+        "enable_distance_top": false,
+        "content_top": 50,
+        "content_top_mobile": 50,
+        "enable_distance_bottom": false,
+        "content_bottom": 50,
+        "enable_distance_left": false,
+        "content_left": 50,
+        "enable_distance_right": false,
+        "content_right": 50,
+        "mobile_positioning": "unset",
+        "reverse_mobile": true,
+        "mobile_overlay": false,
+        "mobile_overlay_color": "#000000",
+        "mobile_overlay_opacity": 0.5,
+        "enable_prime_style": false,
+        "enable_custom_styles": false,
+        "custom_styles": "",
+        "custom_styles_mobile": ""
+      }
+    },
+    "cefcdff4-862c-4eb0-9fbb-93b423affeef": {
+      "type": "tc-rich-text",
+      "custom_css": [
+        "h2 {font-weight: 400;}"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "section_bg_color": "#ffffff",
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "full_width": true,
+        "padding_top": 24,
+        "padding_bottom": 0
+      }
+    },
+    "37695dd1-acd7-418c-98ad-6d28bddbef59": {
+      "type": "tc-featured-list",
+      "blocks": {
+        "template--14541328154696__37695dd1-acd7-418c-98ad-6d28bddbef59-featured-1": {
+          "type": "featured",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2023_FAW_LIFESTYLE214403_1.png",
+            "title": "NEW ARRIVALS",
+            "url": "shopify:\/\/collections\/new-arrivals"
+          }
+        },
+        "template--14541328154696__37695dd1-acd7-418c-98ad-6d28bddbef59-featured-2": {
+          "type": "featured",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Truw_Classic_Denim_Campaign-1271_2.png",
+            "title": "BEST SELLERS",
+            "url": "shopify:\/\/collections\/best-sellers"
+          }
+        },
+        "template--14541328154696__37695dd1-acd7-418c-98ad-6d28bddbef59-featured-3": {
+          "type": "featured",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MG_5540_2_bfce5ef2-fae4-42ef-8ce8-12ae07dcd1e1.png",
+            "title": "T-SHIRTS",
+            "url": "shopify:\/\/collections\/crew-neck-tees-1"
+          }
+        },
+        "e7ae4fd3-6173-48ac-9979-8a93adc4503b": {
+          "type": "featured",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2023_FAW_LAYDOWN_54971_1.png",
+            "title": "BOTTOMS",
+            "url": "\/collections\/mens-bottoms"
+          }
+        }
+      },
+      "block_order": [
+        "template--14541328154696__37695dd1-acd7-418c-98ad-6d28bddbef59-featured-1",
+        "template--14541328154696__37695dd1-acd7-418c-98ad-6d28bddbef59-featured-2",
+        "template--14541328154696__37695dd1-acd7-418c-98ad-6d28bddbef59-featured-3",
+        "e7ae4fd3-6173-48ac-9979-8a93adc4503b"
+      ],
+      "custom_css": [
+        "h3 a {font-weight: 400;}",
+        "h3,.featured-list-title {text-align: left; justify-content: flex-start;}",
+        "@media screen and (min-width: 990px) {.grid--4-col-desktop .grid__item {max-width: 25%; }}",
+        ".item-title {margin: 12px 13px;}",
+        "@media screen and (max-width: 767px) {slider-component {padding: 0 !important; margin: 0 !important; } slider-component ul {padding: 0 0; } .featured-list-title {margin: 0 24px; } .item-title {margin: 4px 0; }}",
+        ".featured-list-wrapper {padding: 0 20px; margin: 0 auto;}"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "bg_color": "#ffffff",
+        "hide_on_desktop": false,
+        "hide_on_mobile": false,
+        "title": "POPULAR ITEMS",
+        "heading_alignment": "right",
+        "heading_size": 32,
+        "heading_size_mobile": 22,
+        "columns_desktop": 4,
+        "full_width": false,
+        "hide_controls": true,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "spacing_grid_horizontal": 20,
+        "spacing_grid_vertical": 4,
+        "title_x": "flex-start",
+        "item_title_size": 20,
+        "item_title_size_mobile": 16,
+        "padding_top": 32,
+        "padding_bottom": 40
+      }
+    },
+    "687a1685-1670-4875-a9d3-29948cacba45": {
+      "type": "liquid",
+      "disabled": true,
+      "settings": {
+        "liquid": "<hr \/>\n<br \/>"
+      }
+    },
+    "main": {
+      "type": "404",
+      "disabled": true,
+      "settings": {
+      }
+    },
+    "16908270803387b993": {
+      "type": "apps",
+      "blocks": {
+        "96b31c9d-ac31-4948-a0bc-1271858c331a": {
+          "type": "shopify:\/\/apps\/rebuy-personalization-engine\/blocks\/rebuy-widget\/a26ae9b9-933b-40bf-bbc6-bf1220bbc4dc",
+          "settings": {
+            "enabled": true,
+            "id": "",
+            "product_id_enabled": true,
+            "collection_id_enabled": false
+          }
+        }
+      },
+      "block_order": [
+        "96b31c9d-ac31-4948-a0bc-1271858c331a"
+      ],
+      "disabled": true,
+      "custom_css": [
+
+      ],
+      "settings": {
+      }
+    },
+    "3889213c-6725-4805-b2d7-e2f25b134782": {
+      "type": "tc-collection-inline",
+      "custom_css": [
+        ".collection {margin-left: auto; margin-right: auto; padding-left: 20px; padding-right: 20px; max-width: 1440px;}"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "title": "YOU MAY ALSO LIKE",
+        "heading_level": "h2",
+        "heading_size": "h5",
+        "heading_font": "staff-x-condensed-type",
+        "heading_color": "color-black",
+        "heading_color_inverse": false,
+        "heading_margin_top": "mg-t-none",
+        "heading_margin_bottom": "mg-b-m",
+        "heading_underline": false,
+        "line_break_dot": false,
+        "collection": "404-upsell",
+        "products_to_show": 5,
+        "columns_desktop": 4,
+        "full_width": true,
+        "enable_section_width": false,
+        "max_section_width_desktop": 700,
+        "enable_desktop_slider": false,
+        "enable_card_width": false,
+        "max_card_width_desktop": 250,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 12,
+        "padding_bottom": 12
+      }
+    },
+    "1b976b5b-c16e-4b71-90db-d7f78368fbc1": {
+      "type": "tc-rich-text",
+      "blocks": {
+        "d8f7dbc1-63e6-4c67-a9c0-54ca493b4183": {
+          "type": "link",
+          "settings": {
+            "link_text": "Shop Now",
+            "link_url": "\/collections\/all",
+            "new_tab": false,
+            "link_style": "primary",
+            "link_color_inverse": false,
+            "link_icon": "arrow-right",
+            "link_margin_top": "mg-t-none",
+            "link_margin_bottom": "mg-b-m",
+            "full_width": false,
+            "disabled": false
+          }
+        }
+      },
+      "block_order": [
+        "d8f7dbc1-63e6-4c67-a9c0-54ca493b4183"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "section_bg_color": "#ffffff",
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "7638387b-f496-44ed-81b3-811523440c1d",
+    "cefcdff4-862c-4eb0-9fbb-93b423affeef",
+    "37695dd1-acd7-418c-98ad-6d28bddbef59",
+    "687a1685-1670-4875-a9d3-29948cacba45",
+    "main",
+    "16908270803387b993",
+    "3889213c-6725-4805-b2d7-e2f25b134782",
+    "1b976b5b-c16e-4b71-90db-d7f78368fbc1"
+  ]
+}

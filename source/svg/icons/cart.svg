@@ -1,0 +1,10 @@
+<svg
+  width='16'
+  height='18'
+  viewBox='0 0 16 18'
+  fill='none'
+  xmlns='http://www.w3.org/2000/svg'
+  class='svg-icon svg-icon--cart'
+>
+  <path d="M11.75 5.6V3.85C11.75 1.73 9.9 0 7.62 0C5.34 0 3.48 1.73 3.48 3.85V5.6H0V17.68H15.24V5.6H11.76H11.75ZM4.98 5.6V3.85C4.98 2.55 6.16 1.5 7.61 1.5C9.06 1.5 10.24 2.55 10.24 3.85V5.6H4.98ZM1.5 15.19V7.1H13.74V16.18H1.5V15.19Z" fill='currentColor'/>
+</svg>

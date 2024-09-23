@@ -1,0 +1,32 @@
+<div class="category-slider {{ section.settings.css_class }}">
+  {% if heading != blank %}
+    <div class="category-slider__heading-wrapper">
+      <h2 class="h4 headline">{{ heading }}</h2>
+    </div>
+  {% endif %}
+  <!-- Slider main container -->
+  <div class="swiper">
+    <!-- Additional required wrapper -->
+    <ul class="swiper-wrapper">
+      <!-- Slides -->
+      {% for block_setting in block_settings %}
+        <li class="swiper-slide">
+          {% assign collection = block_setting.collection %}
+          {% assign collection_name = block_setting.collection_name %}
+          {% render 'category-card', collection: collection, collection_name: collection_name, size: 'small' %}
+        </li>
+      {% endfor %}
+    </ul>
+    <!-- Add Navigation -->
+    <div class='image-slider-slide-controls'>
+      <button class='image-slider-button-prev icon-button'>
+        {% render 'icon-chevron-left-circle' %}
+        <span class='visually-hidden'>Move Carousel to Left</span>
+      </button>
+      <button class='image-slider-button-next icon-button'>
+        {% render 'icon-chevron-right-circle' %}
+        <span class='visually-hidden'>Move Carousel to Right</span>
+      </button>
+    </div>
+  </div>
+</div>

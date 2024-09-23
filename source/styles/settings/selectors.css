@@ -1,0 +1,9 @@
+@custom-selector :--heading h1, h2, h3, h4, h5, h6;
+@custom-selector :--heading-util .h0, .h1, .h2, .h3, .h4, .h5, .h6;
+@custom-selector :--text p, .rte, .text;
+@custom-selector :--spacing .padding, .padding;
+@custom-selector :--button .button, .btn, .inveterate__redemption__button;
+@custom-selector :--input input, textarea;
+@custom-selector :--pointer-intent [data-whatintent="touch"], [data-whatintent="mouse"];
+@custom-selector :--keyboard-intent [data-whatintent="keyboard"];
+@custom-selector :--nav-menu .nav-menu, ol.nav-menu, ul.nav-menu;

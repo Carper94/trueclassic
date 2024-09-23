@@ -1,0 +1,17 @@
+NestedSnippet:
+  enabled: true
+  max_nesting_level: 10
+TemplateLength:
+  enabled: false
+SchemaJsonFormat:
+  enabled: false
+UnusedAssign:
+  enabled: false
+RemoteAsset:
+  enabled: false
+ParserBlockingScriptTag:
+  enabled: false
+LiquidTag:
+  enabled: false
+ParserBlockingJavaScript:
+  enabled: false

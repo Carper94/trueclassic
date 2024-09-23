@@ -1,0 +1,204 @@
+{%- assign sc_id = '#shopify-section-' | append: section.id -%}
+{%- liquid
+  assign country_codes = section.settings.country_code | split: ','
+  assign exclude_country_codes = section.settings.exclude_country_code | split: ','
+  assign should_show_banner = false
+
+  if section.settings.country_code == '' and section.settings.exclude_country_code == ''
+    assign should_show_banner = true
+  else
+    assign is_excluded = false
+    for exclude_code in exclude_country_codes
+      if localization.country.iso_code == exclude_code
+        assign is_excluded = true
+        break
+      endif
+    endfor
+
+    unless is_excluded
+      if section.settings.country_code == ''
+        assign should_show_banner = true
+      else
+        for code in country_codes
+          if localization.country.iso_code == code
+            assign should_show_banner = true
+            break
+          endif
+        endfor
+      endif
+    endunless
+  endif
+-%}
+{% if should_show_banner %}
+  {%- style -%}
+      {{ sc_id }} {
+        padding-top: {{ section.settings.padding_top | times: 0.50 }}px;
+        padding-bottom: {{ section.settings.padding_bottom | times: 0.50 }}px;
+        background-color: {{ section.settings.section_bg }};
+      }
+
+      @media screen and (min-width: 769px) {
+        {{ sc_id }} {
+          padding-top: {{ section.settings.padding_top }}px;
+          padding-bottom: {{ section.settings.padding_bottom }}px;
+        }
+      }
+
+    .icon-list ul.flex {
+      list-style: none;
+      display: flex;
+      width: 100%;
+      margin: 0 auto;
+      column-gap: 2rem;
+      justify-content: space-between;
+      align-content: center;
+      padding: 0;
+    }
+
+    @media screen and (max-width: 769px) {
+      .icon-list ul.flex {
+        flex-direction: column;
+        row-gap: 3rem;
+      }
+
+      .icon-list ul.flex li img {
+        margin: 0 auto;
+      }
+    }
+  {%- endstyle -%}
+
+  <div class='icon-list container content-wrapper'>
+    <ul class='flex'>
+      {%- for block in section.blocks -%}
+        <li class='icon-list__item'>
+          {%- case block.type -%}
+            {%- when 'image' -%}
+              {%- liquid
+                assign image_height = block.settings.image.width | divided_by: block.settings.image.aspect_ratio
+                assign sizes = '20vw'
+                assign loading = 'lazy'
+              -%}
+              {{
+                block.settings.image
+                | image_url: width: 1070
+                | image_tag:
+                  width: block.settings.image.width,
+                  height: image_height,
+                  sizes: sizes,
+                  loading: loading,
+                  widths: '165, 265, 360, 535, 750, 1070',
+                  alt: block.settings.image.alt
+                | escape
+              }}
+            {%- when 'svg' -%}
+              {{ block.settings.svg }}
+          {%- endcase -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+{% endif %}
+{% schema %}
+{
+  "name": "Icon list",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Geolocation"
+    },
+    {
+      "type": "text",
+      "id": "country_code",
+      "label": "Country code",
+      "info": "Enter the country code for the country you want to show the section to. You can have multiple country codes, just separate them with a comma. Example: US,CA,GB. Leave empty to show to all countries."
+    },
+    {
+      "type": "text",
+      "id": "exclude_country_code",
+      "label": "Exclude country code",
+      "info": "Enter the country code for the countries you DON'T want to show the section to. You can have multiple country codes, just separate them with a comma. Example: US,CA,GB"
+    },
+    {
+      "type": "header",
+      "content": "Section options"
+    },
+    {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Section background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image icon",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Icon"
+        }
+      ]
+    },
+    {
+      "type": "svg",
+      "name": "SVG icon",
+      "settings": [
+        {
+          "type": "html",
+          "id": "svg",
+          "label": "SVG Code"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Icon list",
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        }
+      ],
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

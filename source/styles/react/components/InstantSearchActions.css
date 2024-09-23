@@ -1,0 +1,7 @@
+.instant-search-actions {
+  padding: var(--spacer-s);
+
+  & > .button {
+    width: 100%;
+  }
+}

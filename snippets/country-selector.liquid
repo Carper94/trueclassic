@@ -1,0 +1,137 @@
+{% comment %}
+  .
+  Variables available:
+
+    unique_id: {string} unique id for the block (Header, Desktop, Mobile)
+
+  # Usage:
+
+  ## using settings as parameters: (using directly a block id as unique_id and removing dashes and underscores for javascript compatibility)
+
+    {%- assign unique_id = block.id | remove: '-' | remove: '_' -%}
+    {% render 'country-selector',unique_id: block.setting_unique_id %}
+
+  ## parameters can also be hardcoded if needed:
+
+    {% render 'country-selector',unique_id: 'Header' %}
+
+    ### Use unique ID's to customisze the country selector for different blocks. in source/styles/
+
+  ## Preferred countries can be set in global theme settings via the Customizer in Theme options > Preferred Countries.
+  .
+{% endcomment %}
+
+{% if localization.available_countries.size > 1 %}
+  <localization-form
+    class='{{ unique_id }}'
+  >
+    {{ country.currency.iso_code }}
+    {% form 'localization' %}
+      <div class='disclosure country-opener'>
+        <button
+          type='button'
+          class='disclosure__button'
+          aria-expanded='false'
+          aria-controls='CountryList{{ unique_id }}'
+        >
+          <div class='img_wrapper'>
+            <img
+              src='{{ localization.country | image_url: width: 30 }} '
+              loading='lazy'
+              width='30'
+              height='22.5'
+              alt='{{ localization.country.iso_code }}'
+            >
+          </div>
+
+          {% unless unique_id contains 'Header' %}
+            {{ localization.country.name }} ({{ localization.country.currency.iso_code }}
+            {{ localization.country.currency.symbol }})
+          {% endunless %}
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            width='12.5'
+            height='6.31'
+            viewBox='0 0 12.5 6.31'
+            class='svg-icon svg-icon--chevron'
+          >
+            <title>Choose your country</title>
+            <path d="M6.25 6.31c-.18 0-.35-.06-.49-.19L.26 1.31C-.06 1.04-.09.57.19.26S.93-.09 1.24.19l5.01 4.37L11.26.19c.31-.27.79-.24 1.06.07s.24.79-.07 1.06L6.74 6.13c-.14.12-.32.19-.49.19z"></path>
+          </svg>
+        </button>
+
+        <ul
+          id='CountryList{% if unique_id != blank %}{{ unique_id }}{% endif %}'
+          role='list'
+          class='disclosure__list'
+          hidden
+        >
+          {%- liquid
+            assign list_of_countries = settings.preferred_countries | remove: ' '
+            assign preferred_countries = list_of_countries | split: ','
+          -%}
+          {% for iso_code in preferred_countries %}
+            {% assign iso_code = iso_code | upcase %}
+            {% assign preferred_country = localization.available_countries
+              | where: 'iso_code', iso_code
+              | first
+            %}
+            {% if preferred_country %}
+              <li class='disclosure__item' tabindex='-1'>
+                <a
+                  href='#'
+                  {%- if localization.country.iso_code == preferred_country.iso_code -%}
+                    aria-current='true'
+                  {%- endif -%}
+                  data-value='{{ preferred_country.iso_code }}'
+                >
+                  <div class='img_wrapper'>
+                    <img
+                      src='{{ preferred_country | image_url: width: 30 }}'
+                      loading='lazy'
+                      width='30'
+                      height='22.5'
+                      alt='{{ preferred_country.iso_code }}'
+                    >
+                  </div>
+                  {{ preferred_country.name }} ({{ preferred_country.currency.iso_code }}
+                  {{ preferred_country.currency.symbol }})
+                </a>
+              </li>
+            {% endif %}
+          {% endfor %}
+
+          <hr>
+
+          {% for country in localization.available_countries %}
+            {% unless preferred_countries contains country.iso_code %}
+              <li class='disclosure__item' tabindex='-1'>
+                <a
+                  href='#'
+                  {%- if localization.country.iso_code == country.iso_code -%}
+                    aria-current='true'
+                  {%- endif -%}
+                  data-value='{{ country.iso_code }}'
+                >
+                  <div class='img_wrapper'>
+                    <img
+                      src='{{ country | image_url: width: 30 }} '
+                      loading='lazy'
+                      width='30'
+                      height='22.5'
+                      alt='{{ country.iso_code }}'
+                    >
+                  </div>
+                  {{ country.name }} ({{ country.currency.iso_code }}
+                  {{ country.currency.symbol }})
+                </a>
+              </li>
+            {% endunless %}
+          {% endfor %}
+        </ul>
+
+        <input type='hidden' name='country_code' value='{{ localization.country.iso_code }}'>
+      </div>
+    {% endform %}
+  </localization-form>
+{% endif %}

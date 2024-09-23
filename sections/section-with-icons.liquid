@@ -1,0 +1,208 @@
+<div
+  class='section-wrapper section-with-icons-wrapper {{ section.settings.section_class }}'
+  aria-label='Section With Icons'
+>
+  <div class='icons-wrapper' aria-labelledby='section-with-icons-title'>
+    <ul class='icons-list'>
+      <li class='icon'>
+        {% render 'icon-moisture-wicking' %}
+        <span>MOISTURE WICKING</span>
+      </li>
+      <li class='icon'>
+        {% render 'icon-odor-control' %}
+        <span>ODOR CONTROL</span>
+      </li>
+      <li class='icon'>
+        {% render 'icon-sun-protection' %}
+        <span>SUN PROTECTION</span>
+      </li>
+      <li class='icon'>
+        {% render 'icon-quick-dry' %}
+        <span>QUICK DRY</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Section With Icons",
+  "class": "section-with-icons",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "desktop_image",
+      "label": "Desktop Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile Image"
+    },
+    {
+      "type": "text",
+      "id": "css_class",
+      "label": "CSS Class"
+    },
+    {
+      "type": "text",
+      "id": "hero",
+      "label": "Hero Class"
+    },
+    {
+      "type": "select",
+      "id": "font_type",
+      "options": [
+        {
+          "value": "staff-x",
+          "label": "Staff X"
+        },
+        {
+          "value": "modernist",
+          "label": "Modernist"
+        },
+        {
+          "value": "alkaline",
+          "label": "Alkaline"
+        }
+      ],
+      "default": "staff-x",
+      "label": "Font"
+    },
+    {
+      "type": "select",
+      "id": "text_color",
+      "options": [
+        {
+          "value": "light",
+          "label": "Light"
+        },
+        {
+          "value": "dark",
+          "label": "Dark"
+        },
+        {
+          "value": "yellow",
+          "label": "Yellow"
+        },
+        {
+          "value": "red",
+          "label": "Red"
+        }
+      ],
+      "default": "dark",
+      "label": "Text Color"
+    },
+    {
+      "type": "select",
+      "id": "text_position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        }
+      ],
+      "default": "left",
+      "label": "Text Position"
+    },
+    {
+      "type": "select",
+      "id": "box_position",
+      "options": [
+        {
+          "value": "top",
+          "label": "Top"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        }
+      ],
+      "default": "bottom",
+      "label": "Text Box Position"
+    },
+    {
+      "type": "checkbox",
+      "id": "countdown_timer",
+      "label": "Show Countdown Timer",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "countdown_end",
+      "label": "End Date ex.(Jan 1, 2024 12:00:00)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "Heading",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Heading",
+          "label": "Heading"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Subheading",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "html",
+          "id": "text",
+          "default": "Give customers details about the banner image(s) or content on the template.",
+          "label": "Subheading"
+        },
+        {
+          "type": "checkbox",
+          "id": "font_small",
+          "label": "Small Font",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Button",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_label_1",
+          "default": "Button Text",
+          "label": "Button Text"
+        },
+        {
+          "type": "url",
+          "id": "button_link_1",
+          "label": "Link URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Section With Icons",
+      "blocks": [
+        {
+          "type": "text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

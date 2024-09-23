@@ -1,0 +1,37 @@
+{% liquid
+  comment
+    create array of indexes for variants which do not have in stock sizes
+  endcomment
+
+  assign disabled_indexes = ''
+
+  for value in product_option.values
+    assign sold_out = true
+    assign value_index = forloop.index0
+    for variant in product.variants
+      assign size_property = 'option' | append: size_index
+      if variant[size_property] == value
+        unless variant.available
+          assign temp_index = value_index
+        else
+          assign sold_out = false
+        endunless
+      endif
+    endfor
+    if sold_out == true
+      assign disabled_indexes = disabled_indexes | append: temp_index | append: ','
+    endif
+  endfor
+%}
+
+<div class='endrock-sticky-atc-v1__color-alert'>Please Select a Size</div>
+
+{% render 'size-swatch',
+  product: product,
+  name: product_option.name,
+  desc: size_desc,
+  values: product_option.values,
+  selected_value: product_option.selected_value,
+  disabled_indexes: disabled_indexes,
+  length: length
+%}

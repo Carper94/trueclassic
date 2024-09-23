@@ -1,0 +1,467 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "True Classic Custom Theme",
+    "theme_version": "2.5.1",
+    "theme_author": "TC Dev Team",
+    "theme_documentation_url": "https:\/\/github.com\/trueclassic\/true-classic",
+    "theme_support_url": "https:\/\/github.com\/trueclassic\/true-classic\/issues"
+  },
+  {
+    "name": "Theme options",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Quick Add"
+      },
+      {
+        "type": "checkbox",
+        "id": "hide_quick_add",
+        "label": "Hide Quick Add",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Collection link text"
+      },
+      {
+        "type": "text",
+        "id": "collection_more_deals",
+        "label": "Collection link text",
+        "default": "Save Up To 70% OFF"
+      },
+      {
+        "type": "header",
+        "content": "Ribbons"
+      },
+      {
+        "type": "checkbox",
+        "id": "ribbons_fest",
+        "label": "Turn ribbons on",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "ribbons_tag_1",
+        "label": "Ribbons Tag 1"
+      },
+      {
+        "type": "text",
+        "id": "ribbons_text_1",
+        "label": "Ribbons Text 1"
+      },
+      {
+        "type": "text",
+        "id": "ribbons_tag_2",
+        "label": "Ribbons Tag 2"
+      },
+      {
+        "type": "text",
+        "id": "ribbons_text_2",
+        "label": "Ribbons Text 2"
+      },
+      {
+        "type": "text",
+        "id": "ribbons_tag_3",
+        "label": "Ribbons Tag 3"
+      },
+      {
+        "type": "text",
+        "id": "ribbons_text_3",
+        "label": "Ribbons Text 3"
+      },
+      {
+        "type": "text",
+        "id": "ribbons_tag_4",
+        "label": "Ribbons Tag 4"
+      },
+      {
+        "type": "text",
+        "id": "ribbons_text_4",
+        "label": "Ribbons Text 4"
+      },
+      {
+        "type": "header",
+        "content": "Header"
+      },
+      {
+        "type": "checkbox",
+        "id": "icon_account_mobile",
+        "label": "Show acount icon on mobile",
+        "default": false,
+        "info": "if unchecked, display: none; is added to the account icon on mobile for testing."
+      },
+      {
+        "type": "text",
+        "id": "icon_account_mobile_url",
+        "label": "URL of account icon",
+        "default": "#status"
+      },
+      {
+        "type": "header",
+        "content": "Free Shipping options"
+      },
+      {
+        "type": "checkbox",
+        "id": "free_shipping_badge_pdp",
+        "label": "Free shipping badge",
+        "info": "Show free shipping badge on product pages",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Country Selectors"
+      },
+      {
+        "type": "text",
+        "id": "preferred_countries",
+        "label": "Preferred countries",
+        "info": "Use ISO codes, and separate with commas. examle: US,UK,FR [Learn more](https:\/\/en.wikipedia.org\/wiki\/ISO_3166-1_alpha-2#Officially_assigned_code_elements) about ISO codes.",
+        "default": "US, UK, GB, CA, SG, MX, AU"
+      },
+      {
+        "type": "header",
+        "content": "Language Selectors"
+      },
+      {
+        "type": "text",
+        "id": "language_selector_country_code",
+        "label": "Show Country Selector for",
+        "info": "Use ISO codes, and separate with commas. examle: US,UK,FR [Learn more](https:\/\/en.wikipedia.org\/wiki\/ISO_3166-1_alpha-2#Officially_assigned_code_elements) about ISO codes.",
+        "default": "DE,MX,CH,ES,BE,AT,CL,LU,BR,PE,AR,CO,GT,UY,CR,HN,EC,BZ,BO,CU,DO,SV,GQ,GY,HT,NA,NI,PA,PY,SR,VE"
+      }
+    ]
+  },
+  {
+    "name": "Compliance",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Compliance notices"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_compliance",
+        "label": "Enable compliance notices",
+        "info": "Will show info bubbles on Pack's product cards, product pages and cart.",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "pack_bubble_notice",
+        "label": "Tooltip text",
+        "default": "Compared to buying individually at full price."
+      }
+    ]
+  },
+  {
+    "name": "Sales",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Sitewide Sale options"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_global_sale",
+        "label": "Show red badge on all products",
+        "info": "Will show badge in product cards, product pages, annoucement bar and cart line items.",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "hide_sitewide_sale",
+        "label": "Hide Sitewide sale notices",
+        "info": "Hides Sitewide sale notices on product cards, product pages, annoucement bar and cart line items.",
+        "default": false
+      },
+      {
+        "type": "header",
+        "content": "Sitewide Sale options"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_custom_sale_badge",
+        "label": "Enable custom sale badge",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "sale_badge_text",
+        "label": "Text to show",
+        "default": "ON SALE"
+      },
+      {
+        "type": "text",
+        "id": "custom_sale_badge_tag",
+        "label": "Tags used on products (comma-separated)",
+        "default": "red-badge,blue-badge"
+      },
+      {
+        "type": "color",
+        "id": "sale_badge_color",
+        "label": "Sale badge text color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "sale_badge_bg_color",
+        "label": "Sale badge text color",
+        "default": "#971B1B"
+      },
+      {
+        "type": "header",
+        "content": "Sitewide Sale options 2"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_custom_sale_badge_2",
+        "label": "Enable custom sale badge 2",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "sale_badge_text_2",
+        "label": "Text to show",
+        "default": "ON SALE"
+      },
+      {
+        "type": "text",
+        "id": "custom_sale_badge_tag_2",
+        "label": "Tags used on products 2 (comma-separated)",
+        "default": "red-badge,blue-badge"
+      },
+      {
+        "type": "color",
+        "id": "sale_badge_color_2",
+        "label": "Sale badge text color 2",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "sale_badge_bg_color_2",
+        "label": "Sale badge text color 2",
+        "default": "#971B1B"
+      },
+      {
+        "type": "header",
+        "content": "Cashback Sale options"
+      },
+      {
+        "type": "text",
+        "id": "cashback_country_code",
+        "label": "Country codes",
+        "info": "Use ISO codes, and separate with commas. [Learn more](https:\/\/en.wikipedia.org\/wiki\/ISO_3166-1_alpha-2#Officially_assigned_code_elements) about ISO codes.",
+        "default": "US"
+      },
+      {
+        "type": "checkbox",
+        "id": "hide_cashback",
+        "label": "Hide Cashback notices",
+        "info": "Hides Cashback notices on product cards, product pages, annoucement bar and cart line items.",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "hide_cashback_total_cart",
+        "label": "Hide Cashback total in cart",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "hide_bestsellers",
+        "label": "Hide bestseller notices",
+        "info": "Hides Bestseller notices on product cards.",
+        "default": false
+      },
+      {
+        "type": "header",
+        "content": "Main navigation Sale link"
+      },
+      {
+        "type": "text",
+        "id": "menu_sale_label",
+        "label": "Menu sale label"
+      },
+      {
+        "type": "url",
+        "id": "menu_sale_link",
+        "label": "Menu sale link"
+      }
+    ]
+  },
+  {
+    "name": "Social media",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Social sharing image & video (OpenGraph)"
+      },
+      {
+        "type": "image_picker",
+        "id": "share_image",
+        "label": "Image",
+        "info": "Shown when sharing a link on social media. [Learn more](https:\/\/help.shopify.com\/manual\/using-themes\/troubleshooting\/showing-social-media-thumbnail-images\/) about image thumbnails."
+      },
+      {
+        "type": "video_url",
+        "id": "opengraph_video",
+        "accept": [
+          "youtube"
+        ],
+        "label": "Video Url (YouTube)",
+        "info": "A video shown when sharing a link, where supported [Learn more](https:\/\/ogp.me\/#structured)"
+      },
+      {
+        "type": "text",
+        "id": "og_video_vimeo_url",
+        "label": "Video Url (Vimeo)",
+        "info": "The 'Video file link' for a Vimeo video (requires a Pro account)"
+      },
+      {
+        "type": "text",
+        "id": "opengraph_video_width",
+        "label": "Video Width",
+        "info": "Video width in pixels (enter number only)"
+      },
+      {
+        "type": "text",
+        "id": "opengraph_video_height",
+        "label": "Video Height",
+        "info": "Video height in pixels (enter number only)"
+      },
+      {
+        "type": "header",
+        "content": "Social sharing options"
+      },
+      {
+        "type": "checkbox",
+        "id": "social_sharing_blog",
+        "label": "Enable sharing for blog articles",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "share_facebook",
+        "label": "Share on Facebook",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "share_twitter",
+        "label": "Tweet on Twitter",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "share_pinterest",
+        "label": "Pin on Pinterest",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "share_tumblr",
+        "label": "Share on Tumblr",
+        "default": false
+      },
+      {
+        "type": "header",
+        "content": "Sharing links"
+      },
+      {
+        "type": "text",
+        "id": "social_twitter_link",
+        "label": "Twitter link"
+      },
+      {
+        "type": "text",
+        "id": "social_facebook_link",
+        "label": "Facebook link"
+      },
+      {
+        "type": "text",
+        "id": "social_pinterest_link",
+        "label": "Pinterest link"
+      },
+      {
+        "type": "text",
+        "id": "social_instagram_link",
+        "label": "Instagram link"
+      },
+      {
+        "type": "text",
+        "id": "social_snapchat_link",
+        "label": "Snapchat link"
+      },
+      {
+        "type": "text",
+        "id": "social_tumblr_link",
+        "label": "Tumblr link"
+      },
+      {
+        "type": "text",
+        "id": "social_youtube_link",
+        "label": "Youtube link"
+      },
+      {
+        "type": "text",
+        "id": "social_vimeo_link",
+        "label": "Vimeo link"
+      },
+      {
+        "type": "text",
+        "id": "social_tiktok_link",
+        "label": "Tiktok link"
+      }
+    ]
+  },
+  {
+    "name": "Cart",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "cart_notes_enable",
+        "label": "Enable cart notes",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Contact Info",
+    "settings": [
+      {
+        "type": "text",
+        "id": "phone",
+        "label": "Contact Phone Number",
+        "default": "(323) 419-1092"
+      },
+      {
+        "type": "text",
+        "id": "email",
+        "label": "Contact Email Address",
+        "default": "support@trueclassic.com"
+      }
+    ]
+  },
+  {
+    "name": "SEO",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Hreflang"
+      },
+      {
+        "type": "textarea",
+        "id": "included_hreflang",
+        "label": "Hreflang to include",
+        "info": "Add the values with a comma seperators. Example - en-us,en-es"
+      },
+      {
+        "type": "textarea",
+        "id": "excluded_hreflang",
+        "label": "Hreflang to exclude (Noindex)",
+        "info": "Add the values with a comma seperators. Example - de-be,de-lu"
+      }
+    ]
+  }
+]

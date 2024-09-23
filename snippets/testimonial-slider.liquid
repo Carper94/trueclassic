@@ -1,0 +1,96 @@
+<div class='testimonial-slider'>
+  <div class='testimonial-slider__heading-wrapper'>
+    <h2 class='h4 headline'>{{ heading }}</h2>
+  </div>
+  <div class='testimonial-quote mobile-only'>
+    {% render 'icon-quote' %}
+  </div>
+  <!-- Slider main container -->
+  <div class='swiper'>
+    <!-- Additional required wrapper -->
+    <ul class='swiper-wrapper'>
+      <!-- Slides -->
+      {% for block in block_settings %}
+        {% liquid
+          assign testimonial_img = block.testimonial_img
+          assign testimonial_rating = block.testimonial_rating
+          assign testimonial_headline = block.testimonial_headline
+          assign testimonial_full_text = block.testimonial_full_text
+          assign name = block.name
+          assign height = block.height
+          assign weight = block.weight
+          assign product_reviewed = block.product_reviewed
+        %}
+        <li class='swiper-slide'>
+          <div class='slide-wrapper'>
+            <div class='testimonial-excerpt--wrapper mobile-only'>
+              <div class='testimonial-rating--wrapper'>
+                {% render 'icon-star' %}
+                <span class='testimonial__rating'>{{ testimonial_rating }}</span>
+                <span class='testimonial__headline'>{{ testimonial_headline }}</span>
+              </div>
+            </div>
+            <div class='testimonial-image--container'>
+              <div class='testimonial-image--wrapper'>
+                <img
+                  srcset='
+                    {%- if testimonial_img.width >= 375 -%}{{ testimonial_img | image_url: width: 375 }} 375w,{%- endif -%}
+                    {%- if testimonial_img.width >= 750 -%}{{ testimonial_img | image_url: width: 750 }} 750w,{%- endif -%}
+                    {%- if testimonial_img.width >= 1100 -%}{{ testimonial_img | image_url: width: 1100 }} 1100w,{%- endif -%}
+                    {%- if testimonial_img.width >= 1500 -%}{{ testimonial_img | image_url: width: 1500 }} 1500w,{%- endif -%}
+                    {%- if testimonial_img.width >= 2000 -%}{{ testimonial_img | image_url: width: 2000 }} 2000w,{%- endif -%}
+                    {%- if testimonial_img.width >= 2500 -%}{{ testimonial_img | image_url: width: 2500 }} 2500w,{%- endif -%}
+                    {{ testimonial_img | image_url }} {{ testimonial_img.width }}w
+                  '
+                  src='{{ testimonial_img | image_url: width: 1500 }}'
+                  loading='lazy'
+                  alt='{{ testimonial_img.alt | escape }}'
+                  width='{{ testimonial_img.width }}'
+                  height='{{ testimonial_img.height }}'
+                >
+              </div>
+            </div>
+            <div class='testimonial-excerpt--wrapper desktop-only'>
+              <div class='testimonial-quote'>
+                {% render 'icon-quote' %}
+              </div>
+            </div>
+            <div class='testimonial-content--wrapper'>
+              <div class='testimonial-rating--wrapper desktop-only'>
+                {% render 'icon-star' %}
+                <span class='testimonial__rating'>{{ testimonial_rating }}</span>
+                <span class='testimonial__headline'>{{ testimonial_headline }}</span>
+              </div>
+              <p class='testimonial__text'>{{ testimonial_full_text }}</p>
+              <div class='testimonial-author--wrapper'>
+                <div class='testimonial-author--content'>
+                  <div>
+                    <span>{{ name }}</span>
+                    {% unless template.suffix == 'daddy-christmas' %}
+                      &nbsp&bull;
+                      <span>{{ height }}</span>&nbsp&bull;
+                      <span>{{ weight }}lbs</span>
+                    {% endunless %}
+                  </div>
+                  {% unless template.suffix == 'daddy-christmas' %}
+                    <div>Reviewing: {{ product_reviewed.title }}</div>
+                  {% endunless %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+    <div class='testimonial-slide-controls'>
+      <button class='testimonial-button-prev icon-button'>
+        {% render 'icon-chevron-left-circle' %}
+        <span class='visually-hidden'>Previous</span>
+      </button>
+      <button class='testimonial-button-next icon-button'>
+        {% render 'icon-chevron-right-circle' %}
+        <span class='visually-hidden'>Next</span>
+      </button>
+    </div>
+  </div>
+</div>

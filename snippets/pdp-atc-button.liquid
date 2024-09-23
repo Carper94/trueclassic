@@ -1,0 +1,92 @@
+{% comment %}
+  {% unless product.vendor == 'Fondue' %}
+    <button
+      id='{{ id }}'
+      class='button primary red main-product-add-cart atc-button {{ class }}'
+      name='add'
+      {% unless product.available %}
+        style='background-color: #5b5b5b'
+      {% endunless %}
+      data-submit-button-text
+      data-enabled-text='{{ 'products.product.add_to_cart' | t }}'
+      data-disabled-text='{{ 'products.product.sold_out' | t }}'
+      {% unless variant.available %}
+        disabled='disabled'
+      {% endunless %}
+    >
+      <span class='btn-text'>
+        {% render 'tc-icons', icon: 'arrow-right' %}
+        {% if variant.available %}
+          {{ 'products.product.add_to_cart' | t }}
+        {% else %}
+          {{ 'products.product.sold_out' | t }}
+        {% endif %}
+      </span>
+      {%- render 'button-loader' -%}
+    </button>
+  {% endunless %}
+{% endcomment %}
+
+{% unless product.vendor == 'Fondue' %}
+  {% unless request.page_type == 'product' %}
+    <button
+      id='{{ id }}'
+      class='button primary main-product-add-cart atc-button {{ class }}'
+      {% comment %} type='submit' {% endcomment %}
+      name='add'
+      {% unless product.available %}
+        style='background-color: #5b5b5b'
+      {% endunless %}
+      data-submit-button-text
+      data-enabled-text='{{ 'products.product.add_to_cart' | t }}'
+      data-disabled-text='{{ 'products.product.sold_out' | t }}'
+      {% unless variant.available %}
+        disabled='disabled'
+      {% endunless %}
+    >
+      {% render 'icon-add-to-cart' %}
+      <span class='atc-text'>
+        {% if variant.available %}
+          {{ 'products.product.add_to_cart' | t }}
+        {% else %}
+          {{ 'products.product.sold_out' | t }}
+        {% endif %}
+      </span>
+    </button>
+    <a
+      class='button primary red btn btn-lg btn-addtocart sr-bis-btn klaviyo-bis-trigger'
+      {% if variant.available %}
+        disabled
+      {% endif %}
+      href='#'
+      >Notify Me When Available</a
+    >
+  {% else %}
+    <button
+      id='{{ id }}'
+      class='button primary main-product-add-cart atc-button {{ class }}'
+      {% unless product.selected_or_first_available_variant.available %}
+        disabled
+      {% endunless %}
+      name='add'
+      data-submit-button-text
+      data-enabled-text='{{ 'products.product.add_to_cart' | t }}'
+      data-disabled-text='{{ 'products.product.add_to_cart' | t }}'
+    >
+      {% render 'icon-add-to-cart' %}
+      <span class='atc-text'>
+        {{ 'products.product.add_to_cart' | t }}
+      </span>
+    </button>
+    <a
+      class='button primary red btn btn-lg btn-addtocart sr-bis-btn klaviyo-bis-trigger'
+      style='max-width: 78.5%;'
+      {% if variant.available %}
+        disabled
+      {% endif %}
+      href='#'
+      >Notify Me When Available</a
+    >
+
+  {% endunless %}
+{% endunless %}

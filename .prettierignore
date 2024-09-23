@@ -1,0 +1,3 @@
+config/*.json
+templates/*.json
+locales/*.json

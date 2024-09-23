@@ -1,0 +1,25 @@
+<fieldset class='product-option'>
+  <legend>
+    {{ product_option.name }}:
+    <span class='light-font'>{% render 'size-text', size: product_option.selected_value %}</span>
+  </legend>
+  <div class='product-option__input-wrapper'>
+    {% for value in product_option.values %}
+      <input
+        type='radio'
+        id='{{ product_option.name }}-{{ value }}-{{ forloop.index0 }}'
+        class='visually-hidden'
+        name='Option-{{ product_option.name | escape }}'
+        aria-label='{{ product_option.name | escape }}'
+        value='{{ value }}'
+        {% if product_option.selected_value == value %}
+          checked
+        {% endif %}
+        data-option
+      >
+      <label for='{{ product_option.name }}-{{ value }}-{{ forloop.index0 }}'>
+        <span class='product-option-text'>{{ value }}</span>
+      </label>
+    {% endfor %}
+  </div>
+</fieldset>

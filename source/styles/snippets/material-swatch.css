@@ -1,0 +1,34 @@
+.material-swatch {
+  & .material-swatch__button-wrapper {
+    display: flex;
+    gap: var(--spacer-s);
+
+    & .material-swatch__button {
+      text-decoration: none;
+      border: 1px solid var(--brand-black);
+      border-radius: 5px;
+      width: 100%;
+      display: block;
+      text-align: center;
+      cursor: pointer;
+
+      &.inactive {
+        color: var(--brand-white);
+      }
+    }
+  }
+
+  & .material-swatch__option,
+  & .material-swatch__button {
+    width: 100%;
+    max-width: 245px;
+
+    &.inactive {
+      cursor: default;
+    }
+  }
+
+  & > * + * {
+    margin-top: var(--spacer-s);
+  }
+}

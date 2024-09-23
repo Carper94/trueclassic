@@ -1,0 +1,1331 @@
+{%- liquid
+  assign country_codes = section.settings.country_code | split: ','
+  assign exclude_country_codes = section.settings.exclude_country_code | split: ','
+  assign should_show_banner = false
+
+  if section.settings.country_code == '' and section.settings.exclude_country_code == ''
+    assign should_show_banner = true
+  else
+    assign is_excluded = false
+    for exclude_code in exclude_country_codes
+      if localization.country.iso_code == exclude_code
+        assign is_excluded = true
+        break
+      endif
+    endfor
+
+    unless is_excluded
+      if section.settings.country_code == ''
+        assign should_show_banner = true
+      else
+        for code in country_codes
+          if localization.country.iso_code == code
+            assign should_show_banner = true
+            break
+          endif
+        endfor
+      endif
+    endunless
+  endif
+-%}
+{% if should_show_banner %}
+  {% unless request.path contains '/collections/sale'
+    or request.path contains '/pages/track-my-order'
+  %}
+    {%- liquid
+      assign sc_id = '#shopify-section-' | append: section.id
+      assign sc_js_id = section.id | remove: '-' | remove: '_'
+    -%}
+
+    {%- liquid
+      assign country_codes = section.settings.country_code | split: ','
+      assign exclude_country_codes = section.settings.exclude_country_code | split: ','
+      assign show_section = false
+
+      if section.settings.country_code == '' and section.settings.exclude_country_code == ''
+        assign show_section = true
+      else
+        assign is_excluded = false
+        for exclude_code in exclude_country_codes
+          if localization.country.iso_code == exclude_code
+            assign is_excluded = true
+            break
+          endif
+        endfor
+
+        unless is_excluded
+          if section.settings.country_code == ''
+            assign show_section = true
+          else
+            for code in country_codes
+              if localization.country.iso_code == code
+                assign show_section = true
+                break
+              endif
+            endfor
+          endif
+        endunless
+      endif
+    -%}
+
+    {% if show_section %}
+      {%- liquid
+        assign popup_timeout = section.settings.popup_timeout
+        assign scroll_up_distance = section.settings.scroll_up_distance
+        assign popup_timeout_mobile = section.settings.popup_timeout_mobile
+      -%}
+
+      {% if section.settings.enable %}
+        <style type='text/css'>
+          .popup-modal {
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            z-index: -101;
+            overflow: hidden;
+            -webkit-animation-duration: 0.3s;
+            animation-duration: 0.3s;
+          }
+          .popup-modal-overlay {
+            background: rgba(0, 0, 0, 0.65);
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+          }
+          .popup-modal[closed] {
+            -webkit-animation-name: fadeout;
+            animation-name: fadeout;
+          }
+          .popup-modal[open] .popup-modal-overlay,
+          .popup-modal[open] .popup-modal__content {
+          }
+          .popup-modal[open] {
+            -webkit-animation-name: fadein;
+            animation-name: fadein;
+            opacity: 1;
+            z-index: 3214748136;
+          }
+
+          @media only screen and (max-width: 989px) {
+            .popup-modal {
+              max-height: 100%;
+              overflow-y: scroll;
+            }
+          }
+
+          .popup-modal__content {
+            width: 100%;
+            max-width: 960px;
+            overflow: hidden;
+          }
+
+          .popup-modal__close {
+            padding: 0.5rem;
+            z-index: 9;
+            top: 0;
+            right: 0;
+            cursor: pointer;
+          }
+
+          @media only screen and (max-width: 989px) {
+            .popup-modal__toggle {
+              top: 2.5rem;
+              right: 2.5rem;
+            }
+          }
+
+          @media only screen and (max-width: 989px) {
+            .popup-modal__content {
+              width: calc(100% - 3rem);
+            }
+          }
+
+          .inner-left,
+          .inner-right {
+            width: 50vw;
+          }
+
+          .modal__grid .modal__grid-inner {
+            max-width: 960px;
+          }
+
+          @media screen and (max-width: 767px) {
+            .modal__grid .modal__grid-inner {
+              flex-direction: column;
+            }
+
+            .inner-left,
+            .inner-right {
+              width: 100%;
+            }
+          }
+
+          .inner-left img {
+            max-width: -webkit-fill-available;
+            width: 100%;
+            height: auto;
+          }
+
+          .inner-right {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+          }
+          @media only screen and (max-width: 560px) {
+            #ExitPopuptcexitpopup > div.popup-modal__content div.inner-right {
+              min-height: 320px !important;
+            }
+            #ExitPopuptcexitpopup > div.popup-modal__content h5.headline {
+              font-size: 35px !important;
+            }
+            #ExitPopuptcexitpopup
+              > div.popup-modal__content
+              .text.modernist-type.m.color-chocolate {
+              font-size: 1.05rem;
+            }
+          }
+        </style>
+
+        <modal-dialog id='ExitPopup{{ sc_js_id }}' class='popup-modal flex'>
+          <div class='popup-modal-overlay absolute'></div>
+          <div
+            role='dialog'
+            aria-label='Shop Sale'
+            aria-modal='true'
+            class='popup-modal__content relative bg-color-white'
+            tabindex='-1'
+          >
+            <button
+              id='ModalClose-ExitPopup'
+              type='button'
+              class='popup-modal__close color-black absolute'
+              aria-label='Close'
+              {% comment %} onclick='setPopupCookie("intent-popup-close","true",1)' {% endcomment %}
+            >
+              {%- render 'tc-icons', icon: 'close' -%}
+            </button>
+
+            <div class='modal__grid flex'>
+              <div class='modal__grid-inner flex'>
+                <div class='inner-left'>
+                  {% for block in section.blocks %}
+                    <div
+                      class='left--image {% if block.settings.hide_mobile %} desktop--only{% endif %}'
+                      {{ block.shopify_attributes }}
+                    >
+                      {%- liquid
+                        assign image_height = block.settings.image.width | divided_by: block.settings.image.aspect_ratio
+                        assign image_class = 'motion-reduce desktop--only'
+                        assign sizes = '25vw'
+                        assign loading = 'lazy'
+                      -%}
+                      {{
+                        block.settings.image
+                        | image_url: width: 550
+                        | image_tag:
+                          width: block.settings.image.width,
+                          height: image_height,
+                          class: image_class,
+                          sizes: sizes,
+                          loading: loading,
+                          widths: '265, 375, 550, 750, 1100, 1500',
+                          alt: block.settings.image.alt
+                        | escape
+                      }}
+                    </div>
+                  {% endfor %}
+                </div>
+                <div class='inner-right flex pad-1'>
+                  {%- liquid
+                    if section.settings.subtitle != empty
+                      render 'tc-paragraph', text: section.settings.subtitle, text_font: section.settings.subtitle_font, text_style: section.settings.subtitle_style, text_color: section.settings.subtitle_color, text_color_inverse: section.settings.subtitle_color_inverse, text_margin_top: section.settings.subtitle_margin_top, text_margin_bottom: section.settings.subtitle_margin_bottom, text_align: 'text-center'
+                    endif
+                    if section.settings.title != empty
+                      render 'tc-heading', title: section.settings.title, heading_level: section.settings.heading_level, heading_font: section.settings.heading_font, heading_size: section.settings.heading_size, heading_color: section.settings.heading_color, heading_color_inverse: section.settings.heading_color_inverse, heading_margin_top: section.settings.heading_margin_top, heading_margin_bottom: section.settings.heading_margin_bottom, heading_underline: section.settings.heading_underline, line_break_dot: section.settings.line_break_dot
+                    endif
+                    if section.settings.paragraph != empty
+                      render 'tc-paragraph', text: section.settings.paragraph, text_font: section.settings.paragraph_font, text_style: section.settings.paragraph_style, text_color: section.settings.paragraph_color, text_color_inverse: section.settings.text_color_inverse, text_margin_top: section.settings.paragraph_margin_bottom, text_margin_bottom: section.settings.paragraph_margin_bottom, text_align: 'text-center'
+                    endif
+                  -%}
+
+                  <a
+                    href='{{ section.settings.button_url }}'
+                    class='button primary black mg-b-m'
+                    style='background-color: black;color: white;'
+                    onclick=''
+                  >
+                    {% render 'tc-icons', icon: 'arrow-right' %}
+                    {{ section.settings.button_label }}
+                  </a>
+                  <button
+                    id='ModalClose-ExitPopupThanks'
+                    type='button'
+                    class='color-gray'
+                    aria-label='Close'
+                    {% comment %} onclick='setPopupCookie("intent-popup-close","true",1)' {% endcomment %}
+                  >
+                    No Thanks
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </modal-dialog>
+
+        <script src='{{ 'theme.custom.js' | asset_url }}'></script>
+
+        <script>
+          
+          
+        
+        
+        
+        
+        
+        
+        //temporary solution
+        var ev = new KeyboardEvent('keydown', {altKey:false,
+  bubbles: true,
+  cancelBubble: false, 
+  cancelable: true,
+  charCode: 0,
+  code: "Esc",
+  composed: true,
+  ctrlKey: false,
+  currentTarget: null,
+  defaultPrevented: true,
+  detail: 0,
+  eventPhase: 0,
+  isComposing: false,
+  isTrusted: true,
+  key: "Esc",
+  keyCode: 27,
+  location: 0,
+  metaKey: false,
+  repeat: false,
+  returnValue: false,
+  shiftKey: false,
+  type: "keydown",
+  which: 27});
+        var exitIntentPopupHide = exitIntentPopupHide !== undefined ? exitIntentPopupHide : false;
+        
+        if(exitIntentPopupHide == false){
+          const setPopupCookie = (cname,cvalue,exdays) => {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays*24*60*60*1000));
+            let expires = "expires="+ d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+          }
+          const getPopupCookie = (cname) => {
+            let name = cname + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for(let i = 0; i <ca.length; i++) {
+              let c = ca[i];
+              while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+              }
+              if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+              }
+            }
+            return "";
+          }
+
+          
+          
+          const cookie = getPopupCookie("intent-popup-close");
+          //if cookie exists, means customer has closed the popup
+          if(cookie != "true" || !cookie){
+            setPopupCookie("intent-popup-close","false",1);
+          }
+
+        document.addEventListener('DOMContentLoaded', function () {
+          
+          //check storage first, if set - don't do anything below
+          //desktop - handle mouse out should have timer as well (10s)
+          let initialScrollPosition = null;
+          let lastScrollY = window.scrollY;
+          let modalCooldown = false;
+          let closeTimeout = null;
+          const exitPopup = document.getElementById(`ExitPopup{{ sc_js_id }}`);
+          const overlay = exitPopup.querySelector('.popup-modal-overlay');
+          const modalClose = exitPopup.querySelector('#ModalClose-ExitPopup');
+          const modalCloseThanks = exitPopup.querySelector('#ModalClose-ExitPopupThanks');
+          console.log('exitPopup: ', exitPopup)
+          //for escape key
+          document.onkeydown = function(evt) {
+            evt = evt || window.event;
+            var isEscape = false;
+            if ("key" in evt) {
+                isEscape = (evt.key === "Escape" || evt.key === "Esc");
+            } else {
+                isEscape = (evt.keyCode === 27);
+            }
+            if (isEscape) {
+              if(exitPopup.getAttribute('open') != null){
+                setPopupCookie("intent-popup-close","true",1)
+              }
+            }
+        };
+          function handleDesktopBehaviour() {
+            const mouseOutHandler = function (e) {
+              if (e.clientY <= 0 && getPopupCookie('intent-popup-close') == "false"){
+                openModal();
+              }
+            };
+            document.addEventListener('mouseout', mouseOutHandler, false);
+          }
+
+          function openModal() {
+            if (getPopupCookie('intent-popup-close') != "false") {
+              return;
+            }
+            document.body.classList.add('overflow-hidden');
+            exitPopup.setAttribute('open', '');
+            //temporary solution
+            const cartOpened = document.getElementById('shopify-section-mini-cart').getAttribute('aria-hidden') == "false";
+            if(cartOpened){
+              document.dispatchEvent(ev);
+            }
+            trapFocus(exitPopup, exitPopup.querySelector('[role="dialog"]')); //
+            exitPopup.focus();
+          }
+
+          function removeSessionStorageItemOnScroll(itemKey) {
+            function scrollHandler() {
+              if (initialScrollPosition === null) {
+                initialScrollPosition = window.scrollY;
+              }
+
+              const scrollDifference = Math.abs(window.scrollY - initialScrollPosition);
+
+              if (scrollDifference >= 800) {
+                sessionStorage.removeItem(itemKey);
+                initialScrollPosition = null;
+                window.removeEventListener('scroll', scrollHandler);
+              }
+            }
+
+            window.addEventListener('scroll', scrollHandler);
+          }
+
+          function checkIfHasClicked() {
+            if (getPopupCookie('intent-popup-close') != "false") {
+              exitPopup.style.display = 'none';
+              document.body.classList.remove('overflow-hidden');
+
+            }
+          }
+
+          function handleScrollUp() {
+            const currentScrollY = window.scrollY;
+
+            if (currentScrollY < lastScrollY && !modalCooldown) {
+              openModal();
+              modalCooldown = true;
+              setTimeout(() => {
+                modalCooldown = false;
+              }, 20000);
+            }
+            lastScrollY = currentScrollY;
+          }
+
+          function handleMobileBehaviour() {
+            setTimeout(() => {
+              window.addEventListener('scroll', handleScrollUp);
+            }, {{ popup_timeout }}000);
+          }
+
+          function initExitIntent() {
+            checkIfHasClicked();
+            if (!isMobileDevice()) {
+              setTimeout(() => {
+                handleDesktopBehaviour();
+              }, {{ popup_timeout }}000);
+            } else {
+              handleMobileBehaviour();
+            }
+
+            modalClose.addEventListener('click', function () {
+                setPopupCookie("intent-popup-close","true",1);
+            });
+            modalCloseThanks.addEventListener('click', function () {
+                  setPopupCookie("intent-popup-close","true",1)
+                });
+            overlay.addEventListener('click', function () {
+              document.activeElement.blur();
+              document.body.classList.remove('overflow-hidden');
+              exitPopup.removeAttribute('open');
+              setPopupCookie("intent-popup-close","true",1);
+            });
+          }
+          exitPopup.addEventListener('click',function(e){
+            console.log('clicked: ', e)
+          })
+          initExitIntent();
+        });
+        }
+
+
+
+
+
+
+        </script>
+      {% endif %}
+    {% endif %}
+  {% endunless %}
+{% endif %}
+{% schema %}
+{
+  "name": "Exit Popup",
+  "max_blocks": 1,
+  "class": "exit-intent-popup",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Geolocation"
+    },
+    {
+      "type": "text",
+      "id": "country_code",
+      "label": "Country code",
+      "info": "Enter the country code for the country you want to show the banner to. You can have multiple country codes, just separate them with a comma. Example: US,CA,GB. Leave empty to show to all countries."
+    },
+    {
+      "type": "text",
+      "id": "exclude_country_code",
+      "label": "Exclude country code",
+      "info": "Enter the country code for the countries you DON'T want to show the banner to. You can have multiple country codes, just separate them with a comma. Example: US,CA,GB"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable",
+      "label": "Enable Exit Popup",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "General"
+    },
+    {
+      "type": "range",
+      "id": "popup_timeout",
+      "min": 1,
+      "max": 100,
+      "step": 1,
+      "unit": "sec",
+      "label": "Time before popup opens",
+      "info": "*if open for new visitors option enabled.",
+      "default": 5
+    },
+    {
+      "type": "header",
+      "content": "General (mobile)"
+    },
+    {
+      "type": "range",
+      "id": "scroll_up_distance",
+      "min": 10,
+      "max": 500,
+      "step": 10,
+      "unit": "px",
+      "label": "Distance to scroll up",
+      "info": "Will open after user scrolls up this distance.",
+      "default": 350
+    },
+    {
+      "type": "range",
+      "id": "popup_timeout_mobile",
+      "min": 1,
+      "max": 100,
+      "step": 1,
+      "unit": "sec",
+      "label": "Time before popup opens",
+      "info": "*if open for new visitors option enabled.",
+      "default": 5
+    },
+    {
+      "type": "header",
+      "content": "Popup Styles"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "header",
+      "content": "Subtitle"
+    },
+    {
+      "id": "subtitle",
+      "type": "richtext",
+      "label": "subtitle text",
+      "default": "<p>WAIT</p>"
+    },
+    {
+      "type": "select",
+      "id": "subtitle_font",
+      "options": [
+        {
+          "value": "staff-x-condensed-type",
+          "label": "Staff X Condensed"
+        },
+        {
+          "value": "modernist-type",
+          "label": "Modernist"
+        },
+        {
+          "value": "modernist-mono-type",
+          "label": "Modernist Mono"
+        },
+        {
+          "value": "roboto-mono-type",
+          "label": "Roboto Mono"
+        },
+        {
+          "value": "montserrat-type",
+          "label": "Montserrat"
+        }
+      ],
+      "default": "modernist-type",
+      "label": "subtitle font family"
+    },
+    {
+      "type": "select",
+      "id": "subtitle_style",
+      "options": [
+        {
+          "value": "xxl",
+          "label": "XX Large"
+        },
+        {
+          "value": "xl",
+          "label": "X Large"
+        },
+        {
+          "value": "l",
+          "label": "Large"
+        },
+        {
+          "value": "m",
+          "label": "Base"
+        },
+        {
+          "value": "s",
+          "label": "Small"
+        },
+        {
+          "value": "xs",
+          "label": "X Small"
+        },
+        {
+          "value": "xxs",
+          "label": "XX Small"
+        }
+      ],
+      "default": "m",
+      "label": "subtitle size"
+    },
+    {
+      "type": "select",
+      "id": "subtitle_color",
+      "options": [
+        {
+          "value": "color-white",
+          "label": "White"
+        },
+        {
+          "value": "color-black",
+          "label": "Black"
+        },
+        {
+          "value": "color-chocolate",
+          "label": "Chocolate"
+        },
+        {
+          "value": "color-chocolate-light",
+          "label": "Chocolate Light"
+        },
+        {
+          "value": "color-chocolate-mid",
+          "label": "Chocolate Medium"
+        },
+        {
+          "value": "color-chocolate-dark",
+          "label": "Chocolate Dark"
+        },
+        {
+          "value": "color-milk-chocolate",
+          "label": "Milk Chocolate"
+        },
+        {
+          "value": "color-shitake",
+          "label": "Shitake"
+        },
+        {
+          "value": "color-sage",
+          "label": "Sage"
+        },
+        {
+          "value": "color-sage-light",
+          "label": "Sage light"
+        },
+        {
+          "value": "color-cream",
+          "label": "Cream"
+        },
+        {
+          "value": "color-cream-light",
+          "label": "Cream Light"
+        },
+        {
+          "value": "color-yellow",
+          "label": "Yellow"
+        },
+        {
+          "value": "color-red",
+          "label": "Red"
+        }
+      ],
+      "default": "color-chocolate",
+      "label": "subtitle color"
+    },
+    {
+      "type": "checkbox",
+      "id": "subtitle_color_inverse",
+      "label": "Light colors on mobile",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "subtitle_margin_top",
+      "options": [
+        {
+          "value": "mg-t-xxl",
+          "label": "XX Large"
+        },
+        {
+          "value": "mg-t-xl",
+          "label": "X Large"
+        },
+        {
+          "value": "mg-t-l",
+          "label": "Large"
+        },
+        {
+          "value": "mg-t-m",
+          "label": "Medium"
+        },
+        {
+          "value": "mg-t-s",
+          "label": "Small"
+        },
+        {
+          "value": "mg-t-xs",
+          "label": "X Small"
+        },
+        {
+          "value": "mg-t-none",
+          "label": "No margin"
+        }
+      ],
+      "default": "mg-t-none",
+      "label": "subtitle margin top"
+    },
+    {
+      "type": "select",
+      "id": "subtitle_margin_bottom",
+      "options": [
+        {
+          "value": "mg-b-xxl",
+          "label": "XX Large"
+        },
+        {
+          "value": "mg-b-xl",
+          "label": "X Large"
+        },
+        {
+          "value": "mg-b-l",
+          "label": "Large"
+        },
+        {
+          "value": "mg-b-m",
+          "label": "Medium"
+        },
+        {
+          "value": "mg-b-s",
+          "label": "Small"
+        },
+        {
+          "value": "mg-b-xs",
+          "label": "X Small"
+        },
+        {
+          "value": "mg-b-none",
+          "label": "No margin"
+        }
+      ],
+      "default": "mg-b-m",
+      "label": "subtitle margin bottom"
+    },
+
+    {
+      "type": "header",
+      "content": "Title"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Title",
+      "default": "True Classic®"
+    },
+    {
+      "type": "select",
+      "id": "heading_level",
+      "options": [
+        {
+          "value": "h1",
+          "label": "Level 1"
+        },
+        {
+          "value": "h2",
+          "label": "Level 2"
+        },
+        {
+          "value": "h3",
+          "label": "Level 3"
+        },
+        {
+          "value": "h4",
+          "label": "Level 4"
+        },
+        {
+          "value": "h5",
+          "label": "Level 5"
+        },
+        {
+          "value": "h6",
+          "label": "Level 6"
+        },
+        {
+          "value": "span",
+          "label": "Span"
+        }
+      ],
+      "default": "h2",
+      "label": "Heading level"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h0",
+          "label": "XX Large"
+        },
+        {
+          "value": "h1",
+          "label": "X Large"
+        },
+        {
+          "value": "h2",
+          "label": "Large"
+        },
+        {
+          "value": "h3",
+          "label": "Base"
+        },
+        {
+          "value": "h4",
+          "label": "Small"
+        },
+        {
+          "value": "h5",
+          "label": "X Small"
+        },
+        {
+          "value": "h6",
+          "label": "XX Small"
+        }
+      ],
+      "default": "h2",
+      "label": "Heading size"
+    },
+    {
+      "type": "select",
+      "id": "heading_font",
+      "options": [
+        {
+          "value": "staff-x-condensed-type",
+          "label": "Staff X Condensed"
+        },
+        {
+          "value": "modernist-type",
+          "label": "Modernist"
+        },
+        {
+          "value": "modernist-mono-type",
+          "label": "Modernist Mono"
+        },
+        {
+          "value": "roboto-mono-type",
+          "label": "Roboto Mono"
+        },
+        {
+          "value": "montserrat-type",
+          "label": "Montserrat"
+        }
+      ],
+      "default": "staff-x-condensed-type",
+      "label": "Heading font family"
+    },
+    {
+      "type": "select",
+      "id": "heading_color",
+      "options": [
+        {
+          "value": "color-white",
+          "label": "White"
+        },
+        {
+          "value": "color-black",
+          "label": "Black"
+        },
+        {
+          "value": "color-chocolate",
+          "label": "Chocolate"
+        },
+        {
+          "value": "color-chocolate-light",
+          "label": "Chocolate Light"
+        },
+        {
+          "value": "color-chocolate-mid",
+          "label": "Chocolate Medium"
+        },
+        {
+          "value": "color-chocolate-dark",
+          "label": "Chocolate Dark"
+        },
+        {
+          "value": "color-milk-chocolate",
+          "label": "Milk Chocolate"
+        },
+        {
+          "value": "color-shitake",
+          "label": "Shitake"
+        },
+        {
+          "value": "color-sage",
+          "label": "Sage"
+        },
+        {
+          "value": "color-sage-light",
+          "label": "Sage light"
+        },
+        {
+          "value": "color-cream",
+          "label": "Cream"
+        },
+        {
+          "value": "color-cream-light",
+          "label": "Cream Light"
+        },
+        {
+          "value": "color-yellow",
+          "label": "Yellow"
+        },
+        {
+          "value": "color-red",
+          "label": "Red"
+        }
+      ],
+      "default": "color-chocolate",
+      "label": "Heading color"
+    },
+    {
+      "type": "checkbox",
+      "id": "heading_color_inverse",
+      "label": "Light colors on mobile",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "heading_margin_top",
+      "options": [
+        {
+          "value": "mg-t-xxl",
+          "label": "XX Large"
+        },
+        {
+          "value": "mg-t-xl",
+          "label": "X Large"
+        },
+        {
+          "value": "mg-t-l",
+          "label": "Large"
+        },
+        {
+          "value": "mg-t-m",
+          "label": "Medium"
+        },
+        {
+          "value": "mg-t-s",
+          "label": "Small"
+        },
+        {
+          "value": "mg-t-xs",
+          "label": "X Small"
+        },
+        {
+          "value": "mg-t-none",
+          "label": "No margin"
+        }
+      ],
+      "default": "mg-t-none",
+      "label": "Heading margin top"
+    },
+    {
+      "type": "select",
+      "id": "heading_margin_bottom",
+      "options": [
+        {
+          "value": "mg-b-xxl",
+          "label": "XX Large"
+        },
+        {
+          "value": "mg-b-xl",
+          "label": "X Large"
+        },
+        {
+          "value": "mg-b-l",
+          "label": "Large"
+        },
+        {
+          "value": "mg-b-m",
+          "label": "Medium"
+        },
+        {
+          "value": "mg-b-s",
+          "label": "Small"
+        },
+        {
+          "value": "mg-b-xs",
+          "label": "X Small"
+        },
+        {
+          "value": "mg-b-none",
+          "label": "No margin"
+        }
+      ],
+      "default": "mg-b-m",
+      "label": "Heading margin bottom"
+    },
+    {
+      "type": "checkbox",
+      "id": "heading_underline",
+      "label": "Underline",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "line_break_dot",
+      "label": "Break line only at dots",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Paragraph"
+    },
+    {
+      "id": "paragraph",
+      "type": "richtext",
+      "label": "Paragraph text",
+      "default": "<p>Exclusive deals, early access, and first look at new products, right to your inbox.</p>"
+    },
+    {
+      "type": "select",
+      "id": "paragraph_font",
+      "options": [
+        {
+          "value": "staff-x-condensed-type",
+          "label": "Staff X Condensed"
+        },
+        {
+          "value": "modernist-type",
+          "label": "Modernist"
+        },
+        {
+          "value": "modernist-mono-type",
+          "label": "Modernist Mono"
+        },
+        {
+          "value": "roboto-mono-type",
+          "label": "Roboto Mono"
+        },
+        {
+          "value": "montserrat-type",
+          "label": "Montserrat"
+        }
+      ],
+      "default": "modernist-type",
+      "label": "Paragraph font family"
+    },
+    {
+      "type": "select",
+      "id": "paragraph_style",
+      "options": [
+        {
+          "value": "xxl",
+          "label": "XX Large"
+        },
+        {
+          "value": "xl",
+          "label": "X Large"
+        },
+        {
+          "value": "l",
+          "label": "Large"
+        },
+        {
+          "value": "m",
+          "label": "Base"
+        },
+        {
+          "value": "s",
+          "label": "Small"
+        },
+        {
+          "value": "xs",
+          "label": "X Small"
+        },
+        {
+          "value": "xxs",
+          "label": "XX Small"
+        }
+      ],
+      "default": "m",
+      "label": "Paragraph size"
+    },
+    {
+      "type": "select",
+      "id": "paragraph_color",
+      "options": [
+        {
+          "value": "color-white",
+          "label": "White"
+        },
+        {
+          "value": "color-black",
+          "label": "Black"
+        },
+        {
+          "value": "color-chocolate",
+          "label": "Chocolate"
+        },
+        {
+          "value": "color-chocolate-light",
+          "label": "Chocolate Light"
+        },
+        {
+          "value": "color-chocolate-mid",
+          "label": "Chocolate Medium"
+        },
+        {
+          "value": "color-chocolate-dark",
+          "label": "Chocolate Dark"
+        },
+        {
+          "value": "color-milk-chocolate",
+          "label": "Milk Chocolate"
+        },
+        {
+          "value": "color-shitake",
+          "label": "Shitake"
+        },
+        {
+          "value": "color-sage",
+          "label": "Sage"
+        },
+        {
+          "value": "color-sage-light",
+          "label": "Sage light"
+        },
+        {
+          "value": "color-cream",
+          "label": "Cream"
+        },
+        {
+          "value": "color-cream-light",
+          "label": "Cream Light"
+        },
+        {
+          "value": "color-yellow",
+          "label": "Yellow"
+        },
+        {
+          "value": "color-red",
+          "label": "Red"
+        }
+      ],
+      "default": "color-chocolate",
+      "label": "Paragraph color"
+    },
+    {
+      "type": "checkbox",
+      "id": "paragraph_color_inverse",
+      "label": "Light colors on mobile",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "paragraph_margin_top",
+      "options": [
+        {
+          "value": "mg-t-xxl",
+          "label": "XX Large"
+        },
+        {
+          "value": "mg-t-xl",
+          "label": "X Large"
+        },
+        {
+          "value": "mg-t-l",
+          "label": "Large"
+        },
+        {
+          "value": "mg-t-m",
+          "label": "Medium"
+        },
+        {
+          "value": "mg-t-s",
+          "label": "Small"
+        },
+        {
+          "value": "mg-t-xs",
+          "label": "X Small"
+        },
+        {
+          "value": "mg-t-none",
+          "label": "No margin"
+        }
+      ],
+      "default": "mg-t-none",
+      "label": "Paragraph margin top"
+    },
+    {
+      "type": "select",
+      "id": "paragraph_margin_bottom",
+      "options": [
+        {
+          "value": "mg-b-xxl",
+          "label": "XX Large"
+        },
+        {
+          "value": "mg-b-xl",
+          "label": "X Large"
+        },
+        {
+          "value": "mg-b-l",
+          "label": "Large"
+        },
+        {
+          "value": "mg-b-m",
+          "label": "Medium"
+        },
+        {
+          "value": "mg-b-s",
+          "label": "Small"
+        },
+        {
+          "value": "mg-b-xs",
+          "label": "X Small"
+        },
+        {
+          "value": "mg-b-none",
+          "label": "No margin"
+        }
+      ],
+      "default": "mg-b-m",
+      "label": "Paragraph margin bottom"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Shop button label",
+      "default": "SHOP SALE"
+    },
+    {
+      "type": "text",
+      "id": "button_url",
+      "label": "Button URL"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary (Brown)"
+        },
+        {
+          "value": "primary inverse",
+          "label": "Primary Inverse"
+        },
+        {
+          "value": "primary red",
+          "label": "Primary (Red)"
+        },
+        {
+          "value": "secondary",
+          "label": "Secondary (outlined)"
+        },
+        {
+          "value": "tertiary",
+          "label": "Tertiary (inline)"
+        }
+      ],
+      "default": "primary red"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_mobile",
+          "label": "Hide on mobile",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Exit Popup"
+    }
+  ]
+}
+{% endschema %}

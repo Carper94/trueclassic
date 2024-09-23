@@ -1,0 +1,297 @@
+<div
+  id='product-gallery'
+  class='
+    product-gallery product-main-swiper
+      {% if  product.title contains 'The Staple 6-Pack' or product.title contains 'Essentials 9-Pack' or product.title contains
+        'The Color 3-Pack' or product.title contains
+        'The Classic 3-Pack' or product.title contains
+        'All Black 6-Pack' or product.title contains
+        'All Black 3-Pack' or product.title contains
+        'Veteran 3-Pack' or product.title contains
+        'Essential 3-Pack' or product.title contains
+        'Standard 3-Pack' or product.title contains
+        'All White 3-Pack' %}
+    {% endif %}
+  '
+>
+  <div class='swiper swiper-gallery mobile-gallery {% if section.settings.disable_mobile_autoheight %} disable-autoheight {% endif %}' >
+    <ul class='swiper-wrapper'>
+      <!-- Slides -->
+      {% for media in product.media %}
+        <li class='swiper-slide'>
+          {% if media.media_type == 'image' %}
+            <div class='product-gallery__image-wrapper product_image-wrapper'>
+              {{ media | image_url: width: 1000 | image_tag }}
+            </div>
+          {% endif %}
+          {% if media.media_type == 'video' %}
+            <div class='product-gallery__image-wrapper '>
+              {{
+                media
+                | video_tag:
+                  autoplay: true,
+                  loop: true,
+                  data-delegate: 'videoplaypause',
+                  image_size: '400x'
+              }}
+            </div>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+    <div class='swiper-scrollbar'></div>
+    <button class='gallery-button-next gallery-button'>
+      <svg
+        width='25'
+        height='25'
+        viewBox='0 0 24 24'
+        xmlns='http://www.w3.org/2000/svg'
+      >
+        <polyline fill="none" id="Right" points="8.5 5 15.5 12 8.5 19" stroke="#777777" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </svg>
+      <span class='visually-hidden'>Next</span>
+    </button>
+    <button class='gallery-button-prev gallery-button'>
+      <svg
+        width='25'
+        height='25'
+        viewBox='0 0 24 24'
+        xmlns='http://www.w3.org/2000/svg'
+      >
+        <polyline fill="none" id="Left" points="15.5 5 8.5 12 15.5 19" stroke="#777777" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </svg>
+      <span class='visually-hidden'>Prev</span>
+    </button>
+    {% for tag in product.tags %}
+      {% if tag == 'model' %}
+        <div class='product-size-filter mobile-filter' style='display: none;'>
+          <span>Model: </span>
+          <button data-delegate='sizefilter' class='active' data-size='all'>
+            <span>ALL</span>
+          </button>
+          <button data-delegate='sizefilter' data-size='m'>
+            <span>M</span>
+          </button>
+          <button data-delegate='sizefilter' data-size='2xl'>
+            <span>2XL</span>
+          </button>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+<style>
+  .gallery-button {
+    position: absolute;
+    top: 50%;
+    z-index: 99999999;
+  }
+
+  .gallery-button-next {
+    right: 0;
+  }
+
+  .gallery-button-prev {
+    left: 0;
+  }
+
+  .product-size-filter span {
+    font-family: var(--font-family-primary);
+  }
+  .product-size-filter button span {
+    font-family: var(--font-modernist-mono);
+  }
+
+  .product-size-filter > span {
+    cursor: pointer;
+  }
+
+  .product-size-filter button {
+    position: relative;
+    display: inline-flex;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    border: 0.0625rem solid #bcbcbc;
+    border: 0.0625rem solid var(--brand-gray-medium);
+    height: 2.85rem;
+    width: 2.85rem;
+    border-radius: 0.3125rem;
+    color: #000;
+    background-color: #fff;
+    opacity: 1;
+    transition: width 0.2s ease-in, opacity 0.5s ease-in;
+  }
+
+  .product-size-filter .active {
+    border: 0.0625rem solid var(--brand-brown);
+    background-color: var(--brand-brown);
+    color: var(--brand-white);
+    opacity: 1;
+  }
+
+  .product-size-filter .inactive {
+    width: 0;
+    opacity: 0;
+    overflow: hidden;
+    padding: 0;
+    transition: width 0.2s ease-in;
+  }
+
+  .product-size-filter button span {
+    position: absolute;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    font-size: 0.875rem;
+    font-size: var(--swatch-font-size);
+  }
+
+  @media screen and (max-width: 768px) {
+    .product-size-filter {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      width: fit-content;
+      bottom: 30px;
+      left: 23px;
+      right: 0;
+      z-index: 2;
+    }
+    .product-size-filter button {
+      margin-bottom: 0px;
+      height: 2em;
+    }
+    .desktop-filter {
+      display: none;
+    }
+  }
+  @media screen and (min-width: 769px) {
+    .product-size-filter {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+  }
+</style>
+
+<div
+  class='
+    product-main-gallery product-main-desktop
+    {% if  product.title contains 'The Staple 6-Pack' or product.title contains 'Essentials 9-Pack' or product.title contains
+         'The Color 3-Pack' or product.title contains
+         'The Classic 3-Pack' or product.title contains
+         'All Black 6-Pack' or product.title contains
+         'All Black 3-Pack' or product.title contains
+         'Veteran 3-Pack' or product.title contains
+         'Essential 3-Pack' or product.title contains
+         'Standard 3-Pack' or product.title contains
+         'All White 3-Pack' %}
+     {% endif %}
+  '
+>
+  {% for tag in product.tags %}
+    {% if tag == 'model' %}
+      <div class='product-size-filter desktop-filter' style='display: none;'>
+        <span>Model: </span>
+        <button data-delegate='desktopsizefilter' class='active' data-size='all'>
+          <span>ALL</span>
+        </button>
+        <button data-delegate='desktopsizefilter' data-size='m'><span>M</span></button>
+        <button data-delegate='desktopsizefilter' data-size='2xl'>
+          <span>2XL</span>
+        </button>
+      </div>
+    {% endif %}
+  {% endfor %}
+  {% if section.settings.enable_desktop_gallery == false %}
+    <ul class='product-list-gallery'>
+      {% for media in product.media %}
+        <li class='swiper-slide' data-alt-size='{{ media.alt }}'>
+          {% if media.media_type == 'image' %}
+            <div class='product-gallery__image-wrapper  product_image-wrapper zoom'>
+              {{ media | image_url: width: 500 | image_tag }}
+            </div>
+          {% endif %}
+          {% if media.media_type == 'video' %}
+            <div class='product-gallery__image-wrapper'>
+              {{  
+                media
+                | video_tag:
+                  autoplay: true,
+                  loop: true,
+                  data-delegate: 'videoplaypause',
+                  image_size: '400x'
+              }}
+            </div>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul> 
+  {% else %}
+    <div class='swiper swiper-gallery desktop-gallery'>
+      <ul class='swiper-wrapper'>
+        <!-- Slides -->
+        {% for media in product.media %}
+          <li class='swiper-slide'>
+            {% if media.media_type == 'image' %}
+              <div class='product-gallery__image-wrapper product_image-wrapper'>
+                {{ media | image_url: width: 1000 | image_tag }}
+              </div>
+            {% endif %}
+            {% if media.media_type == 'video' %}
+              <div class='product-gallery__image-wrapper '>
+                {{
+                  media
+                  | video_tag:
+                    autoplay: true,
+                    loop: true,
+                    data-delegate: 'videoplaypause',
+                    image_size: '400x'
+                }}
+              </div>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+      <button class='gallery-button-next gallery-button'>
+        <svg
+          width='25'
+          height='25'
+          viewBox='0 0 24 24'
+          xmlns='http://www.w3.org/2000/svg'
+        >
+          <polyline fill="none" id="Right" points="8.5 5 15.5 12 8.5 19" stroke="#777777" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        </svg>
+        <span class='visually-hidden'>Next</span>
+      </button>
+      <button class='gallery-button-prev gallery-button'>
+        <svg
+          width='25'
+          height='25'
+          viewBox='0 0 24 24'
+          xmlns='http://www.w3.org/2000/svg'
+        >
+          <polyline fill="none" id="Left" points="15.5 5 8.5 12 15.5 19" stroke="#777777" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        </svg>
+        <span class='visually-hidden'>Prev</span>
+      </button>
+      {% for tag in product.tags %}
+        {% if tag == 'model' %}
+          <div class='product-size-filter mobile-filter' style='display: none;'>
+            <span>Model: </span>
+            <button data-delegate='sizefilter' class='active' data-size='all'>
+              <span>ALL</span>
+            </button>
+            <button data-delegate='sizefilter' data-size='m'>
+              <span>M</span>
+            </button>
+            <button data-delegate='sizefilter' data-size='2xl'>
+              <span>2XL</span>
+            </button>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>

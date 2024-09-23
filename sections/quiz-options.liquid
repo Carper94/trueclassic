@@ -1,0 +1,162 @@
+<div class='container'>
+  <div class='content-wrapper section-spacer'>
+    <div class='quiz-wrapper{% if section.settings.first == false %} hide{% endif %}'>
+      <h2 class='headline text-center h3'>{{ section.settings.heading }}</h2>
+      <div class='quiz-options'>
+        {% for block in section.blocks %}
+          {% if block.type == 'text' %}
+            {% liquid
+              assign choice = block.settings.choice
+              assign tag = block.settings.tag
+              assign analytics = block.settings.analytics
+              assign html = block.settings.html
+              assign collection_url = block.settings.collection_url | escape
+            %}
+            <div class='quiz-option-container'>
+              <button
+                type='button'
+                class='button selection-button collection-pill'
+                {% if tag != blank %}
+                  data-tag='{{ tag }}'
+                {% endif %}
+                {% if collection_url != blank %}
+                  data-collection_url='/collections/{{ collection_url }}'
+                {% endif %}
+                {% if analytics != blank %}
+                  onclick='{{ analytics }}'
+                {% endif %}
+                title='{{ choice }}'
+              >
+                {{ choice }}
+              </button>
+              {{ html }}
+            </div>
+          {% elsif block.type == 'textarea' %}
+            {% liquid
+              assign name = block.settings.name
+              assign options = block.settings.options
+              assign options_array = options | split: ','
+              assign analytics = block.settings.analytics
+            %}
+
+            <div
+              class='quiz-dropdown-container'
+              {% if analytics != blank %}
+                onchange='{{ analytics }}'
+              {% endif %}
+            >
+              <h3>{{ name }}</h3>
+              <select class='quiz-dropdown' data-delegate='quizdropdown'>
+                <option selected disabled>Size</option>
+                {% for option in options_array %}
+                  <option value='{{ option }}'>{{ option }}</option>
+                {% endfor %}
+              </select>
+            </div>
+          {% endif %}
+        {% endfor %}
+        {% for block in section.blocks %}
+          {% if block.type == 'textarea' %}
+            {% assign size-guide = true %}
+          {% endif %}
+        {% endfor %}
+      </div>
+      {% if size-guide %}
+        <div style='display: flex; justify-content: center; margin-bottom: 20px;'>
+          {% render 'product-size-guide' %}
+        </div>
+      {% endif %}
+      {% if section.settings.final %}
+        <a href='' disabled class='button collection-pill next-button result-button'>
+          SEE RESULTS
+        </a>
+      {% else %}
+        <button type='button' disabled class='button collection-pill next-button'>NEXT</button>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Quiz Options",
+  "tag": "section",
+  "class": "quiz-options-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "first",
+      "label": "First Choice?"
+    },
+    {
+      "type": "checkbox",
+      "id": "final",
+      "label": "Final Choice?"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Quiz Option",
+      "type": "text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "choice",
+          "label": "Choice"
+        },
+        {
+          "type": "text",
+          "id": "tag",
+          "label": "Tag"
+        },
+        {
+          "type": "html",
+          "id": "analytics",
+          "label": "Analytics script"
+        },
+        {
+          "type": "html",
+          "id": "html",
+          "label": "Custom HTML"
+        },
+        {
+          "type": "collection",
+          "id": "collection_url",
+          "label": "Collection"
+        }
+      ]
+    },
+    {
+      "name": "Quiz Dropdown",
+      "type": "textarea",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name"
+        },
+        {
+          "type": "textarea",
+          "id": "options",
+          "label": "Options"
+        },
+        {
+          "type": "html",
+          "id": "analytics",
+          "label": "Analytics script"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Quiz Options",
+      "category": "text"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "allowSyntheticDefaultImports": false,
+    "baseUrl": "./",
+    "paths": {
+      "LAYOUT/*": ["source/scripts/layout/*"],
+      "SECTIONS/*": ["source/scripts/sections/*"],
+      "SNIPPETS/*": ["source/scripts/snippets/*"],
+      "TEMPLATES/*": ["source/scripts/templates/*"],
+      "UTILS/*": ["source/scripts/utilities/*"],
+      "UTILITIES/*": ["source/scripts/utilities/*"],
+      "COMPONENTS/*": ["source/scripts/components/*"],
+      "ACCESSIBILITY/*": ["source/scripts/utilities/accessibility/*"],
+      "CUSTOMERS/*": ["source/scripts/utilities/customers/*"],
+      "DOM/*": ["source/scripts/utilities/DOM/*"],
+      "WINDOW/*": ["source/scripts/utilities/window/*"],
+      "FETCH/*": ["source/scripts/utilities/fetch/*"]
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}

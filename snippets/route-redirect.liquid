@@ -1,0 +1,7 @@
+<script>
+  window.Shopify.routes.cart_url = "{{ routes.cart_url }}";
+
+if (window.location.pathname === window.Shopify.routes.cart_url) {
+  window.location.replace(window.Shopify.routes.root)
+}
+</script>

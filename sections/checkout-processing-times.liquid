@@ -1,0 +1,33 @@
+<style>
+  {% if section.settings.show_processing %}
+  .section.section--shipping-method .radio__label:after {
+    content: "{{ section.settings.processing_time_message }}";
+  }
+  {% endif %}
+</style>
+
+{% schema %}
+{
+  "name": "Processing Messaging",
+  "tag": "section",
+  "class": "shipping-message-section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_processing",
+      "label": "Show processing times."
+    },
+    {
+      "type": "text",
+      "id": "processing_time_message",
+      "label": "Processing time message",
+      "default": "Please add 1-2 business days for order processing."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Processing Messaging"
+    }
+  ]
+}
+{% endschema %}

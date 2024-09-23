@@ -1,0 +1,18 @@
+<div class='product-card-grid-wrapper recently-viewed-product-card-grid'>
+  {% for product in product_array %}
+    {% unless product.template_suffix == 'hidden' and collection.template_suffix != 'packbuilder' %}
+      {% unless product.template_suffix == 'us-only'
+        and localization.country.name != 'United States'
+      %}
+        {% render 'product-card',
+          product: product,
+          card_heading_level: card_heading_level,
+          use_link: use_link,
+          use_ajax: use_ajax,
+          hide_legend: hide_legend,
+          use_variant_image: use_variant_image
+        %}
+      {% endunless %}
+    {% endunless %}
+  {% endfor %}
+</div>

@@ -1,0 +1,117 @@
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "custom_css": [
+
+      ],
+      "settings": {
+        "full_width": false,
+        "hide_title": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "fb3369e4-ac43-4148-97e8-56d90030f763": {
+      "type": "page-store",
+      "blocks": {
+        "a70c76ec-2974-4ca0-9195-1e5c39a41ab1": {
+          "type": "image_picker",
+          "settings": {
+            "retail_image": "shopify:\/\/shop_images\/TC_Amazon_Webpages_01_1.png"
+          }
+        },
+        "9fad9293-135f-4ed9-b639-473d7e7cb728": {
+          "type": "image_picker",
+          "settings": {
+            "retail_image": "shopify:\/\/shop_images\/Northbridge3.jpg"
+          }
+        },
+        "38499fac-4f6e-415d-9d26-a85e6b341d68": {
+          "type": "image_picker",
+          "settings": {
+            "retail_image": "shopify:\/\/shop_images\/Northbridge2.jpg"
+          }
+        },
+        "ef7089db-785b-4a00-ba6f-8f77944ae5cb": {
+          "type": "text",
+          "settings": {
+            "day": "Monday - Saturday ",
+            "hours": "10 am - 8 pm"
+          }
+        },
+        "3f7fbffa-7838-4c5d-87aa-6cd188b91116": {
+          "type": "text",
+          "settings": {
+            "day": "Sunday",
+            "hours": "11 am - 6 pm"
+          }
+        }
+      },
+      "block_order": [
+        "a70c76ec-2974-4ca0-9195-1e5c39a41ab1",
+        "9fad9293-135f-4ed9-b639-473d7e7cb728",
+        "38499fac-4f6e-415d-9d26-a85e6b341d68",
+        "ef7089db-785b-4a00-ba6f-8f77944ae5cb",
+        "3f7fbffa-7838-4c5d-87aa-6cd188b91116"
+      ],
+      "settings": {
+        "section_class": "",
+        "image_url": "shopify:\/\/shop_images\/TC_Amazon_Webpages_01_1.png",
+        "streetAddress": "520 North Michigan Avenue Space 12",
+        "addressLocality": "Chicago",
+        "addressRegion": "IL, Illinois",
+        "postalCode": "60611",
+        "address_map": "https:\/\/goo.gl\/maps\/GRPxkr1gd7K5xG8N8",
+        "latitude": "41.89164150640788",
+        "longitude": "-87.6248584779115",
+        "phone": "(312) 683-9661",
+        "email": " northbridge@trueclassictees.com",
+        "description": "<p>Sprawling six blocks on the Miracle Mile, amidst the hustle and bustle of Chicago's Michigan Avenue district, The Shops at North Bridge is a sought-after, luxury shopping and dining destination. Stop by our retro-inspired storefront to try your hand at foosball, level up on some N64, and get the full True Classic experience.<strong> Located on Level 1; next to Nordstrom.<\/strong><\/p>"
+      }
+    },
+    "4214040a-976b-4c61-a55d-a591da470c06": {
+      "type": "section-map",
+      "settings": {
+        "html": "<iframe src=\"https:\/\/www.google.com\/maps\/embed?pb=!1m18!1m12!1m3!1d2970.061906605263!2d-87.6248853!3d41.891525699999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e2cac3f9ce355%3A0xc07571af0e98855a!2s520%20N%20Michigan%20Ave%2C%20Chicago%2C%20IL%2060611!5e0!3m2!1sen!2sus!4v1673461974709!5m2!1sen!2sus\" width=\"100%\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"><\/iframe>",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "0dcd54cb-93d1-4c16-ba64-eadb9ca50b39": {
+      "type": "image-card-list",
+      "blocks": {
+        "template--14472751611976__0dcd54cb-93d1-4c16-ba64-eadb9ca50b39-166871787309bd0808-0": {
+          "type": "card",
+          "settings": {
+            "store_image": "shopify:\/\/shop_images\/TC_Amazon_Webpages_05.png",
+            "store_name": "Armitage Avenue",
+            "us_location": "838 West Armitage Avenue Chicago, Illinois 60614",
+            "page_url": "shopify:\/\/pages\/armitage-avenue"
+          }
+        },
+        "1dfe756c-6c72-443a-9560-f50d85577164": {
+          "type": "card",
+          "settings": {
+            "store_image": "shopify:\/\/shop_images\/DC_location.jpg",
+            "store_name": "Tysons Corner",
+            "us_location": "1961 Chain Bridge RoadSpace E1BU Tysons Corner, Virginia 22102",
+            "page_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--14472751611976__0dcd54cb-93d1-4c16-ba64-eadb9ca50b39-166871787309bd0808-0",
+        "1dfe756c-6c72-443a-9560-f50d85577164"
+      ],
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main",
+    "fb3369e4-ac43-4148-97e8-56d90030f763",
+    "4214040a-976b-4c61-a55d-a591da470c06",
+    "0dcd54cb-93d1-4c16-ba64-eadb9ca50b39"
+  ]
+}

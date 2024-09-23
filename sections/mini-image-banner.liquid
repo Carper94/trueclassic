@@ -1,0 +1,224 @@
+{% liquid
+  assign text_color = ''
+  if section.settings.text_color == 'light'
+    assign text_color = 'light-text'
+  endif
+  if section.settings.text_color == 'dark'
+    assign text_color = 'dark-text'
+  endif
+
+  unless section.settings.image
+    assign image = collection.image
+  endunless
+%}
+
+<div class='mini-image-banner__container content-maxwidth'>
+  <div>
+    <div
+      id='Banner-{{ section.id }}'
+      class='
+        mini-image-banner{% if section.settings.featured_mini_banner %}
+          featured-mini-banner
+        {% endif %}
+      '
+    >
+      {% if section.settings.featured_mini_banner %}
+        <div class='mini-image-banner__media{% if collection.template_suffix == 'gifting' %} mini-image-banner__media-gifting {% endif %}'>
+          {% if section.settings.image != blank %}
+            <img
+              srcset='
+                {%- if section.settings.image.width >= 375 -%}{{ section.settings.image | image_url: width: 375 }} 375w,{%- endif -%}
+                {%- if section.settings.image.width >= 750 -%}{{ section.settings.image | image_url: width: 750 }} 750w,{%- endif -%}
+                {%- if section.settings.image.width >= 1100 -%}{{ section.settings.image | image_url: width: 1100 }} 1100w,{%- endif -%}
+                {%- if section.settings.image.width >= 1500 -%}{{ section.settings.image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                {%- if section.settings.image.width >= 2000 -%}{{ section.settings.image | image_url: width: 2000 }} 2000w,{%- endif -%}
+                {%- if section.settings.image.width >= 2500 -%}{{ section.settings.image | image_url: width: 2500 }} 2500w,{%- endif -%}
+                {{ section.settings.image | image_url }} {{ section.settings.image.width }}w
+              '
+              src='{{ section.settings.image | image_url: width: 1500 }}'
+              loading='lazy'
+              alt='{{ section.settings.image.alt | escape }}'
+              width='{{ section.settings.image.width }}'
+              height='{{ section.settings.image.height }}'
+            >
+          {% endif %}
+          <div class='mini-image-banner__box bf-box'>
+            <div class='mini-image-banner__content'>
+              {% comment %}
+                <div class="banner__top-line">
+                  <span style="color: var(--brand-yellow);">CYBER MONDAY</span>
+                  <hr>
+                  <a style="color: var(--brand-yellow); text-decoration: underline;" href="/collections/black-friday-sale">SHOP NOW</a>
+                </div>
+              {% endcomment %}
+              {%- for block in section.blocks -%}
+                {%- case block.type -%}
+                  {%- when 'heading' -%}
+                    {% if block.settings.heading != blank %}
+                      {% assign heading = block.settings.heading %}
+                    {% else %}
+                      {% assign heading = collection.title %}
+                    {% endif %}
+                    {% if section.settings.featured_mini_banner %}
+                      <h1
+                        class='mini-image-banner__heading mini-image-banner__active {{ text_color }} headline h2'
+                        {{ block.shopify_attributes }}
+                      >
+                        {{ heading | escape }}
+                      </h1>
+                    {% elsif collection.template_suffix == 'gifting' %}
+                      <h1
+                        class='mini-image-banner__heading mini-image-banner__heading-gifting {{ text_color }} headline h2'
+                        {{ block.shopify_attributes }}
+                      >
+                        <span class='gifting-style'></span>&nbsp;&nbsp;
+                        {{- heading | escape -}}
+                        &nbsp;<span class='gifting-recipient'></span>
+                      </h1>
+                    {% elsif collection.template_suffix == 'valentine' %}
+                      <h1
+                        class='mini-image-banner__heading mini-image-banner__heading-gifting {{ text_color }} headline h2'
+                        {{ block.shopify_attributes }}
+                      >
+                        <span class='gifting-style'></span>&nbsp;&nbsp;
+                        {{- heading | escape -}}
+                        &nbsp;<span class='gifting-recipient'></span>
+                      </h1>
+                    {% else %}
+                      <h1
+                        class='mini-image-banner__heading {{ text_color }} headline h2'
+                        {{ block.shopify_attributes }}
+                      >
+                        {{ heading | escape }}
+                      </h1>
+                    {% endif %}
+                  {%- when 'text' -%}
+                    <div
+                      class='mini-image-banner__text {{ text_color }}{% if block.settings.small_text %} mini-image-banner__text-small{% endif %}'
+                      {{ block.shopify_attributes }}
+                    >
+                      <p>{{ block.settings.text | escape }}</p>
+                    </div>
+                {%- endcase -%}
+              {%- endfor -%}
+            </div>
+          </div>
+        </div>
+      {% else %}
+        <div class='mini-image-banner__box'>
+          <div class='mini-image-banner__content'>
+            {%- for block in section.blocks -%}
+              {%- case block.type -%}
+                {%- when 'heading' -%}
+                  {% if block.settings.heading != blank %}
+                    {% assign heading = block.settings.heading %}
+                  {% else %}
+                    {% assign heading = collection.title %}
+                  {% endif %}
+                  <h1
+                    class='mini-image-banner__heading {{ text_color }} headline h2 {% if collection.template_suffix == 'valentine' %} sale-heading{% endif %}'
+                    {{ block.shopify_attributes }}
+                  >
+                    {{ heading | escape }}
+                  </h1>
+                {%- when 'text' -%}
+                  <div
+                    class='mini-image-banner__text {{ text_color }}{% if block.settings.small_text %} mini-image-banner__text-small{% endif %}'
+                    {{ block.shopify_attributes }}
+                  >
+                    <p>{{ block.settings.text | escape }}</p>
+                  </div>
+              {%- endcase -%}
+            {%- endfor -%}
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Mini Image Banner",
+  "tag": "section",
+  "class": "section-mini-image-banner",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "featured_mini_banner",
+      "label": "Featured Mini Banner"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "select",
+      "id": "text_color",
+      "options": [
+        {
+          "value": "light",
+          "label": "Light"
+        },
+        {
+          "value": "dark",
+          "label": "Dark"
+        }
+      ],
+      "default": "dark",
+      "label": "Text Color"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "Heading",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Heading",
+          "label": "Heading"
+        },
+        {
+          "type": "paragraph",
+          "content": "If blank, will display collection title"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Subheading",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "default": "Give customers details about the banner image(s) or content on the template.",
+          "label": "Subheading"
+        },
+        {
+          "type": "checkbox",
+          "id": "small_text",
+          "label": "Smaller Subheading"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mini Image Banner",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

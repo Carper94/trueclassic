@@ -1,0 +1,67 @@
+{% assign in_cart = false %}
+
+{% for item in cart.items %}
+  {% if item.product.id == product.id and item.properties._free %}
+    {% assign in_cart = true %}
+  {% endif %}
+{% endfor %}
+
+{% if in_cart == false %}
+  <div
+    class='free-item {{ class }}'
+    style='margin-bottom: 20px;'
+  >
+    {% assign id = 'discount-pack-' | append: product.id %}
+
+    <div class='discount-pack-list-item'>
+      <div class='discount-pack-list-item__image-container'>
+        <div class='discount-pack-list-item__image-wrapper'>
+          <img
+            class='discount-pack-list-item__image'
+            loading='lazy'
+            src='{{ product.featured_media | img_url: '120x' }}'
+            alt='{{ product.featured_media.alt }}'
+          >
+        </div>
+      </div>
+      <div>
+        {% render 'discount-pack-list-item-form-free',
+          product: product,
+          free: 'free',
+          threshold: threshold
+        %}
+        <div class='discount-pack-list-item__actions'>
+          <button
+            type='submit'
+            class='button dark small'
+            form='{{ id }}'
+            aria-label='Add'
+            onclick="
+              dataLayer.push({ 'ecommerce': null });
+              dataLayer.push({
+                'event': 'cart_gwp_add_to_cart',
+                'ecommerce': {
+                  'value': 0,
+                  'currency': '{{ localization.country.currency.iso_code }}',
+                    'items': [{
+                      'item_id': '{{ product.id }}',
+                      'item_name': '{{ product.title | remove: "'" | remove: '"' }}',
+                      'item_brand': '{{ product.vendor | remove: "'" | remove: '"' }}',
+                      'item_category': '{{ product.type | remove: "'" | remove: '"' }}',
+                      'item_variant': '{{ product.selected_or_first_available_variant.sku }}',
+                      'item_variant_title': document.querySelector('#cartUpsell{{ tierd }} select').value,
+                      'currency': '{{ localization.country.currency.iso_code }}',
+                      'quantity': 1,
+                      'price': 0
+                    }]
+                  }
+              });
+            "
+          >
+            {% render 'icon-arrow-right' %} Add
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}

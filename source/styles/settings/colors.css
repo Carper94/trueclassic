@@ -1,0 +1,128 @@
+:root {
+  /* Brand Colors */
+  --brand-white: #ffffff;
+  --brand-white-rgb: 255, 255, 255;
+  --brand-yellow: #ffde6a;
+  --brand-yellow-rgb: 255, 222, 106;
+  --brand-holiday-yellow: #E2F03C;
+  --brand-holiday-yellow-rgb: 226,240,60;
+  --brand-brown: #53433a;
+  --brand-brown-rgb: 83, 67, 58;
+  --brand-chocolate: #53433a;
+  --brand-chocolate-rgb: 83, 67, 58;
+  --brand-chocolate-light: #e2dad5;
+  --brand-chocolate-light-rgb: 226, 218, 213;
+  --brand-chocolate-mid: #b09a8e;
+  --brand-chocolate-mid-rgb: 176, 154, 142;
+  --brand-chocolate-dark: #2e2520;
+  --brand-chocolate-dark-rgb: 46, 37, 32;
+  --brand-milk-chocolate: #967969;
+  --brand-milk-chocolate-rgb: 150, 121, 105;
+  --brand-shitake: #755e52;
+  --brand-shitake-rgb: 117, 94, 82;
+  --brand-sage-light: #e0e2d6;
+  --brand-sage-light-rgb: 224, 226, 214;
+  --brand-sage: #adb08e;
+  --brand-sage-rgb: 173, 176, 142;
+  --brand-cream-light: #fcfbf7;
+  --brand-cream-light-rgb: 252, 251, 247;
+  --brand-cream: #fffbec;
+  --brand-cream-rgb: 255, 251, 236;
+  --brand-burlywood: #c3996f;
+  --brand-burlywood-rgb: 195, 153, 111;
+  --brand-red-light: #b02125;
+  --brand-red-light-rgb: 176, 33, 37;
+  --brand-red: #971b1b;
+  --brand-red-rgb: 151, 27, 27;
+  --brand-red-hover: #7c1313;
+  --brand-red-hover-rgb: 124, 19, 19;
+  --brand-red-active: #6d1111;
+  --brand-red-active-rgb: 109, 17, 17;
+
+  --brand-gray-light: #dbdbdb;
+  --brand-gray-light-rgb: 000, 000, 000;
+  --brand-gray-medium: #bcbcbc;
+  --brand-gray-medium-rgb: 188, 188, 188;
+  --brand-gray: #666666;
+  --brand-gray-rgb: 102, 102, 102;
+  --brand-gray-dark: #474747;
+  --brand-gray-dark-rgb: 71, 71, 71;
+  --brand-black: #0c0a09;
+  --brand-black-rgb: 12, 10, 9;
+  --brand-black-light: #414141;
+
+  --background-brand-cream: var(--brand-cream);
+
+  /* scrim color */
+  --color-scrim: rgba(0, 0, 0, 0.6);
+  --color-scrim-light: rgba(255, 255, 255, 0.3);
+
+  /* outline */
+  --outline-color: #4d90fe;
+
+  /* Text Colors */
+  --headline-color: var(--brand-black);
+  --body-font-color: var(--brand-black);
+  --body-background-color: var(--brand-white);
+
+  --link-color: var(--brand-gray);
+  --link-color-hover: var(--brand-black);
+  --link-color-active: var(--brand-black);
+
+  /* Buttons Colors */
+
+  /* Primary - Dark */
+  --btn-primary-color: var(--brand-white);
+  --btn-primary-hover-color: var(--brand-white);
+  --btn-primary-active-color: var(--brand-white);
+
+  --btn-primary-background-color: var(--brand-chocolate);
+  --btn-primary-hover-background-color: var(--brand-chocolate-dark);
+  --btn-primary-active-background-color: var(--brand-black);
+  --btn-primary-disabled-background-color: #dbdbdb;
+
+  /* Primary - Black */
+  --btn-primary-black-color: var(--brand-white);
+  --btn-primary-black-hover-color: var(--brand-white);
+  --btn-primary-black-active-color: var(--brand-white);
+
+  --btn-primary-black-background-color: var(--brand-black);
+  --btn-primary-black-hover-background-color: var(--brand-black-light);
+  --btn-primary-black-active-background-color: var(--brand-black-light);
+  --btn-primary-black-disabled-background-color: var(--brand-gray);
+
+  /* Primary - Red */
+  --btn-primary-red-background-color: var(--brand-red);
+  --btn-primary-red-hover-background-color: var(--brand-red-hover);
+  --btn-primary-red-active-background-color: var(--brand-red-active);
+  --btn-primary-red-disabled-background-color: #e9d1d1;
+
+  /* Primary - white */
+  --btn-primary-white-background-color: var(--brand-white);
+  --btn-primary-white-hover-background-color: var(--brand-cream-light);
+  --btn-primary-white-active-background-color: var(--brand-cream);
+  --btn-primary-white-disabled-background-color: var(--brand-gray-dark);
+
+  /* Primary - burlywood */
+  --btn-primary-burlywood-background-color: var(--brand-burlywood);
+  --btn-primary-burlywood-hover-background-color: rgba(var(--brand-burlywood-rgb), 0.8);
+  --btn-primary-burlywood-active-background-color: var(--brand-burlywood);
+  --btn-primary-burlywood-disabled-background-color: rgba(var(--brand-burlywood-rgb), 0.65);
+
+  /* Secondary - Quick Add / Transparent BG */
+  --btn-secondary-color: var(--brand-black);
+  --btn-secondary-background-color: transparent;
+  --btn-secondary-border-color: var(--brand-black);
+
+  /* Tertiary - Inline style */
+  --btn-tertiary-color: var(--brand-black);
+  --btn-tertiary-background-color: transparent;
+
+  /* Input Colors */
+  --input-color: var(--brand-chocolate);
+  --input-placeholder-color: var(--brand-chocolate-mid);
+  --input-background: var(--brand-white);
+  --input-border-color: var(--brand-chocolate-mid);
+
+  --subnav-background-color: var(--brand-white);
+}

@@ -1,0 +1,301 @@
+{%- liquid
+  assign country_codes = section.settings.country_code | split: ','
+  assign exclude_country_codes = section.settings.exclude_country_code | split: ','
+  assign should_show_banner = false
+
+  if section.settings.country_code == '' and section.settings.exclude_country_code == ''
+    assign should_show_banner = true
+  else
+    assign is_excluded = false
+    for exclude_code in exclude_country_codes
+      if localization.country.iso_code == exclude_code
+        assign is_excluded = true
+        break
+      endif
+    endfor
+
+    unless is_excluded
+      if section.settings.country_code == ''
+        assign should_show_banner = true
+      else
+        for code in country_codes
+          if localization.country.iso_code == code
+            assign should_show_banner = true
+            break
+          endif
+        endfor
+      endif
+    endunless
+  endif
+-%}
+{%- if should_show_banner -%}
+  <style>
+    .announcement__tooltip {
+      position: absolute;
+      width: 320px;
+      background-color: white;
+      left: 10px;
+      top: 48px;
+    }
+    .announcement__tooltip-notice,
+    .announcement__tooltip-notice > *,
+    .announcement__tooltip-notice > * > * {
+    }
+    .announcement__tooltip .announcement__tooltip-heading p,
+    .announcement__tooltip .announcement__tooltip-message p {
+      color: var(--brand-black);
+    }
+  </style>
+
+  {% assign unique_id_ = section.id | remove: '-' %}
+  {% assign unique_id = unique_id_ | remove: '_' %}
+
+  <div class='banner__container {{ section.settings.css_class }}'>
+    <div
+      id='Banner-{{ section.id }}'
+      class='banner {{ section.settings.hero }}'
+      style='overflow: visible;'
+    >
+      <div class='countdown__box {{ section.settings.css_class }}'>
+        {% render 'countdown',
+          unique_id: unique_id,
+          year: section.settings.end_date_year,
+          month: section.settings.end_date_month,
+          day: section.settings.end_date_day,
+          hour: section.settings.end_date_hour,
+          minute: section.settings.end_date_minute,
+          text_end: section.settings.ended_timer_text,
+          margin_top: section.settings.margin_top,
+          margin_bottom: section.settings.margin_bottom,
+          font_size: section.settings.font_size,
+          font_size_mobile: section.settings.font_size_mobile
+        %}
+        {% if section.settings.enable_exclusions %}
+          <br>
+          <span
+            class='exclusions exclusions-coutdown'
+            style='margin-left: auto;margin-right: auto;display: block;text-align: center;width:fit-content;'
+            >exclusions apply</span
+          >
+          <div
+            class='tooltip tooltip-coutdown'
+            style='
+                  display: none;
+                  width: 320px;
+                  position: absolute;
+                  border-top: none;
+                  border-right: none;
+                  border-left: none;
+                  border-image: initial;
+                  padding: 10px;
+                  background-color: white;
+                  right: 50%;
+                  top: 16rem;
+                  z-index: 2;
+                  border: 1px solid var(--brand-gray);
+                  transform: translateX(50%);
+              }
+            '
+          >
+            <b>{{ section.settings.exclusions_title }}</b>
+            <br>
+            {{ section.settings.exclusions_content }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  {% if section.settings.enable_exclusions %}
+    <script>
+      const exclusion = document.querySelector('.exclusions-coutdown');
+      const tooltip = document.querySelector('.tooltip-coutdown');
+      exclusion.addEventListener('mouseover', function () {
+        tooltip.style.display = 'block';
+      });
+      tooltip.addEventListener('mouseout', function () {
+        tooltip.style.display = 'none';
+      });
+      exclusion.addEventListener('touchstart', function () {
+        tooltip.style.display = 'block';
+      });
+      exclusion.addEventListener('touchend', function () {
+        tooltip.style.display = 'none';
+      });
+    </script>
+  {% endif %}
+{%- endif -%}
+{% schema %}
+{
+  "name": "Countdown",
+  "tag": "section",
+  "class": "section-countdown",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Geolocation"
+    },
+    {
+      "type": "text",
+      "id": "country_code",
+      "label": "Country code",
+      "info": "Enter the country code for the country you want to show the banner to. You can have multiple country codes, just separate them with a comma. Example: US,CA,GB. Leave empty to show to all countries."
+    },
+    {
+      "type": "text",
+      "id": "exclude_country_code",
+      "label": "Exclude country code",
+      "info": "Enter the country code for the countries you DON'T want to show the banner to. You can have multiple country codes, just separate them with a comma. Example: US,CA,GB"
+    },
+    {
+      "type": "text",
+      "id": "end_date_year",
+      "label": "Year",
+      "default": "2025"
+    },
+    {
+      "type": "select",
+      "id": "end_date_month",
+      "options": [
+        {
+          "value": "January",
+          "label": "January"
+        },
+        {
+          "value": "February",
+          "label": "February"
+        },
+        {
+          "value": "March",
+          "label": "March"
+        },
+        {
+          "value": "April",
+          "label": "April"
+        },
+        {
+          "value": "May",
+          "label": "May"
+        },
+        {
+          "value": "June",
+          "label": "June"
+        },
+        {
+          "value": "July",
+          "label": "July"
+        },
+        {
+          "value": "August",
+          "label": "August"
+        },
+        {
+          "value": "September",
+          "label": "September"
+        },
+        {
+          "value": "October",
+          "label": "October"
+        },
+        {
+          "value": "November",
+          "label": "November"
+        },
+        {
+          "value": "December",
+          "label": "December"
+        }
+      ],
+      "default": "June",
+      "label": "Month"
+    },
+    {
+      "type": "number",
+      "id": "end_date_day",
+      "label": "Day",
+      "default": 1
+    },
+    {
+      "type": "number",
+      "id": "end_date_hour",
+      "label": "Hour",
+      "default": 12,
+      "info": "Military time (00-24)"
+    },
+    {
+      "type": "number",
+      "id": "end_date_minute",
+      "label": "Minute",
+      "default": 59
+    },
+    {
+      "type": "text",
+      "id": "ended_timer_text",
+      "label": "Text when timer has ended",
+      "default": "This offer has ended."
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "min": 0,
+      "max": 5,
+      "step": 0.2,
+      "unit": "rem",
+      "label": "Font size",
+      "default": 2.4
+    },
+    {
+      "type": "range",
+      "id": "font_size_mobile",
+      "min": 0,
+      "max": 5,
+      "step": 0.2,
+      "unit": "rem",
+      "label": "Font size",
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Margin top",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Margin bottom",
+      "default": 10
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_exclusions",
+      "label": "Enable Exclusions",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "exclusions_title",
+      "label": "Exclusion title",
+      "default": "40% CashBack Terms and Conditions"
+    },
+    {
+      "type": "html",
+      "id": "exclusions_content",
+      "label": "Exclusion content"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Countdown"
+    }
+  ]
+}
+{% endschema %}

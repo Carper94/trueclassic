@@ -1,0 +1,104 @@
+{% liquid
+  assign heading = section.settings.heading
+  assign sub_heading = section.settings.sub_heading
+%}
+
+<div class='container image-slider-wrapper'>
+  <div class='content-wrapper section-spacer'>
+    <div class='image-slider'>
+      <div class='image-slider__heading-wrapper'>
+        <h2 class='h4 headline'>{{ heading }}</h2>
+      </div>
+      <div class='image-slider__subheading-wrapper'>
+        <p>{{ sub_heading }}</p>
+      </div>
+      <!-- Slider main container -->
+      <div class='swiper'>
+        <!-- Additional required wrapper -->
+        <ul class='swiper-wrapper'>
+          <!-- Slides -->
+          {% for block in section.blocks %}
+            {% assign slider_img = block.settings.slider_img %}
+            <li class='swiper-slide'>
+              <div class='slide-wrapper'>
+                <div class='image-slider_image--container'>
+                  <div class='image-slider_image--wrapper'>
+                    <img
+                      srcset='
+                        {%- if slider_img.width >= 375 -%}{{ slider_img | image_url: width: 375 }} 375w,{%- endif -%}
+                        {%- if slider_img.width >= 750 -%}{{ slider_img | image_url: width: 750 }} 750w,{%- endif -%}
+                        {%- if slider_img.width >= 1100 -%}{{ slider_img | image_url: width: 1100 }} 1100w,{%- endif -%}
+                        {%- if slider_img.width >= 1500 -%}{{ slider_img | image_url: width: 1500 }} 1500w,{%- endif -%}
+                        {%- if slider_img.width >= 2000 -%}{{ slider_img | image_url: width: 2000 }} 2000w,{%- endif -%}
+                        {%- if slider_img.width >= 2500 -%}{{ slider_img | image_url: width: 2500 }} 2500w,{%- endif -%}
+                        {{ slider_img | image_url }} {{ slider_img.width }}w
+                      '
+                      src='{{ slider_img | image_url: width: 1500 }}'
+                      loading='lazy'
+                      alt='{{ slider_img.alt | escape }}'
+                      width='{{ slider_img.width }}'
+                      height='{{ slider_img.height }}'
+                    >
+                  </div>
+                </div>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+        <!-- If we need pagination -->
+        <div class='swiper-pagination'></div>
+        <div class='image-slider-slide-controls'>
+          <button class='image-slider-button-prev icon-button'>
+            {% render 'icon-chevron-left-circle' %}
+            <span class='visually-hidden'>Move Carousel to Left</span>
+          </button>
+          <button class='image-slider-button-next icon-button'>
+            {% render 'icon-chevron-right-circle' %}
+            <span class='visually-hidden'>Move Carousel to Right</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Image Slider",
+  "tag": "section",
+  "class": "image-slider-section",
+  "settings": [
+    {
+      "id": "heading",
+      "type": "text",
+      "label": "Heading",
+      "default": "Lorem Ipsum"
+    },
+    {
+      "id": "sub_heading",
+      "type": "text",
+      "label": "Subheading",
+      "default": "Lorem Ipsum"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Image",
+      "type": "image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "slider_img",
+          "label": "Slider Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image Slider",
+      "category": "Text"
+    }
+  ]
+}
+{% endschema %}

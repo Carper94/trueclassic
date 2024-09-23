@@ -1,0 +1,165 @@
+{% assign badge_icon = true %}
+
+{% capture free_shipping_badge %}
+  <p class='free_shipping_bdg'>
+  
+    {% if badge_icon == true %}
+      {% comment %} badge_icon logic doesn't exits yet {% endcomment %}
+      {% render 'icon-shipping' %}
+    {% endif %}
+    <span>Free shipping</span>
+  </p>
+{% endcapture %}
+
+{% capture free_shipping_unlocked_badge %}
+  <p class='free_shipping_bdg'>
+    {% if badge_icon == true %}
+      {% render 'icon-shipping' %}
+    {% endif %}
+    <span>Free shipping <span class="shipping-unlocked">unlocked</span></span>
+  </p>
+{% endcapture %}
+
+{%- liquid
+  assign country_code = localization.country.iso_code
+  case country_code
+    when 'US'
+      if cart.total_price >= 10100
+        echo free_shipping_unlocked_badge
+      elsif product_price > 10100
+        echo free_shipping_badge
+      endif
+    when 'CA'
+      if cart.total_price >= 17500
+        echo free_shipping_unlocked_badge
+      elsif product_price > 17500
+        echo free_shipping_badge
+      endif
+    when 'AT'
+      if cart.total_price >= 17500
+        echo free_shipping_unlocked_badge
+      elsif product_price > 17500
+        echo free_shipping_badge
+      endif
+    when 'MX'
+      if cart.total_price >= 200000
+        echo free_shipping_unlocked_badge
+      elsif product_price > 200000
+        echo free_shipping_badge
+      endif
+    when 'GB'
+      if cart.total_price >= 10000
+        echo free_shipping_unlocked_badge
+      elsif product_price > 10000
+        echo free_shipping_badge
+      endif
+    when 'DK'
+      if cart.total_price >= 100000
+        echo free_shipping_unlocked_badge
+      elsif product_price > 100000
+        echo free_shipping_badge
+      endif
+    when 'AD'
+      if cart.total_price >= 80000
+        echo free_shipping_unlocked_badge
+      elsif product_price > 80000
+        echo free_shipping_badge
+      endif
+    when 'NL'
+      if cart.total_price >= 12000
+        echo free_shipping_unlocked_badge
+      elsif product_price > 12000
+        echo free_shipping_badge
+      endif
+    when 'ES'
+      if cart.total_price >= 17500
+        echo free_shipping_unlocked_badge
+      elsif product_price > 17500
+        echo free_shipping_badge
+      endif
+    when 'IE'
+      if cart.total_price >= 17500
+        echo free_shipping_unlocked_badge
+      elsif product_price > 17500
+        echo free_shipping_badge
+      endif
+    when 'IT'
+      if cart.total_price >= 17500
+        echo free_shipping_unlocked_badge
+      elsif product_price > 17500
+        echo free_shipping_badge
+      endif
+    when 'LU'
+      if cart.total_price >= 17500
+        echo free_shipping_unlocked_badge
+      elsif product_price > 17500
+        echo free_shipping_badge
+      endif
+    when 'FR'
+      if cart.total_price >= 17500
+        echo free_shipping_unlocked_badge
+      elsif product_price > 17500
+        echo free_shipping_badge
+      endif
+    when 'AU'
+      if cart.total_price >= 200000
+        echo free_shipping_unlocked_badge
+      elsif product_price > 200000
+        echo free_shipping_badge
+      endif
+    when 'CH'
+      if cart.total_price >= 12000
+        echo free_shipping_unlocked_badge
+      elsif product_price > 12000
+        echo free_shipping_badge
+      endif
+    when 'SW'
+      if cart.total_price >= 160000
+        echo free_shipping_unlocked_badge
+      elsif product_price > 160000
+        echo free_shipping_badge
+      endif
+    when 'IL'
+      if cart.total_price >= 40000
+        echo free_shipping_unlocked_badge
+      elsif product_price > 40000
+        echo free_shipping_badge
+      endif
+    when 'NO'
+      if cart.total_price >= 175000
+        echo free_shipping_unlocked_badge
+      elsif product_price > 175000
+        echo free_shipping_badge
+      endif
+    when 'NZ'
+      if cart.total_price >= 20000
+        echo free_shipping_unlocked_badge
+      elsif product_price > 20000
+        echo free_shipping_badge
+      endif
+    when 'CL'
+      if cart.total_price >= 10000000
+        echo free_shipping_unlocked_badge
+      elsif product_price > 10000000
+        echo free_shipping_badge
+      endif
+    when 'ZA'
+      if cart.total_price >= 300000
+        echo free_shipping_unlocked_badge
+      elsif product_price > 300000
+        echo free_shipping_badge
+      endif
+    when 'SA'
+      if cart.total_price >= 80000
+        echo free_shipping_unlocked_badge
+      elsif product_price > 80000
+        echo free_shipping_badge
+      endif
+    when 'SG'
+      if cart.total_price >= 200000
+        echo free_shipping_unlocked_badge
+      elsif product_price > 200000
+        echo free_shipping_badge
+      endif
+  endcase
+-%}

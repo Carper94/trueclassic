@@ -1,0 +1,33 @@
+<style>
+  .endrock-sticky-atc-v2__wrapper .endrock-sticky-atc__wrapper {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: right;
+    width: 100%;
+    z-index: 10;
+  }
+  @media screen and (min-width: 768px) {
+    .endrock-sticky-atc-v2__wrapper .endrock-sticky-atc__wrapper {
+      display: none;
+    }
+  }
+  .endrock-sticky-atc-v2__wrapper .endrock-sticky-atc {
+    box-shadow: -4px 4px 8px 0px #0000004d;
+    margin-right: 20px;
+  }
+</style>
+
+<div class='endrock-sticky-atc__wrapper'>
+  <button
+    class='button primary main-product-add-cart atc-button endrock-sticky-atc'
+    type='button'
+  >
+    {% render 'icon-add-to-cart' %}
+    <span>Add to cart</span>
+  </button>
+</div>

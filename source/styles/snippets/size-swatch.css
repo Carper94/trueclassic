@@ -1,0 +1,99 @@
+.size-swatch,
+.product-option {
+  border: none;
+  margin: 0;
+  padding: 0;
+
+  & .size-swatch__input-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    flex-flow: row wrap;
+    gap: var(--spacer-xs);
+
+    @media (--small) {
+      justify-content: center;
+    }
+  }
+
+  & input:checked+ :is(label, .product-is-sold-out) {
+    background-color: var(--brand-brown);
+    color: var(--brand-white);
+    border: 1px solid var(--brand-gray-dark);
+
+    & .cross-sold {
+      text-decoration-color: var(--brand-white);
+    }
+  }
+
+  & input+label.product-is-sold-out {
+    overflow: hidden;
+    position: relative;
+    border: 1px solid var(--brand-gray-medium);
+    color: var(--brand-gray-dark);
+    background: rgb(221, 221, 221);
+    background: linear-gradient(140deg,
+        rgba(221, 221, 221, 0.2511379551820728) 49%,
+        rgba(221, 221, 221, 0.27494747899159666) 100%);
+  }
+
+  & input+label.product-is-sold-out::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -1vw;
+    right: -1vw;
+    height: 0.7px;
+    background-color: var(--brand-gray-medium);
+    transform: translateY(-50%) rotate(-140deg);
+  }
+
+  & label {
+    position: relative;
+    display: inline-flex;
+    border: 1px solid var(--brand-gray-medium);
+    height: 2.85rem;
+    width: 2.85rem;
+    border-radius: 5px;
+    cursor: pointer;
+
+    @media (--medium) {
+      width: 50px;
+    }
+
+    &:hover {
+      color: var(--brand-brown);
+
+      & s {
+        text-decoration-color: var(--brand-white);
+      }
+    }
+  }
+
+  & legend {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+
+  & .swatch-text,
+  .product-option-text {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    font-size: var(--swatch-font-size);
+  }
+
+  &>*+* {
+    margin-top: var(--spacer-s);
+  }
+}
+
+.pack-builder .size-swatch .size-swatch__input-wrapper {
+  flex-flow: row nowrap;
+}
+
+/* focus outline for fieldset */
+[data-whatinput="keyboard"] .size-swatch:focus-within {
+  outline: 2px solid var(--outline-color);
+}

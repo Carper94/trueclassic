@@ -1,0 +1,153 @@
+.tc-icon-row {
+  margin-bottom: var(--spacer-m);
+
+  & .tc-icon-row__inner {
+    & > * + * {
+      margin-top: var(--spacer-m);
+    }
+
+    @media (--medium-down) {
+      padding: 0;
+    }
+  }
+
+  & .tc-icon-row__headline {
+    text-align: center;
+  }
+
+  & .tc-icon-row__text {
+    text-align: center;
+  }
+
+  & .tc-icon-row__icon-text a {
+    text-decoration-color: #ffffff !important;
+    text-decoration: underline;
+  }
+
+  & .tc-icon-row__icon-text a:hover {
+    text-decoration-color: #000 !important;
+  }
+
+  & .tc-icon-row__rotating-text {
+    text-align: center;
+  }
+
+  & .swiper-wrapper__grid {
+    @media (--medium-down) {
+      flex-wrap: wrap;
+
+      & .swiper-slide {
+        width: calc(50% - 10px) !important;
+      }
+    }
+  }
+
+  & .tc-icon-row__icon,
+  & .tc-icon-row__image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    & > * + * {
+      margin-top: var(--spacer-s);
+    }
+  }
+
+  & .tc-icon-row__icon-image-wrapper {
+    max-height: 100%;
+    max-width: 100%;
+
+    & svg {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+
+  & .tc-icon-row__icon-text {
+    text-align: center;
+    max-width: 100px;
+
+    & a::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+    }
+  }
+
+  & .tc-icon-row__small {
+    @media (--medium) {
+      flex-direction: row;
+    }
+
+    & .tc-icon-row__icon-image-wrapper {
+      max-height: 100%;
+      max-width: 100%;
+
+      & svg {
+        width: 100%;
+        height: 100%;
+        max-height: fit-content;
+        max-width: fit-content;
+      }
+    }
+
+    & .tc-icon-row__icon-text {
+      font-size: var(--font-size-medium);
+      font-weight: var(--font-weight-bold);
+      padding-left: 4px;
+      max-width: inherit;
+
+      @media (--medium-down) {
+        font-size: var(--font-size-small);
+        padding: 0;
+      }
+    }
+  }
+
+  & .tc-icon-row__image-wrapper {
+    max-width: 200px;
+    padding: 0 var(--spacer-s);
+  }
+
+  & .tc-icon-row__icon-image-wrapper,
+  & .tc-icon-row__image-wrapper {
+    & img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+
+  & .inactive-slide {
+    @media (--medium) {
+      opacity: 0.6;
+    }
+  }
+
+  & .swiper-button-next,
+  & .swiper-button-prev {
+    transform: translateY(-50%);
+
+    &::after {
+      display: none;
+    }
+  }
+
+  & .swiper-button-prev {
+    left: 0;
+  }
+
+  & .swiper-button-next {
+    right: 0;
+  }
+
+  /* fix an issue with fade effect visible slides */
+  & .swiper-main .swiper-slide-visible {
+    @media (--medium) {
+      opacity: 1 !important;
+      transform: initial !important;
+    }
+  }
+}

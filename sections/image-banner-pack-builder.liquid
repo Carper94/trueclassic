@@ -1,0 +1,88 @@
+<div class='section-image-banner-splitted section-container section-fullwidth section-height-medium container'>
+  <div class='section-content-wrapper content-wrapper'>
+    <div class='image-banner-splitted'>
+      <div class='image-banner-splitted-content'>
+        <h2 class='image-banner-splitted-headline headline'>
+          BUILD YOUR <span class='image-banner-splitted-headline-pack'> PACK </span>
+        </h2>
+
+        <p class='image-banner-splitted-lead'>Meet the easiest way to customize your closet.</p>
+
+        <div class='image-banner-splitted-icons'>
+          {% render 'widget-icons' %}
+        </div>
+
+        <div class='image-banner-splitted-button'>
+          <a href='/collections/bundle-builder' class='button light'>BUNDLE AND SAVE</a>
+        </div>
+      </div>
+      <div class='image-banner-splitted-figure'>
+        <img
+          class='image-banner-splitted-image lazy-image'
+          data-src='https://cdn.shopify.com/s/files/1/0220/4008/4552/files/PackBuilder_c326544d-2d33-4aa3-ad89-2c32a4ed21a3.jpg?v=1678321242'
+          data-sizes='
+            (min-width: 1444px) 1444px,
+            (min-width: 1024px) 1024px,
+            (min-width: 768px) 768px,
+            (min-width: 640px) 640px,
+            (min-width: 480px) 480px,
+            (min-width: 360px) 360px,
+            360px
+          '
+          loading='lazy'
+          width='{{ image.width | default: 360 }}'
+          height='{{ image.height | default: 360 }}'
+          alt='{{ shop.name }} - {{ alt | default: 'BUNDLE AND SAVE' | escape }}'
+        >
+
+        <img
+          class='image-banner-splitted-image lazy-image d-none'
+          data-src='https://cdn.shopify.com/s/files/1/0220/4008/4552/files/Pack_Builder_Banner_-_Desktop_-_v1.jpg?v=1678388598'
+          data-sizes='
+            (min-width: 1024px) 1024px,
+            (min-width: 768px) 768px,
+            (min-width: 640px) 640px,
+            (min-width: 480px) 480px,
+            (min-width: 360px) 360px,
+            360px
+          '
+          loading='lazy'
+          width='{{ width | default: 360 }}'
+          height='{{ height | default: 360 }}'
+          alt='{{ shop.name }} {{ alt | default: 'Pack Builder' | escape }}'
+        >
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+@media(max-width: 475px) {
+  .image-banner-splitted-lead {
+    max-width: 96%!important;
+  }
+
+  .image-banner-splitted-button a.button {
+      font-size: 16px !important;
+     max-width: 100%!important;
+  }
+
+}
+</style>
+
+{% schema %}
+{
+  "name": "Image Banner Splitted",
+  "settings": [
+    {
+      "type": "number",
+      "id": "max",
+      "label": "Max"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image Banner Splitted"
+    }
+  ]
+}
+{% endschema %}

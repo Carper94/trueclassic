@@ -1,0 +1,7 @@
+@import "../settings/breakpoints.css";
+@import "../sections/product-main.css";
+@import "../snippets/product-gallery.css";
+@import "../snippets/product-main-form.css";
+@import "../snippets/material-swatch.css";
+@import "../snippets/product-description.css";
+@import "../snippets/product-option.css";

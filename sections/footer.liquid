@@ -1,0 +1,215 @@
+{% liquid
+  assign footer_nav = section.settings.footer_link_list.links
+
+  capture links_shop
+    render 'link-list', link_list: footer_nav[0], link_class: 'alt'
+  endcapture
+
+  capture links_menu
+    render 'link-list', link_list: footer_nav[1], link_class: 'alt'
+  endcapture
+
+  capture links_info
+    render 'link-list', link_list: footer_nav[2], link_class: 'alt'
+  endcapture
+%}
+
+<footer>
+  <div class='container content-wrapper'>
+    <!-- Desktop version -->
+    <span class='footer-desktop-wrapper desktop-only'>
+      <div class='footer-form'>
+        {% render 'klaviyo-form',
+          form: true,
+          title: section.settings.text,
+          text: section.settings.paragraph,
+          placeholder: section.settings.placeholder,
+          klaviyo_list_id: section.settings.klaviyo_list_id,
+          already_subscribed_message: section.settings.already_subscribed_message,
+          success_message: section.settings.success_message,
+          error_message: section.settings.error_message,
+          unique_id: 'footerDesktopForm'
+        %}
+        <div class='footer__social-links'>
+          {% render 'social-links' %}
+        </div>
+      </div>
+
+      <div class='footer-link-list-wrapper'>
+        <div class='footer__link-list'>
+          <h3 class='headline h2 footer__link-list-title'>Shop</h3>
+          {{ links_shop }}
+        </div>
+        <div class='footer__link-list'>
+          <h3 class='headline footer__link-list-title'>More info</h3>
+          {{ links_menu }}
+        </div>
+        <div class='footer__link-list'>
+          <h3 class='headline footer__link-list-title'>Support</h3>
+          {{ links_info }}
+        </div>
+      </div>
+    </span>
+
+    <!-- Mobile version -->
+    <span class='footer-mobile-wrapper mobile-only'>
+      <div class='footer-form'>
+        {% render 'klaviyo-form',
+          form: true,
+          title: section.settings.text,
+          text: section.settings.paragraph,
+          placeholder: section.settings.placeholder,
+          klaviyo_list_id: section.settings.klaviyo_list_id,
+          already_subscribed_message: section.settings.already_subscribed_message,
+          success_message: section.settings.success_message,
+          error_message: section.settings.error_message,
+          unique_id: 'footerMobileForm'
+        %}
+        <div class='footer__social-links'>
+          {% render 'social-links' %}
+        </div>
+
+      </div>
+      {% render 'accordion', title: 'SHOP', content: links_shop %}
+      {% render 'accordion', title: 'MORE INFO', content: links_menu %}
+      {% render 'accordion', title: 'SUPPORT', content: links_info %}
+      <div class='footer__country-selector mobile-only'>
+        {% render 'country-selector', unique_id: 'Mobile' %}
+        <br>
+      </div>
+    </span>
+
+    <div class='footer-flex'>
+      <div class='footer__country-selector desktop-only'>
+        {% render 'country-selector', unique_id: 'Desktop' %}
+      </div>
+
+      <div class='footer__copyright'>
+        <h2 class='visually-hidden'>Copyright & Attribution</h2>
+        {%- if section.settings.enable_policies == true -%}
+          <ul class='footer-block__details-content list-unstyled aa c mg-y-xs'>
+            {%- for link in section.settings.footer_policies.links -%}
+              <li class='pg-x-xs'>
+                <a
+                  href='{{ link.url }}'
+                  class='color-chocolate-light text s {% if link.active %} list-menu__item--active{% endif %}'
+                >
+                  {{ link.title }}
+                </a>
+              </li>
+              {% if forloop.last == false %}
+                <span class='color-chocolate-light text xxs desktop-only'>|</span>
+              {% endif %}
+            {%- endfor -%}
+            <li>
+              <button
+                type='button'
+                class='color-chocolate-light text s'
+                id='fides-modal-link'
+                style='padding-left: 0;'
+              >
+                <span class='color-chocolate-light text xxs desktop-only'>|</span>&nbsp;Privacy
+                Preferences
+              </button>
+            </li>
+          </ul>
+        {%- endif -%}
+        <small>
+          {% render 'copyright' %}
+          {% comment %}
+            {% render 'attribution' %}
+          {% endcomment %}
+        </small>
+      </div>
+
+      <div class='footer__app-links'>
+        <h2 class='visually-hidden'>App Links</h2>
+        {% render 'app-links',
+          android_app_store_link: section.settings.android_app_link,
+          ios_app_store_link: section.settings.ios_app_link
+        %}
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "footer_link_list",
+      "label": "Footer Menu"
+    },
+    {
+      "id": "enable_policies",
+      "type": "checkbox",
+      "label": "Enable Policies Menu",
+      "default": true
+    },
+    {
+      "type": "link_list",
+      "id": "footer_policies",
+      "label": "Policies Menu"
+    },
+    {
+      "id": "android_app_link",
+      "type": "url",
+      "label": "Google Play Store Link"
+    },
+    {
+      "id": "ios_app_link",
+      "type": "url",
+      "label": "Apple App Store Link"
+    },
+    {
+      "type": "header",
+      "content": "Klaviyo Form"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Title",
+      "default": "Unlock 25% off"
+    },
+    {
+      "type": "text",
+      "id": "placeholder",
+      "label": "Placeholder text",
+      "default": "Enter Email Address"
+    },
+    {
+      "type": "text",
+      "id": "paragraph",
+      "label": "Text",
+      "default": "Exclusive deals, early access, and first look at new products, right to your inbox."
+    },
+    {
+      "type": "text",
+      "id": "already_subscribed_message",
+      "label": "Already subscribed message",
+      "default": "You're already subscribed"
+    },
+    {
+      "type": "text",
+      "id": "success_message",
+      "label": "Success message",
+      "default": "Thanks for subscribing"
+    },
+    {
+      "type": "text",
+      "id": "error_message",
+      "label": "Error message",
+      "default": "Something went wrong"
+    },
+    {
+      "type": "text",
+      "id": "klaviyo_list_id",
+      "label": "Klaviyo list ID",
+      "default": "LUzTHf"
+    }
+  ],
+  "presets": []
+}
+{% endschema %}

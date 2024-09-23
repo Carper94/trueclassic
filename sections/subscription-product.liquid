@@ -1,0 +1,738 @@
+{%- liquid
+  assign unique_id_ = section.id | remove: '-'
+  assign unique_id = unique_id_ | remove: '_'
+  assign sc_id = '#shopify-section-' | append: section.id
+-%}
+
+<style>
+  {{ sc_id }} {
+    background-color: {{ section.settings.section_bg_color }};
+  }
+  {{ sc_id }} {
+    padding-top: {{ section.settings.padding_top | times: 0.50 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.50 }}px;
+    text-align: {{ section.settings.text_position }};
+  }
+
+  @media screen and (min-width: 769px) {
+    {{ sc_id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  {{ sc_id }} .featured-product button {
+    {% if section.settings.text_position == 'center' %}
+      margin-left: auto;
+      margin-right: auto;
+    {% elsif section.settings.text_position == 'right' %}
+      margin-left: auto;
+    {% else %}
+      margin-right: auto;
+    {% endif %}
+  }
+
+  {{ sc_id }} .featured-product  a.button, {{ sc_id }} .featured-product button {
+    max-width: 340px;
+    width: 100%;
+    font-family: var(--font-modernist-mono) !important;
+    background: var(--brand-chocolate);
+    border-radius: 5px;
+    max-height: 60px;
+    padding: 0 2rem!important;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 60px;
+    letter-spacing: 0.05em;
+    text-align: left!important;
+    color: {{ color }};
+    position: relative;
+    border: none;
+    margin-bottom: 2rem;
+    justify-content: flex-start;
+    font-weight: 300!important;
+  }
+
+  {{ sc_id }} .featured-product button:after  {
+    content: "($29/yr)";
+    position: absolute;
+    right: 1.5rem;
+    font-weight: 300;
+    text-transform: none;
+  }
+
+  @media screen and (max-width: 769px) {
+    {{ sc_id }} .featured-product  a.button, {{ sc_id }} .featured-product button {
+      max-width: 80vw;
+      max-height: 50px;
+      line-height: 50px;
+      width: 80vw;
+      font-size: 16px;
+    }
+  }
+</style>
+
+<section class='featured-product container'>
+  {%- liquid
+    assign mb = section.settings.membership_product
+    assign mb_id = mb.id
+    assign mb_handle = mb.handle
+    assign mb_title = mb.title
+    assign mb_requires_selling_plan = mb.requires_selling_plan
+    assign mb_has_only_default_variant = mb.has_only_default_variant
+    assign mb_variants = mb.variants
+    assign mb_first_available_variant = mb.first_available_variant
+    assign mb_first_available_variant_id = mb_first_available_variant.id
+    assign mb_first_available_variant_title = mb_first_available_variant.title
+    assign mb_first_available_variant_requires_selling_plan = mb_first_available_variant.requires_selling_plan
+    assign mb_first_available_variant_selling_plan_allocations = mb_first_available_variant.selling_plan_allocations
+    assign mb_selected_or_first_available_selling_plan_allocation = mb.selected_or_first_available_selling_plan_allocation
+    assign mb_selected_or_first_available_selling_plan_allocation_selling_plan_group_id = mb_selected_or_first_available_selling_plan_allocation.selling_plan_group_id
+    assign mb_selected_or_first_available_selling_plan_allocation_selling_plan_id = mb_selected_or_first_available_selling_plan_allocation.selling_plan.id
+    assign mb_selected_or_first_available_selling_plan_allocation_checkout_charge_amount = mb_selected_or_first_available_selling_plan_allocation.checkout_charge_amount
+  -%}
+
+  <div class='content-wrapper section-spacer'>
+    mb: {{ mb }}<br>
+    mb_id: {{ mb_id }}<br>
+    mb_handle: {{ mb_handle }}<br>
+    mb_title: {{ mb_title }}<br>
+    mb_requires_selling_plan: {{ mb_requires_selling_plan }}<br>
+    mb_has_only_default_variant: {{ mb_has_only_default_variant }}<br>
+    mb_variants: {{ mb_variants }}<br>
+    mb_first_available_variant: {{ mb_first_available_variant }}<br>
+    mb_first_available_variant_id: {{ mb_first_available_variant_id }}<br>
+    mb_first_available_variant_title: {{ mb_first_available_variant_title }}<br>
+    mb_first_available_variant_requires_selling_plan: {{ mb_first_available_variant_requires_selling_plan }}<br>
+    mb_first_available_variant_selling_plan_allocations: {{ mb_first_available_variant_selling_plan_allocations }}<br>
+    mb_selected_or_first_available_selling_plan_allocation: {{ mb_selected_or_first_available_selling_plan_allocation }}<br>
+    mb_selected_or_first_available_selling_plan_allocation_selling_plan_group_id: {{ mb_selected_or_first_available_selling_plan_allocation_selling_plan_group_id }}<br>
+    mb_selected_or_first_available_selling_plan_allocation_selling_plan_id: {{ mb_selected_or_first_available_selling_plan_allocation_selling_plan_id }}<br>
+    mb_selected_or_first_available_selling_plan_allocation_checkout_charge_amount: {{ mb_selected_or_first_available_selling_plan_allocation_checkout_charge_amount }}<br>
+  </div>
+  <div class='content-wrapper section-spacer'>
+    {% assign not_in_cart = true %}
+    {% for item in cart.items %}
+      {% if item.product.id == section.settings.membership_product.id %}
+        {% assign not_in_cart = false %}
+        {% break %}
+      {% endif %}
+    {% endfor %}
+    {% unless customer and customer.tags contains 'inveterate-subscriber' %}
+      <div class='featured-product'>
+        {% render 'add-membership',
+          product: section.settings.membership_product,
+          product_form_id: section.settings.membership_product.first_available_variant.id,
+          selling_plan_id: section.settings.membership_product.selected_or_first_available_selling_plan_allocation.selling_plan.id,
+          button_label: section.settings.button_label,
+          button_styles: 'primary text-center',
+          function_id: section.id
+        %}
+      </div>
+    {% else %}
+      <a
+        href='/account'
+        class='checkoutMembership button primary membership-button membership-in-cart mx-auto'
+        >Manage your membership</a
+      >
+    {% endunless %}
+
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'heading' -%}
+          {%- assign unique_id = block.id | remove: '-' | remove: '_' -%}
+          {% render 'tc-heading',
+            title: block.settings.title,
+            heading_level: block.settings.heading_level,
+            heading_font: block.settings.heading_font,
+            heading_size: block.settings.heading_size,
+            heading_color: block.settings.heading_color,
+            heading_color_inverse: block.settings.heading_color_inverse,
+            heading_margin_top: block.settings.heading_margin_top,
+            heading_margin_bottom: block.settings.heading_margin_bottom,
+            heading_underline: block.settings.heading_underline,
+            line_break_dot: block.settings.line_break_dot,
+            link: section.settings.banner_link,
+            block_id: unique_id
+          %}
+        {%- when 'text' -%}
+          {%- assign unique_id = block.id | remove: '-' | remove: '_' -%}
+          {% render 'tc-paragraph',
+            text: block.settings.paragraph,
+            text_font: block.settings.paragraph_font,
+            text_style: block.settings.paragraph_style,
+            text_color: block.settings.paragraph_color,
+            text_color_inverse: block.settings.paragraph_color_inverse,
+            text_margin_top: block.settings.paragraph_margin_top,
+            text_margin_bottom: block.settings.paragraph_margin_bottom,
+            block_id: unique_id
+          %}
+      {%- endcase -%}
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Subscription Product",
+  "settings": [
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Section background color",
+      "default": "#ffffff"
+    },
+    {
+      "id": "membership_product",
+      "type": "product",
+      "label": "Product"
+    },
+    {
+      "id": "membership_image",
+      "type": "image_picker",
+      "label": "Membership Image"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 0
+    },
+    {
+      "type": "select",
+      "id": "text_position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left",
+      "label": "Content alignment"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "Header",
+      "settings": [
+        {
+          "id": "title",
+          "type": "text",
+          "label": "Heading text",
+          "default": "True Classic®"
+        },
+        {
+          "type": "select",
+          "id": "heading_level",
+          "options": [
+            {
+              "value": "h1",
+              "label": "Level 1"
+            },
+            {
+              "value": "h2",
+              "label": "Level 2"
+            },
+            {
+              "value": "h3",
+              "label": "Level 3"
+            },
+            {
+              "value": "h4",
+              "label": "Level 4"
+            },
+            {
+              "value": "h5",
+              "label": "Level 5"
+            },
+            {
+              "value": "h6",
+              "label": "Level 6"
+            },
+            {
+              "value": "span",
+              "label": "Span"
+            }
+          ],
+          "default": "h2",
+          "label": "Heading level"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h0",
+              "label": "XX Large"
+            },
+            {
+              "value": "h1",
+              "label": "X Large"
+            },
+            {
+              "value": "h2",
+              "label": "Large"
+            },
+            {
+              "value": "h3",
+              "label": "Base"
+            },
+            {
+              "value": "h4",
+              "label": "Small"
+            },
+            {
+              "value": "h5",
+              "label": "X Small"
+            },
+            {
+              "value": "h6",
+              "label": "XX Small"
+            }
+          ],
+          "default": "h2",
+          "label": "Heading size"
+        },
+        {
+          "type": "select",
+          "id": "heading_font",
+          "options": [
+            {
+              "value": "staff-x-condensed-type",
+              "label": "Staff X Condensed"
+            },
+            {
+              "value": "modernist-type",
+              "label": "Modernist"
+            },
+            {
+              "value": "modernist-mono-type",
+              "label": "Modernist Mono"
+            },
+            {
+              "value": "roboto-mono-type",
+              "label": "Roboto Mono"
+            },
+            {
+              "value": "montserrat-type",
+              "label": "Montserrat"
+            }
+          ],
+          "default": "staff-x-condensed-type",
+          "label": "Heading font family"
+        },
+        {
+          "type": "select",
+          "id": "heading_color",
+          "options": [
+            {
+              "value": "color-white",
+              "label": "White"
+            },
+            {
+              "value": "color-black",
+              "label": "Black"
+            },
+            {
+              "value": "color-chocolate",
+              "label": "Chocolate"
+            },
+            {
+              "value": "color-chocolate-light",
+              "label": "Chocolate Light"
+            },
+            {
+              "value": "color-chocolate-mid",
+              "label": "Chocolate Medium"
+            },
+            {
+              "value": "color-chocolate-dark",
+              "label": "Chocolate Dark"
+            },
+            {
+              "value": "color-milk-chocolate",
+              "label": "Milk Chocolate"
+            },
+            {
+              "value": "color-shitake",
+              "label": "Shitake"
+            },
+            {
+              "value": "color-sage",
+              "label": "Sage"
+            },
+            {
+              "value": "color-sage-light",
+              "label": "Sage light"
+            },
+            {
+              "value": "color-cream",
+              "label": "Cream"
+            },
+            {
+              "value": "color-cream-light",
+              "label": "Cream Light"
+            },
+            {
+              "value": "color-yellow",
+              "label": "Yellow"
+            },
+            {
+              "value": "color-red",
+              "label": "Red"
+            }
+          ],
+          "default": "color-chocolate",
+          "label": "Heading color"
+        },
+        {
+          "type": "checkbox",
+          "id": "heading_color_inverse",
+          "label": "Light colors on mobile",
+          "default": false
+        },
+        {
+          "type": "select",
+          "id": "heading_margin_top",
+          "options": [
+            {
+              "value": "mg-t-xxl",
+              "label": "XX Large"
+            },
+            {
+              "value": "mg-t-xl",
+              "label": "X Large"
+            },
+            {
+              "value": "mg-t-l",
+              "label": "Large"
+            },
+            {
+              "value": "mg-t-m",
+              "label": "Medium"
+            },
+            {
+              "value": "mg-t-s",
+              "label": "Small"
+            },
+            {
+              "value": "mg-t-xs",
+              "label": "X Small"
+            },
+            {
+              "value": "mg-t-none",
+              "label": "No margin"
+            }
+          ],
+          "default": "mg-t-none",
+          "label": "Heading margin top"
+        },
+        {
+          "type": "select",
+          "id": "heading_margin_bottom",
+          "options": [
+            {
+              "value": "mg-b-xxl",
+              "label": "XX Large"
+            },
+            {
+              "value": "mg-b-xl",
+              "label": "X Large"
+            },
+            {
+              "value": "mg-b-l",
+              "label": "Large"
+            },
+            {
+              "value": "mg-b-m",
+              "label": "Medium"
+            },
+            {
+              "value": "mg-b-s",
+              "label": "Small"
+            },
+            {
+              "value": "mg-b-xs",
+              "label": "X Small"
+            },
+            {
+              "value": "mg-b-none",
+              "label": "No margin"
+            }
+          ],
+          "default": "mg-b-m",
+          "label": "Heading margin bottom"
+        },
+        {
+          "type": "checkbox",
+          "id": "heading_underline",
+          "label": "Underline",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "line_break_dot",
+          "label": "Break line only at dots",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Rich Text",
+      "settings": [
+        {
+          "id": "paragraph",
+          "type": "richtext",
+          "label": "Paragraph text",
+          "default": "<p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>"
+        },
+        {
+          "type": "select",
+          "id": "paragraph_font",
+          "options": [
+            {
+              "value": "staff-x-condensed-type",
+              "label": "Staff X Condensed"
+            },
+            {
+              "value": "modernist-type",
+              "label": "Modernist"
+            },
+            {
+              "value": "modernist-mono-type",
+              "label": "Modernist Mono"
+            },
+            {
+              "value": "roboto-mono-type",
+              "label": "Roboto Mono"
+            },
+            {
+              "value": "montserrat-type",
+              "label": "Montserrat"
+            }
+          ],
+          "default": "modernist-type",
+          "label": "Paragraph font family"
+        },
+        {
+          "type": "select",
+          "id": "paragraph_style",
+          "options": [
+            {
+              "value": "xxl",
+              "label": "XX Large"
+            },
+            {
+              "value": "xl",
+              "label": "X Large"
+            },
+            {
+              "value": "l",
+              "label": "Large"
+            },
+            {
+              "value": "m",
+              "label": "Base"
+            },
+            {
+              "value": "s",
+              "label": "Small"
+            },
+            {
+              "value": "xs",
+              "label": "X Small"
+            },
+            {
+              "value": "xxs",
+              "label": "XX Small"
+            }
+          ],
+          "default": "m",
+          "label": "Paragraph size"
+        },
+        {
+          "type": "select",
+          "id": "paragraph_color",
+          "options": [
+            {
+              "value": "color-white",
+              "label": "White"
+            },
+            {
+              "value": "color-black",
+              "label": "Black"
+            },
+            {
+              "value": "color-chocolate",
+              "label": "Chocolate"
+            },
+            {
+              "value": "color-chocolate-light",
+              "label": "Chocolate Light"
+            },
+            {
+              "value": "color-chocolate-mid",
+              "label": "Chocolate Medium"
+            },
+            {
+              "value": "color-chocolate-dark",
+              "label": "Chocolate Dark"
+            },
+            {
+              "value": "color-milk-chocolate",
+              "label": "Milk Chocolate"
+            },
+            {
+              "value": "color-shitake",
+              "label": "Shitake"
+            },
+            {
+              "value": "color-sage",
+              "label": "Sage"
+            },
+            {
+              "value": "color-sage-light",
+              "label": "Sage light"
+            },
+            {
+              "value": "color-cream",
+              "label": "Cream"
+            },
+            {
+              "value": "color-cream-light",
+              "label": "Cream Light"
+            },
+            {
+              "value": "color-yellow",
+              "label": "Yellow"
+            },
+            {
+              "value": "color-red",
+              "label": "Red"
+            }
+          ],
+          "default": "color-chocolate",
+          "label": "Paragraph color"
+        },
+        {
+          "type": "checkbox",
+          "id": "paragraph_color_inverse",
+          "label": "Light colors on mobile",
+          "default": false
+        },
+        {
+          "type": "select",
+          "id": "paragraph_margin_top",
+          "options": [
+            {
+              "value": "mg-t-xxl",
+              "label": "XX Large"
+            },
+            {
+              "value": "mg-t-xl",
+              "label": "X Large"
+            },
+            {
+              "value": "mg-t-l",
+              "label": "Large"
+            },
+            {
+              "value": "mg-t-m",
+              "label": "Medium"
+            },
+            {
+              "value": "mg-t-s",
+              "label": "Small"
+            },
+            {
+              "value": "mg-t-xs",
+              "label": "X Small"
+            },
+            {
+              "value": "mg-t-none",
+              "label": "No margin"
+            }
+          ],
+          "default": "mg-t-none",
+          "label": "Paragraph margin top"
+        },
+        {
+          "type": "select",
+          "id": "paragraph_margin_bottom",
+          "options": [
+            {
+              "value": "mg-b-xxl",
+              "label": "XX Large"
+            },
+            {
+              "value": "mg-b-xl",
+              "label": "X Large"
+            },
+            {
+              "value": "mg-b-l",
+              "label": "Large"
+            },
+            {
+              "value": "mg-b-m",
+              "label": "Medium"
+            },
+            {
+              "value": "mg-b-s",
+              "label": "Small"
+            },
+            {
+              "value": "mg-b-xs",
+              "label": "X Small"
+            },
+            {
+              "value": "mg-b-none",
+              "label": "No margin"
+            }
+          ],
+          "default": "mg-b-m",
+          "label": "Paragraph margin bottom"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Subscription Product",
+      "category": "Product"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,46 @@
+{% assign megaMenu = linklists['hlxn-shop-all-menu'] %}
+
+<div id='mega-menu' class='mega-menu'>
+  <div id='megamenu__content-1' class='mega-menu__content d-block'>
+    {% for item in megaMenu.links %}
+      <div class='mega-menu__link-list-column'>
+        <p class='headline h6 mega-menu__menu-title'>
+          <a
+            class='headline-links'
+            href='{{ item.url }}'
+          >
+            {{- item.title -}}
+          </a>
+        </p>
+        <div class='mega-menu__list-container'>
+          {% for link in item.links %}
+            <a
+              class='{% if link.title == 'Sunglasses' and localization.country.iso_code != 'US' %}ge-remove{% endif %}{% if link.title == 'Sweaters' and localization.country.iso_code != 'US' and localization.country.iso_code != 'CA' %}ge-remove{% endif %}'
+              href='{{ link.url }}'
+            >
+              <p class='mega-menu__list-container--menu-item'>{{ link.title }}</p>
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+
+    {% for block in section.blocks %}
+      {% if block.type == 'mm_img' %}
+        <div class='mega-menu__img-container'>
+          <a href='{{ block.settings.mm_img_link }}'>
+            <p class='mega-menu__img-text'>{{ block.settings.mm_img_overlay_text }}</p>
+            <img
+              class='mega-menu__img'
+              src='{{ block.settings.mm_img_image.src | image_url }}'
+              alt='{{ block.settings.mm_img_alt }}'
+              width='234'
+              height='350'
+              loading='lazy'
+            >
+          </a>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>

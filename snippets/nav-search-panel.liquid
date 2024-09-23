@@ -1,0 +1,37 @@
+<div class='nav-search-panel-wrapper pg-y-s'>
+  <div class='container container--dropdown'>
+    <div class='nav-search-panel__searchbar-wrapper'>
+      {% render 'searchbar', id: 'desktop' %}
+      <button
+        type='button'
+        id='nav__search-close'
+        class='searchbar__button icon-button'
+      >
+        {% render 'icon-close' %}
+        <span class='visually-hidden'>Close search</span>
+      </button>
+    </div>
+    {% render 'instant-search-dropdown', mode: 'desktop', controller: 'desktop' %}
+  </div>
+</div>
+
+<script>
+  const searchButton = document.querySelector('#nav__tab--search');
+  const searchInput = document.querySelector('.searchbar__input');
+  const searchInputDesktop = document.querySelector('.searchbar__inner-wrapper #desktop');
+  const searchResults = document.querySelector('instant-search-results__list-item');
+
+  searchButton.addEventListener('click', function () {
+    dataLayer.push({ event: 'open_search' });
+    setTimeout(() => {
+      // This is not the correct way to trigger focus on the search input, but
+      // it was impossible to find where the parent elements were being set to "active",
+      // which was preventing the search input from being focused on click because the parents 
+      // were set to display: none; when the focus event was triggered.
+      searchInputDesktop.focus();
+    }, 150);
+  });
+  searchInput.addEventListener('blur', function () {
+    dataLayer.push({ event: 'search_typed' });
+  });
+</script>

@@ -1,0 +1,655 @@
+{% comment %} theme-check-disable RemoteAsset {% endcomment %}
+{% comment %} theme-check-disable ParserBlockingJavaScript {% endcomment %}
+
+<!doctype html>
+<html lang='{{ locale }}' dir='{{ direction }}' class='{{ checkout_html_classes }}'>
+  <head>
+    
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    <meta
+      name='viewport'
+      content='width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, user-scalable=0'
+    >
+    <meta name='referrer' content='origin'>
+    
+    <script
+      id="script_tag_id"
+      data-last-check-status-key="_prevCheckIsOk"
+      data-last-check-timestamp-key="_prevCheckTimestamp"
+      data-refresh-interval-ms="120000"
+      data-script-src="https://d2fj3s7h83rb61.cloudfront.net/mZZl8heCBE/bin"
+      data-app-info="1-1--1.13.0"
+      data-app-platform="1"
+      data-app-type="1"
+      data-app-version="1.13.0">
+      (function () {
+        var currentScript = document.currentScript;
+        var currentScriptDataset = currentScript.dataset;
+        var lastCheckStatusKey = currentScriptDataset.lastCheckStatusKey;
+        var lastCheckTimestampKey = currentScriptDataset.lastCheckTimestampKey;
+        var refreshIntervalMs = parseInt(currentScriptDataset.refreshIntervalMs, 10);
+        var scriptSrc = currentScriptDataset.scriptSrc;
+
+        if (lastCheckStatusKey && lastCheckTimestampKey && refreshIntervalMs && scriptSrc && !isNaN(refreshIntervalMs)) {
+            if (localStorage.getItem(lastCheckStatusKey) === null) {
+                localStorage.setItem(lastCheckStatusKey, String(false));
+            }
+            if (localStorage.getItem(lastCheckTimestampKey) === null){
+                localStorage.setItem(lastCheckTimestampKey, String(0));
+            }
+
+            var locationHref = document.location.href;
+            var now = Date.now();
+            var lastCheckStatus = String(localStorage.getItem(lastCheckStatusKey)).toLowerCase() === 'true';
+            var lastCheckTimestamp = parseInt(localStorage.getItem(lastCheckTimestampKey), 10);
+
+            if (!isNaN(lastCheckTimestamp)) {
+                var needRefreshByInterval = now - lastCheckTimestamp > refreshIntervalMs;
+
+                if (needRefreshByInterval || lastCheckStatus) {
+                    var LOAD = 'load';
+                    var ERROR = 'error';
+                    var script = document.createElement('script');
+
+                    function scriptEventHandler(evt) {
+                        var target = evt.target;
+                        var evtType = evt.type;
+
+                        var currentCheckStatus = false;
+                        var currentCheckTimestamp = Date.now();
+
+                        if (evtType === LOAD) {
+                            currentCheckStatus = true;
+                        }
+
+                        localStorage.setItem(lastCheckStatusKey, String(currentCheckStatus));
+                        localStorage.setItem(lastCheckTimestampKey, String(currentCheckTimestamp));
+
+                        target.removeEventListener(LOAD, scriptEventHandler);
+                        target.removeEventListener(ERROR, scriptEventHandler);
+                    }
+
+                    if (!locationHref.match(/(\/checkouts\/|\/thank_you)/gi)) {
+                        script.defer = true;
+                    }
+
+                    script.addEventListener(LOAD, scriptEventHandler);
+                    script.addEventListener(ERROR, scriptEventHandler);
+
+                    script.src = scriptSrc;
+
+                    document.head.insertBefore(script, currentScript);
+                }
+            }
+        } else {
+          console.error('wrapper is not right configured');
+        }
+      })();
+    </script>
+
+    {% comment %} {% include 'blotout-checkout' %} {% endcomment %}
+
+    <script>
+      (function () {
+        function asyncLoad() {
+          var s = document.createElement('script');
+          s.type = 'text/javascript';
+          s.async = true;
+          s.src =
+            'https://s3.eu-west-1.amazonaws.com/production-klarna-il-shopify-osm/44241829bcc56116e10834fcdc3b3f3426feef24/trueclassictees-com.myshopify.com-1674844429534.js';
+          var x = document.getElementsByTagName('script')[0];
+          x.parentNode.insertBefore(s, x);
+        }
+        if (window.attachEvent) {
+          window.attachEvent('onload', asyncLoad);
+        } else {
+          window.addEventListener('load', asyncLoad, false);
+        }
+      })();
+    </script>
+
+    <!-- Corso Code Start -->
+      <script
+        type='text/javascript'
+        id='gsp-checkout-script'
+        widget-location='sidebar'
+        sidebar-location='shipping'
+        async=''
+        src='https://cdn.corso.com/js/gsp-spf.min.js?sfid=ff02f8a9-130f-440f-ab46-cbf5d5802a01'
+      ></script>
+      <script type='text/javascript'>
+        window.addEventListener('load', function () {
+        	if ((document.querySelector('[data-step="thank_you"]')) && (document.querySelector('[data-product-id="6763834409032"]'))) {
+        		const element = document.querySelector('[data-product-id="6763834409032"] .product__price span');
+        		const gspPrice = element.innerText;
+        		const gspPriceAfter = document.querySelector('.product-table');
+        		gspPriceAfter.insertAdjacentHTML(
+        			"afterend",
+        			`<table style="margin-bottom:10px"><tr class="total-line total-line--gsp-price"><th class="total-line__name" scope="row">Package Protection & Sustainability</th><td class="total-line__price"><span class="money">${gspPrice}</span></td></tr></table>`
+        		);
+        	}
+        });
+      </script>
+    <!-- Corso End -->
+    {% if checkout.shipping_address.country_code != 'US' %}
+     <style>
+      .GiftNote {
+        display: none;
+      }
+      #ch-wrapper {
+        display: none!important;
+      }
+    </style>
+    {% endif %}
+
+    <style>
+      [data-product-id="6763834409032"] {
+        display: none;
+      }
+    </style>
+
+    {% unless checkout.shipping_address.country_code == 'US' %}
+      {% section 'checkout-processing-times' %}
+    {% endunless %}
+    {% section 'checkout-cutoff-times-v3' %}
+
+    <title>{{ page_title }}</title>
+
+    {{ content_for_header }}
+
+    {{ checkout_stylesheets }}
+    {{ checkout_scripts }}
+
+
+    {% render 'intelligems' %}
+
+
+    {% comment %} <!-- ADDRESS VALIDATOR --> {% endcomment %}
+    <script async src='https://d3ox8tdk614ykk.cloudfront.net/pobox_checker.js'></script>
+
+    <style>
+      [data-product-id='6763834409032'] .product__description__variant {
+        display: none;
+      }
+    </style>
+
+    {% include "globale-checkout-css" %}
+
+    {% render 'microsoft-clarity' %}
+
+  </head>
+  <body>
+
+    {{ skip_to_content_link }}
+
+    <header class='banner' data-header>
+      <div class='wrap'>
+        {{ content_for_logo }}
+      </div>
+    </header>
+
+    {% section 'tc-checkout-inveterate-redemption' %}
+
+    {{ order_summary_toggle | replace: 'aria-expanded="false"', 'aria-expanded="true"' }}
+    <div class='content' data-content>
+      <div class='wrap'>
+        <div class='main'>
+          <header class='main__header' role='banner'>
+            {{ content_for_logo }}
+            {{ breadcrumb }}
+            {{ alternative_payment_methods }}
+          </header>
+          <main class='main__content' role='main'>
+            {{ content_for_layout }}
+          </main>
+          <footer class='main__footer' role='contentinfo'>
+            {{ content_for_footer }}
+          </footer>
+        </div>
+        <aside class='sidebar' role='complementary'>
+          <div class='sidebar__header'>
+            {{ content_for_logo }}
+          </div>
+          <div class='sidebar__content'>
+            {{
+              content_for_order_summary
+              | replace: 'order-summary--is-collapsed', 'order-summary--is-expanded'
+            }}
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    {{ tracking_code }}
+
+    {% comment %} {% render 'google-tag-checkout' %} {% endcomment %}
+
+    <script>
+      {% assign checkout_items = 0 %}
+       {% for line_item in checkout.line_items %}
+         {% assign checkout_items = checkout_items | plus: line_item.quantity %}
+       {% endfor %}
+       {% for discount_application in checkout.discount_applications %}
+         {% if discount_application.type == 'discount_code' %}
+           console.log('DISCOUNT ALLOCATION-{{ discount_application.total_allocated_amount | divided_by: checkout_items | money_without_currency | json }}')
+         {% endif %}
+       {% endfor %}
+
+       document.addEventListener('DOMContentLoaded', function () {
+          let countryIs = Shopify.country;
+          // console.log("Shopify.country");
+          // console.log(countryIs);
+          const localCountry = localStorage.getItem('country_code');
+          // console.log("LocalStorage Country");
+          // console.log(localCountry);
+
+          if (localCountry == 'us') {
+            let isUS = true;
+          } else {
+            let isUS = false;
+            updatePhoneField(isUS)
+          }
+
+          function updatePhoneField(isUS) {
+            const phoneField = document.querySelector('[data-address-field="phone"]');
+            const label = phoneField.querySelector('.field__label');
+            const input = phoneField.querySelector('.field__input');
+
+            if (isUS == false) {
+              phoneField.classList.remove('field--optional');
+              phoneField.classList.add('field--required');
+              label.textContent = 'Phone (required)';
+              input.placeholder = 'Phone (required)';
+            }
+          }
+
+         window.dataLayer = window.dataLayer || [];
+         const continueButton = document.getElementById('continue_button');
+          if (document.querySelector('.order-summary__section.order-summary__section--discount #checkout_submit:nth-of-type(2)')) {
+         document.querySelector('.order-summary__section.order-summary__section--discount #checkout_submit:nth-of-type(2)').onclick = function() {
+           let coupon = document.querySelector('#checkout_reduction_code').value;
+           window.dataLayer.push({
+             'event': 'purchase',
+             'ecommerce': {
+               'coupon': coupon
+             }
+           });
+         };
+         }
+
+         if (Shopify.Checkout.step == 'contact_information') {
+           let emailInput = document.querySelectorAll('[data-backup="customer_email"]')[0];
+
+           if(emailInput) {
+            emailInput.addEventListener('blur', function () {
+              window.dataLayer.push({
+                'event': 'checkout_email',
+                'ecommerce': {
+                  'email': emailInput.value
+                }
+              });
+            });
+           }
+
+            window.dataLayer.push({
+             'event': 'begin_checkout',
+             'ecommerce': {
+               'page_type': 'Customer Information',
+               'value': {{ checkout.total_price | money_without_currency }},
+               'currency': '{{ checkout.currency }}',
+               'items': [
+                 {% for line_item in checkout.line_items %}
+                 {
+                    'item_id': '{{ line_item.product_id }}',
+                    'item_name': '{{ line_item.product.title }}',
+                    'item_category': '{{ line_item.product.type }}',
+                    'item_variant': '{{ line_item.sku }}',
+                    'item_variant_title' : '{{ line_item.variant.title }}',
+                    'price': {{ line_item.price | money_without_currency }},
+                    'currency': '{{ checkout.currency }}',
+                     {% for discount_application in checkout.discount_applications %}
+                       {% if discount_application.type == 'discount_code' %}
+                         'discount': {{ discount_application.title }},
+                       {% endif %}
+                     {% endfor %}
+                     'quantity': {{ line_item.quantity }}
+                 },
+                 {% endfor %}
+               ]
+             }
+           });
+         }
+
+         if (Shopify.Checkout.step == 'shipping_method') {
+
+         }
+
+         if (Shopify.Checkout.step == 'payment_method') {
+
+          window.dataLayer.push({
+            'event': 'add_shipping_info',
+            'ecommerce': {
+              'page_type': 'Shipping Info',
+              'value': {{ checkout.total_price | money_without_currency }},
+              'shipping_tier': '{{ checkout.shipping_method.title }}',
+              'shipping': {{ checkout.shipping_price | money_without_currency }},
+              'currency': '{{ checkout.currency }}',
+              'items': [
+                {% for line_item in checkout.line_items %}
+                {
+                  'item_id': '{{ line_item.product_id }}',
+                  'item_name': '{{ line_item.product.title }}',
+                  'item_category': '{{ line_item.product.type }}',
+                  'item_variant': '{{ line_item.sku }}',
+                  'item_variant_title' : '{{ line_item.variant.title }}',
+                  'price': {{ line_item.price | money_without_currency }},
+                  'currency': '{{ checkout.currency }}',
+                    {% for discount_application in checkout.discount_applications %}
+                      {% if discount_application.type == 'discount_code' %}
+                        'discount': {{ discount_application.title }},
+                      {% endif %}
+                    {% endfor %}
+                    'quantity': {{ line_item.quantity }}
+                },
+                {% endfor %}
+              ]
+            }
+          });
+
+          {% comment %} window.dataLayer.push({
+            'event': 'add_payment_info',
+            'ecommerce': {
+            'page_type': 'Shipping Information',
+            'value': {{ checkout.total_price | money_without_currency | remove: "," | json }},
+            'currency': '{{ checkout.currency }}',
+            'shipping_rate': {{ checkout.shipping_method.price | divided_by: 100.0 }},
+            'shipping_method': '{{ checkout.shipping_method.title }}',
+            'items': [
+              {% for line_item in checkout.line_items %}
+              {
+                'item_id': {{ line_item.product_id | json }},
+                'item_name': '{{ line_item.product.title | remove: "\" }}',
+                'item_category': '{{ line_item.product.type }}',
+                'item_variant': {{ line_item.sku | json }},
+                'item_variant_title' : '{{ line_item.variant.title }}',
+                'price': {{ line_item.price | money_without_currency | remove: "," | json }},
+                'currency': '{{ checkout.currency }}',
+                {% for discount_application in checkout.discount_applications %}
+                  {% if discount_application.type == 'discount_code' %}
+                    'discount': {{ discount_application.title | json }},
+                  {% endif %}
+                {% endfor %}
+                'quantity': {{ line_item.quantity | json }}
+              },
+              {% endfor %}
+            ]
+            }
+          }); {% endcomment %}
+
+             window.dataLayer.push({
+               'event': 'add_payment_info',
+               'ecommerce': {
+                 'page_type': 'Payment Information',
+                 'value': {{ checkout.total_price | money_without_currency }},
+                 'currency': '{{ checkout.currency }}',
+                 'items': [
+                   {% for line_item in checkout.line_items %}
+                   {
+                      'item_id': '{{ line_item.product_id }}',
+                      'item_name': '{{ line_item.product.title }}',
+                      'item_category': '{{ line_item.product.type }}',
+                      'item_variant': '{{ line_item.sku }}',
+                      'item_variant_title' : '{{ line_item.variant.title }}',
+                      'price': {{ line_item.price | money_without_currency }},
+                      'currency': '{{ checkout.currency }}',
+                       {% for discount_application in checkout.discount_applications %}
+                         {%- if discount_application.type == 'discount_code' -%}
+                           'discount': '{{ discount_application.title }}',
+                         {%- endif -%}
+                       {% endfor %}
+                      'quantity': {{ line_item.quantity }}
+                   },
+                   {% endfor %}
+                 ]
+               }
+             });
+         }
+
+         function removeCurrencyCode() {
+           document.querySelectorAll('.reduction-code__text').forEach(item => {
+             item.textContent = item.textContent.replace('GBP','');
+           });
+           document.querySelectorAll('.order-summary__small-text').forEach(item => {
+             item.textContent = item.textContent.replace('GBP','');
+           });
+         }
+
+         setTimeout(function(){
+           removeCurrencyCode();
+         }, 7000);
+
+         function discountError(){
+           let coupon = document.querySelector('#checkout_reduction_code').value;
+           if (document.querySelector('.field__message--error').textContent.includes('valid discount code')) {
+               window.dataLayer = window.dataLayer || [];
+               window.dataLayer.push({
+               'event': 'valid_discount_error',
+               'ecommerce': {
+                 'coupon_code': coupon
+               }
+             });
+           }
+
+           if (document.querySelectorAll('.edit_checkout')[2].querySelector('.notice__text').textContent.includes('sale items')) {
+               window.dataLayer = window.dataLayer || [];
+               window.dataLayer.push({
+                 'event': 'sale_discount_error',
+                 'ecommerce': {
+                   'coupon_code': coupon
+                 }
+               });
+           }
+         }
+
+         document.querySelector('body').addEventListener('click', function(evt){
+
+           if(evt.target.classList.contains('icon-svg--spinner-button') || evt.target.classList.contains('btn__content') || evt.target.classList.contains('field__input-btn')){
+             setTimeout(function(){
+               removeCurrencyCode();
+               discountError();
+             }, 3000);
+           }
+         })
+       }, false);
+    </script>
+
+    {%- liquid
+      render 'css-checkout-savings'
+      render 'js-checkout-savings'
+      section 'tc-checkout-inveterate-redemption'
+      render 'css-checkout-freegift'
+      render 'css-checkout-note'
+      render 'js-checkout-freegift'
+      render 'js-checkout-note'
+      section 'icons-reviews-checkout'
+    -%}
+
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        function isSupportedBrowser() {
+          const userAgent = navigator.userAgent;
+          return (
+            userAgent.includes('Firefox') ||
+            userAgent.includes('Chrome') ||
+            userAgent.includes('Safari') ||
+            userAgent.includes('Edge')
+          );
+        }
+
+        setTimeout(function () {
+          const elementToHide = document.getElementById('ch-wrapper');
+          if (elementToHide) {
+            function hideElementIfNotSupported() {
+              if (!isSupportedBrowser()) {
+                elementToHide.style.display = 'none';
+              }
+              if (isSupportedBrowser()) {
+                elementToHide.style.display = 'block';
+              }
+            }
+            hideElementIfNotSupported();
+          }
+        }, 4000);
+      });
+    </script>
+
+    <script>
+      function insertCorsoABTest(corsoPrice, corsoCheked) {
+        const productList = document.querySelector('.order-summary__section--product-list');
+        if (!productList) return;
+        const newHTML = `
+        <style>
+          .corso-ab-test {
+            background: white;
+            padding: 13px 16px;
+            margin: 1rem 0;
+            border: solid 2px #ADB08E;
+            border-radius: 8px;
+            display: none;
+          }
+          body[corso-ab-test="A"] .corso-ab-test,
+          body[corso-ab-test="B"] .corso-ab-test,
+          body[corso-ab-test="C"] .corso-ab-test,
+          body[corso-ab-test="D"] .corso-ab-test {
+            display: block;
+          }
+          body[corso-ab-test="A"] .corso-ab-test .variant-a,
+          body[corso-ab-test="B"] .corso-ab-test .variant-b,
+          body[corso-ab-test="C"] .corso-ab-test .variant-c
+          body[corso-ab-test="D"] .corso-ab-test .variant-d {
+            display: flex;
+          }
+          body[corso-ab-test="A"] .corso-ab-test .variant-b,
+          body[corso-ab-test="A"] .corso-ab-test .variant-c,
+          body[corso-ab-test="A"] .corso-ab-test .variant-d,
+          body[corso-ab-test="B"] .corso-ab-test .variant-a,
+          body[corso-ab-test="B"] .corso-ab-test .variant-c,
+          body[corso-ab-test="B"] .corso-ab-test .variant-d,
+          body[corso-ab-test="C"] .corso-ab-test .variant-a,
+          body[corso-ab-test="C"] .corso-ab-test .variant-b,
+          body[corso-ab-test="C"] .corso-ab-test .variant-d,
+          body[corso-ab-test="D"] .corso-ab-test .variant-a,
+          body[corso-ab-test="D"] .corso-ab-test .variant-b,
+          body[corso-ab-test="D"] .corso-ab-test .variant-c {
+            display: none;
+          }
+          .corso-ab-test input {
+            -webkit-appearance: auto !important;
+            -moz-appearance: auto !important;
+            appearance: auto !important;
+            margin-right: 1rem;
+            cursor: pointer;
+          }
+          .corso-ab-test h5 {
+            font-weight: 700;
+            font-size: 16px;
+            color: black;
+            margin-bottom: 16px;
+          }
+          .corso-ab-test p {
+            font-weight: 700;
+            font-size: 14px;
+            color: black;
+          }
+          .corso-ab-test__content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          }
+          .corso-ab-test__info {
+            display: flex;
+            align-items: center;
+          }
+          .corso-ab-test__info p {
+            display: flex;
+            align-items: center;
+          }
+          .corso-ab-test__info p span {
+            display: flex;
+            align-items: center;
+          }
+          .corso-ab-test__info p span svg {
+            margin-right: 5px;
+          }
+          .corso-ab-test__info p .gspa-i svg {
+            width: 16px;
+            cursor: pointer;
+            margin-right: 0;
+            margin-left: 5px;
+          }
+        </style>
+        <div class='corso-ab-test'>
+          <h5 class='variant-a'>Green Shipping Protection</h5>
+          <h5 class='variant-b'>Safe & Sustainable Shipping</h5>
+          <h5 class='variant-c'>Protected & Sustainable Shipping</h5>
+          <h5 class='variant-d'>Secure & Eco-Friendly Shipping</h5>
+          <div class='corso-ab-test__content'>
+            <div class='corso-ab-test__info'>
+            <input type='checkbox' id='corso-ab-input' onchange='corsoAbTestEvent()' ${corsoCheked} />
+            <label>
+              <p><span>{% render 'icon-corso-package' %}</span>Protect Your Package<span class="gspa-i" onclick="csp.og()"><svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></span></p>
+              <p class='variant-a'><span>{% render 'icon-corso-planet' %}</span>Offset Your Carbon Emissions</p>
+              <p class='variant-b'><span>{% render 'icon-corso-planet' %}</span>Help Protect The Planet</p>
+              <p class='variant-c'><span>{% render 'icon-corso-planet' %}</span>Offset Your Carbon Emissions</p>
+              <p class='variant-d'><span>{% render 'icon-corso-planet' %}</span>Help Protect The Planet</p>
+            </label>
+          </div>
+          <div class='corso-ab-test__price'>
+            <p>${corsoPrice}</p>
+          </div>
+          </div>
+        </div>
+        `;
+        productList.insertAdjacentHTML('afterend', newHTML);
+      }
+      function checkForCorsoSp(mutationList, observer) {
+        const orderSummarySections = document.querySelector('.order-summary__sections');
+        const corsoSpElement = document.getElementById('corso-sp');
+
+        if (orderSummarySections && corsoSpElement) {
+          let corsoPrice = document.querySelector('#cw').innerHTML;
+          let corsoCheked = document.querySelector('#cn').checked;
+          if (corsoPrice != '$-.--') {
+            observer.disconnect();
+            if (corsoCheked) {
+              insertCorsoABTest(corsoPrice, 'checked');
+            } else {
+              insertCorsoABTest(corsoPrice, '');
+            }
+          }
+        }
+      }
+      function corsoAbTestEvent() {
+        const checkbox = document.querySelector('#cn');
+        if (!checkbox) return;
+        checkbox.click();
+      }
+      document.addEventListener('DOMContentLoaded', () => {
+        // Create a MutationObserver to watch for changes in the DOM
+        const observer = new MutationObserver(checkForCorsoSp);
+
+        // Start observing the target node
+        const targetNode = document.querySelector('.order-summary__sections');
+        if (targetNode) {
+          observer.observe(targetNode, { childList: true });
+        }
+      });
+    </script>
+
+  {% include "globale-checkout-js" %}
+</body>
+</html>
+{% comment %} theme-check-enable RemoteAsset {% endcomment %}
+{% comment %} theme-check-enable ParserBlockingJavaScript {% endcomment %}

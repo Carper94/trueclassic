@@ -1,0 +1,287 @@
+{
+  "sections": {
+    "baf4404b-1fce-469d-86b3-f54d47579225": {
+      "type": "tc-image-banner",
+      "blocks": {
+        "template--14651654570056__baf4404b-1fce-469d-86b3-f54d47579225-heading-1": {
+          "type": "heading",
+          "settings": {
+            "title": "CORPORATE Wholesale  DISCOUNTS",
+            "heading_level": "h1",
+            "heading_size": "h2",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-white",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-none",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "template--14651654570056__baf4404b-1fce-469d-86b3-f54d47579225-text-1": {
+          "type": "text",
+          "settings": {
+            "paragraph": "<p>Want your company to experience the superior fit and feel of True Classic? You have come to the right place.<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "m",
+            "paragraph_color": "color-white",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-m"
+          }
+        },
+        "c42e7510-7921-47df-a3aa-892b9bde18d0": {
+          "type": "link",
+          "settings": {
+            "link_text": "Inquire Here",
+            "link_url": "https:\/\/forms.gle\/6u3HEHCTD3JTcYvRA",
+            "new_tab": true,
+            "link_style": "primary",
+            "link_color_inverse": false,
+            "link_icon": "arrow-right",
+            "link_margin_top": "mg-t-none",
+            "link_margin_bottom": "mg-b-m",
+            "full_width": false,
+            "disabled": false
+          }
+        },
+        "f54b23a5-3cac-490a-b64f-400ea918c08f": {
+          "type": "tooltip",
+          "settings": {
+            "tooltip_label": "",
+            "tooltip_font": "staff-x",
+            "tooltip_color": "var(--brand-white)",
+            "tooltip_overlay_color": "28, 28, 28",
+            "tooltip_bg_color": "var(--brand-white)",
+            "tooltip_color_inverse": true,
+            "tooltip_size": 1.6,
+            "tooltip_weight": "400",
+            "tooltip_text": "",
+            "tooltip_background_color": "#000000",
+            "tooltip_content_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "template--14651654570056__baf4404b-1fce-469d-86b3-f54d47579225-heading-1",
+        "template--14651654570056__baf4404b-1fce-469d-86b3-f54d47579225-text-1",
+        "c42e7510-7921-47df-a3aa-892b9bde18d0",
+        "f54b23a5-3cac-490a-b64f-400ea918c08f"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "class_test": "section-class",
+        "hidden": false,
+        "section_bg_color": "#ffffff",
+        "full_width": true,
+        "breakpoint": 768,
+        "section_max_width": 4000,
+        "section_height": "adapt",
+        "media_position": "unset",
+        "media_size": "full",
+        "banner_link": "",
+        "banner_link_title": "True Classic b2b",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "inner_padding_top": 0,
+        "inner_padding_bottom": 0,
+        "aspect_ratio": 50,
+        "section_image": "shopify:\/\/shop_images\/Warehouse_Sale-Web_Banner-Desktop_-_B_c1b95488-558b-41c3-9d35-c48b599a8c01.png",
+        "section_image_mobile": "shopify:\/\/shop_images\/Warehouse_Sale-Web_Banner-Mobile_-_B.png",
+        "media_margin_left": 0,
+        "media_margin_right": 0,
+        "media_margin_top": 0,
+        "media_margin_bottom": 0,
+        "enable_lazyload": false,
+        "content_width": 40,
+        "content_fit": false,
+        "text_position": "center",
+        "text_position_mobile": "center",
+        "content_padding_dt": "0",
+        "content_padding_mb": "0",
+        "enable_absolute": false,
+        "enable_distance_top": true,
+        "content_top": 50,
+        "content_top_mobile": 50,
+        "enable_distance_bottom": false,
+        "content_bottom": 50,
+        "enable_distance_left": true,
+        "content_left": 50,
+        "enable_distance_right": false,
+        "content_right": 50,
+        "mobile_positioning": "unset",
+        "reverse_mobile": true,
+        "mobile_overlay": true,
+        "mobile_overlay_color": "#000000",
+        "mobile_overlay_opacity": 0.3,
+        "enable_prime_style": false
+      }
+    },
+    "4f005d01-d98a-4f23-8f9e-2ca4c76e8248": {
+      "type": "tc-rich-text",
+      "blocks": {
+        "template--14651654570056__4f005d01-d98a-4f23-8f9e-2ca4c76e8248-text-1": {
+          "type": "text",
+          "settings": {
+            "paragraph": "<p>Already have a True Classic Corporate Wholesale account?<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "m",
+            "paragraph_color": "color-chocolate",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-l"
+          }
+        },
+        "template--14651654570056__4f005d01-d98a-4f23-8f9e-2ca4c76e8248-link-1": {
+          "type": "link",
+          "settings": {
+            "link_text": "Login",
+            "link_url": "https:\/\/shopify.com\/82051793173\/account",
+            "new_tab": true,
+            "link_style": "primary",
+            "link_color_inverse": false,
+            "link_icon": "arrow-right",
+            "link_margin_top": "mg-t-none",
+            "link_margin_bottom": "mg-b-none",
+            "full_width": false,
+            "disabled": false
+          }
+        }
+      },
+      "block_order": [
+        "template--14651654570056__4f005d01-d98a-4f23-8f9e-2ca4c76e8248-text-1",
+        "template--14651654570056__4f005d01-d98a-4f23-8f9e-2ca4c76e8248-link-1"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "section_bg_color": "#ffffff",
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "2e87be2e-6197-46b5-9b1e-63a0f994606e": {
+      "type": "tc-image-banner",
+      "blocks": {
+        "template--14651654570056__2e87be2e-6197-46b5-9b1e-63a0f994606e-heading-1": {
+          "type": "heading",
+          "settings": {
+            "title": "CORPORATE Wholesale  DISCOUNTS",
+            "heading_level": "h2",
+            "heading_size": "h2",
+            "heading_font": "staff-x-condensed-type",
+            "heading_color": "color-chocolate",
+            "heading_color_inverse": false,
+            "heading_margin_top": "mg-t-none",
+            "heading_margin_bottom": "mg-b-none",
+            "heading_underline": false,
+            "line_break_dot": false
+          }
+        },
+        "8a1ea10b-6b08-49fe-9a1e-c49d1b067bd4": {
+          "type": "text",
+          "settings": {
+            "paragraph": "<p>From our crew to yours, we’re now offering wholesale orders of our best-selling styles.<\/p>",
+            "paragraph_font": "modernist-type",
+            "paragraph_style": "m",
+            "paragraph_color": "color-chocolate",
+            "paragraph_color_inverse": false,
+            "paragraph_margin_top": "mg-t-none",
+            "paragraph_margin_bottom": "mg-b-m"
+          }
+        },
+        "5069e2ec-0a74-4bb5-ae78-c20f6bbb181b": {
+          "type": "link",
+          "settings": {
+            "link_text": "Contact Us",
+            "link_url": "mailto:wholesale@trueclassic.com",
+            "new_tab": true,
+            "link_style": "primary",
+            "link_color_inverse": false,
+            "link_icon": "arrow-right",
+            "link_margin_top": "mg-t-none",
+            "link_margin_bottom": "mg-b-none",
+            "full_width": false,
+            "disabled": false
+          }
+        }
+      },
+      "block_order": [
+        "template--14651654570056__2e87be2e-6197-46b5-9b1e-63a0f994606e-heading-1",
+        "8a1ea10b-6b08-49fe-9a1e-c49d1b067bd4",
+        "5069e2ec-0a74-4bb5-ae78-c20f6bbb181b"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 768px) {.img-banner-content {right: 50% !important; }}"
+      ],
+      "settings": {
+        "country_code": "",
+        "exclude_country_code": "",
+        "class_test": "section-class",
+        "hidden": false,
+        "section_bg_color": "#ffffff",
+        "full_width": true,
+        "breakpoint": 768,
+        "section_max_width": 4000,
+        "section_height": "adapt",
+        "media_position": "reverse",
+        "media_size": "medium",
+        "banner_link": "",
+        "banner_link_title": "True Classic Sale",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "inner_padding_top": 0,
+        "inner_padding_bottom": 0,
+        "aspect_ratio": 50,
+        "section_image": "shopify:\/\/shop_images\/Screenshot_2023-10-16_at_5.17.11_PM.png",
+        "media_margin_left": 0,
+        "media_margin_right": 0,
+        "media_margin_top": 0,
+        "media_margin_bottom": 0,
+        "enable_lazyload": false,
+        "content_width": 40,
+        "content_fit": false,
+        "text_position": "center",
+        "text_position_mobile": "center",
+        "content_padding_dt": "2",
+        "content_padding_mb": "0",
+        "enable_absolute": false,
+        "enable_distance_top": true,
+        "content_top": 50,
+        "content_top_mobile": 50,
+        "enable_distance_bottom": false,
+        "content_bottom": 50,
+        "enable_distance_left": true,
+        "content_left": 50,
+        "enable_distance_right": false,
+        "content_right": 50,
+        "mobile_positioning": "after",
+        "reverse_mobile": true,
+        "mobile_overlay": false,
+        "mobile_overlay_color": "#000000",
+        "mobile_overlay_opacity": 0.5,
+        "enable_prime_style": false
+      }
+    },
+    "main": {
+      "type": "page",
+      "disabled": true,
+      "settings": {
+        "full_width": false,
+        "hide_title": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "baf4404b-1fce-469d-86b3-f54d47579225",
+    "4f005d01-d98a-4f23-8f9e-2ca4c76e8248",
+    "2e87be2e-6197-46b5-9b1e-63a0f994606e",
+    "main"
+  ]
+}

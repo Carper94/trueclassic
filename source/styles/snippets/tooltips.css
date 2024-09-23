@@ -1,0 +1,191 @@
+.tooltip__content {
+  position: absolute;
+  opacity: 0;
+  width: 100vw;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-image: initial;
+  padding: 1.5rem;
+  border-radius: 0;
+  box-shadow: none;
+  transition: opacity 0.15s ease-in-out 100ms;
+  z-index: -1;
+}
+
+.tooltip__content--inner {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.tooltip__content.tooltip__content--active {
+  opacity: 1;
+  z-index: 3!important;
+  transition: opacity 0.25s ease-in-out; /* entry animation */
+}
+
+.tooltip__content--inner > .tooltip__close-button {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 980px) {
+  .tooltip__close-button {
+    display: none;
+  }
+}
+
+.tooltip__content--inner > .tooltip__close-button:focus {
+  outline: none;
+}
+
+@media (--medium-down) {
+  .product-main-form__headings>*:last-child div:not(.price-container) {
+      z-index: 1;
+  }
+}
+
+.tooltip__label.price {
+  cursor: help;
+  position: relative;
+  z-index: 2;
+  left: 0.125rem;
+  top: -1px;
+}
+
+.product-card__price .tooltip__label.price {
+  top: -1px;
+}
+
+@media screen and (min-width: 960px) {
+  .tooltip__label.price+.tooltip__content {
+    opacity: 0;
+    z-index: 3;
+    top: 3.25rem !important;
+    visibility: hidden;
+  }
+
+  .tooltip__label.price:hover+.tooltip__content {
+    opacity: 1;
+    visibility: visible;
+    z-index: 4;
+  }
+
+  .product-card .tooltip__label.price+.tooltip__content {
+    right: -10rem !important;
+    z-index: 3;
+    top: 0rem !important;
+    position: absolute;
+    z-index: 3;
+  }
+}
+
+.product-card .tooltip__label.price+.tooltip__content .tooltip__content--inner {
+  font-size: 0.75rem;
+}
+
+@media screen and (max-width: 990px) {
+  .product-card .tooltip__label.price+.tooltip__content {
+    right: -1rem !important;
+    max-width: 125px !important;
+    text-align: right;
+    top: 1.5rem !important;
+    position: absolute;
+  }
+    .product-card .tooltip__label.price+.tooltip__content.tooltip__content--active {
+      z-index: 3;
+  }
+
+  .product-card .tooltip__label.price+.tooltip__content .tooltip__content--inner {
+    font-size: 0.65rem;
+    line-height: 1.25;
+    letter-spacing: 0;
+  }
+}
+
+.tooltip__label.price+.tooltip__content {
+  position: absolute;
+  background-color: white;
+  border: 1px solid var(--brand-gray);
+  height: auto;
+  padding: 0 !important;
+  width: 158px;
+  left: unset;
+  right: unset;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  z-index: -1;
+  white-space: initial;
+}
+
+*:hover+.tooltip__content--active,
+.tooltip__content--active {
+  z-index: 3;
+}
+
+.tooltip__label.price+.tooltip__content .tooltip__content--inner {
+  position: relative;
+  top: unset !important;
+  left: unset !important;
+  transform: unset !important;
+  padding: 0.75rem .75rem 0.75rem 0.75rem;
+  text-align: left;
+}
+
+.product-main-content .tooltip__label.price+.tooltip__content {
+  top: 3rem !important;
+  right: -3rem;
+
+  @media (--medium-down) {
+    
+  }
+}
+
+.product-main-content .tooltip__label.price+.tooltip__content .tooltip__content--inner,
+.cart-line-item__price .tooltip__label.price+.tooltip__content .tooltip__content--inner {
+  position: relative;
+  left: unset !important;
+  transform: unset !important;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  text-align: left;
+  color: black;
+  font-size: 0.75rem;
+}
+
+.tooltip__label.price+.tooltip__content .tooltip__content--inner {
+  position: relative;
+  top: unset !important;
+  left: unset !important;
+  transform: unset !important;
+  padding: 0.25rem 0.5rem 0.25rem 0.25rem;
+  text-align: left;
+}
+
+.tooltip__label.price+.tooltip__content .tooltip__close-button {
+  right: -0.2rem;
+  top: -0.15rem;
+  padding: 0;
+}
+
+.cart-line-item__price .tooltip__label.price+.tooltip__content {
+  right: 105% !important;
+}
+
+.cart-line-item__price .tooltip__label.price+.tooltip__content .tooltip__content--inner {
+  padding: 0.75rem !important;
+}

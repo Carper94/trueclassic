@@ -1,0 +1,138 @@
+/**************************************************************************
+ * Uncomment the following to enable the mega menu
+
+  - using position: absolute to position the mega menu so that it doesn't affect the parent flex content_for_layout
+  - using display none to hide the mega menu completly on mobile
+ **************************************************************************/
+
+#mega-menu {
+  position: absolute;
+}
+
+@media (--large-down) {
+  #mega-menu {
+    display: none;
+  }
+}
+
+#mega-menu .d-block.mega-menu__content {
+  display: grid !important;
+  place-items: center;
+}
+
+#mega-menu .d-none.mega-menu__content {
+  display: none !important;
+}
+
+/**************************************************************************
+ * Uncomment above to enable the mega menu
+ **************************************************************************/
+
+.mega-menu {
+  background-color: white;
+  margin-bottom: 0em;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 0;
+  opacity: 0;
+  transition: height 0.5s ease-in, opacity 0s ease-in-out;
+  pointer-events: none;
+}
+
+.mm-show {
+  position: absolute;
+  top: 61px;
+  height: auto;
+  opacity: 1;
+  transition: height 2s ease-out, opacity 0.125s ease-in-out;
+  pointer-events: auto;
+}
+
+.mega-menu.mm-show>.mega-menu__content {
+  display: grid;
+  place-items: center;
+  grid-auto-flow: column;
+  column-gap: 1em;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  max-width: 80%;
+  width: 100%;
+  margin: auto;
+  height: 100%;
+}
+
+.mega-menu__link-list-column {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+
+.mega-menu__list-container {
+  height: 100%;
+}
+
+.mega-menu__menu-title {
+  margin-bottom: 0.8em;
+}
+
+.mega-menu__img-container {
+  position: relative;
+}
+
+.mega-menu__img-text {
+  position: absolute;
+  bottom: 1em;
+  left: 1em;
+  color: white;
+  font-family: var(--font-staff-x-condensed);
+  text-transform: uppercase;
+}
+
+.mega-menu img {
+  max-height: 350px;
+  aspect-ratio: 2/3;
+  cursor: pointer;
+  object-fit: cover;
+}
+
+#nav-wrapper:hover .mega-menu {
+  height: auto;
+  transition: all 0.5s ease-in-out;
+  border-bottom: 2px solid black;
+  opacity: 1;
+}
+
+.mega-menu__list-container--menu-item {
+  display: flex;
+  padding-bottom: 0.2rem;
+}
+
+.mega-menu__menu-title,
+.mega-menu__list-container a p {
+  color: var(--brand-black);
+}
+
+.headline-links {
+  font-size: inherit !important;
+}
+
+.mega-menu__list-container a.text-red {
+  color: var(--brand-red);
+}
+
+.mega-menu__list-container a.text-red:hover {
+  color: var(--brand-red);
+  text-decoration-color: var(--brand-red);
+}
+
+.mega-menu__content {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.mega-menu .mega-menu__link-list-column,
+.mega-menu .mega-menu__img-container {
+  padding-top: 0 !important;
+  padding-bottom: 1rem;
+}

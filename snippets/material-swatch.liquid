@@ -1,0 +1,34 @@
+{%liquid
+  assign materials = "classic,active"
+  assign materials_list = materials | split: ','
+  assign related = product.metafields.related_products
+  assign classic_product = related.classic.value
+  assign active_product = related.active.value
+  assign classic_desc = 'products.pdp.classic_description' | t
+  assign active_desc = 'products.pdp.active_description' | t
+%}
+
+<div class="material-swatch">
+  <div class="h4 bold">Fabric:</div>
+  <div class="material-swatch__button-wrapper">
+    {% liquid
+      for material in materials_list 
+        assign is_current_product = false
+
+        if forloop.index0 == 0 
+          if product == classic_product
+            assign is_current_product  = true
+          endif
+          render 'material-link' is_current_product: is_current_product, material: material, material_url: classic_product.url, desc: classic_desc
+        elsif forloop.index0 == 1 
+          if product == active_product
+            assign is_current_product  = true
+          endif
+          render 'material-link' is_current_product: is_current_product, material: material, material_url: active_product.url, desc: active_desc
+        endif
+        
+      endfor 
+    %}
+    
+  </div>
+</div>

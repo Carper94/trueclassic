@@ -1,0 +1,818 @@
+{% liquid
+  capture sku
+    assign current_variant = product.selected_or_first_available_variant
+    echo current_variant.sku | truncate: 7, ''
+  endcapture
+
+  capture RenderTopSizes
+    assign MHEIGHT_S = '5.9'
+    assign CHEST_S = '37'
+    assign WAIST_S = '30'
+    assign HIPS_S = '37'
+    assign MHEIGHT_M = '6.1'
+    assign CHEST_M = '40'
+    assign WAIST_M = '33'
+    assign HIPS_M = '40'
+    assign MHEIGHT_L = '6.3'
+    assign CHEST_L = '43'
+    assign WAIST_L = '36'
+    assign HIPS_L = '43'
+    assign MHEIGHT_XL = '6.3'
+    assign CHEST_XL = '47'
+    assign WAIST_XL = '40'
+    assign HIPS_XL = '47'
+    assign MHEIGHT_2XL = '6.3'
+    assign CHEST_2XL = '51'
+    assign WAIST_2XL = '44'
+    assign HIPS_2XL = '51'
+    assign MHEIGHT_3XL = '6.3'
+    assign CHEST_3XL = '55'
+    assign WAIST_3XL = '48'
+    assign HIPS_3XL = '55'
+    assign MHEIGHT_4XL = '6.3'
+    assign CHEST_4XL = '59'
+    assign WAIST_4XL = '52'
+    assign HIPS_4XL = '59'
+  endcapture
+
+  capture RenderBottomSizes
+    assign WAIST_28 = '29'
+    assign HIPS_28 = '36'
+    assign WAIST_29 = '30'
+    assign HIPS_29 = '37'
+    assign WAIST_30 = '31'
+    assign HIPS_30 = '38'
+    assign WAIST_31 = '32'
+    assign HIPS_31 = '39'
+    assign WAIST_32 = '33'
+    assign HIPS_32 = '40'
+    assign WAIST_33 = '34'
+    assign HIPS_33 = '41'
+    assign WAIST_34 = '35'
+    assign HIPS_34 = '42'
+    assign WAIST_36 = '37'
+    assign HIPS_36 = '44'
+    assign WAIST_38 = '39'
+    assign HIPS_38 = '46'
+    assign WAIST_40 = '41'
+    assign HIPS_40 = '48'
+    assign WAIST_42 = '43'
+    assign HIPS_42 = '50'
+  endcapture
+
+  capture RenderSocksSizes
+    assign EU_M = '18-19'
+    assign US_M = '7-9'
+    assign EU_L = '19.5-20.5'
+    assign US_L = '9.5-11.5'
+    assign EU_XL = '21-22'
+    assign US_XL = '12-14'
+  endcapture
+%}
+
+{% if template contains 'product' %}
+  {% if product.type == 'Boxer'
+    or product.type == 'Underwear'
+    or product.type == 'Pants'
+    or product.type == 'Jeans'
+    or product.type == 'Chinos'
+    or product.type == 'Shorts'
+    or product.type == 'Comfort Chino Short'
+  %}
+    {{ RenderBottomSizes }}
+    {% assign WAIST_S = WAIST_28 %}
+    {% assign HIPS_S = HIPS_28 %}
+    {% assign WAIST_M = WAIST_29 %}
+    {% assign HIPS_M = HIPS_29 %}
+    {% assign WAIST_L = WAIST_30 %}
+    {% assign HIPS_L = HIPS_30 %}
+    {% assign WAIST_XL = WAIST_31 %}
+    {% assign HIPS_XL = HIPS_31 %}
+    {% assign WAIST_2XL = WAIST_32 %}
+    {% assign HIPS_2XL = HIPS_32 %}
+    {% assign WAIST_3XL = WAIST_33 %}
+    {% assign HIPS_3XL = HIPS_33 %}
+    {% render 'size-guide',
+      WAIST_S: WAIST_S,
+      HIPS_S: HIPS_S,
+      WAIST_M: WAIST_M,
+      HIPS_M: HIPS_M,
+      WAIST_L: WAIST_L,
+      HIPS_L: HIPS_L,
+      WAIST_XL: WAIST_XL,
+      HIPS_XL: HIPS_XL,
+      WAIST_2XL: WAIST_2XL,
+      HIPS_2XL: HIPS_2XL,
+      WAIST_3XL: WAIST_3XL,
+      HIPS_3XL: HIPS_3XL,
+      WAIST_34: WAIST_34,
+      HIPS_34: HIPS_34,
+      WAIST_36: WAIST_36,
+      HIPS_36: HIPS_36,
+      WAIST_38: WAIST_38,
+      HIPS_38: HIPS_38,
+      WAIST_40: WAIST_40,
+      HIPS_40: HIPS_40,
+      WAIST_42: WAIST_42,
+      HIPS_42: HIPS_42,
+      ME: ME
+    %}
+  {% endif %}
+
+
+  {% if product.type contains 'Socks' %}
+    {{ RenderSocksSizes }}
+    {% assign WAIST_M = EU_M %}
+    {% assign HIPS_M = US_M %}
+    {% assign WAIST_L = EU_L %}
+    {% assign HIPS_L = US_L %}
+    {% assign WAIST_XL = EU_XL %}
+    {% assign HIPS_XL = US_XL %}
+    {% render 'size-guide',
+      WAIST_S: WAIST_M,
+      HIPS_S: HIPS_M,
+      WAIST_M: WAIST_L,
+      HIPS_M: HIPS_L,
+      WAIST_L: WAIST_XL,
+      HIPS_L: HIPS_XL,
+      ME: ME
+    %}
+  {% endif -%}
+
+  {% if product.type == 'Structured Blazer' %}
+    {% assign MHEIGHT_36 = '6.0' %}
+    {% assign CHEST_36 = '36' %}
+    {% assign WAIST_36 = '29' %}
+    {% assign HIPS_36 = '36' %}
+    {% assign MHEIGHT_38 = '6.0' %}
+    {% assign CHEST_38 = '38' %}
+    {% assign WAIST_38 = '31' %}
+    {% assign HIPS_38 = '38' %}
+    {% assign MHEIGHT_40 = '6.2' %}
+    {% assign CHEST_40 = '40' %}
+    {% assign WAIST_40 = '33' %}
+    {% assign HIPS_40 = '40' %}
+    {% assign MHEIGHT_42 = '6.2' %}
+    {% assign CHEST_42 = '42' %}
+    {% assign WAIST_42 = '35' %}
+    {% assign HIPS_42 = '42' %}
+    {% assign MHEIGHT_44 = '6.4' %}
+    {% assign CHEST_44 = '44' %}
+    {% assign WAIST_44 = '37' %}
+    {% assign HIPS_44 = '44' %}
+    {% assign MHEIGHT_46 = '6.4' %}
+    {% assign CHEST_46 = '46' %}
+    {% assign WAIST_46 = '39' %}
+    {% assign HIPS_46 = '46' %}
+    {% assign MHEIGHT_48 = '6.4' %}
+    {% assign CHEST_48 = '48' %}
+    {% assign WAIST_48 = '41' %}
+    {% assign HIPS_48 = '48' %}
+    {% assign MHEIGHT_50 = '6.4' %}
+    {% assign CHEST_50 = '50' %}
+    {% assign WAIST_50 = '43' %}
+    {% assign HIPS_50 = '50' %}
+    {% render 'size-guide',
+      MHEIGHT_36: MHEIGHT_36,
+      CHEST_36: CHEST_36,
+      WAIST_36: WAIST_36,
+      HIPS_36: HIPS_36,
+      MHEIGHT_38: MHEIGHT_38,
+      CHEST_38: CHEST_38,
+      WAIST_38: WAIST_38,
+      HIPS_38: HIPS_38,
+      MHEIGHT_40: MHEIGHT_40,
+      CHEST_40: CHEST_40,
+      WAIST_40: WAIST_40,
+      HIPS_40: HIPS_40,
+      MHEIGHT_42: MHEIGHT_42,
+      CHEST_42: CHEST_42,
+      WAIST_42: WAIST_42,
+      HIPS_42: HIPS_42,
+      MHEIGHT_44: MHEIGHT_44,
+      CHEST_44: CHEST_44,
+      WAIST_44: WAIST_44,
+      HIPS_44: HIPS_44,
+      MHEIGHT_46: MHEIGHT_46,
+      CHEST_46: CHEST_46,
+      WAIST_46: WAIST_46,
+      HIPS_46: HIPS_46,
+      MHEIGHT_48: MHEIGHT_48,
+      CHEST_48: CHEST_48,
+      WAIST_48: WAIST_48,
+      HIPS_48: HIPS_48,
+      MHEIGHT_50: MHEIGHT_50,
+      CHEST_50: CHEST_50,
+      WAIST_50: WAIST_50,
+      HIPS_50: HIPS_50,
+      ME: ME
+    %}
+  {% endif -%}
+
+  {{ RenderTopSizes }}
+
+  {% unless product.type contains 'Socks'
+    or product.type == 'Boxer'
+    or product.type == 'Underwear'
+    or product.type == 'Pants'
+    or product.type == 'Jeans'
+    or product.type == 'Chinos'
+    or product.type == 'Shorts'
+    or product.type == 'Comfort Chino Short'
+    or product.type == 'Structured Blazer'
+  %}
+    {% case sku %}
+      {% when 'TCT4000' %}
+        {% render 'size-guide',
+          MHEIGHT_S: MHEIGHT_S,
+          CHEST_S: CHEST_S,
+          WAIST_S: WAIST_S,
+          HIPS_S: HIPS_S,
+          MHEIGHT_M: MHEIGHT_M,
+          CHEST_M: CHEST_M,
+          WAIST_M: WAIST_M,
+          HIPS_M: HIPS_M,
+          MHEIGHT_L: MHEIGHT_L,
+          CHEST_L: CHEST_L,
+          WAIST_L: WAIST_L,
+          HIPS_L: HIPS_L,
+          MHEIGHT_XL: MHEIGHT_XL,
+          CHEST_XL: CHEST_XL,
+          WAIST_XL: WAIST_XL,
+          HIPS_XL: HIPS_XL,
+          MHEIGHT_2XL: MHEIGHT_2XL,
+          CHEST_2XL: CHEST_2XL,
+          WAIST_2XL: WAIST_2XL,
+          HIPS_2XL: HIPS_2XL,
+          MHEIGHT_3XL: MHEIGHT_3XL,
+          CHEST_3XL: CHEST_3XL,
+          WAIST_3XL: WAIST_3XL,
+          HIPS_3XL: HIPS_3XL,
+          MHEIGHT_4XL: MHEIGHT_4XL,
+          CHEST_4XL: CHEST_4XL,
+          WAIST_4XL: WAIST_4XL,
+          HIPS_4XL: HIPS_4XL,
+          ME: ME
+        %}
+
+      {% when 'TCT4001' %}
+        {% render 'size-guide',
+          MHEIGHT_S: MHEIGHT_S,
+          CHEST_S: CHEST_S,
+          WAIST_S: WAIST_S,
+          HIPS_S: HIPS_S,
+          MHEIGHT_M: MHEIGHT_M,
+          CHEST_M: CHEST_M,
+          WAIST_M: WAIST_M,
+          HIPS_M: HIPS_M,
+          MHEIGHT_L: MHEIGHT_L,
+          CHEST_L: CHEST_L,
+          WAIST_L: WAIST_L,
+          HIPS_L: HIPS_L,
+          MHEIGHT_XL: MHEIGHT_XL,
+          CHEST_XL: CHEST_XL,
+          WAIST_XL: WAIST_XL,
+          HIPS_XL: HIPS_XL,
+          MHEIGHT_2XL: MHEIGHT_2XL,
+          CHEST_2XL: CHEST_2XL,
+          WAIST_2XL: WAIST_2XL,
+          HIPS_2XL: HIPS_2XL,
+          MHEIGHT_3XL: MHEIGHT_3XL,
+          CHEST_3XL: CHEST_3XL,
+          WAIST_3XL: WAIST_3XL,
+          HIPS_3XL: HIPS_3XL,
+          MHEIGHT_4XL: MHEIGHT_4XL,
+          CHEST_4XL: CHEST_4XL,
+          WAIST_4XL: WAIST_4XL,
+          HIPS_4XL: HIPS_4XL,
+          ME: ME
+        %}
+
+      {% when 'TCT4002' %}
+        {% render 'size-guide',
+          MHEIGHT_S: MHEIGHT_S,
+          CHEST_S: CHEST_S,
+          WAIST_S: WAIST_S,
+          HIPS_S: HIPS_S,
+          MHEIGHT_M: MHEIGHT_M,
+          CHEST_M: CHEST_M,
+          WAIST_M: WAIST_M,
+          HIPS_M: HIPS_M,
+          MHEIGHT_L: MHEIGHT_L,
+          CHEST_L: CHEST_L,
+          WAIST_L: WAIST_L,
+          HIPS_L: HIPS_L,
+          MHEIGHT_XL: MHEIGHT_XL,
+          CHEST_XL: CHEST_XL,
+          WAIST_XL: WAIST_XL,
+          HIPS_XL: HIPS_XL,
+          MHEIGHT_2XL: MHEIGHT_2XL,
+          CHEST_2XL: CHEST_2XL,
+          WAIST_2XL: WAIST_2XL,
+          HIPS_2XL: HIPS_2XL,
+          MHEIGHT_3XL: MHEIGHT_3XL,
+          CHEST_3XL: CHEST_3XL,
+          WAIST_3XL: WAIST_3XL,
+          HIPS_3XL: HIPS_3XL,
+          MHEIGHT_4XL: MHEIGHT_4XL,
+          CHEST_4XL: CHEST_4XL,
+          WAIST_4XL: WAIST_4XL,
+          HIPS_4XL: HIPS_4XL,
+          ME: ME
+        %}
+
+      {% when 'TCT4203' %}
+        {% render 'size-guide',
+          MHEIGHT_S: MHEIGHT_S,
+          CHEST_S: CHEST_S,
+          WAIST_S: WAIST_S,
+          HIPS_S: HIPS_S,
+          MHEIGHT_M: MHEIGHT_M,
+          CHEST_M: CHEST_M,
+          WAIST_M: WAIST_M,
+          HIPS_M: HIPS_M,
+          MHEIGHT_L: MHEIGHT_L,
+          CHEST_L: CHEST_L,
+          WAIST_L: WAIST_L,
+          HIPS_L: HIPS_L,
+          MHEIGHT_XL: MHEIGHT_XL,
+          CHEST_XL: CHEST_XL,
+          WAIST_XL: WAIST_XL,
+          HIPS_XL: HIPS_XL,
+          MHEIGHT_2XL: MHEIGHT_2XL,
+          CHEST_2XL: CHEST_2XL,
+          WAIST_2XL: WAIST_2XL,
+          HIPS_2XL: HIPS_2XL,
+          MHEIGHT_3XL: MHEIGHT_3XL,
+          CHEST_3XL: CHEST_3XL,
+          WAIST_3XL: WAIST_3XL,
+          HIPS_3XL: HIPS_3XL,
+          MHEIGHT_4XL: MHEIGHT_4XL,
+          CHEST_4XL: CHEST_4XL,
+          WAIST_4XL: WAIST_4XL,
+          HIPS_4XL: HIPS_4XL,
+          ME: ME
+        %}
+
+      {% when 'TCT4604' %}
+        {% render 'size-guide',
+          MHEIGHT_S: MHEIGHT_S,
+          CHEST_S: CHEST_S,
+          WAIST_S: WAIST_S,
+          HIPS_S: HIPS_S,
+          MHEIGHT_M: MHEIGHT_M,
+          CHEST_M: CHEST_M,
+          WAIST_M: WAIST_M,
+          HIPS_M: HIPS_M,
+          MHEIGHT_L: MHEIGHT_L,
+          CHEST_L: CHEST_L,
+          WAIST_L: WAIST_L,
+          HIPS_L: HIPS_L,
+          MHEIGHT_XL: MHEIGHT_XL,
+          CHEST_XL: CHEST_XL,
+          WAIST_XL: WAIST_XL,
+          HIPS_XL: HIPS_XL,
+          MHEIGHT_2XL: MHEIGHT_2XL,
+          CHEST_2XL: CHEST_2XL,
+          WAIST_2XL: WAIST_2XL,
+          HIPS_2XL: HIPS_2XL,
+          MHEIGHT_3XL: MHEIGHT_3XL,
+          CHEST_3XL: CHEST_3XL,
+          WAIST_3XL: WAIST_3XL,
+          HIPS_3XL: HIPS_3XL,
+          MHEIGHT_4XL: MHEIGHT_4XL,
+          CHEST_4XL: CHEST_4XL,
+          WAIST_4XL: WAIST_4XL,
+          HIPS_4XL: HIPS_4XL,
+          ME: ME
+        %}
+
+      {% when 'TCT4605' %}
+        {% render 'size-guide',
+          MHEIGHT_S: MHEIGHT_S,
+          CHEST_S: CHEST_S,
+          WAIST_S: WAIST_S,
+          HIPS_S: HIPS_S,
+          MHEIGHT_M: MHEIGHT_M,
+          CHEST_M: CHEST_M,
+          WAIST_M: WAIST_M,
+          HIPS_M: HIPS_M,
+          MHEIGHT_L: MHEIGHT_L,
+          CHEST_L: CHEST_L,
+          WAIST_L: WAIST_L,
+          HIPS_L: HIPS_L,
+          MHEIGHT_XL: MHEIGHT_XL,
+          CHEST_XL: CHEST_XL,
+          WAIST_XL: WAIST_XL,
+          HIPS_XL: HIPS_XL,
+          MHEIGHT_2XL: MHEIGHT_2XL,
+          CHEST_2XL: CHEST_2XL,
+          WAIST_2XL: WAIST_2XL,
+          HIPS_2XL: HIPS_2XL,
+          MHEIGHT_3XL: MHEIGHT_3XL,
+          CHEST_3XL: CHEST_3XL,
+          WAIST_3XL: WAIST_3XL,
+          HIPS_3XL: HIPS_3XL,
+          MHEIGHT_4XL: MHEIGHT_4XL,
+          CHEST_4XL: CHEST_4XL,
+          WAIST_4XL: WAIST_4XL,
+          HIPS_4XL: HIPS_4XL,
+          ME: ME
+        %}
+
+      {% when 'TCT4004' %}
+        {% render 'size-guide',
+          MHEIGHT_S: MHEIGHT_S,
+          CHEST_S: CHEST_S,
+          WAIST_S: WAIST_S,
+          HIPS_S: HIPS_S,
+          MHEIGHT_M: MHEIGHT_M,
+          CHEST_M: CHEST_M,
+          WAIST_M: WAIST_M,
+          HIPS_M: HIPS_M,
+          MHEIGHT_L: MHEIGHT_L,
+          CHEST_L: CHEST_L,
+          WAIST_L: WAIST_L,
+          HIPS_L: HIPS_L,
+          MHEIGHT_XL: MHEIGHT_XL,
+          CHEST_XL: CHEST_XL,
+          WAIST_XL: WAIST_XL,
+          HIPS_XL: HIPS_XL,
+          MHEIGHT_2XL: MHEIGHT_2XL,
+          CHEST_2XL: CHEST_2XL,
+          WAIST_2XL: WAIST_2XL,
+          HIPS_2XL: HIPS_2XL,
+          MHEIGHT_3XL: MHEIGHT_3XL,
+          CHEST_3XL: CHEST_3XL,
+          WAIST_3XL: WAIST_3XL,
+          HIPS_3XL: HIPS_3XL,
+          MHEIGHT_4XL: MHEIGHT_4XL,
+          CHEST_4XL: CHEST_4XL,
+          WAIST_4XL: WAIST_4XL,
+          HIPS_4XL: HIPS_4XL,
+          ME: ME
+        %}
+
+      {% when 'TCT4003' %}
+        {% render 'size-guide',
+          MHEIGHT_S: MHEIGHT_S,
+          CHEST_S: CHEST_S,
+          WAIST_S: WAIST_S,
+          HIPS_S: HIPS_S,
+          MHEIGHT_M: MHEIGHT_M,
+          CHEST_M: CHEST_M,
+          WAIST_M: WAIST_M,
+          HIPS_M: HIPS_M,
+          MHEIGHT_L: MHEIGHT_L,
+          CHEST_L: CHEST_L,
+          WAIST_L: WAIST_L,
+          HIPS_L: HIPS_L,
+          MHEIGHT_XL: MHEIGHT_XL,
+          CHEST_XL: CHEST_XL,
+          WAIST_XL: WAIST_XL,
+          HIPS_XL: HIPS_XL,
+          MHEIGHT_2XL: MHEIGHT_2XL,
+          CHEST_2XL: CHEST_2XL,
+          WAIST_2XL: WAIST_2XL,
+          HIPS_2XL: HIPS_2XL,
+          MHEIGHT_3XL: MHEIGHT_3XL,
+          CHEST_3XL: CHEST_3XL,
+          WAIST_3XL: WAIST_3XL,
+          HIPS_3XL: HIPS_3XL,
+          MHEIGHT_4XL: MHEIGHT_4XL,
+          CHEST_4XL: CHEST_4XL,
+          WAIST_4XL: WAIST_4XL,
+          HIPS_4XL: HIPS_4XL,
+          ME: ME
+        %}
+
+      {% when 'TCT4209' %}
+        {% render 'size-guide',
+          MHEIGHT_S: MHEIGHT_S,
+          CHEST_S: CHEST_S,
+          WAIST_S: WAIST_S,
+          HIPS_S: HIPS_S,
+          MHEIGHT_M: MHEIGHT_M,
+          CHEST_M: CHEST_M,
+          WAIST_M: WAIST_M,
+          HIPS_M: HIPS_M,
+          MHEIGHT_L: MHEIGHT_L,
+          CHEST_L: CHEST_L,
+          WAIST_L: WAIST_L,
+          HIPS_L: HIPS_L,
+          MHEIGHT_XL: MHEIGHT_XL,
+          CHEST_XL: CHEST_XL,
+          WAIST_XL: WAIST_XL,
+          HIPS_XL: HIPS_XL,
+          MHEIGHT_2XL: MHEIGHT_2XL,
+          CHEST_2XL: CHEST_2XL,
+          WAIST_2XL: WAIST_2XL,
+          HIPS_2XL: HIPS_2XL,
+          MHEIGHT_3XL: MHEIGHT_3XL,
+          CHEST_3XL: CHEST_3XL,
+          WAIST_3XL: WAIST_3XL,
+          HIPS_3XL: HIPS_3XL,
+          MHEIGHT_4XL: MHEIGHT_4XL,
+          CHEST_4XL: CHEST_4XL,
+          WAIST_4XL: WAIST_4XL,
+          HIPS_4XL: HIPS_4XL,
+          ME: ME
+        %}
+
+      {% when 'TCT4210' %}
+        {% render 'size-guide',
+          MHEIGHT_S: MHEIGHT_S,
+          CHEST_S: CHEST_S,
+          WAIST_S: WAIST_S,
+          HIPS_S: HIPS_S,
+          MHEIGHT_M: MHEIGHT_M,
+          CHEST_M: CHEST_M,
+          WAIST_M: WAIST_M,
+          HIPS_M: HIPS_M,
+          MHEIGHT_L: MHEIGHT_L,
+          CHEST_L: CHEST_L,
+          WAIST_L: WAIST_L,
+          HIPS_L: HIPS_L,
+          MHEIGHT_XL: MHEIGHT_XL,
+          CHEST_XL: CHEST_XL,
+          WAIST_XL: WAIST_XL,
+          HIPS_XL: HIPS_XL,
+          MHEIGHT_2XL: MHEIGHT_2XL,
+          CHEST_2XL: CHEST_2XL,
+          WAIST_2XL: WAIST_2XL,
+          HIPS_2XL: HIPS_2XL,
+          MHEIGHT_3XL: MHEIGHT_3XL,
+          CHEST_3XL: CHEST_3XL,
+          WAIST_3XL: WAIST_3XL,
+          HIPS_3XL: HIPS_3XL,
+          MHEIGHT_4XL: MHEIGHT_4XL,
+          CHEST_4XL: CHEST_4XL,
+          WAIST_4XL: WAIST_4XL,
+          HIPS_4XL: HIPS_4XL,
+          ME: ME
+        %}
+
+      {% when 'TCT4200' %}
+        {% render 'size-guide',
+          MHEIGHT_S: MHEIGHT_S,
+          CHEST_S: CHEST_S,
+          WAIST_S: WAIST_S,
+          HIPS_S: HIPS_S,
+          MHEIGHT_M: MHEIGHT_M,
+          CHEST_M: CHEST_M,
+          WAIST_M: WAIST_M,
+          HIPS_M: HIPS_M,
+          MHEIGHT_L: MHEIGHT_L,
+          CHEST_L: CHEST_L,
+          WAIST_L: WAIST_L,
+          HIPS_L: HIPS_L,
+          MHEIGHT_XL: MHEIGHT_XL,
+          CHEST_XL: CHEST_XL,
+          WAIST_XL: WAIST_XL,
+          HIPS_XL: HIPS_XL,
+          MHEIGHT_2XL: MHEIGHT_2XL,
+          CHEST_2XL: CHEST_2XL,
+          WAIST_2XL: WAIST_2XL,
+          HIPS_2XL: HIPS_2XL,
+          MHEIGHT_3XL: MHEIGHT_3XL,
+          CHEST_3XL: CHEST_3XL,
+          WAIST_3XL: WAIST_3XL,
+          HIPS_3XL: HIPS_3XL,
+          MHEIGHT_4XL: MHEIGHT_4XL,
+          CHEST_4XL: CHEST_4XL,
+          WAIST_4XL: WAIST_4XL,
+          HIPS_4XL: HIPS_4XL,
+          ME: ME
+        %}
+
+      {% when 'TCT4100' %}
+        {% render 'size-guide',
+          MHEIGHT_S: MHEIGHT_S,
+          CHEST_S: CHEST_S,
+          WAIST_S: WAIST_S,
+          HIPS_S: HIPS_S,
+          MHEIGHT_M: MHEIGHT_M,
+          CHEST_M: CHEST_M,
+          WAIST_M: WAIST_M,
+          HIPS_M: HIPS_M,
+          MHEIGHT_L: MHEIGHT_L,
+          CHEST_L: CHEST_L,
+          WAIST_L: WAIST_L,
+          HIPS_L: HIPS_L,
+          MHEIGHT_XL: MHEIGHT_XL,
+          CHEST_XL: CHEST_XL,
+          WAIST_XL: WAIST_XL,
+          HIPS_XL: HIPS_XL,
+          MHEIGHT_2XL: MHEIGHT_2XL,
+          CHEST_2XL: CHEST_2XL,
+          WAIST_2XL: WAIST_2XL,
+          HIPS_2XL: HIPS_2XL,
+          MHEIGHT_3XL: MHEIGHT_3XL,
+          CHEST_3XL: CHEST_3XL,
+          WAIST_3XL: WAIST_3XL,
+          HIPS_3XL: HIPS_3XL,
+          MHEIGHT_4XL: MHEIGHT_4XL,
+          CHEST_4XL: CHEST_4XL,
+          WAIST_4XL: WAIST_4XL,
+          HIPS_4XL: HIPS_4XL,
+          ME: ME
+        %}
+
+      {% when 'TCT4204' %}
+        {% render 'size-guide',
+          MHEIGHT_S: MHEIGHT_S,
+          CHEST_S: CHEST_S,
+          WAIST_S: WAIST_S,
+          HIPS_S: HIPS_S,
+          MHEIGHT_M: MHEIGHT_M,
+          CHEST_M: CHEST_M,
+          WAIST_M: WAIST_M,
+          HIPS_M: HIPS_M,
+          MHEIGHT_L: MHEIGHT_L,
+          CHEST_L: CHEST_L,
+          WAIST_L: WAIST_L,
+          HIPS_L: HIPS_L,
+          MHEIGHT_XL: MHEIGHT_XL,
+          CHEST_XL: CHEST_XL,
+          WAIST_XL: WAIST_XL,
+          HIPS_XL: HIPS_XL,
+          MHEIGHT_2XL: MHEIGHT_2XL,
+          CHEST_2XL: CHEST_2XL,
+          WAIST_2XL: WAIST_2XL,
+          HIPS_2XL: HIPS_2XL,
+          MHEIGHT_3XL: MHEIGHT_3XL,
+          CHEST_3XL: CHEST_3XL,
+          WAIST_3XL: WAIST_3XL,
+          HIPS_3XL: HIPS_3XL,
+          MHEIGHT_4XL: MHEIGHT_4XL,
+          CHEST_4XL: CHEST_4XL,
+          WAIST_4XL: WAIST_4XL,
+          HIPS_4XL: HIPS_4XL,
+          ME: ME
+        %}
+
+      {% when 'TCT4300' %}
+        {% render 'size-guide',
+          MHEIGHT_S: MHEIGHT_S,
+          CHEST_S: CHEST_S,
+          WAIST_S: WAIST_S,
+          HIPS_S: HIPS_S,
+          MHEIGHT_M: MHEIGHT_M,
+          CHEST_M: CHEST_M,
+          WAIST_M: WAIST_M,
+          HIPS_M: HIPS_M,
+          MHEIGHT_L: MHEIGHT_L,
+          CHEST_L: CHEST_L,
+          WAIST_L: WAIST_L,
+          HIPS_L: HIPS_L,
+          MHEIGHT_XL: MHEIGHT_XL,
+          CHEST_XL: CHEST_XL,
+          WAIST_XL: WAIST_XL,
+          HIPS_XL: HIPS_XL,
+          MHEIGHT_2XL: MHEIGHT_2XL,
+          CHEST_2XL: CHEST_2XL,
+          WAIST_2XL: WAIST_2XL,
+          HIPS_2XL: HIPS_2XL,
+          MHEIGHT_3XL: MHEIGHT_3XL,
+          CHEST_3XL: CHEST_3XL,
+          WAIST_3XL: WAIST_3XL,
+          HIPS_3XL: HIPS_3XL,
+          MHEIGHT_4XL: MHEIGHT_4XL,
+          CHEST_4XL: CHEST_4XL,
+          WAIST_4XL: WAIST_4XL,
+          HIPS_4XL: HIPS_4XL,
+          ME: ME
+        %}
+
+      {% when 'TCT4400' %}
+        {% render 'size-guide',
+          MHEIGHT_S: MHEIGHT_S,
+          CHEST_S: CHEST_S,
+          WAIST_S: WAIST_S,
+          HIPS_S: HIPS_S,
+          MHEIGHT_M: MHEIGHT_M,
+          CHEST_M: CHEST_M,
+          WAIST_M: WAIST_M,
+          HIPS_M: HIPS_M,
+          MHEIGHT_L: MHEIGHT_L,
+          CHEST_L: CHEST_L,
+          WAIST_L: WAIST_L,
+          HIPS_L: HIPS_L,
+          MHEIGHT_XL: MHEIGHT_XL,
+          CHEST_XL: CHEST_XL,
+          WAIST_XL: WAIST_XL,
+          HIPS_XL: HIPS_XL,
+          MHEIGHT_2XL: MHEIGHT_2XL,
+          CHEST_2XL: CHEST_2XL,
+          WAIST_2XL: WAIST_2XL,
+          HIPS_2XL: HIPS_2XL,
+          MHEIGHT_3XL: MHEIGHT_3XL,
+          CHEST_3XL: CHEST_3XL,
+          WAIST_3XL: WAIST_3XL,
+          HIPS_3XL: HIPS_3XL,
+          MHEIGHT_4XL: MHEIGHT_4XL,
+          CHEST_4XL: CHEST_4XL,
+          WAIST_4XL: WAIST_4XL,
+          HIPS_4XL: HIPS_4XL,
+          ME: ME
+        %}
+      {% when 'TCT4500' %}
+        {% render 'size-guide',
+          MHEIGHT_S: MHEIGHT_S,
+          CHEST_S: CHEST_S,
+          WAIST_S: WAIST_S,
+          HIPS_S: HIPS_S,
+          MHEIGHT_M: MHEIGHT_M,
+          CHEST_M: CHEST_M,
+          WAIST_M: WAIST_M,
+          HIPS_M: HIPS_M,
+          MHEIGHT_L: MHEIGHT_L,
+          CHEST_L: CHEST_L,
+          WAIST_L: WAIST_L,
+          HIPS_L: HIPS_L,
+          MHEIGHT_XL: MHEIGHT_XL,
+          CHEST_XL: CHEST_XL,
+          WAIST_XL: WAIST_XL,
+          HIPS_XL: HIPS_XL,
+          MHEIGHT_2XL: MHEIGHT_2XL,
+          CHEST_2XL: CHEST_2XL,
+          WAIST_2XL: WAIST_2XL,
+          HIPS_2XL: HIPS_2XL,
+          MHEIGHT_3XL: MHEIGHT_3XL,
+          CHEST_3XL: CHEST_3XL,
+          WAIST_3XL: WAIST_3XL,
+          HIPS_3XL: HIPS_3XL,
+          MHEIGHT_4XL: MHEIGHT_4XL,
+          CHEST_4XL: CHEST_4XL,
+          WAIST_4XL: WAIST_4XL,
+          HIPS_4XL: HIPS_4XL,
+          ME: ME
+        %}
+
+      {% when 'TCT4501' %}
+        {% render 'size-guide',
+          MHEIGHT_S: MHEIGHT_S,
+          CHEST_S: CHEST_S,
+          WAIST_S: WAIST_S,
+          HIPS_S: HIPS_S,
+          MHEIGHT_M: MHEIGHT_M,
+          CHEST_M: CHEST_M,
+          WAIST_M: WAIST_M,
+          HIPS_M: HIPS_M,
+          MHEIGHT_L: MHEIGHT_L,
+          CHEST_L: CHEST_L,
+          WAIST_L: WAIST_L,
+          HIPS_L: HIPS_L,
+          MHEIGHT_XL: MHEIGHT_XL,
+          CHEST_XL: CHEST_XL,
+          WAIST_XL: WAIST_XL,
+          HIPS_XL: HIPS_XL,
+          MHEIGHT_2XL: MHEIGHT_2XL,
+          CHEST_2XL: CHEST_2XL,
+          WAIST_2XL: WAIST_2XL,
+          HIPS_2XL: HIPS_2XL,
+          MHEIGHT_3XL: MHEIGHT_3XL,
+          CHEST_3XL: CHEST_3XL,
+          WAIST_3XL: WAIST_3XL,
+          HIPS_3XL: HIPS_3XL,
+          MHEIGHT_4XL: MHEIGHT_4XL,
+          CHEST_4XL: CHEST_4XL,
+          WAIST_4XL: WAIST_4XL,
+          HIPS_4XL: HIPS_4XL,
+          ME: ME
+        %}
+      {% else %}
+        {% render 'size-guide',
+          MHEIGHT_S: MHEIGHT_S,
+          CHEST_S: CHEST_S,
+          WAIST_S: WAIST_S,
+          HIPS_S: HIPS_S,
+          MHEIGHT_M: MHEIGHT_M,
+          CHEST_M: CHEST_M,
+          WAIST_M: WAIST_M,
+          HIPS_M: HIPS_M,
+          MHEIGHT_L: MHEIGHT_L,
+          CHEST_L: CHEST_L,
+          WAIST_L: WAIST_L,
+          HIPS_L: HIPS_L,
+          MHEIGHT_XL: MHEIGHT_XL,
+          CHEST_XL: CHEST_XL,
+          WAIST_XL: WAIST_XL,
+          HIPS_XL: HIPS_XL,
+          MHEIGHT_2XL: MHEIGHT_2XL,
+          CHEST_2XL: CHEST_2XL,
+          WAIST_2XL: WAIST_2XL,
+          HIPS_2XL: HIPS_2XL,
+          MHEIGHT_3XL: MHEIGHT_3XL,
+          CHEST_3XL: CHEST_3XL,
+          WAIST_3XL: WAIST_3XL,
+          HIPS_3XL: HIPS_3XL,
+          MHEIGHT_4XL: MHEIGHT_4XL,
+          CHEST_4XL: CHEST_4XL,
+          WAIST_4XL: WAIST_4XL,
+          HIPS_4XL: HIPS_4XL,
+          ME: ME
+        %}
+    {% endcase %}
+  {% endunless %}
+{%- endif %}

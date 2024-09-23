@@ -1,0 +1,29 @@
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "disabled": true,
+      "settings": {
+        "full_width": false,
+        "hide_title": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "1a95b885-a911-47e4-9c38-b514b4b9ecfb": {
+      "type": "subscription-product",
+      "settings": {
+        "section_bg_color": "#ffffff",
+        "membership_product": "inveterate-subscription",
+        "button_label": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "text_position": "left"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "1a95b885-a911-47e4-9c38-b514b4b9ecfb"
+  ]
+}

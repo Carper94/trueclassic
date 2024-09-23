@@ -1,0 +1,61 @@
+<script>
+  const localeRegex = /^\/[a-z]{2}-[a-z]{2}/;
+
+  function detectBrowserLanguage() {
+    const language = window.navigator.languages
+      ? window.navigator.languages[0]
+      : window.navigator.language || window.navigator.userLanguage;
+
+    return language;
+  }
+
+  if (localeRegex.test(window.location.pathname)) {
+    let browserLanguage = detectBrowserLanguage();
+    if (browserLanguage.includes('-')) {
+      browserLanguage = browserLanguage.split('-')[0];
+    }
+
+    if (browserLanguage) {
+      localStorage.setItem('language_code', browserLanguage);
+    }
+
+    let regionSelected = localStorage.getItem('country_code');
+    let languageSelected = localStorage.getItem('language_code');
+
+    const urlRegionMatch = window.location.pathname.match(/\/(\w\w)-(\w\w)/);
+
+    if (urlRegionMatch) {
+      const urlRegion = urlRegionMatch[2];
+      const urlLang = urlRegionMatch[1];
+      
+      if (urlRegion !== regionSelected) {
+        localStorage.setItem('country_code', urlRegion);
+        regionSelected = urlRegion;
+      }
+      
+      if (urlLang !== languageSelected) {
+        localStorage.setItem('language_code', urlLang);
+        languageSelected = urlLang;
+      }
+    }
+
+    if (
+      regionSelected &&
+      languageSelected &&
+      !window.location.pathname.startsWith(`/${languageSelected}-${regionSelected}`)
+    ) {
+      regionSelected = regionSelected.toLowerCase();
+      languageSelected = languageSelected.toLowerCase();
+
+      if (regionSelected === 'us') {
+        localStorage.removeItem('country_code');
+      } else {
+        const currentPath = window.location.pathname;
+        const currentParams = window.location.search;
+        const currentHash = window.location.hash;
+        const newUrl = `https://www.trueclassictees.com/${languageSelected}-${regionSelected}${currentPath}${currentParams}${currentHash}`;
+        window.location.href = newUrl;
+      }
+    }
+  }
+</script>
